@@ -1,6 +1,8 @@
 # UID2 Documentation Python Tests
 
-This directory contains Python tests for the code samples in the [POST /identity/map v3 documentation](../../docs/endpoints/post-identity-map-v3.md). The tests verify that the Python code examples in the documentation work correctly and demonstrate proper usage patterns.
+This directory contains Python tests for the code samples in the [POST /identity/map v3 documentation](../../docs/endpoints/post-identity-map.md). The tests verify that the Python code examples in the documentation work correctly and demonstrate proper usage patterns.
+
+The intention is not to test the UID2 features or clients - we assume those work based on other tests. 
 
 ## Quick Start
 

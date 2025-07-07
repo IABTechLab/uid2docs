@@ -46,7 +46,7 @@ Yes. Through the [Transparency and Control Portal](https://www.transparentadvert
 
 No. None of the components of the <Link href="../ref-info/glossary-uid#gl-uid2-service">UID2 service</Link> store any DII.
 
-In addition, in almost all cases, UID2 doesn't store any values at all once the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md), [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md), or [POST&nbsp;/identity/map](../endpoints/post-identity-map-v3.md) call is complete. A necessary exception is the case where a user has opted out. In this scenario, UID2 stores a hashed, opaque value to indicate the opted-out user. The stored value cannot be reverse engineered back to the original value of the DII, but can be used to identify future requests for a UID2 generated from the same DII, which are therefore denied.
+In addition, in almost all cases, UID2 doesn't store any values at all once the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md), [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md), or [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) call is complete. A necessary exception is the case where a user has opted out. In this scenario, UID2 stores a hashed, opaque value to indicate the opted-out user. The stored value cannot be reverse engineered back to the original value of the DII, but can be used to identify future requests for a UID2 generated from the same DII, which are therefore denied.
 
 #### Does UID2 allow the processing of HIPAA-regulated data?
 
@@ -179,11 +179,11 @@ Here are some frequently asked questions for advertisers and data providers usin
 
 #### How do I know when to refresh a raw UID2?
 
-The [POST&nbsp;/identity/map](../endpoints/post-identity-map-v3.md) endpoint provides a refresh timestamp in the response (`r` field) that indicates a timestamp, after which each raw UID2 might refresh. Use this timestamp to determine when to regenerate raw UID2s for your stored data.
+The [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) endpoint provides a refresh timestamp in the response (`r` field) that indicates a timestamp, after which each raw UID2 might refresh. Use this timestamp to determine when to regenerate raw UID2s for your stored data.
 
 To determine whether to refresh a raw UID2:
 
-1. Compare the current time with the refresh timestamp you stored from the [POST&nbsp;/identity/map](../endpoints/post-identity-map-v3.md) response.
+1. Compare the current time with the refresh timestamp you stored from the [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) response.
 2. If the current time is greater than or equal to the refresh timestamp, regenerate the raw UID2 by calling the identity map endpoint again with the same <Link href="../ref-info/glossary-uid#gl-dii">DII</Link>.
 
 :::note
@@ -210,7 +210,7 @@ Unless you are using a <Link href="../ref-info/glossary-uid#gl-private-operator"
 
 #### How should I handle user opt-outs?
 
-When a user opts out of UID2-based targeted advertising through the [Transparency and Control Portal](https://www.transparentadvertising.com/), the opt-out signal is sent to DSPs and publishers, who handle opt-outs at bid time. We recommend that advertisers and data providers regularly check whether a user has opted out, via the [POST&nbsp;/identity/map](../endpoints/post-identity-map-v3.md) endpoint.
+When a user opts out of UID2-based targeted advertising through the [Transparency and Control Portal](https://www.transparentadvertising.com/), the opt-out signal is sent to DSPs and publishers, who handle opt-outs at bid time. We recommend that advertisers and data providers regularly check whether a user has opted out, via the [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) endpoint.
 
 Advertisers and data providers can also check the opt-out status of raw UID2s using the [POST&nbsp;/optout/status](../endpoints/post-optout-status.md) endpoint.
 
@@ -218,7 +218,7 @@ If a user opts out through your website, you should follow your internal procedu
 
 #### Does the same DII always result in the same raw UID2?
 
-In general yes, the process of generating a raw UID2 from DII is the same, and results in the same value, no matter who sent the request. If two UID2 participants were to send the same email address to the [POST&nbsp;/identity/map](../endpoints/post-identity-map-v3.md) endpoint at the same time, they would both get the same raw UID2 in response.
+In general yes, the process of generating a raw UID2 from DII is the same, and results in the same value, no matter who sent the request. If two UID2 participants were to send the same email address to the [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) endpoint at the same time, they would both get the same raw UID2 in response.
 
 However, there is a variable factor that's used in generating the raw UID2. The underlying values are refreshed roughly once per year (for details, see [How often should UID2s be refreshed for incremental updates?](#how-often-should-uid2s-be-refreshed-for-incremental-updates)). If these values change between one request and another, those two requests result in two different raw UID2, even when the DII is the same.
 
@@ -226,7 +226,7 @@ For more information, see [Monitor for Raw UID2 Refresh](../guides/integration-a
 
 #### If two operators process the same DII, are the results the same?
 
-Yes, if the request is for a <Link href="../ref-info/glossary-uid#gl-raw-uid2">raw UID2</Link>. As covered in the previous FAQ, [Does the same DII always result in the same raw UID2?](#does-the-same-dii-always-result-in-the-same-raw-uid2), if an advertiser or data provider sends the same DII to the UID2 Operator, by using an SDK or the [POST&nbsp;/identity/map](../endpoints/post-identity-map-v3.md) endpoint, at the same time, the same raw UID2 is created.
+Yes, if the request is for a <Link href="../ref-info/glossary-uid#gl-raw-uid2">raw UID2</Link>. As covered in the previous FAQ, [Does the same DII always result in the same raw UID2?](#does-the-same-dii-always-result-in-the-same-raw-uid2), if an advertiser or data provider sends the same DII to the UID2 Operator, by using an SDK or the [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) endpoint, at the same time, the same raw UID2 is created.
 
 The result is the same, regardless of the <Link href="../ref-info/glossary-uid#gl-operator">Operator</Link> and whether it's a Private Operator or a Public Operator.
 

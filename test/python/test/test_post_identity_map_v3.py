@@ -38,7 +38,7 @@ def identity_map_client(test_config):
 
 def test_endpoint_url_update_example():
     """
-    Documentation post-identity-map-v3.md Lines 223-229: Update Endpoint URL
+    Documentation post-identity-map.md Lines 223-229: Update Endpoint URL
     """
     # Before (V2)
     url = '/v2/identity/map'
@@ -52,7 +52,7 @@ def test_endpoint_url_update_example():
 
 def test_v2_response_parsing_example():
     """
-    Documentation post-identity-map-v3.md Lines 235-242: V2 Response Parsing
+    Documentation post-identity-map.md Lines 235-242: V2 Response Parsing
     """
     # Mock V2 response structure
     response = {
@@ -84,7 +84,7 @@ def test_v2_response_parsing_example():
 
 def test_v3_response_parsing_example():
     """
-    Documentation post-identity-map-v3.md Lines 246-258: V3 Response Parsing
+    Documentation post-identity-map.md Lines 246-258: V3 Response Parsing
     """
     # Mock V3 response structure
     response = {
@@ -128,7 +128,7 @@ def test_v3_response_parsing_example():
 
 def test_refresh_timestamp_logic_example():
     """
-    Documentation post-identity-map-v3.md Lines 264-273: Replace Salt Bucket Monitoring with Refresh Timestamp Logic
+    Documentation post-identity-map.md Lines 264-273: Replace Salt Bucket Monitoring with Refresh Timestamp Logic
     """
     import time
 
