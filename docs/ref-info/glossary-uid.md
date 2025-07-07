@@ -401,7 +401,7 @@ import Link from '@docusaurus/Link';
 <dd>For details, see <a href="uid-identifier-types">UID2 Identifier Types</a>.</dd>
 
 <dt><MdxJumpAnchor id="gl-refresh-timestamp"><a href="#gl-refresh-timestamp">Refresh timestamp</a></MdxJumpAnchor></dt>
-<dd>In the context of mapping <a href="#gl-dii">DII</a> to raw UID2s, a refresh timestamp is a Unix timestamp (in seconds) returned in the <code>r</code> field of the <a href="../endpoints/post-identity-map-v3">POST&nbsp;/identity/map</a> endpoint response. The raw UID2 is guaranteed to be valid until this timestamp. It is refreshed at some point after this time.</dd>
+<dd>In the context of mapping <a href="#gl-dii">DII</a> to raw UID2s, a refresh timestamp is a Unix timestamp (in seconds) returned in the <code>r</code> field of the <a href="../endpoints/post-identity-map">POST&nbsp;/identity/map</a> endpoint response. The raw UID2 is guaranteed to be valid until this timestamp. It is refreshed at some point after this time.</dd>
 <dd>Use the refresh timestamp to determine when to regenerate raw UID2s for your stored data. We recommend checking for refresh opportunities daily by comparing the current time with the stored refresh timestamps.</dd>
 
 <dt><MdxJumpAnchor id="gl-refresh-token"><a href="#gl-refresh-token">Refresh token</a></MdxJumpAnchor></dt>
@@ -422,11 +422,11 @@ import Link from '@docusaurus/Link';
 <dt><MdxJumpAnchor id="gl-salt-bucket"><a href="#gl-salt-bucket">Salt bucket</a></MdxJumpAnchor></dt>
 <dd>A salt bucket is used to manage secret <a href="#gl-salt">salt</a> values, used to generate raw UID2s or UID2 tokens, over time. Each bucket contains a single current salt value, which remains active for approximately one year before being rotated to a new value. Buckets can be updated independently of one another.</dd>
 <dd>There are just over one million salt buckets, and each email address or phone number is assigned to a specific bucket in a deterministic manner. However, this assignment is not permanent; it might change when the bucket's current salt is rotated to a new value.</dd>
-<dd>In versions of the [POST /identity/map](../endpoints/post-identity-map-v3.md) endpoint earlier than version 3, such as [POST /identity/map (v2)](../endpoints/post-identity-map.md), the endpoint returns <a href="#gl-salt-bucket-id">salt bucket IDs</a>. In v3 and later, salt bucket information is not needed.</dd>
+<dd>In versions of the [POST /identity/map](../endpoints/post-identity-map.md) endpoint earlier than version 3, such as [POST /identity/map (v2)](../endpoints/post-identity-map.md), the endpoint returns <a href="#gl-salt-bucket-id">salt bucket IDs</a>. In v3 and later, salt bucket information is not needed.</dd>
 
 <dt><MdxJumpAnchor id="gl-salt-bucket-id"><a href="#gl-salt-bucket-id">Salt bucket ID</a></MdxJumpAnchor></dt>
 <dd>A salt bucket ID is a unique string of characters that identifies a specific <a href="#gl-salt-bucket">salt bucket</a>. The salt bucket ID can be used to check which salt buckets have recently had their salt values updated, indicating which emails or phone numbers need their raw UID2 values regenerated.</dd>
-<dd>In versions of the [POST /identity/map](../endpoints/post-identity-map-v3.md) endpoint earlier than version 3, such as [POST /identity/map (v2)](../endpoints/post-identity-map.md), the endpoint returns salt bucket IDs. In v3 and later, salt bucket information is not needed.</dd>
+<dd>In versions of the [POST /identity/map](../endpoints/post-identity-map.md) endpoint earlier than version 3, such as [POST /identity/map (v2)](../endpoints/post-identity-map.md), the endpoint returns salt bucket IDs. In v3 and later, salt bucket information is not needed.</dd>
 <dd>For an example of a salt bucket ID, see the response to the `POST /v2/identity/buckets` endpoint: <a href="../endpoints/post-identity-buckets#decrypted-json-response-format">Decrypted JSON Response Format</a>. If you're using `POST /v3/identity/map`, you don't need to use `POST /v2/identity/buckets` at all.</dd>
 
 <dt><MdxJumpAnchor id="gl-salted-hash"><a href="#gl-salted-hash">Salted hash</a></MdxJumpAnchor></dt>

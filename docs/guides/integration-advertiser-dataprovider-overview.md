@@ -149,7 +149,7 @@ For a list of frequently asked questions for advertisers and data providers usin
 # For Users of V2 Identity Map API
 
 :::warning
-The following information is relevant to the V2 integration approach and is provided for reference only. New implementations should use the main approach described above. For current best practices, refer to the [main integration guide](#high-level-steps).9
+The following information is relevant to the V2 integration approach and is provided for reference only. New implementations should use the main approach described above. For current best practices, refer to the [main integration guide](#high-level-steps).
 :::
 
 ## Advertiser/Data Provider Integration Overview (V2)
