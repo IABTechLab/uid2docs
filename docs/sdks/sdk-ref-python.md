@@ -145,7 +145,7 @@ Decryption response codes, and their meanings, are shown in the following table.
 2. Call a function that takes the user's email address or phone number as input and generates a `TokenGenerateResponse` object. The following example uses an email address:
 
    ```py
-   token_generate_response = client.generate_token(TokenGenerateInput.from_email(emailAddress).do_not_generate_tokens_for_opted_out())
+   token_generate_response = client.generate_token(TokenGenerateInput.from_email("user@example.com").do_not_generate_tokens_for_opted_out())
    ```
 
     <!-- :::important
@@ -183,7 +183,7 @@ If you're using server-side integration (see [Publisher Integration Guide, Serve
    identity = token_generate_response.get_identity()
    if identity:
       advertising_token = identity.get_advertising_token()
-   ```
+    ```
 3. Periodically check if the user's UID2 token should be refreshed. This can be done at fixed intervals using a timer, or can be done whenever the user accesses another page:
     1. Retrieve the identity JSON string from the user's session, and then call the following function that takes the identity information as input and generates an `IdentityTokens` object:
 
@@ -194,20 +194,21 @@ If you're using server-side integration (see [Publisher Integration Guide, Serve
     2. Determine if the identity can be refreshed (that is, the refresh token hasn't expired):
 
        ```py
-       if not identity or not identity.is_refreshable(): # we must no longer use this identity (for example, remove this identity from the user's session)
+       if not identity or not identity.is_refreshable(): 
+          # we must no longer use this identity (for example, remove this identity from the user's session)
        ```
 
     3. Determine if a refresh is needed:
 
        ```py
-       if identity.is_due_for_refresh()):
+       if identity.is_due_for_refresh():
        ```
 
 4. If needed, refresh the token and associated values:
 
-   ```py
-   token_refresh_response = client.refresh_token(identity)`
-   ```
+    ```py
+    token_refresh_response = client.refresh_token(identity)
+    ```
 
 5. Store `token_refresh_response.get_identity_json_string()` in the user's session.
 
@@ -220,6 +221,161 @@ There are two operations that apply to Advertisers/Data Providers:
 - [Monitor rotated salt buckets](#monitor-rotated-salt-buckets)
 
 ### Map DII to Raw UID2s
+
+1. Create an IdentityMapV3Client as an instance variable:
+   ```py
+    identity_map_v3_client = IdentityMapV3Client(UID2_BASE_URL, UID2_API_KEY, UID2_SECRET_KEY)
+   ```
+
+2. Create an IdentityMapV3Input object. You can use emails, phone numbers, or their hashed forms:
+   ```py
+   input = IdentityMapV3Input.from_emails(["user@example.com", "user2@example.com"])
+   ```
+   Or combine multiple identity types:
+      ```py
+      input = IdentityMapV3Input()
+          .with_email("user@example.com")
+          .with_phone("+12345678901")
+          .with_hashed_email("pre_hashed_email")
+          .with_hashed_phone("pre_hashed_phone")
+      ```
+
+3. Call a function that takes the input and generates an IdentityMapV3Response object:
+   ```py
+   identity_map_response = identity_map_v3_client.generate_identity_map(input)
+   ```
+
+4. Retrieve the mapped and unmapped results:
+   ```py
+   mapped_identities = identity_map_response.mapped_identities
+   unmapped_identities = identity_map_response.unmapped_identities
+   ```
+
+5. Process the results. For successfully mapped identities:
+   ```py
+   mapped_identity = mapped_identities.get("user@example.com")
+   if mapped_identity is not None:
+       current_uid = mapped_identity.current_raw_uid        # Current raw UID2
+       previous_uid = mapped_identity.previous_raw_uid      # Previous raw UID2 (Optional, only available for 90 days after rotation)
+       refresh_from = mapped_identity.refresh_from          # When to refresh this identity
+   else:
+       unmapped_identity = unmapped_identities.get("user@example.com")
+       reason = unmapped_identity.reason # OPTOUT, INVALID_IDENTIFIER, or UNKNOWN
+   ```
+
+>**Note:** The SDK automatically handles email normalization and hashing, ensuring that raw email addresses and phone numbers do not leave your server.
+### Usage Example
+
+```py
+client = IdentityMapV3Client(UID2_BASE_URL, UID2_API_KEY, UID2_SECRET_KEY)
+
+# Example 1: Single identity type
+email_input = IdentityMapV3Input.from_emails(["user@example.com", "optout@example.com"])
+email_response = client.generate_identity_map(email_input)
+
+# Process email results
+for email, identity in email_response.mapped_identities.items():
+    print("Email: " + email)
+    print("Current UID: " + identity.current_raw_uid)
+    print("Previous UID: " + identity.previous_raw_uid)
+    print("Refresh from: " + str(identity.refresh_from))
+
+for email, identity in email_response.unmapped_identities.items():
+    print("Unmapped email: " + email + " - Reason: " + identity.reason)
+
+# Example 2: Mixed identity types in single request
+mixed_input = IdentityMapV3Input()
+    .with_email("user1@example.com")
+    .with_phone("+12345678901")
+    .with_hashed_email("pre_hashed_email_value")
+    .with_hashed_phone("pre_hashed_phone_value")
+
+mixed_response = client.generate_identity_map(mixed_input)
+```
+
+## Migration From Older Identity Map Version
+
+### Migration Overview
+
+Improvements provided by the new Identity Map version:
+- **Support for Multiple Identity Types**: Process emails and phones in a single request
+- **Simpler refresh management**: Re-map on reaching refresh timestamps instead of monitoring salt buckets
+- **Previous raw UID2 availability**: You can see previous UID2 for 90 days after rotation
+- **Improved performance**: The new API uses significantly less bandwidth for the same amount of DIIs
+
+### Required Changes
+
+1. **Update dependency version**:
+   ```bash
+   pip install --upgrade uid2-client
+   ```
+
+2. **Change client class**:
+   ```py
+   # Before
+   client = IdentityMapClient(UID2_BASE_URL, UID2_API_KEY, UID2_SECRET_KEY)
+
+   # After
+   client = IdentityMapV3Client(UID2_BASE_URL, UID2_API_KEY, UID2_SECRET_KEY)
+   ```
+
+3. **Update import statements**:
+   ```py
+   from uid2_client import IdentityMapV3Client, IdentityMapV3Input, IdentityMapV3Response, UnmappedIdentityReason
+   ```
+
+### Recommended Changes
+
+1. **Update input construction**:
+   ```py
+   # Before
+   input = IdentityMapInput.from_emails(["user@example.com"])
+
+   # After - single identity type
+   input = IdentityMapV3Input.from_emails(["user@example.com"])
+
+   # Alternatively - mix identity types (new capability)
+   input = IdentityMapV3Input()
+       .with_email("user@example.com")
+       .with_phone("+12345678901")
+   ```
+
+2. **Update response handling**:
+   ```py
+   # Before
+   response = client.generate_identity_map(input)
+   mapped = response.mapped_identities.get("user@example.com")
+   uid = mapped.get_raw_uid()
+
+   # After
+   response = client.generate_identity_map(input)
+   mapped = response.mapped_identities.get("user@example.com")
+   current_uid = mapped.current_raw_uid
+   previous_uid = mapped.previous_raw_uid
+   refresh_from = mapped.refresh_from
+   ```
+
+3. **Update error handling**:
+   ```py
+   # Before
+   unmapped = response.unmapped_identities.get("user@example.com")
+   reason = unmapped.get_reason()
+
+   # After - structured error reasons
+   unmapped = response.unmapped_identities.get("user@example.com")
+   reason = unmapped.reason # Enum - OPTOUT, INVALID_IDENTIFIER, UNKNOWN
+
+   # Alternatively you can get reason as a string, values match the old ones
+   raw_reason = unmapped.raw_reason
+   ```
+
+## Previous Version (V2 Identity Map)
+
+:::note
+The V2 Identity Map SDK is an older version maintained for backwards compatibility. Migrate to the current SDK for improved performance, multi-identity type support, and better UID rotation management.
+New integrations should not use this version.
+See [Migration From Older Identity Map Version](#migration-from-older-identity-map-version) for instructions.
+:::
 
 To map email addresses, phone numbers, or their respective hashes to their raw UID2s and salt bucket IDs, follow these steps.
 
