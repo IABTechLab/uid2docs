@@ -95,7 +95,7 @@ The following are unencrypted JSON request body examples to the `POST /identity/
 }
 ```
 
-Here's an encrypted request example to the `POST /identity/map` endpoint for a phone number:
+Here's an encrypted request example to the `POST /identity/map` endpoint for phone numbers:
 
 ```sh
 echo '{"phone": ["+12345678901", "+441234567890"]}' | python3 uid2_request.py https://prod.uidapi.com/v3/identity/map [YOUR_CLIENT_API_KEY] [YOUR_CLIENT_SECRET]
@@ -115,7 +115,7 @@ The response arrays preserve the order of input arrays. Each element in the resp
 
 Input values that cannot be mapped to a raw UID2 are mapped to an error object with the reason for unsuccessful mapping. An unsuccessful mapping occurs if the DII is invalid or has been opted out from the UID2 ecosystem. In these cases, the response status is `success` but no raw UID2 is returned.
 
-The following example shows input and response.
+The following example shows the input and corresponding response.
 
 Input:
 
@@ -153,7 +153,7 @@ Response:
       "phone": [],
       "phone_hash": []
     },
-    "status":"success"
+    "status": "success"
 }
 ```
 
@@ -190,7 +190,92 @@ The following table lists the `status` property values and their HTTP status cod
 | Status | HTTP Status Code | Description |
 | :--- | :--- | :--- |
 | `success` | 200 | The request was successful. The response will be encrypted. |
-| `client_error` | 400 | The request had missing or invalid parameters.|
+| `client_error` | 400 | The request had missing or invalid parameters. |
 | `unauthorized` | 401 | The request did not include a bearer token, included an invalid bearer token, or included a bearer token unauthorized to perform the requested operation. |
 
 If the `status` value is anything other than `success`, the `message` field provides additional information about the issue.
+
+## Migration From V2 Identity Map
+
+### Migration Overview
+
+The V3 Identity Map API provides several improvements over V2:
+
+- **Simplified Refresh Management**: Monitor for UID2s reaching `refresh_from` timestamps instead of polling <Link href="../ref-info/glossary-uid#gl-salt-bucket-id">salt buckets</Link> for rotation
+- **Previous UID2 Access**: Access to previous raw UID2s for 90 days after rotation for campaign measurement
+- **Single Endpoint**: Use only `/v3/identity/map` instead of both `/v2/identity/map` and `/v2/identity/buckets`
+- **Multiple Identity Types In One Request**: Process emails and phone numbers in a single request
+- **Improved Performance**: The V3 API uses significantly less bandwidth for the same amount of DII
+
+### Key Differences Between V2 and V3
+
+| Feature                        | V2 Implementation                           | V3 Implementation                          |
+|:-------------------------------|:--------------------------------------------|:-------------------------------------------|
+| **Endpoints Required**         | `/v2/identity/map` + `/v2/identity/buckets` | `/v3/identity/map` only                    |
+| **Identity Types per Request** | Single identity type only                   | Multiple identity types                    |
+| **Refresh Management**         | Monitor salt bucket rotations via `/identity/buckets` endpoint              | Re-map when past `refresh_from` timestamps |
+| **Previous UID2 Access**       | Not available                               | Available for 90 days        |
+
+### Required Changes
+
+#### 1. **Update Endpoint URL**
+
+```python
+# Before (V2)
+url = '/v2/identity/map'
+
+# After (V3) 
+url = '/v3/identity/map'
+```
+
+#### 2. **Update V3 Response Parsing Logic**
+
+**V2 Response Parsing**:
+```python
+# V2: Process mapped/unmapped objects with identifier lookup
+for item in response['body']['mapped']:
+    raw_uid = item['advertising_id']
+    bucket_id = item['bucket_id']
+    original_identifier = item['identifier']
+    # Store mapping using identifier as key
+    store_mapping(original_identifier, raw_uid, bucket_id)
+```
+
+**V3 Response Parsing**:
+```python
+# V3: Process array-indexed responses
+for index, item in enumerate(response['body']['email']):
+    original_email = request_emails[index]  # Use array index to correlate
+    if 'u' in item:
+        # Successfully mapped
+        current_uid = item['u']
+        previous_uid = item.get('p')  # Available for 90 days after rotation, otherwise None
+        refresh_from = item['r']
+        store_mapping(original_email, current_uid, previous_uid, refresh_from)
+    elif 'e' in item:
+        # Handle unmapped with reason
+        handle_unmapped(original_email, item['e'])
+```
+
+#### 3. **Replace Salt Bucket Monitoring with Refresh Timestamp Logic**
+**V3 Approach (Refresh Timestamps)**:
+
+```python
+import time
+
+def is_refresh_needed(mapping):
+    now = int(time.time() * 1000)  # Convert to milliseconds
+    return now >= mapping['refresh_from']
+
+# Check individual mappings for refresh needs
+to_remap = [mapping for mapping in mappings if is_refresh_needed(mapping)]
+remap_identities(to_remap)
+```
+
+### Additional Resources
+
+For SDK-specific migration guidance, see:
+- [SDK for JavaScript V3](../sdks/sdk-ref-javascript-v3.md) for client-side implementations
+- [SDK for Java](../sdks/sdk-ref-java.md) for server-side implementations (see Usage for Advertisers/Data Providers section)
+
+For general information about identity mapping, see [Advertiser/Data Provider Integration Overview](../guides/integration-advertiser-dataprovider-overview.md).
