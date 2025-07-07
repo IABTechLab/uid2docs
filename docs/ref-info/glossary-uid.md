@@ -90,6 +90,7 @@ import Link from '@docusaurus/Link';
 
 **R**
 <a href="#gl-raw-uid2">Raw UID2</a> | 
+<a href="#gl-refresh-timestamp">Refresh timestamp</a> | 
 <a href="#gl-refresh-token">Refresh token</a> 
 
 **S**
@@ -371,7 +372,7 @@ import Link from '@docusaurus/Link';
 <dl>
 
 <dt><MdxJumpAnchor id="gl-participant"><a href="#gl-participant">Participant</a></MdxJumpAnchor></dt>
-<dd>An entity that fulfils a key role in UID2. Participants include the following: Core Administrator, Operator, DSP, data provider, advertiser, publisher, consumer.</dd>
+<dd>An entity that fulfils a key role in UID2. Participants include the following: Core Administrator, Operator, DSP, data provider, advertiser, publisher, and consumer.</dd>
 <dd>For details, see <a href="../overviews/participants-overview">participants</a>.</dd>
 
 <dt><MdxJumpAnchor id="gl-private-operator"><a href="#gl-private-operator">Private Operator</a></MdxJumpAnchor></dt>
@@ -398,6 +399,10 @@ import Link from '@docusaurus/Link';
 <dt><MdxJumpAnchor id="gl-raw-uid2"><a href="#gl-raw-uid2">Raw UID2</a></MdxJumpAnchor></dt>
 <dd>An unencrypted alphanumeric identifier created through the UID2 APIs or SDKs with the user's <a href="#gl-dii">directly identifying information</a> (email address or phone number) as input. The raw UID2 is encrypted to create a <a href="#gl-uid2-token">UID2 token</a>. The raw UID2 is a unique value; no two raw UID2s are the same. Raw UID2s, and their associated UID2 tokens, are case sensitive.</dd>
 <dd>For details, see <a href="uid-identifier-types">UID2 Identifier Types</a>.</dd>
+
+<dt><MdxJumpAnchor id="gl-refresh-timestamp"><a href="#gl-refresh-timestamp">Refresh timestamp</a></MdxJumpAnchor></dt>
+<dd>In the context of mapping <a href="#gl-dii">DII</a> to raw UID2s, a refresh timestamp is a Unix timestamp (in seconds) returned in the <code>r</code> field of the <a href="../endpoints/post-identity-map-v3">POST&nbsp;/identity/map</a> endpoint response. The raw UID2 is guaranteed to be valid until this timestamp. It is refreshed at some point after this time.</dd>
+<dd>Use the refresh timestamp to determine when to regenerate raw UID2s for your stored data. We recommend checking for refresh opportunities daily by comparing the current time with the stored refresh timestamps.</dd>
 
 <dt><MdxJumpAnchor id="gl-refresh-token"><a href="#gl-refresh-token">Refresh token</a></MdxJumpAnchor></dt>
 <dd>A refresh token is an opaque string that is issued along with the <a href="#gl-uid2-token">UID2 token</a>. It is used to refresh the UID2 token, which has a limited life.</dd>

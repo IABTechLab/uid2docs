@@ -122,10 +122,10 @@ Input:
 ```json
 {
     "email": [
-        "user@example.com"      // Corresponding UID2 rotated in the last 90 days
-        "user2@example.com"     // Corresponding UID2 rotated more than 90 days ago
-        "invalid email string"  // Invalid identifier
-        "optout@example.com"    // DII is opted out
+        "user@example.com",      // Corresponding UID2 rotated in the last 90 days
+        "user2@example.com",     // Corresponding UID2 rotated more than 90 days ago
+        "invalid email string",  // Invalid identifier
+        "optout@example.com"     // DII is opted out
     ]
 }
 ```
@@ -175,7 +175,7 @@ For successfully mapped DII, the mapped object includes the properties shown in 
 |:---------|:-----------|:--------------------------------------------------------------------------------------------------------------------------------------|
 | `u`      | string     | The raw UID2 corresponding to the email or phone number provided in the request.                                                                     |
 | `p`      | string     | One of the following:<ul><li>If the current raw UID2 has been rotated in the last 90 days: the previous value.</li><li>If the current raw UID2 is older than 90 days: `Null`.</li></ul> |
-| `r`      | number     | The Unix timestamp (in milliseconds) that indicates when the raw UID2 can be refreshed.                                         |
+| `r`      | number     | The Unix timestamp (in milliseconds) that indicates when the raw UID2 might be refreshed. The raw UID2 is guaranteed to be valid until this timestamp. |
 
 For unsuccessfully mapped input values, the mapped object includes the properties shown in the following table.
 
