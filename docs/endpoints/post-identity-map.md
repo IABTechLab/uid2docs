@@ -195,30 +195,47 @@ The following table lists the `status` property values and their HTTP status cod
 
 If the `status` value is anything other than `success`, the `message` field provides additional information about the issue.
 
-## Migration From V2 Identity Map
+## Migration from V2 Identity Map
+
+The following sections provide general information and guidance for migrating to version 3 from earlier versions, including:
+
+- [Migration Overview](#migration-overview)
+- [Key Differences Between V2 and V3](#key-differences-between-v2-and-v3)
+- [Required Changes](#required-changes)
+- [Additional Resources](#additional-resources)
 
 ### Migration Overview
 
-The V3 Identity Map API provides several improvements over V2:
+The V3 Identity Map API provides the following improvements over V2:
 
-- **Simplified Refresh Management**: Monitor for UID2s reaching `refresh_from` timestamps instead of polling <Link href="../ref-info/glossary-uid#gl-salt-bucket-id">salt buckets</Link> for rotation
-- **Previous UID2 Access**: Access to previous raw UID2s for 90 days after rotation for campaign measurement
-- **Single Endpoint**: Use only `/v3/identity/map` instead of both `/v2/identity/map` and `/v2/identity/buckets`
-- **Multiple Identity Types In One Request**: Process emails and phone numbers in a single request
-- **Improved Performance**: The V3 API uses significantly less bandwidth for the same amount of DII
+- **Simplified Refresh Management**: You can monitor for UID2s reaching `refresh_from` timestamps instead of polling <Link href="../ref-info/glossary-uid#gl-salt-bucket-id">salt buckets</Link> for rotation.
+- **Previous UID2 Access**: You have access to previous raw UID2s for 90 days after rotation for campaign measurement.
+- **Single Endpoint**: You use only one endpoint, `/v3/identity/map`, instead of both `/v2/identity/map` and `/v2/identity/buckets`.
+- **Multiple Identity Types in One Request**: You can process both emails and phone numbers in a single request.
+- **Improved Performance**: The updated version uses significantly less bandwidth to process the same amount of DII.
 
 ### Key Differences Between V2 and V3
 
+The following table shows key differences between the versions.
+
 | Feature                        | V2 Implementation                           | V3 Implementation                          |
 |:-------------------------------|:--------------------------------------------|:-------------------------------------------|
-| **Endpoints Required**         | `/v2/identity/map` + `/v2/identity/buckets` | `/v3/identity/map` only                    |
-| **Identity Types per Request** | Single identity type only                   | Multiple identity types                    |
-| **Refresh Management**         | Monitor salt bucket rotations via `/identity/buckets` endpoint              | Re-map when past `refresh_from` timestamps |
-| **Previous UID2 Access**       | Not available                               | Available for 90 days        |
+| Endpoints Required         | `/v2/identity/map` + `/v2/identity/buckets` | `/v3/identity/map` only                    |
+| Identity Types per Request | Single identity type only                   | Multiple identity types                    |
+| Refresh Management         | Monitor salt bucket rotations via `/identity/buckets` endpoint              | Re-map when past `refresh_from` timestamps |
+| Previous UID2 Access       | Not available                               | Available for 90 days        |
 
 ### Required Changes
 
-#### 1. **Update Endpoint URL**
+To upgrade from an earlier version to version 3, follow these steps:
+
+1. [Update Endpoint URL](#1-update-endpoint-url)
+2. [Update V3 Response Parsing Logic](#2-update-v3-response-parsing-logic)
+3. [Replace Salt Bucket Monitoring with Refresh Timestamp Logic](#3-replace-salt-bucket-monitoring-with-refresh-timestamp-logic)
+
+#### 1. Update Endpoint URL
+
+Update any reference to the endpoint URL so that it references the /v3/ implementation, as shown in the following example.
 
 ```python
 # Before (V2)
@@ -228,9 +245,11 @@ url = '/v2/identity/map'
 url = '/v3/identity/map'
 ```
 
-#### 2. **Update V3 Response Parsing Logic**
+#### 2. Update V3 Response Parsing Logic
 
-**V2 Response Parsing**:
+Update the logic for parsing the response, as shown in the following example.
+
+V2 Response Parsing:
 ```python
 # V2: Process mapped/unmapped objects with identifier lookup
 for item in response['body']['mapped']:
@@ -241,7 +260,7 @@ for item in response['body']['mapped']:
     store_mapping(original_identifier, raw_uid, bucket_id)
 ```
 
-**V3 Response Parsing**:
+V3 Response Parsing:
 ```python
 # V3: Process array-indexed responses
 for index, item in enumerate(response['body']['email']):
@@ -257,8 +276,11 @@ for index, item in enumerate(response['body']['email']):
         handle_unmapped(original_email, item['e'])
 ```
 
-#### 3. **Replace Salt Bucket Monitoring with Refresh Timestamp Logic**
-**V3 Approach (Refresh Timestamps)**:
+#### 3. Replace Salt Bucket Monitoring with Refresh Timestamp Logic
+
+Update your code for salt bucket monitoring, replacing it with code that checks the `refresh_from` timestamp to determine raw UID2s that are due for refresh.
+
+The following example shows an implementation of the v3 approach for checking refresh timestamps:
 
 ```python
 import time
@@ -274,8 +296,10 @@ remap_identities(to_remap)
 
 ### Additional Resources
 
-For SDK-specific migration guidance, see:
+<!-- For SDK-specific migration guidance, see:
 - [SDK for JavaScript V3](../sdks/sdk-ref-javascript-v3.md) for client-side implementations
-- [SDK for Java](../sdks/sdk-ref-java.md) for server-side implementations (see Usage for Advertisers/Data Providers section)
+- [SDK for Java](../sdks/sdk-ref-java.md) for server-side implementations (see Usage for Advertisers/Data Providers section) -->
+
+<!-- GWH 7/7 Commenting out the above until the SDK docs are available. -->
 
 For general information about identity mapping, see [Advertiser/Data Provider Integration Overview](../guides/integration-advertiser-dataprovider-overview.md).
