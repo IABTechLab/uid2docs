@@ -240,7 +240,7 @@ There are two operations that apply to Advertisers/Data Providers:
           .with_hashed_phone("pre_hashed_phone")
       ```
 
-3. Call a function that takes the input and generates an IdentityMapV3Response object:
+3. Call a function that takes the `input` and generates an IdentityMapV3Response object:
    ```py
    identity_map_response = identity_map_v3_client.generate_identity_map(input)
    ```
@@ -251,7 +251,7 @@ There are two operations that apply to Advertisers/Data Providers:
    unmapped_identities = identity_map_response.unmapped_identities
    ```
 
-5. Process the results. For successfully mapped identities:
+5. Process the results for successfully mapped identities:
    ```py
    mapped_identity = mapped_identities.get("user@example.com")
    if mapped_identity is not None:
