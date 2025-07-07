@@ -9,7 +9,7 @@ import Link from '@docusaurus/Link';
 
 # SDK for Python Reference Guide
 
-You can use the SDK for Python on the server side to facilitate the process of generating or establishing client identity using UID2, retrieving advertising tokens for <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link> use, and automatically refreshing UID2 tokens. If you have the applicable permissions, you can also encrypt and decrypt for sharing, map DII to raw UID2s, and monitor rotated salt buckets.
+You can use the SDK for Python on the server side to facilitate the process of generating or establishing client identity using UID2, retrieving advertising tokens for <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link> use, and automatically refreshing UID2 tokens. If you have the applicable permissions, you can also encrypt and decrypt for sharing and map DII to raw UID2s.
 
 ## Functionality
 
@@ -62,7 +62,7 @@ The initialization step depends on the role, as shown in the following table.
 | Role	                    | Create Instance of Class	 | Link to Instructions                                                         |
 |:-------------------------|:--------------------------|:-----------------------------------------------------------------------------|
 | Publisher                | `Uid2PublisherClient`     | [Usage for Publishers](#usage-for-publishers)                                |
-| Advertiser/Data Provider | `IdentityMapClient`       | [Usage for Advertisers/Data Providers](#usage-for-advertisersdata-providers) |
+| Advertiser/Data Provider | `IdentityMapV3Client`     | [Usage for Advertisers/Data Providers](#usage-for-advertisersdata-providers) |
 | DSP                      | `BidstreamClient`         | [Usage for DSPs](#usage-for-dsps)                                            |
 | Sharer                   | `SharingClient`           | [Usage for Sharers](#usage-for-uid2-sharers)                                 |
 
