@@ -56,7 +56,7 @@ DII refers to a user's normalized email address or phone number, or the normaliz
 
 ![Advertiser Flow](images/advertiser-flow-endpoints-mermaid-v3.png)
 
-<!-- diagram source: resource/advertiser-flow-endpoints-mermaid.md.bak -->
+<!-- diagram source: resource/advertiser-flow-endpoints-v3-mermaid.mermaid -->
 
 ### 1: Generate Raw UID2s from DII
 
@@ -183,7 +183,7 @@ DII refers to a user's normalized email address or phone number, or the normaliz
 
 ![Advertiser Flow](images/advertiser-flow-endpoints-mermaid.png)
 
-<!-- diagram source: resource/advertiser-flow-endpoints-mermaid.md.bak -->
+<!-- diagram source: resource/advertiser-flow-endpoints-v2-mermaid.md.bak -->
 
 #### 1: Generate Raw UID2s from DII
 

@@ -167,7 +167,7 @@ For details, see [Publisher Integration with SSO Providers](/docs/ref-info/ref-i
 Here are some frequently asked questions for advertisers and data providers using the UID2 framework.
 
 - [How do I know when to refresh a raw UID2?](#how-do-i-know-when-to-refresh-a-raw-uid2)
-- [How often should Raw UID2s be refreshed for incremental updates?](#how-often-should-raw-uid2s-be-refreshed-for-incremental-updates)
+- [How often should raw UID2s be refreshed for incremental updates?](#how-often-should-raw-uid2s-be-refreshed-for-incremental-updates)
 - [How should I generate the SHA-256 of DII for mapping?](#how-should-i-generate-the-sha-256-of-dii-for-mapping)
 - [Should I store mapping of email addresses, phone numbers, or corresponding hashes to raw UID2s in my own datasets?](#should-i-store-mapping-of-email-addresses-phone-numbers-or-corresponding-hashes-to-raw-uid2s-in-my-own-datasets)
 - [How should I handle user opt-outs?](#how-should-i-handle-user-opt-outs)
@@ -177,9 +177,9 @@ Here are some frequently asked questions for advertisers and data providers usin
 - [Do refreshed emails get assigned to the same bucket with which they were previously associated?](#do-refreshed-emails-get-assigned-to-the-same-bucket-with-which-they-were-previously-associated)
 - [How often should Raw UID2s be refreshed for incremental updates older buckets-based flow?](#how-often-should-raw-uid2s-be-refreshed-for-incremental-updates-older-buckets-based-flow)
 
-#### How do I know when to refresh mapped raw UID2s?
+#### How do I know when to refresh a raw UID2?
 
-The [POST&nbsp;/identity/map](../endpoints/post-identity-map-v3.md) endpoint provides a refresh timestamp in the response (r field) that indicates a timestamp, after which each raw UID2 might refresh. Use this timestamp to determine when to regenerate raw UID2s for your stored data.
+The [POST&nbsp;/identity/map](../endpoints/post-identity-map-v3.md) endpoint provides a refresh timestamp in the response (`r` field) that indicates a timestamp, after which each raw UID2 might refresh. Use this timestamp to determine when to regenerate raw UID2s for your stored data.
 
 To determine whether to refresh a raw UID2:
 
@@ -190,11 +190,11 @@ To determine whether to refresh a raw UID2:
 We recommend checking for refresh opportunities daily. It is guaranteed that the raw UID2 won't refresh before the indicated timestamp. At some point after that time, the raw UID2 is refreshed.
 :::
 
-#### How often should Raw UID2s be refreshed for incremental updates?
+#### How often should raw UID2s be refreshed for incremental updates?
 
 The recommended cadence for updating audiences is daily.
 
-A raw UID2 for a specific user changes at least once per year. The V3 Identity Map API provides refresh timestamps that indicate a point after which each raw UID2 might refresh. We recommend checking these timestamps daily to ensure your Raw UID2s remain current and valid for audience targeting.
+A raw UID2 for a specific user changes at least once per year. The V3 Identity Map API provides refresh timestamps that indicate a point after which each raw UID2 might refresh. We recommend checking these timestamps daily to ensure your raw UID2s remain current and valid for audience targeting.
 
 #### How should I generate the SHA-256 of DII for mapping?
 
@@ -202,7 +202,7 @@ The system should follow the [email normalization rules](gs-normalization-encodi
 
 #### Should I store mapping of email addresses, phone numbers, or corresponding hashes to raw UID2s in my own datasets?
 
-Yes. Not storing mappings might increase processing time drastically when you have to map millions of email addresses or phone numbers. Recalculating only those mappings that actually need to be updated, however, reduces the total processing time because only about 1/365th of Raw UID2s need to be updated daily.
+Yes. Not storing mappings might increase processing time drastically when you have to map millions of email addresses or phone numbers. Recalculating only those mappings that actually need to be updated, however, reduces the total processing time because only about 1/365th of raw UID2s need to be updated daily.
 
 :::important
 Unless you are using a <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link>, you must map email addresses, phone numbers, or hashes consecutively, using a single HTTP connection, with a maximum batch size of 5,000 items per batch. In other words, do your mapping without creating multiple parallel connections.
@@ -264,7 +264,7 @@ Here are some frequently asked questions for demand-side platforms (DSPs).
 - [How do I know which decryption key to apply to a UID2?](#how-do-i-know-which-decryption-key-to-apply-to-a-uid2)
 - [Where do I get the decryption keys?](#where-do-i-get-the-decryption-keys)
 - [How many decryption keys may be present in memory at any point?](#how-many-decryption-keys-may-be-present-in-memory-at-any-point)
-- [How do I know when to refresh mapped raw UID2s?](#how-do-i-know-when-to-refresh-mapped--raw-uid2s)
+- [How do I know when to refresh mapped raw UID2s?](#how-do-i-know-when-to-refresh-mapped-raw-uid2s)
 - [Should the DSP be concerned with latency?](#should-the-dsp-be-concerned-with-latency)
 - [How should the DSP maintain proper frequency capping with UID2?](#how-should-the-dsp-maintain-proper-frequency-capping-with-uid2)
 - [Will all user opt-out traffic be sent to the DSP?](#will-all-user-opt-out-traffic-be-sent-to-the-dsp)
@@ -291,11 +291,9 @@ There may be thousands of decryption keys present in the system at any given poi
 
 #### How do I know when to refresh mapped raw UID2s?
 
-If you are maintaining mapping of DII to raw UID2s, you should use the refresh timestamp returned from the [POST&nbsp;/identity/map](../endpoints/post-identity-map-v3.md) endpoint. The response includes a refresh timestamp (`r` field) that indicates when each Raw UID2 might refresh.
+See [Advertisers and Data Providers section](#how-do-i-know-when-to-refresh-a-raw-uid2).
 
-Monitor these timestamps and regenerate Raw UID2s when the current time exceeds the refresh timestamp. We recommend checking daily.
-
-#### How do I know if/when the underlying values have rotated?
+#### How do I know if/when the raw UID2 has rotated?
 
 The DSP is not privy to when the raw UID2 rotates. This is similar to a DSP being unaware if users cleared their cookies. Raw UID2 rotation has no significant impact on the DSP.
 
