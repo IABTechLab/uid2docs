@@ -325,7 +325,7 @@ If you're using server-side integration (see [Publisher Integration Guide, Serve
        .withHashedPhone("preHashedPhone");
    ```
 
-3. Call a function that takes the input and generates an IdentityMapV3Response object:
+3. Call a function that takes the `input` and generates an IdentityMapV3Response object:
    ```java
    IdentityMapV3Response identityMapResponse = identityMapV3Client.generateIdentityMap(input);
    ```
