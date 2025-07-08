@@ -299,8 +299,6 @@ mixed_response = client.generate_identity_map(mixed_input)
 ### Migration From Earlier Identity Map Version
 The following sections provide information about the changes you'll need to make to upgrade from an earlier version of the SDK, that uses the POST /v2/identity/map endpoint, to the latest version, which uses the POST /v3/identity/map endpoint.
 
-#### Migration Overview
-
 Improvements provided by the POST v3/identity/map endpoint:
 - **Support for Multiple Identity Types**: Process emails and phones in a single request
 - **Simpler refresh management**: Re-map on reaching refresh timestamps instead of monitoring salt buckets
