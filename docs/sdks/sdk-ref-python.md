@@ -15,9 +15,11 @@ You can use the SDK for Python on the server side to facilitate the process of g
 
 This SDK simplifies integration with UID2 for any DSPs or UID2 sharers who are using Python for their server-side coding. The following table shows the functions it supports.
 
-| Encrypt Raw UID2 to UID2 Token for Sharing | Decrypt UID2 Token to Raw UID2 | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to Raw UID2s | Monitor Rotated Salt Buckets |
+| Encrypt Raw UID2 to UID2 Token for Sharing | Decrypt UID2 Token to Raw UID2 | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to Raw UID2s | Monitor Rotated Salt Buckets&ast; |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | &#9989; | &#9989; | &#9989; | &#9989; | &#9989; | &#9989; | &#9989; |
+
+&ast;Only applicable to SDK versions referencing versions of the POST /identity/map endpoint prior to version 3.
 
 ## UID2 Account Setup
 
@@ -156,7 +158,7 @@ Decryption response codes, and their meanings, are shown in the following table.
 
  `do_not_generate_tokens_for_opted_out()` applies `optout_check=1` in the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) call. Without this, `optout_check` is omitted to maintain backwards compatibility.
 
-#### Client-Server Integration
+### Client-Server Integration
 
 If you're using client-server integration (see [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md)), follow this step:
 
@@ -218,9 +220,10 @@ If you're using server-side integration (see [Publisher Integration Guide, Serve
 
 There are two operations that apply to Advertisers/Data Providers:
 - [Map DII to Raw UID2s](#map-dii-to-raw-uid2s)
-- [Monitor rotated salt buckets](#monitor-rotated-salt-buckets)
+- [Monitor rotated salt buckets](#monitor-rotated-salt-buckets) (only applicable to versions of the POST /identity/map endpoint prior to version 3)
 
 ### Map DII to Raw UID2s
+To map DII to raw UIDs, follow these steps:
 
 1. Create an IdentityMapV3Client as an instance variable:
    ```py
@@ -264,7 +267,7 @@ There are two operations that apply to Advertisers/Data Providers:
    ```
 
 >**Note:** The SDK automatically handles email normalization and hashing, ensuring that raw email addresses and phone numbers do not leave your server.
-### Usage Example
+#### Usage Example
 
 ```py
 client = IdentityMapV3Client(UID2_BASE_URL, UID2_API_KEY, UID2_SECRET_KEY)
@@ -293,17 +296,18 @@ mixed_input = IdentityMapV3Input()
 mixed_response = client.generate_identity_map(mixed_input)
 ```
 
-## Migration From Older Identity Map Version
+### Migration From Earlier Identity Map Version
+The following sections provide information about the changes you'll need to make to upgrade from an earlier version of the SDK, that uses the POST /v2/identity/map endpoint, to the latest version, which uses the POST /v3/identity/map endpoint.
 
-### Migration Overview
+#### Migration Overview
 
-Improvements provided by the new Identity Map version:
+Improvements provided by the POST v3/identity/map endpoint:
 - **Support for Multiple Identity Types**: Process emails and phones in a single request
 - **Simpler refresh management**: Re-map on reaching refresh timestamps instead of monitoring salt buckets
 - **Previous raw UID2 availability**: You can see previous UID2 for 90 days after rotation
 - **Improved performance**: The new API uses significantly less bandwidth for the same amount of DIIs
 
-### Required Changes
+#### Required Changes
 
 1. **Update dependency version**:
    ```bash
@@ -324,8 +328,8 @@ Improvements provided by the new Identity Map version:
    from uid2_client import IdentityMapV3Client, IdentityMapV3Input, IdentityMapV3Response, UnmappedIdentityReason
    ```
 
-### Recommended Changes
-
+#### Recommended Changes
+To migrate from version 2 to version 3 of the POST /identity/map endpoint, follow these steps:
 1. **Update input construction**:
    ```py
    # Before
@@ -365,14 +369,14 @@ Improvements provided by the new Identity Map version:
    unmapped = response.unmapped_identities.get("user@example.com")
    reason = unmapped.reason # Enum - OPTOUT, INVALID_IDENTIFIER, UNKNOWN
 
-   # Alternatively you can get reason as a string, values match the old ones
+   # Alternatively, you can retrieve the reason as a string. Values match V2 unmapped values.
    raw_reason = unmapped.raw_reason
    ```
 
-## Previous Version (V2 Identity Map)
+### Previous Version (V2 Identity Map)
 
 :::note
-The V2 Identity Map SDK is an older version maintained for backwards compatibility. Migrate to the current SDK for improved performance, multi-identity type support, and better UID rotation management.
+The V2 Identity Map SDK is an older version maintained for backwards compatibility. Migrate to the current SDK for improved performance, multi-identity type support, and better UID2 rotation management.
 New integrations should not use this version.
 See [Migration From Older Identity Map Version](#migration-from-older-identity-map-version) for instructions.
 :::
@@ -410,7 +414,7 @@ To map email addresses, phone numbers, or their respective hashes to their raw U
         reason = unmapped_identity.get_reason()
    ```
 
-### Monitor Rotated Salt Buckets
+#### Monitor Rotated Salt Buckets
 
 To monitor salt buckets, follow these steps.
 
