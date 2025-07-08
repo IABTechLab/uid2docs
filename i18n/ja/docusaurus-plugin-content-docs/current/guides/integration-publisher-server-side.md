@@ -5,6 +5,7 @@ pagination_label: Publisher Integration Guide, Server-Side
 description: UID2 対応シングルサインオンや ID プロバイダーではなく、UID2 と直接インテグレーションを行いながら、RTB ビッドストリーム用に UID2 を使用して ID トークンを生成する方法。
 hide_table_of_contents: false
 sidebar_position: 03
+displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';

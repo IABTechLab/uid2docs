@@ -3,6 +3,7 @@ title: Tokenized Sharing from Raw UID2s
 description: Learn about sharing UID2 tokens created by encrypting raw UID2s.
 hide_table_of_contents: false
 sidebar_position: 08
+displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';

@@ -3,6 +3,7 @@ title: Documentation Updates
 description: A summary of significant UID2 documentation updates.
 hide_table_of_contents: false
 sidebar_position: 06
+displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';

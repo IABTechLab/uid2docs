@@ -3,6 +3,7 @@ title: User Opt-Out
 description: ユーザーのオプトアウトに関する情報。
 hide_table_of_contents: false
 sidebar_position: 02
+displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';

@@ -5,6 +5,7 @@ pagination_label: CTV Integration Guide
 description: Summary of options for UID2 mobile integration.
 hide_table_of_contents: false
 sidebar_position: 04
+displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';

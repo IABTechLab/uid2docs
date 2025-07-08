@@ -5,6 +5,7 @@ pagination_label: UID2 Private Operator for Azure Integration Guide
 description: Microsoft Azure の Private Operator インテグレーション情報。
 hide_table_of_contents: false
 sidebar_position: 18
+displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';

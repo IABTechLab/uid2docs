@@ -5,6 +5,7 @@ pagination_label: UID2 Private Operator for GCP Integration Guide
 description: GCP の Orivate Operator のインテグレーション情報。
 hide_table_of_contents: false
 sidebar_position: 18
+displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';

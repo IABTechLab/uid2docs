@@ -3,6 +3,7 @@ title: Deprecation Schedule
 description: Deprecation timeline for versions of UID2 APIs and services.
 hide_table_of_contents: false
 sidebar_position: 06
+displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';
