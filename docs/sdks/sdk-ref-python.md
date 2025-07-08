@@ -309,7 +309,7 @@ Improvements provided by the POST v3/identity/map endpoint:
 
 1. **Update dependency version**:
    ```bash
-   pip install --upgrade uid2-client
+   pip install --upgrade "uid2-client>=2.6.0"
    ```
 
 2. **Change client class**:
