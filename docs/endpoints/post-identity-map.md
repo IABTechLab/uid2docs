@@ -295,10 +295,10 @@ remap_identities(to_remap)
 ```
 
 ### Additional Resources
+- [SDK for Java](../sdks/sdk-ref-java.md) for Java implementations (see Usage for Advertisers/Data Providers section)
 
 <!-- For SDK-specific migration guidance, see:
-- [SDK for JavaScript V3](../sdks/sdk-ref-javascript-v3.md) for client-side implementations
-- [SDK for Java](../sdks/sdk-ref-java.md) for server-side implementations (see Usage for Advertisers/Data Providers section) -->
+- [SDK for Python](../sdks/sdk-ref-python.md) for Python implementations -->
 
 <!-- GWH 7/7 Commenting out the above until the SDK docs are available. -->
 
