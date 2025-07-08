@@ -4,6 +4,7 @@ sidebar_label: DSP Integration Guide
 description: A guide for DSPs who transact on UID2s in the bidstream.
 hide_table_of_contents: false
 sidebar_position: 05
+displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';

@@ -3,6 +3,7 @@ title: UID2 IMA Plugin for Android
 description: A guide for publishers using GIA for ad requests on Android apps.
 hide_table_of_contents: false
 sidebar_position: 14
+displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';

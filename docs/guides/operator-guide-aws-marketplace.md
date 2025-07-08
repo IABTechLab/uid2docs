@@ -5,10 +5,11 @@ pagination_label: UID2 Private Operator for AWS Integration Guide
 description: Integration information for Private Operator in AWS.
 hide_table_of_contents: false
 sidebar_position: 17
+displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';
-import ReleaseMatrix from '../snippets/_private-operator-release-matrix.mdx';
+import UpgradePolicy from '../snippets/_private-operator-upgrade-policy.mdx';
 import AttestFailure from '../snippets/_private-operator-attest-failure.mdx';
 
 # UID2 Private Operator for AWS Integration Guide
@@ -16,8 +17,6 @@ import AttestFailure from '../snippets/_private-operator-attest-failure.mdx';
 The UID2 Operator is the API server in the UID2 ecosystem. For details, see [The UID2 Operator](../ref-info/ref-operators-public-private.md).
 
 For a <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link> service running in AWS Marketplace, the UID2 Operator solution is enhanced with [AWS Nitro](https://aws.amazon.com/ec2/nitro/) Enclave technology. This is an additional security measure to help protect UID2 information from unauthorized access.
-
-## UID2 Private Operator for AWS
 
 :::note
 [UID2 Private Operator for AWS](https://aws.amazon.com/marketplace/pp/prodview-wdbccsarov5la) is a free product. The cost displayed on the product page is an estimated cost for the necessary infrastructure.
@@ -30,7 +29,23 @@ By subscribing to UID2 Private Operator for AWS, you gain access to the followin
 - [CloudFormation](https://aws.amazon.com/cloudformation/) template:<br/>
     The template deploys the UID2 Operator AMI.
 
-### Prerequisites
+## Operator Version
+
+The latest ZIP file is linked in the Release Notes column in the following table.
+
+| Version Name | Version&nbsp;#/Release&nbsp;Notes | AWS Version |  Date |
+| ------- | ------ | ------ | ------ | 
+| Q2 2025 | [v5.55.9](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.55.9-r1) | v5.55.9-r1 | July 1, 2025 |
+
+:::note
+For information about supported versions and deprecation dates, see [Private Operator Versions](../ref-info/deprecation-schedule.md#private-operator-versions).
+:::
+
+## Private Operator Upgrade Policy
+
+<UpgradePolicy />
+
+## Prerequisites
 
 To subscribe and deploy one or more UID2 Operators on AWS, complete the following steps:
 
@@ -124,7 +139,7 @@ Here's what you can customize during or after the [deployment](#deployment):
 - VPC: You must specify the existing VPC and related VPC Subnet IDs.
 - Root volume size (8G Minimum)
 - SSH key: This is the SSH key that you use to access the UID2 Operator EC2 instances.
-- [Instance type](https://aws.amazon.com/ec2/instance-types/m5/): m5.2xlarge, m5.4xlarge, and so on. If there is no customization, the default value, m5.2xlarge, is recommended.
+- [Instance type](https://aws.amazon.com/ec2/instance-types/): m5.2xlarge, m5.4xlarge, and so on. If there is no customization, the default value, m5.2xlarge, is recommended.
 
 ### Security Group Policy
 
@@ -161,12 +176,6 @@ To deploy UID2 Operator on AWS Marketplace, complete the following steps:
 9. Click **Create stack**.
 
 It takes several minutes for the stack to be created. When you see an Auto Scaling Group (ASG) created, you can select it and check the EC2 instances. By default, there is only one instance to start with.
-
-### Operator Version
-
-The latest ZIP file is linked in the Release Notes column in the following table.
-
-<ReleaseMatrix />
 
 ### Stack Details
 

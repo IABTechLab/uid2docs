@@ -3,6 +3,7 @@ title: SDK for Java
 description: Reference information about the Java server-side SDK.
 hide_table_of_contents: false
 sidebar_position: 04
+displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';

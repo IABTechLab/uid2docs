@@ -3,6 +3,7 @@ title: UID2 Sharing
 description: Information about UID2 sharing.
 hide_table_of_contents: false
 sidebar_position: 24
+displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';

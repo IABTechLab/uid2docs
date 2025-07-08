@@ -385,6 +385,7 @@ const fullSidebar = [
         'ref-info/ref-how-uid-is-created',
         'ref-info/ref-server-side-token-generation',
         'ref-info/ref-integration-sso-providers',
+        'ref-info/deprecation-schedule',
       ],
     },
 

@@ -5,10 +5,11 @@ pagination_label: UID2 Private Operator for GCP Integration Guide
 description: GCP の Orivate Operator のインテグレーション情報。
 hide_table_of_contents: false
 sidebar_position: 18
+displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';
-import ReleaseMatrix from '../snippets/_private-operator-release-matrix.mdx';
+import UpgradePolicy from '../snippets/_private-operator-upgrade-policy.mdx';
 
 # UID2 Private Operator for GCP Integration Guide
 
@@ -25,6 +26,22 @@ Operator Service は、Confidential Space の　"workload" で実行されます
 UID2 Operator Confidential Space 用の Docker コンテナが起動すると、UID2 Core Service が Operator Service と Operator Service が実行されているエンクレーブ環境の正当性を検証するための認証プロセスが完了します。
 
 認証が成功すると、UID2 Core Service は、UID2 Operator をセキュアな Confidential Space コンテナ内でブートストラップするためのソルトやキーなどのシード情報を提供します。
+
+## Operator Version
+
+最新の ZIP ファイルは、次の表の GCP ダウンロード列にリンクされています。
+
+| Version Name | Version&nbsp;#/Release&nbsp;Notes | GCP Download |  Date | Deprecation Date |
+| ------- | ------ | ------ | ------ | ------ |
+| Q2 2025 | [v5.55.9](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.55.9-r1) | [gcp-oidc-deployment-files-5.55.9-r1.zip](https://github.com/IABTechLab/uid2-operator/releases/download/v5.55.9-r1/gcp-oidc-deployment-files-5.55.9-r1.zip) | July 1, 2025 | July 1, 2026 | 
+
+:::note
+For information about supported versions and deprecation dates, see [Private Operator Versions](../ref-info/deprecation-schedule.md#private-operator-versions).
+:::
+
+## Private Operator Upgrade Policy
+
+<UpgradePolicy />
 
 ## Setup Overview
 
@@ -86,12 +103,6 @@ UID2 の連絡先に、あなたの組織を UID2 Operator として登録する
 UID2 アカウント登録が完了し、gcloud CLI をインストールしたら、次のステップに進みます:
 - [deployment environments](#deployment-environments) に関する情報を確認します。
 - 利用可能な[deployment options](#deployment-options) に関する情報を確認し、それぞれの利点を比較して、使用するオプションを決定します。
-
-### Operator Versions
-
-最新の ZIP ファイルは、次の表の GCP ダウンロード列にリンクされています。
-
-<ReleaseMatrix />
 
 ## Deployment Environments
 
@@ -175,7 +186,7 @@ Terraform がインストールされていない場合は、[terraform.io](http
 
 #### Download the Template Files
 
-[Operator Versions](#operator-versions) の GCP ダウンロード列にある ZIP ファイルをダウンロードします。最新バージョンを選択してください。ファイルを便利な場所に解凍します。次の表に示すファイルが生成されます。
+[Operator Version](#operator-version) の GCP ダウンロード列にある ZIP ファイルをダウンロードします。最新バージョンを選択してください。ファイルを便利な場所に解凍します。次の表に示すファイルが生成されます。
 
 | File | Details |
 | :--- | :--- |
@@ -401,7 +412,7 @@ UID2 Operator には、Operator Key が必要です。UID2 アカウントの設
 | `{ZONE}` | VM インスタンスがデプロイされる Google Cloud ゾーン。 |
 | `{IMAGE_FAMILY}` | `confidential-space` はインテグレーションと本番で使用し、`confidential-space-debug` はインテグレーションでのみデバッグ用に使用します。`confidential-space-debug` は本番では動作しないことに注意してください。 |
 | `{SERVICE_ACCOUNT}` | アカウント作成時に作成したサービスアカウントのメールアドレス: `{SERVICE_ACCOUNT_NAME}@{PROJECT_ID}.iam.gserviceaccount.com`.<br/>詳細は [Set Up Service Account Rules and Permissions](#set-up-service-account-rules-and-permissions) (Step 4) を参照してください。|
-| `{OPERATOR_IMAGE}` | コンフィギュレーションで使用するUID2 Private Operator for GCPのDockerイメージURL。<br/>これは、GCPダウンロードファイルの`terraform.tfvars`ファイルにあります。([Operator Versions](#operator-versions) を参照) |
+| `{OPERATOR_IMAGE}` | コンフィギュレーションで使用するUID2 Private Operator for GCPのDockerイメージURL。<br/>これは、GCPダウンロードファイルの`terraform.tfvars`ファイルにあります。([Operator Version](#operator-version) を参照) |
 | `{OPERATOR_KEY_SECRET_FULL_NAME}` | Operator Key secret に指定したフルネーム ([Create Secret for the Operator Key in Secret Manager](#create-secret-for-the-operator-key-in-secret-manager) を参照)。パスを含め `projects/<project_id>/secrets/<secret_id>/versions/<version>` の形式でしています。たとえば: `projects/111111111111/secrets/uid2-operator-operator-key-secret-integ/versions/1` |
 
 ##### Sample Deployment Script&#8212;Integ

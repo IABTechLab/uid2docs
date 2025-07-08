@@ -3,6 +3,7 @@ title: API Keys
 description: API Key の設定と管理。
 hide_table_of_contents: false
 sidebar_position: 07
+displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';
