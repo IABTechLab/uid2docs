@@ -5,6 +5,7 @@ pagination_label: Snowflake Integration
 description: Snowflake の UID2 Share を通じて UID2 とインテグレーションするための情報。
 hide_table_of_contents: false
 sidebar_position: 04
+displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';

@@ -5,6 +5,7 @@ pagination_label: UID2 Server-Side Integration Guide for Mobile
 description: Setting up a mobile integration with token generate and refresh both on the server side.
 hide_table_of_contents: false
 sidebar_position: 04
+displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';

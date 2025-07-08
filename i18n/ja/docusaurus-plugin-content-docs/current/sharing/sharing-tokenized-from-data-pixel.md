@@ -3,6 +3,7 @@ title: Tokenized Sharing in Pixels
 description: ピクセルでの UID2 Token の共有について学ぶ。
 hide_table_of_contents: false
 sidebar_position: 08
+displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';

@@ -2,6 +2,7 @@
 title: UID2 Integrations for Private Operators
 description: Information summary for Private Operators.
 hide_table_of_contents: false
+displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';

@@ -3,10 +3,11 @@ title: UID2 Glossary
 description: Definitions for some UID2 terms.
 hide_table_of_contents: false
 sidebar_position: 10
+displayed_sidebar: docs
 ---
 
-import MdxJumpAnchor from '@site/src/components/MdxJumpAnchor';
 import Link from '@docusaurus/Link';
+import MdxJumpAnchor from '@site/src/components/MdxJumpAnchor';
 
 # Unified ID 2.0 Glossary
 <p>This page defines some key terms used in the UID2 documentation.</p>

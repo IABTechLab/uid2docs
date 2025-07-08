@@ -5,6 +5,7 @@ pagination_label: UID2 Private Operator for AKS Integration Guide
 description: AKS を使用した Private Operator のインテグレーション情報
 hide_table_of_contents: false
 sidebar_position: 18
+displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';
