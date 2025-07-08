@@ -94,7 +94,7 @@ You could also send conversion information via API or pixels for measurement (at
 
 ### 5: Monitor for Raw UID2 Refresh
 
-A raw UID2 is an identifier for a user at a specific moment in time. The raw UID2 for a specific user changes at least once per year as part of the UID2 refresh process.
+A raw UID2 is an identifier for a user at a specific moment in time. The raw UID2 for a specific user changes roughly once per year as part of the UID2 refresh process.
 
 The V3 Identity Map API provides a refresh timestamp (`r` field) in the response that indicates when each raw UID2 might refresh. Use this timestamp to determine when to regenerate raw UID2s for your stored data, it is guaranteed that it won't refresh before that time.
 
@@ -220,7 +220,7 @@ You could also send conversion information via API or pixels for measurement (at
 
 #### 5: Monitor for Salt Bucket Rotations for Your Stored Raw UID2s
 
-A raw UID2 is an identifier for a user at a specific moment in time. The raw UID2 for a specific user changes at least once per year, as a result of the <Link href="../ref-info/glossary-uid#gl-salt-bucket">salt bucket</Link> rotation.
+A raw UID2 is an identifier for a user at a specific moment in time. The raw UID2 for a specific user changes roughly once per year, as a result of the <Link href="../ref-info/glossary-uid#gl-salt-bucket">salt bucket</Link> rotation.
 
 Even though each salt bucket is updated approximately once per year, individual bucket updates are spread over the year. Approximately 1/365th of all salt buckets are rotated daily. Based on this, we recommend checking salt bucket rotation regularly, on a cadence that aligns with your audience refreshes. For example, if you refresh weekly, check for salt bucket updates weekly.
 

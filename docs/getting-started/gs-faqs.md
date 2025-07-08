@@ -193,7 +193,7 @@ We recommend checking for refresh opportunities daily. It is guaranteed that the
 
 The recommended cadence for updating audiences is daily.
 
-A raw UID2 for a specific user changes at least once per year. The latest version of the [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) endpoint provides refresh timestamps that indicate a point after which each raw UID2 might refresh. We recommend checking these timestamps daily to ensure your raw UID2s remain current and valid for audience targeting.
+A raw UID2 for a specific user changes roughly once per year. The latest version of the [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) endpoint provides refresh timestamps that indicate a point after which each raw UID2 might refresh. We recommend checking these timestamps daily to ensure your raw UID2s remain current and valid for audience targeting.
 
 For  implementations that reference earlier versions of this endpoint (see [POST&nbsp;/identity/map v2](../endpoints/post-identity-map-v2.md)):
 
