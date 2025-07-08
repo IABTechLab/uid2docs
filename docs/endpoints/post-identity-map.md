@@ -199,12 +199,12 @@ If the `status` value is anything other than `success`, the `message` field prov
 
 The following sections provide general information and guidance for migrating to version 3 from earlier versions, including:
 
-- [Migration Overview](#migration-overview)
+- [Version 3 Improvements](#version-3-improvements)
 - [Key Differences Between V2 and V3](#key-differences-between-v2-and-v3)
 - [Required Changes](#required-changes)
 - [Additional Resources](#additional-resources)
 
-### Migration Overview
+### Version 3 Improvements
 
 The V3 Identity Map API provides the following improvements over V2:
 

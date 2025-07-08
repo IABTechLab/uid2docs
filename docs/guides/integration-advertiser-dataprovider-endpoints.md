@@ -65,7 +65,6 @@ DII refers to a user's normalized email address or phone number, or the normaliz
 | 1-a | [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) request | Send a request containing DII to the identity mapping endpoint. |
 | 1-b | [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) response | The raw UID2 (`u` field) returned in the response can be used to target audiences on relevant DSPs.<br/>The response returns a user's raw UID2 (`u`), refresh timestamp (`r`), and optionally the previous raw UID2 (`p`) if the current UID2 was rotated within the last 90 days. Use the refresh timestamp to determine when to refresh the UID2. For details, see [5: Monitor for Raw UID2 Refresh](#5-monitor-for-raw-uid2-refresh). |
 
-
 ### 2: Store Raw UID2s and Refresh Timestamps
 
 The response from Step 1, [Generate Raw UID2s from DII](#1-generate-raw-uid2s-from-dii), contains mapping information. We recommend that you store the following information returned in Step 1:
@@ -78,8 +77,8 @@ The response from Step 1, [Generate Raw UID2s from DII](#1-generate-raw-uid2s-fr
 
 Use the UID2s you received in Step 1. For example, you might do one or more of the following:
 
-- Do some manipulation: for example, combine Raw UID2s you generated from DII and Raw UID2s received from another participant such as an advertiser or data provider.
-- Add new Raw UID2s into an existing audience.
+- Do some manipulation: for example, combine raw UID2s you generated from DII and raw UID2s received from another participant such as an advertiser or data provider.
+- Add new raw UID2s into an existing audience.
 
 ### 4: Send Stored Raw UID2s to DSPs to Create Audiences or Conversions
 
@@ -114,11 +113,11 @@ To determine whether to refresh a raw UID2, follow these steps:
 
 2. If the current time is greater than or equal to the refresh timestamp, regenerate the raw UID2 by calling [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) again with the same DII.
 
-This approach ensures your Raw UID2s remain current and valid for audience targeting and measurement.
+This approach ensures your raw UID2s remain current and valid for audience targeting and measurement.
 
 ### 6: Monitor for Opt-Out Status
 
-It's important to honor user opt-out status. Periodically, monitor for opt-out status, to be sure that you don't continue using Raw UID2s for users that have recently opted out.
+It's important to honor user opt-out status. Periodically, monitor for opt-out status, to be sure that you don't continue using raw UID2s for users that have recently opted out.
 
 There are two ways that you can check with the UID2 <Link href="../ref-info/glossary-uid#gl-operator-service">Operator Service</Link> to make sure you have the latest opt-out information:
 
@@ -128,54 +127,36 @@ There are two ways that you can check with the UID2 <Link href="../ref-info/glos
 
 For details about the UID2 opt-out workflow and how users can opt out, see [User Opt-Out](../getting-started/gs-opt-out.md).
 
----
+## Using POST /identity/map Version 2
 
-# For Users of V2 Identity Map
-
-:::warning
-The following information is relevant to the older integration approach and is provided for reference only. New implementations should use the main approach described above. For current best practices, refer to the [main integration guide](#high-level-steps).
+:::note
+The following information is relevant only if you are using version 2 or earlier of the `POST /identity/map` endpoint, and is provided for reference only. New implementations should use the latest version. For instructions, see [High-Level Steps](#high-level-steps).
 :::
 
-## Advertiser/Data Provider Integration to HTTP Endpoints
+The following sections provide information about implementing an earlier version, including:
 
-This guide covers integration steps for advertisers and data providers to integrate with UID2 by writing code to call UID2 HTTP endpoints, rather than using another implementation option such as an SDK, Snowflake, or AWS Entity Resolution.
+- [Earlier Versions: High-Level Steps](#earlier-versions-high-level-steps)
+- [Integration Diagram (V2)](#integration-diagram-v2)
+- [Store Raw UID2s and Salt Bucket IDs (V2)](#store-raw-uid2s-and-salt-bucket-ids-v2)
+- [Monitor for Salt Bucket Rotations for Your Stored Raw UID2s (V2)](#monitor-for-salt-bucket-rotations-for-your-stored-raw-uid2s-v2)
 
-:::tip
-For a summary of all integration options and steps for advertisers and data providers, see [Advertiser/Data Provider Integration Overview](integration-advertiser-dataprovider-overview.md).
-:::
+### Earlier Versions: High-Level Steps
 
-### Complete UID2 Account Setup and Configure Account
-
-To integrate with UID2, you'll need to have a UID2 account. If you haven't yet created an account, first follow the steps described on the [Account Setup](../getting-started/gs-account-setup.md) page.
-
-When initial account setup is complete, you'll receive instructions and a link to access the [UID2 Portal](../portal/portal-overview.md), where you can create your [credentials](../getting-started/gs-credentials.md) for the production environment and configure additional values, if needed. For details, see [Getting Started with the UID2 Portal](../portal/portal-getting-started.md).
-
-You'll need to set up these values, in the UID2 Portal on the [API Keys](../portal/api-keys.md) page:
-
-- <Link href="../ref-info/glossary-uid#gl-api-key">API key</Link>, also called a client key
-- <Link href="../ref-info/glossary-uid#gl-client-secret">Client secret</Link>, a value known only to the participant and the UID2 service
-
-:::important
-It's very important that you keep these values secure. For details, see [Security of API Key and Client Secret](../getting-started/gs-credentials.md#security-of-api-key-and-client-secret).
-:::
-
-### High-Level Steps
-
-At a high level, the steps for advertisers and data providers integrating with UID2 are as follows:
+At a high level, the steps for advertisers and data providers integrating with UID2 using the `POST /v2/identity/map endpoint` are the same as for the current version, as shown in the following summary of steps. However, Step 2 and Step 5 are significantly different: for details, see [Integration Diagram (V2)](#integration-diagram-v2).
 
 1. [Generate Raw UID2s from DII](#1-generate-raw-uid2s-from-dii)
 
-2. [Store Raw UID2s and Salt Bucket IDs](#2-store-raw-uid2s-and-salt-bucket-ids)
+2. [Store Raw UID2s and Salt Bucket IDs (V2)](#store-raw-uid2s-and-salt-bucket-ids-v2)
 
 3. [Manipulate or Combine Raw UID2s](#3-manipulate-or-combine-raw-uid2s)
 
 4. [Send Stored Raw UID2s to DSPs to Create Audiences or Conversions](#4-send-stored-raw-uid2s-to-dsps-to-create-audiences-or-conversions)
 
-5. [Monitor for Salt Bucket Rotations for Your Stored Raw UID2s](#5-monitor-for-salt-bucket-rotations-for-your-stored-raw-uid2s)
+5. [Monitor for Salt Bucket Rotations for Your Stored Raw UID2s (V2)](#monitor-for-salt-bucket-rotations-for-your-stored-raw-uid2s-v2)
 
 6. [Monitor for Opt-Out Status](#6-monitor-for-opt-out-status)
 
-### Integration Diagram
+### Integration Diagram (V2)
 
 The following diagram outlines the steps that data collectors must complete to map DII to raw UID2s for audience building and targeting.
 
@@ -185,40 +166,14 @@ DII refers to a user's normalized email address or phone number, or the normaliz
 
 <!-- diagram source: resource/advertiser-flow-endpoints-v2-mermaid.md.bak -->
 
-#### 1: Generate Raw UID2s from DII
-
-| Step | Endpoint | Description |
-| --- | --- | --- |
-| 1-a | [POST&nbsp;/identity/map](../endpoints/post-identity-map-v2.md) request | Send a request containing DII to the identity mapping endpoint. |
-| 1-b | [POST&nbsp;/identity/map](../endpoints/post-identity-map-v2.md) response | The `advertising_id` (raw UID2) returned in the response can be used to target audiences on relevant DSPs.<br/>The response returns a user's raw UID2 and the corresponding `bucket_id` for the salt bucket. The salt assigned to the bucket rotates annually, which impacts the generated raw UID2. For details on how to check for salt bucket rotation, see [5: Monitor for salt bucket rotations related to your stored raw UID2s](#5-monitor-for-salt-bucket-rotations-for-your-stored-raw-uid2s). |
-
-
-#### 2: Store Raw UID2s and Salt Bucket IDs
+### Store Raw UID2s and Salt Bucket IDs (V2)
 
 The response from Step 1, [Generate Raw UID2s from DII](#1-generate-raw-uid2s-from-dii), contains mapping information. We recommend that you store the following information returned in Step 1:
 
 - Cache the mapping between DII (`identifier`), raw UID2 (`advertising_id`), and salt bucket (`bucket_id`).
-- Store the timestamp for when you received the response data. Later, you can compare this timestamp with the `last_updated` timestamp returned in Step 5, [Monitor for Salt Bucket Rotations for Your Stored Raw UID2s](#5-monitor-for-salt-bucket-rotations-for-your-stored-raw-uid2s).
+- Store the timestamp for when you received the response data. Later, you can compare this timestamp with the `last_updated` timestamp returned in Step 5, [Monitor for Salt Bucket Rotations for Your Stored Raw UID2s (V2)](#monitor-for-salt-bucket-rotations-for-your-stored-raw-uid2s-v2).
 
-#### 3: Manipulate or Combine Raw UID2s
-
-Use the UID2s you received in Step 1. For example, you might do one or more of the following:
-
-- Do some manipulation: for example, combine UID2s you generated from DII and UID2s received from another participant such as an advertiser or data provider.
-- Add new UID2s into an existing audience.
-
-#### 4: Send Stored Raw UID2s to DSPs to Create Audiences or Conversions
-
-Use the raw UID2s for some purpose such as:
-
-- Sending stored raw UID2s to DSPs to create audiences and conversions.
-- Using the raw UID2s for measurement.
-
-For example, you could send the `advertising_id` (<Link href="../ref-info/glossary-uid#gl-raw-uid2">raw UID2</Link>) returned in Step 1-b to a DSP while building your audiences. Each DSP has a unique integration process for building audiences; follow the integration guidance provided by the DSP for sending raw UID2s to build an audience.
-
-You could also send conversion information via API or pixels for measurement (attribution) or for retargeting.
-
-#### 5: Monitor for Salt Bucket Rotations for Your Stored Raw UID2s
+### Monitor for Salt Bucket Rotations for Your Stored Raw UID2s (V2)
 
 A raw UID2 is an identifier for a user at a specific moment in time. The raw UID2 for a specific user changes roughly once per year, as a result of the <Link href="../ref-info/glossary-uid#gl-salt-bucket">salt bucket</Link> rotation.
 
@@ -246,15 +201,3 @@ To determine whether the salt bucket ID for a specific raw UID2 has changed, fol
     - The timestamp of the raw UID2 generation of the same `bucket_id`, which was returned in Step 1 and stored in Step 2.
 
 1. If the `last_updated` timestamp is more recent than the timestamp you recorded earlier, the salt bucket has been rotated. As a result, you'll need to regenerate any raw UID2s associated with this `bucket_id`, following Step 1, [Generate Raw UID2s from DII](#1-generate-raw-uid2s-from-dii).
-
-#### 6: Monitor for Opt-Out Status
-
-It's important to honor user opt-out status. Periodically, monitor for opt-out status, to be sure that you don't continue using UID2s for users that have recently opted out.
-
-There are two ways that you can check with the UID2 <Link href="../ref-info/glossary-uid#gl-operator-service">Operator Service</Link> to make sure you have the latest opt-out information:
-
-- Call the [POST&nbsp;/identity/map](../endpoints/post-identity-map-v2.md) endpoint to check for opt-outs. If the DII has been opted out, no raw UID2 is generated.
-
-- Check the opt-out status of raw UID2s using the [POST&nbsp;/optout/status](../endpoints/post-optout-status.md) endpoint.
-
-For details about the UID2 opt-out workflow and how users can opt out, see [User Opt-Out](../getting-started/gs-opt-out.md).

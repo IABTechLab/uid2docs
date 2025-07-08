@@ -385,9 +385,15 @@ IdentityMapV3Input mixedInput = new IdentityMapV3Input()
 IdentityMapV3Response mixedResponse = client.generateIdentityMap(mixedInput);
 ```
 
-## Migration From Older Identity Map Version
+## Migration From Version Using V2 Identity Map
 
-### Migration Overview
+The following sections provide general information and guidance for migrating to the latest version of this SDK, which references `POST /identity/map` version 3, including:
+
+- [Version 3 Improvements](#version-3-improvements)
+- [Required Changes](#required-changes)
+- [Recommended Changes](#recommended-changes)
+
+### Version 3 Improvements
 
 Improvements provided by the new Identity Map version:
 - **Support for Multiple Identity Types**: Process emails and phones in a single request
@@ -397,31 +403,46 @@ Improvements provided by the new Identity Map version:
 
 ### Required Changes
 
-1. **Update dependency version**:
-   ```xml
-   <dependency>
-       <groupId>com.uid2</groupId>
-       <artifactId>uid2-client</artifactId>
-       <version>4.8.0</version>
-   </dependency>
-   ```
+To upgrade, follow these steps:
 
-2. **Change client class**:
-   ```java
-   // Before
-   IdentityMapClient identityMapClient = new IdentityMapClient(UID2_BASE_URL, UID2_API_KEY, UID2_SECRET_KEY);
-   
-   // After
-   IdentityMapV3Client identityMapClient = new IdentityMapV3Client(UID2_BASE_URL, UID2_API_KEY, UID2_SECRET_KEY);
-   ```
+1. [Update dependency versionL](#1-update-dependency-version)
+2. [Change client class](#2-change-client-class)
+3. [Update import statements](#3-update-import-statements)
 
-3. **Update import statements**:
-   ```java
-   import com.uid2.client.IdentityMapV3Client;
-   import com.uid2.client.IdentityMapV3Input;
-   import com.uid2.client.IdentityMapV3Response;
-   import com.uid2.client.UnmappedIdentityReason;
-   ```
+#### 1. Update dependency version
+
+Update the dependency version referenced in your code, as shown in the following example.
+
+```xml
+<dependency>
+  <groupId>com.uid2</groupId>
+  <artifactId>uid2-client</artifactId>
+  <version>4.8.0</version>
+</dependency>
+```
+
+#### 2. Change client class
+
+Update the client class referenced in your code, as shown in the following example.
+
+```java
+// Before
+IdentityMapClient identityMapClient = new IdentityMapClient(UID2_BASE_URL, UID2_API_KEY, UID2_SECRET_KEY);
+
+// After
+IdentityMapV3Client identityMapClient = new IdentityMapV3Client(UID2_BASE_URL, UID2_API_KEY, UID2_SECRET_KEY);
+```
+
+#### 3. Update import statements
+
+Update import statements, as shown in the following example.
+
+```java
+import com.uid2.client.IdentityMapV3Client;
+import com.uid2.client.IdentityMapV3Input;
+import com.uid2.client.IdentityMapV3Response;
+import com.uid2.client.UnmappedIdentityReason;
+```
 
 ### Recommended Changes
 
@@ -468,13 +489,14 @@ Improvements provided by the new Identity Map version:
    String rawReason = unmapped.getRawReason();
    ```
 
-## Previous Version (V2 Identity Map)
+## Previous SDK Version (using POST /identity/map V2)
 
 :::note
-The V2 Identity Map SDK is an older version maintained for backwards compatibility. Migrate to the current SDK for improved performance, multi-identity type support, and better UID rotation management. 
-New integrations should not use this version. 
-See [Migration From Older Identity Map Version](#migration-from-older-identity-map-version) for instructions.
+An earlier version of the SDK for Java, which references the `POST /identity/map` V2 endpoint is also available, for backwards compatibility. Migrate to the current SDK for improved performance, multi-identity type support, and better UID rotation management. New integrations should not use this version. 
+For details, see [Migration From Version Using V2 Identity Map](#migration-from-version-using-v2-identity-map).
 :::
+
+To use the earlier version, follow these instructions.
 
 1. Create an instance of IdentityMapClient as an instance variable.
    ```java
@@ -486,7 +508,7 @@ See [Migration From Older Identity Map Version](#migration-from-older-identity-m
    IdentityMapResponse identityMapResponse = identityMapClient.generateIdentityMap(IdentityMapInput.fromEmails(Arrays.asList("email1@example.com", "email2@example.com")));
    ```
 
->**Note:** The SDK hashes input values before sending them. This ensures that raw email addresses and phone numbers do not leave your server.
+   >**Note:** The SDK hashes input values before sending them. This ensures that raw email addresses and phone numbers do not leave your server.
 
 3. Retrieve the mapped and unmapped results as follows:
    ```java
