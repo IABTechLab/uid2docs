@@ -405,7 +405,7 @@ Improvements provided by the new Identity Map version:
 
 To upgrade, follow these steps:
 
-1. [Update dependency versionL](#1-update-dependency-version)
+1. [Update dependency version](#1-update-dependency-version)
 2. [Change client class](#2-change-client-class)
 3. [Update import statements](#3-update-import-statements)
 
