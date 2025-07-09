@@ -140,7 +140,25 @@ export const articleList: ArticleItem[] = [
     locale: "en",
   },
   {
-    title: "Axios",
+    title: "Cint",
+    url: "https://www.cint.com/press-release/cint-looks-to-the-future-of-lucid-measurement-by-using-unified-id-2-0-for-advertisers-to-measure-brand-lift/",
+    date: "September 19, 2024",
+    locale: "en",
+  },
+  {
+    title: "Deep Sync",
+    url: "https://www.einpresswire.com/article/747835049/deep-sync-improves-customer-reach-with-enhanced-onboarding-solution-powered-by-unified-id-2-0",
+    date: "September 30, 2024",
+    locale: "en",
+  },
+  {
+    title: "33Across",
+    url: "https://www.33across.co.uk/blog/2024/10/15/33across-expands-addressability-with-uid2",
+    date: "October 15, 2024",
+    locale: "en",
+  },
+  {
+    title: "Spotify",
     url: "https://www.axios.com/2024/10/22/spotify-ad-exchange-trade-desk-partnership",
     date: "October 22, 2024",
     locale: "en",
@@ -149,6 +167,24 @@ export const articleList: ArticleItem[] = [
     title: "SoundCloud",
     url: "https://www.adexchanger.com/programmatic/programmatic-audio-is-a-tough-market-so-soundcloud-is-leading-with-display-and-video/",
     date: "November 5, 2024",
+    locale: "en",
+  },
+  {
+    title: "iHeartMedia",
+    url: "https://www.businesswire.com/news/home/20241211734654/en/iHeartMedia-Announces-Adoption-of-Unified-ID-2.0-Through-Integration-with-The-Trade-Desk-to-Enhance-Audio-Advertising",
+    date: "December 11, 2024",
+    locale: "en",
+  },
+  {
+    title: "Perion",
+    url: "https://perion.com/press/perion-announces-adoption-of-unified-id-2-0-powered-by-the-trade-desk-to-bridge-first-party-data-and-omnichannel-scale/",
+    date: "March 15, 2025",
+    locale: "en",
+  },
+  {
+    title: "AppsFlyer",
+    url: "https://www.appsflyer.com/company/newsroom/pr/privacy-id-integration/",
+    date: "May 12, 2025",
     locale: "en",
   },
   //JA Articles
