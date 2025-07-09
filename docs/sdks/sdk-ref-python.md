@@ -304,7 +304,7 @@ Improvements provided by the POST /v3/identity/map endpoint:
 - **Support for Multiple Identity Types**: Process emails and phones in a single request
 - **Simpler refresh management**: Re-map on reaching refresh timestamps instead of monitoring salt buckets
 - **Previous raw UID2 availability**: You can see previous UID2 for 90 days after rotation
-- **Improved performance**: The new API uses significantly less bandwidth for the same amount of DIIs
+- **Improved performance**: The new API uses significantly less bandwidth for the same amount of DII
 
 #### Required Changes
 
