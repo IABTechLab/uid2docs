@@ -261,7 +261,7 @@ To map DII to raw UID2s, follow these steps:
    if mapped_identity is not None:
        current_uid = mapped_identity.current_raw_uid        # Current raw UID2
        previous_uid = mapped_identity.previous_raw_uid      # Previous raw UID2 (of type Optional, only available for 90 days after rotation, otherwise is None)
-       refresh_from = mapped_identity.refresh_from          # When to refresh this identity
+       refresh_from = mapped_identity.refresh_from          # When to refresh this identity (of type datetime)
    else:
        unmapped_identity = unmapped_identities.get("user@example.com")
        reason = unmapped_identity.reason # OPTOUT, INVALID_IDENTIFIER, or UNKNOWN
@@ -300,7 +300,7 @@ mixed_response = client.generate_identity_map(mixed_input)
 ### Migration From Earlier Identity Map Version
 The following sections provide information about the changes you'll need to make to upgrade from an earlier version of the SDK, that uses the POST /v2/identity/map endpoint, to the latest version, which uses the POST /v3/identity/map endpoint.
 
-Improvements provided by the POST v3/identity/map endpoint:
+Improvements provided by the POST /v3/identity/map endpoint:
 - **Support for Multiple Identity Types**: Process emails and phones in a single request
 - **Simpler refresh management**: Re-map on reaching refresh timestamps instead of monitoring salt buckets
 - **Previous raw UID2 availability**: You can see previous UID2 for 90 days after rotation
