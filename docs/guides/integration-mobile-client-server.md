@@ -5,11 +5,12 @@ pagination_label: UID2 Client-Server Integration Guide for Mobile
 description: Setting up a mobile integration with token generate on server and refresh on client.
 hide_table_of_contents: false
 sidebar_position: 04
+displayed_sidebar: docs
 ---
 
+import Link from '@docusaurus/Link';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import Link from '@docusaurus/Link';
 import ExampleAdvertisingToken from '../snippets/_example-advertising-token.mdx';
 import EnableLogging from '../snippets/_mobile-docs-enable-logging.mdx';
 import GMAIMA_Plugins from '../snippets/_mobile_docs_gmaima-plugin-gss.mdx';

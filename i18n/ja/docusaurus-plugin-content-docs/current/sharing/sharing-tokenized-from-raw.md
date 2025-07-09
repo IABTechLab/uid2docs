@@ -3,6 +3,7 @@ title: Tokenized Sharing from Raw UID2s
 description: raw UID2 を暗号化して作成した UID2 Token の共有について学ぶ。
 hide_table_of_contents: false
 sidebar_position: 08
+displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';

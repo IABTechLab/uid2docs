@@ -3,6 +3,7 @@ title: SDK for JavaScript (2.x and earlier)
 description: JavaScript Client-Side SDK の旧バージョンに関するリファレンス情報。
 hide_table_of_contents: false
 sidebar_position: 02
+displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';

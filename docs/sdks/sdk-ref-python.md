@@ -3,6 +3,7 @@ title: SDK for Python
 description: Reference information about the Python server-side SDK.
 hide_table_of_contents: false
 sidebar_position: 06
+displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';
@@ -259,7 +260,7 @@ To map DII to raw UID2s, follow these steps:
    mapped_identity = mapped_identities.get("user@example.com")
    if mapped_identity is not None:
        current_uid = mapped_identity.current_raw_uid        # Current raw UID2
-       previous_uid = mapped_identity.previous_raw_uid      # Previous raw UID2 (of type Optional, only available for 90 days after rotation)
+       previous_uid = mapped_identity.previous_raw_uid      # Previous raw UID2 (of type Optional, only available for 90 days after rotation, otherwise is None)
        refresh_from = mapped_identity.refresh_from          # When to refresh this identity
    else:
        unmapped_identity = unmapped_identities.get("user@example.com")

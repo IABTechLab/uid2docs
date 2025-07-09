@@ -3,11 +3,12 @@ title: SDK for JavaScript
 description: Reference information about the JavaScript client-side SDK.
 hide_table_of_contents: false
 sidebar_position: 02
+displayed_sidebar: docs
 ---
 
+import Link from '@docusaurus/Link';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import Link from '@docusaurus/Link';
 import ExampleUid2Cookie from '../snippets/_example-uid2-cookie.mdx';
 import ExampleJavaScriptInit from '../snippets/_example-javascript-init.mdx';
 
