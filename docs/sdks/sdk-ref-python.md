@@ -218,12 +218,12 @@ If you're using server-side integration (see [Publisher Integration Guide, Serve
 
 ## Usage for Advertisers/Data Providers
 
-There are two operations that apply to Advertisers/Data Providers:
-- [Map DII to Raw UID2s](#map-dii-to-raw-uid2s)
-- [Monitor rotated salt buckets](#monitor-rotated-salt-buckets) (only applicable to versions of the POST /identity/map endpoint prior to version 3)
+The following instructions provide an example of how to map DII to raw UID2s using the latest version of the POST /identity/map endpoint.
+
+For the earlier version, see [Previous Version (V2 Identity Map)](#previous-version-v2-identity-map). For migration steps to the latest version, see [Migration From Earlier Identity Map Version](#migration-from-earlier-identity-map-version)
 
 ### Map DII to Raw UID2s
-To map DII to raw UIDs, follow these steps:
+To map DII to raw UID2s, follow these steps:
 
 1. Create an IdentityMapV3Client as an instance variable:
    ```py
@@ -259,7 +259,7 @@ To map DII to raw UIDs, follow these steps:
    mapped_identity = mapped_identities.get("user@example.com")
    if mapped_identity is not None:
        current_uid = mapped_identity.current_raw_uid        # Current raw UID2
-       previous_uid = mapped_identity.previous_raw_uid      # Previous raw UID2 (Optional, only available for 90 days after rotation)
+       previous_uid = mapped_identity.previous_raw_uid      # Previous raw UID2 (of type Optional, only available for 90 days after rotation)
        refresh_from = mapped_identity.refresh_from          # When to refresh this identity
    else:
        unmapped_identity = unmapped_identities.get("user@example.com")
