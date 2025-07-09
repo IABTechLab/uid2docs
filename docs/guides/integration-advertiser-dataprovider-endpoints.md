@@ -138,7 +138,7 @@ The key differences when using v2 of the Identity Map API are:
 - **Step 2**: Store salt bucket IDs instead of refresh timestamps
 - **Step 5**: Monitor for salt bucket rotations instead of using refresh timestamps
 
-All other steps (1, 3, 4, and 6) are the same as described in the v3 implementation above.
+All other steps (1, 3, 4, and 6) are the same as described in the v3 implementation: see [High-Level Steps](#high-level-steps).
 
 ### Integration Diagram (v2)
 
@@ -150,7 +150,9 @@ The following diagram outlines the v2 integration flow. Note that the difference
 
 ### Store Raw UID2s and Salt Bucket IDs (v2)
 
-**This step replaces Step 2 in the v3 implementation.**
+:::note
+This step replaces Step 2 in the v3 implementation.
+:::
 
 The response from Step 1 contains mapping information. We recommend that you store the following information returned in Step 1:
 
@@ -159,7 +161,9 @@ The response from Step 1 contains mapping information. We recommend that you sto
 
 ### Monitor for Salt Bucket Rotations for Your Stored Raw UID2s (v2)
 
-**This step replaces Step 5 in the v3 implementation.**
+:::note
+This step replaces Step 5 in the v3 implementation.
+:::
 
 A raw UID2 is an identifier for a user at a specific moment in time. The raw UID2 for a specific user changes roughly once per year, as a result of the <Link href="../ref-info/glossary-uid#gl-salt-bucket">salt bucket</Link> rotation.
 
