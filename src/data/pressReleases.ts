@@ -19,18 +19,6 @@ export const articleList: ArticleItem[] = [
     locale: "en",
   },
   {
-    title: "LineTV (Taiwan)",
-    url: "https://www.cdns.com.tw/articles/662817",
-    date: "September 22, 2022",
-    locale: "en",
-  },
-  {
-    title: "RainBarrel",
-    url: "https://www.rbarrel.com/press-release/rainbarrel-integrates-with-the-trade-desk",
-    date: "October 12, 2022",
-    locale: "en",
-  },
-  {
     title: "Narrative",
     url: "https://www.prnewswire.com/news-releases/narrative-releases-software-to-enable-direct-integration-with-the-trade-desk-via-unified-id-2-0--301660341.html",
     date: "October 27, 2022",
@@ -83,12 +71,6 @@ export const articleList: ArticleItem[] = [
     title: "Lotame",
     url: "https://www.lotame.com/lotame-elevates-data-interoperability-with-unified-id-2-0-adoption/",
     date: "January 18, 2024",
-    locale: "en",
-  },
-  {
-    title: "lockr",
-    url: "https://www.prnewswire.com/news-releases/lockr-launches-alternative-identity-manager-aim-for-publishers-to-free-up-engineering-resources-and-meet-advertisers-demand-in-a-cookieless-environment-302043972.html",
-    date: "January 25, 2024",
     locale: "en",
   },
   {
