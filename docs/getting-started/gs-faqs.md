@@ -196,7 +196,7 @@ The recommended cadence for updating audiences is daily.
 
 A raw UID2 for a specific user changes roughly once per year. The latest version of the [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) endpoint provides refresh timestamps that indicate a point after which each raw UID2 might refresh. We recommend checking these timestamps daily to ensure your raw UID2s remain current and valid for audience targeting.
 
-For  implementations that reference earlier versions of this endpoint (see [POST&nbsp;/identity/map v2](../endpoints/post-identity-map-v2.md)):
+For implementations that reference earlier versions of this endpoint (see [POST&nbsp;/identity/map v2](../endpoints/post-identity-map-v2.md)):
 
 Even though each <Link href="../ref-info/glossary-uid#gl-salt-bucket">salt bucket</Link> is updated roughly once a year, individual bucket updates are spread over the year. This means that about 1/365th of all buckets are rotated daily. If fidelity is critical, consider calling the [POST&nbsp;/identity/buckets](../endpoints/post-identity-buckets.md) endpoint more frequently; for example, hourly.
 
