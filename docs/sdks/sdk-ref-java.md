@@ -341,7 +341,7 @@ If you're using server-side integration (see [Publisher Integration Guide, Serve
    ```java
    IdentityMapV3Response.MappedIdentity mappedIdentity = mappedIdentities.get("user@example.com");
    if (mappedIdentity != null) {
-       String currentUid = mappedIdentity.getCurrentRawUid();      // Current raw UID2
+       String currentUid = mappedIdentity.getCurrentRawUid();     // Current raw UID2
        String previousUid = mappedIdentity.getPreviousRawUid();   // Previous raw UID2 (nullable, only available for 90 days after rotation)
        Instant refreshFrom = mappedIdentity.getRefreshFrom();     // When to refresh this identity
    } else {
@@ -399,7 +399,7 @@ Improvements provided by the new Identity Map version:
 - **Support for Multiple Identity Types**: Process emails and phones in a single request
 - **Simpler refresh management**: Re-map on reaching refresh timestamps instead of monitoring salt buckets
 - **Previous raw UID2 availability**: You can see previous UID2 for 90 days after rotation
-- **Improved performance**: The new API uses significantly less bandwidth for the same amount of DIIs
+- **Improved performance**: The new API uses significantly less bandwidth for the same amount of DII
 
 ### Required Changes
 
