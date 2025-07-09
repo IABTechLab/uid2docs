@@ -395,11 +395,12 @@ The following sections provide general information and guidance for migrating to
 
 ### Version 3 Improvements
 
-Improvements provided by the new Identity Map version:
-- **Support for Multiple Identity Types**: Process emails and phones in a single request
-- **Simpler refresh management**: Re-map on reaching refresh timestamps instead of monitoring salt buckets
-- **Previous raw UID2 availability**: You can see previous UID2 for 90 days after rotation
-- **Improved performance**: The new API uses significantly less bandwidth for the same amount of DII
+Version 3 of the `POST /identity/map` endpoint includes the following improvements:
+
+- **Support for multiple identity types**: You can process both email addresses and phone numbers in a single request.
+- **Simpler refresh management**: You can just re-map any raw UID2 when it reaches the refresh timestamp, rather than monitoring salt buckets, which is a separate API call.
+- **Availability of previous raw UID2**: You can see the previous UID2 for 90 days after rotation.
+- **Improved performance**: The new API version uses significantly less bandwidth for the same amount of DII.
 
 ### Required Changes
 

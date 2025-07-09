@@ -146,7 +146,7 @@ For details about the UID2 opt-out workflow and how users can opt out, see [User
 ## Using POST /identity/map Version 2
 
 :::note
-The following information is relevant only to integration approaches that use an earlier version of the `POST&nbsp;/identity/map` endpoint, version 2, and is provided for reference only. New implementations should use the latest version: see [High-Level Steps](#high-level-steps).
+The following information is relevant only to integration approaches that use an earlier version of the `POST /identity/map` endpoint, version 2, and is provided for reference only. New implementations should use the latest version: see [High-Level Steps](#high-level-steps).
 :::
 
 The key differences when using v2 of the Identity Map API are:
