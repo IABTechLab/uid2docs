@@ -385,7 +385,7 @@ IdentityMapV3Input mixedInput = new IdentityMapV3Input()
 IdentityMapV3Response mixedResponse = client.generateIdentityMap(mixedInput);
 ```
 
-## Migration From Version Using V2 Identity Map
+## Migration From Version Using v2 Identity Map
 
 The following sections provide general information and guidance for migrating to the latest version of this SDK, which references `POST /identity/map` version 3, including:
 
@@ -489,11 +489,11 @@ import com.uid2.client.UnmappedIdentityReason;
    String rawReason = unmapped.getRawReason();
    ```
 
-## Previous SDK Version (using POST /identity/map V2)
+## Previous SDK Version (using POST /identity/map v2)
 
 :::note
-An earlier version of the SDK for Java, which references the `POST /identity/map` V2 endpoint is also available, for backwards compatibility. Migrate to the current SDK for improved performance, multi-identity type support, and better UID rotation management. New integrations should not use this version. 
-For details, see [Migration From Version Using V2 Identity Map](#migration-from-version-using-v2-identity-map).
+An earlier version of the SDK for Java, which references the `POST /identity/map` v2 endpoint is also available, for backwards compatibility. Migrate to the current SDK for improved performance, multi-identity type support, and better UID rotation management. New integrations should not use this version. 
+For details, see [Migration From Version Using v2 Identity Map](#migration-from-version-using-v2-identity-map).
 :::
 
 To use the earlier version, follow these instructions.

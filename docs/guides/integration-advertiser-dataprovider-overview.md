@@ -121,7 +121,7 @@ You could also send conversion information via API or pixels for measurement (at
 
 A raw UID2 is an identifier for a user at a specific moment in time. The raw UID2 for a specific user changes roughly once per year as part of the UID2 refresh process.
 
-The V3 Identity Map API provides a refresh timestamp (`r` field) in the response that indicates when each raw UID2 might refresh. Use this timestamp to determine when to regenerate raw UID2s for your stored data. It is guaranteed that it won't refresh before that time.
+The v3 Identity Map API provides a refresh timestamp (`r` field) in the response that indicates when each raw UID2 might refresh. Use this timestamp to determine when to regenerate raw UID2s for your stored data. It is guaranteed that it won't refresh before that time.
 
 We recommend checking for refresh opportunities daily. To determine whether to refresh a raw UID2:
 
@@ -173,11 +173,11 @@ At a high level, the steps for advertisers and data providers integrating with U
 
 6. [Monitor for Opt-Out Status](#6-monitor-for-opt-out-status)
 
-### Implementation Options (V2)
+### Implementation Options (v2)
 
-The implementation options that are available for advertisers and data providers are the same regardless of version. For details, see [Summary of Implementation Options](#summary-of-implementation-options). However, if you're using an implementation that uses the `POST&nbsp;/v2/identity/map` endpoint, Step 5 is different, as shown in [Integration Diagram (V2)](#integration-diagram-v2). For instructions for Step 5, see [Monitor for Salt Bucket Rotations for Your Stored Raw UID2s (V2)](#monitor-for-salt-bucket-rotations-for-your-stored-raw-uid2s-v2).
+The implementation options that are available for advertisers and data providers are the same regardless of version. For details, see [Summary of Implementation Options](#summary-of-implementation-options). However, if you're using an implementation that uses the `POST&nbsp;/v2/identity/map` endpoint, Step 5 is different, as shown in [Integration Diagram (v2)](#integration-diagram-v2). For instructions for Step 5, see [Monitor for Salt Bucket Rotations for Your Stored Raw UID2s (v2)](#monitor-for-salt-bucket-rotations-for-your-stored-raw-uid2s-v2).
 
-### Integration Diagram (V2)
+### Integration Diagram (v2)
 
 The following diagram outlines the steps that data collectors must complete to map DII to raw UID2s for audience building and targeting.
 
@@ -189,16 +189,16 @@ To keep your UID2-based audience information accurate and up to date, follow the
 
 <!-- diagram source: resource/advertiser-flow-overview-v2-mermaid.md.bak -->
 
-For details about the different parts of the diagram, refer to [Monitor for Salt Bucket Rotations for Your Stored Raw UID2s (V2)](#monitor-for-salt-bucket-rotations-for-your-stored-raw-uid2s-v2) for Step 5, or [Summary of Implementation Options](#summary-of-implementation-options) for all other steps.
+For details about the different parts of the diagram, refer to [Monitor for Salt Bucket Rotations for Your Stored Raw UID2s (v2)](#monitor-for-salt-bucket-rotations-for-your-stored-raw-uid2s-v2) for Step 5, or [Summary of Implementation Options](#summary-of-implementation-options) for all other steps.
 
-### Store Raw UID2s and Salt Bucket IDs (V2)
+### Store Raw UID2s and Salt Bucket IDs (v2)
 
 The response from Step 1, [Generate Raw UID2s from DII](#1-generate-raw-uid2s-from-dii), contains mapping information. We recommend that you store the following information returned in Step 1:
 
 - Cache the mapping between DII (`identifier`), raw UID2 (`advertising_id`), and salt bucket (`bucket_id`).
-- Store the timestamp for when you received the response data. Later, you can compare this timestamp with the `last_updated` timestamp returned in Step 5, [Monitor for Salt Bucket Rotations for Your Stored Raw UID2s (V2)](#monitor-for-salt-bucket-rotations-for-your-stored-raw-uid2s-v2).
+- Store the timestamp for when you received the response data. Later, you can compare this timestamp with the `last_updated` timestamp returned in Step 5, [Monitor for Salt Bucket Rotations for Your Stored Raw UID2s (v2)](#monitor-for-salt-bucket-rotations-for-your-stored-raw-uid2s-v2).
 
-### Monitor for Salt Bucket Rotations for Your Stored Raw UID2s (V2)
+### Monitor for Salt Bucket Rotations for Your Stored Raw UID2s (v2)
 
 A raw UID2 is an identifier for a user at a specific moment in time. The raw UID2 for a specific user changes roughly once per year, as a result of the <Link href="../ref-info/glossary-uid#gl-salt-bucket">salt bucket</Link> rotation.
 
@@ -212,13 +212,13 @@ For instructions for monitoring for salt bucket rotations, refer to one of the f
 
 - Snowflake: [Monitor for Salt Bucket Rotation and Regenerate Raw UID2s](integration-snowflake.md#monitor-for-salt-bucket-rotation-and-regenerate-raw-uid2s).
 
-- HTTP endpoints: [Monitor for Salt Bucket Rotations for Your Stored Raw UID2s (V2)](integration-advertiser-dataprovider-endpoints.md#monitor-for-salt-bucket-rotations-for-your-stored-raw-uid2s-v2).
+- HTTP endpoints: [Monitor for Salt Bucket Rotations for Your Stored Raw UID2s (v2)](integration-advertiser-dataprovider-endpoints.md#monitor-for-salt-bucket-rotations-for-your-stored-raw-uid2s-v2).
 
 :::note
 For AWS Entity Resolution, there is no way to do salt bucket monitoring. As an alternative, you could regenerate raw UID2s periodically using the AWS Entity Resolution service.
 :::
 
-##### Determine whether the salt bucket has been rotated (V2)
+##### Determine whether the salt bucket has been rotated (v2)
 
 To determine whether the salt bucket ID for a specific raw UID2 has changed, follow these steps.
 

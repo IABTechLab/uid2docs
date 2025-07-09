@@ -26,11 +26,11 @@ The following documents were released in this quarter.
 
 <CustomTagsContainer tags="Guides, SDKs">
 
-### Identity Map V3
+### Identity Map v3
 
 July 11, 2025
 
-We've released a new version of the Identity Map API (V3) that provides significant improvements for advertisers and data providers. This update includes documentation for the [API endpoint](../endpoints/post-identity-map.md), the [Java SDK](../sdks/sdk-ref-java.md#usage-for-advertisersdata-providers) and the [integration guide](../guides/integration-advertiser-dataprovider-overview.md).
+We've released a new version of the Identity Map API (v3) that provides significant improvements for advertisers and data providers. This update includes documentation for the [API endpoint](../endpoints/post-identity-map.md), the [Java SDK](../sdks/sdk-ref-java.md#usage-for-advertisersdata-providers) and the [integration guide](../guides/integration-advertiser-dataprovider-overview.md).
 
 <!-- UID2-5558, UID2-5560, UID2-5559 -->
 
