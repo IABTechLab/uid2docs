@@ -2,7 +2,7 @@
 title: POST /identity/buckets
 description: ソルトバケットのローテーションをモニター。
 hide_table_of_contents: false
-sidebar_position: 07
+sidebar_position: 09
 ---
 
 import Link from '@docusaurus/Link';

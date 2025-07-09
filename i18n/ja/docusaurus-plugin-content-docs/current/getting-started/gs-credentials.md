@@ -22,7 +22,7 @@ UID2 の <a href="../overviews/participants-overview#uid2-external-participants"
 インテグレーション<Link href="../ref-info/glossary-uid#gl-environment">環境</Link> と本番環境の両方を使用している場合、それぞれの環境用に別々の認証情報が提供されます。詳細は [Getting Your Credentials](#getting-your-credentials) を参照してください。
 
 さらに、いくつかのケースでは、異なるシナリオに対して異なるセットの認証情報を持つことを勧めますが、必須ではありません。たとえば:
-- UID2 Token を生成する Publisher である場合([POST /token/generate](../endpoints/post-token-generate.md) または他の方法で)、または自分のために UID2 を生成/マッピングする場合([POST /identity/map](../endpoints/post-identity-map.md) を参照)、それぞれの活動に対して異なる認証情報を持つことがあります。
+- UID2 Token を生成する Publisher である場合([POST /token/generate](../endpoints/post-token-generate.md) または他の方法で)、または自分のために UID2 を生成/マッピングする場合([POST /identity/map (v2)](../endpoints/post-identity-map-v2.md) を参照)、それぞれの活動に対して異なる認証情報を持つことがあります。
 - 広告主の場合、広告主キーを使用して複数のサービスプロバイダが運用するシナリオで、各サービスプロバイダに対して異なる認証情報割り当てることができます。
 
 ## Getting Your Credentials

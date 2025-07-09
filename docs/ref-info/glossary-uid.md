@@ -90,6 +90,7 @@ import Link from '@docusaurus/Link';
 
 **R**
 <a href="#gl-raw-uid2">Raw UID2</a> | 
+<a href="#gl-refresh-timestamp">Refresh timestamp</a> | 
 <a href="#gl-refresh-token">Refresh token</a> 
 
 **S**
@@ -371,7 +372,7 @@ import Link from '@docusaurus/Link';
 <dl>
 
 <dt><MdxJumpAnchor id="gl-participant"><a href="#gl-participant">Participant</a></MdxJumpAnchor></dt>
-<dd>An entity that fulfils a key role in UID2. Participants include the following: Core Administrator, Operator, DSP, data provider, advertiser, publisher, consumer.</dd>
+<dd>An entity that fulfils a key role in UID2. Participants include the following: Core Administrator, Operator, DSP, data provider, advertiser, publisher, and consumer.</dd>
 <dd>For details, see <a href="../overviews/participants-overview">participants</a>.</dd>
 
 <dt><MdxJumpAnchor id="gl-private-operator"><a href="#gl-private-operator">Private Operator</a></MdxJumpAnchor></dt>
@@ -399,6 +400,10 @@ import Link from '@docusaurus/Link';
 <dd>An unencrypted alphanumeric identifier created through the UID2 APIs or SDKs with the user's <a href="#gl-dii">directly identifying information</a> (email address or phone number) as input. The raw UID2 is encrypted to create a <a href="#gl-uid2-token">UID2 token</a>. The raw UID2 is a unique value; no two raw UID2s are the same. Raw UID2s, and their associated UID2 tokens, are case sensitive.</dd>
 <dd>For details, see <a href="uid-identifier-types">UID2 Identifier Types</a>.</dd>
 
+<dt><MdxJumpAnchor id="gl-refresh-timestamp"><a href="#gl-refresh-timestamp">Refresh timestamp</a></MdxJumpAnchor></dt>
+<dd>In the context of mapping <a href="#gl-dii">DII</a> to raw UID2s, a refresh timestamp is a Unix timestamp (in seconds) returned in the <code>r</code> field of the <a href="../endpoints/post-identity-map">POST&nbsp;/identity/map</a> endpoint response. The raw UID2 is guaranteed to be valid until this timestamp. It is refreshed at some point after this time.</dd>
+<dd>Use the refresh timestamp to determine when to regenerate raw UID2s for your stored data. We recommend checking for refresh opportunities daily by comparing the current time with the stored refresh timestamps.</dd>
+
 <dt><MdxJumpAnchor id="gl-refresh-token"><a href="#gl-refresh-token">Refresh token</a></MdxJumpAnchor></dt>
 <dd>A refresh token is an opaque string that is issued along with the <a href="#gl-uid2-token">UID2 token</a>. It is used to refresh the UID2 token, which has a limited life.</dd>
 <dd>When the UID2 server receives the refresh token with a request for a new UID2 token, it checks for user opt-out. If the user has opted out of UID2, no new UID2 token is generated.</dd>
@@ -417,10 +422,12 @@ import Link from '@docusaurus/Link';
 <dt><MdxJumpAnchor id="gl-salt-bucket"><a href="#gl-salt-bucket">Salt bucket</a></MdxJumpAnchor></dt>
 <dd>A salt bucket is used to manage secret <a href="#gl-salt">salt</a> values, used to generate raw UID2s or UID2 tokens, over time. Each bucket contains a single current salt value, which remains active for approximately one year before being rotated to a new value. Buckets can be updated independently of one another.</dd>
 <dd>There are just over one million salt buckets, and each email address or phone number is assigned to a specific bucket in a deterministic manner. However, this assignment is not permanent; it might change when the bucket's current salt is rotated to a new value.</dd>
+<dd>In versions of the [POST /identity/map](../endpoints/post-identity-map.md) endpoint earlier than version 3, such as [POST /identity/map (v2)](../endpoints/post-identity-map.md), the endpoint returns <a href="#gl-salt-bucket-id">salt bucket IDs</a>. In v3 and later, salt bucket information is not needed.</dd>
 
 <dt><MdxJumpAnchor id="gl-salt-bucket-id"><a href="#gl-salt-bucket-id">Salt bucket ID</a></MdxJumpAnchor></dt>
 <dd>A salt bucket ID is a unique string of characters that identifies a specific <a href="#gl-salt-bucket">salt bucket</a>. The salt bucket ID can be used to check which salt buckets have recently had their salt values updated, indicating which emails or phone numbers need their raw UID2 values regenerated.</dd>
-<dd>For an example of a salt bucket ID, see the response to the `POST /identity/buckets` endpoint: <a href="../endpoints/post-identity-buckets#decrypted-json-response-format">Decrypted JSON Response Format</a>.</dd>
+<dd>In versions of the [POST /identity/map](../endpoints/post-identity-map.md) endpoint earlier than version 3, such as [POST /identity/map (v2)](../endpoints/post-identity-map.md), the endpoint returns salt bucket IDs. In v3 and later, salt bucket information is not needed.</dd>
+<dd>For an example of a salt bucket ID, see the response to the `POST /v2/identity/buckets` endpoint: <a href="../endpoints/post-identity-buckets#decrypted-json-response-format">Decrypted JSON Response Format</a>. If you're using `POST /v3/identity/map`, you don't need to use `POST /v2/identity/buckets` at all.</dd>
 
 <dt><MdxJumpAnchor id="gl-salted-hash"><a href="#gl-salted-hash">Salted hash</a></MdxJumpAnchor></dt>
 <dd>When a <a href="#gl-salt">salt</a> value is added to the input string before applying the <a href="#gl-hash">hash</a> function, the result is a salted hash. When the input value is salted before hashing, an attacker who has the hash cannot determine the input value by trying many possible inputs to arrive at the same output.</dd>
