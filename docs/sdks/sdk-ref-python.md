@@ -297,16 +297,26 @@ mixed_input = IdentityMapV3Input()
 mixed_response = client.generate_identity_map(mixed_input)
 ```
 
-### Migration From Earlier Identity Map Version
-The following sections provide information about the changes you'll need to make to upgrade from an earlier version of the SDK, that uses the `POST /v2/identity/map` endpoint, to the latest version, which uses the `POST /v3/identity/map` endpoint.
+## Migration From Version Using v2 Identity Map
 
-Improvements provided by the `POST /v3/identity/map` endpoint:
-- **Support for Multiple Identity Types**: Process emails and phone numbers in a single request
-- **Simpler refresh management**: Re-map on reaching refresh timestamps instead of monitoring salt buckets
-- **Previous raw UID2 availability**: You can see previous UID2 for 90 days after rotation
-- **Improved performance**: The new API uses significantly less bandwidth for the same amount of DII
+The following sections provide general information and guidance for migrating to the latest version of this SDK, which references `POST /identity/map` version 3, including:
 
-#### Upgrading Client Version
+- [Version 3 Improvements](#version-3-improvements)
+- [Upgrading Client Version](#upgrading-client-version)
+- [Updating DII Mapping](#updating-dii-mapping)
+
+### Version 3 Improvements
+
+The `POST /v3/identity/map` provides the following improvements over v2:
+
+- **Simplified Refresh Management**: You can monitor for UID2s reaching `refresh_from` timestamps instead of polling <Link href="../ref-info/glossary-uid#gl-salt-bucket-id">salt buckets</Link> for rotation.
+- **Previous UID2 Access**: You have access to previous raw UID2s for 90 days after rotation for campaign measurement.
+- **Single Endpoint**: You use only one endpoint, `/v3/identity/map`, instead of both `/v2/identity/map` and `/v2/identity/buckets`.
+- **Multiple Identity Types in One Request**: You can process both emails and phone numbers in a single request.
+- **Improved Performance**: The updated version uses significantly less bandwidth to process the same amount of DII.
+
+### Upgrading Client Version
+
 To upgrade your client to the latest version (version 3), follow these steps:
 
 1. **Update dependency version**:
@@ -328,8 +338,10 @@ To upgrade your client to the latest version (version 3), follow these steps:
    from uid2_client import IdentityMapV3Client, IdentityMapV3Input, IdentityMapV3Response, UnmappedIdentityReason
    ```
 
-#### Updating DII Mapping
+### Updating DII Mapping
+
 To update DII mapping from version 2 to version 3 of the `POST /identity/map` endpoint, follow these steps:
+
 1. **Update input construction**:
    ```py
    # Before

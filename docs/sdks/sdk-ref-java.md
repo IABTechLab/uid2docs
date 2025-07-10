@@ -337,7 +337,7 @@ If you're using server-side integration (see [Publisher Integration Guide, Serve
    HashMap<String, IdentityMapV3Response.UnmappedIdentity> unmappedIdentities = identityMapResponse.getUnmappedIdentities();
    ```
 
-5. Process the results. For successfully mapped identities:
+5. Process the results for successfully mapped identities:
    ```java
    IdentityMapV3Response.MappedIdentity mappedIdentity = mappedIdentities.get("user@example.com");
    if (mappedIdentity != null) {
