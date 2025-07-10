@@ -447,7 +447,7 @@ import com.uid2.client.UnmappedIdentityReason;
 
 ### Recommended Changes
 
-The following changes are **optional** but allow you to take advantage of new v3 features. The required changes above are sufficient for basic functionality, but these recommended changes enable improved capabilities.
+The following changes are **optional** but allow you to take advantage of new v3 features. The [required changes](#required-changes) are sufficient for basic functionality, but these recommended changes enable improved capabilities.
 
 1. **Mix identity types in a single request** - Process both email addresses and phone numbers together:
    ```java

@@ -142,7 +142,7 @@ All other steps (1, 3, 4, and 6) are the same as described in the v3 implementat
 
 ### Integration Diagram (v2)
 
-The following diagram outlines the v2 integration flow. Note that the differences are in Step 2 (storing salt bucket IDs) and Step 5 (monitoring salt bucket rotations):
+The following diagram outlines the v2 integration flow. Note that the differences are in Step 2 (storing salt bucket IDs) and Step 5 (monitoring salt bucket rotations).
 
 ![Advertiser Flow](images/advertiser-flow-endpoints-mermaid.png)
 
