@@ -268,7 +268,9 @@ To map DII to raw UID2s, follow these steps:
        reason = unmapped_identity.reason # OPTOUT, INVALID_IDENTIFIER, or UNKNOWN
    ```
 
->**Note:** The SDK automatically handles email normalization and hashing, ensuring that raw email addresses and phone numbers do not leave your server.
+:::note
+The SDK automatically handles email normalization and hashing, ensuring that raw email addresses and phone numbers do not leave your server.
+:::
 
 #### Usage Example
 
