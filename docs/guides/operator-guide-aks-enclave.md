@@ -276,7 +276,7 @@ az aks create \
     --resource-group ${RESOURCE_GROUP} \
     --name ${AKS_CLUSTER_NAME} \
     --location ${LOCATION} \
-    --kubernetes-version 1.29.13 \
+    --kubernetes-version 1.33 \
     --network-plugin azure \
     --network-policy calico \
     --vnet-subnet-id ${AKS_SUBNET_ID} \
@@ -292,6 +292,9 @@ az aks create \
     --nodepool-name oprnodepool \
     --os-sku Ubuntu
 ```
+:::note
+Make sure to use the latest supported `--kubernetes-version`, otherwise Long Term Support(LTS) is required to be enabled (See https://learn.microsoft.com/en-us/azure/aks/long-term-support).
+:::
 
 #### Get the Principal ID of the Managed Identity
 
@@ -376,22 +379,42 @@ After completing the previous steps, follow these steps to update placeholder va
 1. Get the managed identity ID by running the following:
 
    ```
-   MANAGED_IDENTITY_ID=$("az identity show --name "${MANAGED_IDENTITY}" --resource-group "${RESOURCE_GROUP}" --query id --output tsv")
+   MANAGED_IDENTITY_ID=$(az identity show --name "${MANAGED_IDENTITY}" --resource-group "${RESOURCE_GROUP}" --query id --output tsv)
    ```
 
 2. In the `operator.yaml` file, update `microsoft.containerinstance.virtualnode.identity` with the managed identity ID that was returned:
+
+   - For Linux, run:
 
    ```
    sed -i "s#IDENTITY_PLACEHOLDER#$MANAGED_IDENTITY_ID#g" "operator.yaml"
    ```
 
+   - For MacOS, run:
+
+   ```
+   sed -i '' "s#IDENTITY_PLACEHOLDER#$MANAGED_IDENTITY_ID#g" "operator.yaml"
+   ```
+
 3. Update the Vault Key and Secret names with the environment variables:
+
+   - For Linux, run:
+
 
    ```
    sed -i "s#VAULT_NAME_PLACEHOLDER#$KEYVAULT_NAME#g" "operator.yaml"
    sed -i "s#OPERATOR_KEY_SECRET_NAME_PLACEHOLDER#$KEYVAULT_SECRET_NAME#g" "operator.yaml"
    sed -i "s#DEPLOYMENT_ENVIRONMENT_PLACEHOLDER#$DEPLOYMENT_ENV#g" "operator.yaml"
    ```
+
+   - For MacOS, run:
+
+   ```
+   sed -i '' "s#VAULT_NAME_PLACEHOLDER#$KEYVAULT_NAME#g" "operator.yaml"
+   sed -i '' "s#OPERATOR_KEY_SECRET_NAME_PLACEHOLDER#$KEYVAULT_SECRET_NAME#g" "operator.yaml"
+   sed -i '' "s#DEPLOYMENT_ENVIRONMENT_PLACEHOLDER#$DEPLOYMENT_ENV#g" "operator.yaml"
+   ```
+
 
 #### Deploy Operator
 
