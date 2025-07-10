@@ -18,18 +18,6 @@ export const articleList: ArticleItem[] = [
     date: "September 21, 2022",
     locale: "en",
   },
-  {
-    title: "Narrative",
-    url: "https://www.prnewswire.com/news-releases/narrative-releases-software-to-enable-direct-integration-with-the-trade-desk-via-unified-id-2-0--301660341.html",
-    date: "October 27, 2022",
-    locale: "en",
-  },
-  {
-    title: "Drako",
-    url: "https://www.prnewswire.com/news-releases/drako-supports-unified-id-2-0-in-new-partnership-with-the-trade-desk-301680737.html",
-    date: "November 17, 2022",
-    locale: "en",
-  },
   // Article is now 404ing
   //{
   //   title: "Paramount",
@@ -37,12 +25,6 @@ export const articleList: ArticleItem[] = [
   //   date: "January 4, 2023",
   //   locale: "en",
   // },
-  {
-    title: "Rave",
-    url: "https://venturebeat.com/business/rave-supports-unified-id-2-0-in-new-partnership-with-the-trade-desk/",
-    date: "February 3, 2023",
-    locale: "en",
-  },
   {
     title: "NBCU",
     url: "https://www.thecurrent.com/nbcuniversal-unified-id-2-0-peacock",
@@ -77,12 +59,6 @@ export const articleList: ArticleItem[] = [
     title: "Dish Media",
     url: "https://www.prnewswire.com/news-releases/dish-media-adopts-unified-id-2-0--enhancing-first-party-data-audiences-for-advertisers-across-dish-tv-and-sling-tv-302047385.html",
     date: "January 30, 2024",
-    locale: "en",
-  },
-  {
-    title: "Times Internet",
-    url: "https://brandequity.economictimes.indiatimes.com/news/industry/times-internet-adopts-unified-id-2-0-spearheading-the-future-of-identity-solutions/107365806",
-    date: "February 5, 2024",
     locale: "en",
   },
   {
