@@ -447,46 +447,47 @@ import com.uid2.client.UnmappedIdentityReason;
 
 ### Recommended Changes
 
-1. **Update input construction**:
+The following changes are **optional** but allow you to take advantage of new v3 features. The required changes above are sufficient for basic functionality, but these recommended changes enable improved capabilities.
+
+1. **Mix identity types in a single request** - Process both email addresses and phone numbers together:
    ```java
-   // Before
+   // Before - single identity type only
    IdentityMapInput input = IdentityMapInput.fromEmails(Arrays.asList("user@example.com"));
    
-   // After - single identity type
-   IdentityMapV3Input input = IdentityMapV3Input.fromEmails(Arrays.asList("user@example.com"));
-   
-   // Alternatively - mix identity types (new capability)
+   // After - can mix identity types (new v3 capability)
    IdentityMapV3Input input = new IdentityMapV3Input()
        .withEmail("user@example.com")
-       .withPhone("+12345678901");
+       .withPhone("+12345678901")
+       .withHashedEmail("preHashedEmail")
+       .withHashedPhone("preHashedPhone");
    ```
 
-2. **Update response handling**:
+2. **Access previous UID2s** - Get both current and previous UID2s for 90-day measurement continuity:
    ```java
-   // Before
+   // Before - only current UID2 available
    IdentityMapResponse response = client.generateIdentityMap(input);
    MappedIdentity mapped = response.getMappedIdentities().get("user@example.com");
    String uid = mapped.getRawUid();
    
-   // After
+   // After - access to both current and previous UID2s
    IdentityMapV3Response response = client.generateIdentityMap(input);
    IdentityMapV3Response.MappedIdentity mapped = response.getMappedIdentities().get("user@example.com");
    String currentUid = mapped.getCurrentRawUid();
-   String previousUid = mapped.getPreviousRawUid();
+   String previousUid = mapped.getPreviousRawUid();  // Available for 90 days after rotation
    Instant refreshFrom = mapped.getRefreshFrom();
    ```
 
-3. **Update error handling**:
+3. **Use structured error reasons** - Get unmapped reasons as strongly-typed enums instead of strings:
    ```java
-   // Before
+   // Before - string-based error reasons
    IdentityMapResponse.UnmappedIdentity unmapped = identityMapResponse.getUnmappedIdentities().get("user@example.com");
    String reason = unmapped.getReason();
    
-   // After - structured error reasons
+   // After - structured enum-based error reasons
    IdentityMapV3Response.UnmappedIdentity unmapped = response.getUnmappedIdentities().get("user@example.com");
-   UnmappedIdentityReason reason = unmapped.getReason(); // Enum - OPTOUT, INVALID_IDENTIFIER, UNKNOWN
+   UnmappedIdentityReason reason = unmapped.getReason(); // Enum: OPTOUT, INVALID_IDENTIFIER, UNKNOWN
    
-   // Alternatively you can get reason as a string, values match the old ones
+   // Or continue using string reasons if preferred
    String rawReason = unmapped.getRawReason();
    ```
 
