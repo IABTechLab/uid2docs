@@ -221,17 +221,17 @@ If you're using server-side integration (see [Publisher Integration Guide, Serve
 
 The following instructions provide an example of how to map DII to raw UID2s using the latest version of the `POST /identity/map` endpoint.
 
-For the earlier version, see [Previous Version (V2 Identity Map)](#previous-version-v2-identity-map). For migration steps to the latest version, see [Migration From Earlier Identity Map Version](#migration-from-earlier-identity-map-version)
+For the earlier version, see [Previous Version (v2 Identity Map)](#previous-version-v2-identity-map). For migration steps to the latest version, see [Migration From Earlier Identity Map Version](#migration-from-earlier-identity-map-version)
 
 ### Map DII to Raw UID2s
 To map DII to raw UID2s, follow these steps:
 
-1. Create an IdentityMapV3Client as an instance variable:
+1. Create an `IdentityMapV3Client` as an instance variable:
    ```py
     identity_map_v3_client = IdentityMapV3Client(UID2_BASE_URL, UID2_API_KEY, UID2_SECRET_KEY)
    ```
 
-2. Create an IdentityMapV3Input object. You can use emails, phone numbers, or their hashed forms:
+2. Create an `IdentityMapV3Input` object. You can use emails, phone numbers, or their hashed forms:
    ```py
    input = IdentityMapV3Input.from_emails(["user@example.com", "user2@example.com"])
    ```
@@ -244,7 +244,7 @@ To map DII to raw UID2s, follow these steps:
           .with_hashed_phone("pre_hashed_phone")
       ```
 
-3. Call a function that takes the `input` and generates an IdentityMapV3Response object:
+3. Call a function that takes the `input` and generates an `IdentityMapV3Response` object:
    ```py
    identity_map_response = identity_map_v3_client.generate_identity_map(input)
    ```
@@ -369,14 +369,14 @@ To update DII mapping from version 2 to version 3 of the `POST /identity/map` en
    unmapped = response.unmapped_identities.get("user@example.com")
    reason = unmapped.reason # Enum - OPTOUT, INVALID_IDENTIFIER, UNKNOWN
 
-   # Alternatively, you can retrieve the reason as a string. Values match V2 unmapped values.
+   # Alternatively, you can retrieve the reason as a string. Values match v2 unmapped values.
    raw_reason = unmapped.raw_reason
    ```
 
-### Previous Version (V2 Identity Map)
+### Previous Version (v2 Identity Map)
 
 :::note
-The V2 Identity Map SDK is an earlier version maintained for backwards compatibility. Migrate to the current SDK for improved performance, multi-identity type support, and better UID2 rotation management.
+The v2 Identity Map SDK is an earlier version maintained for backwards compatibility. Migrate to the current SDK for improved performance, multi-identity type support, and better UID2 rotation management.
 
 New integrations should not use this version.
 
