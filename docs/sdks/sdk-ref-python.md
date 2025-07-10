@@ -20,7 +20,7 @@ This SDK simplifies integration with UID2 for any DSPs or UID2 sharers who are u
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | &#9989; | &#9989; | &#9989; | &#9989; | &#9989; | &#9989; | &#9989; |
 
-&ast;Only applicable to SDK versions referencing versions of the POST /identity/map endpoint prior to version 3.
+&ast;Only applicable to SDK versions referencing versions of the `POST /identity/map` endpoint prior to version 3.
 
 ## UID2 Account Setup
 
@@ -219,7 +219,7 @@ If you're using server-side integration (see [Publisher Integration Guide, Serve
 
 ## Usage for Advertisers/Data Providers
 
-The following instructions provide an example of how to map DII to raw UID2s using the latest version of the POST /identity/map endpoint.
+The following instructions provide an example of how to map DII to raw UID2s using the latest version of the `POST /identity/map` endpoint.
 
 For the earlier version, see [Previous Version (V2 Identity Map)](#previous-version-v2-identity-map). For migration steps to the latest version, see [Migration From Earlier Identity Map Version](#migration-from-earlier-identity-map-version)
 
@@ -298,15 +298,16 @@ mixed_response = client.generate_identity_map(mixed_input)
 ```
 
 ### Migration From Earlier Identity Map Version
-The following sections provide information about the changes you'll need to make to upgrade from an earlier version of the SDK, that uses the POST /v2/identity/map endpoint, to the latest version, which uses the POST /v3/identity/map endpoint.
+The following sections provide information about the changes you'll need to make to upgrade from an earlier version of the SDK, that uses the `POST /v2/identity/map` endpoint, to the latest version, which uses the `POST /v3/identity/map` endpoint.
 
-Improvements provided by the POST /v3/identity/map endpoint:
-- **Support for Multiple Identity Types**: Process emails and phones in a single request
+Improvements provided by the `POST /v3/identity/map` endpoint:
+- **Support for Multiple Identity Types**: Process emails and phone numbers in a single request
 - **Simpler refresh management**: Re-map on reaching refresh timestamps instead of monitoring salt buckets
 - **Previous raw UID2 availability**: You can see previous UID2 for 90 days after rotation
 - **Improved performance**: The new API uses significantly less bandwidth for the same amount of DII
 
-#### Required Changes
+#### Upgrading Client Version
+To upgrade your client to the latest version (version 3), follow these steps:
 
 1. **Update dependency version**:
    ```bash
@@ -327,8 +328,8 @@ Improvements provided by the POST /v3/identity/map endpoint:
    from uid2_client import IdentityMapV3Client, IdentityMapV3Input, IdentityMapV3Response, UnmappedIdentityReason
    ```
 
-#### Recommended Changes
-To migrate from version 2 to version 3 of the POST /identity/map endpoint, follow these steps:
+#### Updating DII Mapping
+To update DII mapping from version 2 to version 3 of the `POST /identity/map` endpoint, follow these steps:
 1. **Update input construction**:
    ```py
    # Before
@@ -375,12 +376,14 @@ To migrate from version 2 to version 3 of the POST /identity/map endpoint, follo
 ### Previous Version (V2 Identity Map)
 
 :::note
-The V2 Identity Map SDK is an older version maintained for backwards compatibility. Migrate to the current SDK for improved performance, multi-identity type support, and better UID2 rotation management.
+The V2 Identity Map SDK is an earlier version maintained for backwards compatibility. Migrate to the current SDK for improved performance, multi-identity type support, and better UID2 rotation management.
+
 New integrations should not use this version.
-See [Migration From Older Identity Map Version](#migration-from-older-identity-map-version) for instructions.
+
+For instructions, see [Migration From Earlier Identity Map Version](#migration-from-earlier-identity-map-version).
 :::
 
-To map email addresses, phone numbers, or their respective hashes to their raw UID2s and salt bucket IDs, follow these steps.
+To map email addresses, phone numbers, or their respective hashes to their raw UID2s and salt bucket IDs, if you're using an earlier SDK version that uses `POST /identity/map` version 2, follow these steps.
 
 1. Create an instance of `IdentityMapClient` as an instance variable.
    ```py
