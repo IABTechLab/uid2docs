@@ -221,9 +221,10 @@ If you're using server-side integration (see [Publisher Integration Guide, Serve
 
 The following instructions provide an example of how to map DII to raw UID2s using the latest version of the `POST /identity/map` endpoint.
 
-For the earlier version, see [Previous Version (v2 Identity Map)](#previous-version-v2-identity-map). For migration steps to the latest version, see [Migration From Earlier Identity Map Version](#migration-from-earlier-identity-map-version)
+For the earlier version, see [Previous Version (v2 Identity Map)](#previous-version-v2-identity-map). For migration steps to the latest version, see [Migration From Version Using v2 Identity Map](#migration-from-version-using-v2-identity-map).
 
 ### Map DII to Raw UID2s
+
 To map DII to raw UID2s, follow these steps:
 
 1. Create an `IdentityMapV3Client` as an instance variable:
@@ -268,6 +269,7 @@ To map DII to raw UID2s, follow these steps:
    ```
 
 >**Note:** The SDK automatically handles email normalization and hashing, ensuring that raw email addresses and phone numbers do not leave your server.
+
 #### Usage Example
 
 ```py
@@ -392,7 +394,7 @@ The v2 Identity Map SDK is an earlier version maintained for backwards compatibi
 
 New integrations should not use this version.
 
-For instructions, see [Migration From Earlier Identity Map Version](#migration-from-earlier-identity-map-version).
+For instructions, see [Migration From Version Using v2 Identity Map](#migration-from-version-using-v2-identity-map).
 :::
 
 To map email addresses, phone numbers, or their respective hashes to their raw UID2s and salt bucket IDs, if you're using an earlier SDK version that uses `POST /identity/map` version 2, follow these steps.
