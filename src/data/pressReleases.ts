@@ -116,12 +116,6 @@ export const articleList: ArticleItem[] = [
     locale: "en",
   },
   {
-    title: "Cint",
-    url: "https://www.cint.com/press-release/cint-looks-to-the-future-of-lucid-measurement-by-using-unified-id-2-0-for-advertisers-to-measure-brand-lift/",
-    date: "September 19, 2024",
-    locale: "en",
-  },
-  {
     title: "Deep Sync",
     url: "https://www.einpresswire.com/article/747835049/deep-sync-improves-customer-reach-with-enhanced-onboarding-solution-powered-by-unified-id-2-0",
     date: "September 30, 2024",
