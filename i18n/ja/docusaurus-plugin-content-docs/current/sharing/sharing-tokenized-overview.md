@@ -166,7 +166,7 @@ raw UID2 から始める場合は、次の手順に従ってください:
 <tr>
 <td>1</td>
 <td>user@example.com</td>
-<td>メールアドレス/電話番号を raw UID2 に変換する:<br/><a href="../endpoints/post-identity-map">POST&nbsp;/identity/map</a> endpoint</td>
+<td>メールアドレス/電話番号を raw UID2 に変換する:<br/><a href="../endpoints/post-identity-map-v2">POST&nbsp;/identity/map (v2)</a> endpoint</td>
 <td>K2jlbu2ldlpKL1z6n5bET7L3<br/>g0xfqmldZPDdPTktdRQ=</td>
 </tr>
 <tr>
