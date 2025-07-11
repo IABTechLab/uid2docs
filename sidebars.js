@@ -314,7 +314,7 @@ const fullSidebar = [
         type: 'doc',
         id: 'endpoints/summary-endpoints',
       },
-      collapsed: true,
+      collapsed: false,
       items: [
         'endpoints/post-token-generate',
         'endpoints/post-token-validate',

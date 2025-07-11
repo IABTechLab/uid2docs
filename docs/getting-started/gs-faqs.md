@@ -187,7 +187,7 @@ To determine whether to refresh a raw UID2:
 2. If the current time is greater than or equal to the refresh timestamp, regenerate the raw UID2 by calling the identity map endpoint again with the same <Link href="../ref-info/glossary-uid#gl-dii">DII</Link>.
 
 :::note
-We recommend checking for refresh opportunities daily. It is guaranteed that the raw UID2 won't refresh before the indicated timestamp. At some point after that time, the raw UID2 is refreshed.
+We recommend checking for refresh opportunities daily. It is guaranteed that the raw UID2 won't refresh before the indicated timestamp. At some point on or after that time, the raw UID2 is refreshed.
 :::
 
 #### How often should raw UID2s be refreshed for incremental updates?
@@ -196,7 +196,7 @@ The recommended cadence for updating audiences is daily.
 
 A raw UID2 for a specific user changes roughly once per year. The latest version of the [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) endpoint provides refresh timestamps that indicate a point after which each raw UID2 might refresh. We recommend checking these timestamps daily to ensure your raw UID2s remain current and valid for audience targeting.
 
-For  implementations that reference earlier versions of this endpoint (see [POST&nbsp;/identity/map v2](../endpoints/post-identity-map-v2.md)):
+For implementations that reference earlier versions of this endpoint (see [POST&nbsp;/identity/map v2](../endpoints/post-identity-map-v2.md)):
 
 Even though each <Link href="../ref-info/glossary-uid#gl-salt-bucket">salt bucket</Link> is updated roughly once a year, individual bucket updates are spread over the year. This means that about 1/365th of all buckets are rotated daily. If fidelity is critical, consider calling the [POST&nbsp;/identity/buckets](../endpoints/post-identity-buckets.md) endpoint more frequently; for example, hourly.
 

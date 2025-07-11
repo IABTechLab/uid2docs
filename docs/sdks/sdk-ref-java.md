@@ -341,7 +341,7 @@ If you're using server-side integration (see [Publisher Integration Guide, Serve
    ```java
    IdentityMapV3Response.MappedIdentity mappedIdentity = mappedIdentities.get("user@example.com");
    if (mappedIdentity != null) {
-       String currentUid = mappedIdentity.getCurrentRawUid();      // Current raw UID2
+       String currentUid = mappedIdentity.getCurrentRawUid();     // Current raw UID2
        String previousUid = mappedIdentity.getPreviousRawUid();   // Previous raw UID2 (nullable, only available for 90 days after rotation)
        Instant refreshFrom = mappedIdentity.getRefreshFrom();     // When to refresh this identity
    } else {
@@ -385,7 +385,7 @@ IdentityMapV3Input mixedInput = new IdentityMapV3Input()
 IdentityMapV3Response mixedResponse = client.generateIdentityMap(mixedInput);
 ```
 
-## Migration From Version Using V2 Identity Map
+## Migration From Version Using v2 Identity Map
 
 The following sections provide general information and guidance for migrating to the latest version of this SDK, which references `POST /identity/map` version 3, including:
 
@@ -395,17 +395,18 @@ The following sections provide general information and guidance for migrating to
 
 ### Version 3 Improvements
 
-Improvements provided by the new Identity Map version:
-- **Support for Multiple Identity Types**: Process emails and phones in a single request
-- **Simpler refresh management**: Re-map on reaching refresh timestamps instead of monitoring salt buckets
-- **Previous raw UID2 availability**: You can see previous UID2 for 90 days after rotation
-- **Improved performance**: The new API uses significantly less bandwidth for the same amount of DIIs
+Version 3 of the `POST /identity/map` endpoint includes the following improvements:
+
+- **Support for multiple identity types**: You can process both email addresses and phone numbers in a single request.
+- **Simpler refresh management**: You can just re-map any raw UID2 when it reaches the refresh timestamp, rather than monitoring salt buckets, which is a separate API call.
+- **Availability of previous raw UID2**: You can see the previous UID2 for 90 days after rotation.
+- **Improved performance**: The new API version uses significantly less bandwidth for the same amount of DII.
 
 ### Required Changes
 
 To upgrade, follow these steps:
 
-1. [Update dependency versionL](#1-update-dependency-version)
+1. [Update dependency version](#1-update-dependency-version)
 2. [Change client class](#2-change-client-class)
 3. [Update import statements](#3-update-import-statements)
 
@@ -446,54 +447,55 @@ import com.uid2.client.UnmappedIdentityReason;
 
 ### Recommended Changes
 
-1. **Update input construction**:
+The following changes are **optional** but allow you to take advantage of new v3 features. The [required changes](#required-changes) are sufficient for basic functionality, but these recommended changes enable improved capabilities.
+
+1. **Mix identity types in a single request** - Process both email addresses and phone numbers together:
    ```java
-   // Before
+   // Before - single identity type only
    IdentityMapInput input = IdentityMapInput.fromEmails(Arrays.asList("user@example.com"));
    
-   // After - single identity type
-   IdentityMapV3Input input = IdentityMapV3Input.fromEmails(Arrays.asList("user@example.com"));
-   
-   // Alternatively - mix identity types (new capability)
+   // After - can mix identity types (new v3 capability)
    IdentityMapV3Input input = new IdentityMapV3Input()
        .withEmail("user@example.com")
-       .withPhone("+12345678901");
+       .withPhone("+12345678901")
+       .withHashedEmail("preHashedEmail")
+       .withHashedPhone("preHashedPhone");
    ```
 
-2. **Update response handling**:
+2. **Access previous UID2s** - Get both current and previous UID2s for 90-day measurement continuity:
    ```java
-   // Before
+   // Before - only current UID2 available
    IdentityMapResponse response = client.generateIdentityMap(input);
    MappedIdentity mapped = response.getMappedIdentities().get("user@example.com");
    String uid = mapped.getRawUid();
    
-   // After
+   // After - access to both current and previous UID2s
    IdentityMapV3Response response = client.generateIdentityMap(input);
    IdentityMapV3Response.MappedIdentity mapped = response.getMappedIdentities().get("user@example.com");
    String currentUid = mapped.getCurrentRawUid();
-   String previousUid = mapped.getPreviousRawUid();
+   String previousUid = mapped.getPreviousRawUid();  // Available for 90 days after rotation
    Instant refreshFrom = mapped.getRefreshFrom();
    ```
 
-3. **Update error handling**:
+3. **Use structured error reasons** - Get unmapped reasons as strongly-typed enums instead of strings:
    ```java
-   // Before
+   // Before - string-based error reasons
    IdentityMapResponse.UnmappedIdentity unmapped = identityMapResponse.getUnmappedIdentities().get("user@example.com");
    String reason = unmapped.getReason();
    
-   // After - structured error reasons
+   // After - structured enum-based error reasons
    IdentityMapV3Response.UnmappedIdentity unmapped = response.getUnmappedIdentities().get("user@example.com");
-   UnmappedIdentityReason reason = unmapped.getReason(); // Enum - OPTOUT, INVALID_IDENTIFIER, UNKNOWN
+   UnmappedIdentityReason reason = unmapped.getReason(); // Enum: OPTOUT, INVALID_IDENTIFIER, UNKNOWN
    
-   // Alternatively you can get reason as a string, values match the old ones
+   // Or continue using string reasons if preferred
    String rawReason = unmapped.getRawReason();
    ```
 
-## Previous SDK Version (using POST /identity/map V2)
+## Previous SDK Version (using POST /identity/map v2)
 
 :::note
-An earlier version of the SDK for Java, which references the `POST /identity/map` V2 endpoint is also available, for backwards compatibility. Migrate to the current SDK for improved performance, multi-identity type support, and better UID rotation management. New integrations should not use this version. 
-For details, see [Migration From Version Using V2 Identity Map](#migration-from-version-using-v2-identity-map).
+An earlier version of the SDK for Java, which references the `POST /identity/map` v2 endpoint is also available, for backwards compatibility. Migrate to the current SDK for improved performance, multi-identity type support, and better UID rotation management. New integrations should not use this version. 
+For details, see [Migration From Version Using v2 Identity Map](#migration-from-version-using-v2-identity-map).
 :::
 
 To use the earlier version, follow these instructions.

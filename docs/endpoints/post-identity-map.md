@@ -174,7 +174,7 @@ For successfully mapped DII, the mapped object includes the properties shown in 
 | Property | Data Type  | Description                                                                                                                           |
 |:---------|:-----------|:--------------------------------------------------------------------------------------------------------------------------------------|
 | `u`      | string     | The raw UID2 corresponding to the email or phone number provided in the request.                                                                     |
-| `p`      | string     | One of the following:<ul><li>If the current raw UID2 has been rotated in the last 90 days: the previous value.</li><li>If the current raw UID2 is older than 90 days: `Null`.</li></ul> |
+| `p`      | string     | One of the following:<ul><li>If the current raw UID2 has been rotated in the last 90 days: the previous value.</li><li>If the current raw UID2 is older than 90 days: `null`.</li></ul> |
 | `r`      | number     | The Unix timestamp (in milliseconds) that indicates when the raw UID2 might be refreshed. The raw UID2 is guaranteed to be valid until this timestamp. |
 
 For unsuccessfully mapped input values, the mapped object includes the properties shown in the following table.
@@ -195,18 +195,18 @@ The following table lists the `status` property values and their HTTP status cod
 
 If the `status` value is anything other than `success`, the `message` field provides additional information about the issue.
 
-## Migration from V2 Identity Map
+## Migration from v2 Identity Map
 
 The following sections provide general information and guidance for migrating to version 3 from earlier versions, including:
 
 - [Version 3 Improvements](#version-3-improvements)
-- [Key Differences Between V2 and V3](#key-differences-between-v2-and-v3)
+- [Key Differences Between v2 and v3](#key-differences-between-v2-and-v3)
 - [Required Changes](#required-changes)
 - [Additional Resources](#additional-resources)
 
 ### Version 3 Improvements
 
-The V3 Identity Map API provides the following improvements over V2:
+The v3 Identity Map API provides the following improvements over v2:
 
 - **Simplified Refresh Management**: You can monitor for UID2s reaching `refresh_from` timestamps instead of polling <Link href="../ref-info/glossary-uid#gl-salt-bucket-id">salt buckets</Link> for rotation.
 - **Previous UID2 Access**: You have access to previous raw UID2s for 90 days after rotation for campaign measurement.
@@ -214,7 +214,7 @@ The V3 Identity Map API provides the following improvements over V2:
 - **Multiple Identity Types in One Request**: You can process both emails and phone numbers in a single request.
 - **Improved Performance**: The updated version uses significantly less bandwidth to process the same amount of DII.
 
-### Key Differences Between V2 and V3
+### Key Differences Between v2 and v3
 
 The following table shows key differences between the versions.
 
@@ -238,20 +238,20 @@ To upgrade from an earlier version to version 3, follow these steps:
 Update any reference to the endpoint URL so that it references the /v3/ implementation, as shown in the following example.
 
 ```python
-# Before (V2)
+# Before (v2)
 url = '/v2/identity/map'
 
-# After (V3) 
+# After (v3) 
 url = '/v3/identity/map'
 ```
 
-#### 2. Update V3 Response Parsing Logic
+#### 2. Update v3 Response Parsing Logic
 
 Update the logic for parsing the response, as shown in the following example.
 
 V2 Response Parsing:
 ```python
-# V2: Process mapped/unmapped objects with identifier lookup
+# v2: Process mapped/unmapped objects with identifier lookup
 for item in response['body']['mapped']:
     raw_uid = item['advertising_id']
     bucket_id = item['bucket_id']
@@ -262,7 +262,7 @@ for item in response['body']['mapped']:
 
 V3 Response Parsing:
 ```python
-# V3: Process array-indexed responses
+# v3: Process array-indexed responses
 for index, item in enumerate(response['body']['email']):
     original_email = request_emails[index]  # Use array index to correlate
     if 'u' in item:
