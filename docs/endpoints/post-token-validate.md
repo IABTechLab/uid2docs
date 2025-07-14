@@ -3,6 +3,7 @@ title: POST /token/validate
 description: Validates an advertising token (for testing purposes). 
 hide_table_of_contents: false
 sidebar_position: 03
+displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';

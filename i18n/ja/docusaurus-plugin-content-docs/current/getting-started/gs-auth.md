@@ -3,6 +3,7 @@ title: Authentication and Authorization
 description: UID2 エンドポイントの認証要件。
 hide_table_of_contents: false
 sidebar_position: 05
+displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';

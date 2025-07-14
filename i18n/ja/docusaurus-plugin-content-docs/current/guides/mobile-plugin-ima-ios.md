@@ -3,6 +3,7 @@ title: UID2 IMA Plugin for iOS
 description: iOS アプリの広告リクエストに IMA を使用するパブリッシャー向けのガイド。
 hide_table_of_contents: false
 sidebar_position: 15
+displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';

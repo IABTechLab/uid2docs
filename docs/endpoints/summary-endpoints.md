@@ -22,14 +22,32 @@ The following endpoints are for retrieving and managing UID2 tokens (identity to
 | [POST&nbsp;/token/validate](post-token-validate.md) | Used for testing, to validate that an advertising token (UID2) matches the specified email address, phone number, or the respective hash. | Required | Required |
 | [POST&nbsp;/token/refresh](post-token-refresh.md) | Generates a new token for a user for their refresh token from the [POST&nbsp;/token/generate](post-token-generate.md) response. | N/A | Required |
 
-## Identity Maps
+## Identity Map
 
 The following endpoints are used by advertisers and third-party data providers. Publishers do not need to use these endpoints.
+
+### Latest Identity Map Endpoint (v3)
+
+In the latest identity map integration, you only need to call one endpoint, `POST /identity/map`. The `POST /identity/buckets` endpoint is not part of the workflow.
+
+:::important
+If you're using the earlier version, we recommend that you upgrade as soon as possible, to take advantage of improvements.
+:::
+
+The latest identity map integration uses the following endpoint:
+
+| Endpoint | Description | Request Encryption | Response Decryption |
+| :--- | :--- | :--- | :--- |
+| [POST&nbsp;/identity/map](post-identity-map.md) | Maps raw UID2s, previous raw UID2s, and refresh timestamps for one or more email addresses, phone numbers, or their respective hashes.  | Required | Required |
+
+### Earlier Identity Map Endpoints (v2)
+
+The following endpoints are part of the earlier identity map integration (version 2).  
 
 | Endpoint | Description | Request Encryption | Response Decryption |
 | :--- | :--- | :--- | :--- |
 | [POST&nbsp;/identity/buckets](post-identity-buckets.md) | Monitors rotated salt buckets using their last updated timestamp. | Required | Required |
-| [POST&nbsp;/identity/map](post-identity-map.md) | Retrieves raw UID2s and salt bucket IDs for one or more email addresses, phone numbers, or their respective hashes.  | Required | Required |
+| [POST&nbsp;/identity/map (v2)](post-identity-map-v2.md) | Maps raw UID2s and salt bucket IDs for one or more email addresses, phone numbers, or their respective hashes.  | Required | Required |
 
 ## Opt-Out Status
 
@@ -39,4 +57,4 @@ For details about the UID2 opt-out workflow and how users can opt out, see [User
 
 | Endpoint | Description | Request Encryption | Response Decryption |
 | :--- | :--- | :--- | :--- |
-| [POST&nbsp;/optout/status](post-optout-status.md) | Checks the opt-out status of raw UID2s. This endpoint takes a list of raw UID2s as input, and returns the raw UID2s that have opted out, as well as the time that the opt-out took place.  | Required | Required |
+| [POST&nbsp;/optout/status](post-optout-status.md) | Checks the opt-out status of UID2s. This endpoint takes a list of UID2s as input, and returns the UID2s that have opted out, as well as the time that the opt-out took place.  | Required | Required |

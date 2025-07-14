@@ -3,11 +3,12 @@ title: Encryption and Decryption
 description: UID2 リクエストの暗号化とレスポンスの復号化に関する情報。
 hide_table_of_contents: false
 sidebar_position: 11
+displayed_sidebar: docs
 ---
 
+import Link from '@docusaurus/Link';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import Link from '@docusaurus/Link';
 import IdentityGenerateResponse from '../snippets/_example-identity-generate-response.mdx';
 
 # Encrypting Requests and Decrypting Responses

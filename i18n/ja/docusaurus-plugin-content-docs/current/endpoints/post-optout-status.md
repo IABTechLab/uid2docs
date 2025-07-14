@@ -3,6 +3,7 @@ title: POST /optout/status
 description: Raw UID2 のオプトアウトステータスをチェック。
 hide_table_of_contents: false
 sidebar_position: 03
+displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';

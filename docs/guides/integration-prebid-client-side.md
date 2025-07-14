@@ -5,6 +5,7 @@ pagination_label: UID2 Client-Side Integration for Prebid.js
 description: Information about setting up a client-side Prebid.js integration.
 hide_table_of_contents: false
 sidebar_position: 04
+displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';

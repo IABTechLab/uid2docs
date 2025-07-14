@@ -5,6 +5,7 @@ pagination_label: Publisher Integration Guide, Server-Side
 description: Information about generating identity tokens using UID2 for the RTB bidstream, with all integration activity on the server side.
 hide_table_of_contents: false
 sidebar_position: 03
+displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';
@@ -132,8 +133,8 @@ If the user logs out, do not use the UID2 token.
 
 A sample implementation is available for server-side integration. See:
 
-- [Server-Side UID2 Integration Example (sample implementation)](https://secure-signals-server-side-integ.uidapi.com/)
-- [Server-Side UID2 Integration Example (readme)](https://github.com/IABTechLab/uid2-examples/blob/main/publisher/server_only/README.md)
+- [Server-Only UID2 Integration Example](https://example-srvonly-integ.uidapi.com/login)
+- [Server-Only UID2 Integration Example (readme)](https://github.com/IABTechLab/uid2-examples/blob/main/publisher/server_only/README.md)
 
 ## FAQs
 

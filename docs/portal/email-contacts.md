@@ -3,6 +3,7 @@ title: Email Contacts
 description: Set up and manage contacts for UID2 updates.
 hide_table_of_contents: false
 sidebar_position: 09
+displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';

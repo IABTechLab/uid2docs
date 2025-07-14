@@ -1,0 +1,29 @@
+%%26/6/25: V3 API Update - Updated diagram to use V3 identity map API with refresh timestamps instead of salt bucket monitoring.
+
+  sequenceDiagram
+    participant ADP as Advertiser/Data Provider
+    participant UID as UID2 Operator
+    participant DSP
+    Note over ADP,DSP: 1. Generate raw UID2s from DII.
+        loop 
+    ADP->>UID: 1-a. Send a request containing DII using an SDK, Snowflake, AWS Entity Resolution, or HTTP endpoint.
+    UID->>ADP: 1-b. Receive the raw UID2 (u), refresh timestamp (r), and optionally previous UID2 (p).
+    end
+    Note over ADP,DSP: 2. Store raw UID2s and refresh timestamps.
+    Note over ADP,DSP: 3. Manipulate or combine raw UID2s.
+     Note over ADP,DSP: 4. Send raw UID2s to DSPs.
+    ADP-->>DSP: Send stored raw UID2s to DSPs to create audiences and conversions, or use them for measurement.
+    Note over ADP,DSP: 5. Monitor for raw UID2 refresh.
+    loop
+       ADP->>ADP: 5-a. Check current time against stored refresh timestamps.
+       ADP->>UID: 5-b. If refresh time reached, resend DII to get updated raw UID2.
+       UID->>ADP: 5-c. Store the new raw UID2, refresh timestamp, and optionally previous UID2.
+    end
+    Note over ADP,DSP: 6. Monitor for opt-out status. Remove all opt-outs from local storage and do not use.
+    loop
+       ADP->>UID: 6-a. Monitor for optout status using the POST optout/status endpoint.
+       UID->>ADP: 6-b. Return optout status.
+    end
+
+%% URL:
+%% https://mermaid.live/edit#pako:eNqNVF1v2kAQ_Cure0ok44DBhvghUhSiFlVpUElVqeLlYh9win3n3gcpjfLfu2sbCAlU9Yt9552d3dm5e2GZzgVLGYAVv7xQmRhLvjS8nCvAp-LGyUxWXDm4Hk-BW7jO1wI3rTAXY-44TI1ey1yYj4DvkzEB8BXBfSUMd_pI1Hg2bTa_aidAY3JiCnA7hV4In4QipADDn-tUFhZGlzCeTMIGR0-hdQXNEsGdqyuMRHiHhzATKgcOhtqzDjKtHJdKqiWlAG_piyuYjb8EMFP6eVHwJxHA9Y8Z3Con3Qa-CasL76RWAWgDnx8epoBJKy2Va2tAOiRFaiJ9DBGSCbkW4Fb7wuHMnwdYx8IIuwInSyyHlxWcGdzmWKSuiIMXxQYqI9ZS-1a8s-q85UHak2JF2Csq_FYpyvqB0IYnU_RDuONKVr4gxbHXTJePUr1JudX8CHjQar2nd5qmu8XQYFCkOrYOtFTtkXh6Z0ZQCdznkkzZtIKzQ0aLItl6Et7WCpewwEUpuPVGlGI3lCM1xtigVhKJa8xuNK1ILZDctPNW46d6tDH56WYlsifIvDHIVKsKfImOQm9tGzql-KE7YzLKZHEQjguerUROPrGkEXkU5VgKB77KUZK9Xvukb9wXd7KtDch7Sjzv4o9479---w_PJYd6YqaO9iQEd97SMSgxHjD19ld7egud8aLWiy9FXUSuQWlHIz09hFq2hIbwjnTP2R5o6n16P3tof160P9-d2kPpkubgOm_UYc69DixgSyNzljrjRcBKYUpOS_ZCIXNGZhRzluInVoYaz9lcvSIKb7qfWpdboNF-uWLpghcWV81g23t3t8u907ONyraYJuo2p753QaJe3jV3eH2V11wsfWG_WdrrdcM4GgyiYf8y6iXJsB-wDUsH_TiM40E0GiVRNIyTuP8asD91ed1wNLjsD7pJb5jEybA7HGGx2LgwN9orhyn7r38BOSL5zQ

@@ -5,6 +5,7 @@ pagination_label: UID2 Server-Side Integration Guide for Mobile
 description: Server-Sideでのトークン生成とリフレッシュを行うモバイルインテグレーションの設定
 hide_table_of_contents: false
 sidebar_position: 04
+displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';

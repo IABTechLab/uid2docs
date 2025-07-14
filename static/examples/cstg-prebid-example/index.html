@@ -109,6 +109,9 @@
     <h1>UID2 Prebid.js Client-Side Integration Example</h1>
     <p class="intro">
       This example demonstrates how a content publisher can integrate with UID2 and Prebid.js using the <a href="https://unifiedid.com/docs/guides/integration-prebid-client-side">UID2 Client-Side Integration Guide for Prebid.js</a>, which includes generating UID2 tokens within the browser.
+      <strong>Note:</strong> This is a <em>test-only</em> integration environment—not for production use.
+      It does not perform real user authentication or generate production-level tokens.
+      Do not use real user data on this page.
     </p>
     <table id="uid2_state">
       <tr>
@@ -133,11 +136,11 @@
           value="test@example.com"
         />
       </div>
-      <div><button type="button" class="button" id="login">Log In</button></div>
+      <div><button type="button" class="button" id="login">Generate UID2</button></div>
     </div>
     <div id="clear_storage_form" style="display: none" class="form">
       <form>
-        <button type="button" class="button" id="clear_storage">Clear Storage</button>
+        <button type="button" class="button" id="clear_storage">Clear UID2</button>
       </form>
     </div>
     </div>

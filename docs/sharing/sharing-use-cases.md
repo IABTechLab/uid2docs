@@ -3,6 +3,7 @@ title: Use Cases
 description: Use cases for sharing UID2s with other participants.
 hide_table_of_contents: false
 sidebar_position: 03
+displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';

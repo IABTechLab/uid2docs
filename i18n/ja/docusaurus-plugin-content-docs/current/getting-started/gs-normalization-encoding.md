@@ -3,6 +3,7 @@ title: Normalization and Encoding
 description: 情報を安全かつ解読できるように正規化し、符号化する方法。
 hide_table_of_contents: false
 sidebar_position: 13
+displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';

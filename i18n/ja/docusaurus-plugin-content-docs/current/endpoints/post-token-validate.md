@@ -3,6 +3,7 @@ title: POST /token/validate
 description: Advertising Token を検証(テスト目的)。
 hide_table_of_contents: false
 sidebar_position: 03
+displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';

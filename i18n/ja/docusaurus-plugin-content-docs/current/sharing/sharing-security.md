@@ -3,6 +3,7 @@ title: Security Requirements for UID2 Sharing
 description: 証、認可、アカウンティング、セキュアトランスポートなど、UID2セキュリティに関する情報。
 hide_table_of_contents: false
 sidebar_position: 03
+displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';

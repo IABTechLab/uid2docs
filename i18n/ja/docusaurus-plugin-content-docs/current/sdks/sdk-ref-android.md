@@ -3,6 +3,7 @@ title: SDK for Android
 description: Android SDK のリファレンス情報。
 hide_table_of_contents: false
 sidebar_position: 12
+displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';

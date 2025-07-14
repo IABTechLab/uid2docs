@@ -3,6 +3,7 @@ title: Integration Approaches
 description: UID2 インテグレーションに利用可能なアプローチに関する情報。
 hide_table_of_contents: false
 sidebar_position: 06
+displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';

@@ -3,6 +3,7 @@ title: SDK for C# / .NET
 description: Reference information about the C# / .NET server-side SDK.
 hide_table_of_contents: false
 sidebar_position: 08
+displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';

@@ -3,6 +3,7 @@ title: POST /optout/status
 description: Checks the opt-out status of raw UID2s.
 hide_table_of_contents: false
 sidebar_position: 03
+displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';

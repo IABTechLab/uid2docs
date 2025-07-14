@@ -3,6 +3,7 @@ title: POST /token/generate
 description: DII から UID2 Token (Advertising Token) を生成。 
 hide_table_of_contents: false
 sidebar_position: 02
+displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';

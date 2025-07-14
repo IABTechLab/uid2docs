@@ -3,6 +3,7 @@ title: UID2 API v2 Documentation
 description: Summary of information for getting started with the UID2 API v2.
 hide_table_of_contents: false
 sidebar_position: 06
+displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';

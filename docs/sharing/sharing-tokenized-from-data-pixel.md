@@ -3,6 +3,7 @@ title: Tokenized Sharing in Pixels
 description: Learn about sharing UID2 tokens in pixels.
 hide_table_of_contents: false
 sidebar_position: 08
+displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';

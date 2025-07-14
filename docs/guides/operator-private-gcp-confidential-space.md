@@ -5,10 +5,11 @@ pagination_label: UID2 Private Operator for GCP Integration Guide
 description: Integration information for Private Operator in GCP.
 hide_table_of_contents: false
 sidebar_position: 18
+displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';
-import ReleaseMatrix from '../snippets/_private-operator-release-matrix.mdx';
+import UpgradePolicy from '../snippets/_private-operator-upgrade-policy.mdx';
 
 # UID2 Private Operator for GCP Integration Guide
 
@@ -25,6 +26,22 @@ The Operator Service runs in a Confidential Space "workload"&#8212;a containeriz
 When the Docker container for the UID2 Operator Confidential Space starts up, it completes the attestation process that allows the UID2 Core Service to verify the authenticity of the Operator Service and the enclave environment that the Operator Service is running in.
 
 When the attestation is successful, the UID2 Core Service provides seed information such as salts and keys to bootstrap the UID2 Operator in the secure Confidential Space container.
+
+## Operator Version
+
+The latest ZIP file is linked in the GCP Download column in the following table.
+
+| Version Name | Version&nbsp;#/Release&nbsp;Notes | GCP Download |  Date | Deprecation Date |
+| ------- | ------ | ------ | ------ | ------ |
+| Q2 2025 | [v5.55.9](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.55.9-r1) | [gcp-oidc-deployment-files-5.55.9-r1.zip](https://github.com/IABTechLab/uid2-operator/releases/download/v5.55.9-r1/gcp-oidc-deployment-files-5.55.9-r1.zip) | July 1, 2025 | July 1, 2026 | 
+
+:::note
+For information about supported versions and deprecation dates, see [Private Operator Versions](../ref-info/deprecation-schedule.md#private-operator-versions).
+:::
+
+## Private Operator Upgrade Policy
+
+<UpgradePolicy />
 
 ## Setup Overview
 
@@ -86,12 +103,6 @@ When the registration process is complete, you'll receive the following:
 When UID2 account registration is complete, and you've installed the gcloud CLI, your next steps are:
 -  Review information about [deployment environments](#deployment-environments).
 -  Review information about the [deployment options](#deployment-options) available, including the benefits of each, and decide which to use.
-
-### Operator Versions
-
-The latest ZIP file is linked in the GCP Download column in the following table.
-
-<ReleaseMatrix />
 
 ## Deployment Environments
 
@@ -175,7 +186,7 @@ Install Terraform if it is not already installed: visit [terraform.io](https://w
 
 #### Download the Template Files
 
-Download the ZIP file listed in [Operator Versions](#operator-versions) in the GCP Download column. Be sure to select the latest version. Unzip the files to a convenient location. You will have the files listed in the following table.
+Download the ZIP file listed in [Operator Version](#operator-version) in the GCP Download column. Be sure to select the latest version. Unzip the files to a convenient location. You will have the files listed in the following table.
 
 | File | Details |
 | :--- | :--- |
@@ -401,7 +412,7 @@ Placeholder values are defined in the following table.
 | `{ZONE}` | The Google Cloud zone that the VM instance will be deployed on. |
 | `{IMAGE_FAMILY}` | Use `confidential-space` for Integration and Production, `confidential-space-debug` for debugging purposes in Integration only. Note that `confidential-space-debug` will not work in Production. |
 | `{SERVICE_ACCOUNT}` | The service account email that you created as part of creating your account, in this format: `{SERVICE_ACCOUNT_NAME}@{PROJECT_ID}.iam.gserviceaccount.com`.<br/>For details, see [Set Up Service Account Rules and Permissions](#set-up-service-account-rules-and-permissions) (Step 4). |
-| `{OPERATOR_IMAGE}` | The Docker image URL for the UID2 Private Operator for GCP, used in configuration.<br/>This can be found in the `terraform.tfvars` file in the GCP download file (see [Operator Versions](#operator-versions)). |
+| `{OPERATOR_IMAGE}` | The Docker image URL for the UID2 Private Operator for GCP, used in configuration.<br/>This can be found in the `terraform.tfvars` file in the GCP download file (see [Operator Version](#operator-version)). |
 | `{OPERATOR_KEY_SECRET_FULL_NAME}` | The full name that you specified for the Operator Key secret (see [Create Secret for the Operator Key in Secret Manager](#create-secret-for-the-operator-key-in-secret-manager)), including the path, in the format `projects/<project_id>/secrets/<secret_id>/versions/<version>`. For example: `projects/111111111111/secrets/uid2-operator-operator-key-secret-integ/versions/1`. |
 
 ##### Sample Deployment Script&#8212;Integ

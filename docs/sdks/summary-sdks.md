@@ -18,7 +18,7 @@ Review the SDK functionality to determine which SDK or SDKs you want to use, the
 
 The following table summarizes the functionality available with each SDK.
 
-| UID2 SDK for... | Client-Side or Server-Side | Encrypt Raw UID2 to UID2 Token for Sharing | Decrypt UID2 Token to Raw UID2 | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to Raw UID2s&ast; | Monitor Rotated Salt Buckets      |
+| UID2 SDK for... | Client-Side or Server-Side | Encrypt Raw UID2 to UID2 Token for Sharing | Decrypt UID2 Token to Raw UID2 | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to Raw UID2s&ast; | Monitor Rotated Salt Buckets&ast;&ast;     |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 |JavaScript | Client | &#8212; | &#8212; | &#9989; | &#9989; | &#8212; | &#8212; |
 |Java | Server | &#9989; | &#9989; | &#9989; | &#9989; | &#9989; | &#8212; |
@@ -28,7 +28,9 @@ The following table summarizes the functionality available with each SDK.
 |Android | Client&nbsp;(Mobile) | &#8212; | &#8212; | &#9989; | &#9989; | &#8212; | &#8212; |
 |iOS | Client (Mobile) | &#8212; | &#8212; | &#9989;| &#9989; |&#8212; | &#8212; |
 
-&ast;Advertisers and Data Providers who need to generate raw UID2s from DII can also do this via Snowflake (see [Snowflake Integration Guide](../guides/integration-snowflake.md)) or by using the [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) endpoint.
+&ast; Advertisers and Data Providers who need to generate raw UID2s from DII can also do this via Snowflake (see [Snowflake Integration Guide](../guides/integration-snowflake.md)) or by using the [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) endpoint.
+
+&ast;&ast; Monitoring rotated salt buckets is not necessary for implementations using the latest version of the [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) endpoint.
 
 <!-- &#9989; = Supported | &#8212; = Not Supported -->
 

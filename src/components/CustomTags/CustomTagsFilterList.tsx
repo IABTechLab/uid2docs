@@ -18,14 +18,14 @@ export function CustomTagsFilterList({
   if (tags.length < 1) return null;
 
   const onClickFilter = (update: string) => {
-    if (filter === update) update = undefined; // toggle off
+    if (filter === update) update = "All"; // toggle off
 
     setState((state) => ({ ...state, filter: update }));
 
     const article = document.querySelector("article");
 
     if (article) {
-      article.classList[update ? "add" : "remove"](
+      article.classList[update !== "All" && update ? "add" : "remove"](
         styles["custom-tag-toggled"],
       );
     }

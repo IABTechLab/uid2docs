@@ -3,6 +3,7 @@ title: SDK for Java
 description: Java Server-Side SDK のリファレンス情報。
 hide_table_of_contents: false
 sidebar_position: 04
+displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';

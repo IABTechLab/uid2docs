@@ -5,6 +5,7 @@ pagination_label: AWS Entity Resolution
 description: Information about integrating with AWS Entity Resolution.
 hide_table_of_contents: false
 sidebar_position: 04
+displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';

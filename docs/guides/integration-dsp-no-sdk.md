@@ -4,6 +4,7 @@ sidebar_label: DSP Direct Integration Instructions
 description: Information for DSPs who are integrating with UID2 without using SDKs.
 hide_table_of_contents: false
 sidebar_position: 05
+displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';

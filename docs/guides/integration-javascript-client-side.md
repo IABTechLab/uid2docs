@@ -5,11 +5,12 @@ pagination_label: Client-Side Integration Guide for JavaScript
 description: Information about using the SDK for JavaScript in your client-side integration.
 hide_table_of_contents: false
 sidebar_position: 04
+displayed_sidebar: docs
 ---
 
+import Link from '@docusaurus/Link';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import Link from '@docusaurus/Link';
 import IntegratingWithSSO from '../snippets/_integrating-with-sso.mdx';
 
 # Client-Side Integration Guide for JavaScript

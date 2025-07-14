@@ -3,6 +3,7 @@ title: Security Requirements for UID2 Sharing
 description: Information about UID2 security.
 hide_table_of_contents: false
 sidebar_position: 03
+displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';
