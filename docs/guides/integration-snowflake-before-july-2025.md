@@ -43,7 +43,7 @@ If you're a publisher who is sharing UID2 tokens in the <Link href="../ref-info/
 
 ## Changes from Previous Version
 
-The February, 2025 update to the UID2 Snowflake Marketplace integration includes updates and enhancements. One key change is that it includes a single listing and data share that combines the capabilities of the two previous data shares, one for Advertisers and one for Data Providers. This simplifies the integration for all participants.
+The February 2025 update to the UID2 Snowflake Marketplace integration includes updates and enhancements. One key change is that it includes a single listing and data share that combines the capabilities of the two previous data shares, one for Advertisers and one for Data Providers. This simplifies the integration for all participants.
 
 :::note
 These changes assume that your code integration uses the version of Snowflake functions published before February 2025: see [Snowflake Integration Guide (Version Prior to February 2025)](integration-snowflake-before-february-2025.md). If you're using an even earlier version, that uses the `FN_T_UID2_IDENTITY_MAP_EMAIL` and `FN_T_UID2_IDENTITY_MAP_EMAIL_HASH` functions, you could follow the instructions in the [Migration Guide section in the earlier guide](integration-snowflake-before-february-2025.md#migration-guide), and then upgrade again to the current version. However, in this scenario we recommend that you just follow the instructions in this guide and upgrade in one step. For details, see [Migration Guide](#migration-guide).

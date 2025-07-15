@@ -43,25 +43,25 @@ If you're a publisher who is sharing UID2 tokens in the <Link href="../ref-info/
 
 ## Changes from Previous Version
 
-The February, 2025 update to the UID2 Snowflake Marketplace integration includes updates and enhancements. One key change is that it includes a single listing and data share that combines the capabilities of the two previous data shares, one for Advertisers and one for Data Providers. This simplifies the integration for all participants.
+The July 2025 update to the UID2 Snowflake Marketplace integration introduces a new identity mapping function that simplifies UID2 refresh management and accessing previous raw UID2s for 90 days after rotation.
 
 :::note
-These changes assume that your code integration uses the version of Snowflake functions published before February 2025: see [Snowflake Integration Guide (Version Prior to February 2025)](integration-snowflake-before-february-2025.md). If you're using an even earlier version, that uses the `FN_T_UID2_IDENTITY_MAP_EMAIL` and `FN_T_UID2_IDENTITY_MAP_EMAIL_HASH` functions, you could follow the instructions in the [Migration Guide section in the earlier guide](integration-snowflake-before-february-2025.md#migration-guide), and then upgrade again to the current version. However, in this scenario we recommend that you just follow the instructions in this guide and upgrade in one step. For details, see [Migration Guide](#migration-guide).
+These changes assume that your code integration uses the version of Snowflake functions published before July 2025: see [Snowflake Integration Guide (Version Prior to July 2025)](integration-snowflake-before-july-2025.md). For details on migrating to this version, see [Migration Guide](#migration-guide).
 :::
 
-The following table shows details of the changes to the Snowflake functions, from the previous version.
+The following table shows the differences between the old and new identity mapping functions.
 
-| Old function | New function | Fields in old function | Fields in new function | Comments |
+| Function | Version | Return Fields | Key Differences | Comments |
 | :-- | :-- | :-- | :-- | :-- |
-| `FN_T_UID2_IDENTITY_MAP` | `FN_T_IDENTITY_MAP` | `UID2` | `UID` | For details, see [Map DII](#map-dii).|
-| `FN_T_UID2_ENCRYPT` | `FN_T_ENCRYPT` | `UID2_TOKEN` | `UID_TOKEN` | For details, see [Encrypt Tokens](#encrypt-tokens).|
-| `FN_T_UID2_DECRYPT` | `FN_T_DECRYPT` | `UID2_TOKEN` | `UID_TOKEN` | For details, see [Decrypt Tokens](#decrypt-tokens).|
+| `FN_T_IDENTITY_MAP` | Previous | `UID`, `BUCKET_ID`, `UNMAPPED` | Basic identity mapping with salt bucket tracking | Legacy function using salt bucket monitoring for refresh management. For details, see [Snowflake Integration Guide (Version Prior to July 2025)](integration-snowflake-before-july-2025.md).|
+| `FN_T_IDENTITY_MAP_V3` | Current | `UID`, `PREV_UID`, `REFRESH_FROM`, `UNMAPPED` | Enhanced with previous UID2 access and refresh timestamps | Returns previous UID2 for 90 days after rotation and uses refresh timestamps instead of salt bucket monitoring. For details, see [Map DII](#map-dii).|
 
-The following table shows details of the changes to the Snowflake views, from the previous version.
+### Key Benefits
 
-| Old view | New view | Comments |
-| :-- | :-- | :-- |
-| `UID2_SALT_BUCKETS` | `SALT_BUCKETS` | For details, see [Monitor for Salt Bucket Rotation and Regenerate Raw UID2s](#monitor-for-salt-bucket-rotation-and-regenerate-raw-uid2s). |
+This update provides two major benefits:
+
+- **Simplified Refresh Management**: You can monitor for UID2s reaching `REFRESH_FROM` timestamps instead of polling <Link href="../ref-info/glossary-uid#gl-salt-bucket-id">salt buckets</Link> for rotation.
+- **Previous UID2 Access**: You have access to previous raw UID2s for 90 days after rotation for campaign measurement.
 
 ## Workflow Diagram
 
