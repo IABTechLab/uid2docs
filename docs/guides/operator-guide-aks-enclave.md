@@ -278,7 +278,7 @@ az aks create \
     --os-sku Ubuntu
 ```
 :::note
-Make sure to use the latest supported `--kubernetes-version`, otherwise Long Term Support(LTS) is required to be enabled (See https://learn.microsoft.com/en-us/azure/aks/long-term-support).
+Be sure to use the latest supported Kubernetes version, using the --kubernetes-version flag. If you use an earlier version, you must enable Long Term Support (LTS). For details, see Long-term support for [Azure Kubernetes Service (AKS) versions](https://learn.microsoft.com/en-us/azure/aks/long-term-support).
 :::
 
 #### Get the Principal ID of the Managed Identity
