@@ -91,6 +91,7 @@ import MdxJumpAnchor from '@site/src/components/MdxJumpAnchor';
 
 **R**
 <a href="#gl-raw-uid2">Raw UID2</a> | 
+<a href="#gl-refresh-timestamp">Refresh timestamp</a> | 
 <a href="#gl-refresh-token">Refresh token</a> 
 
 **S**
@@ -400,6 +401,10 @@ import MdxJumpAnchor from '@site/src/components/MdxJumpAnchor';
 <dd>UID2 API または SDK を通じて、ユーザーの <a href="#gl-dii">directly identifying information</a> (メールアドレスまたは電話番号) を入力として作成される、暗号化されていない英数字の識別子。raw UID2 を暗号化して UID2 Token を作成します。raw UID2 は一意な値であり、同じ UID2 は2つとありません。raw  UID2 とそれに関連付けられた UID2 Token は、大文字と小文字を区別します。</dd>
 <dd>詳細は <a href="uid-identifier-types">UID2 Identifier Types</a> を参照してください。</dd>
 
+<dt><MdxJumpAnchor id="gl-refresh-timestamp"><a href="#gl-refresh-timestamp">Refresh timestamp</a></MdxJumpAnchor></dt>
+<dd><a hred="#gl-dii">DII</a> を raw UID2 にマッピングする場合、リフレッシュタイムスタンプは、<a href="../endpoints/post-identity-map">POST&nbsp;/identity/map</a> エンドポイントのレスポンスの <code>r</code> フィールドで返される Unix タイムスタン (秒単位) です。raw UID2 は、このタイムスタンプまで有効であり、その後にリフレッシュされます。</dd>
+<dd>リフレッシュタイムスタンプを使用して、保存されたデータの raw UID2 をいつ再生成するかを判断します。現在の時刻と保存されたリフレッシュタイムスタンプを比較して、毎日リフレッシュの機会を確認することを勧めます。</dd>
+
 <dt><MdxJumpAnchor id="gl-refresh-token">Refresh Token</MdxJumpAnchor></dt>
 <dd>Refresh tokenは、<a href="#gl-uid2-token">UID2 Token</a>とともに発行される不透明な文字列です。<a href="#gl-uid2-token">UID2 token</a> の有効期限を更新するために使用されます。</dd>
 <dd>UID2 Server は、新しい UID2 Token のリクエストとともに Refresh Token を受け取ると、ユーザーの Opt-Out をチェックします。ユーザーが UID2 を Opt-Out している場合、新しい UID2 Token は生成されません。</dd>
@@ -418,10 +423,12 @@ import MdxJumpAnchor from '@site/src/components/MdxJumpAnchor';
 <dt><MdxJumpAnchor id="gl-salt-bucket"><a href="#gl-salt-bucket">Salt bucket</a></MdxJumpAnchor></dt>
 <dd>ソルトバケットは、raw UID2 や UID2 Token を生成するために使用される秘密の <a href="#gl-salt">salt</a> の値を長期間管理するために使用されます。各バケットには、約1年間有効な現在のソルト値が含まれており、新しい値にローテーションされる前に更新されます。バケットは互いに独立して更新できます。</dd>
 <dd>ソルトバケットは、100万以上あり、各メールアドレスまたは電話番号は、特定のバケットに決定論的に割り当てられます。ただし、この割り当ては永続的ではなく、バケットの現在のソルトが新しい値にローテーションされると変更される可能性があります。</dd>
+<dd>[POST /identity/map](../endpoints/post-identity-map.md) エンドポイントのバージョン3以前では、ソルトバケットは <a href="#gl-salt-bucket-id">ソルトバケット ID</a> を使用して識別されます。バージョン3以降では、ソルトバケット情報は必要ありません。</dd>
 
 <dt><MdxJumpAnchor id="gl-salt-bucket-id"><a href="#gl-salt-bucket-id">Salt bucket ID</a></MdxJumpAnchor></dt>
 <dd>ソルトバケット ID は、特定の <a href="#gl-salt-bucket">ソルトバケット</a> を識別する一意の文字列です。ソルトバケット ID を使用すると、最近、ソルト値が更新されたソルトバケットを確認し、どのメールアドレスまたは電話番号が raw UID2 値を再生成する必要があるかを確認できます。</dd>
-<dd>ソルトバケット ID の例については、`POST /identity/buckets` エンドポイントのレスポンスを参照してください: <a href="../endpoints/post-identity-buckets#decrypted-json-response-format">Decrypted JSON Response Format</a>。</dd>
+<dd>[POST /identity/map](../endpoints/post-identity-map.md) エンドポイントのバージョン3以前、たとえば [POST /identity/map (v2)](../endpoints/post-identity-map-v2.md) では、エンドポイントはソルトバケット ID を返します。バージョン3以降では、ソルトバケット情報は必要ありません。</dd>
+<dd>ソルトバケット ID の例は、[POST /v2/identity/buckets](../endpoints/post-identity-buckets.md) エンドポイントのレスポンスを参照してください: <a href="../endpoints/post-identity-buckets#decrypted-json-response-format">Decrypted JSON Response Format</a>。`POST /v3/identity/map` を使用している場合、`POST /v2/identity/buckets` を使用する必要はありません。</dd>
 
 <dt><MdxJumpAnchor id="gl-salted-hash">Salted hash</MdxJumpAnchor></dt>
 <dd><a href="#gl-hash">hash</a> 関数を適用する前に入力文字列に <a href="#gl-salt">salt</a> 値を追加すると、結果はソルトハッシュとなります。入力値がハッシュ化される前にソルト化されると、ハッシュを持つ攻撃者は、同じ出力に到達するために多くの可能な入力を試して入力値を決定することができなくなります。</dd>
