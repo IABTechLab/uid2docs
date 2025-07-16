@@ -38,7 +38,7 @@ We've released a new version of the Identity Map API (v3) that provides signific
 
 ## Q1 2025
 
-The following documents were released in this quarter.
+The following documents were released in the first quarter of 2025.
 
 <CustomTagsContainer tags="Guides, Private Operator">
 
