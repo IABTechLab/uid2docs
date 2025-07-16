@@ -80,6 +80,7 @@ You will need to provide the values necessary for the SDK to authenticate with t
 ## Interface 
 
 The `BidstreamClient` class allows you to decrypt UID2 tokens into raw UID2s.
+
 For details on the bidding logic for handling user opt-outs, see [DSP Integration Guide](../guides/dsp-guide.md).
 
 The `SharingClient` class allows you to encrypt raw UID2s into UID2 tokens and decrypt UID2 tokens into raw UID2s.
@@ -304,9 +305,9 @@ client.refresh()
 ```
 
 3. Decrypt a token into a raw UID2. Pass the token, and then do one of the following:
-* If the bid request originated from a publisher's website, pass the domain name. The domain name must be all lower case, without spaces and without subdomain. For example, for `Subdomain.DOMAIN.com`, pass `domain.com` instead.
-* If the bid request originated from a mobile app, pass the <Link href="../ref-info/glossary-uid#gl-app-name">app name</Link>.
-* Otherwise, pass `null`.
+   * If the bid request originated from a publisher's website, pass the domain name. The domain name must be all lower case, without spaces and without subdomain. For example, for `Subdomain.DOMAIN.com`, pass `domain.com` instead.
+   * If the bid request originated from a mobile app, pass the <Link href="../ref-info/glossary-uid#gl-app-name">app name</Link>.
+   * Otherwise, pass `null`.
 
 ```py
 decrypted = client.decrypt_token_into_raw_uid(uid_token, domainOrAppName)
@@ -385,7 +386,3 @@ You can run unit tests from command line or use your favorite Python IDE (exampl
 ```py
 python3 -m unittest discover -s ./tests/
 ```
-
-## FAQs
-
-For a list of frequently asked questions for DSPs, see [FAQs for DSPs](../getting-started/gs-faqs.md#faqs-for-dsps).
