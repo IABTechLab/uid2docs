@@ -1,0 +1,18 @@
+# Environment variables
+.env
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Virtual environments (legacy and uv)
+venv/
+.venv/
+
+# uv lock file
+uv.lock
+
+# Database files
+*.db
+
+.idea
