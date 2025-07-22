@@ -175,7 +175,7 @@ Here are some frequently asked questions for advertisers and data providers usin
 - [Does the same DII always result in the same raw UID2?](#does-the-same-dii-always-result-in-the-same-raw-uid2)
 - [If two operators process the same DII, are the results the same?](#if-two-operators-process-the-same-dii-are-the-results-the-same)
 - [How do I know when to refresh the UID2 due to salt bucket rotation?](#how-do-i-know-when-to-refresh-the-uid2-due-to-salt-bucket-rotation)
-- [Do refreshed emails get assigned to the same bucket with which they were previously associated?](#do-refreshed-emails-get-assigned-to-the-same-bucket-with-which-they-were-previously-associated)
+- [Do refreshed emails get assigned to the same bucket that they were previously associated with?](#do-refreshed-emails-get-assigned-to-the-same-bucket-that-they-were-previously-associated-with)
 
 #### How do I know when to refresh a raw UID2?
 
@@ -246,7 +246,7 @@ Metadata supplied with the UID2 generation request indicates the <Link href="../
 We do not make any promises about when the rotation takes place. To stay as up-to-date as possible, we recommend doing the checks once per hour.
 :::
 
-#### Do refreshed emails get assigned to the same bucket with which they were previously associated?
+#### Do refreshed emails get assigned to the same bucket that they were previously associated with?
 
 Not necessarily. After you remap emails associated with a particular bucket ID, the emails might be assigned to a different bucket ID. To check the bucket ID, see [Generate Raw UID2s from DII](../guides/integration-advertiser-dataprovider-overview.md#1-generate-raw-uid2s-from-dii) and save the returned raw UID2 and bucket ID again.
 
