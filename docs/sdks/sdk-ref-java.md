@@ -7,6 +7,7 @@ displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';
+import POSTIdentityMapImprovements from '../snippets/_post-identity-map-improvements-v3.mdx';
 
 # SDK for Java Reference Guide
 
@@ -396,12 +397,7 @@ The following sections provide general information and guidance for migrating to
 
 ### Version 3 Improvements
 
-Version 3 of the `POST /identity/map` endpoint includes the following improvements:
-
-- **Support for multiple identity types**: You can process both email addresses and phone numbers in a single request.
-- **Simpler refresh management**: You can just re-map any raw UID2 when it reaches the refresh timestamp, rather than monitoring salt buckets, which is a separate API call.
-- **Availability of previous raw UID2**: You can see the previous UID2 for 90 days after rotation.
-- **Improved performance**: The new API version uses significantly less bandwidth for the same amount of DII.
+<POSTIdentityMapImprovements />
 
 ### Required Changes
 
