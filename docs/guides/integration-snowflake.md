@@ -100,17 +100,17 @@ After your request is received, a UID2 administrator will contact you with the a
 
 You can map DII to UID2s by using the following function:
 
-- `FN_T_IDENTITY_MAP` (for details, see [Map DII](#map-dii))
+- `FN_T_IDENTITY_MAP_V3` (for details, see [Map DII](#map-dii))
 
-The following function is deprecated in favor of `FN_T_IDENTITY_MAP`. You can still use it if you are on the previous Snowflake version (see [Snowflake Integration Guide (Version Prior to February 2025)](integration-snowflake-before-february-2025.md)), but we recommend upgrading as soon as possible:
+The following functions are deprecated in favor of `FN_T_IDENTITY_MAP_V3`. You can still use them if you are on the previous Snowflake version (see [Snowflake Integration Guide (Version Prior to July 2025)](integration-snowflake-before-july-2025.md)), but we recommend upgrading as soon as possible:
 
-- `FN_T_UID2_IDENTITY_MAP` (deprecated)
+- `FN_T_IDENTITY_MAP` (deprecated)
 
 :::note
 If you are using the deprecated function, and need help migrating to the newer function, see [Migration Guide](#migration-guide).
 :::
 
-To identify the UID2s that you must regenerate, use the `SALT_BUCKETS` view from the UID2 Share. For details, see [Monitor for Salt Bucket Rotation and Regenerate Raw UID2s](#monitor-for-salt-bucket-rotation-and-regenerate-raw-uid2s).
+To identify the UID2s that you must regenerate, monitor the `REFRESH_FROM` timestamps returned by the `FN_T_IDENTITY_MAP_V3` function. For details, see [Monitor Raw UID2 Refresh and Regenerate Raw UID2s](#monitor-raw-uid2-refresh-and-regenerate-raw-uid2s).
 
 The following functions are also available, for UID2 sharing participants:
 - `FN_T_ENCRYPT` (See [Encrypt Tokens](#encrypt-tokens))
@@ -129,7 +129,7 @@ The following sections include query examples for each solution, which are ident
 For example:
 
 ```sql
-select UID, BUCKET_ID, UNMAPPED from table({DATABASE_NAME}.{SCHEMA_NAME}.FN_T_IDENTITY_MAP('validate@example.com', 'email'));
+select UID, PREV_UID, REFRESH_FROM, UNMAPPED from table({DATABASE_NAME}.{SCHEMA_NAME}.FN_T_IDENTITY_MAP_V3('validate@example.com', 'email'));
 ```
 
 All query examples use the following default values for each name variable:
@@ -141,24 +141,25 @@ All query examples use the following default values for each name variable:
 
 ### Map DII
 
-To map all types of <Link href="../ref-info/glossary-uid#gl-dii">DII</Link>, use the `FN_T_IDENTITY_MAP` function.
+To map all types of <Link href="../ref-info/glossary-uid#gl-dii">DII</Link>, use the `FN_T_IDENTITY_MAP_V3` function.
 
 If the DII is an email address, the service normalizes the data using the UID2 [Email Address Normalization](../getting-started/gs-normalization-encoding.md#email-address-normalization) rules.
 
 If the DII is a phone number, you must normalize it before sending it to the service, using the UID2 [Phone Number Normalization](../getting-started/gs-normalization-encoding.md#phone-number-normalization) rules.
 
-| Argument     | Data Type    | Description                                                                               |
-|:-------------|:-------------|:------------------------------------------------------------------------------------------|
-| `INPUT`      | varchar(256) | The DII to map to the UID2 and salt bucket ID.                                            |
-| `INPUT_TYPE` | varchar(256) | The type of DII to map. Allowed values: `email`, `email_hash`, `phone`, and `phone_hash`. |
+| Argument     | Data Type    | Description                                                                                 |
+|:-------------|:-------------|:--------------------------------------------------------------------------------------------|
+| `INPUT`      | varchar(256) | The DII to map to the UID2, refresh timestamp and previous UID2 for 90 days after rotation. |
+| `INPUT_TYPE` | varchar(256) | The type of DII to map. Allowed values: `email`, `email_hash`, `phone`, and `phone_hash`.   |
 
 A successful query returns the following information for the specified DII.
 
-| Column Name | Data Type | Description                                                                                                                                                                                                                                                                                                                       |
-|:------------|:----------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `UID`       | TEXT      | The value is one of the following:<ul><li>DII was successfully mapped: The UID2 associated with the DII.</li><li>DII was not successfully mapped: `NULL`.</li></ul>                                                                                                                                                               |
-| `BUCKET_ID` | TEXT      | The value is one of the following:<ul><li>DII was successfully mapped: The ID of the <Link href="../ref-info/glossary-uid#gl-salt-bucket">salt bucket</Link> used to generate the UID2. This ID maps to the bucket ID in the `SALT_BUCKETS` view.</li><li>DII was not successfully mapped: `NULL`.</li></ul>                                                                                  |
-| `UNMAPPED`  | TEXT      | The value is one of the following:<ul><li>DII was successfully mapped: `NULL`.</li><li>DII was not successfully mapped:  The reason why the identifier was not mapped: `OPTOUT`, `INVALID IDENTIFIER`, or `INVALID INPUT TYPE`.<br/>For details, see [Values for the UNMAPPED Column](#values-for-the-unmapped-column).</li></ul> |
+| Column Name    | Data Type | Description                                                                                                                                                                                                                                                                                                                       |
+|:---------------|:----------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `UID`          | TEXT      | The value is one of the following:<ul><li>DII was successfully mapped: The UID2 associated with the DII.</li><li>DII was not successfully mapped: `NULL`.</li></ul>                                                                                                                                                               |
+| `PREV_UID`     | TEXT      | The value is one of the following:<ul><li>DII was successfully mapped and a previous UID2 exists: The previous UID2 for this DII. Previous UID2s are available for 90 days after rotation.</li><li>No previous UID2 exists or DII was not successfully mapped: `NULL`.</li></ul>                                             |
+| `REFRESH_FROM` | TIMESTAMP | The value is one of the following:<ul><li>DII was successfully mapped: The timestamp (in epoch seconds) indicating when this UID2 should be refreshed.</li><li>DII was not successfully mapped: `NULL`.</li></ul>                                                                                                               |
+| `UNMAPPED`     | TEXT      | The value is one of the following:<ul><li>DII was successfully mapped: `NULL`.</li><li>DII was not successfully mapped:  The reason why the identifier was not mapped: `OPTOUT`, `INVALID IDENTIFIER`, or `INVALID INPUT TYPE`.<br/>For details, see [Values for the UNMAPPED Column](#values-for-the-unmapped-column).</li></ul> |
 
 #### Values for the UNMAPPED Column
 
@@ -193,17 +194,17 @@ The input and output data in these examples is fictitious, for illustrative purp
 The following query illustrates how to map a single email address, using the [default database and schema names](#database-and-schema-names).
 
 ```sql
-select UID, BUCKET_ID, UNMAPPED from table(UID2_PROD_UID_SH.UID.FN_T_IDENTITY_MAP('validate@example.com', 'email'));
+select UID, PREV_UID, REFRESH_FROM, UNMAPPED from table(UID2_PROD_UID_SH.UID.FN_T_IDENTITY_MAP_V3('validate@example.com', 'email'));
 ```
 
 Query results for a single email:
 
 ```
-+----------------------------------------------+------------+----------+
-| UID                                          | BUCKET_ID  | UNMAPPED |
-+----------------------------------------------+------------+----------+
-| 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | ad1ANEmVZ  | NULL     |
-+----------------------------------------------+------------+----------+
++----------------------------------------------+----------+--------------+----------+
+| UID                                          | PREV_UID | REFRESH_FROM | UNMAPPED |
++----------------------------------------------+----------+--------------+----------+
+| 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | NULL     | 1735689600   | NULL     |
++----------------------------------------------+----------+--------------+----------+
 ```
 
 #### Mapping Request Example - Multiple Unhashed Emails
@@ -211,8 +212,8 @@ Query results for a single email:
 The following query illustrates how to map multiple email addresses, using the [default database and schema names](#database-and-schema-names).
 
 ```sql
-select a.ID, a.EMAIL, m.UID, m.BUCKET_ID, m.UNMAPPED from AUDIENCE a LEFT JOIN(
-    select ID, t.* from AUDIENCE, lateral UID2_PROD_UID_SH.UID.FN_T_IDENTITY_MAP(EMAIL, 'email') t) m
+select a.ID, a.EMAIL, m.UID, m.PREV_UID, m.REFRESH_FROM, m.UNMAPPED from AUDIENCE a LEFT JOIN(
+    select ID, t.* from AUDIENCE, lateral UID2_PROD_UID_SH.UID.FN_T_IDENTITY_MAP_V3(EMAIL, 'email') t) m
     on a.ID=m.ID;
 ```
 
@@ -221,14 +222,14 @@ Query results for multiple emails:
 The following table identifies each item in the response, including `NULL` values for `NULL` or improperly formatted emails.
 
 ```sh
-+----+----------------------+----------------------------------------------+------------+--------------------+
-| ID | EMAIL                | UID                                          | BUCKET_ID  | UNMAPPED           |
-+----+----------------------+----------------------------------------------+------------+--------------------+
-|  1 | validate@example.com | 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | ad1ANEmVZ  | NULL               |
-|  2 | test@uidapi.com      | IbW4n6LIvtDj/8fCESlU0QG9K/fH63UdcTkJpAG8fIQ= | a30od4mNRd | NULL               |
-|  3 | invalid-email        | NULL                                         | NULL       | INVALID IDENTIFIER |
-|  4 | NULL                 | NULL                                         | NULL       | INVALID IDENTIFIER |
-+----+----------------------+----------------------------------------------+------------+--------------------+
++----+----------------------+----------------------------------------------+----------+--------------+--------------------+
+| ID | EMAIL                | UID                                          | PREV_UID | REFRESH_FROM | UNMAPPED           |
++----+----------------------+----------------------------------------------+----------+--------------+--------------------+
+|  1 | validate@example.com | 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | NULL     | 1735689600   | NULL               |
+|  2 | test@uidapi.com      | IbW4n6LIvtDj/8fCESlU0QG9K/fH63UdcTkJpAG8fIQ= | NULL     | 1735689600   | NULL               |
+|  3 | invalid-email        | NULL                                         | NULL     | NULL         | INVALID IDENTIFIER |
+|  4 | NULL                 | NULL                                         | NULL     | NULL         | INVALID IDENTIFIER |
++----+----------------------+----------------------------------------------+----------+--------------+--------------------+
 ```
 
 #### Mapping Request Example - Single Unhashed Phone Number
@@ -238,17 +239,17 @@ The following query illustrates how to map a phone number, using the [default da
 You must normalize phone numbers using the UID2 [Phone Number Normalization](../getting-started/gs-normalization-encoding.md#phone-number-normalization) rules.
 
 ```sql
-select UID, BUCKET_ID, UNMAPPED from table(UID2_PROD_UID_SH.UID.FN_T_IDENTITY_MAP('+12345678901', 'phone'));
+select UID, PREV_UID, REFRESH_FROM, UNMAPPED from table(UID2_PROD_UID_SH.UID.FN_T_IDENTITY_MAP_V3('+12345678901', 'phone'));
 ```
 
 Query results for a single phone number:
 
 ```
-+----------------------------------------------+------------+----------+
-| UID                                          | BUCKET_ID  | UNMAPPED |
-+----------------------------------------------+------------+----------+
-| 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | ad1ANEmVZ  | NULL     |
-+----------------------------------------------+------------+----------+
++----------------------------------------------+----------+--------------+----------+
+| UID                                          | PREV_UID | REFRESH_FROM | UNMAPPED |
++----------------------------------------------+----------+--------------+----------+
+| 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | NULL     | 1735689600   | NULL     |
++----------------------------------------------+----------+--------------+----------+
 ```
 
 #### Mapping Request Example - Multiple Unhashed Phone Numbers
@@ -258,8 +259,8 @@ The following query illustrates how to map multiple phone numbers, using the [de
 You must normalize phone numbers using the UID2 [Phone Number Normalization](../getting-started/gs-normalization-encoding.md#phone-number-normalization) rules.
 
 ```sql
-select a.ID, a.PHONE, m.UID, m.BUCKET_ID, m.UNMAPPED from AUDIENCE a LEFT JOIN(
-    select ID, t.* from AUDIENCE, lateral UID2_PROD_UID_SH.UID.FN_T_IDENTITY_MAP(PHONE, 'phone') t) m
+select a.ID, a.PHONE, m.UID, m.PREV_UID, m.REFRESH_FROM, m.UNMAPPED from AUDIENCE a LEFT JOIN(
+    select ID, t.* from AUDIENCE, lateral UID2_PROD_UID_SH.UID.FN_T_IDENTITY_MAP_V3(PHONE, 'phone') t) m
     on a.ID=m.ID;
 ```
 
@@ -268,14 +269,14 @@ Query results for multiple phone numbers:
 The following table identifies each item in the response, including `NULL` values for `NULL` or invalid phone numbers.
 
 ```
-+----+--------------+----------------------------------------------+------------+--------------------+
-| ID | PHONE        | UID                                          | BUCKET_ID  | UNMAPPED           |
-+----+--------------+----------------------------------------------+------------+--------------------+
-|  1 | +12345678901 | 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | ad1ANEmVZ  | NULL               |
-|  2 | +61491570006 | IbW4n6LIvtDj/8fCESlU0QG9K/fH63UdcTkJpAG8fIQ= | a30od4mNRd | NULL               |
-|  3 | 1234         | NULL                                         | NULL       | INVALID IDENTIFIER |
-|  4 | NULL         | NULL                                         | NULL       | INVALID IDENTIFIER |
-+----+--------------+----------------------------------------------+------------+--------------------+
++----+--------------+----------------------------------------------+----------+--------------+--------------------+
+| ID | PHONE        | UID                                          | PREV_UID | REFRESH_FROM | UNMAPPED           |
++----+--------------+----------------------------------------------+----------+--------------+--------------------+
+|  1 | +12345678901 | 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | NULL     | 1735689600   | NULL               |
+|  2 | +61491570006 | IbW4n6LIvtDj/8fCESlU0QG9K/fH63UdcTkJpAG8fIQ= | NULL     | 1735689600   | NULL               |
+|  3 | 1234         | NULL                                         | NULL     | NULL         | INVALID IDENTIFIER |
+|  4 | NULL         | NULL                                         | NULL     | NULL         | INVALID IDENTIFIER |
++----+--------------+----------------------------------------------+----------+-------------+--------------------+
 ```
 
 #### Mapping Request Example - Single Hashed Email
@@ -283,17 +284,17 @@ The following table identifies each item in the response, including `NULL` value
 The following query illustrates how to map a single email address hash, using the [default database and schema names](#database-and-schema-names).
 
 ```sql
-select UID, BUCKET_ID, UNMAPPED from table(UID2_PROD_UID_SH.UID.FN_T_IDENTITY_MAP(BASE64_ENCODE(SHA2_BINARY('validate@example.com', 256)), 'email_hash'));
+select UID, PREV_UID, REFRESH_FROM, UNMAPPED from table(UID2_PROD_UID_SH.UID.FN_T_IDENTITY_MAP_V3(BASE64_ENCODE(SHA2_BINARY('validate@example.com', 256)), 'email_hash'));
 ```
 
 Query results for a single hashed email:
 
 ```
-+----------------------------------------------+------------+----------+
-| UID                                          | BUCKET_ID  | UNMAPPED |
-+----------------------------------------------+------------+----------+
-| 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | ad1ANEmVZ  | NULL     |
-+----------------------------------------------+------------+----------+
++----------------------------------------------+----------+--------------+----------+
+| UID                                          | PREV_UID | REFRESH_FROM | UNMAPPED |
++----------------------------------------------+----------+--------------+----------+
+| 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | NULL     | 1735689600   | NULL     |
++----------------------------------------------+----------+--------------+----------+
 ```
 
 #### Mapping Request Example - Multiple Hashed Emails
@@ -301,8 +302,8 @@ Query results for a single hashed email:
 The following query illustrates how to map multiple email address hashes, using the [default database and schema names](#database-and-schema-names).
 
 ```sql
-select a.ID, a.EMAIL_HASH, m.UID, m.BUCKET_ID, m.UNMAPPED from AUDIENCE a LEFT JOIN(
-    select ID, t.* from AUDIENCE, lateral UID2_PROD_UID_SH.UID.FN_T_IDENTITY_MAP(EMAIL_HASH, 'email_hash') t) m
+select a.ID, a.EMAIL_HASH, m.UID, m.PREV_UID, m.REFRESH_FROM, m.UNMAPPED from AUDIENCE a LEFT JOIN(
+    select ID, t.* from AUDIENCE, lateral UID2_PROD_UID_SH.UID.FN_T_IDENTITY_MAP_V3(EMAIL_HASH, 'email_hash') t) m
     on a.ID=m.ID;
 ```
 
@@ -311,13 +312,13 @@ Query results for multiple hashed emails:
 The following table identifies each item in the response, including `NULL` values for `NULL` hashes.
 
 ```
-+----+----------------------------------------------+----------------------------------------------+------------+--------------------+
-| ID | EMAIL_HASH                                   | UID                                          | BUCKET_ID  | UNMAPPED           |
-+----+----------------------------------------------+----------------------------------------------+------------+--------------------+
-|  1 | LdhtUlMQ58ZZy5YUqGPRQw5xUMS5dXG5ocJHYJHbAKI= | 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | ad1ANEmVZ  | NULL               |
-|  2 | NULL                                         | NULL                                         | NULL       | INVALID IDENTIFIER |
-|  3 | /XJSTajB68SCUyuc3ePyxSLNhxrMKvJcjndq8TuwW5g= | IbW4n6LIvtDj/8fCESlU0QG9K/fH63UdcTkJpAG8fIQ= | a30od4mNRd | NULL               |
-+----+----------------------------------------------+----------------------------------------------+------------+--------------------+
++----+----------------------------------------------+----------------------------------------------+----------+--------------+--------------------+
+| ID | EMAIL_HASH                                   | UID                                          | PREV_UID | REFRESH_FROM | UNMAPPED           |
++----+----------------------------------------------+----------------------------------------------+----------+--------------+--------------------+
+|  1 | LdhtUlMQ58ZZy5YUqGPRQw5xUMS5dXG5ocJHYJHbAKI= | 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | NULL     | 1735689600   | NULL               |
+|  2 | NULL                                         | NULL                                         | NULL     | NULL         | INVALID IDENTIFIER |
+|  3 | /XJSTajB68SCUyuc3ePyxSLNhxrMKvJcjndq8TuwW5g= | IbW4n6LIvtDj/8fCESlU0QG9K/fH63UdcTkJpAG8fIQ= | NULL     | 1735689600   | NULL               |
++----+----------------------------------------------+----------------------------------------------+----------+--------------+--------------------+
 ```
 
 #### Mapping Request Example - Single Hashed Phone Number
@@ -325,17 +326,17 @@ The following table identifies each item in the response, including `NULL` value
 The following query illustrates how to map a single phone number hash, using the [default database and schema names](#database-and-schema-names).
 
 ```sql
-select UID, BUCKET_ID, UNMAPPED from table(UID2_PROD_UID_SH.UID.FN_T_IDENTITY_MAP(BASE64_ENCODE(SHA2_BINARY('+12345678901', 256)), 'phone_hash'));
+select UID, PREV_UID, REFRESH_FROM, UNMAPPED from table(UID2_PROD_UID_SH.UID.FN_T_IDENTITY_MAP_V3(BASE64_ENCODE(SHA2_BINARY('+12345678901', 256)), 'phone_hash'));
 ```
 
 Query results for a single hashed phone number:
 
 ```
-+----------------------------------------------+------------+----------+
-| UID                                          | BUCKET_ID  | UNMAPPED |
-+----------------------------------------------+------------+----------+
-| 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | ad1ANEmVZ  | NULL     |
-+----------------------------------------------+------------+----------+
++----------------------------------------------+----------+--------------+----------+
+| UID                                          | PREV_UID | REFRESH_FROM | UNMAPPED |
++----------------------------------------------+----------+--------------+----------+
+| 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | NULL     | 1735689600   | NULL     |
++----------------------------------------------+----------+--------------+----------+
 ```
 
 #### Mapping Request Example - Multiple Hashed Phone Numbers
@@ -343,8 +344,8 @@ Query results for a single hashed phone number:
 The following query illustrates how to map multiple phone number hashes, using the [default database and schema names](#database-and-schema-names).
 
 ```sql
-select a.ID, a.PHONE_HASH, m.UID, m.BUCKET_ID, m.UNMAPPED from AUDIENCE a LEFT JOIN(
-    select ID, t.* from AUDIENCE, lateral UID2_PROD_UID_SH.UID.FN_T_IDENTITY_MAP(PHONE_HASH, 'phone_hash') t) m
+select a.ID, a.PHONE_HASH, m.UID, m.PREV_UID, m.REFRESH_FROM, m.UNMAPPED from AUDIENCE a LEFT JOIN(
+    select ID, t.* from AUDIENCE, lateral UID2_PROD_UID_SH.UID.FN_T_IDENTITY_MAP_V3(PHONE_HASH, 'phone_hash') t) m
     on a.ID=m.ID;
 ```
 
@@ -353,65 +354,63 @@ Query results for multiple hashed phone numbers:
 The following table identifies each item in the response, including `NULL` values for `NULL` hashes.
 
 ```
-+----+----------------------------------------------+----------------------------------------------+------------+--------------------+
-| ID | PHONE_HASH                                   | UID                                          | BUCKET_ID  | UNMAPPED           |
-+----+----------------------------------------------+----------------------------------------------+------------+--------------------+
-|  1 | LdhtUlMQ58ZZy5YUqGPRQw5xUMS5dXG5ocJHYJHbAKI= | 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | ad1ANEmVZ  | NULL               |
-|  2 | NULL                                         | NULL                                         | NULL       | INVALID IDENTIFIER |
-|  3 | /XJSTajB68SCUyuc3ePyxSLNhxrMKvJcjndq8TuwW5g= | IbW4n6LIvtDj/8fCESlU0QG9K/fH63UdcTkJpAG8fIQ= | a30od4mNRd | NULL               |
-+----+----------------------------------------------+----------------------------------------------+------------+--------------------+
++----+----------------------------------------------+----------------------------------------------+----------+--------------+--------------------+
+| ID | PHONE_HASH                                   | UID                                          | PREV_UID | REFRESH_FROM | UNMAPPED           |
++----+----------------------------------------------+----------------------------------------------+----------+--------------+--------------------+
+|  1 | LdhtUlMQ58ZZy5YUqGPRQw5xUMS5dXG5ocJHYJHbAKI= | 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | NULL     | 1735689600   | NULL               |
+|  2 | NULL                                         | NULL                                         | NULL     | NULL         | INVALID IDENTIFIER |
+|  3 | /XJSTajB68SCUyuc3ePyxSLNhxrMKvJcjndq8TuwW5g= | IbW4n6LIvtDj/8fCESlU0QG9K/fH63UdcTkJpAG8fIQ= | NULL     | 1735689600   | NULL               |
++----+----------------------------------------------+----------------------------------------------+----------+--------------+--------------------+
 ```
 
-### Monitor for Salt Bucket Rotation and Regenerate Raw UID2s
+### Monitor Raw UID2 Refresh and Regenerate Raw UID2s
 
-The `SALT_BUCKETS` view query returns the date and time when the salt buckets for the raw UID2s were last updated. A salt value is used when generating UID2s. When the salt in the bucket is updated, the previously generated UID2 becomes outdated and doesn't match the UID2 generated by other parties for the same user.
+The `FN_T_IDENTITY_MAP_V3` function returns refresh timestamps (`REFRESH_FROM`) that indicate when each UID2 should be refreshed.
 
-To determine which UID2s need regeneration, compare the timestamps of when they were generated to the most recent timestamp of the salt bucket update.
+To determine which UID2s need regeneration, compare the current time to the `REFRESH_FROM` timestamps returned by the function.
 
-| Column Name            | Data Type     | Description                                                                                                                                                                                                               |
-|:-----------------------|:--------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `BUCKET_ID`            | TEXT          | The ID of the  salt bucket. This ID parallels the `BUCKET_ID` returned by the identity map function. Use the `BUCKET_ID` as the key to do a join query between the function call results and results from this view call. |
-| `LAST_SALT_UPDATE_UTC` | TIMESTAMP_NTZ | The last time the salt in the bucket was updated. This value is expressed in UTC.                                                                                                                                         |
+| Column Name       | Data Type     | Description                                                                                                                                                                                                               |
+|:------------------|:--------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `UID`             | TEXT          | The UID2 associated with the DII. This is the current UID2 value returned by the identity mapping function.                                                                                                              |
+| `REFRESH_FROM`    | TIMESTAMP     | The timestamp (in epoch seconds) indicating when this UID2 should be refreshed. Compare this value to the current time to determine if regeneration is needed.                                                         |
 
-The following example shows an input table and the query used to find the UID2s in the table that must be regenerated because the salt bucket was updated.
+The following example shows an input table and the query used to find the UID2s in the table that must be regenerated because their refresh time has been reached.
 
 #### Targeted Input Table
 
-In this example scenario, the advertiser/data provider has stored the UID2s in a table named `AUDIENCE_WITH_UID2`. The last column, `LAST_UID2_UPDATE_UTC`, is used to record the time at which a UID2 was generated. If no UID2 has been generated, the value is `NULL`, as shown in the third example. The advertiser/data provider can use this timestamp value to determine which UID2s need to be regenerated.
+In this example scenario, the advertiser/data provider has stored the UID2s in a table named `AUDIENCE_WITH_UID2`. The `REFRESH_FROM` column contains the timestamp when each UID2 should be refreshed. If no UID2 has been generated, the value is `NULL`, as shown in the third example. The advertiser/data provider can compare these timestamps to the current time to determine which UID2s need to be regenerated.
 
 ```sql
 select * from AUDIENCE_WITH_UID2;
 ```
 ```
-+----+----------------------+----------------------------------------------+------------+-------------------------+
-| ID | EMAIL                | UID2                                         | BUCKET_ID  | LAST_UID2_UPDATE_UTC    |
-+----+----------------------+----------------------------------------------+------------+-------------------------+
-|  1 | validate@example.com | 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | ad1ANEmVZ  | 2025-02-01 00:00:00.000 |
-|  2 | test1@uidapi.com     | Q4A5ZBuBCYfuV3Wd8Fdsx2+i33v7jyFcQbcMG/LH4eM= | ad1ANEmVZ  | 2025-02-03 00:00:00.000 |
-|  3 | test2@uidapi.com     | NULL                                         | NULL       | NULL                    |
-+----+----------------------+----------------------------------------------+------------+-------------------------+
++----+----------------------+----------------------------------------------+--------------+
+| ID | EMAIL                | UID2                                         | REFRESH_FROM |
++----+----------------------+----------------------------------------------+--------------+
+|  1 | validate@example.com | 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | 1735689600   |
+|  2 | test1@uidapi.com     | Q4A5ZBuBCYfuV3Wd8Fdsx2+i33v7jyFcQbcMG/LH4eM= | 1735776000   |
+|  3 | test2@uidapi.com     | NULL                                         | NULL         |
++----+----------------------+----------------------------------------------+--------------+
 ```
 
-To find missing or outdated UID2s, use the following query example, which uses the [default database and schema names](#database-and-schema-names).
+To find missing or outdated UID2s, use the following query example.
 
 ```sql
-select a.*, b.LAST_SALT_UPDATE_UTC
-    from AUDIENCE_WITH_UID2 a LEFT OUTER JOIN UID2_PROD_UID_SH.UID.SALT_BUCKETS b
-    on a.BUCKET_ID=b.BUCKET_ID
-    where a.LAST_UID2_UPDATE_UTC < b.LAST_SALT_UPDATE_UTC or a.UID2 IS NULL;
+select * from AUDIENCE_WITH_UID2
+  where REFRESH_FROM <= DATE_PART(epoch_second, CURRENT_TIMESTAMP()) or UID2 IS NULL;
 ```
 
 Query results:
 
-The following table identifies each item in the response. The result includes an email, `UID2`, `BUCKET_ID`, `LAST_UID2_UPDATE_UTC`, and `LAST_SALT_UPDATE_UTC` as shown in the ID 1 example in the table. No information is returned for ID 2 because the corresponding UID2 was generated after the last bucket update. For ID 3, `NULL` values are returned due to a missing UID2.
+The following table identifies each item in the response. The result includes UID2s that need to be refreshed because their `REFRESH_FROM` timestamp has passed, or UID2s that are missing. ID 1 is returned because its refresh time (1735689600) is in the past (assuming current time is later). ID 2 is not returned because its refresh time hasn't been reached yet. ID 3 is returned due to a missing UID2.
 
 ```
-+----+----------------------+----------------------------------------------+------------+-------------------------+-------------------------+
-| ID | EMAIL                | UID2                                         | BUCKET_ID  | LAST_UID2_UPDATE_UTC    | LAST_SALT_UPDATE_UTC    |
-+----+----------------------+----------------------------------------------+------------+-------------------------+-------------------------+
-|  1 | validate@example.com | 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | ad1ANEmVZ  | 2025-02-01 00:00:00.000 | 2025-02-02 00:00:00.000 |
-|  3 | test2@uidapi.com     | NULL                                         | NULL       | NULL                    | NULL                    |
-+----+----------------------+----------------------------------------------+------------+-------------------------+-------------------------+
++----+----------------------+----------------------------------------------+--------------+
+| ID | EMAIL                | UID2                                         | REFRESH_FROM |
++----+----------------------+----------------------------------------------+--------------+
+|  1 | validate@example.com | 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | 1735689600   |
+|  3 | test2@uidapi.com     | NULL                                         | NULL         |
++----+----------------------+----------------------------------------------+--------------+
 ```
 
 ## Usage for UID2 Sharers
@@ -523,9 +522,9 @@ In most circumstances where UID2 token cannot be successfully decrypted, the fun
 
 Possible values for `DECRYPTION_STATUS` are:
 
-| Value | Meaning |
-| :-- | :-- |
-| `NULL` | The UID2 token was successfully decrypted. |
+| Value           | Meaning                                                                       |
+| :-------------- | :---------------------------------------------------------------------------- |
+| `NULL`          | The UID2 token was successfully decrypted.                                    |
 | `EXPIRED_TOKEN` | The UID2 token is beyond its designated lifetime&#8212;the token has expired. |
 
 #### Decrypt Token Request Example&#8212;Single UID2 Token
@@ -611,31 +610,25 @@ To help prevent UID2 tokens from expiring, decrypt the UID2 tokens as soon as th
 
 ## Migration Guide
 
-This section includes the following information to help you upgrade to the new UID2 Snowflake Marketplace functionality:
-
-- [Accessing the New Data Share](#accessing-the-new-data-share) 
-- [Changing Existing Code](#changing-existing-code) 
-
-### Accessing the New Data Share
-
-To access the new data share, follow the instructions in [Access the UID2 Share](#access-the-uid2-share).
+This section provides information to help you upgrade from the previous version to the new UID2 Snowflake functionality with v3 functions.
 
 ### Changing Existing Code
 
-For a summary of changes, see [Changes from Previous Version](#changes-from-previous-version). The code snippets in this section are before/after examples of how the earlier functions might be implemented, and how you could update to use the new function.
+For a summary of changes, see [Changes from Previous Version](#changes-from-previous-version). The code snippets in this section are before/after examples of how the earlier functions might be implemented, and how 
+you could update to use the new function. The key change is migrating from `FN_T_IDENTITY_MAP` to `FN_T_IDENTITY_MAP_V3`, which provides refresh timestamps instead of salt bucket IDs and includes previous UID2 access.
 
 #### Example for Mapping Unhashed Emails
 
 Before:
 
 ```sql
-select UID2, BUCKET_ID, UNMAPPED from table({DATABASE_NAME}.{SCHEMA_NAME}.FN_T_UID2_IDENTITY_MAP(EMAIL, 'email'));
+select UID, BUCKET_ID, UNMAPPED from table({DATABASE_NAME}.{SCHEMA_NAME}.FN_T_IDENTITY_MAP(EMAIL, 'email'));
 ```
 
 After:
 
 ```sql
-select UID, BUCKET_ID, UNMAPPED from table({DATABASE_NAME}.{SCHEMA_NAME}.FN_T_IDENTITY_MAP(EMAIL, 'email'));
+select UID, PREV_UID, REFRESH_FROM, UNMAPPED from table({DATABASE_NAME}.{SCHEMA_NAME}.FN_T_IDENTITY_MAP_V3(EMAIL, 'email'));
 ```
 
 #### Example for Mapping Unhashed Phone Numbers
@@ -643,35 +636,33 @@ select UID, BUCKET_ID, UNMAPPED from table({DATABASE_NAME}.{SCHEMA_NAME}.FN_T_ID
 Before:
 
 ```sql
-select UID2, BUCKET_ID, UNMAPPED from table({DATABASE_NAME}.{SCHEMA_NAME}.FN_T_UID2_IDENTITY_MAP(PHONE_NUMBER, 'phone'));
-```
-
-After:
-
-```sql
 select UID, BUCKET_ID, UNMAPPED from table({DATABASE_NAME}.{SCHEMA_NAME}.FN_T_IDENTITY_MAP(PHONE_NUMBER, 'phone'));
 ```
 
-#### Example for Monitoring Salt Bucket Rotation and Regenerating Raw UID2s
-
-The following queries use the same example table, `AUDIENCE_WITH_UID2`, that we used in [Targeted Input Table](#targeted-input-table).
-
-Before:
+After:
 
 ```sql
-select a.*, b.LAST_SALT_UPDATE_UTC
-  from AUDIENCE_WITH_UID2 a LEFT OUTER JOIN {DATABASE_NAME}.{SCHEMA_NAME}.UID2_SALT_BUCKETS b
-  on a.BUCKET_ID=b.BUCKET_ID
-  where a.LAST_UID2_UPDATE_UTC < b.LAST_SALT_UPDATE_UTC or a.UID2 IS NULL;
+select UID, PREV_UID, REFRESH_FROM, UNMAPPED from table({DATABASE_NAME}.{SCHEMA_NAME}.FN_T_IDENTITY_MAP_V3(PHONE_NUMBER, 'phone'));
 ```
 
-After:
+#### Example for Monitoring UID2 Refresh and Regenerating Raw UID2s
+
+The V3 function provides refresh timestamps directly, eliminating the need to monitor salt buckets. Instead of joining with salt bucket views, you can compare the current timestamp against the `REFRESH_FROM` timestamp returned by the function.
+
+Before (using salt bucket monitoring):
 
 ```sql
 select a.*, b.LAST_SALT_UPDATE_UTC
   from AUDIENCE_WITH_UID2 a LEFT OUTER JOIN {DATABASE_NAME}.{SCHEMA_NAME}.SALT_BUCKETS b
   on a.BUCKET_ID=b.BUCKET_ID
   where a.LAST_UID2_UPDATE_UTC < b.LAST_SALT_UPDATE_UTC or a.UID2 IS NULL;
+```
+
+After (using refresh timestamp monitoring):
+
+```sql
+select * from AUDIENCE_WITH_UID2
+  where REFRESH_FROM <= DATE_PART(epoch_second, CURRENT_TIMESTAMP()) or UID2 IS NULL;
 ```
 
 #### Example for Token Encryption
