@@ -47,7 +47,7 @@ UID2_SECRET_KEY=your_secret_key_here
 
 ### 3. Run Complete Demo
 ```bash
-# Full workflow: test data → UID2 mapping → attribution analysis
+# Full workflow: test data population → UID2 mapping → attribution analysis
 uv run src/complete_demo.py
 ```
 

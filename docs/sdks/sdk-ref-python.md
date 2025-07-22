@@ -301,6 +301,12 @@ mixed_input = IdentityMapV3Input()
 mixed_response = client.generate_identity_map(mixed_input)
 ```
 
+### Integration Example
+
+For a complete demonstration of a working integration that includes all the recommended patterns, see the [UID2 Identity Map V3 Integration Example](https://github.com/IABTechLab/uid2docs/blob/main/static/examples/identity-map-integration-example).
+
+For step-by-step setup instructions and to run the example, see the [Integration Example README](https://github.com/IABTechLab/uid2docs/blob/main/static/examples/identity-map-integration-example/README.md).
+
 ## Migration From Version Using v2 Identity Map
 
 The following sections provide general information and guidance for migrating to the latest version of this SDK, which references `POST /identity/map` version 3, including:

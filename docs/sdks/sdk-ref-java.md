@@ -350,6 +350,13 @@ If you're using server-side integration (see [Publisher Integration Guide, Serve
    }
    ```
 
+## Integration Example
+
+For a complete demonstration of a working integration that includes all the recommended patterns, see the [UID2 Identity Map V3 Integration Example](https://github.com/IABTechLab/uid2docs/blob/main/static/examples/identity-map-integration-example).
+While the sample is implemented using the Python SDK, the integration patterns are applicable to any SDK or direct API integration.
+
+For step-by-step setup instructions and to run the example, see the [Integration Example README](https://github.com/IABTechLab/uid2docs/blob/main/static/examples/identity-map-integration-example/README.md).
+
 >**Note:** The SDK automatically handles email normalization and hashing, ensuring that raw email addresses and phone numbers do not leave your server.
 
 ### Usage Example
