@@ -113,11 +113,11 @@ WHERE um.opt_out = FALSE;
 
 ## Production Integration Checklist
 
-**Critical Requirements for UID2 Integration:**
+**Patterns for UID2 Integration:**
 
 ✅ **Request Limits**: Maximum 5,000 DIIs per request  
 ✅ **Sequential Processing**: No parallel requests to UID2 service  
 ✅ **Retry Logic**: Exponential backoff for network failures  
-✅ **Optout Handling**: Permanent exclusion from future processing  
-✅ **Token Refresh**: Respect `refresh_from` timestamps  
-✅ **State Persistence**: Track mapping state between runs
+✅ **Optout Handling**: Permanent exclude opted out users from future processing
+✅ **Token Refresh**: Re-map tokens when they reach `refresh_from` timestamps  
+✅ **State Persistence**: Track mapping state
