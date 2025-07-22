@@ -647,7 +647,7 @@ select UID, PREV_UID, REFRESH_FROM, UNMAPPED from table({DATABASE_NAME}.{SCHEMA_
 
 #### Example for Monitoring UID2 Refresh and Regenerating Raw UID2s
 
-The V3 function provides refresh timestamps directly, eliminating the need to monitor salt buckets. Instead of joining with salt bucket views, you can compare the current timestamp against the `REFRESH_FROM` timestamp returned by the function.
+The v3 function provides refresh timestamps directly, eliminating the need to monitor salt buckets. Instead of joining with salt bucket views, you can compare the current timestamp against the `REFRESH_FROM` timestamp returned by the function.
 
 Before (using salt bucket monitoring):
 
