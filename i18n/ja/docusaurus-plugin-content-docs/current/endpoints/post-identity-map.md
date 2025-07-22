@@ -3,13 +3,17 @@ title: POST /identity/map
 description: Maps DII to raw UID2s.
 hide_table_of_contents: false
 sidebar_position: 08
-displayed_sidebar: docs 
+displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';
 import POSTIdentityMapImprovements from '../snippets/_post-identity-map-improvements-v3.mdx';
 
 # POST /identity/map
+
+:::note
+このページには、近日中に翻訳される新しいコンテンツが含まれています。
+:::
 
 Maps multiple email addresses, phone numbers, or their respective hashes to their raw UID2s. You can also use this endpoint to check for updates to opt-out information, check when a raw UID2 can be refreshed, or view the previous UID2 if the current UID2 is less than 90 days old.
 
