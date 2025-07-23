@@ -43,7 +43,7 @@ If you're a publisher who is sharing UID2 tokens in the <Link href="../ref-info/
 
 ## Changes from Previous Version
 
-The July 2025 update to the UID2 Snowflake Marketplace integration introduces a new identity mapping function that simplifies UID2 refresh management and accessing previous raw UID2s for 90 days after rotation.
+The July 2025 update to the UID2 Snowflake Marketplace integration introduces a new identity mapping function that simplifies UID2 refresh management and allows accessing previous raw UID2s for 90 days after rotation.
 
 :::note
 These changes assume that your code integration uses the version of Snowflake functions published before July 2025: see [Snowflake Integration Guide (Version Prior to July 2025)](integration-snowflake-before-july-2025.md). For details on migrating to this version, see [Migration Guide](#migration-guide).
@@ -102,7 +102,7 @@ You can map DII to UID2s by using the following function:
 
 - `FN_T_IDENTITY_MAP_V3` (for details, see [Map DII](#map-dii))
 
-The following functions are deprecated in favor of `FN_T_IDENTITY_MAP_V3`. You can still use them if you are on the previous Snowflake version (see [Snowflake Integration Guide (Version Prior to July 2025)](integration-snowflake-before-july-2025.md)), but we recommend upgrading as soon as possible:
+The following function is deprecated in favor of `FN_T_IDENTITY_MAP_V3`. You can still use it if you are on the previous Snowflake version (see [Snowflake Integration Guide (Version Prior to July 2025)](integration-snowflake-before-july-2025.md)), but we recommend upgrading as soon as possible:
 
 - `FN_T_IDENTITY_MAP` (deprecated)
 
@@ -200,11 +200,11 @@ select UID, PREV_UID, REFRESH_FROM, UNMAPPED from table(UID2_PROD_UID_SH.UID.FN_
 Query results for a single email:
 
 ```
-+----------------------------------------------+----------+--------------+----------+
-| UID                                          | PREV_UID | REFRESH_FROM | UNMAPPED |
-+----------------------------------------------+----------+--------------+----------+
-| 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | NULL     | 1735689600   | NULL     |
-+----------------------------------------------+----------+--------------+----------+
++----------------------------------------------+--------------------------------------------------+--------------+----------+
+| UID                                          | PREV_UID                                         | REFRESH_FROM | UNMAPPED |
++----------------------------------------------+--------------------------------------------------+--------------+----------+
+| 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | vP9zK2mL7fR4tY8qN3wE6xB0dH5jA1sC+nI/oGuMeVa=     | 1735689600   | NULL     |
++----------------------------------------------+--------------------------------------------------+--------------+----------+
 ```
 
 #### Mapping Request Example - Multiple Unhashed Emails
@@ -221,15 +221,16 @@ Query results for multiple emails:
 
 The following table identifies each item in the response, including `NULL` values for `NULL` or improperly formatted emails.
 
-```sh
-+----+----------------------+----------------------------------------------+----------+--------------+--------------------+
-| ID | EMAIL                | UID                                          | PREV_UID | REFRESH_FROM | UNMAPPED           |
-+----+----------------------+----------------------------------------------+----------+--------------+--------------------+
-|  1 | validate@example.com | 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | NULL     | 1735689600   | NULL               |
-|  2 | test@uidapi.com      | IbW4n6LIvtDj/8fCESlU0QG9K/fH63UdcTkJpAG8fIQ= | NULL     | 1735689600   | NULL               |
-|  3 | invalid-email        | NULL                                         | NULL     | NULL         | INVALID IDENTIFIER |
-|  4 | NULL                 | NULL                                         | NULL     | NULL         | INVALID IDENTIFIER |
-+----+----------------------+----------------------------------------------+----------+--------------+--------------------+
+```
++----+----------------------+----------------------------------------------+----------------------------------------------+--------------+--------------------+
+| ID | EMAIL                | UID                                          | PREV_UID                                     | REFRESH_FROM | UNMAPPED           |
++----+----------------------+----------------------------------------------+----------------------------------------------+--------------+--------------------+
+|  1 | validate@example.com | 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | vP9zK2mL7fR4tY8qN3wE6xB0dH5jA1sC+nI/oGuMeVa= | 1735689600   | NULL               |
+|  2 | test@uidapi.com      | IbW4n6LIvtDj/8fCESlU0QG9K/fH63UdcTkJpAG8fIQ= | NULL                                         | 1735689600   | NULL               |
+|  3 | optout@example.com   | NULL                                         | NULL                                         | NULL         | OPTOUT             |
+|  4 | invalid-email        | NULL                                         | NULL                                         | NULL         | INVALID IDENTIFIER |
+|  5 | NULL                 | NULL                                         | NULL                                         | NULL         | INVALID IDENTIFIER |
++----+----------------------+----------------------------------------------+----------------------------------------------+--------------+--------------------+
 ```
 
 #### Mapping Request Example - Single Unhashed Phone Number
@@ -269,14 +270,15 @@ Query results for multiple phone numbers:
 The following table identifies each item in the response, including `NULL` values for `NULL` or invalid phone numbers.
 
 ```
-+----+--------------+----------------------------------------------+----------+--------------+--------------------+
-| ID | PHONE        | UID                                          | PREV_UID | REFRESH_FROM | UNMAPPED           |
-+----+--------------+----------------------------------------------+----------+--------------+--------------------+
-|  1 | +12345678901 | 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | NULL     | 1735689600   | NULL               |
-|  2 | +61491570006 | IbW4n6LIvtDj/8fCESlU0QG9K/fH63UdcTkJpAG8fIQ= | NULL     | 1735689600   | NULL               |
-|  3 | 1234         | NULL                                         | NULL     | NULL         | INVALID IDENTIFIER |
-|  4 | NULL         | NULL                                         | NULL     | NULL         | INVALID IDENTIFIER |
-+----+--------------+----------------------------------------------+----------+-------------+--------------------+
++----+--------------+----------------------------------------------+----------------------------------------------+--------------+--------------------+
+| ID | PHONE        | UID                                          | PREV_UID                                     | REFRESH_FROM | UNMAPPED           |
++----+--------------+----------------------------------------------+----------------------------------------------+--------------+--------------------+
+|  1 | +12345678901 | 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | vP9zK2mL7fR4tY8qN3wE6xB0dH5jA1sC+nI/oGuMeVa= | 1735689600   | NULL               |
+|  2 | +61491570006 | IbW4n6LIvtDj/8fCESlU0QG9K/fH63UdcTkJpAG8fIQ= | NULL                                         | 1735689600   | NULL               |
+|  3 | +56789123001 | NULL                                         | NULL                                         | NULL         | OPTOUT             |
+|  4 | 1234         | NULL                                         | NULL                                         | NULL         | INVALID IDENTIFIER |
+|  5 | NULL         | NULL                                         | NULL                                         | NULL         | INVALID IDENTIFIER |
++----+--------------+----------------------------------------------+----------------------------------------------+--------------+--------------------+
 ```
 
 #### Mapping Request Example - Single Hashed Email
@@ -290,11 +292,11 @@ select UID, PREV_UID, REFRESH_FROM, UNMAPPED from table(UID2_PROD_UID_SH.UID.FN_
 Query results for a single hashed email:
 
 ```
-+----------------------------------------------+----------+--------------+----------+
-| UID                                          | PREV_UID | REFRESH_FROM | UNMAPPED |
-+----------------------------------------------+----------+--------------+----------+
-| 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | NULL     | 1735689600   | NULL     |
-+----------------------------------------------+----------+--------------+----------+
++----------------------------------------------+----------------------------------------------+--------------+----------+
+| UID                                          | PREV_UID                                     | REFRESH_FROM | UNMAPPED |
++----------------------------------------------+----------------------------------------------+--------------+----------+
+| 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | vP9zK2mL7fR4tY8qN3wE6xB0dH5jA1sC+nI/oGuMeVa= | 1735689600   | NULL     |
++----------------------------------------------+----------------------------------------------+--------------+----------+
 ```
 
 #### Mapping Request Example - Multiple Hashed Emails
@@ -312,13 +314,14 @@ Query results for multiple hashed emails:
 The following table identifies each item in the response, including `NULL` values for `NULL` hashes.
 
 ```
-+----+----------------------------------------------+----------------------------------------------+----------+--------------+--------------------+
-| ID | EMAIL_HASH                                   | UID                                          | PREV_UID | REFRESH_FROM | UNMAPPED           |
-+----+----------------------------------------------+----------------------------------------------+----------+--------------+--------------------+
-|  1 | LdhtUlMQ58ZZy5YUqGPRQw5xUMS5dXG5ocJHYJHbAKI= | 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | NULL     | 1735689600   | NULL               |
-|  2 | NULL                                         | NULL                                         | NULL     | NULL         | INVALID IDENTIFIER |
-|  3 | /XJSTajB68SCUyuc3ePyxSLNhxrMKvJcjndq8TuwW5g= | IbW4n6LIvtDj/8fCESlU0QG9K/fH63UdcTkJpAG8fIQ= | NULL     | 1735689600   | NULL               |
-+----+----------------------------------------------+----------------------------------------------+----------+--------------+--------------------+
++----+----------------------------------------------+----------------------------------------------+----------------------------------------------+--------------+--------------------+
+| ID | EMAIL_HASH                                   | UID                                          | PREV_UID                                     | REFRESH_FROM | UNMAPPED           |
++----+----------------------------------------------+----------------------------------------------+----------------------------------------------+--------------+--------------------+
+|  1 | LdhtUlMQ58ZZy5YUqGPRQw5xUMS5dXG5ocJHYJHbAKI= | 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | vP9zK2mL7fR4tY8qN3wE6xB0dH5jA1sC+nI/oGuMeVa= | 1735689600   | NULL               |
+|  2 | /XJSTajB68SCUyuc3ePyxSLNhxrMKvJcjndq8TuwW5g= | IbW4n6LIvtDj/8fCESlU0QG9K/fH63UdcTkJpAG8fIQ= | NULL                                         | 1735689600   | NULL               |
+|  2 | UebesrNN0bQkm/QR7Jx7eav+UDXN5Gbq3zs1fLBMRy0= | NULL                                         | NULL                                         | 1735689600   | OPTOUT             |
+|  4 | NULL                                         | NULL                                         | NULL                                         | NULL         | INVALID IDENTIFIER |
++----+----------------------------------------------+----------------------------------------------+----------------------------------------------+--------------+--------------------+
 ```
 
 #### Mapping Request Example - Single Hashed Phone Number
@@ -332,11 +335,11 @@ select UID, PREV_UID, REFRESH_FROM, UNMAPPED from table(UID2_PROD_UID_SH.UID.FN_
 Query results for a single hashed phone number:
 
 ```
-+----------------------------------------------+----------+--------------+----------+
-| UID                                          | PREV_UID | REFRESH_FROM | UNMAPPED |
-+----------------------------------------------+----------+--------------+----------+
-| 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | NULL     | 1735689600   | NULL     |
-+----------------------------------------------+----------+--------------+----------+
++----------------------------------------------+----------------------------------------------+--------------+----------+
+| UID                                          | PREV_UID                                     | REFRESH_FROM | UNMAPPED |
++----------------------------------------------+----------------------------------------------+--------------+----------+
+| 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | vP9zK2mL7fR4tY8qN3wE6xB0dH5jA1sC+nI/oGuMeVa= | 1735689600   | NULL     |
++----------------------------------------------+----------------------------------------------+--------------+----------+
 ```
 
 #### Mapping Request Example - Multiple Hashed Phone Numbers
@@ -354,13 +357,14 @@ Query results for multiple hashed phone numbers:
 The following table identifies each item in the response, including `NULL` values for `NULL` hashes.
 
 ```
-+----+----------------------------------------------+----------------------------------------------+----------+--------------+--------------------+
-| ID | PHONE_HASH                                   | UID                                          | PREV_UID | REFRESH_FROM | UNMAPPED           |
-+----+----------------------------------------------+----------------------------------------------+----------+--------------+--------------------+
-|  1 | LdhtUlMQ58ZZy5YUqGPRQw5xUMS5dXG5ocJHYJHbAKI= | 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | NULL     | 1735689600   | NULL               |
-|  2 | NULL                                         | NULL                                         | NULL     | NULL         | INVALID IDENTIFIER |
-|  3 | /XJSTajB68SCUyuc3ePyxSLNhxrMKvJcjndq8TuwW5g= | IbW4n6LIvtDj/8fCESlU0QG9K/fH63UdcTkJpAG8fIQ= | NULL     | 1735689600   | NULL               |
-+----+----------------------------------------------+----------------------------------------------+----------+--------------+--------------------+
++----+----------------------------------------------+----------------------------------------------+----------------------------------------------+--------------+--------------------+
+| ID | PHONE_HASH                                   | UID                                          | PREV_UID                                     | REFRESH_FROM | UNMAPPED           |
++----+----------------------------------------------+----------------------------------------------+----------------------------------------------+--------------+--------------------+
+|  1 | LdhtUlMQ58ZZy5YUqGPRQw5xUMS5dXG5ocJHYJHbAKI= | 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | vP9zK2mL7fR4tY8qN3wE6xB0dH5jA1sC+nI/oGuMeVa= | 1735689600   | NULL               |
+|  2 | /XJSTajB68SCUyuc3ePyxSLNhxrMKvJcjndq8TuwW5g= | IbW4n6LIvtDj/8fCESlU0QG9K/fH63UdcTkJpAG8fIQ= | NULL                                         | 1735689600   | NULL               |
+|  2 | UebesrNN0bQkm/QR7Jx7eav+UDXN5Gbq3zs1fLBMRy0= | NULL                                         | NULL                                         | 1735689600   | OPTOUT             |
+|  4 | NULL                                         | NULL                                         | NULL                                         | NULL         | INVALID IDENTIFIER |
++----+----------------------------------------------+----------------------------------------------+----------------------------------------------+--------------+--------------------+
 ```
 
 ### Monitor Raw UID2 Refresh and Regenerate Raw UID2s
