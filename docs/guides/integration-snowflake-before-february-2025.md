@@ -509,7 +509,7 @@ After:
 FN_T_UID2_IDENTITY_MAP(EMAIL, 'email')
 ```
 
-#### Example for mapping unhashed emails
+#### Example for mapping hashed emails
 
 Before:
 
