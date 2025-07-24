@@ -1,8 +1,8 @@
 # UID2 Integration Technical Sample
 
-**Complete UID2 integration example demonstrating Identity Map V3 flow.**
+**Complete UID2 integration example demonstrating Identity Map v3 flow.**
 
-This sample shows a pattern for mapping email addresses and phone numbers to UID tokens, handling optouts, managing token refresh cycles, and performing a sample attribution analysis based on both current and previous UIDs.
+This sample shows a pattern for mapping email addresses and phone numbers to UID2 tokens, handling optouts, managing token refresh cycles, and performing a sample attribution analysis based on both current and previous UID2s.
 
 ## Project Structure
 
@@ -56,7 +56,7 @@ uv run src/complete_demo.py
 # Generate test data only
 uv run src/populate_test_uid_mappings.py
 
-# Run UID mapping only  
+# Run UID2 mapping only  
 uv run src/map_identities.py
 
 # Run attribution analysis only
@@ -68,7 +68,7 @@ uv run src/attribution_analysis.py
 ### Identity Mapping Workflow
 
 **Key Integration Points:**
-1. **Batch Processing** (`src/map_identities.py:build_uid2_input()`) - Process sequential batches of up to 5,000 DIIs per request
+1. **Batch Processing** (`src/map_identities.py:build_uid2_input()`) - Process sequential batches of up to 5,000 emails and/or phone numbers per request
 2. **Retry Logic** (`src/uid_client_wrapper.py:generate_identity_map_with_retry()`) - Exponential backoff for network resilience
 3. **Response Handling** (`src/map_identities.py:process_uid2_response()`) - Process mapped, opted-out, and invalid identifiers
 
@@ -83,7 +83,7 @@ CREATE TABLE uid_mapping (
     current_uid TEXT,                     -- Current UID2 token
     previous_uid TEXT,                    -- Previous UID2 token (only available for 90 days after rotation, afterwards NULL)
     refresh_from TIMESTAMP,               -- When to refresh mapping
-    opt_out BOOLEAN DEFAULT FALSE         -- The user has opted out, we shouldn't attempt to map them again
+    opt_out BOOLEAN DEFAULT FALSE         -- The user has opted out, we shouldn't attempt to map this user again
 );
 ```
 
@@ -95,7 +95,7 @@ FROM uid_mapping
 WHERE opt_out = FALSE 
 AND (current_uid IS NULL OR refresh_from < datetime('now'));
 
--- Attribution joins using both current and previous UIDs
+-- Attribution joins using both current and previous UID2s
 SELECT * FROM impressions imp 
 JOIN uid_mapping um ON (imp.uid2 = um.current_uid OR imp.uid2 = um.previous_uid)
 WHERE um.opt_out = FALSE;
@@ -115,9 +115,9 @@ WHERE um.opt_out = FALSE;
 
 **Patterns for UID2 Integration:**
 
-✅ **Request Limits**: Maximum 5,000 DIIs per request  
+✅ **Request Limits**: Maximum 5,000 emails and/or phone numbers per request  
 ✅ **Sequential Processing**: No parallel requests to UID2 service  
 ✅ **Retry Logic**: Exponential backoff for network failures  
 ✅ **Optout Handling**: Permanent exclude opted out users from future processing
-✅ **Token Refresh**: Re-map tokens when they reach `refresh_from` timestamps  
+✅ **Raw UID2 Refresh**: Re-map raw UID2s when they reach `refresh_from` timestamps  
 ✅ **State Persistence**: Track mapping state

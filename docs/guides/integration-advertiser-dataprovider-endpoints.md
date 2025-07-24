@@ -58,12 +58,12 @@ DII refers to a user's normalized email address or phone number, or the normaliz
 
 <!-- diagram source: resource/advertiser-flow-endpoints-v3-mermaid.mermaid -->
 
-## Integration Example
+### Integration Example
 
-For a complete demonstration of a working integration that includes all the recommended patterns, see the [UID2 Identity Map V3 Integration Example](https://github.com/IABTechLab/uid2docs/blob/main/static/examples/identity-map-integration-example).
-While the sample is implemented using the Python SDK, the integration patterns are applicable to any SDK or direct API integration.
+For a complete demonstration of a working integration that includes all the recommended patterns, see the [UID2 Identity Map v3 Integration Example](https://github.com/IABTechLab/uid2docs/blob/main/static/examples/identity-map-integration-example).
+The sample uses the Python SDK, but the integration patterns are applicable to any SDK or direct API integration.
 
-For step-by-step setup instructions and to run the example, see the [Integration Example README](https://github.com/IABTechLab/uid2docs/blob/main/static/examples/identity-map-integration-example/README.md).
+For step-by-step setup instructions and to run the example, see [UID2 Integration Technical Sample](https://github.com/IABTechLab/uid2docs/blob/main/static/examples/identity-map-integration-example/README.md).
 
 ### 1: Generate Raw UID2s from DII
 

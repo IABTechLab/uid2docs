@@ -60,12 +60,12 @@ The following table shows the implementation options that are available for adve
 | [5: Monitor for Raw UID2 Refresh](#5-monitor-for-raw-uid2-refresh) | Use the refresh timestamp (`r` field) returned from the [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) endpoint to determine when to refresh Raw UID2s. |
 | [6: Monitor for Opt-Out Status](#6-monitor-for-opt-out-status) | API call to the [POST /optout/status](../endpoints/post-optout-status.md) endpoint. |
 
-## Integration Example
+### Integration Example
 
-For a complete demonstration of a working integration that includes all the recommended patterns, see the [UID2 Identity Map V3 Integration Example](https://github.com/IABTechLab/uid2docs/blob/main/static/examples/identity-map-integration-example).
-While the sample is implemented using the Python SDK, the integration patterns and applicable to any SDK or direct API integration.
+For a complete demonstration of a working integration that includes all the recommended patterns, see the [UID2 Identity Map v3 Integration Example](https://github.com/IABTechLab/uid2docs/blob/main/static/examples/identity-map-integration-example).
+The sample uses the Python SDK, but the integration patterns are applicable to any SDK or direct API integration.
 
-For step-by-step setup instructions and to run the example, see the [Integration Example README](https://github.com/IABTechLab/uid2docs/blob/main/static/examples/identity-map-integration-example/README.md).
+For step-by-step setup instructions and to run the example, see [UID2 Integration Technical Sample](https://github.com/IABTechLab/uid2docs/blob/main/static/examples/identity-map-integration-example/README.md).
 
 ## Integration Diagram
 
