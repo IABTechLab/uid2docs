@@ -55,7 +55,7 @@ The initialization step depends on the role, as shown in the following table.
 | Role                     | Create Instance of Class | Link to Instructions                                                         |
 |:-------------------------| :--- |:-----------------------------------------------------------------------------|
 | Publisher                | `PublisherUid2Client` | [Usage for Publishers](#usage-for-publishers)                                |
-| Advertiser/Data Provider | `IdentityMapClient` | [Usage for Advertisers/Data Providers](#usage-for-advertisersdata-providers) |
+| Advertiser/Data Provider | `IdentityMapV3Client` | [Usage for Advertisers/Data Providers](#usage-for-advertisersdata-providers) |
 | DSP                      | `BidstreamClient` | [Usage for DSPs](#usage-for-dsps)                                            |
 | Sharer                   | `SharingClient` | [Usage for UID2 Sharers](#usage-for-uid2-sharers)                            |
 
