@@ -8,6 +8,7 @@ displayed_sidebar: sidebarAdvertisers
 ---
 
 import Link from '@docusaurus/Link';
+import IntegrationExampleIdentityMap from '../snippets/_integration-example-identity-map.mdx';
 
 # Advertiser/Data Provider Integration Overview
 
@@ -26,6 +27,10 @@ There are other ways that you can use UID2, outside these use cases. These are j
 | Send in audiences | Send raw UID2s via API or pixels | Create audiences. |
 | Send&nbsp;in&nbsp;conversions | Send raw UID2s as conversion information | Use conversion information for measurement (attribution) or for retargeting via API or pixels. |
 | Receive&nbsp;graph&nbsp;data | Receive raw UID2s from graph/data providers via API or pixels | Build graph data. |
+
+## Integration Example
+
+<IntegrationExampleIdentityMap />
 
 ## High-Level Steps
 
@@ -59,13 +64,6 @@ The following table shows the implementation options that are available for adve
 | [4: Send Stored Raw UID2s to DSPs to Create Audiences or Conversions](#4-send-stored-raw-uid2s-to-dsps-to-create-audiences-or-conversions) | Custom (your choice). |
 | [5: Monitor for Raw UID2 Refresh](#5-monitor-for-raw-uid2-refresh) | Use the refresh timestamp (`r` field) returned from the [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) endpoint to determine when to refresh Raw UID2s. |
 | [6: Monitor for Opt-Out Status](#6-monitor-for-opt-out-status) | API call to the [POST /optout/status](../endpoints/post-optout-status.md) endpoint. |
-
-### Integration Example
-
-For a complete demonstration of a working integration that includes all the recommended patterns, see the [UID2 Identity Map v3 Integration Example](https://github.com/IABTechLab/uid2docs/blob/main/static/examples/identity-map-integration-example).
-The sample uses the Python SDK, but the integration patterns are applicable to any SDK or direct API integration.
-
-For step-by-step setup instructions and to run the example, see [UID2 Integration Technical Sample](https://github.com/IABTechLab/uid2docs/blob/main/static/examples/identity-map-integration-example/README.md).
 
 ## Integration Diagram
 

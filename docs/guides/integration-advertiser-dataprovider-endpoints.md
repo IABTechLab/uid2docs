@@ -8,6 +8,7 @@ displayed_sidebar: sidebarAdvertisers
 ---
 
 import Link from '@docusaurus/Link';
+import IntegrationExampleIdentityMap from '../snippets/_integration-example-identity-map.mdx';
 
 # Advertiser/Data Provider Integration to HTTP Endpoints
 
@@ -31,6 +32,10 @@ You'll need to set up these values, in the UID2 Portal on the [API Keys](../port
 :::important
 It's very important that you keep these values secure. For details, see [Security of API Key and Client Secret](../getting-started/gs-credentials.md#security-of-api-key-and-client-secret).
 :::
+
+## Integration Example
+
+<IntegrationExampleIdentityMap />
 
 ## High-Level Steps
 
@@ -57,13 +62,6 @@ DII refers to a user's normalized email address or phone number, or the normaliz
 ![Advertiser Flow](images/advertiser-flow-endpoints-mermaid-v3.png)
 
 <!-- diagram source: resource/advertiser-flow-endpoints-v3-mermaid.mermaid -->
-
-### Integration Example
-
-For a complete demonstration of a working integration that includes all the recommended patterns, see the [UID2 Identity Map v3 Integration Example](https://github.com/IABTechLab/uid2docs/blob/main/static/examples/identity-map-integration-example).
-The sample uses the Python SDK, but the integration patterns are applicable to any SDK or direct API integration.
-
-For step-by-step setup instructions and to run the example, see [UID2 Integration Technical Sample](https://github.com/IABTechLab/uid2docs/blob/main/static/examples/identity-map-integration-example/README.md).
 
 ### 1: Generate Raw UID2s from DII
 

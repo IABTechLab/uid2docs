@@ -7,6 +7,7 @@ displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';
+import IntegrationExampleIdentityMap from '../snippets/_integration-example-identity-map.mdx';
 
 # SDK for Java Reference Guide
 
@@ -387,10 +388,7 @@ IdentityMapV3Response mixedResponse = client.generateIdentityMap(mixedInput);
 
 ### Integration Example
 
-For a complete demonstration of a working integration that includes all the recommended patterns, see the [UID2 Identity Map v3 Integration Example](https://github.com/IABTechLab/uid2docs/blob/main/static/examples/identity-map-integration-example).
-The sample uses the Python SDK, but the integration patterns are applicable to any SDK or direct API integration.
-
-For step-by-step setup instructions and to run the example, see [UID2 Integration Technical Sample](https://github.com/IABTechLab/uid2docs/blob/main/static/examples/identity-map-integration-example/README.md).
+<IntegrationExampleIdentityMap />
 
 ## Migration From Version Using v2 Identity Map
 
