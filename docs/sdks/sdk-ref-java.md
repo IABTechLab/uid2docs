@@ -7,6 +7,7 @@ displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';
+import IntegrationExampleIdentityMap from '../snippets/_integration-example-identity-map.mdx';
 import POSTIdentityMapImprovements from '../snippets/_post-identity-map-improvements-v3.mdx';
 
 # SDK for Java Reference Guide
