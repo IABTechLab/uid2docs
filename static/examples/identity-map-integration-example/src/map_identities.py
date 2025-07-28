@@ -73,13 +73,13 @@ def map_batch(
     """
     dii_to_id = {record.dii: record.uid_mapping_id for record in batch}
 
-    uid_input, invalid_diis = build_uid_input(batch)
+    uid_input, invalid_dii = build_uid_input(batch)
     response = uid_client.identity_map(uid_input)
 
     mapped_identities = response.mapped_identities
 
     optout_ids = []
-    invalid_count = len(invalid_diis)
+    invalid_count = len(invalid_dii)
 
     for dii, unmapped_identity in response.unmapped_identities.items():
         if unmapped_identity.reason == UnmappedIdentityReason.OPTOUT:
@@ -137,11 +137,11 @@ def get_records_to_map(conn: sqlite3.Connection) -> list[IdentityToMap]:
 
 
 def build_uid_input(records: list[IdentityToMap]) -> tuple[IdentityMapV3Input, list[str]]:
-    """Build UID input object from database records. 
-    If adding an id causes a ValueError, add it to invalid_diis and continue. Other exceptions are raised."""
+    """Build UID2 input object from database records.
+    If adding an id causes a ValueError, add it to invalid_dii and continue. Other exceptions are raised."""
 
     uid_input = IdentityMapV3Input()
-    invalid_diis = []
+    invalid_dii = []
 
     for record in records:
         try:
@@ -153,9 +153,9 @@ def build_uid_input(records: list[IdentityToMap]) -> tuple[IdentityMapV3Input, l
                 raise Exception(f"Unknown dii type: {record.dii_type}")
         except ValueError:
             # ValueError is raised by uid2_client when the DII is invalid
-            invalid_diis.append(record.dii)
+            invalid_dii.append(record.dii)
 
-    return uid_input, invalid_diis
+    return uid_input, invalid_dii
 
 def update_mapped_records(
     conn: sqlite3.Connection,

@@ -7,7 +7,7 @@ Creates 100k test records in uid_mapping database with following distribution:
 - 20% up for refresh (refresh_from in the past, current_uid populated)
 - 20% never mapped (current_uid=NULL, refresh_from=NULL)
 - 49% already mapped with future refresh dates
-- 1% invalid DIIs (random strings)
+- 1% invalid DII (random strings)
 """
 import random
 import sqlite3
@@ -38,7 +38,7 @@ def generate_test_records() -> (
     print(f"  Opted out: {opted_out_count}")
     print(f"  Up for refresh: {refresh_needed_count}")
     print(f"  Never mapped: {never_mapped_count}")
-    print(f"  Invalid DIIs: {invalid_dii_count}")
+    print(f"  Invalid DII: {invalid_dii_count}")
     print(f"  Already mapped: {already_mapped_count}")
 
     # 1. Opted out records (10%)
@@ -163,7 +163,7 @@ def generate_phone() -> str:
 
 
 def generate_uid() -> str:
-    """Generate a UID for testing"""
+    """Generate a UID2 for testing"""
     return f"uid_{random.randint(1000000, 9999999)}"
 
 

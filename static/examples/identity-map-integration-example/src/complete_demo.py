@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """
-Complete demo of UID Identity Mapping:
+Complete demo of UID2 Identity Mapping:
    - Creates a test database.
    - Populates the database with test identity mapping data.
-   - Runs the UID mapping process.
+   - Runs the UID2 mapping process.
    - Populates the database with test impression and conversion data.
    - Runs a sample attribution analysis.
 """
@@ -19,10 +19,10 @@ from database import get_connection
 def complete_demo():
     conn = get_connection("uid_demo.db")
     try:
-        print("Step 1: Populating UID mapping test data...")
+        print("Step 1: Populating UID2 mapping test data...")
         populate_test_uid_mappings.populate_database(conn)
 
-        print("Step 2: Running UID mapping...")
+        print("Step 2: Running UID2 mapping...")
         map_identities.map_identities(conn)
 
         print("Step 3: Populating attribution test data...")

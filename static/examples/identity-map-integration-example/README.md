@@ -103,13 +103,13 @@ WHERE um.opt_out = FALSE;
 
 ## Script Reference
 
-| Script | Purpose | Key Integration Concepts |
-|--------|---------|-------------------------|
-| `src/populate_test_uid_mappings.py` | Creates 100k test records | Database schema, DII formatting |
+| Script | Purpose | Key Integration Concepts                         |
+|--------|---------|--------------------------------------------------|
+| `src/populate_test_uid_mappings.py` | Creates 100k test records | Database schema, DII formatting                  |
 | `src/map_identities.py` | **Core UID2 mapping logic** | Batch processing, retry logic, response handling |
-| `src/populate_test_conversions_impressions.py` | Attribution demo data | UID2 token usage in measurement |
-| `src/attribution_analysis.py` | Attribution analysis | Cross-UID joins, measurement patterns |
-| `src/complete_demo.py` | End-to-end workflow | Full integration validation |
+| `src/populate_test_conversions_impressions.py` | Attribution demo data | UID2 token usage in measurement                  |
+| `src/attribution_analysis.py` | Attribution analysis | Cross-UID2 joins, measurement patterns           |
+| `src/complete_demo.py` | End-to-end workflow | Full integration validation                      |
 
 ## Production Integration Checklist
 

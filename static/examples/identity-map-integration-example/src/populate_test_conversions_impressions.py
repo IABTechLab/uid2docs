@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """
-UID Attribution Test Data Population
+UID2 Attribution Test Data Population
 
-Creates impression and conversion test data using actual mapped UIDs.
-Should be run AFTER UID mapping is complete.
+Creates impression and conversion test data using actual mapped UID2s.
+Should be run AFTER UID2 mapping is complete.
 """
 import random
 import sqlite3
@@ -14,7 +14,7 @@ from database import get_connection, create_attribution_tables
 
 
 def populate_attribution_data(conn: sqlite3.Connection) -> None:
-    """Generate simple attribution demo data using actual UIDs"""
+    """Generate simple attribution demo data using actual UID2s"""
     cursor = conn.cursor()
 
     create_attribution_tables(conn)

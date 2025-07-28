@@ -79,3 +79,16 @@ The latest ZIP file is linked in the Release Notes column in the following table
 | ------- | ------ | ------ | ------ | ------ |
 | Q2 2025 | xxx | xxx | xxx | xxx | -->
 <!-- | Q1 2025 | 5.49.7 | [v5.49.7](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.49.7) | Mar 19, 2025 | Mar 31, 2026 | -->
+
+## Endpoint Versions
+
+Version 2 of the `POST /identity/map` endpoint has been superseded by version 3, which includes the additional advantages listed in [Version 3 Improvements](../endpoints/post-identity-map.md#version-3-improvements).
+
+With version 3 of the `POST /identity/map endpoint`, the `POST /identity/buckets` endpoint is no longer used at all.
+
+The following table shows the deprecation schedule for the v2 endpoints.
+
+Endpoint | Deprecation Date | 
+| ------- | ------ |
+| `POST /v2/identity/map` | June 30, 2026 |
+| `POST /v2/identity/buckets` | June 30, 2026 |

@@ -165,7 +165,3 @@ UID2 <Link href="../ref-info/glossary-uid#gl-sharing-participant">Sharing Partic
          // check decrypted.GetStatus() for the failure reason 
       }
       ```
-
-## FAQs
-
-DSP に関するよくある質問については [FAQs for DSPs](../getting-started/gs-faqs.md#faqs-for-dsps) を参照してください。
