@@ -97,7 +97,7 @@ AND (current_uid IS NULL OR refresh_from < datetime('now'));
 
 -- Attribution joins using both current and previous UID2s
 SELECT * FROM impressions imp 
-JOIN uid_mapping um ON (imp.uid2 = um.current_uid OR imp.uid2 = um.previous_uid)
+JOIN uid_mapping um ON (imp.uid = um.current_uid OR imp.uid = um.previous_uid)
 WHERE um.opt_out = FALSE;
 ```
 
