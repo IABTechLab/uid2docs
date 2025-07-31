@@ -1,5 +1,5 @@
 ---
-title: Snowflake Integration (Before July 2025)
+title: Snowflake Integration Guide (Pre-July 2025)
 sidebar_label: Snowflake (Before July 2025)
 pagination_label: Snowflake Integration
 description: UID2 Share in Snowflakeを通じたUID2とのインテグレーションに関する情報。
@@ -15,7 +15,7 @@ import Link from '@docusaurus/Link';
 [Snowflake](https://www.snowflake.com/)は、パートナーとしてデータを保存し、UID2 フレームワークとインテグレーションできるクラウドデータウェアハウジングソリューションです。Snowflake を使用することで、UID2 では機密性の高い<Link href="../ref-info/glossary-uid#gl-dii">直接識別情報（DII）</Link>を公開せずに、消費者識別子データを安全に共有できます。消費者識別子データについて Operator Web Serbvice に直接クエリを実行するオプションもありますが、Snowflake の UID2 インテグレーションはより円滑な体験を提供します。
 
 :::important
-このドキュメントは、2025年2月に公開された広告主とデータプロバイダーをインテグレーションした Snowflake マーケットプレイスリスティングを使用する方を対象としています。以前のリスティング（広告主とデータプロバイダー向けに分かれていたもの、つまり2025年2月以前に登録された方）を使用している場合は、[Snowflake Integration (Before Feb 2025)](integration-snowflake-before-february-2025.md)を参照してください。以前の実装を使用している場合は、更新と機能強化を活用するために新しいバージョンへの移行を勧めます。詳細については、[Changes from Previous Version](#changes-from-previous-version)を参照してください。移行情報については、[Migration Guide](#migration-guide)を参照してください。
+このドキュメントは、2025年2月に公開された広告主とデータプロバイダーをインテグレーションした Snowflake マーケットプレイスリスティングを使用する方を対象としています。以前のリスティング（広告主とデータプロバイダー向けに分かれていたもの、つまり2025年2月以前に登録された方）を使用している場合は、[Snowflake Integration (Pre-Feb 2025)](integration-snowflake-before-february-2025.md)を参照してください。以前の実装を使用している場合は、更新と機能強化を活用するために新しいバージョンへの移行を勧めます。詳細については、[Changes from Previous Version](#changes-from-previous-version)を参照してください。移行情報については、[Migration Guide](#migration-guide)を参照してください。
 :::
 
 ## Snowflake Marketplace Listing
@@ -102,7 +102,7 @@ UID2 Share へのアクセスをリクエストするには、以下の手順を
 
 - `FN_T_IDENTITY_MAP`（詳細は[Map DII](#map-dii)を参照）
 
-以下の関数は `FN_T_IDENTITY_MAP` に代わって非推奨となっています。以前の Snowflake バージョンを使用している場合は引き続き使用できますが（[Snowflake Integration (Before Feb 2025)](integration-snowflake-before-february-2025.md)を参照）、できるだけ早くアップグレードすることを勧めます：
+以下の関数は `FN_T_IDENTITY_MAP` に代わって非推奨となっています。以前の Snowflake バージョンを使用している場合は引き続き使用できますが（[Snowflake Integration (Pre-Feb 2025)](integration-snowflake-before-february-2025.md)を参照）、できるだけ早くアップグレードすることを勧めます：
 
 - `FN_T_UID2_IDENTITY_MAP`（非推奨）
 

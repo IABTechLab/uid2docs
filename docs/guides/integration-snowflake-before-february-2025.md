@@ -1,5 +1,5 @@
 ---
-title: Snowflake Integration (Before Feb 2025)
+title: Snowflake Integration (Pre-Feb 2025)
 sidebar_label: Snowflake (Before Feb 2025)
 pagination_label: Snowflake Integration
 description: Information about integrating with UID2 through the UID2 Share in Snowflake (earlier listings, separate for Advertiser and Data Provider).
@@ -20,7 +20,7 @@ This document is for anyone using the separate advertiser and data provider Snow
 
 The Snowflake marketplace listings for this implementation were separate for advertisers and for data providers. Those listings were removed following the publication of the updated version in February 2025.
 
-If you have a working implementation, you can use this documentation to maintain it; however, we recommend upgrading to the latest version. See [Snowflake Integration (Before Feb 2025)](integration-snowflake-before-july-2025.md).
+If you have a working implementation, you can use this documentation to maintain it; however, we recommend upgrading to the latest version. See [Snowflake Integration Guide](integration-snowflake.md).
 
 :::tip
 For a summary of all integration options and steps for advertisers and data providers, see [Advertiser/Data Provider Integration Overview](integration-advertiser-dataprovider-overview.md).

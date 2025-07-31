@@ -1,5 +1,5 @@
 ---
-title: Snowflake Integration (Before July 2025)
+title: Snowflake Integration Guide (Pre-July 2025)
 sidebar_label: Snowflake (Before July 2025)
 pagination_label: Snowflake Integration
 description: Information about integrating with UID2 through the UID2 Share in Snowflake. 
@@ -46,7 +46,7 @@ If you're a publisher who is sharing UID2 tokens in the <Link href="../ref-info/
 The February 2025 update to the UID2 Snowflake Marketplace integration includes updates and enhancements. One key change is that it includes a single listing and data share that combines the capabilities of the two previous data shares, one for Advertisers and one for Data Providers. This simplifies the integration for all participants.
 
 :::note
-These changes assume that your code integration uses the version of Snowflake functions published before February 2025: see [Snowflake Integration (Before Feb 2025)](integration-snowflake-before-february-2025.md). If you're using an even earlier version, that uses the `FN_T_UID2_IDENTITY_MAP_EMAIL` and `FN_T_UID2_IDENTITY_MAP_EMAIL_HASH` functions, you could follow the instructions in the [Migration Guide section in the earlier guide](integration-snowflake-before-february-2025.md#migration-guide), and then upgrade again to the current version. However, in this scenario we recommend that you follow the instructions in this guide and upgrade in one step. For details, see [Migration Guide](#migration-guide).
+These changes assume that your code integration uses the version of Snowflake functions published before February 2025: see [Snowflake Integration (Pre-Feb 2025)](integration-snowflake-before-february-2025.md). If you're using an even earlier version, that uses the `FN_T_UID2_IDENTITY_MAP_EMAIL` and `FN_T_UID2_IDENTITY_MAP_EMAIL_HASH` functions, you could follow the instructions in the [Migration Guide section in the earlier guide](integration-snowflake-before-february-2025.md#migration-guide), and then upgrade again to the current version. However, in this scenario we recommend that you follow the instructions in this guide and upgrade in one step. For details, see [Migration Guide](#migration-guide).
 :::
 
 The following table shows details of the changes to the Snowflake functions, from the previous version.
@@ -102,7 +102,7 @@ You can map DII to UID2s by using the following function:
 
 - `FN_T_IDENTITY_MAP` (for details, see [Map DII](#map-dii))
 
-The following function is deprecated in favor of `FN_T_IDENTITY_MAP`. You can still use it if you are on the previous Snowflake version (see [Snowflake Integration (Before Feb 2025)](integration-snowflake-before-february-2025.md)), but we recommend upgrading as soon as possible:
+The following function is deprecated in favor of `FN_T_IDENTITY_MAP`. You can still use it if you are on the previous Snowflake version (see [Snowflake Integration (Pre-Feb 2025)](integration-snowflake-before-february-2025.md)), but we recommend upgrading as soon as possible:
 
 - `FN_T_UID2_IDENTITY_MAP` (deprecated)
 
