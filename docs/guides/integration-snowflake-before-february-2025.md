@@ -1,6 +1,6 @@
 ---
-title: Snowflake Integration (Before February 2025)
-sidebar_label: Snowflake (Before February 2025)
+title: Snowflake Integration (Before Feb 2025)
+sidebar_label: Snowflake (Before Feb 2025)
 pagination_label: Snowflake Integration
 description: Information about integrating with UID2 through the UID2 Share in Snowflake (earlier listings, separate for Advertiser and Data Provider).
 hide_table_of_contents: false
@@ -10,17 +10,17 @@ displayed_sidebar: docs
 
 import Link from '@docusaurus/Link';
 
-# Snowflake Integration Guide (Version Prior to February 2025)
+# Snowflake Integration Guide (Pre-Feb 2025)
 
 [Snowflake](https://www.snowflake.com/) is a cloud data warehousing solution, where you as a partner can store your data and integrate with the UID2 framework. Using Snowflake, UID2 enables you to securely share consumer identifier data without exposing sensitive <Link href="../ref-info/glossary-uid#gl-dii">directly identifying information (DII)</Link>. Even though you have the option to query the Operator Web Services directly for the consumer identifier data, the Snowflake UID2 integration offers a more seamless experience.
 
 :::important
-This document is for anyone using the separate advertiser and data provider Snowflake marketplace listings published prior to February 2025. For documentation on the newer, combined listing published in February 2025, see [Snowflake Integration Guide (Version Prior to July 2025)](integration-snowflake-before-july-2025.md). If you're using the earlier implementation, we recommend that you migrate to the newer version to take advantage of the updates and enhancements. For migration information, see [Migration Guide](integration-snowflake-before-july-2025.md#migration-guide).
+This document is for anyone using the separate advertiser and data provider Snowflake marketplace listings published prior to February 2025. For documentation on the latest version, see [Snowflake Integration Guide)](integration-snowflake.md). If you're using any earlier implementation, we recommend that you migrate to the latest version to take advantage of the updates and enhancements. For migration information, see [Migration Guide](integration-snowflake-before-july-2025.md#migration-guide).
 :::
 
 The Snowflake marketplace listings for this implementation were separate for advertisers and for data providers. Those listings were removed following the publication of the updated version in February 2025.
 
-If you have a working implementation, you can use this documentation to maintain it; however, we recommend upgrading to the latest version. See [Snowflake Integration Guide (Version Prior to February 2025)](integration-snowflake-before-july-2025.md).
+If you have a working implementation, you can use this documentation to maintain it; however, we recommend upgrading to the latest version. See [Snowflake Integration (Before Feb 2025)](integration-snowflake-before-july-2025.md).
 
 :::tip
 For a summary of all integration options and steps for advertisers and data providers, see [Advertiser/Data Provider Integration Overview](integration-advertiser-dataprovider-overview.md).

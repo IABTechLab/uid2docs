@@ -19,7 +19,7 @@ import Link from '@docusaurus/Link';
 [Snowflake](https://www.snowflake.com/) is a cloud data warehousing solution, where you as a partner can store your data and integrate with the UID2 framework. Using Snowflake, UID2 enables you to securely share consumer identifier data without exposing sensitive <Link href="../ref-info/glossary-uid#gl-dii">directly identifying information (DII)</Link>. Even though you have the option to query the Operator Web Services directly for the consumer identifier data, the Snowflake UID2 integration offers a more seamless experience.
 
 :::important
-This document is for those using the combined advertiser and data provider Snowflake marketplace listing published in February 2025. If you're using one of the earlier listings, which were separate for advertiser and data provider (that is, you subscribed prior to February 2025), see [Snowflake Integration Guide (Version Prior to February 2025)](integration-snowflake-before-february-2025.md). If you're using the earlier implementation, we recommend that you migrate to the newer version to take advantage of the updates and enhancements: for details, see [Changes from Previous Version](#changes-from-previous-version). For migration information, see [Migration Guide](#migration-guide).
+This document is for those using the combined advertiser and data provider Snowflake marketplace listing published in February 2025. If you're using one of the earlier listings, which were separate for advertiser and data provider (that is, you subscribed prior to February 2025), see [Snowflake Integration (Before Feb 2025)](integration-snowflake-before-february-2025.md). If you're using the earlier implementation, we recommend that you migrate to the newer version to take advantage of the updates and enhancements: for details, see [Changes from Previous Version](#changes-from-previous-version). For migration information, see [Migration Guide](#migration-guide).
 :::
 
 ## Snowflake Marketplace Listing
@@ -50,14 +50,14 @@ If you're a publisher who is sharing UID2 tokens in the <Link href="../ref-info/
 The July 2025 update to the UID2 Snowflake Marketplace integration introduces a new identity mapping function that simplifies UID2 refresh management and allows accessing previous raw UID2s for 90 days after rotation.
 
 :::note
-These changes assume that your code integration uses the version of Snowflake functions published before July 2025: see [Snowflake Integration Guide (Version Prior to July 2025)](integration-snowflake-before-july-2025.md). For details on migrating to this version, see [Migration Guide](#migration-guide).
+These changes assume that your code integration uses the version of Snowflake functions published before July 2025: see [Snowflake Integration Guide (Pre-July 2025)](integration-snowflake-before-july-2025.md). For details on migrating to this version, see [Migration Guide](#migration-guide).
 :::
 
 The following table shows the differences between the old and new identity mapping functions.
 
 | Function | Version | Return Fields | Key Differences | Comments |
 | :-- | :-- | :-- | :-- | :-- |
-| `FN_T_IDENTITY_MAP` | Previous | `UID`, `BUCKET_ID`, `UNMAPPED` | Basic identity mapping with salt bucket tracking | Legacy function using salt bucket monitoring for refresh management. For details, see [Snowflake Integration Guide (Version Prior to July 2025)](integration-snowflake-before-july-2025.md).|
+| `FN_T_IDENTITY_MAP` | Previous | `UID`, `BUCKET_ID`, `UNMAPPED` | Basic identity mapping with salt bucket tracking | Legacy function using salt bucket monitoring for refresh management. For details, see [Snowflake Integration Guide (Pre-July 2025)](integration-snowflake-before-july-2025.md).|
 | `FN_T_IDENTITY_MAP_V3` | Current | `UID`, `PREV_UID`, `REFRESH_FROM`, `UNMAPPED` | Enhanced with previous UID2 access and refresh timestamps | Returns previous UID2 for 90 days after rotation and uses refresh timestamps instead of salt bucket monitoring. For details, see [Map DII](#map-dii).|
 
 ### Key Benefits
@@ -106,7 +106,7 @@ You can map DII to UID2s by using the following function:
 
 - `FN_T_IDENTITY_MAP_V3` (for details, see [Map DII](#map-dii))
 
-The following function is deprecated in favor of `FN_T_IDENTITY_MAP_V3`. You can still use it if you are on the previous Snowflake version (see [Snowflake Integration Guide (Version Prior to July 2025)](integration-snowflake-before-july-2025.md)), but we recommend upgrading as soon as possible:
+The following function is deprecated in favor of `FN_T_IDENTITY_MAP_V3`. You can still use it if you are on the previous Snowflake version (see [Snowflake Integration Guide (Pre-July 2025)](integration-snowflake-before-july-2025.md)), but we recommend upgrading as soon as possible:
 
 - `FN_T_IDENTITY_MAP` (deprecated)
 
@@ -622,8 +622,7 @@ This section provides information to help you upgrade from the previous version 
 
 ### Changing Existing Code
 
-For a summary of changes, see [Changes from Previous Version](#changes-from-previous-version). The code snippets in this section are before/after examples of how the earlier functions might be implemented, and how 
-you could update to use the new function. The key change is migrating from `FN_T_IDENTITY_MAP` to `FN_T_IDENTITY_MAP_V3`, which provides refresh timestamps instead of salt bucket IDs and includes previous UID2 access.
+For a summary of changes, see [Changes from Previous Version](#changes-from-previous-version). The code snippets in this section are before/after examples of how the earlier functions might be implemented, and how you could update to use the new function. The key change is migrating from `FN_T_IDENTITY_MAP` to `FN_T_IDENTITY_MAP_V3`, which provides refresh timestamps instead of salt bucket IDs and includes previous UID2 access.
 
 #### Example for Mapping Unhashed Emails
 

@@ -1,6 +1,6 @@
 ---
-title: Snowflake Integration (Version Prior to February 2025)
-sidebar_label: Snowflake (Before February 2025)
+title: Snowflake Integration (Before Feb 2025)
+sidebar_label: Snowflake (Before Feb 2025)
 pagination_label: Snowflake Integration
 description: Snowflake の UID2 Share を通じて UID2 とインテグレーションするための情報。
 hide_table_of_contents: false
@@ -10,17 +10,17 @@ displayed_sidebar: docs
 
 import Link from '@docusaurus/Link';
 
-# Snowflake Integration Guide (Version Prior to February 2025)
+# Snowflake Integration Guide (Pre-Feb 2025)
 
 [Snowflake](https://www.snowflake.com/) は、クラウドデータウェアハウジングソリューションで、パートナーとしてデータを保存し、UID2 フレームワークとインテグレーションすることができます。Snowflake を使用することで、UID2 は、機密性の高い<Link href="../ref-info/glossary-uid#gl-dii">直接識別情報 (DII)</Link>を公開せずに、消費者識別子データを安全に共有できます。消費者識別子データを直接問い合わせる Operator Web Services があるにもかかわらず、Snowflake UID2 インテグレーションはよりシームレスなエクスペリエンスを提供します。
 
 :::important
-このドキュメントは、2025年2月以前に公開された広告主とデータプロバイダー向けの別々の Snowflake marketplace を使用しているユーザー向けです。2025年2月に公開された新しいインテグレーションに関するドキュメントは、[Snowflake Integration Guide (Version Prior to July 2025)](integration-snowflake-before-july-2025.md) を参照してください。以前の実装を使用している場合は、更新と強化を活用するために新しいバージョンに移行することを勧めます。移行情報については、[Migration Guide](integration-snowflake-before-july-2025.md#migration-guide) を参照してください。
+このドキュメントは、2025年2月以前に公開された広告主とデータプロバイダー向けの別々の Snowflake marketplace を使用しているユーザー向けです。2025年2月に公開された新しいインテグレーションに関するドキュメントは、[Snowflake Integration Guide (Pre-July 2025)](integration-snowflake-before-july-2025.md) を参照してください。以前の実装を使用している場合は、更新と強化を活用するために新しいバージョンに移行することを勧めます。移行情報については、[Migration Guide](integration-snowflake.md#migration-guide) を参照してください。
 :::
 
 Snowflake の UID2 インテグレーションの実装は、広告主とデータプロバイダー向けに別々の Snowflake marketplace で提供されていました。これらのリストは、2025年2月に更新されたバージョンが公開された後に削除されました。
 
-実装したものがある場合は、このドキュメントを使用してメンテナンスすることができますが、最新バージョンにアップグレードすることを勧めます。[Snowflake Integration Guide (Version Prior to July 2025)](integration-snowflake-before-july-2025.md) を参照してください。
+実装したものがある場合は、このドキュメントを使用してメンテナンスすることができますが、最新バージョンにアップグレードすることを勧めます。[Snowflake Integration Guide](integration-snowflake.md) を参照してください。
 
 :::tip
 広告主とデータプロバイダー向けのすべてのインテグレーションオプションと手順の概要については、[Advertiser/Data Provider Integration Overview](integration-advertiser-dataprovider-overview.md) を参照してください。
