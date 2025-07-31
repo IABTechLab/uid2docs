@@ -61,7 +61,7 @@ UID2 Token を生成するには、主に2つの方法があります。&#8212;U
 - Client-Side (ユーザーのブラウザ内): [Client-Side Integration Options](#client-side-integration-options) を参照してください。
 - Server-Side: [Server-Side Integration Options](#server-side-integration-options) を参照してください。
 
-それぞれのオプションには利点があります。最も簡単で高速なインテグレーションオプションとして、Prebid.js 8.21.0 以降を使用した Client-Side インテグレーションを勧めます。
+それぞれのオプションには利点があります。最も簡単で高速なインテグレーションオプションとして、Prebid.js 8.21.0 以降を使用した Client-Side インテグレーションを推奨します。
 
 :::note
 すべてのインテグレーションオプションで、UID2 Token をローカルストレージまたはクッキーストレージに保存することを選択できます。

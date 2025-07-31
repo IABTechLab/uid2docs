@@ -14,6 +14,12 @@ import Link from '@docusaurus/Link';
 
 Used by: このエンドポイントは、主に広告主とデータプロバイダーによって使用されます。詳細は [Advertiser/Data Provider Integration Overview](../guides/integration-advertiser-dataprovider-overview.md) を参照してください。
 
+:::important
+最新バージョン (v3) の `POST /v3/identity/map` を使用している場合は、`POST /identity/buckets` を使用する必要はありません。以前のバージョン (v2) の `POST /v2/identity/map` を使用している場合にのみ必要です。
+
+v2 バージョンを使用している場合は、改善点を活用するためにできるだけ早くアップグレードすることをお勧めします。移行ガイダンスについては、[Migration from v2 Identity Map](post-identity-map.md#migration-from-v2-identity-map) を参照してください。
+:::
+
 ## Request Format
 
 `POST '{environment}/v2/identity/buckets'`

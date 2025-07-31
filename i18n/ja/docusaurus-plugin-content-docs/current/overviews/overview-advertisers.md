@@ -39,15 +39,15 @@ UID2 のドキュメント一式に左サイドバーからアクセスしたい
 以下のステップは、ユーザーデータを収集し DSP にプッシュする組織 (広告主、ID グラフプロバイダー、サードパーティデータプロバイダーなど) を想定したワークフローのアウトラインを提供するものです。
 
 バックグラウンドで以下の処理が行われます:
-* 広告主とデータプロバイダーは、ローテーションされたソルトバケットの UID2 Operator を監視し、必要に応じて UID2 を更新します。
+* 広告主またはデータプロバイダーは、<Link href="../ref-info/glossary-uid#gl-refresh-timestamp">リフレッシュ タイムスタンプ</Link> を監視し、現在の時刻が各保存された UID2 のリフレッシュ タイムスタンプを超えた場合に UID2 を更新します。
 
 以下のステップは、広告主が UID2 とインテグレーションする方法の一例です:
 
 1. 広告主は、ユーザーの [directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) を UID2 Operator に送信します。
-2. UID2 Operator は、raw UID2 とソルトバケット ID を生成して返します。
-3. 広告主は UID2 とソルトバケット ID を保存し、UID2 ベースのファーストパーティおよびサードパーティのオーディエンスセグメントを DSP に送信します。
+2. UID2 Operator は、raw UID2とリフレッシュタイムスタンプを生成して返します。
+3. 広告主は UID2 とリフレッシュタイムスタンプを保存し、UID2 ベースのファーストパーティおよびサードパーティのオーディエンスセグメントを DSP に送信します。
 
-      Server-Side: 広告主は、マッピングテーブル、DMP、データレイク、またはその他のサーバーサイドアプリケーションに UID2 を保存します。
+   Server-side: 広告主は、マッピングテーブル、DMP、データレイク、またはその他のサーバーサイドアプリケーションに UID2 を保存します。
 
 ![Data Provider Workflow](images/UID2AdvertiserAndThirdPartyDataProviderWorkflow.jpg)
 

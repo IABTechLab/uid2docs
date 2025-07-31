@@ -22,7 +22,7 @@ import UpgradePolicy from '../snippets/_private-operator-upgrade-policy.mdx';
 <!-- - [Private Operator for AKS](#private-operator-for-aks) -->
 
 :::important
-古いバージョンを使用している場合は、該当する表の「Deprecation Date」列を参照して、バージョンのサポート期間に関する情報を確認してください。新しい機能や改善された機能を利用するために、できるだけ早く最新バージョンにアップグレードすることを勧めます。
+古いバージョンを使用している場合は、該当する表の「Deprecation Date」列を参照して、バージョンのサポート期間に関する情報を確認してください。新しい機能や改善された機能を利用するために、できるだけ早く最新バージョンにアップグレードすることを推奨します。
 :::
 
 ### Private Operator Upgrade Policy
