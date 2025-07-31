@@ -52,20 +52,20 @@ DSP の場合は、資格情報を送信します。
 
 初期化ステップは、次の表に示すように、役割によって異なります。
 
-| Role                     | Create Instance of Class | Link to Instructions                                                         |
-|:-------------------------| :--- |:-----------------------------------------------------------------------------|
-| Publisher                | `PublisherUid2Client` | [Usage for Publishers](#usage-for-publishers)                                |
+| Role | Create Instance of Class | Link to Instructions |
+| :--- | :--- | :--- |
+| Publisher | `PublisherUid2Client` | [Usage for Publishers](#usage-for-publishers) |
 | Advertiser/Data Provider | `IdentityMapClient` | [Usage for Advertisers/Data Providers](#usage-for-advertisersdata-providers) |
-| DSP                      | `BidstreamClient` | [Usage for DSPs](#usage-for-dsps)                                            |
-| Sharer                   | `SharingClient` | [Usage for UID2 Sharers](#usage-for-uid2-sharers)                            |
+| DSP | `BidstreamClient` | [Usage for DSPs](#usage-for-dsps) |
+| Sharer | `SharingClient` | [Usage for UID2 Sharers](#usage-for-uid2-sharers) |
 
 SDK が UID2 Service で認証するために必要な値を提供する必要があります。
 
-| Parameter | Description                                                                                | 
-| :--- |:-------------------------------------------------------------------------------------------|
-| `baseUrl/uid2BaseUrl` | The endpoint for the UID2 service. See [Environments](../getting-started/gs-environments). | 
-| `clientApiKey` | The API key. See [UID2 Credentials](../getting-started/gs-credentials).                    | 
-| `base64SecretKey` | The client secret. See [UID2 Credentials](../getting-started/gs-credentials).              | 
+| Parameter | Description | 
+| :--- | :--- |
+| `baseUrl/uid2BaseUrl` | The endpoint for the UID2 service. See [Environments](../getting-started/gs-environments). |
+| `clientApiKey` | The API key. See [UID2 Credentials](../getting-started/gs-credentials). |
+| `base64SecretKey` | The client secret. See [UID2 Credentials](../getting-started/gs-credentials). |
 
 ### Interface 
 
@@ -583,9 +583,6 @@ SharingClient client = new SharingClient(UID2_BASE_URL, UID2_API_KEY, UID2_SECRE
 ```
 
 2. 起動時に 1 回リフレッシュし、その後定期的にリフレッシュします (推奨されるリフレッシュ間隔は 1 時間ごとです):
-```java
-client.refresh();
-```
 ```java
 client.refresh();
 ```

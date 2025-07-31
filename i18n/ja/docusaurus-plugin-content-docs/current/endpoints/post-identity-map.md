@@ -64,6 +64,7 @@ UID2 のオプトアウト手順とユーザーがオプトアウトする方法
 | `phone` | string array | 条件付きで必須 | マッピングする[正規化済み](../getting-started/gs-normalization-encoding.md#phone-number-normalization)電話番号のリスト。 |
 | `phone_hash` | string array | 条件付きで必須 | マッピングする[正規化済み](../getting-started/gs-normalization-encoding.md#phone-number-normalization)電話番号の[Base64エンコードされた SHA-256](../getting-started/gs-normalization-encoding.md#phone-number-hash-encoding)ハッシュのリスト。 |
 
+
 ### Request Examples
 
 以下の例は、`POST /identity/map` エンドポイントへの暗号化されていない JSON リクエスト本文の例です:
@@ -167,6 +168,7 @@ Response:
 | `phone`        | マッピングされた DII オブジェクトの配列 | リクエスト内の電話番号のリストに対応するマッピングされた DII オブジェクトのリスト。 |
 | `phone_hash`   | マッピングされた DII オブジェクトの配列 | リクエスト内の電話番号ハッシュのリストに対応するマッピングされた DII オブジェクトのリスト。 |
 
+
 DII が正常にマッピングされた場合、マッピングされたオブジェクトには以下の表に示すプロパティが含まれます。
 
 | Property | Data Type | Description |
@@ -174,6 +176,8 @@ DII が正常にマッピングされた場合、マッピングされたオブ�
 | `u` | string | リクエストで提供されたメールアドレスまたは電話番号に対応する raw UID2。 |
 | `p` | string | 以下のいずれか:<ul><li>現在の raw UID2 が過去 90 日以内にローテーションされた場合: 前の値。</li><li>現在の raw UID2 が 90 日以上前のものである場合: `null`。</li></ul> |
 | `r` | number | Unix タイムスタンプ（ミリ秒単位）で、raw UID2 がリフレッシュされる可能性のある時刻を示します。このタイムスタンプまで、raw UID2 は有効であることが保証されています。 |
+
+マッピングできなかった入力値に対しては、マッピングされたオブジェクトに以下の表に示すプロパティが含まれます。
 
 | Property | Data Type | Description|
 | :--- | :--- | :--- |

@@ -28,4 +28,3 @@ UID2 エコシステムには、特定のアクティビティを完了するた
 | Bidder | DSPs | パブリッシャーからの<Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link>から送られてくる UID2 Token を、入札目的で raw UID2 に復号化する権限。 |
 | Sharer | UID2 sharing に参加するすべての参加者タイプ。詳細は [UID2 Sharing: Overview](../sharing/sharing-overview.md) を参照してください。 | 以下両方の権限:<ul><li>UID2 SDK または Snowflake を使用して、raw UID2 を UID2 Token に暗号化し、許可された別の共有参加者と共有します。</li><li>他の許可された共有参加者から受け取った UID2 Token を raw UID2 に復号します。</li></ul> |
 | Mapper | Advertisers<br/>Data Providers | 複数のメールアドレス、電話番号、またはそのハッシュを、raw UID2、以前の raw UID2、および　リフレッシュタイムスタンプにマッピングするために、以下のエンドポイントを呼び出すパーミッション:<ul><li>[POST&nbsp;/identity/map](../endpoints/post-identity-map.md) (最新バージョン)</li><li>以前の v2 identity mapping エンドポイント: [POST&nbsp;/identity/map (v2)](../endpoints/post-identity-map-v2.md) および [POST&nbsp;/identity/buckets](../endpoints/post-identity-buckets.md).</li></ul> |
-
