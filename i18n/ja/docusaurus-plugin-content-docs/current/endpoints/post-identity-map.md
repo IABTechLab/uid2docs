@@ -60,7 +60,7 @@ UID2 のオプトアウト手順とユーザーがオプトアウトする方法
 | Body Parameter | Data Type | Attribute | Description |
 | :--- | :--- | :--- | :--- |
 | `email` | string array | 条件付きで必須 | マッピングするメールアドレスのリスト。 |
-| `email_hash` | string array | 条件付きで必須 | マッピングする[正規化済み](../getting-started/gs-normalization-encoding.md#email-address-normalization)メールアドレスの[Base64エンコードされた SHA-256](../getting-stzarted/gs-normalization-encoding.md#email-address-hash-encoding)ハッシュのリスト。 |
+| `email_hash` | string array | 条件付きで必須 | マッピングする[正規化済み](../getting-started/gs-normalization-encoding.md#email-address-normalization)メールアドレスの[Base64エンコードされた SHA-256](../getting-started/gs-normalization-encoding.md#email-address-hash-encoding)ハッシュのリスト。 |
 | `phone` | string array | 条件付きで必須 | マッピングする[正規化済み](../getting-started/gs-normalization-encoding.md#phone-number-normalization)電話番号のリスト。 |
 | `phone_hash` | string array | 条件付きで必須 | マッピングする[正規化済み](../getting-started/gs-normalization-encoding.md#phone-number-normalization)電話番号の[Base64エンコードされた SHA-256](../getting-started/gs-normalization-encoding.md#phone-number-hash-encoding)ハッシュのリスト。 |
 
@@ -221,7 +221,7 @@ V3 Identity Map API は、v2 に比べて以下の改善点を提供します:
 | リフレッシュ管理 | `/identity/buckets` エンドポイントを介してソルトバケットのローテーションをモニター | `refresh_from` タイムスタンプを過ぎたときに再マッピング |
 | 前の UID2 アクセス | 利用不可 | 90 日間利用可能 |
 
-### 必要な変更
+### Required Changes
 
 以前のバージョンからバージョン 3 へのアップグレードは、以下の手順に従ってください。
 
