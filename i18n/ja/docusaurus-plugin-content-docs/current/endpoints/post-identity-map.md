@@ -11,8 +11,6 @@ import POSTIdentityMapImprovements from '../snippets/_post-identity-map-improvem
 
 # POST /identity/map
 
-# POST /identity/map
-
 複数のメールアドレス、電話番号、またはそれぞれのハッシュを、raw UID2 にマッピングします。このエンドポイントを使用して、オプトアウト情報の更新をチェックしたり、raw UID2 の更新が可能な時期を確認したり、現在の raw UID2 が 発行されてから 90 日未満の場合に前の UID2 を表示することもできます。
 
 Used by: このエンドポイントは、主に広告主とデータプロバイダーによって使用されます。詳細については、[Advertiser/Data Provider Integration Overview](../guides/integration-advertiser-dataprovider-overview.md) を参照してください。

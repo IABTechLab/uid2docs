@@ -80,6 +80,7 @@ SDK が　UID2 Service と通信するために必要な値を提供する必要
 ## Interface 
 
 `BidstreamClient` クラスを利用すると UID2 Token を raw UID2 に復号化できます。
+
 ユーザーのオプトアウトを処理する入札ロジックの詳細は [DSP Integration Guide](../guides/dsp-guide.md) を参照してください。
 
 `SharingClient` クラスを利用すると、raw UID2 を UID2 Token に暗号化し、UID2 Token を raw UID2 に復号化することができます。

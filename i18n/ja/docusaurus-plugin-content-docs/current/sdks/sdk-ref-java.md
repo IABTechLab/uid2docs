@@ -7,6 +7,7 @@ displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';
+import POSTIdentityMapImprovements from '../snippets/_post-identity-map-improvements-v3.mdx';
 
 # SDK for Java Reference Guide
 
@@ -69,10 +70,11 @@ SDK が UID2 Service で認証するために必要な値を提供する必要�
 
 ### Interface 
 
-`BidstreamClient` クラスを使用すると、UID2 Token を raw UID2 に復号することができます。
+`BidstreamClient` クラスを利用すると UID2 Token を raw UID2 に復号化できます。
+
 ユーザーのオプトアウトを処理する入札ロジックの詳細は [DSP Integration Guide](../guides/dsp-guide.md) を参照してください。
 
-`SharingClient` クラスを使うと、raw UID2 を暗号化して UID2 Token にしたり、UID2 Token を復号して raw UID2 にしたりすることができます。
+`SharingClient` クラスを利用すると、raw UID2 を UID2 Token に暗号化し、UID2 Token を raw UID2 に復号化することができます。
 
 :::note
 SDK を使用する際に、復号鍵を保存したり管理したりする必要はありません。
@@ -395,12 +397,7 @@ IdentityMapV3Response mixedResponse = client.generateIdentityMap(mixedInput);
 
 ### Version 3 Improvements
 
-`POST /identity/map` エンドポイントのバージョン 3 には、以下の改善点があります:
-
-- **Support for multiple identity types**: 1 回のリクエストで複数の ID タイプを処理できます。
-- **Simpler refresh management**: リフレッシュタイムスタンプに達したときに、raw UID2 を再マッピングするだけで済みます。ソルトバケットを監視する必要はなく、別の API 呼び出しが不要です。
-- **Availability of previous raw UID2**: ローテーション後 90 日間は、以前の UID2 を確認できます。
-- **Improved performance**: 新しい API バージョンは、同じ量の DII に対して大幅に帯域幅を削減します。
+<POSTIdentityMapImprovements />
 
 ### Required Changes
 
@@ -616,7 +613,3 @@ else
 ```
 
 詳細な例については、[test/IntegrationExamples.java](https://github.com/IABTechLab/uid2-client-java/blob/main/src/test/java/com/uid2/client/test/IntegrationExamples.java) の `ExampleSharingClient` メソッドを参照してください。
-
-## FAQs
-
-DSP に関するよくある質問のリストについては、[FAQs for DSPs](../getting-started/gs-faqs.md#faqs-for-dsps) を参照してください。
