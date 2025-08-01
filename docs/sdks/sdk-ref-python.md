@@ -7,6 +7,7 @@ displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';
+import IntegrationExampleIdentityMap from '../snippets/_integration-example-identity-map.mdx';
 
 # SDK for Python Reference Guide
 
@@ -301,6 +302,10 @@ mixed_input = IdentityMapV3Input()
 
 mixed_response = client.generate_identity_map(mixed_input)
 ```
+
+### Integration Example
+
+<IntegrationExampleIdentityMap />
 
 ## Migration From Version Using v2 Identity Map
 

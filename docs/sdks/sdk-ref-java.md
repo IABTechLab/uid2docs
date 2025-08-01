@@ -7,6 +7,7 @@ displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';
+import IntegrationExampleIdentityMap from '../snippets/_integration-example-identity-map.mdx';
 import POSTIdentityMapImprovements from '../snippets/_post-identity-map-improvements-v3.mdx';
 
 # SDK for Java Reference Guide
@@ -386,6 +387,10 @@ IdentityMapV3Input mixedInput = new IdentityMapV3Input()
 
 IdentityMapV3Response mixedResponse = client.generateIdentityMap(mixedInput);
 ```
+
+### Integration Example
+
+<IntegrationExampleIdentityMap />
 
 ## Migration From Version Using v2 Identity Map
 
