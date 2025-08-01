@@ -1,0 +1,29 @@
+%%26/6/25: V3 API Update - Updated endpoints diagram to use V3 identity map API with refresh timestamps instead of salt bucket monitoring.
+
+  sequenceDiagram
+    participant ADP as Advertiser/Data Provider
+    participant UID as UID2 Operator
+    participant DSP
+    Note over ADP,DSP: 1. ID マップエンドポイントを使用して DII から raw UID2 を生成します。
+        loop 
+    ADP->>UID: 1-a. DII 含むリクエストを POST /identity/map エンドポイントに送信します。
+    UID->>ADP: 1-b. POST /identity/map エンドポイントから返された raw UID2 (u)、リフレッシュタイムスタンプ (r)、およびオプションで前の UID2 (p) を保存します。
+    end
+    Note over ADP,DSP: 2. raw UID2 とリフレッシュタイムスタンプを保存します。
+    Note over ADP,DSP: 3. raw UID2 を操作または組み合わせます。
+    Note over ADP,DSP: 4. raw UID2 を DSP に送信します。
+    ADP-->>DSP: 保存された raw UID2 を DSP に送信して、オーディエンスやコンバージョンを作成するか、測定に使用します。    
+    Note over ADP,DSP: 5. raw UID2 の更新を監視します。
+    loop
+       ADP->>ADP: 5-a. 保存されているリフレッシュタイムスタンプと現在の時刻を比較します。
+       ADP->>UID: 5-b. リフレッシュ時間に達した場合、POST /identity/map エンドポイントに DII を再送信して更新された raw UID2 を取得します。
+       UID->>ADP: 5-c. POST /identity/map エンドポイントから返された新しい raw UID2 (u)、リフレッシュタイムスタンプ (r)、およびオプションで前の UID2 (p) を保存します。
+    end
+    Note over ADP,DSP: 6. オプトアウトステータスを監視します。ローカルストレージからすべてのオプトアウトを削除し、使用しないでください。
+    loop
+       ADP->>UID: 6-a. POST /optout/status エンドポイントを使用してオプトアウトステータスを監視します。
+       UID->>ADP: 6-b. オプトアウトステータスを返します。
+    end
+
+%%URL:
+%%https://mermaid.live/edit#pako:eNrNVctu2zAQ_JUFTwlgyy_JTnQIEMRF4UOaoG4vhS-MtLaJWqTKR1I3yL93l_KzsYEcq4tMcnd2dnZMvYrClChyAfQ4_BVQFzhWcmFlNdO8WUvrVaFqqT3cjh9BOrgtn5E2HdrOWHoJj9Y8qxLt-4TvkzEn0KsPDzVa6c2JqPH0sdn8YjyCIXCu1KLtHHoJfEbNmQhWvkQoB3NrKhhPJhCc0gvwSwQioL3ya6hkDajL2ijtkwaXn5UxNTRLAm_f3BASwbdlAlMKBwmW23ceCqO9VJqBuYQ3Ef_xYfoNOtsqnRNVCJBgCZxhnwiWmsWYuyUOF-GyRXXmFt0SvKqonKxquLC0LYmEqb0yWq5Wa6gtPisTNuJd1JeU54PVWDbdf4wTLc9K299S3OvKHN7Rc8lZiEEC91KrOqx4PsaSdtWT0geQ2wmcSE43yu_Lk9R0ss3hMZGgMTYGOmZ7Ip7fhUWmIEOp2MJNKzRJquhIUtdidsHFeVQwp0WF0gWLFe7EOsExowaNVlQ45uwGuRFpk8je2jmtcVe0Qcbuulti8ROKYC1ViqqCXJC_yGnbhs4pfuzVjE01mR-F00IWSyzZVY41-phjYzOhLkmyvZ77ogdOztrFoZM1vvynbh4eT4pqt01giaUPLoGvWFE8EJnt0eYWWZlCruIk5AIj7dKANp7Ncn68cSBDHu8_Rfc1D-6mprPmtLM5fX9FHag-5FF_jQodg-6FEC1Roa2kKun2fuXtmWBv40zk9JPo0DhmYqbfKFIGb6ZrXYjc24At0Yx-c8-LfC5Xjnax5E7umw9C_C60BF3QIn8Vv0Xe6_WSfi8dDa8GvfQq7fbSlliLPB1myfAq63cHo-thv5_207eW-GMMwXaT62yQZdfZaERR3WxEGdaExXJXkdB_xNCG1sJyN4cUP0VKu3j6C9F35s4E7UU-evsL2jsrNA

@@ -163,7 +163,7 @@ UID2 Mobile インテグレーションには、UID2 Mobile SDK、UID2 GMA プ�
 推奨事項:
 
 - すでに CocoaPods を使用している場合、特に Google Ad Frameworks を自分でインテグレーションしている場合は、UID2 SDK を CocoaPods を使用してインテグレーションすることが最適です。
-- 依存関係のインテグレーションが初めての場合、または Swift Package Manager ですでに依存関係がある場合は、UID2 モバイルインテグレーションには Swift Package Manager を使用することを勧めます。
+- 依存関係のインテグレーションが初めての場合、または Swift Package Manager ですでに依存関係がある場合は、UID2 モバイルインテグレーションには Swift Package Manager を使用することを推奨します。
 
 
 :::caution

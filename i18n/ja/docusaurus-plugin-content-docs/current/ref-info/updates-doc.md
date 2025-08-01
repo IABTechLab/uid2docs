@@ -20,6 +20,22 @@ UID2 ドキュメンテーションリソースの最新アップデートを確
 タグツールバーを使用して、ドキュメントの更新の一部を表示できます。
 :::
 
+## Q3 2025
+
+当四半期にリリースされたドキュメントは以下の通りです。
+
+<CustomTagsContainer tags="Endpoints, Guides, SDKs">
+
+### Identity Map v3
+
+July 11, 2025
+
+Identity Map の新しいバージョン (v3) をリリースしました。これは、広告主とデータプロバイダーに大幅な改善を提供します。このアップデートには、[POST /identity/map](../endpoints/post-identity-map.md) エンドポイント、[SDK for Java Reference Guide](../sdks/sdk-ref-java.md#usage-for-advertisersdata-providers)、および [Advertiser/Data Provider Integration Overview](../guides/integration-advertiser-dataprovider-overview.md) のドキュメントが含まれています。
+
+<!-- UID2-5558, UID2-5560, UID2-5559, APIDOCS-3070 -->
+
+</CustomTagsContainer>
+
 ## Q1 2025
 
 当四半期にリリースされたドキュメントは以下の通りです。

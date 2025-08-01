@@ -15,7 +15,7 @@ import Link from '@docusaurus/Link';
 [Snowflake](https://www.snowflake.com/)は、パートナーとしてデータを保存し、UID2 フレームワークとインテグレーションできるクラウドデータウェアハウジングソリューションです。Snowflake を使用することで、UID2 では機密性の高い<Link href="../ref-info/glossary-uid#gl-dii">直接識別情報（DII）</Link>を公開せずに、消費者識別子データを安全に共有できます。消費者識別子データについて Operator Web Serbvice に直接クエリを実行するオプションもありますが、Snowflake の UID2 インテグレーションはより円滑な体験を提供します。
 
 :::important
-このドキュメントは、2025年2月に公開された広告主とデータプロバイダーをインテグレーションした Snowflake マーケットプレイスリスティングを使用する方を対象としています。以前のリスティング（広告主とデータプロバイダー向けに分かれていたもの、つまり2025年2月以前に登録された方）を使用している場合は、[Snowflake Integration Guide (Version Prior to February 2025）](integration-snowflake-previous.md)を参照してください。以前の実装を使用している場合は、更新と機能強化を活用するために新しいバージョンへの移行を勧めます。詳細については、[Changes from Previous Version](#changes-from-previous-version)を参照してください。移行情報については、[Migration Guide](#migration-guide)を参照してください。
+このドキュメントは、2025年2月に公開された広告主とデータプロバイダーをインテグレーションした Snowflake マーケットプレイスリスティングを使用する方を対象としています。以前のリスティング（広告主とデータプロバイダー向けに分かれていたもの、つまり2025年2月以前に登録された方）を使用している場合は、[Snowflake Integration Guide (Version Prior to February 2025）](integration-snowflake-previous.md)を参照してください。以前の実装を使用している場合は、更新と機能強化を活用するために新しいバージョンへの移行を推奨します。詳細については、[Changes from Previous Version](#changes-from-previous-version)を参照してください。移行情報については、[Migration Guide](#migration-guide)を参照してください。
 :::
 
 ## Snowflake Marketplace Listing
@@ -46,7 +46,7 @@ import Link from '@docusaurus/Link';
 2025年2月の UID2 Snowflake マーケットプレイスインテグレーションの更新には、いくつかの更新と機能強化が含まれています。主な変更点の一つは、以前の 2 つのデータ共有（広告主向けとデータプロバイダー向け）の機能を組み合わせた単一のリスティングとデータ共有が含まれることです。これにより、すべての参加者のインテグレーションが簡素化されます。
 
 :::note
-これらの変更は、2025年2月以前に公開されたSnowflake関数のバージョンを使用しているコードインテグレーションを想定しています（[nowflake Integration Guide (Version Prior to February 2025)](integration-snowflake-previous.md)を参照）。`FN_T_UID2_IDENTITY_MAP_EMAIL` と `FN_T_UID2_IDENTITY_MAP_EMAIL_HASH` 関数を使用するさらに古いバージョンを使用している場合は、[Migration Guide section in the earlier guide](integration-snowflake-previous.md#migration-guide)の指示に従い、その後再度現在のバージョンにアップグレードすることもできます。ただし、このシナリオでは、このガイドの指示に従い、一度に更新することを勧めます。詳細については、[Migration Guide](#migration-guide)を参照してください。
+これらの変更は、2025年2月以前に公開されたSnowflake関数のバージョンを使用しているコードインテグレーションを想定しています（[nowflake Integration Guide (Version Prior to February 2025)](integration-snowflake-previous.md)を参照）。`FN_T_UID2_IDENTITY_MAP_EMAIL` と `FN_T_UID2_IDENTITY_MAP_EMAIL_HASH` 関数を使用するさらに古いバージョンを使用している場合は、[Migration Guide section in the earlier guide](integration-snowflake-previous.md#migration-guide)の指示に従い、その後再度現在のバージョンにアップグレードすることもできます。ただし、このシナリオでは、このガイドの指示に従い、一度に更新することを推奨します。詳細については、[Migration Guide](#migration-guide)を参照してください。
 :::
 
 以下の表は、以前のバージョンからのSnowflake関数の変更詳細を示しています。
@@ -102,7 +102,7 @@ UID2 Share へのアクセスをリクエストするには、以下の手順を
 
 - `FN_T_IDENTITY_MAP`（詳細は[Map DII](#map-dii)を参照）
 
-以下の関数は `FN_T_IDENTITY_MAP` に代わって非推奨となっています。以前の Snowflake バージョンを使用している場合は引き続き使用できますが（[Snowflake Integration Guide (Version Prior to February 2025)](integration-snowflake-previous.md)を参照）、できるだけ早くアップグレードすることを勧めます：
+以下の関数は `FN_T_IDENTITY_MAP` に代わって非推奨となっています。以前の Snowflake バージョンを使用している場合は引き続き使用できますが（[Snowflake Integration Guide (Version Prior to February 2025)](integration-snowflake-previous.md)を参照）、できるだけ早くアップグレードすることを推奨します：
 
 - `FN_T_UID2_IDENTITY_MAP`（非推奨）
 

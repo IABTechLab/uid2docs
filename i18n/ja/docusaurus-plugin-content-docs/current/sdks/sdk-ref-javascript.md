@@ -28,7 +28,7 @@ UID2 Identify Module、または UID2 サポートのある他の製品と Prebi
 
 ## SDK Version
 
-このページは、最新の UID2 SDK for JavaScript バージョン 4 を説明しています。以前のバージョンを使用している場合は、[Migration Guide](#migration-guide) を使用してインテグレーションをアップグレードすることを勧めます。必要に応じて、以下の以前のバージョンのドキュメントも利用できます:
+このページは、最新の UID2 SDK for JavaScript バージョン 4 を説明しています。以前のバージョンを使用している場合は、[Migration Guide](#migration-guide) を使用してインテグレーションをアップグレードすることを推奨します。必要に応じて、以下の以前のバージョンのドキュメントも利用できます:
 
 - [Version 3](./sdk-ref-javascript-v3.md)
 - [Version 2.x and earlier](./sdk-ref-javascript-v2.md)
@@ -359,7 +359,7 @@ SDK を初期化し、ターゲティング広告用のユーザー ID を確立
 
 詳細は、以前のバージョンの SDK のドキュメントの[Legacy Callback Function](./sdk-ref-javascript-v2#callback-function) を参照してください。
 
-すでにレガシーコールバック関数を使用してインテグレーションを構築している場合は、現在のバージョンの SDK で変更なく使用できます。ただし、この機能は SDK の将来のバージョンで削除される予定です。新しいスタイルの [callback function](#callback-function) を使用するようにインテグレーションを更新することを強く勧めます。
+すでにレガシーコールバック関数を使用してインテグレーションを構築している場合は、現在のバージョンの SDK で変更なく使用できます。ただし、この機能は SDK の将来のバージョンで削除される予定です。新しいスタイルの [callback function](#callback-function) を使用するようにインテグレーションを更新することを強く推奨します。
 
 ### getAdvertisingToken(): string
 

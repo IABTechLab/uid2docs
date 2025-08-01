@@ -15,12 +15,12 @@ import Link from '@docusaurus/Link';
 [Snowflake](https://www.snowflake.com/) は、クラウドデータウェアハウジングソリューションで、パートナーとしてデータを保存し、UID2 フレームワークとインテグレーションすることができます。Snowflake を使用することで、UID2 は、機密性の高い<Link href="../ref-info/glossary-uid#gl-dii">直接識別情報 (DII)</Link>を公開せずに、消費者識別子データを安全に共有できます。消費者識別子データを直接問い合わせる Operator Web Services があるにもかかわらず、Snowflake UID2 インテグレーションはよりシームレスなエクスペリエンスを提供します。
 
 :::important
-このドキュメントは、2025年2月以前に公開された広告主とデータプロバイダー向けの別々の Snowflake marketplace を使用しているユーザー向けです。2025年2月に公開された新しいインテグレーションに関するドキュメントは、[Snowflake Integration Guide](integration-snowflake.md) を参照してください。以前の実装を使用している場合は、更新と強化を活用するために新しいバージョンに移行することを勧めます。移行情報については、[Migration Guide](integration-snowflake.md#migration-guide) を参照してください。
+このドキュメントは、2025年2月以前に公開された広告主とデータプロバイダー向けの別々の Snowflake marketplace を使用しているユーザー向けです。2025年2月に公開された新しいインテグレーションに関するドキュメントは、[Snowflake Integration Guide](integration-snowflake.md) を参照してください。以前の実装を使用している場合は、更新と強化を活用するために新しいバージョンに移行することを推奨します。移行情報については、[Migration Guide](integration-snowflake.md#migration-guide) を参照してください。
 :::
 
 Snowflake の UID2 インテグレーションの実装は、広告主とデータプロバイダー向けに別々の Snowflake marketplace で提供されていました。これらのリストは、2025年2月に更新されたバージョンが公開された後に削除されました。
 
-実装したものがある場合は、このドキュメントを使用してメンテナンスすることができますが、最新バージョンにアップグレードすることを勧めます。[Snowflake Integration Guide](integration-snowflake.md) を参照してください。
+実装したものがある場合は、このドキュメントを使用してメンテナンスすることができますが、最新バージョンにアップグレードすることを推奨します。[Snowflake Integration Guide](integration-snowflake.md) を参照してください。
 
 :::tip
 広告主とデータプロバイダー向けのすべてのインテグレーションオプションと手順の概要については、[Advertiser/Data Provider Integration Overview](integration-advertiser-dataprovider-overview.md) を参照してください。
@@ -82,7 +82,7 @@ UID2 Share へのアクセスを要求するには、次の手順を実行しま
 
 - `FN_T_UID2_IDENTITY_MAP` ([Map DII](#map-dii) を参照)
 
-以下の関数は非推奨となり、`FN_T_UID2_IDENTITY_MAP` が優先されます。これらの関数はまだ使用できますが、  `FN_T_UID2_IDENTITY_MAP` の方が優れています。すでにこれらの関数を使用している場合は、できるだけ早くアップグレードすることを勧めます。
+以下の関数は非推奨となり、`FN_T_UID2_IDENTITY_MAP` が優先されます。これらの関数はまだ使用できますが、  `FN_T_UID2_IDENTITY_MAP` の方が優れています。すでにこれらの関数を使用している場合は、できるだけ早くアップグレードすることを推奨します。
 
 - `FN_T_UID2_IDENTITY_MAP_EMAIL` (非推奨)
 - `FN_T_UID2_IDENTITY_MAP_EMAIL_HASH` (非推奨)
@@ -478,7 +478,7 @@ select a.*, b.LAST_SALT_UPDATE_UTC
 
 ## Migration Guide
 
-`FN_T_UID2_IDENTITY_MAP_EMAIL` 関数と `FN_T_UID2_IDENTITY_MAP_EMAIL_HASH` 関数を使用している場合は、できるだけ早く `FN_T_UID2_IDENTITY_MAP` 関数に移行することを勧めます。この関数は、他の2つの関数が行うことをすべて行い、その他の改良も組み込まれています。
+`FN_T_UID2_IDENTITY_MAP_EMAIL` 関数と `FN_T_UID2_IDENTITY_MAP_EMAIL_HASH` 関数を使用している場合は、できるだけ早く `FN_T_UID2_IDENTITY_MAP` 関数に移行することを推奨します。この関数は、他の2つの関数が行うことをすべて行い、その他の改良も組み込まれています。
 
 `FN_T_UID2_IDENTITY_MAP` 関数の利点:
 
@@ -538,7 +538,7 @@ UID2 <Link href="../ref-info/glossary-uid#gl-sharing-participant">共有参加�
 このプロセスで生成される UID2 Token は共有専用です&#8212;ビッドストリームでは使用できません。ビッドストリーム用のトークン生成には別のワークフローがあります: [Tokenized Sharing in the Bidstream](../sharing/sharing-tokenized-from-data-bid-stream.md) を参照してください。
 :::
 
-Snowflake 内でピクセルまたはビッドストリームでデータを送信しない場合、[Security Requirements for UID2 Sharing](../sharing/sharing-security.md) に記載されている要件に従う限り、生のUID2共有に参加することもできます。
+Snowflake 内でピクセルまたはビッドストリームでデータを送信しない場合、[Security Requirements for UID2 Sharing](../sharing/sharing-security.md) に記載されている要件に従う限り、raw 生のUID2共有に参加することもできます。
 
 以下のアクティビティは Tokenized Sharing に対応しています:
 

@@ -30,6 +30,8 @@ SDK の機能を確認して使用する SDK を決定し、SDK の表をクリ�
 
 &ast;DII から raw UID2 を生成する必要がある広告主およびデータプロバイダは Snowflake ([Snowflake Integration Guide](../guides/integration-snowflake.md) を参照) または [POST&nbsp;/identity/map (v2)](../endpoints/post-identity-map-v2.md) エンドポイントを使用することができます。
 
+&ast;&ast; 最新バージョンの [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) エンドポイントを使用している実装では、ソルトバケットの監視は必要ありません。
+
 <!-- &#9989; = Supported | &#8212; = Not Supported -->
 
 ## SDK Documentation
