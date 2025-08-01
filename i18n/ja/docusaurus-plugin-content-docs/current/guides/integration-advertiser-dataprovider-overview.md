@@ -53,7 +53,7 @@ import Link from '@docusaurus/Link';
 | [2: Store Raw UID2s and Salt Bucket IDs](#2-store-raw-uid2s-and-salt-bucket-ids) | カスタム（適切な方法で）。 |
 | [3: Manipulate or Combine Raw UID2s](#3-manipulate-or-combine-raw-uid2s) | カスタム（適切な方法で）。 |
 | [4: Send Stored Raw UID2s to DSPs to Create Audiences or Conversions](#4-send-stored-raw-uid2s-to-dsps-to-create-audiences-or-conversions) | カスタム（適切な方法で）。 |
-| [5: Monitor for Salt Bucket Rotations for Your Stored Raw UID2s](#5-monitor-for-salt-bucket-rotations-for-your-stored-raw-uid2s) | 以下のいずれかのオプションを使用してください:<ul><li><strong>Python SDK</strong>: Python Reference Guide を参照してください</li><li><strong>Snowflake</strong>: [Snowflake Integration Guide](integration-snowflake.md) の [Monitor for Salt Bucket Rotation and Regenerate Raw UID2s](integration-snowflake-before-february-2025.md#monitor-for-salt-bucket-rotation-and-regenerate-raw-uid2s) を参照してください</li><li><strong>Raw HTTP endpoint</strong>: [POST&nbsp;/identity/buckets](../endpoints/post-identity-buckets.md)</li></ul> |
+| [5: Monitor for Salt Bucket Rotations for Your Stored Raw UID2s](#5-monitor-for-salt-bucket-rotations-for-your-stored-raw-uid2s) | 以下のいずれかのオプションを使用してください:<ul><li><strong>Python SDK</strong>: Python Reference Guide を参照してください</li><li><strong>Snowflake</strong>: [Snowflake Integration Guide](integration-snowflake.md) の [Monitor for Salt Bucket Rotation and Regenerate Raw UID2s](integration-snowflake.md#monitor-for-salt-bucket-rotation-and-regenerate-raw-uid2s) を参照してください</li><li><strong>Raw HTTP endpoint</strong>: [POST&nbsp;/identity/buckets](../endpoints/post-identity-buckets.md)</li></ul> |
 | [6: Monitor for Opt-Out Status](#6-monitor-for-opt-out-status) | API コールを使用して、[POST /optout/status](../endpoints/post-optout-status.md) エンドポイントにアクセスします。 |
 
 ## Integration Diagram
@@ -124,7 +124,7 @@ raw UID2 は、特定の時点におけるユーザーの識別子です。raw U
 
 - Python SDK: [Monitor Rotated Salt Buckets](../sdks/sdk-ref-python.md#monitor-rotated-salt-buckets).
 
-- Snowflake: [Monitor for Salt Bucket Rotation and Regenerate Raw UID2s](integration-snowflake-before-july-2025.md#monitor-for-salt-bucket-rotation-and-regenerate-raw-uid2s).
+- Snowflake: [Monitor for Salt Bucket Rotation and Regenerate Raw UID2s](integration-snowflake.md#monitor-for-salt-bucket-rotation-and-regenerate-raw-uid2s).
 
 - HTTP endpoints: [Monitor for Salt Bucket Rotations for Your Stored Raw UID2s](integration-advertiser-dataprovider-endpoints.md#5-monitor-for-salt-bucket-rotations-for-your-stored-raw-uid2s).
 
