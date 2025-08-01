@@ -4,26 +4,26 @@
     participant ADP as Advertiser/Data Provider
     participant UID as UID2 Operator
     participant DSP
-    Note over ADP,DSP: 1. Generate raw UID2s from DII using the identity map endpoint.
+    Note over ADP,DSP: 1. ID マップエンドポイントを使用して DII から raw UID2 を生成します。
         loop 
-    ADP->>UID: 1-a. Send a request containing DII to the POST /identity/map endpoint.
-    UID->>ADP: 1-b. Store the raw UID2 (u), refresh timestamp (r), and optionally previous UID2 (p) returned from the POST /identity/map endpoint.
+    ADP->>UID: 1-a. DII 含むリクエストを POST /identity/map エンドポイントに送信します。
+    UID->>ADP: 1-b. POST /identity/map エンドポイントから返された raw UID2 (u)、リフレッシュタイムスタンプ (r)、およびオプションで前の UID2 (p) を保存します。
     end
-    Note over ADP,DSP: 2. Store raw UID2s and refresh timestamps.
-    Note over ADP,DSP: 3. Manipulate or combine raw UID2s.
-     Note over ADP,DSP: 4. Send raw UID2s to DSPs.
-    ADP-->>DSP: Send stored raw UID2s to DSPs to create audiences and conversions, or use them for measurement.
-    Note over ADP,DSP: 5. Monitor for raw UID2 refresh.
+    Note over ADP,DSP: 2. raw UID2 とリフレッシュタイムスタンプを保存します。
+    Note over ADP,DSP: 3. raw UID2 を操作または組み合わせます。
+    Note over ADP,DSP: 4. raw UID2 を DSP に送信します。
+    ADP-->>DSP: 保存された raw UID2 を DSP に送信して、オーディエンスやコンバージョンを作成するか、測定に使用します。    
+    Note over ADP,DSP: 5. raw UID2 の更新を監視します。
     loop
-       ADP->>ADP: 5-a. Check current time against stored refresh timestamps.
-       ADP->>UID: 5-b. If refresh time reached, resend DII to the POST /identity/map endpoint for updated raw UID2.
-       UID->>ADP: 5-c. Store the new raw UID2 (u), refresh timestamp (r), and optionally previous UID2 (p) returned from the POST /identity/map endpoint.
+       ADP->>ADP: 5-a. 保存されているリフレッシュタイムスタンプと現在の時刻を比較します。
+       ADP->>UID: 5-b. リフレッシュ時間に達した場合、POST /identity/map エンドポイントに DII を再送信して更新された raw UID2 を取得します。
+       UID->>ADP: 5-c. POST /identity/map エンドポイントから返された新しい raw UID2 (u)、リフレッシュタイムスタンプ (r)、およびオプションで前の UID2 (p) を保存します。
     end
-    Note over ADP,DSP: 6. Monitor for opt-out status. Remove all opt-outs from local storage and do not use.
+    Note over ADP,DSP: 6. オプトアウトステータスを監視します。ローカルストレージからすべてのオプトアウトを削除し、使用しないでください。
     loop
-       ADP->>UID: 6-a. Monitor for optout status using the POST /optout/status endpoint.
-       UID->>ADP: 6-b. Return optout status.
+       ADP->>UID: 6-a. POST /optout/status エンドポイントを使用してオプトアウトステータスを監視します。
+       UID->>ADP: 6-b. オプトアウトステータスを返します。
     end
 
 %%URL:
-%%https://mermaid.live/edit#pako:eNrNVU1v2kAQ_SujPSUSGDDYgA-RolBVHNKg0F4qLht7gFXxrrsfSWmU_97ZNeYjASnH-oDZ3Zk3b948rV9ZrgpkGQMw-NuhzHEi-ErzciGBnoprK3JRcWnhdjIDbuC2eEbaNKg7E245zLR6FgXqjwk_phOfQK8YHirU3KozUZP5rN78piyCInBfqUXbGfQi-IrSZyJo_hKgDCy1KmEynYIzQq7ArhGIgLTCbqHkFaAsKiWkjWpc_2yUqqBeEnj75oaQCL7NI5hTOHDQvn1jIVfSciE9sC9hVcCfPcy_Q6ep0jlThQAJlsA97BPBUrMYchvicOWuW1RnqdGswYqSyvGygitN25xIqMoKJflms4VK47NQbifeVXVNedZpiUXd_ec40fKitHFD8aCr5_CBnokuQvQjuOdSVG7j56M0aVc-CXkE2UzgTPJgp_yhPElNJ02OHxMJGmJDoPFsz8T7d67RU-CuEN7CdSs0SapoSFLT8uycCfMoYUmLErlxGkvci3WGY0INKimocMjZD3In0i7Re2vvtNpdwQaJd9fdGvNfkDutqVJQFfiK_EVOaxq6pPipVxNvqunyJJwWPF9j4V1lvEafc2xoxlUFSXbQ81D0yMlJOz92ssSX_9TN6emkqHZbOS8xt85E8IglxQORaY52t8hG5XwTJsFXGGgXCqSy3iyXxxsGkvrxvit6qHl0N9Wd1aed3enHK-pI9dSP-jEodAr6Xojml7XYSouCZVY7bLESdcn9kr36iAXzrscFy-gvEaVBLdhCvlEWXcA_lSqbRK3cas2yJd8YWtUO2X0O9rvcWTXfyrzJqaO-FF6GfRCG5X39aQlfmFCLZa_sD8t6vW6UxINBPOyP416aDvsttmXZoJ9ESTKIR6M0jodJmvTfWuxvoNeNRoNxf9BNe8M0SYfd4YjIkgyo75STlmXjt38Vsi5b
+%%https://mermaid.live/edit#pako:eNrNVctu2zAQ_JUFTwlgyy_JTnQIEMRF4UOaoG4vhS-MtLaJWqTKR1I3yL93l_KzsYEcq4tMcnd2dnZMvYrClChyAfQ4_BVQFzhWcmFlNdO8WUvrVaFqqT3cjh9BOrgtn5E2HdrOWHoJj9Y8qxLt-4TvkzEn0KsPDzVa6c2JqPH0sdn8YjyCIXCu1KLtHHoJfEbNmQhWvkQoB3NrKhhPJhCc0gvwSwQioL3ya6hkDajL2ijtkwaXn5UxNTRLAm_f3BASwbdlAlMKBwmW23ceCqO9VJqBuYQ3Ef_xYfoNOtsqnRNVCJBgCZxhnwiWmsWYuyUOF-GyRXXmFt0SvKqonKxquLC0LYmEqb0yWq5Wa6gtPisTNuJd1JeU54PVWDbdf4wTLc9K299S3OvKHN7Rc8lZiEEC91KrOqx4PsaSdtWT0geQ2wmcSE43yu_Lk9R0ss3hMZGgMTYGOmZ7Ip7fhUWmIEOp2MJNKzRJquhIUtdidsHFeVQwp0WF0gWLFe7EOsExowaNVlQ45uwGuRFpk8je2jmtcVe0Qcbuulti8ROKYC1ViqqCXJC_yGnbhs4pfuzVjE01mR-F00IWSyzZVY41-phjYzOhLkmyvZ77ogdOztrFoZM1vvynbh4eT4pqt01giaUPLoGvWFE8EJnt0eYWWZlCruIk5AIj7dKANp7Ncn68cSBDHu8_Rfc1D-6mprPmtLM5fX9FHag-5FF_jQodg-6FEC1Roa2kKun2fuXtmWBv40zk9JPo0DhmYqbfKFIGb6ZrXYjc24At0Yx-c8-LfC5Xjnax5E7umw9C_C60BF3QIn8Vv0Xe6_WSfi8dDa8GvfQq7fbSlliLPB1myfAq63cHo-thv5_207eW-GMMwXaT62yQZdfZaERR3WxEGdaExXJXkdB_xNCG1sJyN4cUP0VKu3j6C9F35s4E7UU-evsL2jsrNA
