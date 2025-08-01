@@ -213,7 +213,7 @@ The following sections provide general information and guidance for migrating to
 
 The following table shows key differences between the versions.
 
-| Feature                        | v2 Implementation                           | v3 Implementation                          |
+| Feature                        | V2 Implementation                           | V3 Implementation                          |
 |:-------------------------------|:--------------------------------------------|:-------------------------------------------|
 | Endpoints Required         | `/v2/identity/map` + `/v2/identity/buckets` | `/v3/identity/map` only                    |
 | Identity Types per Request | Single identity type only                   | Multiple identity types                    |
@@ -225,7 +225,7 @@ The following table shows key differences between the versions.
 To upgrade from an earlier version to version 3, follow these steps:
 
 1. [Update Endpoint URL](#1-update-endpoint-url)
-2. [Update v3 Response Parsing Logic](#2-update-v3-response-parsing-logic)
+2. [Update V3 Response Parsing Logic](#2-update-v3-response-parsing-logic)
 3. [Replace Salt Bucket Monitoring with Refresh Timestamp Logic](#3-replace-salt-bucket-monitoring-with-refresh-timestamp-logic)
 
 #### 1. Update Endpoint URL
@@ -244,7 +244,7 @@ url = '/v3/identity/map'
 
 Update the logic for parsing the response, as shown in the following example.
 
-v2 Response Parsing:
+V2 Response Parsing:
 ```python
 # v2: Process mapped/unmapped objects with identifier lookup
 for item in response['body']['mapped']:
@@ -255,7 +255,7 @@ for item in response['body']['mapped']:
     store_mapping(original_identifier, raw_uid, bucket_id)
 ```
 
-v3 Response Parsing:
+V3 Response Parsing:
 ```python
 # v3: Process array-indexed responses
 for index, item in enumerate(response['body']['email']):

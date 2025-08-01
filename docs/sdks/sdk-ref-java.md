@@ -56,7 +56,7 @@ The initialization step depends on the role, as shown in the following table.
 | Role                     | Create Instance of Class | Link to Instructions                                                         |
 |:-------------------------| :--- |:-----------------------------------------------------------------------------|
 | Publisher                | `PublisherUid2Client` | [Usage for Publishers](#usage-for-publishers)                                |
-| Advertiser/Data Provider | `IdentityMapV3Client` | [Usage for Advertisers/Data Providers](#usage-for-advertisersdata-providers) |
+| Advertiser/Data Provider | `IdentityMapClient` | [Usage for Advertisers/Data Providers](#usage-for-advertisersdata-providers) |
 | DSP                      | `BidstreamClient` | [Usage for DSPs](#usage-for-dsps)                                            |
 | Sharer                   | `SharingClient` | [Usage for UID2 Sharers](#usage-for-uid2-sharers)                            |
 
@@ -339,7 +339,7 @@ If you're using server-side integration (see [Publisher Integration Guide, Serve
    HashMap<String, IdentityMapV3Response.UnmappedIdentity> unmappedIdentities = identityMapResponse.getUnmappedIdentities();
    ```
 
-5. Process the results for successfully mapped identities:
+5. Process the results. For successfully mapped identities:
    ```java
    IdentityMapV3Response.MappedIdentity mappedIdentity = mappedIdentities.get("user@example.com");
    if (mappedIdentity != null) {
