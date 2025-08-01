@@ -385,7 +385,3 @@ python3 examples/sample_bidstream_client.py $BASE_URL $AUTH_KEY $SECRET_KEY $DOM
 ```py
 python3 -m unittest discover -s ./tests/
 ```
-
-## FAQs
-
-DSP に関するよくある質問については、[FAQs for DSPs](../getting-started/gs-faqs.md#faqs-for-dsps) を参照してください。

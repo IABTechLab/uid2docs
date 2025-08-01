@@ -1,12 +1,15 @@
 ---
 title: POST /identity/map
-description: DII を raw UID2 とソルトバケット ID にマッピング。
+description: Maps DII to raw UID2s.
 hide_table_of_contents: false
 sidebar_position: 08
 displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';
+import POSTIdentityMapImprovements from '../snippets/_post-identity-map-improvements-v3.mdx';
+
+# POST /identity/map
 
 # POST /identity/map
 
@@ -206,13 +209,7 @@ DII が正常にマッピングされた場合、マッピングされたオブ�
 
 ### Version 3 Improvements
 
-V3 Identity Map API は、v2 に比べて以下の改善点を提供します:
-
-- **Simplified Refresh Management**: `refresh_from` タイムスタンプに達した UID2 をモニターできるようになり、ローテーションのために <Link href="../ref-info/glossary-uid#gl-salt-bucket-id">Salt Bucket</Link> をポーリングする必要がなくなりました。
-- **Previous UID2 Access**: ローテーション後 90 日間、以前の raw UID2 にアクセスできるため、キャンペーン測定が可能になります。
-- **Single Endpoint**: `/v2/identity/map` と `/v2/identity/buckets` の両方ではなく、1 つのエンドポイント `/v3/identity/map` のみを使用します。
-- **Multiple Identity Types in One Request**: 1 回のリクエストでメールアドレスと電話番号の両方を処理できるようになりました。
-- **Improved Performance**: 更新されたバージョンは、同じ量の DII を処理するための帯域幅を大幅に削減します。
+<POSTIdentityMapImprovements />
 
 ### Key Differences Between v2 and v3
 

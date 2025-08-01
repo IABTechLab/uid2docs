@@ -211,7 +211,3 @@ else
 ```
 
 For a full example, see the `ExampleSharingClient` method in [SampleApp/Program.cs](https://github.com/IABTechLab/uid2-client-net/blob/main/src/SampleApp/Program.cs).
-
-## FAQs
-
-DSP に関するよくある質問については [FAQs for DSPs](../getting-started/gs-faqs.md#faqs-for-dsps) を参照してください。

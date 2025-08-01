@@ -165,7 +165,3 @@ The following instructions provide an example of how you can implement sharing u
          // check decrypted.GetStatus() for the failure reason 
       }
       ```
-
-## FAQs
-
-For a list of frequently asked questions for DSPs, see [FAQs for DSPs](../getting-started/gs-faqs.md#faqs-for-dsps).
