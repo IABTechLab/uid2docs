@@ -18,7 +18,7 @@ import Link from '@docusaurus/Link';
 このドキュメントは、2025年2月以前に公開された広告主とデータプロバイダー向けの別々の Snowflake marketplace を使用しているユーザー向けです。2025年2月に公開された新しいインテグレーションに関するドキュメントは、[Snowflake Integration Guide (Pre-July 2025)](integration-snowflake-previous) を参照してください。以前の実装を使用している場合は、更新と強化を活用するために新しいバージョンに移行することを勧めます。移行情報については、[Migration Guide](integration-snowflake.md#migration-guide) を参照してください。
 :::
 
-<!-- GWH_Note 8/4/25 I took the .md out of the Snowflake link line 18 because Docu would not build it correctly... broken link in output. Do not know why, though. Same note on 2 links -->
+<!-- GWH_Note 8/4/25 I took the .md out of the Snowflake link line 18 because Docu would not build it correctly... broken link in output. Do not know why, though. Same thing on 2 links -->
 
 Snowflake の UID2 インテグレーションの実装は、広告主とデータプロバイダー向けに別々の Snowflake marketplace で提供されていました。これらのリストは、2025年2月に更新されたバージョンが公開された後に削除されました。
 
