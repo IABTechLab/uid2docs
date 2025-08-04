@@ -1,6 +1,6 @@
 ---
 title: Snowflake Integration Guide (Pre-July 2025)
-sidebar_label: Snowflake (Pre-July 2025)
+sidebar_label: Snowflake (previous version)
 pagination_label: Snowflake Integration
 description: UID2 Share in Snowflakeを通じたUID2とのインテグレーションに関する情報。
 hide_table_of_contents: false
