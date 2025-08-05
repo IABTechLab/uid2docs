@@ -491,7 +491,7 @@ const sidebars = {
     'Advertiser/Data Provider Integrations',
     'guides/integration-advertiser-dataprovider-overview',
     'guides/integration-snowflake',
-    'guides/integration-snowflake-previous',
+    'guides/integration-snowflake-integration-snowflake-previous',
     'guides/integration-aws-entity-resolution',
     'guides/advertiser-dataprovider-endpoints',
     'sharing/sharing-bid-stream'

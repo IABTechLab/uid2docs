@@ -53,12 +53,12 @@ UID2 とインテグレーションするための広告主とデータプロバ
 
 | High-Level Step | Implementation Options |
 | --- | --- |
-| [1: Generate Raw UID2s from DII](#1-generate-raw-uid2s-from-dii) | DII を raw UID2 にマッピングするには、次のいずれかのオプションを使用します:<ul><li>Python SDK: [Map DII to Raw UID2s](../sdks/sdk-ref-python.md#map-dii-to-raw-uid2s)</li><li>Java SDK: [Usage for Advertisers/Data Providers](../sdks/sdk-ref-java.md#usage-for-advertisersdata-providers)</li><li>Snowflake: [Map DII](integration-snowflake.md#map-dii)</li><li>AWS Entity Resolution: [AWS Entity Resolution Integration Guide](integration-aws-entity-resolution.md)</li><li>HTTP endpoints: [POST&nbsp;/identity/map](../endpoints/post-identity-map.md)</li></ul> |
-| [2: Store Raw UID2s and Refresh Timestamps](#2-store-raw-uid2s-and-refresh-timestamps) | カスタム（必要に応じて） |
-| [3: Manipulate or Combine Raw UID2s](#3-manipulate-or-combine-raw-uid2s) | カスタム（必要に応じて） |
-| [4: Send Stored Raw UID2s to DSPs to Create Audiences or Conversions](#4-send-stored-raw-uid2s-to-dsps-to-create-audiences-or-conversions) | カスタム（必要に応じて） |
-| [5: Monitor for Raw UID2 Refresh](#5-monitor-for-raw-uid2-refresh) | [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) エンドポイントから返されるリフレッシュ タイムスタンプ (`r` フィールド) を使用して、raw UID2 を更新するタイミングを判断します。 |
-| [6: Monitor for Opt-Out Status](#6-monitor-for-opt-out-status) | [POST /optout/status](../endpoints/post-optout-status.md) エンドポイントへの API コール。 |
+| [1: Generate Raw UID2s from DII](#1-generate-raw-uid2s-from-dii) | DII を raw UID2 にマッピングするには、以下のオプションのいずれかをします:<ul><li>以下の UID2 SDK のいずれか:<ul><li>Python SDK: [DII を Raw UID2 にマッピング](../sdks/sdk-ref-python.md#map-dii-to-raw-uid2s)</li><li>Java SDK: [広告主/データプロバイダー向けの使用法](../sdks/sdk-ref-java.md#usage-for-advertisersdata-providers)</li></ul></li><li>Snowflake: [DII をマッピング](integration-snowflake.md#map-dii)</li><li>AWS Entity Resolution: [AWS Entity Resolution インテグレーションガイド](integration-aws-entity-resolution.md)</li><li>HTTP エンドポイント: [POST&nbsp;/identity/map (v2)](../endpoints/post-identity-map-v2.md)</li></ul> |
+| [2: Store Raw UID2s and Salt Bucket IDs](#2-store-raw-uid2s-and-salt-bucket-ids) | カスタム（適切な方法で）。 |
+| [3: Manipulate or Combine Raw UID2s](#3-manipulate-or-combine-raw-uid2s) | カスタム（適切な方法で）。 |
+| [4: Send Stored Raw UID2s to DSPs to Create Audiences or Conversions](#4-send-stored-raw-uid2s-to-dsps-to-create-audiences-or-conversions) | カスタム（適切な方法で）。 |
+| [5: Monitor for Salt Bucket Rotations for Your Stored Raw UID2s](#5-monitor-for-salt-bucket-rotations-for-your-stored-raw-uid2s) | 以下のいずれかのオプションを使用してください:<ul><li><strong>Python SDK</strong>: Python Reference Guide を参照してください</li><li><strong>Snowflake</strong>: [Snowflake Integration Guide](integration-snowflake.md) の [Monitor for Salt Bucket Rotation and Regenerate Raw UID2s](integration-snowflake.md#monitor-for-salt-bucket-rotation-and-regenerate-raw-uid2s) を参照してください</li><li><strong>Raw HTTP endpoint</strong>: [POST&nbsp;/identity/buckets](../endpoints/post-identity-buckets.md)</li></ul> |
+| [6: Monitor for Opt-Out Status](#6-monitor-for-opt-out-status) | API コールを使用して、[POST /optout/status](../endpoints/post-optout-status.md) エンドポイントにアクセスします。 |
 
 ## Integration Diagram
 
@@ -129,7 +129,25 @@ v3 Identity Map API は、各 raw UID2 がいつリフレッシュされるか�
 
 2. 現在の時刻がリフレッシュ タイムスタンプ以降である場合、同じ DII で [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) を再度呼び出して raw UID2 を再生成します。
 
-このアプローチにより、raw UID2 が最新の状態であり、オーディエンスターゲティングや測定に有効であることが保証されます。
+- Snowflake: [Monitor for Salt Bucket Rotation and Regenerate Raw UID2s](integration-snowflake-previous.md#monitor-for-salt-bucket-rotation-and-regenerate-raw-uid2s).
+
+- HTTP endpoints: [Monitor for Salt Bucket Rotations for Your Stored Raw UID2s](integration-advertiser-dataprovider-endpoints.md#5-monitor-for-salt-bucket-rotations-for-your-stored-raw-uid2s).
+
+:::note
+AWS Entity Resolution では、ソルトバケットの監視方法はありません。代わりに、AWS Entity Resolution サービスを使用して定期的に raw UID2 を再生成することができます。
+:::
+
+#### Determine whether the salt bucket has been rotated
+
+特定の raw UID2 のソルトバケット ID が変更されたかどうかを判断するには、次の手順に従います。
+
+1. 2 つの値を比較します:
+
+   - ソルトバケットのローテーション時に返された、同じ `bucket_id` の raw UID2 の `last_updated` タイムスタンプ。(選択したオプションによって返されたもの)
+   
+   - 同じ `bucket_id` の raw UID2 生成時のタイムスタンプ。Step 1 で返され、Step 2 で保存されたもの。
+
+1. `last_updated` タイムスタンプが、以前に記録したタイムスタンプよりも新しい場合、ソルトバケットがローテーションされています。その場合、この `bucket_id` に関連するすべての raw UID2 を再生成する必要があります。これには、Step 1 の [Generate Raw UID2s from DII](#1-generate-raw-uid2s-from-dii) に従います。
 
 ### 6: Monitor for Opt-Out Status
 

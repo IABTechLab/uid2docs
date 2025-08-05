@@ -191,9 +191,11 @@ For instructions for monitoring for salt bucket rotations, refer to one of the f
 
 - Python SDK: [Monitor Rotated Salt Buckets](../sdks/sdk-ref-python.md#monitor-rotated-salt-buckets).
 
-- Snowflake: [Monitor for Salt Bucket Rotation and Regenerate Raw UID2s](integration-snowflake.md#monitor-for-salt-bucket-rotation-and-regenerate-raw-uid2s).
+- Snowflake: [Monitor for Salt Bucket Rotation and Regenerate Raw UID2s](integration-snowflake-previous#monitor-for-salt-bucket-rotation-and-regenerate-raw-uid2s).
 
 - HTTP endpoints: [Monitor for Salt Bucket Rotations for Your Stored Raw UID2s (v2)](integration-advertiser-dataprovider-endpoints.md#monitor-for-salt-bucket-rotations-for-your-stored-raw-uid2s-v2).
+
+<!-- GWH_Note 8/4/25 I took the .md out of the Snowflake link line 194 because Docu would not build it correctly... broken link in output. Do not know why, though. Same thing on 2 links -->
 
 :::note
 For AWS Entity Resolution, there is no way to do salt bucket monitoring. As an alternative, you could regenerate raw UID2s periodically using the AWS Entity Resolution service.
