@@ -18,9 +18,9 @@ This plugin simplifies integration with Google Interactive Media Ads (IMA) for a
 
 ## Version
 
-<!-- As of 2024-10-23 -->
+<!-- As of 2025-08-07 -->
 
-This documentation is for the UID2 IMA Plugin for Android version 1.6.0 and later.
+This documentation is for the UID2 IMA Plugin for Android version 2.0.0 and later.
 
 ## GitHub Repository
 
@@ -43,10 +43,10 @@ To run this plugin, install the following:
 1. Google IMA SDK v3.30.3 or later:
    - [SDK](https://developers.google.com/interactive-media-ads/docs/sdks/android/client-side)
    - [Release history](https://developers.google.com/interactive-media-ads/docs/sdks/android/client-side/history)
-1. SDK for Android v1.6.0 or later:
+1. SDK for Android v2.0.0 or later:
    - [SDK](https://central.sonatype.com/artifact/com.uid2/uid2-android-sdk)
    - [SDK for Android Reference Guide](../sdks/sdk-ref-android.md)
-1. [UID2 IMA Plugin for Android v1.6.0](https://central.sonatype.com/artifact/com.uid2/uid2-android-sdk-ima)
+1. [UID2 IMA Plugin for Android v2.0.0](https://central.sonatype.com/artifact/com.uid2/uid2-android-sdk-ima)
 1. If you are using R8 or Proguard, add the applicable option specified in [Notes for Using R8 or ProGuard](#notes-for-using-r8-or-proguard)
 
 ## Installation
@@ -63,7 +63,7 @@ Install the UID2 Android IMA Plugin to an existing app with the SDK for Android 
 To install with Gradle, add the SDK as a dependency in the `build.gradle` file:
 
 ```js
-implementation 'com.uid2:uid2-android-sdk-ima:1.6.0'
+implementation 'com.uid2:uid2-android-sdk-ima:2.0.0'
 ```
 
 ### Maven
@@ -74,7 +74,7 @@ To install with Maven, add the SDK as a dependency in the `pom.xml` file:
 <dependency>
   <groupId>com.uid2</groupId>
   <artifactId>uid2-android-sdk-ima</artifactId>
-  <version>1.6.0</version>
+  <version>2.0.0</version>
 </dependency>
 ```
 
