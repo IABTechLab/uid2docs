@@ -54,9 +54,9 @@ The steps you'll take in the UID2 Portal are different depending on whether your
 
 ## SDK Version
 
-<!-- As of 23 Oct 2024 -->
+<!-- As of 2025-08-07 -->
 
-This documentation is for the SDK for Android version 1.6.0 and later.
+This documentation is for the SDK for Android version 2.0.0 and later.
 
 For current and past release notes information, see [https://github.com/IABTechLab/uid2-android-sdk/releases](https://github.com/IABTechLab/uid2-android-sdk/releases).
 
@@ -98,7 +98,7 @@ To install with Gradle, add the SDK as a dependency in the build.gradle
 file:
 
 ```js
-implementation 'com.uid2:uid2-android-sdk:1.6.0'
+implementation 'com.uid2:uid2-android-sdk:2.0.0'
 ```
 
 ### Installing with Maven 
@@ -109,7 +109,7 @@ To install with Maven, add the SDK as a dependency in the `pom.xml` file:
 <dependency> 
   <groupId>com.uid2</groupId> 
   <artifactId>uid2-android-sdk</artifactId> 
-  <version>1.6.0</version> 
+  <version>2.0.0</version> 
 </dependency> 
 ```
 
