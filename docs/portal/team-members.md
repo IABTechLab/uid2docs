@@ -67,14 +67,14 @@ The same team member can be added to more than one participant. Team members who
 
 ## Set the Primary Contact
 
-One team member must be designated as the primary contact. Here's some key information about the primary contact:
+Each team has a primary contact who is the main point of contact for communications relating to UID2.
 
-- There is one, and only one, primary contact.
+Here's some key information about the primary contact:
+
 - By default, when the first team member is added, that person becomes the primary contact.
 - The primary contact must have the Admin role.
-- To remove the primary contact, or change the role to Operations, you must first specify a different team member to be the primary contact.
+- To remove the current primary contact, or change that person's role to Operations, you must first specify a different team member to be the primary contact.
 - On the Team Members list, a tag is displayed after the primary contact's name. For an illustration, see [Resend an Invitation to a Team Member](#resend-an-invitation-to-a-team-member).
-
 
 To set a primary contact, complete the following steps:
 
