@@ -21,7 +21,7 @@ import Link from '@docusaurus/Link';
 
 UID2 とインテグレーションするには、UID2 アカウントが必要です。まだアカウントを作成していない場合は、まず [Account Setup](../getting-started/gs-account-setup.md) ページに記載されている手順に従ってください。
 
-初期アカウント設定が完了すると、[UID2 Portal](../portal/portal-overview.md) にアクセスするための指示とリンクが送信されます。ここで、[credentials](../getting-started/gs-credentials.md) を作成し、必要に応じて追加の値を構成できます。詳細については、[Getting Started with the UID2 Portal](../portal/portal-getting-started.md) を参照してください。1
+初期アカウント設定が完了すると、[UID2 Portal](../portal/portal-overview.md) にアクセスするための指示とリンクが送信されます。ここで、[credentials](../getting-started/gs-credentials.md) を作成し、必要に応じて追加の値を構成できます。詳細については、[Getting Started with the UID2 Portal](../portal/portal-getting-started.md) を参照してください。
 
 UID2 Portal の [API Keys](../portal/api-keys.md) ページで、次の値を設定する必要があります:
 
@@ -77,7 +77,7 @@ Step 1、[Generate Raw UID2s from DII](#1-generate-raw-uid2s-from-dii) のレス
 
 Step 1 で受け取った UID2 を使用します。例えば、以下のような操作を行うことができます:
 
-- いくつかの操作を行います: 例えば、DII から生成した raw UID2 と、広告主やデータプロバイダーなどの別の参加者から受け取った raw UID2 を突合します。
+- いくつかの操作を行います:たとえば、DII から生成した raw UID2 と、広告主やデータプロバイダーなどの別の参加者から受け取った raw UID2 を突合します。
 - 新しい raw UID2 を既存のオーディエンスに追加します。
 
 ### 4: Send Stored Raw UID2s to DSPs to Create Audiences or Conversions

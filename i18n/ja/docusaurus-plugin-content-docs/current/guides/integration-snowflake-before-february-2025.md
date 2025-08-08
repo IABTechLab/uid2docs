@@ -18,8 +18,6 @@ import Link from '@docusaurus/Link';
 このドキュメントは、2025年2月以前に公開された広告主とデータプロバイダー向けの別々の Snowflake marketplace を使用しているユーザー向けです。2025年2月に公開された新しいインテグレーションに関するドキュメントは、[Snowflake Integration Guide (Pre-July 2025)](integration-snowflake-previous) を参照してください。以前の実装を使用している場合は、更新と強化を活用するために新しいバージョンに移行することを勧めます。移行情報については、[Migration Guide](integration-snowflake.md#migration-guide) を参照してください。
 :::
 
-<!-- GWH_Note 8/4/25 I took the .md out of the Snowflake link line 18 because Docu would not build it correctly... broken link in output. Do not know why, though. Same thing on 2 links -->
-
 Snowflake の UID2 インテグレーションの実装は、広告主とデータプロバイダー向けに別々の Snowflake marketplace で提供されていました。これらのリストは、2025年2月に更新されたバージョンが公開された後に削除されました。
 
 実装したものがある場合は、このドキュメントを使用してメンテナンスすることができますが、最新バージョンにアップグレードすることを勧めます。[Snowflake Integration Guide](integration-snowflake.md) を参照してください。
@@ -48,7 +46,7 @@ Snowflake の UID2 インテグレーションの実装は、広告主とデー�
 
 ![Snowflake Integration Architecture](images/uid2-snowflake-integration-architecture-drawio.png)
 
-|Partner Snowflake Account|UID2 Snowflake Account|UID2 Core Opt-Out Cloud Setup|
+| Partner Snowflake Account | UID2 Snowflake Account | UID2 Core Opt-Out Cloud Setup |
 | :--- | :--- | :--- |
 | パートナーとして、Snowflake アカウントを設定してデータをホストし、UID2 Share を通じて関数やビューを使うことで、UID2 インテグレーションに関与できます。 | Snowflake アカウントでホストされている UID2 インテグレーションでは、プライベートテーブルからデータを引き出す許可をされた関数とビューへのアクセスが許可されます。プライベートテーブルにはアクセスできません。UID2 Share では、UID2 関連のタスクを実行するために必要な重要なデータのみが公開されます。 | ETL (抽出・変換・ロード) ジョブは、UID2 Core/Optout Snowflake ストレージを常に更新し、UID2 Operator Web Services を動かす内部データを提供します。Operator Web Services で使用されるデータは、UID2 Share からも入手できます。 |
 | Shared 関数とビューを使用する場合、Snowflake にトランザクションのコストを支払います。 | UID2 Snowflake アカウントで保護されたこれらのプライベートテーブルは、UID2 関連のタスクを完了するために使用される内部データを保持する UID2 Core/Optout Snowflake ストレージと自動的に同期されます。 |  |
@@ -511,7 +509,7 @@ After:
 FN_T_UID2_IDENTITY_MAP(EMAIL, 'email')
 ```
 
-#### Example for mapping unhashed emails
+#### Example for mapping hashed emails
 
 Before:
 
@@ -661,7 +659,7 @@ UID2 Token がうまく復号化できない場合、この関数は行を返し
 
 | Value | Meaning |
 | :-- | :-- |
-| `NULL` | UID2トークンは正常に復号化されました。 |
+| `NULL` | UID2 Token は正常に復号化されました。 |
 | `EXPIRED_TOKEN` | UID2 Token の有効期限が切れています。 |
 
 #### Decrypt Token Request Example&#8212;Single UID2 Token

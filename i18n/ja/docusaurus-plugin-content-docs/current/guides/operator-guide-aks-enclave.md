@@ -292,6 +292,9 @@ az aks create \
     --nodepool-name oprnodepool \
     --os-sku Ubuntu
 ```
+:::note
+必ず最新のサポートされている Kubernetes バージョンを使用してください。`--kubernetes-version` フラグを使用します。以前のバージョンを使用する場合は、長期サポート（LTS）を有効にする必要があります。詳細については、Microsoft ドキュメントの [Long-term support for Azure Kubernetes Service (AKS) versions](https://learn.microsoft.com/en-us/azure/aks/long-term-support) を参照してください。
+:::
 
 #### Get the Principal ID of the Managed Identity
 
@@ -371,21 +374,32 @@ Private Operator のセットアップを完了するには、次の手順に従
 
 #### Update Placeholder Values
 
-前の手順を完了したら、次の手順に従ってプレースホルダー値を更新します:
+前のステップを完了した後、プレースホルダ値を更新するには、次の手順に従ってください:
 
-1. 以下のコマンドを実行して、Managed Identity ID を取得します
+1. 以下のコマンドを実行して、Managed Identity ID を取得します:
 
    ```
-   MANAGED_IDENTITY_ID=$("az identity show --name "${MANAGED_IDENTITY}" --resource-group "${RESOURCE_GROUP}" --query id --output tsv")
+   MANAGED_IDENTITY_ID=$(az identity show --name "${MANAGED_IDENTITY}" --resource-group "${RESOURCE_GROUP}" --query id --output tsv)
    ```
 
-2. `operator.yaml` ファイルの `microsoft.containerinstance.virtualnode.identity` を、返されたマネージド ID に置き換えます:
+2. `operator.yaml` ファイルの `microsoft.containerinstance.virtualnode.identity` を、取得した Managed Identity ID で更新します:
+
+   - For Linux, run:
 
    ```
    sed -i "s#IDENTITY_PLACEHOLDER#$MANAGED_IDENTITY_ID#g" "operator.yaml"
    ```
 
-3. 環境変数を使用して、Vault Key と Secret 名を更新します:
+   - For MacOS, run:
+
+   ```
+   sed -i '' "s#IDENTITY_PLACEHOLDER#$MANAGED_IDENTITY_ID#g" "operator.yaml"
+   ```
+
+3. Vault Key と Secret 名を環境変数で更新します:
+
+   - For Linux, run:
+
 
    ```
    sed -i "s#VAULT_NAME_PLACEHOLDER#$KEYVAULT_NAME#g" "operator.yaml"
@@ -393,17 +407,26 @@ Private Operator のセットアップを完了するには、次の手順に従
    sed -i "s#DEPLOYMENT_ENVIRONMENT_PLACEHOLDER#$DEPLOYMENT_ENV#g" "operator.yaml"
    ```
 
+   - For MacOS, run:
+
+   ```
+   sed -i '' "s#VAULT_NAME_PLACEHOLDER#$KEYVAULT_NAME#g" "operator.yaml"
+   sed -i '' "s#OPERATOR_KEY_SECRET_NAME_PLACEHOLDER#$KEYVAULT_SECRET_NAME#g" "operator.yaml"
+   sed -i '' "s#DEPLOYMENT_ENVIRONMENT_PLACEHOLDER#$DEPLOYMENT_ENV#g" "operator.yaml"
+   ```
+
+
 #### Deploy Operator
 
 以下の手順に従って、Private Operator をデプロイします:
 
-1. 作成した AKS クラスターの Kubernetes 構成資格情報を取得します:
+1. Kubernetes configuration credentials を取得するには、次のコマンドを実行します:
 
    ```
    az aks get-credentials --name ${AKS_CLUSTER_NAME} --resource-group ${RESOURCE_GROUP}
    ```
 
-2. Kubernetes 構成資格情報を取得したら、次のコマンドを実行して Private Operator をデプロイします:
+2. Kubernetes configuration credentials を取得したら、次のコマンドを実行して Private Operator をデプロイします:
 
    ```
    kubectl apply -f operator.yaml
@@ -411,9 +434,9 @@ Private Operator のセットアップを完了するには、次の手順に従
 
 ## Running the Health Check
 
-実装の状態を確認するには、ヘルスチェックエンドポイントを呼び出します。
+ヘルスチェックエンドポイントを呼び出して、実装のヘルスチェックをテストします。
 
-ヘルスチェックの実行は、テスト環境と本番環境で同じですが、エンドポイントは異なります。
+ヘルスチェックの実行は、エンドポイントを除き、インテグレーション環境と本番環境で同じです。
 
 以下の手順に従ってください:
 
@@ -423,9 +446,9 @@ Private Operator のセットアップを完了するには、次の手順に従
    IP=$(az network public-ip list --resource-group ${AKS_NODE_RESOURCE_GROUP} --query "[?starts_with(name, 'kubernetes')].ipAddress" --output tsv)
    ```
 
-2. オペレータの状態をテストするには、ブラウザでヘルスチェックエンドポイントにアクセスします: `http://${IP}/ops/healthcheck`.
+2. Operator のステータスをテストするには、ブラウザでヘルスチェックエンドポイントにアクセスします: `http://${IP}/ops/healthcheck`。
 
-   HTTP 200 ステータスコードでレスポンスボディが `OK` の場合、正常な状態を示します。
+   HTTP 200 とレスポンスボディ `OK` が表示される場合、ステータスは正常です。
 
 import AttestFailure from '../snippets/_private-operator-attest-failure.mdx';
 
@@ -433,17 +456,17 @@ import AttestFailure from '../snippets/_private-operator-attest-failure.mdx';
 
 ## Upgrading
 
-UID2 Private Operator for AKS の新しいバージョンがリリースされると、独自の Private Operator をホストしている参加者は、更新の通知を受け取り、新しいリリースリンクまたはインストールファイルを取得するための手順が記載されたメールを受け取ります。アップグレードのウィンドウがあり、その後、古いバージョンは非アクティブになり、サポートされなくなります。
+ASK 用の UID2 Private Operator の新しいバージョンがリリースされると、独自の Private Operator をホストしている参加者は、更新のメール通知を受け取り、新しいリリースリンクまたはインストールファイルを取得するための手順が記載されます。アップグレードのための期間があり、その後、古いバージョンは非アクティブになり、サポートされなくなります。
 
 アップグレードするには、次の手順を完了します:
 
 1. [Download ZIP File and Extract Files](#download-zip-file-and-extract-files) を参照して、新しいバージョンのデプロイメントファイルをダウンロードし、解凍します。
 
-2. [Complete Key Vault and Managed Identity Setup](#complete-key-vault-and-managed-identity-setup) を参照して、Key Vault と Managed Identity をセットアップします。
+2. [Complete the UID2 Private Operator Setup](#complete-the-uid2-private-operator-setup) の手順に従い、新しいファイルを使用して AKS 実装を新しいバージョンでデプロイします。
 
-3. 新しい AKS デプロイメントのヘルスを確認し、ステータスが正常であることを確認します:
+3. 新しい AKS デプロイメントのヘルスを確認し、ステータスが正常であることを確認します。
 
-4. 古い AKS ポッドが適切にシャットダウンされていることを確認します:
+4. 古い AKS ポッドが適切にシャットダウンされていることを再確認します:
 
    ```
    kubectl get pods

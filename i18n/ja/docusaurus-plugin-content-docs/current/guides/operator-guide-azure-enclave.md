@@ -125,7 +125,7 @@ az group create --name {RESOURCE_GROUP_NAME} --location {LOCATION}
 ロケーションには、いくつかの制限があります:
 - UID2 Private Operator for Azure は、次の地域ではサポートされていません: Europe、China。
 
-- Azure 仮想ネットワーク展開の可用性については、Azure ドキュメントの「Linux container groups(https://learn.microsoft.com/en-us/azure/container-instances/container-instances-resource-and-quota-limits#confidential-container-resources-preview) を確認し、Confidential Containers の地域サポートの可用性を確認してください。
+- Azure 仮想ネットワーク展開の可用性については、Azure ドキュメントの[Linux container groups](https://learn.microsoft.com/en-us/azure/container-instances/container-instances-resource-and-quota-limits#confidential-container-resources-preview) を確認し、Confidential Containers の地域サポートの可用性を確認してください。
 
 - 場所のエイリアスを取得するには、次のコマンドを実行します。
 

@@ -14,7 +14,7 @@ import IntegratingWithSSO from '../snippets/_integrating-with-sso.mdx';
 
 # Client-Server Integration Guide for JavaScript
 
-このガイドは、Web アセットを持つパブリッシャー向けに、RTB <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link> で UID2 を使用して ID トークンを生成し、サーバーサイドで UID2 トークンを生成してパブリッシャーの Web ページに渡し、JavaScript の UID2 SDK を使用してクライアントサイドでトークンをリフレッシュする方法を説明します。
+このガイドは、Web アセットを持つパブリッシャー向けに、RTB <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link> で UID2 を使用して ID トークンを生成し、サーバーサイドで UID2 Tokenを生成してパブリッシャーの Web ページに渡し、JavaScript の UID2 SDK を使用してクライアントサイドでトークンをリフレッシュする方法を説明します。
 
 これは、JavaScript インテグレーションステップが Client-Side であり、その他のステップが Server-Side であるため、Client-Server インテグレーションと呼ばれます。
 
