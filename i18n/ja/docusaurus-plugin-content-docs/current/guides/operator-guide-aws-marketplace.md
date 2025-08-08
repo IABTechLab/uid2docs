@@ -37,7 +37,6 @@ UID2 Private Operator for AWS を契約することで、以下を利用でき�
 | ------- | ------ | ------ | ------ | 
 | Q2 2025 | [v5.55.9](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.55.9-r1) | v5.55.9-r1 | July 1, 2025 |
 
-
 :::note
 For information about supported versions and deprecation dates, see [Private Operator Versions](../ref-info/deprecation-schedule.md#private-operator-versions).
 :::
@@ -167,7 +166,7 @@ UID2 Operator を AWS Marketplace にデプロイするには、以下の手順�
 1. [Unified ID 2.0 Operator on AWS Marketplace](https://aws.amazon.com/marketplace/pp/prodview-wdbccsarov5la) をサブスクライブします。AWS がサブスクライブが完了するまで数分かかる場合があります。
 2. **Configuration** をクリックし、構成値を指定します。
 
-   ソフトウェアバージョンについては、[Operator Version](#operator-version) を参照し、AWS Version 列で値を選択します。
+   ソフトウェアバージョンは、[Operator Version](#operator-version) を参照し、AWS Version 列で値を選択します。
 3. Configuration ページで **Launch** をクリックし、**Launch CloudFormation** アクションを選択します。
 4. スタック作成ウィザードでテンプレートを指定し、**Next** をクリックします。テンプレートファイルの S3 パスが自動的に入力されます。
 5. [スタックの詳細](#stack-details) を入力し、**Next** をクリックします。
@@ -373,10 +372,10 @@ Private Operator 起動時のエラーコードは、リリース v5.49.7 以降
 | :--- | :--- | :--- |
 | E01 | InstanceProfileMissingError | EC2 インスタンスに、必要な権限が付与されたIAMインスタンスプロファイルをアタッチします。UID2 Operator は、AWS Secrets Manager から設定にアクセスするためにこれらの権限が必要です。 |
 | E02 | OperatorKeyNotFoundError | Private Operator が参照するシークレットが、オペレーターと同じリージョンにある AWS Secrets Manager に存在することを確認し、IAM インスタンス プロファイルがシークレットにアクセスする権限を持っていることを確認してください。必要に応じて、特定のシークレット名とリージョンに関するログを確認できます。 |
-| E03 | ConfigurationMissingError | 構成に必須の属性が不足しています。詳細についてはログを確認し、Secrets Manager で不足している属性を更新してください。 |
-| E04 | ConfigurationValueError | 構成値が無効です。AWS Secrets Manager内の構成値が、必要な形式と環境と一致していることを確認してください。Note： `debug_mode = true` は `integ` 環境でのみ許可されています。詳細についてはログを確認してください。 |
+| E03 | ConfigurationMissingError | 構成に必須の属性が不足しています。詳細はログを確認し、Secrets Manager で不足している属性を更新してください。 |
+| E04 | ConfigurationValueError | 構成値が無効です。AWS Secrets Manager内の構成値が、必要な形式と環境と一致していることを確認してください。Note： `debug_mode = true` は `integ` 環境でのみ許可されています。詳細はログを確認してください。 |
 | E05 | OperatorKeyValidationError | Operator Key が環境に適しており、提供されたものと一致していることを確認してください。 |
-| E06 | UID2ServicesUnreachableError | UID2 Core および Opt-out Service の IP アドレスをアウトバウンドファイアウォールで許可します。IP アドレスおよび DNS の詳細については、ログを参照してください。 |
+| E06 | UID2ServicesUnreachableError | UID2 Core および Opt-out Service の IP アドレスをアウトバウンドファイアウォールで許可します。IP アドレスおよび DNS の詳細は、ログを参照してください。 |
 
 ## Technical Support
 

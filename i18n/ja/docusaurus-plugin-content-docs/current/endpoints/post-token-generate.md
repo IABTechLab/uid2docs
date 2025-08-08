@@ -21,7 +21,7 @@ Used by: このエンドポイントは、主にパブリッシャーが使用�
 
 <!-- uid2_euid_diff re legal basis for admonition above -->
 
-このエンドポイントを直接呼び出すのではなく、UID2 SDK を使って管理することもできます。オプションの概要については、[SDKs: Summary](../sdks/summary-sdks.md) を参照してください。
+このエンドポイントを直接呼び出すのではなく、UID2 SDK を使って管理することもできます。オプションの概要は、[SDKs: Summary](../sdks/summary-sdks.md) を参照してください。
 
 ## Request Format 
 

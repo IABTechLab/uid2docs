@@ -27,7 +27,7 @@ UID2 は、Android/iOS 向けの SDK を提供しており、次の機能をサ�
 - UID2 Token のリフレッシュ
 - UID2 Token の保存
 
-さらに、UID2 は、一部の機能に対して代替手段を提供し、UID2 Google GMA/IMA プラグインなどの補完製品も提供しています。利用可能なオプションについては、個々のガイドで説明されています: [Integration Overview: High-Level Steps](#integration-overview-high-level-steps) を参照してください。
+さらに、UID2 は、一部の機能に対して代替手段を提供し、UID2 Google GMA/IMA プラグインなどの補完製品も提供しています。利用可能なオプションは、個々のガイドで説明されています: [Integration Overview: High-Level Steps](#integration-overview-high-level-steps) を参照してください。
 
 ## Integrating with Single Sign-On (SSO)
 
@@ -163,7 +163,7 @@ UID2 Mobile インテグレーションには、UID2 Mobile SDK、UID2 GMA プ�
 推奨事項:
 
 - すでに CocoaPods を使用している場合、特に Google Ad Frameworks を自分でインテグレーションしている場合は、UID2 SDK を CocoaPods を使用してインテグレーションすることが最適です。
-- 依存関係のインテグレーションが初めての場合、または Swift Package Manager ですでに依存関係がある場合は、UID2 モバイルインテグレーションには Swift Package Manager を使用することを勧めます。
+- 依存関係のインテグレーションが初めての場合、または Swift Package Manager ですでに依存関係がある場合は、UID2 モバイルインテグレーションには Swift Package Manager を使用することを推奨します。
 
 
 :::caution

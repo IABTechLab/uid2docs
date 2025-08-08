@@ -59,7 +59,7 @@ SDK のデバッグビルドを使用したい場合は、代わりに以下の 
 
 ## Sample Implementation
 
-実装例については、次の例を参照してください:
+実装例は、次の例を参照してください:
 - Code: [Example Client-Side Integration for JavaScript](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/cstg)
 - ランニングサイト: [Client-Side Integration Example, UID2 JavaScript SDK](https://cstg-integ.uidapi.com/)
 
@@ -95,9 +95,9 @@ When account setup is complete, you'll receive a client keypair consisting of tw
 
 以下のコードスニペットは、ウェブサイトに追加する必要があるコードの概要です。また、SDK がトリガーできるさまざまなイベントも示しています。
 
-より詳細なコードスニペットについては、[Example Integration Code and When to Pass DII to the UID2 SDK](#example-integration-code-and-when-to-pass-dii-to-the-uid2-sdk) を参照してください。
+より詳細なコードスニペットは、[Example Integration Code and When to Pass DII to the UID2 SDK](#example-integration-code-and-when-to-pass-dii-to-the-uid2-sdk) を参照してください。
 
-`UID2_JS_SDK_URL` の値については、[SDK for JavaScript Version](#sdk-for-javascript-version) を参照してください。
+`UID2_JS_SDK_URL` の値は、[SDK for JavaScript Version](#sdk-for-javascript-version) を参照してください。
 
 ```js
 <script async src="{{ UID2_JS_SDK_URL }}"></script>
@@ -134,7 +134,7 @@ SDK の詳細は [SDK for JavaScript Reference Guide](../sdks/sdk-ref-javascript
 
 ### Using the UID2 Integration Environment
 
-デフォルトでは、この SDK は UID2 本番環境 `https://prod.uidapi.com` で動作するように設定されています。代わりに UID2 インテグレーション環境を使用する場合 (資格情報については [Getting Your Credentials](../getting-started/gs-credentials.md#getting-your-credentials) を参照)、`init` に以下の URL を指定します:
+デフォルトでは、この SDK は UID2 本番環境 `https://prod.uidapi.com` で動作するように設定されています。代わりに UID2 インテグレーション環境を使用する場合 (資格情報は [Getting Your Credentials](../getting-started/gs-credentials.md#getting-your-credentials) を参照)、`init` に以下の URL を指定します:
 
 ```js
 __uid2.init({
@@ -142,14 +142,14 @@ __uid2.init({
 });
 ```
 :::note
-UID2 インテグレーション環境からのトークンは、<Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link>に渡しても無効です。インテグレーション環境では、**Subscription ID** と **public key** の値が異なります。各環境の認証情報を取得すr方法については、[Getting Your Credentials](../getting-started/gs-credentials.md#getting-your-credentials) を参照してください。
+UID2 インテグレーション環境からのトークンは、<Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link>に渡しても無効です。インテグレーション環境では、**Subscription ID** と **public key** の値が異なります。各環境の認証情報を取得すr方法は、[Getting Your Credentials](../getting-started/gs-credentials.md#getting-your-credentials) を参照してください。
 :::
 
 ### Optional: Specifying the API Base URL to Reduce Latency
 
 デフォルトでは、この SDK は米国の UID2 本番環境サーバーにリクエストを送信します。
 
-ユースケースに最適な URL を選択する方法と、有効なベース URL の全リストについては、[Environments](../getting-started/gs-environments.md) を参照してください。
+ユースケースに最適な URL を選択する方法と、有効なベース URL の全リストは、[Environments](../getting-started/gs-environments.md) を参照してください。
 
 デフォルト以外の UID2 サーバーを指定するには、`init` 呼び出しで変更します:
 
@@ -199,7 +199,7 @@ SDK は、特定のユーザーに対して、4 つの DII フォーマットの
 
 SDK が複数回設定された場合、最新の設定値が使用されます。
 
-JavaScript でメールアドレスと電話のハッシュを生成する方法の例については、[Example Code: Hashing and Base-64 Encoding](#example-code-hashing-and-base-64-encoding) を参照してください。
+JavaScript でメールアドレスと電話のハッシュを生成する方法の例は、[Example Code: Hashing and Base-64 Encoding](#example-code-hashing-and-base-64-encoding) を参照してください。
 
 <Tabs>
 <TabItem value='example_email_unhashed' label='Email, Unhashed'>

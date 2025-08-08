@@ -11,68 +11,64 @@ import POSTIdentityMapImprovements from '../snippets/_post-identity-map-improvem
 
 # POST /identity/map
 
-:::note
-このページには、近日中に翻訳される新しいコンテンツが含まれています。
-:::
+複数のメールアドレス、電話番号、またはそれぞれのハッシュを、raw UID2 にマッピングします。このエンドポイントを使用して、オプトアウト情報の更新をチェックしたり、raw UID2 の更新が可能な時期を確認したり、現在の raw UID2 が 発行されてから 90 日未満の場合に前の UID2 を表示することもできます。
 
-Maps multiple email addresses, phone numbers, or their respective hashes to their raw UID2s. You can also use this endpoint to check for updates to opt-out information, check when a raw UID2 can be refreshed, or view the previous UID2 if the current UID2 is less than 90 days old.
+Used by: このエンドポイントは、主に広告主とデータプロバイダーによって使用されます。詳細は、[Advertiser/Data Provider Integration Overview](../guides/integration-advertiser-dataprovider-overview.md) を参照してください。
 
-Used by: This endpoint is used mainly by advertisers and data providers. For details, see [Advertiser/Data Provider Integration Overview](../guides/integration-advertiser-dataprovider-overview.md).
-
-For details about the UID2 opt-out workflow and how users can opt out, see [User Opt-Out](../getting-started/gs-opt-out.md).
+UID2 のオプトアウト手順とユーザーがオプトアウトする方法は、[User Opt-Out](../getting-started/gs-opt-out.md) を参照してください。
 
 ## Version
 
-This documentation is for the latest version of this endpoint, version 3.
+このドキュメントは、エンドポイントの最新版であるバージョン 3 を対象としています。
 
-If needed, documentation is also available for the previous version: see [POST /identity/map (v2)](post-identity-map-v2.md).
+必要に応じて、以前のバージョンのドキュメントも利用可能です: [POST /identity/map (v2)](post-identity-map-v2.md) を参照してください。
 
 ## Batch Size and Request Parallelization Requirements
 
-Here's what you need to know:
+以下が必要な情報です:
 
-- The maximum request size is 1MB.
-- To map a large number of email addresses, phone numbers, or their respective hashes, send them in *sequential* batches with a maximum batch size of 5,000 items per batch.
-- Unless you are using a <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link>, do not send batches in parallel. In other words, use a single HTTP connection and send batches of hashed or unhashed <Link href="../ref-info/glossary-uid#gl-dii">directly identifying information (DII)</Link> values consecutively, without creating multiple parallel connections.
-- Be sure to store mappings of email addresses, phone numbers, or their respective hashes.<br/>Not storing mappings could increase processing time drastically when you have to map millions of email addresses or phone numbers. Recalculating only those mappings that actually need to be updated, however, reduces the total processing time because only about 1/365th of UID2s need to be updated daily. See also [Advertiser/Data Provider Integration Overview](../guides/integration-advertiser-dataprovider-overview.md) and [FAQs for Advertisers and Data Providers](../getting-started/gs-faqs.md#faqs-for-advertisers-and-data-providers).
+- 最大リクエストサイズは 1MB です。
+- 大量のメールアドレス、電話番号、またはそれぞれのハッシュをマッピングする場合は、1 バッチあたり最大 5,000 アイテムの *順次* バッチで送信します。
+- <Link href="../ref-info/glossary-uid#gl-private-operator">プライベートオペレーター</Link>を使用していない限り、バッチを並行して送信しないでください。つまり、単一の HTTP 接続を使用し、ハッシュ化または非ハッシュ化された <Link href="../ref-info/glossary-uid#gl-dii">直接識別情報 (DII)</Link> 値のバッチを連続して送信し、複数の並行接続を作成しないでください。
+- メールアドレス、電話番号、またはそれぞれのハッシュのマッピングを必ず保存してください。<br/>マッピングを保存しないと、数百万のメールアドレスや電話番号をマッピングする際に処理時間が大幅に増加する可能性があります。ただし、実際に更新が必要なマッピングのみを再計算すると、UID2 の約 1/365 が毎日更新されるため、総処理時間が短縮されます。詳細は、[Advertiser/Data Provider Integration Overview](../guides/integration-advertiser-dataprovider-overview.md) と [FAQs for Advertisers and Data Providers](../getting-started/gs-faqs.md#faqs-for-advertisers-and-data-providers) を参照してください。
 
 ## Request Format
 
 `POST '{environment}/v3/identity/map'`
 
-For authentication details, see [Authentication and Authorization](../getting-started/gs-auth.md).
+認証の詳細は、[Authentication and Authorization](../getting-started/gs-auth.md) を参照してください。
 
 :::important
-You must encrypt all requests using your secret. For details, and code examples in different programming languages, see [Encrypting Requests and Decrypting Responses](../getting-started/gs-encryption-decryption.md).
+すべてのリクエストをシークレットを使用して暗号化する必要があります。詳細は、[Encrypting Requests and Decrypting Responses](../getting-started/gs-encryption-decryption.md) を参照してください。
 :::
 
 ### Path Parameters
 
 | Path Parameter | Data Type | Attribute | Description |
 | :--- | :--- | :--- | :--- |
-| `{environment}` | string | Required | Testing (integration) environment: `https://operator-integ.uidapi.com`<br/>Production environment: The best choice depends on where your users are based. For information about how to choose the best URL for your use case, and a full list of valid base URLs, see [Environments](../getting-started/gs-environments.md). |
+| `{environment}` | string | Required | テスト（インテグレーション）環境: `https://operator-integ.uidapi.com`<br/>本番環境: 最適な選択は、ユーザーの所在地によって異なります。ユースケースに適したURLの選択方法や、有効なベース URL の一覧は、[Environments](../getting-started/gs-environments.md) を参照してください。 |
 
 :::note
-The integration environment and the production environment require different <Link href="../ref-info/glossary-uid#gl-api-key">API keys</Link>. For information about getting credentials for each environment, see [Getting Your Credentials](../getting-started/gs-credentials.md#getting-your-credentials).
+インテグレーション環境と本番環境では、異なる <Link href="../ref-info/glossary-uid#gl-api-key">API Key</Link> が必要です。各環境の認証情報の取得方法は、[Getting Your Credentials](../getting-started/gs-credentials.md#getting-your-credentials) を参照してください。
 :::
 
 ### Unencrypted JSON Body Parameters
 
 :::important
-Include one or more of the following four parameters as key-value pairs in the JSON body of the request when encrypting it.
+暗号化を行う際には、リクエストの JSON 本文に次の 4 つのパラメーターのいずれかをキーと値のペアとして含めてください。
 :::
 
-| Body Parameter | Data Type                   | Attribute              | Description |
-|:---------------|:----------------------------|:-----------------------| :--- |
-| `email`        | string array | Conditionally Required | The list of email addresses to be mapped. |
-| `email_hash`   | string array | Conditionally Required | The list of [Base64-encoded SHA-256](../getting-started/gs-normalization-encoding.md#email-address-hash-encoding) hashes of [normalized](../getting-started/gs-normalization-encoding.md#email-address-normalization) email addresses to be mapped. |
-| `phone`        | string array | Conditionally Required | The list of [normalized](../getting-started/gs-normalization-encoding.md#phone-number-normalization) phone numbers to be mapped. |
-| `phone_hash`   | string array | Conditionally Required | The list of [Base64-encoded SHA-256](../getting-started/gs-normalization-encoding.md#phone-number-hash-encoding) hashes of [normalized](../getting-started/gs-normalization-encoding.md#phone-number-normalization) phone numbers to be mapped. |
+| Body Parameter | Data Type | Attribute | Description |
+| :--- | :--- | :--- | :--- |
+| `email` | string array | 条件付きで必須 | マッピングするメールアドレスのリスト。 |
+| `email_hash` | string array | 条件付きで必須 | マッピングする[正規化済み](../getting-started/gs-normalization-encoding.md#email-address-normalization)メールアドレスの[Base64エンコードされた SHA-256](../getting-started/gs-normalization-encoding.md#email-address-hash-encoding)ハッシュのリスト。 |
+| `phone` | string array | 条件付きで必須 | マッピングする[正規化済み](../getting-started/gs-normalization-encoding.md#phone-number-normalization)電話番号のリスト。 |
+| `phone_hash` | string array | 条件付きで必須 | マッピングする[正規化済み](../getting-started/gs-normalization-encoding.md#phone-number-normalization)電話番号の[Base64エンコードされた SHA-256](../getting-started/gs-normalization-encoding.md#phone-number-hash-encoding)ハッシュのリスト。 |
 
 
 ### Request Examples
 
-The following are unencrypted JSON request body examples to the `POST /identity/map` endpoint:
+以下の例は、`POST /identity/map` エンドポイントへの暗号化されていない JSON リクエスト本文の例です:
 
 ```json
 {
@@ -100,27 +96,27 @@ The following are unencrypted JSON request body examples to the `POST /identity/
 }
 ```
 
-Here's an encrypted request example to the `POST /identity/map` endpoint for phone numbers:
+以下は、電話番号の `POST /identity/map` エンドポイントへの暗号化されたリクエストの例です:
 
 ```sh
 echo '{"phone": ["+12345678901", "+441234567890"]}' | python3 uid2_request.py https://prod.uidapi.com/v3/identity/map [YOUR_CLIENT_API_KEY] [YOUR_CLIENT_SECRET]
 ```
 
-For details, and code examples in different programming languages, see [Encrypting Requests and Decrypting Responses](../getting-started/gs-encryption-decryption.md).
+詳細および異なるプログラミング言語でのコード例は、[Encrypting Requests and Decrypting Responses](../getting-started/gs-encryption-decryption.md) を参照してください。
 
 ## Decrypted JSON Response Format
 
 :::note
-The response is encrypted only if the HTTP status code is 200. Otherwise, the response is not encrypted.
+HTTPステータスコードが 200 の場合、レスポンスは暗号化されます。それ以外の場合、レスポンスは暗号化されません。
 :::
 
-A successful decrypted response returns the current raw UID2s, previous raw UID2s, and refresh timestamps for the specified email addresses, phone numbers, or their respective hashes. 
+復号化に成功したレスポンスは、指定されたメールアドレス、電話番号、またはそれぞれのハッシュに対する現在の raw UID2、以前の raw UID2、および更新タイムスタンプを返します。
 
-The response arrays preserve the order of input arrays. Each element in the response array maps directly to the element at the same index in the corresponding request array. This ensures that you can reliably associate results with their corresponding inputs based on array position.
+レスポンスの配列は、入力配列の順序を保持します。レスポンス配列の各要素は、対応するリクエスト配列の同じインデックスにある要素に直接マッピングされます。これにより、結果をその対応する入力と信頼性高く関連付けることができます。
 
-Input values that cannot be mapped to a raw UID2 are mapped to an error object with the reason for unsuccessful mapping. An unsuccessful mapping occurs if the DII is invalid or has been opted out from the UID2 ecosystem. In these cases, the response status is `success` but no raw UID2 is returned.
+raw UID2 にマッピングできない入力値は、マッピングできなかった理由を含むエラーオブジェクトにマッピングされます。マッピングに失敗するのは、DII が無効であるか、UID2 エコシステムからオプトアウトされている場合です。このような場合、レスポンスステータスは `success` ですが、raw UID2 は返されません。
 
-The following example shows the input and corresponding response.
+以下の例は、入力と対応するレスポンスを示しています。
 
 Input:
 
@@ -164,45 +160,45 @@ Response:
 
 ### Response Body Properties
 
-The response body includes one or more of the properties shown in the following table.
+レスポンス本文には、以下の表に示すプロパティのいずれかが含まれます。
 
-| Body Parameter | Data Type                   | Description                                                                                     |
-|:---------------|:----------------------------|:------------------------------------------------------------------------------------------------|
-| `email`        | array of mapped DII objects | The list of mapped DII objects corresponding to the list of emails in the request.              |
-| `email_hash`   | array of mapped DII objects  | The list of mapped DII objects corresponding to the list of email hashes in the request.        |
-| `phone`        | array of mapped DII objects | The list of mapped DII objects corresponding to the list of phone numbers in the request.       |
-| `phone_hash`   | array of mapped DII objects | The list of mapped DII objects corresponding to the list of phone number hashes in the request. |
+| Body Parameter | Data Type | Description |
+| :--- | :--- | :--- |
+| `email`        | マッピングされた DII オブジェクトの配列 | リクエスト内のメールアドレスのリストに対応するマッピングされた DII オブジェクトのリスト。 |
+| `email_hash`   | マッピングされた DII オブジェクトの配列 | リクエスト内のメールアドレスハッシュのリストに対応するマッピングされた DII オブジェクトのリスト。 |
+| `phone`        | マッピングされた DII オブジェクトの配列 | リクエスト内の電話番号のリストに対応するマッピングされた DII オブジェクトのリスト。 |
+| `phone_hash`   | マッピングされた DII オブジェクトの配列 | リクエスト内の電話番号ハッシュのリストに対応するマッピングされた DII オブジェクトのリスト。 |
 
 
-For successfully mapped DII, the mapped object includes the properties shown in the following table.
+DII が正常にマッピングされた場合、マッピングされたオブジェクトには以下の表に示すプロパティが含まれます。
 
-| Property | Data Type  | Description                                                                                                                           |
-|:---------|:-----------|:--------------------------------------------------------------------------------------------------------------------------------------|
-| `u`      | string     | The raw UID2 corresponding to the email or phone number provided in the request.                                                                     |
-| `p`      | string     | One of the following:<ul><li>If the current raw UID2 has been rotated in the last 90 days: the previous value.</li><li>If the current raw UID2 is older than 90 days: `null`.</li></ul> |
-| `r`      | number     | The Unix timestamp (in milliseconds) that indicates when the raw UID2 might be refreshed. The raw UID2 is guaranteed to be valid until this timestamp. |
+| Property | Data Type | Description |
+| :--- | :--- | :--- |
+| `u` | string | リクエストで提供されたメールアドレスまたは電話番号に対応する raw UID2。 |
+| `p` | string | 以下のいずれか:<ul><li>現在の raw UID2 が過去 90 日以内にローテーションされた場合: 前の値。</li><li>現在の raw UID2 が 90 日以上前のものである場合: `null`。</li></ul> |
+| `r` | number | Unix タイムスタンプ（ミリ秒単位）で、raw UID2 がリフレッシュされる可能性のある時刻を示します。このタイムスタンプまで、raw UID2 は有効であることが保証されています。 |
 
-For unsuccessfully mapped input values, the mapped object includes the properties shown in the following table.
+マッピングできなかった入力値に対しては、マッピングされたオブジェクトに以下の表に示すプロパティが含まれます。
 
-| Property | Data Type | Description                                                                                                      |
-|:---------|:----------|:-----------------------------------------------------------------------------------------------------------------|
-| `e`      | string    | The reason for being unable to map the DII to a raw UID2. One of two possible values:<ul><li>`optout`</li><li>`invalid identifier`</li></ul> |
+| Property | Data Type | Description|
+| :--- | :--- | :--- |
+| `e`| string | マッピングできなかった理由。次のいずれかの値:<ul><li>`optout`</li><li>`invalid identifier`</li></ul> |  
 
 ### Response Status Codes
 
-The following table lists the `status` property values and their HTTP status code equivalents.
+以下の表は、`status` プロパティの値とその HTTP ステータスコードの対応を示しています。
 
 | Status | HTTP Status Code | Description |
 | :--- | :--- | :--- |
-| `success` | 200 | The request was successful. The response will be encrypted. |
-| `client_error` | 400 | The request had missing or invalid parameters. |
-| `unauthorized` | 401 | The request did not include a bearer token, included an invalid bearer token, or included a bearer token unauthorized to perform the requested operation. |
+| `success` | 200 | リクエストは成功しました。レスポンスは暗号化されます。 |
+| `client_error` | 400 | リクエストに欠落または無効なパラメーターが含まれていました。 |
+| `unauthorized` | 401 | リクエストにベアラートークンが含まれていない、無効なベアラートークンが含まれている、またはリクエストされた操作を実行する権限のないベアラートークンが含まれていました。 |
 
-If the `status` value is anything other than `success`, the `message` field provides additional information about the issue.
+`status` プロパティの値が `success` 以外の場合、`message` フィールドには問題に関する追加情報が提供されます。
 
 ## Migration from v2 Identity Map
 
-The following sections provide general information and guidance for migrating to version 3 from earlier versions, including:
+以下のセクションでは、以前のバージョンからバージョン 3 への移行に関する一般的な情報とガイダンスを提供します:
 
 - [Version 3 Improvements](#version-3-improvements)
 - [Key Differences Between v2 and v3](#key-differences-between-v2-and-v3)
@@ -215,18 +211,18 @@ The following sections provide general information and guidance for migrating to
 
 ### Key Differences Between v2 and v3
 
-The following table shows key differences between the versions.
+以下の表は、バージョン間の主な違いを示しています。
 
-| Feature                        | V2 Implementation                           | V3 Implementation                          |
-|:-------------------------------|:--------------------------------------------|:-------------------------------------------|
-| Endpoints Required         | `/v2/identity/map` + `/v2/identity/buckets` | `/v3/identity/map` only                    |
-| Identity Types per Request | Single identity type only                   | Multiple identity types                    |
-| Refresh Management         | Monitor salt bucket rotations via `/identity/buckets` endpoint              | Re-map when past `refresh_from` timestamps |
-| Previous UID2 Access       | Not available                               | Available for 90 days        |
+| Feature | V2 Implementation | V3 Implementation |
+| :--- | :--- | :--- |
+| 必要なエンドポイント | `/v2/identity/map` + `/v2/identity/buckets` | `/v3/identity/map` のみ |
+| リクエストごとのアイデンティティタイプ | 単一のアイデンティティタイプのみ | 複数のアイデンティティタイプ |
+| リフレッシュ管理 | `/identity/buckets` エンドポイントを介してソルトバケットのローテーションをモニター | `refresh_from` タイムスタンプを過ぎたときに再マッピング |
+| 前の UID2 アクセス | 利用不可 | 90 日間利用可能 |
 
 ### Required Changes
 
-To upgrade from an earlier version to version 3, follow these steps:
+以前のバージョンからバージョン 3 へのアップグレードは、以下の手順に従ってください。
 
 1. [Update Endpoint URL](#1-update-endpoint-url)
 2. [Update V3 Response Parsing Logic](#2-update-v3-response-parsing-logic)
@@ -234,7 +230,7 @@ To upgrade from an earlier version to version 3, follow these steps:
 
 #### 1. Update Endpoint URL
 
-Update any reference to the endpoint URL so that it references the /v3/ implementation, as shown in the following example.
+エンドポイント URL を更新して、/v3/ 実装を参照するようにしてください。以下の例を参照してください。
 
 ```python
 # Before (v2)
@@ -246,7 +242,7 @@ url = '/v3/identity/map'
 
 #### 2. Update v3 Response Parsing Logic
 
-Update the logic for parsing the response, as shown in the following example.
+以下の例に従って、レスポンスの解析ロジックを更新してください。
 
 V2 Response Parsing:
 ```python
@@ -277,9 +273,9 @@ for index, item in enumerate(response['body']['email']):
 
 #### 3. Replace Salt Bucket Monitoring with Refresh Timestamp Logic
 
-Update your code for salt bucket monitoring, replacing it with code that checks the `refresh_from` timestamp to determine raw UID2s that are due for refresh.
+Salt Bucketのモニタリングを更新して、`refresh_from` タイムスタンプをチェックし、raw UID2 の更新が必要なものを判断するコードに置き換えます。
 
-The following example shows an implementation of the v3 approach for checking refresh timestamps:
+以下の例は、リフレッシュタイムスタンプをチェックするための v3 アプローチの実装を示しています:
 
 ```python
 import time
@@ -294,11 +290,11 @@ remap_identities(to_remap)
 ```
 
 ### Additional Resources
-- [SDK for Java](../sdks/sdk-ref-java.md) for Java implementations (see Usage for Advertisers/Data Providers section)
+- [SDK for Java](../sdks/sdk-ref-java.md) Java 実装 (Advertisers/Data Providers section を参照)
 
 <!-- For SDK-specific migration guidance, see:
 - [SDK for Python](../sdks/sdk-ref-python.md) for Python implementations -->
 
 <!-- GWH 7/7 Commenting out the above until the SDK docs are available. -->
 
-For general information about identity mapping, see [Advertiser/Data Provider Integration Overview](../guides/integration-advertiser-dataprovider-overview.md).
+ID マッピングの一般的な情報は、[Advertiser/Data Provider Integration Overview](../guides/integration-advertiser-dataprovider-overview.md) を参照してください。

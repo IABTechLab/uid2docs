@@ -22,14 +22,32 @@ import Link from '@docusaurus/Link';
 | [POST&nbsp;/token/validate](post-token-validate.md) | Advertising Token (UID2) が指定されたメールアドレス、電話番号、またはそれぞれのハッシュと一致するかどうかを検証するためのテストに使用します。 | 必須 | 必須 |
 | [POST&nbsp;/token/refresh](post-token-refresh.md) | [POST&nbsp;/token/generate](./post-token-generate.md) レスポンスから、ユーザーの Refresh Token 用に新しいトークンを生成します。 | N/A | 必須 |
 
-## Identity Maps
+## Identity Map
 
-以下のエンドポイントは、広告主とサードパーティのデータプロバイダーが使用します。パブリッシャーは、これらのエンドポイントを使用する必要はありません。
+以下のエンドポイントは、広告主とサードパーティのデータプロバイダーが使用します。パブリッシャーはこれらのエンドポイントを使用する必要はありません。
+
+### Latest Identity Map Endpoint (v3)
+
+最新の Identity Map インテグレーションでは、1 つのエンドポイント `POST /identity/map` を呼び出すだけで済みます。`POST /identity/buckets` エンドポイントはワークフローの一部ではありません。
+
+:::important
+以前のバージョンを使用している場合は、改善点を活用するためにできるだけ早くアップグレードすることを推奨します。
+:::
+
+最新の Identity Map インテグレーションでは、次のエンドポイントを使用します:
 
 | Endpoint | Description | Request Encryption | Response Decryption |
 | :--- | :--- | :--- | :--- |
-| [POST&nbsp;/identity/buckets](post-identity-buckets.md) | 最後に更新されたタイムスタンプを使用して、ローテーションされたソルトバケットを監視します。 | 必須 | 必須 |
-| [POST&nbsp;/identity/map (v2)](post-identity-map-v2.md) | 1 つ以上のメールアドレス、電話番号、またはそれぞれのハッシュの UID2 とソルトバケット ID を取得します。 | 必須 | 必須 |
+| [POST&nbsp;/identity/map](post-identity-map.md) |1 つ以上のメールアドレス、電話番号、またはそのハッシュに対して、raw UID2、以前の raw UID2、および更新タイムスタンプをマップします。 | 必須 | 必須 |
+
+### Earlier Identity Map Endpoints (v2)
+
+以下のエンドポイントは、以前の Identity Map インテグレーション (バージョン 2) の一部です。
+
+| Endpoint | Description | Request Encryption | Response Decryption |
+| :--- | :--- | :--- | :--- |
+| [POST&nbsp;/identity/buckets](post-identity-buckets.md) | ローテーションしたソルトバケットの最終更新タイムスタンプをモニターします。 | 必須 | 必須 |
+| [POST&nbsp;/identity/map (v2)](post-identity-map-v2.md) | 1 つ以上のメールアドレス、電話番号、またはそれぞれのハッシュに対して、raw UID2 と salt bucket ID をマッピングします。 | 必須 | 必須 |
 
 ## Opt-Out Status
 

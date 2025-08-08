@@ -45,7 +45,7 @@ UID2 とインテグレーションするには、UID2 アカウントが必要�
 - オプション: Client-Side の実装の場合、ドメイン名やモバイルアプリ ID などの設定値を設定します。
 - オプションとして、チームメンバーに関する情報を設定するなど、他の値を設定します。
 
-UID2 Portal で実行する手順は、実装が Client-Side、Client-Server、Server-Side のいずれであるかによって異なります。モバイルインテグレーションのオプションの概要については、[Client-Side, Client-Server, or Server-Side Integration?](../guides/integration-mobile-overview#client-side-client-server-or-server-side-integration) を参照してください。
+UID2 Portal で実行する手順は、実装が Client-Side、Client-Server、Server-Side のいずれであるかによって異なります。モバイルインテグレーションのオプションの概要は、[Client-Side, Client-Server, or Server-Side Integration?](../guides/integration-mobile-overview#client-side-client-server-or-server-side-integration) を参照してください。
 
 <!-- You'll be granted permission to use specific functions offered by the SDK, and given credentials for that access. -->
 
@@ -55,7 +55,7 @@ UID2 Portal で実行する手順は、実装が Client-Side、Client-Server、S
 
 このドキュメントは、iOS 用 UID2 SDK のバージョン 1.7.0 以降に対応しています。
 
-リリースノートの情報については、[https://github.com/IABTechLab/uid2-ios-sdk/releases](https://github.com/IABTechLab/uid2-ios-sdk/releases) を参照してください。
+リリースノートの情報は、[https://github.com/IABTechLab/uid2-ios-sdk/releases](https://github.com/IABTechLab/uid2-ios-sdk/releases) を参照してください。
 
 ## GitHub Open-Source Repository
 
@@ -118,9 +118,9 @@ iOS の場合、`UID2Manager` は初めてアクセスされたときに自動�
 
 UID2 Identity を確立する方法は2つあります:
 
-1. DII を使用して UID2 ID を生成します&#8212;メール (ハッシュ化または非ハッシュ化) または電話番号 (ハッシュ化または非ハッシュ化) を使用します。インテグレーション手順については、[Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side.md) を参照してください。
+1. DII を使用して UID2 ID を生成します&#8212;メール (ハッシュ化または非ハッシュ化) または電話番号 (ハッシュ化または非ハッシュ化) を使用します。インテグレーション手順は、[Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side.md) を参照してください。
 
-2. Server-Side で UID2 ID を生成し、それを UID2 SDK に渡します。インテグレーション手順については、[Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server.md) を参照してください。
+2. Server-Side で UID2 ID を生成し、それを UID2 SDK に渡します。インテグレーション手順は、[Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server.md) を参照してください。
 
 UID2 Mobile SDK は、UID2 identifier が確立された後に UID2 identities をリフレッシュできます。これは、リフレッシュ機能が UID2 Identity の一部である Refresh Token に依存しているためです。
 
@@ -129,7 +129,7 @@ UID2 Mobile SDK は、UID2 identifier が確立された後に UID2 identities �
 
 以下のコードサンプルは、iOS SDK を使用して UID2 を管理する特定のアクティビティを実行する例を示します。
 
-初期の UID2 Identity を生成します (手順については、[Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side#configure-the-uid2-mobile-sdk) を参照):
+初期の UID2 Identity を生成します (手順は、[Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side#configure-the-uid2-mobile-sdk) を参照):
 
 ```js
 UID2Manager.shared.generateIdentity(
@@ -139,7 +139,7 @@ UID2Manager.shared.generateIdentity(
     appName: String? = nil
 )
 ```
-初期 UID2 Identity を設定します (手順については、[Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server#configure-the-uid2-mobile-sdk) を参照):
+初期 UID2 Identity を設定します (手順は、[Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server#configure-the-uid2-mobile-sdk) を参照):
 
 ``` javascript
 UID2Manager.shared.setIdentity(_ identity: UID2Identity)

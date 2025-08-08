@@ -14,6 +14,12 @@ import Link from '@docusaurus/Link';
 
 Used by: このエンドポイントは、主に広告主とデータプロバイダーによって使用されます。詳細は [Advertiser/Data Provider Integration Overview](../guides/integration-advertiser-dataprovider-overview.md) を参照してください。
 
+:::important
+最新バージョン (v3) の `POST /v3/identity/map` を使用している場合は、`POST /identity/buckets` を使用する必要はありません。以前のバージョン (v2) の `POST /v2/identity/map` を使用している場合にのみ必要です。
+
+v2 バージョンを使用している場合は、改善点を活用するためにできるだけ早くアップグレードすることをお勧めします。移行ガイダンスは、[Migration from v2 Identity Map](post-identity-map.md#migration-from-v2-identity-map) を参照してください。
+:::
+
 ## Request Format
 
 `POST '{environment}/v2/identity/buckets'`
@@ -31,7 +37,7 @@ Used by: このエンドポイントは、主に広告主とデータプロバ�
 | `{environment}` | string | 必須 | テスト (インテグレーション) 環境: `https://operator-integ.uidapi.com`<br/>本番環境: `https://prod.uidapi.com`<br/>リージョンごとのオペレーターを含む全リストは [Environments](../getting-started/gs-environments.md) を参照してください。 |
 
 :::note
-インテグレーション環境と本番環境では、異なる <Link href="../ref-info/glossary-uid#gl-api-key">API Key</Link> が必要です。各環境の認証情報を取得する方法については、[Getting Your Credentials](../getting-started/gs-credentials.md#getting-your-credentials) を参照してください。
+インテグレーション環境と本番環境では、異なる <Link href="../ref-info/glossary-uid#gl-api-key">API Key</Link> が必要です。各環境の認証情報を取得する方法は、[Getting Your Credentials](../getting-started/gs-credentials.md#getting-your-credentials) を参照してください。
 :::
 
 ### Unencrypted JSON Body Parameters

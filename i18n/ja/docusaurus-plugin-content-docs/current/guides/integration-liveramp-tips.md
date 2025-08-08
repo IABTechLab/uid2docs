@@ -40,4 +40,4 @@ For details, see [Normalization and Encoding](../getting-started/gs-normalizatio
 
 ## Troubleshooting Assistance
 
-詳細情報や LiveRamp のトラブルシューティング支援については、[LiveRamp support page](https://docs.liveramp.com/connect/en/support.html) を参照してください。ヘルプリソースを確認するか、LiveRamp の担当者に連絡してください。
+詳細情報や LiveRamp のトラブルシューティング支援は、[LiveRamp support page](https://docs.liveramp.com/connect/en/support.html) を参照してください。ヘルプリソースを確認するか、LiveRamp の担当者に連絡してください。

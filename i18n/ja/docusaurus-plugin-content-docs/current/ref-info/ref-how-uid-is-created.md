@@ -22,13 +22,13 @@ import Link from '@docusaurus/Link';
 - 手順が順番に実行された場合、その結果の値は、同じ個人のオンラインアクティビティから生成された他の [UID2 identifier types](uid-identifier-types.md) と関連付けられることが認識されます: 基礎となる [raw UID2](../ref-info/glossary-uid.md#gl-raw-uid2) は、同じ DII から生成された他の UID2 参加者による raw UID2 と一致し、したがってそのトークンはターゲティング広告に適しています。
 - 順序を間違えると、その結果の値は、同じ個人のオンラインアクティビティから生成された他の UID2 identifiers と関連付けられることができません。そのため、そのトークンはターゲティング広告に適していません。
 
-概要については、[Steps to Create a UID2 Token](#steps-to-create-a-uid2-token) を参照してください。図形式の例については、[Creating a UID2 Token&#8212;Example](#creating-a-uid2-tokenexample) を参照してください。
+概要は、[Steps to Create a UID2 Token](#steps-to-create-a-uid2-token) を参照してください。図形式の例は、[Creating a UID2 Token&#8212;Example](#creating-a-uid2-tokenexample) を参照してください。
 
 ## Steps to Create a UID2 Token
 
 以下の表は、DII から UID2 Token を作成する手順、順序、および各ステップを実行する担当者を示しています。
 
-サンプル値を使用した例については、[Creating a UID2 Token&#8212;Example](#creating-a-uid2-tokenexample) を参照してください。
+サンプル値を使用した例は、[Creating a UID2 Token&#8212;Example](#creating-a-uid2-tokenexample) を参照してください。
 
 <table width="100%">
   <thead>

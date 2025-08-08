@@ -1,6 +1,6 @@
 ---
 title: Deprecation Schedule
-description: Deprecation timeline for versions of UID2 APIs and services.
+description: UID2 APIおよびサービスのバージョンに関する廃止スケジュール
 hide_table_of_contents: false
 sidebar_position: 06
 displayed_sidebar: docs
@@ -11,18 +11,18 @@ import UpgradePolicy from '../snippets/_private-operator-upgrade-policy.mdx';
 
 # Deprecation Schedule
 
-The following sections provide information about supported versions and, where applicable, the deprecation timeline.
+以下のセクションでは、サポートされているバージョンと、該当する場合は廃止スケジュールに関する情報を提供します。
 
 ## Private Operator Versions
 
-The following tables show the Private Operator versions that are currently supported, including:
+以下の表は、現在サポートされている Private Operator バージョンを示しています。具体的には以下の通りです:
 - [Private Operator for AWS](#private-operator-for-aws)
 - [Private Operator for GCP](#private-operator-for-gcp)
 - [Private Operator for Azure](#private-operator-for-azure)
 <!-- - [Private Operator for AKS](#private-operator-for-aks) -->
 
 :::important
-If you're using an older version, refer to the applicable table, Deprecation Date column, for information about the support lifetime for your version. We recommend upgrading to the latest version as soon as possible to take advantage of new and improved features.
+古いバージョンを使用している場合は、該当する表の「Deprecation Date」列を参照して、バージョンのサポート期間に関する情報を確認してください。新しい機能や改善された機能を利用するために、できるだけ早く最新バージョンにアップグレードすることを推奨します。
 :::
 
 ### Private Operator Upgrade Policy
@@ -31,7 +31,7 @@ If you're using an older version, refer to the applicable table, Deprecation Dat
 
 ### Private Operator for AWS
 
-The latest ZIP file is available in the Assets section at the bottom of the linked Release Notes in the following table.
+最新の ZIP ファイルは、以下の表のリンクされたリリースノートの Assets セクションで入手できます。
 
 | Version Name | Version&nbsp;#/Release&nbsp;Notes | AWS Version | Date | Deprecation Date |
 | ------- | ------ | ------ | ------ | ------ |
@@ -41,11 +41,11 @@ The latest ZIP file is available in the Assets section at the bottom of the link
 | Q3 2024 | [v5.38.104](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.38.104) | 5.38.104 | September 12, 2024 | Mar 31, 2026 |
 | Q2 2024 | [v5.37.12](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.37.12) | 5.37.12 | June 12, 2024 | Sep 30, 2025 |
 
-For documentation, see [UID2 Private Operator for AWS Integration Guide](../guides/operator-guide-aws-marketplace.md).
+ドキュメントは、[UID2 Private Operator for AWS Integration Guide](../guides/operator-guide-aws-marketplace.md)を参照してください。
 
 ### Private Operator for GCP
 
-The latest ZIP file is linked in the GCP Download column in the following table.
+最新の ZIP ファイルは、以下の表のリンクされたリリースノートの Assets セクションで入手できます。
 
 | Version Name | Version&nbsp;#/Release&nbsp;Notes | GCP Download | Date | Deprecation Date |
 | ------- | ------ | ------ | ------ | ------ |
@@ -55,11 +55,11 @@ The latest ZIP file is linked in the GCP Download column in the following table.
 | Q3 2024 | [v5.38.104](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.38.104) | [gcp-oidc-deployment-files-5.38.104.zip](https://github.com/IABTechLab/uid2-operator/releases/download/v5.38.104/gcp-oidc-deployment-files-5.38.104.zip) | September 12, 2024 | Mar 31, 2026 |
 | Q2 2024 | [v5.37.12](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.37.12) | [gcp-oidc-deployment-files-5.37.12.zip](https://github.com/IABTechLab/uid2-operator/releases/download/v5.37.12/gcp-oidc-deployment-files-5.37.12.zip) | June 12, 2024 | Sep 30, 2025 |
 
-For documentation, see [UID2 Private Operator for GCP Integration Guide](../guides/operator-private-gcp-confidential-space.md).
+ドキュメントは、[UID2 Private Operator for GCP Integration Guide](../guides/operator-private-gcp-confidential-space.md)を参照してください。
 
 ### Private Operator for Azure
 
-The latest ZIP file is linked in the Azure Download column in the following table.
+最新の ZIP ファイルは、以下の表のリンクされたリリースノートの Assets セクションで入手できます。
 
 | Version Name | Version&nbsp;#/Release&nbsp;Notes | Azure Download | Date | Deprecation Date |
 | ------- | ------ | ------ | ------ | ------ |
@@ -69,7 +69,7 @@ The latest ZIP file is linked in the Azure Download column in the following tabl
 | Q3 2024 | [v5.38.104](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.38.104) | [azure-cc-deployment-files-5.38.104.zip](https://github.com/IABTechLab/uid2-operator/releases/download/v5.38.104/azure-cc-deployment-files-5.38.104.zip) | September 12, 2024 | Mar 31, 2026 |
 | Q2 2024 | [v5.37.12](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.37.12) | [azure-cc-deployment-files-5.37.12.zip](https://github.com/IABTechLab/uid2-operator/releases/download/v5.37.12/azure-cc-deployment-files-5.37.12.zip) | June 12, 2024 | Sep 30, 2025 |
 
-For documentation, see [UID2 Private Operator for Azure Integration Guide](../guides/operator-guide-azure-enclave.md).
+ドキュメントは、[UID2 Private Operator for Azure Integration Guide](../guides/operator-guide-azure-enclave.md)を参照してください。
 
 <!-- ### Private Operator for AKS
 
@@ -79,3 +79,16 @@ The latest ZIP file is linked in the Release Notes column in the following table
 | ------- | ------ | ------ | ------ | ------ |
 | Q2 2025 | xxx | xxx | xxx | xxx | -->
 <!-- | Q1 2025 | 5.49.7 | [v5.49.7](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.49.7) | Mar 19, 2025 | Mar 31, 2026 | -->
+
+## Endpoint Versions
+
+`POST /identity/map` エンドポイントのバージョン 2 は、バージョン 3 に置き換えられました。バージョン 3 では、[Version 3 Improvements](../endpoints/post-identity-map.md#version-3-improvements)で説明されている追加の利点が含まれています。
+
+`POST /identity/map endpoint` のバージョン 3 では、`POST /identity/buckets` エンドポイントは完全に使用されなくなりました。
+
+以下の表は、v2 エンドポイントの廃止スケジュールを示しています。
+
+Endpoint | Deprecation Date | 
+| ------- | ------ |
+| `POST /v2/identity/map` | June 30, 2026 |
+| `POST /v2/identity/buckets` | June 30, 2026 |

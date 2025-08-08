@@ -75,7 +75,7 @@ Azure CLI をインストールします。詳細は、Azure ドキュメント�
 
 ## Deployment Environments
 
-以下の環境が利用可能です。ベストプラクティスとして、本番環境にデプロイする前に、インテグレーション環境で実装をテストして検証することを勧めます。
+以下の環境が利用可能です。ベストプラクティスとして、本番環境にデプロイする前に、インテグレーション環境で実装をテストして検証することを推奨します。
 
 :::note
 各環境に対して別々の `{OPERATOR_KEY}` 値が受け取れます。使用する環境に応じて正しいキーを使用してください。デプロイメントの成果物と処理の流れは、どちらの環境でも同じです。
@@ -125,7 +125,7 @@ az group create --name {RESOURCE_GROUP_NAME} --location {LOCATION}
 ロケーションには、いくつかの制限があります:
 - UID2 Private Operator for Azure は、次の地域ではサポートされていません: Europe、China。
 
-- Azure 仮想ネットワーク展開の可用性については、Azure ドキュメントの「Linux container groups(https://learn.microsoft.com/en-us/azure/container-instances/container-instances-resource-and-quota-limits#confidential-container-resources-preview) を確認し、Confidential Containers の地域サポートの可用性を確認してください。
+- Azure 仮想ネットワーク展開の可用性は、Azure ドキュメントの[Linux container groups](https://learn.microsoft.com/en-us/azure/container-instances/container-instances-resource-and-quota-limits#confidential-container-resources-preview) を確認し、Confidential Containers の地域サポートの可用性を確認してください。
 
 - 場所のエイリアスを取得するには、次のコマンドを実行します。
 
@@ -280,11 +280,11 @@ Microsoft Azure で UID2 Private Operator をホストする Virtual Private Clo
    ```
 
 :::tip
-コンテナを更新しても、Azure バックエンドプールは新しいコンテナの IP アドレスで自動的に更新されません。ソリューションについては、Azure ドキュメントの [Automate infrastructure reconfiguration by using Azure](https://learn.microsoft.com/en-us/azure/architecture/web-apps/guides/networking/automation-application-gateway) を参照してください。
+コンテナを更新しても、Azure バックエンドプールは新しいコンテナの IP アドレスで自動的に更新されません。ソリューションは、Azure ドキュメントの [Automate infrastructure reconfiguration by using Azure](https://learn.microsoft.com/en-us/azure/architecture/web-apps/guides/networking/automation-application-gateway) を参照してください。
 :::
 
 :::caution
-この例では、HTTP を使用して Gateway Load Balancer をデプロイします。SSL を設定することを強く勧めます。手順については、Azure ドキュメントの [Tutorial: Configure an Application Gateway with TLS termination using the Azure portal](https://learn.microsoft.com/en-us/azure/application-gateway/create-ssl-portal) を参照してください。
+この例では、HTTP を使用して Gateway Load Balancer をデプロイします。SSL を設定することを強く推奨します。手順は、Azure ドキュメントの [Tutorial: Configure an Application Gateway with TLS termination using the Azure portal](https://learn.microsoft.com/en-us/azure/application-gateway/create-ssl-portal) を参照してください。
 :::
 
 ## Running the Health Check
@@ -347,8 +347,8 @@ Private Operator 起動時のエラーコードは、リリース v5.49.7 以降
 | Error Code | Issue | Steps to Resolve |
 | :--- | :--- | :--- |
 | E02 | OperatorKeyNotFoundError | Operator Key を格納するシークレットボールトとシークレット名が正しく構成されていることを確認してください。`VAULT_NAME` と `OPERATOR_KEY_SECRET_NAME` として設定されていることを確認してください。 |
-| E03 | ConfigurationMissingError | 構成に必要な属性が不足しています。詳細については、ログを参照し、Azure オペレーターを実行する前に不足している属性を更新してください。 |
+| E03 | ConfigurationMissingError | 構成に必要な属性が不足しています。詳細は、ログを参照し、Azure オペレーターを実行する前に不足している属性を更新してください。 |
 | E04 | ConfigurationValueError | 構成値が無効です。構成値が必要な形式と環境に一致していることを確認してください。Note: `debug_mode = true` は `integ` 環境でのみ許可されます。詳細はログを確認してください。 |
 | E05 | OperatorKeyValidationError | Operator Key が環境に適しており、提供されたものと一致していることを確認してください。 |
-| E06 | UID2ServicesUnreachableError | UID2 Core および Opt-out サービスの IP アドレスをアウトバウンドファイアウォールで許可します。IP アドレスと DNS の詳細については、ログを参照してください。 |
+| E06 | UID2ServicesUnreachableError | UID2 Core および Opt-out サービスの IP アドレスをアウトバウンドファイアウォールで許可します。IP アドレスと DNS の詳細は、ログを参照してください。 |
 | E08 | OperatorKeyPermissionError | コンテナを起動するマネージド ID (operatorIdentifier パラメータで指定) は、オペレーターキーが格納されているキーボールトへのアクセス権を持っている必要があります。`operatorIdentifier` の値は、すべての構成 JSON ファイルで同じである必要があります。 |

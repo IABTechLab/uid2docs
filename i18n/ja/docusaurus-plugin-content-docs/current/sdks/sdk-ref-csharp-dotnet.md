@@ -34,7 +34,7 @@ UID2 とインテグレーションするには、UID2 アカウントが必要�
 - アカウント用の [credentials](../getting-started/gs-credentials.md) を生成します。
 - オプションとして、チームメンバーに関する情報を設定するなど、他の値を設定します。
 
-SDK が提供する特定の機能を使用する権限が与えられ、そのアクセスのための資格情報が提供されます。SDK には使用権限がない機能がある可能性があることに注意してください。詳細については、[API Permissions](../getting-started/gs-permissions.md) を参照してください。
+SDK が提供する特定の機能を使用する権限が与えられ、そのアクセスのための資格情報が提供されます。SDK には使用権限がない機能がある可能性があることに注意してください。詳細は、[API Permissions](../getting-started/gs-permissions.md) を参照してください。
 
 DSP の場合は、資格情報を送信します。
 
@@ -82,7 +82,7 @@ SDK を使用する場合、復号鍵を保存したり管理したりする必�
 
 | Property | Description |
 | :--- | :--- |
-| `Status` | 暗号化結果のステータス。取り得る値のリストと定義については [Encryption Response Statuses](#encryption-response-statuses) を参照してください。 |
+| `Status` | 暗号化結果のステータス。取り得る値のリストと定義は [Encryption Response Statuses](#encryption-response-statuses) を参照してください。 |
 | `EncryptedData` | 暗号化された UID2 Token。 |
 
 ### Encryption Response Statuses
@@ -104,7 +104,7 @@ SDK を使用する場合、復号鍵を保存したり管理したりする必�
 
 | Property | Description |
 | :--- | :--- |
-| `Status` | 復号結果のステータス。取り得る値のリストと定義については [Decryption Response Statuses](#decryption-response-statuses) を参照してください。 |
+| `Status` | 復号結果のステータス。取り得る値のリストと定義は [Decryption Response Statuses](#decryption-response-statuses) を参照してください。 |
 | `Uid` | UID2 Token に対応する raw UID2。 |
 | `Established` | ユーザーがパブリッシャーと最初に UID2 を確立した時のタイムスタンプ。 |
 
@@ -155,7 +155,7 @@ else
 }
 ```
 
-完全な例については、[SampleApp/Program.cs](https://github.com/IABTechLab/uid2-client-net/blob/main/src/SampleApp/Program.cs) の `ExampleBidStreamClient` メソッドを参照してください。
+完全な例は、[SampleApp/Program.cs](https://github.com/IABTechLab/uid2-client-net/blob/main/src/SampleApp/Program.cs) の `ExampleBidStreamClient` メソッドを参照してください。
 
 ## Usage for UID2 Sharers
 

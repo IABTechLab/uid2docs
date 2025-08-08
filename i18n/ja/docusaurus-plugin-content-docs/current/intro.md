@@ -48,7 +48,7 @@ UID2 フレームワークは、以下の技術原則に基づいて構築され
 
 ## Elements of the UID2 Infrastructure
 
-UID2 インフラの重要な要素や、UID2 のその他の側面については、次のページを参照してください:
+UID2 インフラの重要な要素や、UID2 のその他の側面は、次のページを参照してください:
 
 - [UID2 Identifier Types](ref-info/uid-identifier-types.md)
 - [UID2 Components](ref-info/uid-components.md)

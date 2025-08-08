@@ -24,7 +24,7 @@ UID2 では、Sharing Participant とは、ある UID2 参加者から別の UID
 
 いくつかの主な共有シナリオは次の表にまとめられています。
 
-例については、[Sharing UID2s: Use Cases](sharing-use-cases.md) を参照してください。
+例は、[Sharing UID2s: Use Cases](sharing-use-cases.md) を参照してください。
 
 | Sharing Scenario | Sender | Receiver | Sharing Approach | Sharing Route | Link for Details
 | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -54,7 +54,7 @@ Sharing 参加者が UID2 を他の許可された共有参加者と共有した
      - raw UID2 を UID2 Token に暗号化します。
   3. 受信者は、共有シナリオに適用される指示に従って、UID2 Token を raw UID2 に復号します ([Approved Sharing Scenarios](#approved-sharing-scenarios) を参照)。
 
-UID2 Token を共有するためのオプションの詳細と説明へのリンクについては、[Tokenized Sharing Overview](sharing-tokenized-overview.md) を参照してください。
+UID2 Token を共有するためのオプションの詳細と説明へのリンクは、[Tokenized Sharing Overview](sharing-tokenized-overview.md) を参照してください。
 
 ### Sharing Raw UID2s
 
