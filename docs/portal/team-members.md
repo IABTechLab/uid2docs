@@ -13,6 +13,7 @@ import Link from '@docusaurus/Link';
 In the UID2 Portal, on the **Team Members** page, users with the Admin role can perform all activities relating to configuring individuals who you want to authorize for access to your account, including the following:
 
 - [Add a Team Member](#add-a-team-member)
+- [Set the Primary Contact](#set-the-primary-contact)
 - [Resend an Invitation to a Team Member](#resend-an-invitation-to-a-team-member) 
 - [Edit Information for a Team Member](#edit-information-for-a-team-member) 
 - [Remove a Team Member](#remove-a-team-member)
@@ -32,6 +33,8 @@ For each team member, the following information is displayed:
   - Available for all: ![the Edit icon](images/icon-pencil-solid.png) (Edit) and ![the Delete icon](images/icon-trash-can-solid.png) (Delete).
   - If the user has been invited but has not yet accepted, a **Resend Invitation** link is also available.
 
+For the one team member who is the primary contact, a tag is displayed after the team member's name.
+
 For an illustration, see [Resend an Invitation to a Team Member](#resend-an-invitation-to-a-team-member).
 
 ## User Roles
@@ -43,7 +46,7 @@ Each team member has one of the roles shown in the following table.
 | Admin | Users with the Admin role can perform all activities related to UID2 participation, as summarized in the [UID2 Portal Overview](portal-overview.md), for the current participant organization. |
 | Operations | Users with the Operations role can perform most of the same actions as Admin users. However, there are some limitations:<ul><li>They cannot add, modify, or remove team members. Instead, they have read-only access to the [Team Members](team-members.md) page.</li><li>They cannot view the [Audit Trail](audit-trail.md) page.</li></ul> |
 
-User roles can only be modified by users with the Admin role. For details, see [Edit Information for a Team Member](#edit-information-for-a-team-member). 
+User roles can only be modified by users with the Admin role. For details, see [Edit Information for a Team Member](#edit-information-for-a-team-member).
 
 ## Add a Team Member
 
@@ -52,14 +55,35 @@ To add a team member, complete the following steps:
 1. Log in to your UID2 Portal account.
 1. At the top right, click the down arrow and choose **Manage Team Members**.
 1. Click **Add Team Member**.
-1. Enter the first name, last name, email, job function and role.
+1. Enter the first name, last name, email, job function, and role. For information on the roles, see [User Roles](#user-roles).
+1. Optional: To make this person the primary contact, check the **Set as primary contact** box. The Admin role is required for the primary contact. For details, see [Set the Primary Contact](#set-the-primary-contact).
 1. Click **Save Team Member**.
 
    The team member is added to the list, with Pending status, and an invitation email is sent to the invited person.
 
 :::note
-Team members can be added to more than one participant. Team members who belong to multiple participants can switch between participants, as shown in [UID2 Portal Structure](portal-overview.md#uid2-portal-structure).
+The same team member can be added to more than one participant. Team members who belong to multiple participants can switch between participants, as shown in [UID2 Portal Structure](portal-overview.md#uid2-portal-structure).
 :::
+
+## Set the Primary Contact
+
+Each team has a primary contact who is the main point of contact for communications relating to UID2.
+
+Here's some key information about the primary contact:
+
+- By default, when the first team member is added, that person becomes the primary contact.
+- The primary contact must have the Admin role.
+- To remove the current primary contact, or change that person's role to Operations, you must first specify a different team member to be the primary contact.
+- On the Team Members list, a tag is displayed after the primary contact's name. For an illustration, see [Resend an Invitation to a Team Member](#resend-an-invitation-to-a-team-member).
+
+To set a primary contact, complete the following steps:
+
+1. Log in to your UID2 Portal account.
+1. At the top right, click the down arrow and choose **Manage Team Members**.
+1. Do one of the following:
+
+   - To set an existing team member as the primary contact: Find that team member on the list and click ![the Edit icon](images/icon-pencil-solid.png) (the Edit icon). Check **Set as primary contact**, update the role to Admin if needed, and save the changes.
+   - To add a new team member as the primary contact: Follow the instructions in [Add a Team Member](#add-a-team-member). Check **Set as primary contact**, set the role to Admin, and save the changes.
 
 ## Resend an Invitation to a Team Member
 
