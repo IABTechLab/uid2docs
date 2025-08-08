@@ -212,7 +212,7 @@ import MdxJumpAnchor from '@site/src/components/MdxJumpAnchor';
 
 <dt><MdxJumpAnchor id="gl-core-service">Core Service</MdxJumpAnchor></dt>
 <dd>UID2 Core Serviceは、UID2 エコシステムの 秘密の <a href="#gl-salt">ソルト</a>、暗号化キー、その他の関連データへのアクセスを管理する一元的なサービスです。</dd>
-<dd>すべてのUID2 Service の概要については、<a href="../overviews/participants-overview#uid2-component-services">UID2 Component Services</a> を参照してください。</dd>
+<dd>すべてのUID2 Service の概要は、<a href="../overviews/participants-overview#uid2-component-services">UID2 Component Services</a> を参照してください。</dd>
 
 </dl>
 
@@ -243,7 +243,7 @@ import MdxJumpAnchor from '@site/src/components/MdxJumpAnchor';
 
 <dt><MdxJumpAnchor id="gl-enclave">Enclave</MdxJumpAnchor></dt>
 <dd>Enclave は、コンピューティング環境のセキュアなサブセクションです。エンクレーブには追加のビジネスロジックとセキュリティ対策が施され、改ざんできないようになっています。</dd>
-<dd>UID2 のコンテキストでは、<a href="#gl-private-operator">Private Operator</a> はエンクレーブ内で実行されなければなりません。サポートされるエンクレーブバージョンの概要については、*UID2 Private Operator Integration Overview* の <a href="../guides/integration-options-private-operator#hosting-options-for-private-operators">Hosting Options for Private Operators</a> を参照してください。</dd>
+<dd>UID2 のコンテキストでは、<a href="#gl-private-operator">Private Operator</a> はエンクレーブ内で実行されなければなりません。サポートされるエンクレーブバージョンの概要は、*UID2 Private Operator Integration Overview* の <a href="../guides/integration-options-private-operator#hosting-options-for-private-operators">Hosting Options for Private Operators</a> を参照してください。</dd>
 <dd>Enclave では、オペレータイメージは特殊で、事前に定義されたバージョンでなければならず、セキュリティを確保するために追加の制約が適用されます。</dd>
 
 <dt><MdxJumpAnchor id="gl-encryption-key"><a href="#gl-encryption-key">Encryption key</a></MdxJumpAnchor></dt>
@@ -339,7 +339,7 @@ import MdxJumpAnchor from '@site/src/components/MdxJumpAnchor';
 <dd>詳細は、[OpenID Connect Basic Client Implementer's Guide 1.0 - draft 40](https://openid.net/specs/openid-connect-basic-1_0.html) (specification) を参照してください。</dd>
 
 <dt><MdxJumpAnchor id="gl-opaque"><a href="#gl-opaque">Opaque</a></MdxJumpAnchor></dt>
-<dd>UID2 Token が不透明な文字列であるというのは、トークンが計算される方法やそのフォーマットが UID2 参加者に伝えられず、変更される可能性があるためです。文字列のフォーマットや長さ、その他の側面については、何も前提を立てるべきではありません。</dd>
+<dd>UID2 Token が不透明な文字列であるというのは、トークンが計算される方法やそのフォーマットが UID2 参加者に伝えられず、変更される可能性があるためです。文字列のフォーマットや長さ、その他の側面は、何も前提を立てるべきではありません。</dd>
 
 <dt><MdxJumpAnchor id="gl-open-operator"><a href="#gl-open-operator">Open Operator</a></MdxJumpAnchor></dt>
 <dd>Open Operator は、<a href="#gl-public-operator">Public Operator</a> の別名です。</dd>
@@ -356,7 +356,7 @@ import MdxJumpAnchor from '@site/src/components/MdxJumpAnchor';
 
 <dt><MdxJumpAnchor id="gl-operator-service">Operator Service</MdxJumpAnchor></dt>
 <dd><a href="#gl-operator">Operator</a> のすべての機能を可能にするサービスです</dd>
-<dd>すべての UID2 Service の概要については、<a href="../overviews/participants-overview#uid2-component-services">UID2 Component Services</a> を参照してください。</dd>
+<dd>すべての UID2 Service の概要は、<a href="../overviews/participants-overview#uid2-component-services">UID2 Component Services</a> を参照してください。</dd>
 
 <dt><MdxJumpAnchor id="gl-opt-out">Opt-Out</MdxJumpAnchor></dt>
 <dd>UID2 エコシステムに参加しているエンドユーザーは、<a href="https://www.transparentadvertising.com/">Transparency and Control Portal</a> にアクセスすることで、いつでもオプトアウトすることができます。</dd>
@@ -364,7 +364,7 @@ import MdxJumpAnchor from '@site/src/components/MdxJumpAnchor';
 
 <dt><MdxJumpAnchor id="gl-opt-out-service">Opt-Out Service</MdxJumpAnchor></dt>
 <dd>Opt-Out Service は、ユーザーのオプトアウト要求を管理・保存するグローバルな UID2 Service です。</dd>
-<dd>すべての UID2 Service の概要については、<a href="../overviews/participants-overview#uid2-component-services">UID2 Component Services</a> を参照してください。</dd>
+<dd>すべての UID2 Service の概要は、<a href="../overviews/participants-overview#uid2-component-services">UID2 Component Services</a> を参照してください。</dd>
 
 </dl>
 

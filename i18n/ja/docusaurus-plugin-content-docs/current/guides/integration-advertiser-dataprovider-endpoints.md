@@ -14,14 +14,14 @@ import Link from '@docusaurus/Link';
 このガイドでは、広告主やデータプロバイダーが UID2 HTTP エンドポイントを呼び出すコードを記述して、SDK、Snowflake、または AWS Entity Resolution などの他の実装オプションを使用するのではなく、UID2 とインテグレーションする手順について説明します。
 
 :::tip
-広告主及びデータプロバイダー向けのインテグレーションオプションと手順の概要については、[Advertiser/Data Provider Integration Overview](integration-advertiser-dataprovider-overview.md) を参照してください。
+広告主及びデータプロバイダー向けのインテグレーションオプションと手順の概要は、[Advertiser/Data Provider Integration Overview](integration-advertiser-dataprovider-overview.md) を参照してください。
 :::
 
 ## Complete UID2 Account Setup and Configure Account
 
 UID2 とインテグレーションするには、UID2 アカウントが必要です。まだアカウントを作成していない場合は、まず [Account Setup](../getting-started/gs-account-setup.md) ページに記載されている手順に従ってください。
 
-初期アカウント設定が完了すると、[UID2 Portal](../portal/portal-overview.md) にアクセスするための指示とリンクが送信されます。ここで、[credentials](../getting-started/gs-credentials.md) を作成し、必要に応じて追加の値を構成できます。詳細については、[Getting Started with the UID2 Portal](../portal/portal-getting-started.md) を参照してください。
+初期アカウント設定が完了すると、[UID2 Portal](../portal/portal-overview.md) にアクセスするための指示とリンクが送信されます。ここで、[credentials](../getting-started/gs-credentials.md) を作成し、必要に応じて追加の値を構成できます。詳細は、[Getting Started with the UID2 Portal](../portal/portal-getting-started.md) を参照してください。
 
 UID2 Portal の [API Keys](../portal/api-keys.md) ページで、次の値を設定する必要があります:
 
@@ -29,7 +29,7 @@ UID2 Portal の [API Keys](../portal/api-keys.md) ページで、次の値を設
 - <Link href="../ref-info/glossary-uid#gl-client-secret">Client secret</Link> (参加者と UID2 サービスのみに知られている値)
 
 :::important
-これらの値を安全に保管することが非常に重要です。詳細については、[Security of API Key and Client Secret](../getting-started/gs-credentials.md#security-of-api-key-and-client-secret) を参照してください。
+これらの値を安全に保管することが非常に重要です。詳細は、[Security of API Key and Client Secret](../getting-started/gs-credentials.md#security-of-api-key-and-client-secret) を参照してください。
 :::
 
 ## High-Level Steps
@@ -63,7 +63,7 @@ DII は、ユーザーの正規化されたメールアドレスまたは電話�
 | Step | Endpoint | Description |
 | --- | --- | --- |
 | 1-a | [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) request | DIIを含むリクエストをアイデンティティマッピングエンドポイントに送信します。 |
-| 1-b | [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) response | レスポンスで返される raw UID2 (`u` フィールド) は、関連する DSP でオーディエンスをターゲティングするために使用できます。<br/>レスポンスは、ユーザーの raw UID2 (`u`)、リフレッシュ タイムスタンプ (`r`)、およびオプションで、現在の UID2 が過去 90 日以内にローテーションされた場合の前の raw UID2 (`p`) を返します。リフレッシュ タイムスタンプを使用して、UID2 を更新するタイミングを判断します。詳細については、[5: Monitor for Raw UID2 Refresh](#5-monitor-for-raw-uid2-refresh) を参照してください。 |
+| 1-b | [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) response | レスポンスで返される raw UID2 (`u` フィールド) は、関連する DSP でオーディエンスをターゲティングするために使用できます。<br/>レスポンスは、ユーザーの raw UID2 (`u`)、リフレッシュ タイムスタンプ (`r`)、およびオプションで、現在の UID2 が過去 90 日以内にローテーションされた場合の前の raw UID2 (`p`) を返します。リフレッシュ タイムスタンプを使用して、UID2 を更新するタイミングを判断します。詳細は、[5: Monitor for Raw UID2 Refresh](#5-monitor-for-raw-uid2-refresh) を参照してください。 |
 
 ### 2: Store Raw UID2s and Refresh Timestamps
 
@@ -125,12 +125,12 @@ UID2 <Link href="../ref-info/glossary-uid#gl-operator-service">Operator Service<
 
 - [POST&nbsp;/optout/status](../endpoints/post-optout-status.md) エンドポイントを使用して raw UID2 のオプトアウトステータスを確認します。
 
-UID2 のオプトアウト手順の詳細と、ユーザーがどのようにオプトアウトできるかについては、[User Opt-Out](../getting-started/gs-opt-out.md) を参照してください。
+UID2 のオプトアウト手順の詳細と、ユーザーがどのようにオプトアウトできるかは、[User Opt-Out](../getting-started/gs-opt-out.md) を参照してください。
 
 ## Using POST /identity/map Version 2
 
 :::note
-以下の情報は、`POST /identity/map` エンドポイントのバージョン 2 またはそれ以前を使用している場合にのみ関連し、参照用に提供されています。新しい実装では最新バージョンを使用する必要があります。手順については、[High-Level Steps](#high-level-steps) を参照してください。
+以下の情報は、`POST /identity/map` エンドポイントのバージョン 2 またはそれ以前を使用している場合にのみ関連し、参照用に提供されています。新しい実装では最新バージョンを使用する必要があります。手順は、[High-Level Steps](#high-level-steps) を参照してください。
 :::
 
 v2 Identity Map API の使用時との主な違いは以下の通りです:
@@ -169,7 +169,7 @@ raw UID2 は、特定の時点におけるユーザーを識別する ID です�
 
 各ソルトバケットはおおよそ年に 1 回更新されますが、個々のバケットの更新は年間を通じて分散されます。おおよそ 365 分の 1 のソルトバケットが毎日ローテーションされます。このことを考慮して、オーディエンスの更新に合わせてソルトバケットのローテーションを定期的に確認することを推奨します。例えば、週ごとに更新する場合は、週ごとにソルトバケットの更新を確認してください。
 
-ソルトバケットがローテーションされた場合は、raw UID2 を再生成します。詳細については、[Determine whether the salt bucket has been rotated](#determine-whether-the-salt-bucket-has-been-rotated) を参照してください。
+ソルトバケットがローテーションされた場合は、raw UID2 を再生成します。詳細は、[Determine whether the salt bucket has been rotated](#determine-whether-the-salt-bucket-has-been-rotated) を参照してください。
 
 次の表は、ソルトバケットのローテーションを確認する手順を示しています。
 

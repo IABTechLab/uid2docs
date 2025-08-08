@@ -16,7 +16,7 @@ UID2 Portal では、この情報の一部が表示されます。アクセス�
 
 ページにアクセスするには、UID2 Portal ユーザーインターフェースの右上にある名前が表示されている場所に移動します。下矢印をクリックし、**Participant Information** を選択します。
 
-例については [UID2 Portal Structure](portal-overview.md#uid2-portal-structure) を参照してください。
+例は [UID2 Portal Structure](portal-overview.md#uid2-portal-structure) を参照してください。
 
 アカウントに関する一般情報を確認できます。たとえば、<Link href="../ref-info/glossary-uid#gl-sharing-participant">参加者</Link> 名やタイプなどです。アカウント作成時に提供した情報が表示されます。
 

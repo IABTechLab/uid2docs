@@ -32,7 +32,7 @@ UID2 とインテグレーションするには、UID2 アカウントが必要�
 - アカウント用の [credentials](../getting-started/gs-credentials.md) を生成します。
 - オプションとして、チームメンバーに関する情報を設定するなど、他の値を設定します。
 
-SDK が提供する特定の機能を使用する権限が与えられ、そのアクセスのための資格情報が提供されます。SDK には使用権限がない機能がある可能性があることに注意してください。詳細については、[API Permissions](../getting-started/gs-permissions.md) を参照してください。
+SDK が提供する特定の機能を使用する権限が与えられ、そのアクセスのための資格情報が提供されます。SDK には使用権限がない機能がある可能性があることに注意してください。詳細は、[API Permissions](../getting-started/gs-permissions.md) を参照してください。
 
 DSP の場合は、資格情報を送信します。
 
@@ -98,7 +98,7 @@ SDK を使用すると、復号化キーを保存または管理する必要が�
 
 | Property | Description |
 | :--- | :--- |
-| `status` | 暗号化結果のステータス。取り得る値のリストと定義については、[Encryption Response Statuses](#encryption-response-statuses) を参照してください。 |
+| `status` | 暗号化結果のステータス。取り得る値のリストと定義は、[Encryption Response Statuses](#encryption-response-statuses) を参照してください。 |
 | `encrypted_data` | 暗号化された UID2 Token。 |
 
 ### Encryption Response Statuses
@@ -397,7 +397,7 @@ v2 の Identity Map SDK は、後方互換性のために維持されている�
 
 新しいインテグレーションはこのバージョンを使用しないでください。
 
-手順については、[Migration From Version Using v2 Identity Map](#migration-from-version-using-v2-identity-map) を参照してください。
+手順は、[Migration From Version Using v2 Identity Map](#migration-from-version-using-v2-identity-map) を参照してください。
 :::
 
 メールアドレス、電話番号、またはそれらのハッシュを raw UID2s およびソルトバケット ID にマッピングするには、`POST /identity/map` version 2 を使用している以前の SDK バージョンを使用している場合は、以下の手順に従ってください。
@@ -495,7 +495,7 @@ else:
    # Check decrypted.status for the failure reason.
 ```
 
-詳細な例については、[examples/sample_bidstream_client.py](https://github.com/IABTechLab/uid2-client-python/blob/main/examples/sample_bidstream_client.py) の `sample_bidstream_client.py` を参照してください。
+詳細な例は、[examples/sample_bidstream_client.py](https://github.com/IABTechLab/uid2-client-python/blob/main/examples/sample_bidstream_client.py) の `sample_bidstream_client.py` を参照してください。
 
 ## Usage for UID2 Sharers
 
@@ -542,7 +542,7 @@ else:
     # Check decrypted.status for the failure reason.
 ```
 
-詳細な例については、[examples/sample_sharing_client.py](https://github.com/IABTechLab/uid2-client-python/blob/main/examples/sample_sharing_client.py) の `sample_sharing_client.py` を参照してください。
+詳細な例は、[examples/sample_sharing_client.py](https://github.com/IABTechLab/uid2-client-python/blob/main/examples/sample_sharing_client.py) の `sample_sharing_client.py` を参照してください。
 
 ## Development
 

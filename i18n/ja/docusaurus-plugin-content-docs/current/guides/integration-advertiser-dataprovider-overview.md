@@ -49,7 +49,7 @@ UID2 とインテグレーションする広告主とデータプロバイダー
 
 ## Summary of Implementation Options
 
-以下の表は、広告主とデータプロバイダー向けの実装オプションを、各レベルのステップごとに示しています。一部のステップは、独自のカスタム実装の一部としてのみ管理されます。一部のステップは、利用可能な UID2 実装オプションの 1 つ以上によって管理できます。詳細については、各ステップのリンクをクリックしてください。
+以下の表は、広告主とデータプロバイダー向けの実装オプションを、各レベルのステップごとに示しています。一部のステップは、独自のカスタム実装の一部としてのみ管理されます。一部のステップは、利用可能な UID2 実装オプションの 1 つ以上によって管理できます。詳細は、各ステップのリンクをクリックしてください。
 
 | High-Level Step | Implementation Options |
 | --- | --- |
@@ -72,7 +72,7 @@ UID2 ベースのオーディエンス情報を正確かつ最新の状態に保
 
 <!-- diagram source: resource/advertiser-flow-overview-v3-mermaid.mermaid -->
 
-図の各部分の詳細については、以下のセクションを参照してください。
+図の各部分の詳細は、以下のセクションを参照してください。
 
 ### 1: Generate Raw UID2s from DII
 
@@ -89,7 +89,7 @@ raw UID2 を生成するには、次のいずれかのオプションを使用�
 
 - AWS Entity Resolution: [AWS Entity Resolution Integration Guide](integration-aws-entity-resolution.md) を参照してください。
 
-- HTTP endpoints: [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) を参照してください。詳細については、[Generate Raw UID2s from DII](integration-advertiser-dataprovider-endpoints.md#1-generate-raw-uid2s-from-dii) を参照してください。
+- HTTP endpoints: [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) を参照してください。詳細は、[Generate Raw UID2s from DII](integration-advertiser-dataprovider-endpoints.md#1-generate-raw-uid2s-from-dii) を参照してください。
 
 ### 2: Store Raw UID2s and Refresh Timestamps
 
@@ -141,7 +141,7 @@ UID2 <Link href="../ref-info/glossary-uid#gl-operator-service">Operator Service<
 
 - [POST&nbsp;/optout/status](../endpoints/post-optout-status.md) エンドポイントを使用して raw UID2 のオプトアウトステータスを確認します。
 
-UID2 オプトアウトワークフローの詳細や、ユーザーがオプトアウトする方法については、[User Opt-Out](../getting-started/gs-opt-out.md) を参照してください。
+UID2 オプトアウトワークフローの詳細や、ユーザーがオプトアウトする方法は、[User Opt-Out](../getting-started/gs-opt-out.md) を参照してください。
 
 ## Using POST /identity/map Version 2
 
@@ -185,9 +185,9 @@ raw UID2 は特定の時点でのユーザーの識別子です。特定のユ�
 
 各ソルトバケットは約 1 年に 1 回更新されますが、個々のバケットの更新は年間を通じて分散されます。おおよそ 365 分の 1 のソルトバケットが毎日ローテーションされます。これに基づいて、オーディエンスの更新に合わせて定期的にソルトバケットのローテーションを確認することを推奨します。たとえば、毎週更新する場合は、毎週ソルトバケットの更新を確認します。
 
-ソルトバケットがローテーションされた場合は、raw UID2 を再生成します。詳細については、[Determine whether the salt bucket has been rotated](#determine-whether-the-salt-bucket-has-been-rotated-v2) を参照してください。
+ソルトバケットがローテーションされた場合は、raw UID2 を再生成します。詳細は、[Determine whether the salt bucket has been rotated](#determine-whether-the-salt-bucket-has-been-rotated-v2) を参照してください。
 
-ソルトバケットのローテーションを監視する手順については、以下のいずれかを参照してください:
+ソルトバケットのローテーションを監視する手順は、以下のいずれかを参照してください:
 
 - Python SDK: [Monitor Rotated Salt Buckets](../sdks/sdk-ref-python.md#monitor-rotated-salt-buckets).
 
@@ -215,4 +215,4 @@ AWS Entity Resolution では、ソルトバケットの監視を行う方法は�
 
 ## FAQs
 
-UID2 フレームワークを使用する広告主とデータプロバイダー向けのよくある質問のリストについては、[FAQs for Advertisers and Data Providers](../getting-started/gs-faqs.md#faqs-for-advertisers-and-data-providers) を参照してください。
+UID2 フレームワークを使用する広告主とデータプロバイダー向けのよくある質問のリストは、[FAQs for Advertisers and Data Providers](../getting-started/gs-faqs.md#faqs-for-advertisers-and-data-providers) を参照してください。

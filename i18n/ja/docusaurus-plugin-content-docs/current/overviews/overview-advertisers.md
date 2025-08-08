@@ -82,4 +82,4 @@ UID2 のドキュメント一式に左サイドバーからアクセスしたい
 
 ## FAQs for Advertisers
 
-UID2 フレームワークを使用する広告主向けのよくある質問については、[FAQs for Advertisers and Data Providers](../getting-started/gs-faqs.md#faqs-for-advertisers-and-data-providers) を参照してください。
+UID2 フレームワークを使用する広告主向けのよくある質問は、[FAQs for Advertisers and Data Providers](../getting-started/gs-faqs.md#faqs-for-advertisers-and-data-providers) を参照してください。

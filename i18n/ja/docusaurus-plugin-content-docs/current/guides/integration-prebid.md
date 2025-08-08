@@ -75,7 +75,7 @@ Prebid.js を使ってサイトを UID2 とインテグレーションするに�
 1. Prebid.js をサイトに追加します。
 1. UID2 module を設定します。
 
-詳細な手順については、以下のインテグレーションガイドのいずれかを参照してください:
+詳細な手順は、以下のインテグレーションガイドのいずれかを参照してください:
 
 - [UID2 Client-Side Integration Guide for Prebid.js](integration-prebid-client-side.md)
 - [UID2 Client-Server Integration Guide for Prebid.js](integration-prebid-client-server.md)

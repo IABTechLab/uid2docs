@@ -223,7 +223,7 @@ Terraform がインストールされていない場合は、[terraform.io](http
 
    | Name | Type | Default | Required | Description |
    | :--- | :--- | :--- | :--- | :--- |
-   | `region` | `string` | `us-east1` | no | デプロイ先のリージョン。有効なリージョンの一覧については、Google Cloud ドキュメントの [Available regions and zones](https://cloud.google.com/compute/docs/regions-zones#available) を参照してください。<br/>NOTE: GCP Confidential Space 用の UID2 Private Operator の実装は、次の地域ではサポートされていません: ヨーロッパ、中国。 |
+   | `region` | `string` | `us-east1` | no | デプロイ先のリージョン。有効なリージョンの一覧は、Google Cloud ドキュメントの [Available regions and zones](https://cloud.google.com/compute/docs/regions-zones#available) を参照してください。<br/>NOTE: GCP Confidential Space 用の UID2 Private Operator の実装は、次の地域ではサポートされていません: ヨーロッパ、中国。 |
    | `network_name` | `string` | `uid-operator` | no | VPC リソース名（ルール/インスタンスタグにも使用されます）。 |
    | `min_replicas` | `number` | `1` | no | デプロイする最小レプリカ数を示します。 |
    | `max_replicas` | `number` | `5` | no | デプロイする最大レプリカ数を示します。 |
@@ -248,7 +248,7 @@ Terraform の `state` ファイルに関する推奨に従ってください: �
 
 実装のヘルスをテストするために、ヘルスチェックエンドポイントを使用します。ヘルスチェックの期待される結果は、HTTP 200 で、レスポンスボディが `OK` です。
 
-手順については、[Health Check&#8212;Terraform Template](#health-checkterraform-template) を参照してください。
+手順は、[Health Check&#8212;Terraform Template](#health-checkterraform-template) を参照してください。
 
 #### Delete All Created Resources
 
@@ -463,7 +463,7 @@ $ gcloud compute instances create {INSTANCE_NAME} \
 
 ヘルスチェックエンドポイントを呼び出して、実装の健全性をテストします。期待される結果は、HTTP 200 で、レスポンスボディが `OK` です。
 
-手順については、[Health Check&#8212;gcloud CLI](#health-checkgcloud-cli) を参照してください。
+手順は、[Health Check&#8212;gcloud CLI](#health-checkgcloud-cli) を参照してください。
 
 ## Running the Health Check
 
@@ -541,7 +541,7 @@ Private Operator 起動時のエラーコードは、リリース v5.49.7 以降
 
 | Error Code | Issue | Steps to Resolve |
 | :--- | :--- | :--- |
-| E02 | OperatorKeyNotFoundError | オペレータと同じプロジェクトの GCP Secret Manager に指定されたシークレット名が存在し、サービスアカウントがシークレットにアクセスする権限を持っていることを確認してください。`tee-env-API_TOKEN_SECRET_NAME` に設定されていることを確認してください。必要に応じて、特定のシークレット名についてはログを確認できます。 |
+| E02 | OperatorKeyNotFoundError | オペレータと同じプロジェクトの GCP Secret Manager に指定されたシークレット名が存在し、サービスアカウントがシークレットにアクセスする権限を持っていることを確認してください。`tee-env-API_TOKEN_SECRET_NAME` に設定されていることを確認してください。必要に応じて、特定のシークレット名はログを確認できます。 |
 | E03 | ConfigurationMissingError | 構成に必要な属性が不足しています。詳細はログを参照し、GCP オペレーターを実行する前に不足している属性を更新してください。 |
 | E04 | ConfigurationValueError | 設定値が無効です。設定値が必要な形式と環境に一致していることを確認してください。注意: `debug_mode = true` は `integ` 環境でのみ許可されます。詳細はログを確認してください。 |
 | E05 | OperatorKeyValidationError | Operator Key が環境に対して正しいことを確認し、提供されたものと一致していることを確認してください。 |

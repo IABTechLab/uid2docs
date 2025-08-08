@@ -41,7 +41,7 @@ Private Operator に参加するメリットは次のとおりです。
 
 参加者は、Private Operator インスタンスをホスト、構成、維持、および更新し、厳格なセキュリティ対策に準拠する必要があります。インテグレーションを行い、継続的な更新を行うためにエンジニアリソースが必要です。
 
-Private Operator インスタンスをホストするためには、契約を結ぶ必要があります。契約については、[Account Setup](../getting-started/gs-account-setup.md) を参照してください。
+Private Operator インスタンスをホストするためには、契約を結ぶ必要があります。契約は、[Account Setup](../getting-started/gs-account-setup.md) を参照してください。
 
 :::note
 Privaet Operator は、Public Operator または他の Private Operator によって処理された raw UID2 または UID2 Token の内容を見ることはできません。各 Private Operator は他のすべての Operator から隔離されています。
@@ -87,7 +87,7 @@ Private Operator にはいくつかの制限があります:
 
 ## Private Operator Deprecation Schedule
 
-サポートされるバージョンと廃止時期については、[Private Operator Versions](../ref-info/deprecation-schedule.md#private-operator-versions) を参照してください。
+サポートされるバージョンと廃止時期は、[Private Operator Versions](../ref-info/deprecation-schedule.md#private-operator-versions) を参照してください。
 
 ## Private Operator Upgrade Policy
 

@@ -24,7 +24,7 @@ UID2 Portal では、UID2 の最新アップデートやリリースに関する
 
 メール連絡先ページにアクセスするには、UID2 Portal ユーザーインターフェースの右上にある名前が表示されている場所に移動します。下矢印をクリックし、**Email Contacts** を選択します。
 
-例については [UID2 Portal Structure](portal-overview.md#uid2-portal-structure) を参照してください。
+例は [UID2 Portal Structure](portal-overview.md#uid2-portal-structure) を参照してください。
 
 ## Configuring Email Contacts
 

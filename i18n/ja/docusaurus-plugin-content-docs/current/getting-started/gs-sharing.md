@@ -16,7 +16,7 @@ Raw UID2 または UID2 Token が他の参加者と共有される場合はす�
 
 さらに、Raw UID2 を送信するすべての共有参加者は、[Security Requirements for UID2 Sharing](../sharing/sharing-security) で指定されたセキュリティ要件に従う必要があります。UID2 Token を共有するすべての参加者には、これらの手順を遵守することを勧ます。
 
-技術的な要件は、役割と実装方法によって異なり、共有ドキュメントの各シナリオの手順に記載されています。シナリオの概要については、共有概要の [Approved Sharing Scenarios](sharing/sharing-overview.md#approved-sharing-scenarios) を参照してください。
+技術的な要件は、役割と実装方法によって異なり、共有ドキュメントの各シナリオの手順に記載されています。シナリオの概要は、共有概要の [Approved Sharing Scenarios](sharing/sharing-overview.md#approved-sharing-scenarios) を参照してください。
 
 ## Legal Requirements for UID2 Sharing
 

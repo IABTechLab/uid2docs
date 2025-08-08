@@ -15,7 +15,7 @@ import Link from '@docusaurus/Link';
 [Snowflake](https://www.snowflake.com/)は、パートナーとしてデータを保存し、UID2 フレームワークとインテグレーションできるクラウドデータウェアハウジングソリューションです。Snowflake を使用することで、UID2 では機密性の高い<Link href="../ref-info/glossary-uid#gl-dii">直接識別情報（DII）</Link>を公開せずに、消費者識別子データを安全に共有できます。消費者識別子データについて Operator Web Serbvice に直接クエリを実行するオプションもありますが、Snowflake の UID2 インテグレーションはより円滑な体験を提供します。
 
 :::important
-このドキュメントは、2025年2月以前に公開された広告主とデータプロバイダー向けの別々の Snowflake marketplace を使用しているユーザー向けです。2025年2月に公開された新しいインテグレーションに関するドキュメントは、[Snowflake Integration Guide](integration-snowflake.md) を参照してください。以前の実装を使用している場合は、更新と強化を活用するために新しいバージョンに移行することを推奨します。移行情報については、[Migration Guide](integration-snowflake.md#migration-guide) を参照してください。
+このドキュメントは、2025年2月以前に公開された広告主とデータプロバイダー向けの別々の Snowflake marketplace を使用しているユーザー向けです。2025年2月に公開された新しいインテグレーションに関するドキュメントは、[Snowflake Integration Guide](integration-snowflake.md) を参照してください。以前の実装を使用している場合は、更新と強化を活用するために新しいバージョンに移行することを推奨します。移行情報は、[Migration Guide](integration-snowflake.md#migration-guide) を参照してください。
 :::
 
 ## Snowflake Marketplace Listing
@@ -24,7 +24,7 @@ import Link from '@docusaurus/Link';
 - [Unified ID 2.0: Advertiser and Data Provider Identity Solution](https://app.snowflake.com/marketplace/listing/GZT0ZRYXTN8/unified-id-2-0-unified-id-2-0-advertiser-and-data-provider-identity-solution)
 
 :::tip
-広告主とデータプロバイダー向けのインテグレーションオプションとステップの概要については、[Advertiser/Data Provider Integration Overview](integration-advertiser-dataprovider-overview.md)を参照してください。
+広告主とデータプロバイダー向けのインテグレーションオプションとステップの概要は、[Advertiser/Data Provider Integration Overview](integration-advertiser-dataprovider-overview.md)を参照してください。
 :::
 
 ## Functionality
@@ -46,7 +46,7 @@ import Link from '@docusaurus/Link';
 2025年2月の UID2 Snowflake マーケットプレイスインテグレーションの更新には、いくつかの更新と機能強化が含まれています。主な変更点の一つは、以前の 2 つのデータ共有（広告主向けとデータプロバイダー向け）の機能を組み合わせた単一のリスティングとデータ共有が含まれることです。これにより、すべての参加者のインテグレーションが簡素化されます。
 
 :::note
-これらの変更は、2025年2月以前に公開されたSnowflake関数のバージョンを使用しているコードインテグレーションを想定しています（[nowflake Integration Guide (Version Prior to February 2025)](integration-snowflake-before-february-2025.md)を参照）。`FN_T_UID2_IDENTITY_MAP_EMAIL` と `FN_T_UID2_IDENTITY_MAP_EMAIL_HASH` 関数を使用するさらに古いバージョンを使用している場合は、[Migration Guide section in the earlier guide](integration-snowflake-before-february-2025.md#migration-guide)の指示に従い、その後再度現在のバージョンにアップグレードすることもできます。ただし、このシナリオでは、このガイドの指示に従い、一度に更新することを勧めます。詳細については、[Migration Guide](#migration-guide)を参照してください。
+これらの変更は、2025年2月以前に公開されたSnowflake関数のバージョンを使用しているコードインテグレーションを想定しています（[nowflake Integration Guide (Version Prior to February 2025)](integration-snowflake-before-february-2025.md)を参照）。`FN_T_UID2_IDENTITY_MAP_EMAIL` と `FN_T_UID2_IDENTITY_MAP_EMAIL_HASH` 関数を使用するさらに古いバージョンを使用している場合は、[Migration Guide section in the earlier guide](integration-snowflake-before-february-2025.md#migration-guide)の指示に従い、その後再度現在のバージョンにアップグレードすることもできます。ただし、このシナリオでは、このガイドの指示に従い、一度に更新することを勧めます。詳細は、[Migration Guide](#migration-guide)を参照してください。
 :::
 
 以下の表は、以前のバージョンからのSnowflake関数の変更詳細を示しています。
@@ -94,7 +94,7 @@ UID2 Share へのアクセスをリクエストするには、以下の手順を
 4.	The Trade Desk の既存クライアントである場合は、データリクエストフォームの**Message** 欄にThe Trade Desk から発行されたパートナー ID と広告主 ID を記入します。
 5.	フォームを送信します。
 
-リクエストが受信された後、UID2 Administrator が適切なアクセス手順について連絡します。Snowflake でのデータリクエストの管理の詳細については、[Snowflake documentation](https://docs.snowflake.com/en/user-guide/data-marketplace-consumer.html)を参照してください。
+リクエストが受信された後、UID2 Administrator が適切なアクセス手順について連絡します。Snowflake でのデータリクエストの管理の詳細は、[Snowflake documentation](https://docs.snowflake.com/en/user-guide/data-marketplace-consumer.html)を参照してください。
 
 ## Shared Objects
 
@@ -116,7 +116,7 @@ UID2共有参加者向けに、以下の関数も利用可能です：
 - `FN_T_ENCRYPT`（[Encrypt Tokens](#encrypt-tokens)を参照）
 - `FN_T_DECRYPT`（[Decrypt Tokens](#decrypt-tokens)を参照）
 
-詳細については、[Usage for UID2 Sharers](#usage-for-uid2-sharers)を参照してください。
+詳細は、[Usage for UID2 Sharers](#usage-for-uid2-sharers)を参照してください。
 
 ### Database and Schema Names
 
@@ -158,7 +158,7 @@ DII が電話番号の場合、UID2 の[Phone Number Normalization](../getting-s
 | :--- | :--- | :--- |
 | `UID` | TEXT | 値は以下のいずれかです：<ul><li>DII が正常にマッピングされた場合： DII に関連付けられた UID2。</li><li>DII が正常にマッピングされなかった場合：`NULL`。</li></ul> |
 | `BUCKET_ID` | TEXT | 値は以下のいずれかです：<ul><li> DII が正常にマッピングされた場合：UID2 を生成するために使用された<Link href="../ref-info/glossary-uid#gl-salt-bucket">ソルトバケット</Link>の ID。この ID は `SALT_BUCKETS` ビューのバケット ID にマッピングされます。</li><li>DII が正常にマッピングされなかった場合：`NULL`。</li></ul> |
-| `UNMAPPED`  | TEXT | 値は以下のいずれかです：<ul><li>DII が正常にマッピングされた場合：`NULL`。</li><li>DII が正常にマッピングされなかった場合：識別子がマッピングされなかった理由：`OPTOUT`、`INVALID IDENTIFIER`、または`INVALID INPUT TYPE`。<br/>詳細については、[Values for the UNMAPPED Column](#values-for-the-unmapped-column)を参照してください。</li></ul> |
+| `UNMAPPED`  | TEXT | 値は以下のいずれかです：<ul><li>DII が正常にマッピングされた場合：`NULL`。</li><li>DII が正常にマッピングされなかった場合：識別子がマッピングされなかった理由：`OPTOUT`、`INVALID IDENTIFIER`、または`INVALID INPUT TYPE`。<br/>詳細は、[Values for the UNMAPPED Column](#values-for-the-unmapped-column)を参照してください。</li></ul> |
 
 #### Values for the UNMAPPED Column
 
@@ -403,7 +403,7 @@ select a.*, b.LAST_SALT_UPDATE_UTC
 
 クエリ結果：
 
-以下の表は、応答の各項目を識別しています。結果には、テーブルのID 1の例に示すように、メール、`UID2`、`BUCKET_ID`、`LAST_UID2_UPDATE_UTC`、`LAST_SALT_UPDATE_UTC` が含まれます。ID 2 については、対応する UID2 が最後のバケット更新後に生成されたため、情報は返されません。ID 3 については、UID2 が欠落しているため、`NULL` 値が返されます。
+以下の表は、応答の各項目を識別しています。結果には、テーブルのID 1の例に示すように、メール、`UID2`、`BUCKET_ID`、`LAST_UID2_UPDATE_UTC`、`LAST_SALT_UPDATE_UTC` が含まれます。ID 2 は、対応する UID2 が最後のバケット更新後に生成されたため、情報は返されません。ID 3 は、UID2 が欠落しているため、`NULL` 値が返されます。
 
 ```
 +----+----------------------+----------------------------------------------+------------+-------------------------+-------------------------+
@@ -444,7 +444,7 @@ Raw UID2 を UID2 Token に暗号化するには、`FN_T_ENCRYPT` 関数を使�
 | Column Name | Data Type | Description |
 | :--- | :--- | :--- |
 | `UID_TOKEN` | TEXT | 値は以下のいずれかです：<ul><li>暗号化成功：Raw UID2を含むUID2 Token。</li><li>暗号化失敗：`NULL`。</li></ul> |
-| `ENCRYPTION_STATUS` | TEXT | 値は以下のいずれかです：<ul><li>暗号化成功：`NULL`。</li><li>暗号化失敗：Raw UID2が暗号化されなかった理由。例：`INVALID_RAW_UID2` や `INVALID NOT_AUTHORIZED_FOR_MASTER_KEY`。<br/>詳細については、[Values for the ENCRYPTION_STATUS Column](#values-for-the-encryption_status-column)を参照してください。</li></ul> |
+| `ENCRYPTION_STATUS` | TEXT | 値は以下のいずれかです：<ul><li>暗号化成功：`NULL`。</li><li>暗号化失敗：Raw UID2が暗号化されなかった理由。例：`INVALID_RAW_UID2` や `INVALID NOT_AUTHORIZED_FOR_MASTER_KEY`。<br/>詳細は、[Values for the ENCRYPTION_STATUS Column](#values-for-the-encryption_status-column)を参照してください。</li></ul> |
 
 #### Values for the ENCRYPTION_STATUS Column
 
@@ -513,7 +513,7 @@ UID2 Token を Raw UID2 に復号化するには、`FN_T_DECRYPT` 関数を使�
 | :--- | :--- | :--- |
 | `UID` | TEXT | 値は以下のいずれかです：<ul><li>復号化成功：UID2 Token に対応する Raw UID2。</li><li>復号化失敗：`NULL`。</li></ul> |
 | `SITE_ID`| INT | 値は以下のいずれかです：<ul><li>復号化成功：トークンを暗号化した UID2 参加者の識別子。</li><li>復号化失敗：`NULL`。</li></ul> |
-| `DECRYPTION_STATUS` | TEXT | 値は以下のいずれかです：<ul><li>復号化成功：`NULL`。</li><li>復号化失敗：UID2 Token が復号化されなかった理由。例：`EXPIRED_TOKEN`。<br/>詳細については、[Values for the DECRYPTION_STATUS Column](#values-for-the-decryption_status-column)を参照してください。</li></ul> |
+| `DECRYPTION_STATUS` | TEXT | 値は以下のいずれかです：<ul><li>復号化成功：`NULL`。</li><li>復号化失敗：UID2 Token が復号化されなかった理由。例：`EXPIRED_TOKEN`。<br/>詳細は、[Values for the DECRYPTION_STATUS Column](#values-for-the-decryption_status-column)を参照してください。</li></ul> |
 
 :::note
 UID2 Tokenが正常に復号化できない状況のほとんどの場合、関数は行を一切返しません。
@@ -622,7 +622,7 @@ UID2 Token が期限切れになるのを防ぐため、送信者から利用可
 
 ### Changing Existing Code
 
-変更の概要については、[Changes from Previous Version](#changes-from-previous-version)を参照してください。このセクションのコードスニペットは、以前の関数がどのように実装されていたか、および新しい関数を使用するように更新する方法についての例です。
+変更の概要は、[Changes from Previous Version](#changes-from-previous-version)を参照してください。このセクションのコードスニペットは、以前の関数がどのように実装されていたか、および新しい関数を使用するように更新する方法についての例です。
 
 #### Example for Mapping Unhashed Emails
 

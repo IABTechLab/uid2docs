@@ -26,7 +26,7 @@ Prebid.js を使って UID2 とインテグレーションするには、以下�
 
 ## Prebid.js Version
 
-この実装には、Prebid.js version 7.53.0 以降が必要です。バージョン情報については、[https://github.com/prebid/Prebid.js/releases](https://github.com/prebid/Prebid.js/releases) を参照してください。
+この実装には、Prebid.js version 7.53.0 以降が必要です。バージョン情報は、[https://github.com/prebid/Prebid.js/releases](https://github.com/prebid/Prebid.js/releases) を参照してください。
 
 <!-- Diff in Prebid.js supported version for UID2/EUID is fine: verif SS 11/19/24 -->
 
@@ -56,7 +56,7 @@ GWH note 12/14/23 updated 2/7/25: we have a client-side example for Prebid.js bu
 
 Prebid.js を使用して UID2 とインテグレーションするには、UID2 アカウントが必要です。アカウントがまだ作成されていない場合は、まず [Account Setup](../getting-started/gs-account-setup.md) ページの手順に従ってください。
 
-アカウントの初期設定が完了すると、[UID2 Portal](../portal/portal-overview.md) にアクセスするための手順とリンクが送信されます。ここで、本番環境用の [credentials](../getting-started/gs-credentials.md) を作成し、必要に応じて追加の値を設定できます。詳細については、[Getting Started with the UID2 Portal](../portal/portal-getting-started.md) を参照してください。
+アカウントの初期設定が完了すると、[UID2 Portal](../portal/portal-overview.md) にアクセスするための手順とリンクが送信されます。ここで、本番環境用の [credentials](../getting-started/gs-credentials.md) を作成し、必要に応じて追加の値を設定できます。詳細は、[Getting Started with the UID2 Portal](../portal/portal-getting-started.md) を参照してください。
 
 Client-Server インテグレーションの場合、UID2 Portal の [API Keys](../portal/api-keys.md) ページで以下の値を設定する必要があります:
 
@@ -64,7 +64,7 @@ Client-Server インテグレーションの場合、UID2 Portal の [API Keys](
 - <Link href="../ref-info/glossary-uid#gl-client-secret">Client secret</Link>、参加者と UID2 Service のみが知る値。
 
 :::important
-これらの値を安全に保管することが非常に重要です。詳細については、[Security of API Key and Client Secret](../getting-started/gs-credentials.md#security-of-api-key-and-client-secret) を参照してください。
+これらの値を安全に保管することが非常に重要です。詳細は、[Security of API Key and Client Secret](../getting-started/gs-credentials.md#security-of-api-key-and-client-secret) を参照してください。
 :::
 
 <!-- (earlier instructions, no-portal, for EUID)
@@ -90,7 +90,7 @@ Prebid の Client-Server インテグレーションの場合、最初のステ�
 
 手順や例を含む詳細は、[Server-Side Token Generation](../ref-info/ref-server-side-token-generation.md) を参照してください。
 
-トークンを生成するには、いずれかの SDK または [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) エンドポイントを呼び出します。トークンを示す API レスポンスの例については、[Sample Token Response Object](#sample-token-response-object) を参照してください。`Identity` レスポンスを Prebid に渡す必要があります。
+トークンを生成するには、いずれかの SDK または [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) エンドポイントを呼び出します。トークンを示す API レスポンスの例は、[Sample Token Response Object](#sample-token-response-object) を参照してください。`Identity` レスポンスを Prebid に渡す必要があります。
 
 :::warning
 セキュリティ上の理由から、トークン生成に使用される API キーとシークレットはサーバーサイドで呼び出す必要があります。これらの値は Prebid の実装の一部として保存しないでください。
@@ -110,9 +110,9 @@ UID2 Token をリフレッシュするには、次の表に示すように 2 つ
 該当するエンドポイントからの完全な JSON レスポンスボディを Prebid module に提供する必要があります:
 
 - 新しい UID2 Token を取得するには、[POST&nbsp;/token/generate](../endpoints/post-token-generate.md)。
-- リフレッシュされた UID2 Token については、[POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md)。
+- リフレッシュされた UID2 Token は、[POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md)。
 
-例については、[Sample Token Response Object](#sample-token-response-object) を参照してください。
+例は、[Sample Token Response Object](#sample-token-response-object) を参照してください。
 
 Refresh Token が有効である限り、UID2 Prebid module は必要に応じて UID2 Token をリフレッシュします。
 
@@ -156,11 +156,11 @@ pbjs.setConfig({
 });
 ```
 
-トークンの例については、[Sample Token Response Object](#sample-token-response-object) を参照してください。
+トークンの例は、[Sample Token Response Object](#sample-token-response-object) を参照してください。
 
 #### Client Refresh Mode uid2Token Example
 
-次の例は、コンフィギュレーションのサンプルを示しています。トークンの内容については、[Sample Token Response Object](#sample-token-response-object)  を参照してください。
+次の例は、コンフィギュレーションのサンプルを示しています。トークンの内容は、[Sample Token Response Object](#sample-token-response-object)  を参照してください。
 
 ```js
 pbjs.setConfig({
@@ -183,7 +183,7 @@ pbjs.setConfig({
 
 Refresh Token の有効期限が切れた場合は、新しい Advertising Token と新しい Refresh Token を将来のリフレッシュのために利用できるように、新しいトークンレスポンスを提供する必要があります。
 
-新しいトークンを提供する必要があるかどうかを判断する方法については、[Determining Whether the Module Has a Valid Token](#determining-whether-the-module-has-a-valid-token) を参照してください。
+新しいトークンを提供する必要があるかどうかを判断する方法は、[Determining Whether the Module Has a Valid Token](#determining-whether-the-module-has-a-valid-token) を参照してください。
 
 ### Server-Only Mode
 
@@ -258,7 +258,7 @@ Prebid の実施を計画する際には、以下を考慮してください:
 
 - リフレッシュされたトークンを生成するために使用された元のトークンと一致しない新しいトークンを提供した場合、モジュールは保存されているすべてのトークンを破棄し、代わりに新しいトークンを使用し、リフレッシュされた状態を維持します。
 
-- インテグレーションテストでは、`params.uid2ApiBase` を `"https://operator-integ.uidapi.com"` に設定します。トークンの生成に使用する環境(本番環境またはインテグレーション環境)と同じ値に設定する必要があります(資格情報については、[Getting Your Credentials](../getting-started/gs-credentials.md#getting-your-credentials) を参照)。
+- インテグレーションテストでは、`params.uid2ApiBase` を `"https://operator-integ.uidapi.com"` に設定します。トークンの生成に使用する環境(本番環境またはインテグレーション環境)と同じ値に設定する必要があります(資格情報は、[Getting Your Credentials](../getting-started/gs-credentials.md#getting-your-credentials) を参照)。
 
 - Prebid.js client-server インテグレーションの場合、クライアントサイドインテグレーション機能を無効にして、より小さな Prebid.js ビルドを作成できます。これを行うには、`--disable UID2_CSTG` フラグを渡します:
 
@@ -310,7 +310,7 @@ UID2 Module に有効な UID2 Token があるかどうかを確認するには `
 - ブラウザのコンソールログを確認してください。
 - ブラウザのデベロッパーツールを使って、UID2 Service への API コールを調べます。
 
-その他のヘルプについては、Prebidのドキュメント [Troubleshooting Prebid.js](https://docs.prebid.org/troubleshooting/troubleshooting-guide.html) and [Debugging Prebid.js](https://docs.prebid.org/debugging/debugging.html) を参照してください。
+その他のヘルプは、Prebidのドキュメント [Troubleshooting Prebid.js](https://docs.prebid.org/troubleshooting/troubleshooting-guide.html) and [Debugging Prebid.js](https://docs.prebid.org/debugging/debugging.html) を参照してください。
 
 Prebid.js の設定を検証・デバッグするツールの例として、オープンソースの Chrome 拡張機能である Professor Prebid があります:
 
@@ -329,7 +329,7 @@ Prebid.js の設定を検証・デバッグするツールの例として、オ�
 | value | CR: N/A<br/>SO: オプション | Object | Advertising Token の値を含むオブジェクト。 | [Configuration Parameter Examples: Value](#configuration-parameter-examples-value) を参照してください。 |
 | params.uid2Token | CR: Optional<br/>SO: N/A | Object | 最初の UID2 Token。これは `/token/generate` または `/token/refresh` エンドポイントをコールした際に復号されたレスポンスの `body` 要素でなければなりません。 | [Sample Token Response Object](#sample-token-response-object) を参照してください。 |
 | params.uid2Cookie | CR: オプション<br/>SO: N/A  | String | サーバが設定した UID2 Token を保持するクッキーの名前。クッキーは uid2Token パラメータと同じ形式の JSON を含む必要があります。`uid2Token` を指定した場合、このパラメータは無視されます。 | [Sample Token Response Object](#sample-token-response-object) を参照してください。 |
-| params.uid2ApiBase | CR: オプション<br/>SO: オプション | String | デフォルトの UID2 API エンドポイントを上書きします。有効な値については、[Environments](../getting-started/gs-environments.md) を参照してください。 | `"https://prod.uidapi.com"` (デフォルト)|
+| params.uid2ApiBase | CR: オプション<br/>SO: オプション | String | デフォルトの UID2 API エンドポイントを上書きします。有効な値は、[Environments](../getting-started/gs-environments.md) を参照してください。 | `"https://prod.uidapi.com"` (デフォルト)|
 | params.storage | CR: オプション<br/>SO: オプション | String | モジュール内部の保存方法を指定します: `cookie` または `localStorage`。このパラメータは指定しないことを推奨します。代わりに、モジュールがデフォルトを使用するようにします。 | `"localStorage"` (デフォルト) |
 
 ### Configuration Parameter Examples: Value
@@ -370,7 +370,7 @@ pbjs.setConfig({
 
 デフォルトでは、UID2 モジュールは米国の UID2 本番環境サーバに対して API コールを行います。
 
-ユースケースに最適な URL を選択する方法と、有効なベース URL の完全なリストについては、[Environments](../getting-started/gs-environments.md) を参照してください。
+ユースケースに最適な URL を選択する方法と、有効なベース URL の完全なリストは、[Environments](../getting-started/gs-environments.md) を参照してください。
 
 デフォルト以外の UID2 サーバを指定するには、UID2 モジュールを構成する際に、オプションの `params.uid2ApiBase` パラメータを設定します。次の例を参照してください:
 

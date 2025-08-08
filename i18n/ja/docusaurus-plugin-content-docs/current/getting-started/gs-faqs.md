@@ -32,7 +32,7 @@ UID2 フレームワークに関するよくある質問を紹介します。
 - [パブリックオペレーターとプライベートオペレーターのどちらを使用すべきですか？](#should-i-use-a-public-operator-or-a-private-operator)
 
 :::note
-モバイルパブリッシャーインテグレーションに関する FAQs については、[FAQs for Mobile Integrations](../guides/integration-mobile-overview.md#faqs-for-mobile-integrations) を参照してください。
+モバイルパブリッシャーインテグレーションに関する FAQs は、[FAQs for Mobile Integrations](../guides/integration-mobile-overview.md#faqs-for-mobile-integrations) を参照してください。
 :::
 
 #### Will all integration partners in the EUID infrastructure (SSPs, third-party data providers, measurement providers) be automatically integrated with UID2?
@@ -62,7 +62,7 @@ UID2 は HIPAA で規制されているデータの処理を許可しますか�
 
 ほとんどの参加者にとって、<Link href="../ref-info/glossary-uid#gl-public-operator">Public Operator</Link> が最もシンプルなソリューションです。Public Operator のインテグレーションは、独自の <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link> をホストするよりも簡単なオプションです。Private Operator インスタンスを持つことにはいくつかの利点がありますが、追加の複雑さとコストがかかります。
 
-最適な選択肢は、自身の状況やニーズによって異なります。決定に役立つ情報については、以下を参照してください:
+最適な選択肢は、自身の状況やニーズによって異なります。決定に役立つ情報は、以下を参照してください:
 
 1. [The UID2 Operator](../ref-info/ref-operators-public-private.md)
 
@@ -264,7 +264,7 @@ Even though each <Link href="../ref-info/glossary-uid#gl-salt-bucket">salt bucke
 UID2 生成リクエストで提供されるメタデータには、UID2 の生成に使用される <Link href="../ref-info/glossary-uid#gl-salt-bucket">salt bucket</Link> が含まれます。ソルトバケットは持続し、UID2 の生成に使用された基礎となる DII に対応します。指定されたタイムスタンプ以降にローテーションしたソルトバケットを得るには、[POST&nbsp;/identity/buckets](../endpoints/post-identity-buckets.md) エンドポイントを使用します。返されたローテーションしたソルトバケットは、どの UID2 をリフレッシュすべきかを教えてくれます。
 
 :::note
-ローテーションがいつ行われるかについては、いかなる約束もいたしません。可能な限り最新の状態を保つため、1 時間に 1 回のチェックを推奨します。
+ローテーションがいつ行われるかは、いかなる約束もいたしません。可能な限り最新の状態を保つため、1 時間に 1 回のチェックを推奨します。
 :::
 
 #### Do refreshed emails get assigned to the same bucket that they were previously associated with?

@@ -13,7 +13,7 @@ import UpgradePolicy from '../snippets/_private-operator-upgrade-policy.mdx';
 
 # UID2 Private Operator for AKS Integration Guide
 
-UID2 Operator は UID2 エコシステムの API サーバーです。詳細については、[The UID2 Operator](../ref-info/ref-operators-public-private.md) を参照してください。
+UID2 Operator は UID2 エコシステムの API サーバーです。詳細は、[The UID2 Operator](../ref-info/ref-operators-public-private.md) を参照してください。
 
 :::note
 AKS の Private Operator をセットアップしたい場合は、UID2 の連絡先にお問い合わせください。詳細は、[Contact Info](../getting-started/gs-account-setup.md#contact-info) を参照してください。
@@ -67,7 +67,7 @@ UID2 の連絡先に、組織を UID2 Operator として登録するよう依頼
 
 ### Install the Azure CLI
 
-Azure コマンドラインインターフェイスをインストールします。詳細については、Azure ドキュメントの [How to install the Azure CLI](https://learn.microsoft.com/ja-jp/cli/azure/install-azure-cli) を参照してください。
+Azure コマンドラインインターフェイスをインストールします。詳細は、Azure ドキュメントの [How to install the Azure CLI](https://learn.microsoft.com/ja-jp/cli/azure/install-azure-cli) を参照してください。
 
 ### Get the Required Azure Permissions
 
@@ -81,11 +81,11 @@ Azure コマンドラインインターフェイスをインストールしま�
 
 ### Install the kubectl CLI
 
-Kubernetesの `kubectl` コマンドラインインターフェイスをインストールします。詳細については、Kubernetes ドキュメントの [Install Tools](https://kubernetes.io/docs/tasks/tools/) を参照してください。
+Kubernetesの `kubectl` コマンドラインインターフェイスをインストールします。詳細は、Kubernetes ドキュメントの [Install Tools](https://kubernetes.io/docs/tasks/tools/) を参照してください。
 
 ### Install the Helm CLI
 
-`helm` コマンドラインインターフェイスをインストールします。詳細については、[Installing Helm](https://helm.sh/docs/intro/install/) を参照してください。
+`helm` コマンドラインインターフェイスをインストールします。詳細は、[Installing Helm](https://helm.sh/docs/intro/install/) を参照してください。
 
 ## Deployment Environments
 
@@ -173,7 +173,7 @@ az group create --name "${RESOURCE_GROUP}" --location "${LOCATION}"
 ロケーションに関していくつかの制限があります:
 - UID2 Private Operator for AKS は、次の地域ではサポートされていません: ヨーロッパ、中国。
 
-- Azure 仮装ネットワークのデプロイメントの可用性については、[Resource availability & quota limits for ACI](https://learn.microsoft.com/ja-jp/azure/container-instances/container-instances-resource-and-quota-limits#confidential-container-resources-preview) を確認してください。
+- Azure 仮装ネットワークのデプロイメントの可用性は、[Resource availability & quota limits for ACI](https://learn.microsoft.com/ja-jp/azure/container-instances/container-instances-resource-and-quota-limits#confidential-container-resources-preview) を確認してください。
 
 - ロケーションのエイリアスを取得するには、次のコマンドを実行します:
 
@@ -293,7 +293,7 @@ az aks create \
     --os-sku Ubuntu
 ```
 :::note
-必ず最新のサポートされている Kubernetes バージョンを使用してください。`--kubernetes-version` フラグを使用します。以前のバージョンを使用する場合は、長期サポート（LTS）を有効にする必要があります。詳細については、Microsoft ドキュメントの [Long-term support for Azure Kubernetes Service (AKS) versions](https://learn.microsoft.com/en-us/azure/aks/long-term-support) を参照してください。
+必ず最新のサポートされている Kubernetes バージョンを使用してください。`--kubernetes-version` フラグを使用します。以前のバージョンを使用する場合は、長期サポート（LTS）を有効にする必要があります。詳細は、Microsoft ドキュメントの [Long-term support for Azure Kubernetes Service (AKS) versions](https://learn.microsoft.com/en-us/azure/aks/long-term-support) を参照してください。
 :::
 
 #### Get the Principal ID of the Managed Identity
@@ -347,7 +347,7 @@ kubectl get nodes
 
 次のステップは、[Key Vault](https://learn.microsoft.com/ja-jp/azure/key-vault/general/overview) をセットアップし、Operator Key を保存することです。Key Vault を作成したら、[Managed Identity](https://learn.microsoft.com/ja-jp/entra/identity/managed-identities-azure-resources/overview) を作成し、Key Vault へのアクセス権を付与できます。
 
-後で、AKS クラスターが起動すると、この ID を使用します。詳細については、Microsoft Azure ドキュメントの [Running pods with an Azure Managed Identity](https://github.com/microsoft/virtualnodesOnAzureContainerInstances/blob/main/Docs/PodCustomizations.md#running-pods-with-an-azure-managed-identity) を参照してください。
+後で、AKS クラスターが起動すると、この ID を使用します。詳細は、Microsoft Azure ドキュメントの [Running pods with an Azure Managed Identity](https://github.com/microsoft/virtualnodesOnAzureContainerInstances/blob/main/Docs/PodCustomizations.md#running-pods-with-an-azure-managed-identity) を参照してください。
 
 以下の手順に従ってください:
 

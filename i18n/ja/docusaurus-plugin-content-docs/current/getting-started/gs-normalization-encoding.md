@@ -52,7 +52,7 @@ UID2 <Link href="../ref-info/glossary-uid#gl-operator-service">Operator Service<
 正規化されたメールアドレスが UTF-8 であることを確認してください。他のエンコーディングシステム（例: UTF-16）ではありません。
 :::
 
-様々なシナリオの例については、[Normalization Examples for Email](#normalization-examples-for-email) を参照してください。
+様々なシナリオの例は、[Normalization Examples for Email](#normalization-examples-for-email) を参照してください。
 
 ## Email Address Hash Encoding
 
@@ -69,7 +69,7 @@ UID2 <Link href="../ref-info/glossary-uid#gl-operator-service">Operator Service<
 Base64 エンコーディングを適用する際は、ハッシュの生のバイトを Base64 エンコードするか、16 進数エンコードされた値を入力として受け取る Base64 エンコーダーを使用してください。
 :::
 
-その他の例については、[Normalization Examples for Email](#normalization-examples-for-email) を参照してください。
+その他の例は、[Normalization Examples for Email](#normalization-examples-for-email) を参照してください。
 
 ## Normalization Examples for Email
 

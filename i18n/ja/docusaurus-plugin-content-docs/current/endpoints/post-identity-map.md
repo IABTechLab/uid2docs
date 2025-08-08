@@ -13,9 +13,9 @@ import POSTIdentityMapImprovements from '../snippets/_post-identity-map-improvem
 
 複数のメールアドレス、電話番号、またはそれぞれのハッシュを、raw UID2 にマッピングします。このエンドポイントを使用して、オプトアウト情報の更新をチェックしたり、raw UID2 の更新が可能な時期を確認したり、現在の raw UID2 が 発行されてから 90 日未満の場合に前の UID2 を表示することもできます。
 
-Used by: このエンドポイントは、主に広告主とデータプロバイダーによって使用されます。詳細については、[Advertiser/Data Provider Integration Overview](../guides/integration-advertiser-dataprovider-overview.md) を参照してください。
+Used by: このエンドポイントは、主に広告主とデータプロバイダーによって使用されます。詳細は、[Advertiser/Data Provider Integration Overview](../guides/integration-advertiser-dataprovider-overview.md) を参照してください。
 
-UID2 のオプトアウト手順とユーザーがオプトアウトする方法については、[User Opt-Out](../getting-started/gs-opt-out.md) を参照してください。
+UID2 のオプトアウト手順とユーザーがオプトアウトする方法は、[User Opt-Out](../getting-started/gs-opt-out.md) を参照してください。
 
 ## Version
 
@@ -30,26 +30,26 @@ UID2 のオプトアウト手順とユーザーがオプトアウトする方法
 - 最大リクエストサイズは 1MB です。
 - 大量のメールアドレス、電話番号、またはそれぞれのハッシュをマッピングする場合は、1 バッチあたり最大 5,000 アイテムの *順次* バッチで送信します。
 - <Link href="../ref-info/glossary-uid#gl-private-operator">プライベートオペレーター</Link>を使用していない限り、バッチを並行して送信しないでください。つまり、単一の HTTP 接続を使用し、ハッシュ化または非ハッシュ化された <Link href="../ref-info/glossary-uid#gl-dii">直接識別情報 (DII)</Link> 値のバッチを連続して送信し、複数の並行接続を作成しないでください。
-- メールアドレス、電話番号、またはそれぞれのハッシュのマッピングを必ず保存してください。<br/>マッピングを保存しないと、数百万のメールアドレスや電話番号をマッピングする際に処理時間が大幅に増加する可能性があります。ただし、実際に更新が必要なマッピングのみを再計算すると、UID2 の約 1/365 が毎日更新されるため、総処理時間が短縮されます。詳細については、[Advertiser/Data Provider Integration Overview](../guides/integration-advertiser-dataprovider-overview.md) と [FAQs for Advertisers and Data Providers](../getting-started/gs-faqs.md#faqs-for-advertisers-and-data-providers) を参照してください。
+- メールアドレス、電話番号、またはそれぞれのハッシュのマッピングを必ず保存してください。<br/>マッピングを保存しないと、数百万のメールアドレスや電話番号をマッピングする際に処理時間が大幅に増加する可能性があります。ただし、実際に更新が必要なマッピングのみを再計算すると、UID2 の約 1/365 が毎日更新されるため、総処理時間が短縮されます。詳細は、[Advertiser/Data Provider Integration Overview](../guides/integration-advertiser-dataprovider-overview.md) と [FAQs for Advertisers and Data Providers](../getting-started/gs-faqs.md#faqs-for-advertisers-and-data-providers) を参照してください。
 
 ## Request Format
 
 `POST '{environment}/v3/identity/map'`
 
-認証の詳細については、[Authentication and Authorization](../getting-started/gs-auth.md) を参照してください。
+認証の詳細は、[Authentication and Authorization](../getting-started/gs-auth.md) を参照してください。
 
 :::important
-すべてのリクエストをシークレットを使用して暗号化する必要があります。詳細については、[Encrypting Requests and Decrypting Responses](../getting-started/gs-encryption-decryption.md) を参照してください。
+すべてのリクエストをシークレットを使用して暗号化する必要があります。詳細は、[Encrypting Requests and Decrypting Responses](../getting-started/gs-encryption-decryption.md) を参照してください。
 :::
 
 ### Path Parameters
 
 | Path Parameter | Data Type | Attribute | Description |
 | :--- | :--- | :--- | :--- |
-| `{environment}` | string | Required | テスト（インテグレーション）環境: `https://operator-integ.uidapi.com`<br/>本番環境: 最適な選択は、ユーザーの所在地によって異なります。ユースケースに適したURLの選択方法や、有効なベース URL の一覧については、[Environments](../getting-started/gs-environments.md) を参照してください。 |
+| `{environment}` | string | Required | テスト（インテグレーション）環境: `https://operator-integ.uidapi.com`<br/>本番環境: 最適な選択は、ユーザーの所在地によって異なります。ユースケースに適したURLの選択方法や、有効なベース URL の一覧は、[Environments](../getting-started/gs-environments.md) を参照してください。 |
 
 :::note
-インテグレーション環境と本番環境では、異なる <Link href="../ref-info/glossary-uid#gl-api-key">API Key</Link> が必要です。各環境の認証情報の取得方法については、[Getting Your Credentials](../getting-started/gs-credentials.md#getting-your-credentials) を参照してください。
+インテグレーション環境と本番環境では、異なる <Link href="../ref-info/glossary-uid#gl-api-key">API Key</Link> が必要です。各環境の認証情報の取得方法は、[Getting Your Credentials](../getting-started/gs-credentials.md#getting-your-credentials) を参照してください。
 :::
 
 ### Unencrypted JSON Body Parameters
@@ -102,7 +102,7 @@ UID2 のオプトアウト手順とユーザーがオプトアウトする方法
 echo '{"phone": ["+12345678901", "+441234567890"]}' | python3 uid2_request.py https://prod.uidapi.com/v3/identity/map [YOUR_CLIENT_API_KEY] [YOUR_CLIENT_SECRET]
 ```
 
-詳細および異なるプログラミング言語でのコード例については、[Encrypting Requests and Decrypting Responses](../getting-started/gs-encryption-decryption.md) を参照してください。
+詳細および異なるプログラミング言語でのコード例は、[Encrypting Requests and Decrypting Responses](../getting-started/gs-encryption-decryption.md) を参照してください。
 
 ## Decrypted JSON Response Format
 
@@ -297,4 +297,4 @@ remap_identities(to_remap)
 
 <!-- GWH 7/7 Commenting out the above until the SDK docs are available. -->
 
-ID マッピングの一般的な情報については、[Advertiser/Data Provider Integration Overview](../guides/integration-advertiser-dataprovider-overview.md) を参照してください。
+ID マッピングの一般的な情報は、[Advertiser/Data Provider Integration Overview](../guides/integration-advertiser-dataprovider-overview.md) を参照してください。

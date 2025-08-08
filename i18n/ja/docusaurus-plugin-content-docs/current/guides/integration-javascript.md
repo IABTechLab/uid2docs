@@ -15,7 +15,7 @@ import IntegratingWithSSO from '../snippets/_integrating-with-sso.mdx';
 
 このガイドは、UID2 とインテグレーションし、SDK for JavaScript を使って<Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 token</Link>(Advertising Token) を生成したいパブリッシャー向けのインテグレーションオプションの概要です。
 
-Prebid.js と追加 SDK オプションを含むすべてのウェブオプションの概要については、[Publisher Web Integration Overview](integration-options-publisher-web.md) を参照してください。
+Prebid.js と追加 SDK オプションを含むすべてのウェブオプションの概要は、[Publisher Web Integration Overview](integration-options-publisher-web.md) を参照してください。
 
 ## Introduction
 
@@ -69,7 +69,7 @@ Client-Side のオプションでは、ローカルストレージを使用し�
 
 JavaScript SDK は、UID2 Token の生成、更新、保存を管理しますが、トークンをビッドストリームに渡すことは管理しません。
 
-トークンは、Prebid.jsなどのオプションを使用して<Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link>に渡すことができます。いくつかの提案については、*Publisher Web インテグレーション概要*の [Pass the UID2 Token Into the Bidstream](integration-options-publisher-web.md#pass-the-uid2-token-into-the-bidstream) を参照してください。
+トークンは、Prebid.jsなどのオプションを使用して<Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link>に渡すことができます。いくつかの提案は、*Publisher Web インテグレーション概要*の [Pass the UID2 Token Into the Bidstream](integration-options-publisher-web.md#pass-the-uid2-token-into-the-bidstream) を参照してください。
 
 ## JavaScript Integration Overview: High-Level Steps
 
@@ -79,7 +79,7 @@ SDK for JavaScript を使って UID2 とインテグレーションするには�
 1. SDKをサイトに追加します。
 1. SDKを設定します。
 
-詳細な手順については、以下のインテグレーションガイドのいずれかを参照してください:
+詳細な手順は、以下のインテグレーションガイドのいずれかを参照してください:
 
 - [Client-Side Integration Guide for JavaScript](integration-javascript-client-side.md)
 - [Client-Server Integration Guide for JavaScript](integration-javascript-client-server.md)

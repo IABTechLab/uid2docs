@@ -15,7 +15,7 @@ import Link from '@docusaurus/Link';
 [Snowflake](https://www.snowflake.com/) は、パートナーがデータを保存し、UID2 フレームワークとインテグレーションできるクラウドデータウェアハウジングソリューションです。Snowflake を使用することで、UID2 は、機密性の高い <Link href="../ref-info/glossary-uid#gl-dii">直接識別情報 (DII)</Link> を公開することなく、消費者識別子データを安全に共有できます。オペレーター Web サービスを直接クエリして消費者識別子データを取得するオプションもありますが、Snowflake UID2 インテグレーションはよりシームレスなエクスペリエンスを提供します。
 
 :::important
-このドキュメントは、最新の [Snowflake Marketplace listing](#snowflake-marketplace-listing) を使用している方を対象としています。以前のバージョンを使用している場合は、[Snowflake Integration Guide (Pre-July 2025)](integration-snowflake-previous.md) を参照してください。以前の実装を使用している場合は、更新と強化を利用するために新しいバージョンへの移行を推奨します。詳細については、[Changes from Previous Version](#changes-from-previous-version) を参照してください。移行情報については、[Migration Guide](#migration-guide) を参照してください。
+このドキュメントは、最新の [Snowflake Marketplace listing](#snowflake-marketplace-listing) を使用している方を対象としています。以前のバージョンを使用している場合は、[Snowflake Integration Guide (Pre-July 2025)](integration-snowflake-previous.md) を参照してください。以前の実装を使用している場合は、更新と強化を利用するために新しいバージョンへの移行を推奨します。詳細は、[Changes from Previous Version](#changes-from-previous-version) を参照してください。移行情報は、[Migration Guide](#migration-guide) を参照してください。
 :::
 
 ## Snowflake Marketplace Listing
@@ -24,7 +24,7 @@ import Link from '@docusaurus/Link';
 - [Unified ID 2.0: Advertiser and Data Provider Identity Solution](https://app.snowflake.com/marketplace/listing/GZT0ZRYXTN8/unified-id-2-0-unified-id-2-0-advertiser-and-data-provider-identity-solution)
 
 :::tip
-  インテグレーションオプションとステップの概要については、[Advertiser/Data Provider Integration Overview](integration-advertiser-dataprovider-overview.md) を参照してください。
+  インテグレーションオプションとステップの概要は、[Advertiser/Data Provider Integration Overview](integration-advertiser-dataprovider-overview.md) を参照してください。
 :::
 
 ## Functionality
@@ -46,15 +46,15 @@ import Link from '@docusaurus/Link';
 2025年7月の UID2 Snowflake Marketplace インテグレーションの更新では、UID2 のリフレッシュ管理を簡素化し、ローテーション後 90 日間の以前の raw UID2 にアクセスできる新しい ID マッピング関数が導入されました。
 
 :::note
-これらの変更は、コードインテグレーションが 2025 年 7 月以前に公開された Snowflake 関数のバージョンを使用していることを前提としています: [Snowflake Integration Guide (Pre-July 2025)](integration-snowflake-previous.md) を参照してください。このバージョンへの移行の詳細については、[Migration Guide](#migration-guide) を参照してください。
+これらの変更は、コードインテグレーションが 2025 年 7 月以前に公開された Snowflake 関数のバージョンを使用していることを前提としています: [Snowflake Integration Guide (Pre-July 2025)](integration-snowflake-previous.md) を参照してください。このバージョンへの移行の詳細は、[Migration Guide](#migration-guide) を参照してください。
 :::
 
 The following table shows the differences between the old and new identity mapping functions.
 
 | Function | Version | Return Fields | Key Differences | Comments |
 | :-- | :-- | :-- | :-- | :-- |
-| `FN_T_IDENTITY_MAP` | 以前のバージョン | `UID`, `BUCKET_ID`, `UNMAPPED` | 基本的な ID マッピングとソルトバケットの追跡 | ソルトバケット監視を使用したレガシー関数。詳細については、[Snowflake Integration Guide (Pre-July 2025)](integration-snowflake-previous.md) を参照してください。|
-| `FN_T_IDENTITY_MAP_V3` | 現在 | `UID`, `PREV_UID`, `REFRESH_FROM`, `UNMAPPED` | 強化された以前の UID2 アクセスとリフレッシュタイムスタンプ | ローテーション後 90 日間の以前の UID2 を返し、ソルトバケット監視の代わりにリフレッシュタイムスタンプを使用します。詳細については、[Map DII](#map-dii) を参照してください。|
+| `FN_T_IDENTITY_MAP` | 以前のバージョン | `UID`, `BUCKET_ID`, `UNMAPPED` | 基本的な ID マッピングとソルトバケットの追跡 | ソルトバケット監視を使用したレガシー関数。詳細は、[Snowflake Integration Guide (Pre-July 2025)](integration-snowflake-previous.md) を参照してください。|
+| `FN_T_IDENTITY_MAP_V3` | 現在 | `UID`, `PREV_UID`, `REFRESH_FROM`, `UNMAPPED` | 強化された以前の UID2 アクセスとリフレッシュタイムスタンプ | ローテーション後 90 日間の以前の UID2 を返し、ソルトバケット監視の代わりにリフレッシュタイムスタンプを使用します。詳細は、[Map DII](#map-dii) を参照してください。|
 
 ### Key Benefits
 
@@ -94,7 +94,7 @@ UID2 Share へのアクセスをリクエストするには、以下の手順を
 4.	The Trade Desk の既存のクライアントである場合は、データリクエストフォームの **Message** フィールドに The Trade Desk によって発行されたパートナーおよび広告主 ID を含めてください。
 5.	フォームを送信します。
 
-リクエストが受信されると、UID2 Administrator が適切なアクセス手順について連絡します。Snowflake でのデータリクエストの管理に関する詳細については、[Snowflake documentation](https://docs.snowflake.com/en/user-guide/data-marketplace-consumer.html)を参照してください。
+リクエストが受信されると、UID2 Administrator が適切なアクセス手順について連絡します。Snowflake でのデータリクエストの管理に関する詳細は、[Snowflake documentation](https://docs.snowflake.com/en/user-guide/data-marketplace-consumer.html)を参照してください。
 
 ## Shared Objects
 
@@ -159,7 +159,7 @@ DII が電話番号の場合、UID2 [Phone Number Normalization](../getting-star
 | `UID` | TEXT | 値は次のいずれかです:<ul><li>DII が正常にマッピングされた: DII に関連付けられた UID2。</li><li>DII が正常にマッピングされなかった: `NULL`。</li></ul> |
 | `PREV_UID` | TEXT | 値は次のいずれかです:<ul><li>DII が正常にマッピングされ、以前の UID2 が存在する: この DII の以前の UID2。以前の UID2 はローテーション後 90 日間利用可能です。</li><li>以前の UID2 が存在しないか、DII が正常にマッピングされなかった: `NULL`。</li></ul> |
 | `REFRESH_FROM` | TIMESTAMP | 値は次のいずれかです:<ul><li>DII が正常にマッピングされた: この UID2 を更新する必要がある時刻 (エポック秒) を示します。</li><li>DII が正常にマッピングされなかった: `NULL`。</li></ul> |
-| `UNMAPPED` | TEXT | 値は次のいずれかです:<ul><li>DII が正常にマッピングされた: `NULL`。</li><li>DII が正常にマッピングされなかった: 識別子がマッピングされなかった理由: `OPTOUT`、`INVALID IDENTIFIER`、または `INVALID INPUT TYPE`。<br/>詳細については、[UNMAPPED 列の値](#values-for-the-unmapped-column)を参照してください。</li></ul> |
+| `UNMAPPED` | TEXT | 値は次のいずれかです:<ul><li>DII が正常にマッピングされた: `NULL`。</li><li>DII が正常にマッピングされなかった: 識別子がマッピングされなかった理由: `OPTOUT`、`INVALID IDENTIFIER`、または `INVALID INPUT TYPE`。<br/>詳細は、[UNMAPPED 列の値](#values-for-the-unmapped-column)を参照してください。</li></ul> |
 
 #### Values for the UNMAPPED Column
 
@@ -516,7 +516,7 @@ UID2 Token を raw UID2 に復号化するには、`FN_T_DECRYPT` 関数を使�
 | :--- | :--- | :--- |
 | `UID` | TEXT | 以下の値のいずれか:<ul><li>Decryption successful: UID2 Token に関連付けられた raw UID2。</li><li>Decryption not successful: `NULL`</li></ul> |
 | `SITE_ID` | INT | 以下の値のいずれか:<ul><li>Decryption successful: トークンを暗号化した UID2 参加者の識別子。</li><li>Decryption not successful: `NULL`</li></ul> |
-| `DECRYPTION_STATUS` | TEXT | 以下の値のいずれか:<ul><li>Decryption successful: `NULL`。</li><li>Decryption not successful:  UID2 Token が復号化されなかった理由。たとえば、`EXPIRED_TOKEN`。<br/>詳細については、[Values for the DECRYPTION_STATUS Column](#values-for-the-decryption_status-column) を参照してください。</li></ul> |
+| `DECRYPTION_STATUS` | TEXT | 以下の値のいずれか:<ul><li>Decryption successful: `NULL`。</li><li>Decryption not successful:  UID2 Token が復号化されなかった理由。たとえば、`EXPIRED_TOKEN`。<br/>詳細は、[Values for the DECRYPTION_STATUS Column](#values-for-the-decryption_status-column) を参照してください。</li></ul> |
 
 :::note
 UID2 Token が復号化できない場合、関数は通常、行を返しません。
@@ -622,7 +622,7 @@ UID2 Token が共有中に期限切れにならないようにするために、
 
 ### Changing Existing Code
 
-変更の概要については、[Changes from Previous Version](#changes-from-previous-version)を参照してください。このセクションのコードスニペットは、以前の関数がどのように実装されていたかの前後の例であり、新しい関数を使用するように更新する方法を示しています。主な変更点は、`FN_T_IDENTITY_MAP`から`FN_T_IDENTITY_MAP_V3`への移行であり、これによりソルトバケット ID の代わりにリフレッシュタイムスタンプが提供され、以前の UID2 アクセスも含まれます。
+変更の概要は、[Changes from Previous Version](#changes-from-previous-version)を参照してください。このセクションのコードスニペットは、以前の関数がどのように実装されていたかの前後の例であり、新しい関数を使用するように更新する方法を示しています。主な変更点は、`FN_T_IDENTITY_MAP`から`FN_T_IDENTITY_MAP_V3`への移行であり、これによりソルトバケット ID の代わりにリフレッシュタイムスタンプが提供され、以前の UID2 アクセスも含まれます。
 
 #### Example for Mapping Unhashed Emails
 

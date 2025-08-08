@@ -32,7 +32,7 @@ Team Member ページにアクセスするには、UID2 Portal ユーザーイ�
   - すべての人が利用可能: ![the Edit icon](images/icon-pencil-solid.png) (Edit) と ![the Delete icon](images/icon-trash-can-solid.png) (Delete)。
   - ユーザーが招待されたがまだ承認されていない場合、**Resend Invitation** リンクも利用可能です。
 
-例については、「チームメンバーへの招待状の再送」（#resend-an-invitation-to-a-team-member）を参照してください。
+例は、[Resend an Invitation to a Team Member](#resend-an-invitation-to-a-team-member) を参照してください。
 
 ## User Roles
 

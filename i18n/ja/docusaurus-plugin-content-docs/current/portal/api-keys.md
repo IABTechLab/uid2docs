@@ -115,7 +115,7 @@ API Key をローテーションすることを推奨します。API Key をロ�
 
 セキュリティのベストプラクティスとして、異なる役割に対して異なるキーを持つことが推奨されます。
 
-追加のセキュリティに関する推奨事項については、[API Key and Client Secret のセキュリティ](../getting-started/gs-credentials.md#security-of-api-key-and-client-secret) を参照してください。
+追加のセキュリティに関する推奨事項は、[API Key and Client Secret のセキュリティ](../getting-started/gs-credentials.md#security-of-api-key-and-client-secret) を参照してください。
 
 <!-- In some instances, you might create API keys for one permission/role and then want to add a role to your account. For example, you might be an advertiser, but also want to operate as an inventory provider.
 
