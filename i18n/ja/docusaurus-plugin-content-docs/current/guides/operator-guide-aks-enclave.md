@@ -276,7 +276,7 @@ az aks create \
     --resource-group ${RESOURCE_GROUP} \
     --name ${AKS_CLUSTER_NAME} \
     --location ${LOCATION} \
-    --kubernetes-version 1.29.13 \
+    --kubernetes-version 1.33 \
     --network-plugin azure \
     --network-policy calico \
     --vnet-subnet-id ${AKS_SUBNET_ID} \
