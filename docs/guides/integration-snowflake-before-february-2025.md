@@ -75,7 +75,6 @@ To request access to a UID2 Share, complete the following steps:
 
 After your request is received, a UID2 administrator will contact you with the appropriate access instructions. For details about managing data requests in Snowflake, see the [Snowflake documentation](https://docs.snowflake.com/en/user-guide/data-marketplace-consumer.html).
 
-
 ## Shared Objects
 
 Regardless of the UID2 solution you choose, you can map DII to UID2s by using the following function:
