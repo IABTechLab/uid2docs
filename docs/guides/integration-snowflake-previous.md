@@ -2,7 +2,7 @@
 title: Snowflake Integration Guide (Pre-July 2025)
 sidebar_label: Snowflake (previous version)
 pagination_label: Snowflake Integration
-description: Information about integrating with UID2 through the UID2 Share in Snowflake. 
+description: Information about integrating with UID2 through the UID2 Share in Snowflake (previous version). 
 hide_table_of_contents: false
 sidebar_position: 04
 displayed_sidebar: docs
@@ -79,7 +79,6 @@ The following diagram and table illustrate the different parts of the UID2 integ
 Access to the UID2 Share is available through the following listing on the [Snowflake Data Marketplace](https://www.snowflake.com/data-marketplace/):
 
 - [Unified ID 2.0: Advertiser and Data Provider Identity Solution](https://app.snowflake.com/marketplace/listing/GZT0ZRYXTN8/unified-id-2-0-unified-id-2-0-advertiser-and-data-provider-identity-solution)
-
 
 :::important
 To be able to request data, you must use the `ACCOUNTADMIN` role or another role with the `CREATE DATABASE` and `IMPORT SHARE` privileges in your Snowflake account.
