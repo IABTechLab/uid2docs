@@ -55,7 +55,7 @@ UID2 Portal では、送信者と受信者がアカウントを設定し、送�
 ## Workflow: Tokenized Sharing in Tracking Pixels
 
 :::tip
-トラッキングピクセル用のトークンを生成する場合、raw UID2 ではなく、DII から直接 UID2 Token を生成することを勧めます。これはいくつかの方法で行うことができますが、UID2 Token をクライアントサイドで生成することを勧めます。手順については、[Client-Side Integration Guide for JavaScript](../guides/integration-javascript-client-side.md) を参照してください。
+トラッキングピクセル用のトークンを生成する場合、raw UID2 ではなく、DII から直接 UID2 Token を生成することを推奨します。これはいくつかの方法で行うことができますが、UID2 Token をクライアントサイドで生成することを推奨します。手順は、[Client-Side Integration Guide for JavaScript](../guides/integration-javascript-client-side.md) を参照してください。
 :::
 
 ウェブサイトで製品の購入などのアクションが完了したときにトリガーされるトラッキングピクセルを使用している場合、おそらく DII から始めて、UID2 Token に変換して共有します。
@@ -70,7 +70,7 @@ UID2 送信者は、UID2 Token を復号化できる受信者を指定します�
 
    2. ユーザーから提供された <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> から UID2 Token を直接生成します。これは、[POST&nbsp;/token/generate](../endpoints/post-token-generate.md) エンドポイントまたは UID2 Token を生成する SDK のいずれかを使用して行います。
    
-      オプションの概要については、[SDK Functionality](../sdks/summary-sdks.md#sdk-functionality) を参照してください。JavaScript を使用して UID2 Token を生成する方法については、[Client-Side Integration Guide for JavaScript](../guides/integration-javascript-client-side.md) を勧めます。
+      オプションの概要は、[SDK Functionality](../sdks/summary-sdks.md#sdk-functionality) を参照してください。JavaScript を使用して UID2 Token を生成する方法は、[Client-Side Integration Guide for JavaScript](../guides/integration-javascript-client-side.md) を推奨します。
    
    3. UID2 Tokeb を DSP に安全に送信します。
 
@@ -84,7 +84,7 @@ UID2 送信者と受信者の両方が、UID2 Portal アカウントを作成す
 
 すべての実装ステップは、[raw UID2 からの Tokenized sharing](sharing-tokenized-from-raw.md) と同じです。
 
-Snowflake を使用してピクセルで Tokenized Sharing を実装する方法の例については、[Snowflake Integration Guide: Usage for UID2 Sharers](../guides/integration-snowflake.md#usage-for-uid2-sharers) を参照してください。
+Snowflake を使用してピクセルで Tokenized Sharing を実装する方法の例は、[Snowflake Integration Guide: Usage for UID2 Sharers](../guides/integration-snowflake.md#usage-for-uid2-sharers) を参照してください。
 
 ## Information for Sharing Receivers
 

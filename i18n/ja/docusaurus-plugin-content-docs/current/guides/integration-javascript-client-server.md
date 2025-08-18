@@ -14,7 +14,7 @@ import IntegratingWithSSO from '../snippets/_integrating-with-sso.mdx';
 
 # Client-Server Integration Guide for JavaScript
 
-このガイドは、Web アセットを持つパブリッシャー向けに、RTB <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link> で UID2 を使用して ID トークンを生成し、サーバーサイドで UID2 トークンを生成してパブリッシャーの Web ページに渡し、JavaScript の UID2 SDK を使用してクライアントサイドでトークンをリフレッシュする方法を説明します。
+このガイドは、Web アセットを持つパブリッシャー向けに、RTB <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link> で UID2 を使用して ID トークンを生成し、サーバーサイドで UID2 Tokenを生成してパブリッシャーの Web ページに渡し、JavaScript の UID2 SDK を使用してクライアントサイドでトークンをリフレッシュする方法を説明します。
 
 これは、JavaScript インテグレーションステップが Client-Side であり、その他のステップが Server-Side であるため、Client-Server インテグレーションと呼ばれます。
 
@@ -24,7 +24,7 @@ SDK の技術的な詳細は [SDK for JavaScript Reference Guide](../sdks/sdk-re
 
 ## Sample Implementation
 
-実装例については、次の UID2 SDK インテグレーション例を参照してください。
+実装例は、次の UID2 SDK インテグレーション例を参照してください。
 - [Client-Server UID2 SDK Integration Example](https://example-jssdk-integ.uidapi.com/)
 - [Code Repository with Readme](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/js-sdk)
 
@@ -36,13 +36,13 @@ SDK の技術的な詳細は [SDK for JavaScript Reference Guide](../sdks/sdk-re
 
 UID2 の Opt-out ワークフローとユーザーが Opt-out する方法の詳細は、[User Opt-Out](../getting-started/gs-opt-out.md) を参照してください。
 
-UID2 を使用してクライアントの ID を確立し、Advertising Token を取得するプロセスを容易にするために、このガイドで提供する Web インテグレーション手順は、JavaScript 用の UID2 SDK に依存しています。このガイドに記載されているインテグレーションステップと SDK の使用方法(現在はメールアドレスのみ) を示す [example application](https://example-jssdk-integ.uidapi.com/) を以下に示します。アプリケーションのドキュメントについては、[UID2 SDK Integration Example](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/js-sdk) を参照してください。
+UID2 を使用してクライアントの ID を確立し、Advertising Token を取得するプロセスを容易にするために、このガイドで提供する Web インテグレーション手順は、JavaScript 用の UID2 SDK に依存しています。このガイドに記載されているインテグレーションステップと SDK の使用方法(現在はメールアドレスのみ) を示す [example application](https://example-jssdk-integ.uidapi.com/) を以下に示します。アプリケーションのドキュメントは、[UID2 SDK Integration Example](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/js-sdk) を参照してください。
 
 :::tip
 ファーストパーティ Cookie とローカルストレージの実装の詳細は 将来変更される可能性があります。潜在的な問題を回避するため、ID 管理には [SDK for JavaScript API Reference](../sdks/sdk-ref-javascript.md#api-reference) に記載されている機能を使用してください。
 :::
 
-SDK for JavaScript を使用しないパブリッシャーのインテグレーションシナリオについては、[Publisher Integration Guide, Server-Side](integration-publisher-server-side.md) を参照してください。
+SDK for JavaScript を使用しないパブリッシャーのインテグレーションシナリオは、[Publisher Integration Guide, Server-Side](integration-publisher-server-side.md) を参照してください。
 
 :::note
 Google Ad Managerを使用していて、セキュアシグナル機能を使用したい場合は、まずこのガイドの手順に従った後、[Google Ad Manager Secure Signals Integration Guide](integration-google-ss.md) の追加手順に従ってください。
@@ -56,7 +56,7 @@ Google Ad Managerを使用していて、セキュアシグナル機能を使用
 
 UID2 とインテグレーションするには、UID2 アカウントが必要です。アカウントを作成していない場合は、まず [Account Setup](../getting-started/gs-account-setup.md) ページの手順に従ってください。
 
-アカウントの初期設定が完了すると、本番環境用の [credentials](../getting-started/gs-credentials.md) を作成し、必要に応じて追加の値を設定できる [UID2 Portal](../portal/portal-overview.md) にアクセスするための手順とリンクが送信されます。詳細については、[Getting Started with the UID2 Portal](../portal/portal-getting-started.md) を参照してください。
+アカウントの初期設定が完了すると、本番環境用の [credentials](../getting-started/gs-credentials.md) を作成し、必要に応じて追加の値を設定できる [UID2 Portal](../portal/portal-overview.md) にアクセスするための手順とリンクが送信されます。詳細は、[Getting Started with the UID2 Portal](../portal/portal-getting-started.md) を参照してください。
 
 Client-Server インテグレーションを行う場合は、UID2 Portal の [API Keys](../portal/api-keys.md) ページで以下の値を設定する必要があります:
 
@@ -64,7 +64,7 @@ Client-Server インテグレーションを行う場合は、UID2 Portal の [A
   - <Link href="../ref-info/glossary-uid#gl-client-secret">Client secret</Link>、参加者と UID2 Servivce のみが知る値です。
 
 :::important
-これらの値を安全に保管することは非常に重要です。詳細については、[Security of API Key and Client Secret](../getting-started/gs-credentials.md#security-of-api-key-and-client-secret) を参照してください。
+これらの値を安全に保管することは非常に重要です。詳細は、[Security of API Key and Client Secret](../getting-started/gs-credentials.md#security-of-api-key-and-client-secret) を参照してください。
 :::
 
 ## Integration Steps 
@@ -97,7 +97,7 @@ Step 1-c でパブリッシャーがユーザーのメールアドレスまた�
 
 最初のステップは、サーバーで UID2 Token を生成することです。
 
-手順や例については、[Server-Side Token Generation](../ref-info/ref-server-side-token-generation.md) を参照してください。
+手順や例は、[Server-Side Token Generation](../ref-info/ref-server-side-token-generation.md) を参照してください。
 
 `Identity` レスポンスを SDK に渡す必要があります。[Sending the UID2 Token to the SDK](#sending-the-uid2-token-to-the-sdk) を参照してください。
 
@@ -132,7 +132,7 @@ SDKは、指定された [callback function](../sdks/sdk-ref-javascript.md#callb
 | 2-a | SDK for JavaScript | 以下に示すように、[getAdvertisingToken() 関数](../sdks/sdk-ref-javascript.md#getadvertisingtoken-string) を使用して、現在のユーザーの Advertising Token を取得します。|
 
 :::note
-UID2 Token が SSP から DSP に送信されるとき、ビッドストリーム内でどのように見えるかの例については、[ビッドストリームで UID2 Token はどのように見えますか？](../getting-started/gs-faqs.md#what-does-a-uid2-token-look-like-in-the-bidstream) を参照してください。
+UID2 Token が SSP から DSP に送信されるとき、ビッドストリーム内でどのように見えるかの例は、[ビッドストリームで UID2 Token はどのように見えますか？](../getting-started/gs-faqs.md#what-does-a-uid2-token-look-like-in-the-bidstream) を参照してください。
 :::
 
 ```html
@@ -177,4 +177,4 @@ UID2 Token が SSP から DSP に送信されるとき、ビッドストリー�
 
 ## FAQs
 
-パブリッシャー向けのよくある質問については、[FAQs for Publishers](../getting-started/gs-faqs.md#faqs-for-publishers) を参照してください。
+パブリッシャー向けのよくある質問は、[FAQs for Publishers](../getting-started/gs-faqs.md#faqs-for-publishers) を参照してください。

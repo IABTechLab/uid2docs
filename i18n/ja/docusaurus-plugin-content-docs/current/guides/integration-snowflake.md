@@ -2,7 +2,7 @@
 title: Snowflake Integration
 sidebar_label: Snowflake
 pagination_label: Snowflake Integration
-description: UID2 Share in Snowflakeを通じたUID2とのインテグレーションに関する情報。
+description: Snowflake の UID2 Share を通じて UID2 とインテグレーションする方法に関する情報。
 hide_table_of_contents: false
 sidebar_position: 04
 displayed_sidebar: docs
@@ -12,19 +12,19 @@ import Link from '@docusaurus/Link';
 
 # Snowflake Integration Guide
 
-[Snowflake](https://www.snowflake.com/)は、パートナーとしてデータを保存し、UID2 フレームワークとインテグレーションできるクラウドデータウェアハウジングソリューションです。Snowflake を使用することで、UID2 では機密性の高い<Link href="../ref-info/glossary-uid#gl-dii">直接識別情報（DII）</Link>を公開せずに、消費者識別子データを安全に共有できます。消費者識別子データについて Operator Web Serbvice に直接クエリを実行するオプションもありますが、Snowflake の UID2 インテグレーションはより円滑な体験を提供します。
+[Snowflake](https://www.snowflake.com/) は、パートナーがデータを保存し、UID2 フレームワークとインテグレーションできるクラウドデータウェアハウジングソリューションです。Snowflake を使用することで、UID2 は、機密性の高い <Link href="../ref-info/glossary-uid#gl-dii">直接識別情報 (DII)</Link> を公開することなく、消費者識別子データを安全に共有できます。オペレーター Web サービスを直接クエリして消費者識別子データを取得するオプションもありますが、Snowflake UID2 インテグレーションはよりシームレスなエクスペリエンスを提供します。
 
 :::important
-このドキュメントは、2025年2月に公開された広告主とデータプロバイダーをインテグレーションした Snowflake マーケットプレイスリスティングを使用する方を対象としています。以前のリスティング（広告主とデータプロバイダー向けに分かれていたもの、つまり2025年2月以前に登録された方）を使用している場合は、[Snowflake Integration Guide (Version Prior to February 2025）](integration-snowflake-previous.md)を参照してください。以前の実装を使用している場合は、更新と機能強化を活用するために新しいバージョンへの移行を勧めます。詳細については、[Changes from Previous Version](#changes-from-previous-version)を参照してください。移行情報については、[Migration Guide](#migration-guide)を参照してください。
+このドキュメントは、最新の [Snowflake Marketplace listing](#snowflake-marketplace-listing) を使用している方を対象としています。以前のバージョンを使用している場合は、[Snowflake Integration Guide (Pre-July 2025)](integration-snowflake-previous.md) を参照してください。以前の実装を使用している場合は、更新と強化を利用するために新しいバージョンへの移行を推奨します。詳細は、[Changes from Previous Version](#changes-from-previous-version) を参照してください。移行情報は、[Migration Guide](#migration-guide) を参照してください。
 :::
 
 ## Snowflake Marketplace Listing
 
-以下のリストは、Snowflake マーケットプレイスで利用可能です：
+以下の UID2 リスティングは、Snowflake Marketplace で利用できます:
 - [Unified ID 2.0: Advertiser and Data Provider Identity Solution](https://app.snowflake.com/marketplace/listing/GZT0ZRYXTN8/unified-id-2-0-unified-id-2-0-advertiser-and-data-provider-identity-solution)
 
 :::tip
-広告主とデータプロバイダー向けのインテグレーションオプションとステップの概要については、[Advertiser/Data Provider Integration Overview](integration-advertiser-dataprovider-overview.md)を参照してください。
+  インテグレーションオプションとステップの概要は、[Advertiser/Data Provider Integration Overview](integration-advertiser-dataprovider-overview.md) を参照してください。
 :::
 
 ## Functionality
@@ -35,145 +35,146 @@ import Link from '@docusaurus/Link';
 | :--- | :--- | :--- | :--- | :--- |
 | &#9989; | &#9989; | &#8212;* | &#8212; | &#9989; |
 
-*DII から 直接 UID2 Token を生成するために Snowflake を使用することはできません。ただし、DII を Raw UID2 に変換し、その Raw UID2 を UID2 Token に暗号化することは可能です。
+*Snowflake を使用して、DII から直接 UID2 Token を生成することはできません。ただし、DII を raw UID2 に変換し、その後 raw UID2 を UID2 Token に暗号化することはできます。
 
 :::note
-<Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link>で UID2 Token を共有するパブリッシャーの場合は、[Tokenized Sharing in the Bidstream](../sharing/sharing-tokenized-from-data-bid-stream.md)を参照してください。
+パブリッシャーで、<Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link> で UID2 Token を共有している場合は、[Tokenized Sharing in the Bidstream](../sharing/sharing-tokenized-from-data-bid-stream.md) を参照してください。
 :::
 
 ## Changes from Previous Version
 
-2025年2月の UID2 Snowflake マーケットプレイスインテグレーションの更新には、いくつかの更新と機能強化が含まれています。主な変更点の一つは、以前の 2 つのデータ共有（広告主向けとデータプロバイダー向け）の機能を組み合わせた単一のリスティングとデータ共有が含まれることです。これにより、すべての参加者のインテグレーションが簡素化されます。
+2025年7月の UID2 Snowflake Marketplace インテグレーションの更新では、UID2 のリフレッシュ管理を簡素化し、ローテーション後 90 日間の以前の raw UID2 にアクセスできる新しい ID マッピング関数が導入されました。
 
 :::note
-これらの変更は、2025年2月以前に公開されたSnowflake関数のバージョンを使用しているコードインテグレーションを想定しています（[nowflake Integration Guide (Version Prior to February 2025)](integration-snowflake-previous.md)を参照）。`FN_T_UID2_IDENTITY_MAP_EMAIL` と `FN_T_UID2_IDENTITY_MAP_EMAIL_HASH` 関数を使用するさらに古いバージョンを使用している場合は、[Migration Guide section in the earlier guide](integration-snowflake-previous.md#migration-guide)の指示に従い、その後再度現在のバージョンにアップグレードすることもできます。ただし、このシナリオでは、このガイドの指示に従い、一度に更新することを勧めます。詳細については、[Migration Guide](#migration-guide)を参照してください。
+これらの変更は、コードインテグレーションが 2025 年 7 月以前に公開された Snowflake 関数のバージョンを使用していることを前提としています: [Snowflake Integration Guide (Pre-July 2025)](integration-snowflake-previous.md) を参照してください。このバージョンへの移行の詳細は、[Migration Guide](#migration-guide) を参照してください。
 :::
 
-以下の表は、以前のバージョンからのSnowflake関数の変更詳細を示しています。
+The following table shows the differences between the old and new identity mapping functions.
 
-| Old function | New function | Fields in old function | Fields in new function | Comments |
+| Function | Version | Return Fields | Key Differences | Comments |
 | :-- | :-- | :-- | :-- | :-- |
-| `FN_T_UID2_IDENTITY_MAP` | `FN_T_IDENTITY_MAP` | `UID2` | `UID` | 詳細は[Map DII](#map-dii)を参照してください。|
-| `FN_T_UID2_ENCRYPT` | `FN_T_ENCRYPT` | `UID2_TOKEN` | `UID_TOKEN` | 詳細は[Encrypt Tokens](#encrypt-tokens)を参照してください。|
-| `FN_T_UID2_DECRYPT` | `FN_T_DECRYPT` | `UID2_TOKEN` | `UID_TOKEN` | 詳細は[Decrypt Tokens](#decrypt-tokens)を参照してください。|
+| `FN_T_IDENTITY_MAP` | 以前のバージョン | `UID`, `BUCKET_ID`, `UNMAPPED` | 基本的な ID マッピングとソルトバケットの追跡 | ソルトバケット監視を使用したレガシー関数。詳細は、[Snowflake Integration Guide (Pre-July 2025)](integration-snowflake-previous.md) を参照してください。|
+| `FN_T_IDENTITY_MAP_V3` | 現在 | `UID`, `PREV_UID`, `REFRESH_FROM`, `UNMAPPED` | 強化された以前の UID2 アクセスとリフレッシュタイムスタンプ | ローテーション後 90 日間の以前の UID2 を返し、ソルトバケット監視の代わりにリフレッシュタイムスタンプを使用します。詳細は、[Map DII](#map-dii) を参照してください。|
 
-以下の表は、以前のバージョンからのSnowflakeビューの変更詳細を示しています。
+### Key Benefits
 
-| Old view | New view | Comments |
-| :-- | :-- | :-- |
-| `UID2_SALT_BUCKETS` | `SALT_BUCKETS` | 詳細は[Monitor for Salt Bucket Rotation and Regenerate Raw UID2s](#monitor-for-salt-bucket-rotation-and-regenerate-raw-uid2s)を参照してください。 |
+このアップデートにより、以下の 2 つの主要な利点が提供されます:
+
+- **Simplified Refresh Management**: `REFRESH_FROM` タイムスタンプに達した UID2 を監視できるようになり、ローテーションのために <Link href="../ref-info/glossary-uid#gl-salt-bucket-id">Salt Bucket</Link> をポーリングする必要がなくなります。
+- **Previous UID2 Access**: ローテーション後 90 日間、以前の raw UID2 にアクセスできるようになり、キャンペーンの測定が可能になります。
 
 ## Workflow Diagram
 
-以下の図と表は、Snowflake における UID2 インテグレーションプロセスの各部分とワークフローを示しています。
+以下の図は、Snowflake における UID2 インテグレーションプロセスの異なる部分とワークフローをです。
 
 ![Snowflake Integration Architecture](images/uid2-snowflake-integration-architecture-drawio.png)
 
-|Partner Snowflake Account|UID2 Snowflake Account|UID2 Core Opt-Out Cloud Setup|
+| Partner Snowflake Account | UID2 Snowflake Account | UID2 Core Opt-Out Cloud Setup |
 | :--- | :--- | :--- |
-| パートナーとして、Snowflake アカウントを設定してデータをホストし、UID2 Share を通じて関数とビューを利用することで UID2 のインテグレーションを行います。 | UID2 インテグレーションは、Snowflake アカウントでホストされており、プライベートテーブルからデータを取得する認証済み関数とビューへのアクセス権を付与します。プライベートテーブルには直接アクセスできません。UID2 Share は、UID2 関連タスクを実行するために必要な重要なデータのみを公開します。<br/>**Note**：プライベートテーブルには<Link href="../ref-info/glossary-uid#gl-salt">ソルト</Link>と暗号化キーを保存しています。いかなる時点でも<Link href="../ref-info/glossary-uid#gl-dii">DII</Link>は保存されません。 | ETL（Extract Transform Load）ジョブが常に UID2 Core/Optout の Snowflake ストレージを、UID2 Operator Web Service を動かす内部データで更新しています。Operator Web Service で使用されるデータは UID2 Share を通じても利用可能です。|
-| 共有関数とビューを使用する場合、トランザクション計算コストは Snowflake に支払います。 | UID2 Snowflake アカウントで保護されているこれらのプライベートテーブルは、UID2 関連タスクを完了するために使用される内部データを保持する UID2 Core/Optout の Snowflake ストレージと自動的に同期します。  | |
+| パートナーとして、データをホストし、UID2 インテグレーションに参加するための Snowflake アカウントをセットアップします。UID2 Share を通じて関数とビューを消費します。 | UID2 インテグレーションは、Snowflake アカウントでホストされ、UID2 関連のタスクを実行するために必要なデータのみを引き出す認可された関数とビューへのアクセスを提供します。プライベートテーブルにはアクセスできません。UID2 Share は、UID2 関連のタスクを実行するために必要な基本的なデータのみを公開します。<br/>**Note**: <Link href="../ref-info/glossary-uid#gl-salt">Salt</Link> と暗号化キーはプライベートテーブルに保存されています。<Link href="../ref-info/glossary-uid#gl-dii">DII</Link> はどの時点でも保存されません。 | ETL (Extract Transform Load) ジョブは、UID2 Core/Optout Snowflake ストレージを常に更新し、UID2 Operator Web サービスを動かす内部データを提供します。Operator Web サービスで使用されるデータは、UID2 Share を通じても利用可能です。 |
+| 共有関数とビューを使用すると、トランザクションコンピューティングコストを Snowflake に支払います。 | これらのプライベートテーブルは、UID2 Snowflake アカウントで保護され、UID2 関連のタスクを完了するために使用される内部データを保持する UID2 Core/Optout Snowflake ストレージと自動的に同期します。 | |
 
 ## Access the UID2 Share
 
-UID2 Share へのアクセスは、[Snowflake Data Marketplace](https://www.snowflake.com/data-marketplace/)の以下のリスティングから利用できます：
+UID2 Share へのアクセスは、[Snowflake Data Marketplace](https://www.snowflake.com/data-marketplace/) の以下のリスティングを通じて利用可能です:
 
 - [Unified ID 2.0: Advertiser and Data Provider Identity Solution](https://app.snowflake.com/marketplace/listing/GZT0ZRYXTN8/unified-id-2-0-unified-id-2-0-advertiser-and-data-provider-identity-solution)
 
 
 :::important
-データをリクエストするには、Snowflakeアカウントで `ACCOUNTADMIN` ロールまたは `CREATE DATABASE` および `IMPORT SHARE` 権限を持つ別のロールを使用する必要があります。
+データのリクエストを行うには、`ACCOUNTADMIN` ロールまたは Snowflake アカウントで `CREATE DATABASE` および `IMPORT SHARE` 権限を持つ他のロールを使用する必要があります。
 :::
 
-UID2 Share へのアクセスをリクエストするには、以下の手順を完了してください：
+UID2 Share へのアクセスをリクエストするには、以下の手順を完了します:
 
-1.	Snowflake Data Marketplace にログインし、UID2 listing を選択します：
+1.  Snowflake Data Marketplace にログインし、UID2 リスティングを選択します:
       - [Unified ID 2.0: Advertiser and Data Provider Identity Solution](https://app.snowflake.com/marketplace/listing/GZT0ZRYXTN8/unified-id-2-0-unified-id-2-0-advertiser-and-data-provider-identity-solution)
-2.	**Personalized Data**セクションで、**Request Data**をクリックします。
+2.	**Personalized Data** セクションで、**Request Data** をクリックします。
 3.	画面の指示に従って、連絡先の詳細やその他の必要な情報を確認して提供します。
-4.	The Trade Desk の既存クライアントである場合は、データリクエストフォームの**Message** 欄にThe Trade Desk から発行されたパートナー ID と広告主 ID を記入します。
+4.	The Trade Desk の既存のクライアントである場合は、データリクエストフォームの **Message** フィールドに The Trade Desk によって発行されたパートナーおよび広告主 ID を含めてください。
 5.	フォームを送信します。
 
-リクエストが受信された後、UID2 Administrator が適切なアクセス手順について連絡します。Snowflake でのデータリクエストの管理の詳細については、[Snowflake documentation](https://docs.snowflake.com/en/user-guide/data-marketplace-consumer.html)を参照してください。
+リクエストが受信されると、UID2 Administrator が適切なアクセス手順について連絡します。Snowflake でのデータリクエストの管理に関する詳細は、[Snowflake documentation](https://docs.snowflake.com/en/user-guide/data-marketplace-consumer.html)を参照してください。
 
 ## Shared Objects
 
-次の関数を使用して、DII を UID2 にマッピングできます：
+DII を UID2 にマッピングするには、以下の関数を使用します:
 
-- `FN_T_IDENTITY_MAP`（詳細は[Map DII](#map-dii)を参照）
+- `FN_T_IDENTITY_MAP_V3` (詳細は[Map DII](#map-dii)を参照してください)
 
-以下の関数は `FN_T_IDENTITY_MAP` に代わって非推奨となっています。以前の Snowflake バージョンを使用している場合は引き続き使用できますが（[Snowflake Integration Guide (Version Prior to February 2025)](integration-snowflake-previous.md)を参照）、できるだけ早くアップグレードすることを勧めます：
+以下の関数は `FN_T_IDENTITY_MAP_V3` に置き換えられ、非推奨となっています。以前の Snowflake バージョンを使用している場合は引き続き使用できますが、できるだけ早くアップグレードすることをお勧めします（詳細は [Snowflake Integration Guide (Pre-July 2025)](integration-snowflake-previous.md) を参照してください）:
 
-- `FN_T_UID2_IDENTITY_MAP`（非推奨）
+- `FN_T_IDENTITY_MAP` (deprecated)
 
 :::note
-非推奨の関数を使用していて、新しい関数への移行に助けが必要な場合は、[Migration Guide](#migration-guide)を参照してください。
+非推奨の関数を使用していて、新しい関数への移行についてのヘルプが必要な場合は、[Migration Guide](#migration-guide)を参照してください。
 :::
 
-再生成が必要なUID2を識別するには、UID2 Share の `SALT_BUCKETS` ビューを使用します。詳細は、[Monitor for Salt Bucket Rotation and Regenerate Raw UID2s](#monitor-for-salt-bucket-rotation-and-regenerate-raw-uid2s)を参照してください。
+再生成が必要な UID2 を特定するには、`FN_T_IDENTITY_MAP_V3` 関数から返される `REFRESH_FROM` タイムスタンプを監視します。詳細は [Monitor Raw UID2 Refresh and Regenerate Raw UID2s](#monitor-raw-uid2-refresh-and-regenerate-raw-uid2s) を参照してください。
 
-UID2共有参加者向けに、以下の関数も利用可能です：
-- `FN_T_ENCRYPT`（[Encrypt Tokens](#encrypt-tokens)を参照）
-- `FN_T_DECRYPT`（[Decrypt Tokens](#decrypt-tokens)を参照）
+以下の関数は、UID2 Share 参加者向けに利用可能です:
+- `FN_T_ENCRYPT` (See [Encrypt Tokens](#encrypt-tokens))
+- `FN_T_DECRYPT` (See [Decrypt Tokens](#decrypt-tokens))
 
-詳細については、[Usage for UID2 Sharers](#usage-for-uid2-sharers)を参照してください。
+詳細は、[Usage for UID2 Sharers](#usage-for-uid2-sharers)を参照してください。
 
 ### Database and Schema Names
 
-以下のセクションには各ソリューションのクエリ例が含まれており、データベースとスキーマ名の変数を除いて同一です：
+以下のセクションは、各ソリューションのクエリ例を含みます。これらは、データベース名とスキーマ名の変数を除いて同一です:
 
 ```
 {DATABASE_NAME}.{SCHEMA_NAME}
 ```
 
-例：
+例:
 
 ```sql
-select UID, BUCKET_ID, UNMAPPED from table({DATABASE_NAME}.{SCHEMA_NAME}.FN_T_IDENTITY_MAP('validate@example.com', 'email'));
+select UID, PREV_UID, REFRESH_FROM, UNMAPPED from table({DATABASE_NAME}.{SCHEMA_NAME}.FN_T_IDENTITY_MAP_V3('validate@example.com', 'email'));
 ```
 
-すべてのクエリ例では、各名前変数に以下のデフォルト値が使用されています：
+すべてのクエリ例は、各名前変数に対して以下のデフォルト値を使用します:
 
 | Variable | Default Value | Comments |
 | :--- | :--- | :--- |
-| `{DATABASE_NAME}` | `UID2_PROD_UID_SH` | 必要に応じて、選択した UID2 Share へのアクセス権が付与された後に新しいデータベースを作成する際にデフォルトのデータベース名を変更できます。 |
-| `{SCHEMA_NAME}`   | `UID` | これは不変の名前です。 |
+| `{DATABASE_NAME}` | `UID2_PROD_UID_SH` | 必要に応じて、選択した UID2 Share へのアクセスが付与された後に新しいデータベースを作成する際に、デフォルトのデータベース名を変更できます。 |
+| `{SCHEMA_NAME}` | `UID` | これは変更できません。 |
 
 ### Map DII
 
-すべてのタイプの<Link href="../ref-info/glossary-uid#gl-dii">DII</Link>をマッピングするには、`FN_T_IDENTITY_MAP` 関数を使用します。
+すべての種類の <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> をマッピングするには、`FN_T_IDENTITY_MAP_V3` 関数を使用します。
 
-DII がメールアドレスの場合、サービスは UID2 の[Email Address Normalization](../getting-started/gs-normalization-encoding.md#email-address-normalization)ルールを使用してデータを正規化します。
+DII がメールアドレスの場合、サービスは UID2 [Email Address Normalization](../getting-started/gs-normalization-encoding.md#email-address-normalization) ルールを使用してデータを正規化します。
 
-DII が電話番号の場合、UID2 の[Phone Number Normalization](../getting-started/gs-normalization-encoding.md#phone-number-normalization)ルールを使用してサービスに送信する前に正規化する必要があります。
+DII が電話番号の場合、UID2 [Phone Number Normalization](../getting-started/gs-normalization-encoding.md#phone-number-normalization) ルールを使用して、サービスに送信する前に正規化する必要があります。
 
 | Argument | Data Type | Description |
 | :--- | :--- | :--- |
-| `INPUT`      | varchar(256) | UID2 とソルトバケット ID にマッピングする DII。 |
-| `INPUT_TYPE` | varchar(256) | マッピングする DII のタイプ。許可される値：`email`、`email_hash`、`phone`、`phone_hash`。 |
+| `INPUT` | varchar(256) | UID2 にマップする DII、リフレッシュ タイムスタンプ、およびローテーション後 90 日間の前の UID2。 |
+| `INPUT_TYPE` | varchar(256) | マップする DII のタイプ。許可される値: `email`、`email_hash`、`phone`、 `phone_hash`。 |
 
-成功したクエリは、指定されたDIIに対して以下の情報を返します。
+指定した DII に対して、成功したクエリは以下の情報を返します。
 
 | Column Name | Data Type | Description |
 | :--- | :--- | :--- |
-| `UID` | TEXT | 値は以下のいずれかです：<ul><li>DII が正常にマッピングされた場合： DII に関連付けられた UID2。</li><li>DII が正常にマッピングされなかった場合：`NULL`。</li></ul> |
-| `BUCKET_ID` | TEXT | 値は以下のいずれかです：<ul><li> DII が正常にマッピングされた場合：UID2 を生成するために使用された<Link href="../ref-info/glossary-uid#gl-salt-bucket">ソルトバケット</Link>の ID。この ID は `SALT_BUCKETS` ビューのバケット ID にマッピングされます。</li><li>DII が正常にマッピングされなかった場合：`NULL`。</li></ul> |
-| `UNMAPPED`  | TEXT | 値は以下のいずれかです：<ul><li>DII が正常にマッピングされた場合：`NULL`。</li><li>DII が正常にマッピングされなかった場合：識別子がマッピングされなかった理由：`OPTOUT`、`INVALID IDENTIFIER`、または`INVALID INPUT TYPE`。<br/>詳細については、[Values for the UNMAPPED Column](#values-for-the-unmapped-column)を参照してください。</li></ul> |
+| `UID` | TEXT | 値は次のいずれかです:<ul><li>DII が正常にマッピングされた: DII に関連付けられた UID2。</li><li>DII が正常にマッピングされなかった: `NULL`。</li></ul> |
+| `PREV_UID` | TEXT | 値は次のいずれかです:<ul><li>DII が正常にマッピングされ、以前の UID2 が存在する: この DII の以前の UID2。以前の UID2 はローテーション後 90 日間利用可能です。</li><li>以前の UID2 が存在しないか、DII が正常にマッピングされなかった: `NULL`。</li></ul> |
+| `REFRESH_FROM` | TIMESTAMP | 値は次のいずれかです:<ul><li>DII が正常にマッピングされた: この UID2 を更新する必要がある時刻 (エポック秒) を示します。</li><li>DII が正常にマッピングされなかった: `NULL`。</li></ul> |
+| `UNMAPPED` | TEXT | 値は次のいずれかです:<ul><li>DII が正常にマッピングされた: `NULL`。</li><li>DII が正常にマッピングされなかった: 識別子がマッピングされなかった理由: `OPTOUT`、`INVALID IDENTIFIER`、または `INVALID INPUT TYPE`。<br/>詳細は、[UNMAPPED 列の値](#values-for-the-unmapped-column)を参照してください。</li></ul> |
 
 #### Values for the UNMAPPED Column
 
-以下の表は、`UNMAPPED` カラムの可能な値を示しています。
+以下の表は、`UNMAPPED` 列の可能な値です。
 
 | Value | Meaning |
 | :-- | :-- |
-| `NULL` | DIIが正常にマッピングされました。 |
+| `NULL` | DII が正常にマッピングされまし。 |
 | `OPTOUT` | ユーザーがオプトアウトしています。 |
 | `INVALID IDENTIFIER` | メールアドレスまたは電話番号が無効です。 |
-| `INVALID INPUT TYPE` | `INPUT_TYPE` の値が無効です。INPUT_TYPEの有効な値は：`email`、`email_hash`、`phone`、`phone_hash` です。 |
+| `INVALID INPUT_TYPE` | `INPUT_TYPE` の値が無効です。`INPUT_TYPE` の有効な値は、`email`、`email_hash`、`phone`、`phone_hash` です。 |
 
 #### Examples
 
-このセクションのマッピングリクエスト例：
+以下はマッピングリクエストの例です:
 
 - [Single Unhashed Email](#mapping-request-example---single-unhashed-email)
 - [Multiple Unhashed Emails](#mapping-request-example---multiple-unhashed-emails)
@@ -185,289 +186,291 @@ DII が電話番号の場合、UID2 の[Phone Number Normalization](../getting-s
 - [Multiple Hashed Phone Numbers](#mapping-request-example---multiple-hashed-phone-numbers)
 
 :::note
-これらの例の入力および出力データは架空のものであり、説明のためだけのものです。提供されている値は実際の値ではありません。
+これらの例の入力および出力データは架空のものであり、説明を目的としています。提供されている値は実際の値ではありません。
 :::
 
 #### Mapping Request Example - Single Unhashed Email
 
-以下のクエリは、[Default database and schema names](#database-and-schema-names)を使用して、単一のメールアドレスをマッピングする方法を示しています。
+以下のクエリは、[default database and schema names](#database-and-schema-names)を使用して、単一のメールアドレスをマッピングする方法です。
 
 ```sql
-select UID, BUCKET_ID, UNMAPPED from table(UID2_PROD_UID_SH.UID.FN_T_IDENTITY_MAP('validate@example.com', 'email'));
+select UID, PREV_UID, REFRESH_FROM, UNMAPPED from table(UID2_PROD_UID_SH.UID.FN_T_IDENTITY_MAP_V3('validate@example.com', 'email'));
 ```
 
-単一のメールに対するクエリ結果：
+単一のメールアドレスのクエリ結果は以下の通りです:
 
 ```
-+----------------------------------------------+------------+----------+
-| UID                                          | BUCKET_ID  | UNMAPPED |
-+----------------------------------------------+------------+----------+
-| 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | ad1ANEmVZ  | NULL     |
-+----------------------------------------------+------------+----------+
++----------------------------------------------+--------------------------------------------------+--------------+----------+
+| UID                                          | PREV_UID                                         | REFRESH_FROM | UNMAPPED |
++----------------------------------------------+--------------------------------------------------+--------------+----------+
+| 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | vP9zK2mL7fR4tY8qN3wE6xB0dH5jA1sC+nI/oGuMeVa=     | 1735689600   | NULL     |
++----------------------------------------------+--------------------------------------------------+--------------+----------+
 ```
 
 #### Mapping Request Example - Multiple Unhashed Emails
 
-以下のクエリは、[Default database and schema names](#database-and-schema-names)を使用して、複数のメールアドレスをマッピングする方法を示しています。
+以下のクエリは、[default database and schema names](#database-and-schema-names)を使用して、複数のメールアドレスをマッピングする方法です。
 
 ```sql
-select a.ID, a.EMAIL, m.UID, m.BUCKET_ID, m.UNMAPPED from AUDIENCE a LEFT JOIN(
-    select ID, t.* from AUDIENCE, lateral UID2_PROD_UID_SH.UID.FN_T_IDENTITY_MAP(EMAIL, 'email') t) m
+select a.ID, a.EMAIL, m.UID, m.PREV_UID, m.REFRESH_FROM, m.UNMAPPED from AUDIENCE a LEFT JOIN(
+    select ID, t.* from AUDIENCE, lateral UID2_PROD_UID_SH.UID.FN_T_IDENTITY_MAP_V3(EMAIL, 'email') t) m
     on a.ID=m.ID;
 ```
 
-複数のメールに対するクエリ結果：
+複数のメールアドレスのクエリ結果は以下の通りです:
 
-以下の表は、`NULL` または不適切にフォーマットされたメールの `NULL` 値を含む、応答の各項目を識別しています。
+以下の表は、レスポンス内の各項目を識別し、`NULL` または不正な形式のメールアドレスに対する `NULL` 値を含みます。
 
-```sh
-+----+----------------------+----------------------------------------------+------------+--------------------+
-| ID | EMAIL                | UID                                          | BUCKET_ID  | UNMAPPED           |
-+----+----------------------+----------------------------------------------+------------+--------------------+
-|  1 | validate@example.com | 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | ad1ANEmVZ  | NULL               |
-|  2 | test@uidapi.com      | IbW4n6LIvtDj/8fCESlU0QG9K/fH63UdcTkJpAG8fIQ= | a30od4mNRd | NULL               |
-|  3 | invalid-email        | NULL                                         | NULL       | INVALID IDENTIFIER |
-|  4 | NULL                 | NULL                                         | NULL       | INVALID IDENTIFIER |
-+----+----------------------+----------------------------------------------+------------+--------------------+
+```
++----+----------------------+----------------------------------------------+----------------------------------------------+--------------+--------------------+
+| ID | EMAIL                | UID                                          | PREV_UID                                     | REFRESH_FROM | UNMAPPED           |
++----+----------------------+----------------------------------------------+----------------------------------------------+--------------+--------------------+
+|  1 | validate@example.com | 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | vP9zK2mL7fR4tY8qN3wE6xB0dH5jA1sC+nI/oGuMeVa= | 1735689600   | NULL               |
+|  2 | test@uidapi.com      | IbW4n6LIvtDj/8fCESlU0QG9K/fH63UdcTkJpAG8fIQ= | NULL                                         | 1735689600   | NULL               |
+|  3 | optout@example.com   | NULL                                         | NULL                                         | NULL         | OPTOUT             |
+|  4 | invalid-email        | NULL                                         | NULL                                         | NULL         | INVALID IDENTIFIER |
+|  5 | NULL                 | NULL                                         | NULL                                         | NULL         | INVALID IDENTIFIER |
++----+----------------------+----------------------------------------------+----------------------------------------------+--------------+--------------------+
 ```
 
 #### Mapping Request Example - Single Unhashed Phone Number
 
-以下のクエリは、[Default database and schema names](#database-and-schema-names)を使用して、電話番号をマッピングする方法を示しています。
+以下のクエリは、[default database and schema names](#database-and-schema-names)を使用して、単一の電話番号をマッピングする方法です。
 
-UID2の[Phone Number Normalization](../getting-started/gs-normalization-encoding.md#phone-number-normalization)ルールを使用して電話番号を正規化する必要があります。
+電話番号は、UID2 [Phone Number Normalization](../getting-started/gs-normalization-encoding.md#phone-number-normalization) ルールを使用して正規化する必要があります。
 
 ```sql
-select UID, BUCKET_ID, UNMAPPED from table(UID2_PROD_UID_SH.UID.FN_T_IDENTITY_MAP('+12345678901', 'phone'));
+select UID, PREV_UID, REFRESH_FROM, UNMAPPED from table(UID2_PROD_UID_SH.UID.FN_T_IDENTITY_MAP_V3('+12345678901', 'phone'));
 ```
 
-単一の電話番号に対するクエリ結果：
+単一の電話番号のクエリ結果は以下の通りです:
 
 ```
-+----------------------------------------------+------------+----------+
-| UID                                          | BUCKET_ID  | UNMAPPED |
-+----------------------------------------------+------------+----------+
-| 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | ad1ANEmVZ  | NULL     |
-+----------------------------------------------+------------+----------+
++----------------------------------------------+----------+--------------+----------+
+| UID                                          | PREV_UID | REFRESH_FROM | UNMAPPED |
++----------------------------------------------+----------+--------------+----------+
+| 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | NULL     | 1735689600   | NULL     |
++----------------------------------------------+----------+--------------+----------+
 ```
 
 #### Mapping Request Example - Multiple Unhashed Phone Numbers
 
-以下のクエリは、[Default database and schema names](#database-and-schema-names)を使用して、複数の電話番号をマッピングする方法を示しています。
+以下のクエリは、[default database and schema names](#database-and-schema-names)を使用して、複数の電話番号をマッピングする方法です。
 
-UID2の[Phone Number Normalization](../getting-started/gs-normalization-encoding.md#phone-number-normalization)ルールを使用して電話番号を正規化する必要があります。
+電話番号は、UID2 [Phone Number Normalization](../getting-started/gs-normalization-encoding.md#phone-number-normalization) ルールを使用して正規化する必要があります。
 
 ```sql
-select a.ID, a.PHONE, m.UID, m.BUCKET_ID, m.UNMAPPED from AUDIENCE a LEFT JOIN(
-    select ID, t.* from AUDIENCE, lateral UID2_PROD_UID_SH.UID.FN_T_IDENTITY_MAP(PHONE, 'phone') t) m
+select a.ID, a.PHONE, m.UID, m.PREV_UID, m.REFRESH_FROM, m.UNMAPPED from AUDIENCE a LEFT JOIN(
+    select ID, t.* from AUDIENCE, lateral UID2_PROD_UID_SH.UID.FN_T_IDENTITY_MAP_V3(PHONE, 'phone') t) m
     on a.ID=m.ID;
 ```
 
-複数の電話番号に対するクエリ結果：
+複数の電話番号のクエリ結果は以下の通りです:
 
-以下の表は、`NULL` または無効な電話番号の `NULL` 値を含む、応答の各項目を識別しています。
+以下の表は、レスポンス内の各項目を識別し、`NULL` または不正な形式の電話番号に対する `NULL` 値を含みます。
 
 ```
-+----+--------------+----------------------------------------------+------------+--------------------+
-| ID | PHONE        | UID                                          | BUCKET_ID  | UNMAPPED           |
-+----+--------------+----------------------------------------------+------------+--------------------+
-|  1 | +12345678901 | 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | ad1ANEmVZ  | NULL               |
-|  2 | +61491570006 | IbW4n6LIvtDj/8fCESlU0QG9K/fH63UdcTkJpAG8fIQ= | a30od4mNRd | NULL               |
-|  3 | 1234         | NULL                                         | NULL       | INVALID IDENTIFIER |
-|  4 | NULL         | NULL                                         | NULL       | INVALID IDENTIFIER |
-+----+--------------+----------------------------------------------+------------+--------------------+
++----+--------------+----------------------------------------------+----------------------------------------------+--------------+--------------------+
+| ID | PHONE        | UID                                          | PREV_UID                                     | REFRESH_FROM | UNMAPPED           |
++----+--------------+----------------------------------------------+----------------------------------------------+--------------+--------------------+
+|  1 | +12345678901 | 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | vP9zK2mL7fR4tY8qN3wE6xB0dH5jA1sC+nI/oGuMeVa= | 1735689600   | NULL               |
+|  2 | +61491570006 | IbW4n6LIvtDj/8fCESlU0QG9K/fH63UdcTkJpAG8fIQ= | NULL                                         | 1735689600   | NULL               |
+|  3 | +56789123001 | NULL                                         | NULL                                         | NULL         | OPTOUT             |
+|  4 | 1234         | NULL                                         | NULL                                         | NULL         | INVALID IDENTIFIER |
+|  5 | NULL         | NULL                                         | NULL                                         | NULL         | INVALID IDENTIFIER |
++----+--------------+----------------------------------------------+----------------------------------------------+--------------+--------------------+
 ```
 
 #### Mapping Request Example - Single Hashed Email
 
-以下のクエリは、[Default database and schema names](#database-and-schema-names)を使用して、単一のメールアドレスハッシュをマッピングする方法を示しています。
+以下のクエリは、[default database and schema names](#database-and-schema-names)を使用して、単一のメールアドレスハッシュをマッピングする方法です。
 
 ```sql
-select UID, BUCKET_ID, UNMAPPED from table(UID2_PROD_UID_SH.UID.FN_T_IDENTITY_MAP(BASE64_ENCODE(SHA2_BINARY('validate@example.com', 256)), 'email_hash'));
+select UID, PREV_UID, REFRESH_FROM, UNMAPPED from table(UID2_PROD_UID_SH.UID.FN_T_IDENTITY_MAP_V3(BASE64_ENCODE(SHA2_BINARY('validate@example.com', 256)), 'email_hash'));
 ```
 
-単一のハッシュ化メールに対するクエリ結果：
+単一のメールアドレスハッシュのクエリ結果は以下の通りです:
 
 ```
-+----------------------------------------------+------------+----------+
-| UID                                          | BUCKET_ID  | UNMAPPED |
-+----------------------------------------------+------------+----------+
-| 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | ad1ANEmVZ  | NULL     |
-+----------------------------------------------+------------+----------+
++----------------------------------------------+----------------------------------------------+--------------+----------+
+| UID                                          | PREV_UID                                     | REFRESH_FROM | UNMAPPED |
++----------------------------------------------+----------------------------------------------+--------------+----------+
+| 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | vP9zK2mL7fR4tY8qN3wE6xB0dH5jA1sC+nI/oGuMeVa= | 1735689600   | NULL     |
++----------------------------------------------+----------------------------------------------+--------------+----------+
 ```
 
 #### Mapping Request Example - Multiple Hashed Emails
 
-以下のクエリは、[Default database and schema names](#database-and-schema-names)を使用して、複数のメールアドレスハッシュをマッピングする方法を示しています。
+以下のクエリは、[default database and schema names](#database-and-schema-names)を使用して、複数のメールアドレスハッシュをマッピングする方法をです
 
 ```sql
-select a.ID, a.EMAIL_HASH, m.UID, m.BUCKET_ID, m.UNMAPPED from AUDIENCE a LEFT JOIN(
-    select ID, t.* from AUDIENCE, lateral UID2_PROD_UID_SH.UID.FN_T_IDENTITY_MAP(EMAIL_HASH, 'email_hash') t) m
+select a.ID, a.EMAIL_HASH, m.UID, m.PREV_UID, m.REFRESH_FROM, m.UNMAPPED from AUDIENCE a LEFT JOIN(
+    select ID, t.* from AUDIENCE, lateral UID2_PROD_UID_SH.UID.FN_T_IDENTITY_MAP_V3(EMAIL_HASH, 'email_hash') t) m
     on a.ID=m.ID;
 ```
 
-複数のハッシュ化メールに対するクエリ結果：
+複数のメールアドレスハッシュのクエリ結果は以下の通りです:
 
-以下の表は、`NULL` ハッシュの `NULL` 値を含む、応答の各項目を識別しています。
+以下の表は、レスポンス内の各項目を識別し、`NULL` または不正な形式のメールアドレスハッシュに対する `NULL` 値を含みます。
 
 ```
-+----+----------------------------------------------+----------------------------------------------+------------+--------------------+
-| ID | EMAIL_HASH                                   | UID                                          | BUCKET_ID  | UNMAPPED           |
-+----+----------------------------------------------+----------------------------------------------+------------+--------------------+
-|  1 | LdhtUlMQ58ZZy5YUqGPRQw5xUMS5dXG5ocJHYJHbAKI= | 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | ad1ANEmVZ  | NULL               |
-|  2 | NULL                                         | NULL                                         | NULL       | INVALID IDENTIFIER |
-|  3 | /XJSTajB68SCUyuc3ePyxSLNhxrMKvJcjndq8TuwW5g= | IbW4n6LIvtDj/8fCESlU0QG9K/fH63UdcTkJpAG8fIQ= | a30od4mNRd | NULL               |
-+----+----------------------------------------------+----------------------------------------------+------------+--------------------+
++----+----------------------------------------------+----------------------------------------------+----------------------------------------------+--------------+--------------------+
+| ID | EMAIL_HASH                                   | UID                                          | PREV_UID                                     | REFRESH_FROM | UNMAPPED           |
++----+----------------------------------------------+----------------------------------------------+----------------------------------------------+--------------+--------------------+
+|  1 | LdhtUlMQ58ZZy5YUqGPRQw5xUMS5dXG5ocJHYJHbAKI= | 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | vP9zK2mL7fR4tY8qN3wE6xB0dH5jA1sC+nI/oGuMeVa= | 1735689600   | NULL               |
+|  2 | /XJSTajB68SCUyuc3ePyxSLNhxrMKvJcjndq8TuwW5g= | IbW4n6LIvtDj/8fCESlU0QG9K/fH63UdcTkJpAG8fIQ= | NULL                                         | 1735689600   | NULL               |
+|  2 | UebesrNN0bQkm/QR7Jx7eav+UDXN5Gbq3zs1fLBMRy0= | NULL                                         | NULL                                         | 1735689600   | OPTOUT             |
+|  4 | NULL                                         | NULL                                         | NULL                                         | NULL         | INVALID IDENTIFIER |
++----+----------------------------------------------+----------------------------------------------+----------------------------------------------+--------------+--------------------+
 ```
 
 #### Mapping Request Example - Single Hashed Phone Number
 
-以下のクエリは、[Default database and schema names](#database-and-schema-names)を使用して、単一の電話番号ハッシュをマッピングする方法を示しています。
+以下のクエリは、[default database and schema names](#database-and-schema-names)を使用して、単一の電話番号ハッシュをマッピングする方法です。
 
 ```sql
-select UID, BUCKET_ID, UNMAPPED from table(UID2_PROD_UID_SH.UID.FN_T_IDENTITY_MAP(BASE64_ENCODE(SHA2_BINARY('+12345678901', 256)), 'phone_hash'));
+select UID, PREV_UID, REFRESH_FROM, UNMAPPED from table(UID2_PROD_UID_SH.UID.FN_T_IDENTITY_MAP_V3(BASE64_ENCODE(SHA2_BINARY('+12345678901', 256)), 'phone_hash'));
 ```
 
-単一のハッシュ化電話番号に対するクエリ結果：
+単一の電話番号ハッシュのクエリ結果は以下の通りです:
 
 ```
-+----------------------------------------------+------------+----------+
-| UID                                          | BUCKET_ID  | UNMAPPED |
-+----------------------------------------------+------------+----------+
-| 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | ad1ANEmVZ  | NULL     |
-+----------------------------------------------+------------+----------+
++----------------------------------------------+----------------------------------------------+--------------+----------+
+| UID                                          | PREV_UID                                     | REFRESH_FROM | UNMAPPED |
++----------------------------------------------+----------------------------------------------+--------------+----------+
+| 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | vP9zK2mL7fR4tY8qN3wE6xB0dH5jA1sC+nI/oGuMeVa= | 1735689600   | NULL     |
++----------------------------------------------+----------------------------------------------+--------------+----------+
 ```
 
 #### Mapping Request Example - Multiple Hashed Phone Numbers
 
-以下のクエリは、[Default database and schema names](#database-and-schema-names)を使用して、複数の電話番号ハッシュをマッピングする方法を示しています。
+以下のクエリは、[default database and schema names](#database-and-schema-names)を使用して、複数の電話番号ハッシュをマッピングする方法です。
 
 ```sql
-select a.ID, a.PHONE_HASH, m.UID, m.BUCKET_ID, m.UNMAPPED from AUDIENCE a LEFT JOIN(
-    select ID, t.* from AUDIENCE, lateral UID2_PROD_UID_SH.UID.FN_T_IDENTITY_MAP(PHONE_HASH, 'phone_hash') t) m
+select a.ID, a.PHONE_HASH, m.UID, m.PREV_UID, m.REFRESH_FROM, m.UNMAPPED from AUDIENCE a LEFT JOIN(
+    select ID, t.* from AUDIENCE, lateral UID2_PROD_UID_SH.UID.FN_T_IDENTITY_MAP_V3(PHONE_HASH, 'phone_hash') t) m
     on a.ID=m.ID;
 ```
 
-複数のハッシュ化電話番号に対するクエリ結果：
+複数の電話番号ハッシュのクエリ結果は以下の通りです:
 
-以下の表は、`NULL` ハッシュの `NULL` 値を含む、応答の各項目を識別しています。
+以下の表は、レスポンス内の各項目を識別し、`NULL` または不正な形式の電話番号ハッシュに対する `NULL` 値を含みます。
 
 ```
-+----+----------------------------------------------+----------------------------------------------+------------+--------------------+
-| ID | PHONE_HASH                                   | UID                                          | BUCKET_ID  | UNMAPPED           |
-+----+----------------------------------------------+----------------------------------------------+------------+--------------------+
-|  1 | LdhtUlMQ58ZZy5YUqGPRQw5xUMS5dXG5ocJHYJHbAKI= | 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | ad1ANEmVZ  | NULL               |
-|  2 | NULL                                         | NULL                                         | NULL       | INVALID IDENTIFIER |
-|  3 | /XJSTajB68SCUyuc3ePyxSLNhxrMKvJcjndq8TuwW5g= | IbW4n6LIvtDj/8fCESlU0QG9K/fH63UdcTkJpAG8fIQ= | a30od4mNRd | NULL               |
-+----+----------------------------------------------+----------------------------------------------+------------+--------------------+
++----+----------------------------------------------+----------------------------------------------+----------------------------------------------+--------------+--------------------+
+| ID | PHONE_HASH                                   | UID                                          | PREV_UID                                     | REFRESH_FROM | UNMAPPED           |
++----+----------------------------------------------+----------------------------------------------+----------------------------------------------+--------------+--------------------+
+|  1 | LdhtUlMQ58ZZy5YUqGPRQw5xUMS5dXG5ocJHYJHbAKI= | 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | vP9zK2mL7fR4tY8qN3wE6xB0dH5jA1sC+nI/oGuMeVa= | 1735689600   | NULL               |
+|  2 | /XJSTajB68SCUyuc3ePyxSLNhxrMKvJcjndq8TuwW5g= | IbW4n6LIvtDj/8fCESlU0QG9K/fH63UdcTkJpAG8fIQ= | NULL                                         | 1735689600   | NULL               |
+|  2 | UebesrNN0bQkm/QR7Jx7eav+UDXN5Gbq3zs1fLBMRy0= | NULL                                         | NULL                                         | 1735689600   | OPTOUT             |
+|  4 | NULL                                         | NULL                                         | NULL                                         | NULL         | INVALID IDENTIFIER |
++----+----------------------------------------------+----------------------------------------------+----------------------------------------------+--------------+--------------------+
 ```
 
-### Monitor for Salt Bucket Rotation and Regenerate Raw UID2s
+### Monitor Raw UID2 Refresh and Regenerate Raw UID2s
 
-`SALT_BUCKETS` ビュークエリは、Raw UID2 のソルトバケットが最後に更新された日時を返します。ソルト値は UID2 を生成する際に使用されます。バケット内のソルトが更新されると、以前に生成された UID2 は古くなり、同じユーザーに対して他の当事者が生成した UID2 と一致しなくなります。
+`FN_T_IDENTITY_MAP_V3` 関数は、各 UID2 をリフレッシュする必要がある時刻を示すリフレッシュタイムスタンプ (`REFRESH_FROM`) を返します。
 
-どの UID2 が再生成を必要とするかを判断するには、それらが生成された時のタイムスタンプをソルトバケット更新の最新のタイムスタンプと比較します。
+UID2 のリフレッシュが必要なものを特定するには、関数から返された `REFRESH_FROM` タイムスタンプを現在の時刻と比較します。
 
 | Column Name | Data Type | Description |
 | :--- | :--- | :--- |
-| `BUCKET_ID` | TEXT | ソルトバケットの ID。この ID は ID マップ関数によって返される `BUCKET_ID` と並行しています。`BUCKET_ID` をキーとして使用して、関数呼び出し結果とこのビュー呼び出しの結果の間で結合クエリを行います。 |
-| `LAST_SALT_UPDATE_UTC` | TIMESTAMP_NTZ | バケット内のソルトが最後に更新された時間。この値はUTCで表現されます。 |
+| `UID` | TEXT | UID2 に関連付けられた DII です。これは、アイデンティティマッピング関数によって返された現在の UID2 値です。 |
+| `REFRESH_FROM` | TIMESTAMP | この UID2 をリフレッシュする必要がある時刻を示すタイムスタンプ (エポック秒) です。この値を現在の時刻と比較して、再生成が必要かどうかを判断します。 |
 
-以下の例は、ソルトバケットが更新されたため再生成が必要なテーブル内のUID2を見つけるために使用される入力テーブルとクエリを示しています。
+以下の例は、入力テーブルと、リフレッシュ時間が到達したために再生成する必要がある UID2 をテーブル内で見つけるために使用されるクエリです。
 
 #### Targeted Input Table
 
-この例のシナリオでは、広告主/データプロバイダーは `AUDIENCE_WITH_UID2` という名前のテーブルに UID2 を保存しています。最後のカラム `LAST_UID2_UPDATE_UTC` は、UID2 が生成された時間を記録するために使用されます。UID2 が生成されていない場合、値は3番目の例に示すように `NULL` です。広告主/データプロバイダーはこのタイムスタンプ値を使用して、どの UID2 を再生成する必要があるかを判断できます。
+この例では、広告主/データプロバイダーは、`AUDIENCE_WITH_UID2` という名前のテーブルに UID2 を保存しています。`REFRESH_FROM` 列には、各 UID2 をリフレッシュする必要があるタイムスタンプが含まれています。UID2 が生成されていない場合、値は `NULL` です（3 番目の例を参照）。広告主/データプロバイダーは、これらのタイムスタンプを現在の時刻と比較して、どの UID2 を再生成する必要があるかを判断できます。
 
 ```sql
 select * from AUDIENCE_WITH_UID2;
 ```
 ```
-+----+----------------------+----------------------------------------------+------------+-------------------------+
-| ID | EMAIL                | UID2                                         | BUCKET_ID  | LAST_UID2_UPDATE_UTC    |
-+----+----------------------+----------------------------------------------+------------+-------------------------+
-|  1 | validate@example.com | 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | ad1ANEmVZ  | 2025-02-01 00:00:00.000 |
-|  2 | test1@uidapi.com     | Q4A5ZBuBCYfuV3Wd8Fdsx2+i33v7jyFcQbcMG/LH4eM= | ad1ANEmVZ  | 2025-02-03 00:00:00.000 |
-|  3 | test2@uidapi.com     | NULL                                         | NULL       | NULL                    |
-+----+----------------------+----------------------------------------------+------------+-------------------------+
++----+----------------------+----------------------------------------------+--------------+
+| ID | EMAIL                | UID2                                         | REFRESH_FROM |
++----+----------------------+----------------------------------------------+--------------+
+|  1 | validate@example.com | 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | 1735689600   |
+|  2 | test1@uidapi.com     | Q4A5ZBuBCYfuV3Wd8Fdsx2+i33v7jyFcQbcMG/LH4eM= | 1735776000   |
+|  3 | test2@uidapi.com     | NULL                                         | NULL         |
++----+----------------------+----------------------------------------------+--------------+
 ```
 
-欠落または古くなったUID2を見つけるには、[Default database and schema names](#database-and-schema-names)を使用した以下のクエリ例を使用します。
+欠落または期限切れの UID2 を見つけるには、次のクエリ例を使用します。
 
 ```sql
-select a.*, b.LAST_SALT_UPDATE_UTC
-    from AUDIENCE_WITH_UID2 a LEFT OUTER JOIN UID2_PROD_UID_SH.UID.SALT_BUCKETS b
-    on a.BUCKET_ID=b.BUCKET_ID
-    where a.LAST_UID2_UPDATE_UTC < b.LAST_SALT_UPDATE_UTC or a.UID2 IS NULL;
+select * from AUDIENCE_WITH_UID2
+  where REFRESH_FROM <= DATE_PART(epoch_second, CURRENT_TIMESTAMP()) or UID2 IS NULL;
 ```
 
-クエリ結果：
+クエリの結果:
 
-以下の表は、応答の各項目を識別しています。結果には、テーブルのID 1の例に示すように、メール、`UID2`、`BUCKET_ID`、`LAST_UID2_UPDATE_UTC`、`LAST_SALT_UPDATE_UTC` が含まれます。ID 2 については、対応する UID2 が最後のバケット更新後に生成されたため、情報は返されません。ID 3 については、UID2 が欠落しているため、`NULL` 値が返されます。
+次の表は、レスポンス内の各アイテムを特定します。結果には、`REFRESH_FROM` タイムスタンプが経過したためにリフレッシュが必要な UID2 または欠落している UID2 が含まれます。ID 1 は、そのリフレッシュ時間 (1735689600) が過去にあるため返されます (現在の時間がそれ以降であると仮定)。ID 2 は、そのリフレッシュ時間がまだ到達していないため返されません。ID 3 は、UID2 が欠落しているため返されます。
 
 ```
-+----+----------------------+----------------------------------------------+------------+-------------------------+-------------------------+
-| ID | EMAIL                | UID2                                         | BUCKET_ID  | LAST_UID2_UPDATE_UTC    | LAST_SALT_UPDATE_UTC    |
-+----+----------------------+----------------------------------------------+------------+-------------------------+-------------------------+
-|  1 | validate@example.com | 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | ad1ANEmVZ  | 2025-02-01 00:00:00.000 | 2025-02-02 00:00:00.000 |
-|  3 | test2@uidapi.com     | NULL                                         | NULL       | NULL                    | NULL                    |
-+----+----------------------+----------------------------------------------+------------+-------------------------+-------------------------+
++----+----------------------+----------------------------------------------+--------------+
+| ID | EMAIL                | UID2                                         | REFRESH_FROM |
++----+----------------------+----------------------------------------------+--------------+
+|  1 | validate@example.com | 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | 1735689600   |
+|  3 | test2@uidapi.com     | NULL                                         | NULL         |
++----+----------------------+----------------------------------------------+--------------+
 ```
 
 ## Usage for UID2 Sharers
 
-UID2 の<Link href="../ref-info/glossary-uid#gl-sharing-participant">共有参加者</Link>は、送信者または受信者として共有に参加し、別の参加者と UID2 を共有する企業です。
+UID2 <Link href="../ref-info/glossary-uid#gl-sharing-participant">sharing participant</Link> は、送信者または受信者として共有に参加し、他の参加者と UID2 を共有する組織です。
 
-広告主とデータプロバイダーは、Snowflake を通じて他の認証された UID2 共有参加者と UID2 を共有できます（<Link href="../ref-info/glossary-uid#gl-tokenized-sharing">Tokenized sharing</Link>）。[Raw UID2](../ref-info/glossary-uid#gl-raw-uid2)を<Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 Token</Link>に暗号化し、ピクセルでの共有のために別の参加者に送信することができます（[Tokenized Sharing in Pixels](../sharing/sharing-tokenized-from-data-pixel.md)を参照）。Snowflake 内のピクセルでデータを送信していない場合でも、[Security Requirements for UID2 Sharing](../sharing/sharing-security.md)に記載されている要件に従えば、UID2 共有に参加することができます。
+広告主とデータプロバイダーは、Snowflake (<Link href="../ref-info/glossary-uid#gl-tokenized-sharing">tokenized sharing</Link>)を介して、他の承認された UID2 共有参加者と UID2 を共有できます。彼らは [raw UID2s](../ref-info/glossary-uid#gl-raw-uid2) を <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 Token</Link> に暗号化し、ピクセルで共有するために別の参加者に送信できます (詳細は [Tokenized Sharing in Pixels](../sharing/sharing-tokenized-from-data-pixel.md) を参照してください)。Snowflake 内でピクセルでデータを送信していない場合でも、[Security Requirements for UID2 Sharing](../sharing/sharing-security.md) に記載されている要件に従う限り、UID2 共有に参加できます。
 
 :::caution
-このプロセスで生成される UID2 Token は共有専用であり、ビッドストリームでは使用できません。ビッドストリーム用のトークンを生成するための別のワークフローがあります：[Tokenized Sharing in the Bidstream](../sharing/sharing-tokenized-from-data-bid-stream.md)を参照してください。
+このプロセスで生成された UID2 Token は共有用であり、ビッドストリームでは使用できません。ビッドストリーム用のトークンを生成するための別のワークフローがあります: [Tokenized Sharing in the Bidstream](../sharing/sharing-tokenized-from-data-bid-stream.md) を参照してください。
 :::
 
-Snowflake内のピクセルやビッドストリームでデータを送信していない場合でも、[Security Requirements for UID2 Sharing](../sharing/sharing-security.md)に記載されている要件に従えば、Raw UID2共有にも参加できます。
+Snowflake でピクセルやビッドストリームでデータを送信していない場合でも、[Security Requirements for UID2 Sharing](../sharing/sharing-security.md) に記載されている要件に従う限り、UID2 共有に参加できます。
 
-以下のアクティビティはトークン化共有をサポートしています：
+以下の機能は、トークン化された共有をサポートしています:
 
 - [Encrypt Tokens](#encrypt-tokens)
 - [Decrypt Tokens](#decrypt-tokens)
 
 ### Encrypt Tokens
 
-Raw UID2 を UID2 Token に暗号化するには、`FN_T_ENCRYPT` 関数を使用します。
+raw UID2 を UID2 Token に暗号化するには、`FN_T_ENCRYPT` 関数を使用します。
 
 | Argument | Data Type | Description |
 | :--- | :--- | :--- |
-| `RAW_UID2` | varchar(128) | UID2 Tokenに暗号化するRaw UID2。 |
+| `RAW_UID2` | varchar(128) | UID2 Token に暗号化する raw UID2 |
 
-成功したクエリは、指定されたRaw UID2に対して以下の情報を返します。
+クエリが成功すると、指定された raw UID2 に対して以下の情報が返されます。
 
 | Column Name | Data Type | Description |
 | :--- | :--- | :--- |
-| `UID_TOKEN` | TEXT | 値は以下のいずれかです：<ul><li>暗号化成功：Raw UID2を含むUID2 Token。</li><li>暗号化失敗：`NULL`。</li></ul> |
-| `ENCRYPTION_STATUS` | TEXT | 値は以下のいずれかです：<ul><li>暗号化成功：`NULL`。</li><li>暗号化失敗：Raw UID2が暗号化されなかった理由。例：`INVALID_RAW_UID2` や `INVALID NOT_AUTHORIZED_FOR_MASTER_KEY`。<br/>詳細については、[Values for the ENCRYPTION_STATUS Column](#values-for-the-encryption_status-column)を参照してください。</li></ul> |
+| `UID_TOKEN` | TEXT | 値は以下のいずれか:<ul><li>Encryption successful: raw UID2  を含む UID2 Token</li><li>Encryption not successful: `NULL`</li></ul> |
+| `ENCRYPTION_STATUS` | TEXT | 値は以下のいずれか:<ul><li>Encryption successful: `NULL`.</li><li>Encryption not successful: raw UID2 が暗号化されなかった理由。例えば: `INVALID_RAW_UID2` または `INVALID NOT_AUTHORIZED_FOR_MASTER_KEY`.<br/>詳細は、[Values for the ENCRYPTION_STATUS Column](#values-for-the-encryption_status-column) を参照してください。</li></ul> |
 
 #### Values for the ENCRYPTION_STATUS Column
 
-以下の表は、`ENCRYPTION_STATUS` カラムの可能な値を示しています。
+以下の表は、`ENCRYPTION_STATUS` 列の可能な値を示しています。
 
 | Value | Meaning |
 | :-- | :-- |
-| `NULL` | Raw UID2 は正常に暗号化されました。 |
-| `MISSING_OR_INVALID_RAW_UID2` | Raw UID2 が `NULL` です。 |
-| `INVALID_RAW_UID2` | Raw UID2 が無効です。 |
-| `MISMATCHING_IDENTITY_SCOPE` | Raw UID2 が不正なアイデンティティスコープに属しています。例えば、UID2 が期待される場所で EUID が渡された場合。 |
-| `NOT_AUTHORIZED_FOR_MASTER_KEY` | 呼び出し元が必要な<a href="../ref-info/glossary-uid#gl-encryption-key">暗号化キー</a>にアクセスできません。UID2 Administrator に連絡してください。 |
-| `NOT_AUTHORIZED_FOR_SITE_KEY` | 呼び出し元が必要な暗号化キーにアクセスできません。UID2 Administrator に連絡してください。 |
+| `NULL` | raw UID2 が正常に暗号化されました。 |
+| `MISSING_OR_INVALID_RAW_UID2` | raw UID2 が `NULL` です。 |
+| `INVALID_RAW_UID2` | raw UID2 が無効です。 |
+| `MISMATCHING_IDENTITY_SCOPE` | raw UID2 が不正なアイデンティティスコープに属しています。たとえば、UID2 が期待される場所に EUID が渡されます。 |
+| `NOT_AUTHORIZED_FOR_MASTER_KEY` | 呼び出し元が必要な<a href="../ref-info/glossary-uid#gl-encryption-key">暗号化キー</a>にアクセスできません。UID2 管理者にお問い合わせください。 |
+| `NOT_AUTHORIZED_FOR_SITE_KEY` | 呼び出し元が必要な暗号化キーにアクセスできません。UID2 管理者にお問い合わせください。 |
 
 #### Encrypt Token Request Example - Single Raw UID2
 
-以下のクエリは、[Default database and schema names](#database-and-schema-names)を使用して、単一の Raw UID2 を UID2 Token に暗号化する方法を示しています。
+以下のクエリは、[default database and schema names](#database-and-schema-names)を使用して、単一の raw UID2 を UID2 Token に暗号化する方法です。
 
 ```sql
 select UID_TOKEN, ENCRYPTION_STATUS from table(UID2_PROD_UID_SH.UID.FN_T_ENCRYPT('2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU='));
 ```
 
-単一のRaw UID2に対するクエリ結果：
+単一の raw UID2 のクエリ結果は以下の通りです:
 
 ```
 +------------------------+-------------------+
@@ -479,15 +482,15 @@ select UID_TOKEN, ENCRYPTION_STATUS from table(UID2_PROD_UID_SH.UID.FN_T_ENCRYPT
 
 #### Encrypt Token Request Example - Multiple Raw UID2s
 
-以下のクエリは、[Default database and schema names](#database-and-schema-names)を使用して、複数の Raw UID2 を暗号化する方法を示しています。
+以下のクエリは、[default database and schema names](#database-and-schema-names)を使用して、複数の raw UID2 を UID2 Token に暗号化する方法です。
 
 ```sql
 select a.RAW_UID2, t.UID_TOKEN, t.ENCRYPTION_STATUS from AUDIENCE_WITH_UID2 a, lateral UID2_PROD_UID_SH.UID.FN_T_ENCRYPT(a.RAW_UID2) t;
 ```
 
-複数のRaw UID2に対するクエリ結果：
+複数の raw UID2 のクエリ結果は以下の通りです:
 
-以下の表は、`NULL` Raw UID2 の `NULL` 値を含む、応答の各項目を識別しています。
+以下の表は、レスポンス内の各項目を識別し、`NULL` または不正な形式の電話番号ハッシュに対する `NULL` 値を含みます。
 
 ```
 +----+----------------------------------------------+-----------------------+-----------------------------+
@@ -501,42 +504,42 @@ select a.RAW_UID2, t.UID_TOKEN, t.ENCRYPTION_STATUS from AUDIENCE_WITH_UID2 a, l
 
 ### Decrypt Tokens
 
-UID2 Token を Raw UID2 に復号化するには、`FN_T_DECRYPT` 関数を使用します。
+UID2 Token を raw UID2 に復号化するには、`FN_T_DECRYPT` 関数を使用します。
 
 | Argument | Data Type | Description |
-| :--- | :--- | :--- |
-| `UID_TOKEN` | varchar(512) | Raw UID2に復号化するUID2 Token。 |
+|:-----------|:-------------|:-----------------------------------------|
+| `UID_TOKEN`| varchar(512) | raw UID2 に復号化する UID2 Token です。 |
 
-成功したクエリは、指定された UID2 Token に対して以下の情報を返します。
+クエリが成功すると、指定された UID2 Token に対して以下の情報が返されます。
 
-| Column Name | Data Type | Description |
+| Column Name | Data Type | Description|
 | :--- | :--- | :--- |
-| `UID` | TEXT | 値は以下のいずれかです：<ul><li>復号化成功：UID2 Token に対応する Raw UID2。</li><li>復号化失敗：`NULL`。</li></ul> |
-| `SITE_ID`| INT | 値は以下のいずれかです：<ul><li>復号化成功：トークンを暗号化した UID2 参加者の識別子。</li><li>復号化失敗：`NULL`。</li></ul> |
-| `DECRYPTION_STATUS` | TEXT | 値は以下のいずれかです：<ul><li>復号化成功：`NULL`。</li><li>復号化失敗：UID2 Token が復号化されなかった理由。例：`EXPIRED_TOKEN`。<br/>詳細については、[Values for the DECRYPTION_STATUS Column](#values-for-the-decryption_status-column)を参照してください。</li></ul> |
+| `UID` | TEXT | 以下の値のいずれか:<ul><li>Decryption successful: UID2 Token に関連付けられた raw UID2。</li><li>Decryption not successful: `NULL`</li></ul> |
+| `SITE_ID` | INT | 以下の値のいずれか:<ul><li>Decryption successful: トークンを暗号化した UID2 参加者の識別子。</li><li>Decryption not successful: `NULL`</li></ul> |
+| `DECRYPTION_STATUS` | TEXT | 以下の値のいずれか:<ul><li>Decryption successful: `NULL`。</li><li>Decryption not successful:  UID2 Token が復号化されなかった理由。たとえば、`EXPIRED_TOKEN`。<br/>詳細は、[Values for the DECRYPTION_STATUS Column](#values-for-the-decryption_status-column) を参照してください。</li></ul> |
 
 :::note
-UID2 Tokenが正常に復号化できない状況のほとんどの場合、関数は行を一切返しません。
+UID2 Token が復号化できない場合、関数は通常、行を返しません。
 :::
 
 #### Values for the DECRYPTION_STATUS Column
 
-`DECRYPTION_STATUS`の可能な値は次のとおりです：
+`DECRYPTION_STATUS` の可能な値は以下の通りです:
 
 | Value | Meaning |
-| :-- | :-- |
-| `NULL` | UID2 Token は正常に復号化されました。 |
-| `EXPIRED_TOKEN` | UID2 Token が指定された寿命を超えています&#8212;トークンが期限切れです。 |
+| :--- | :--- |
+| `NULL` | UID2 Token は復号化されました。|
+| `EXPIRED_TOKEN` | UID2 Token は指定された有効期限を超えています。|
 
 #### Decrypt Token Request Example&#8212;Single UID2 Token
 
-以下のクエリは、[Default database and schema names](#database-and-schema-names)を使用して、単一の UID2 Token を Raw UID2 に復号化する方法を示しています。
+以下のクエリは、[default database and schema names](#database-and-schema-names)を使用して、単一の UID2 Token を raw UID2 に復号化する方法です。
 
 ```sql
 select UID, SITE_ID, DECRYPTION_STATUS from table(UID2_PROD_UID_SH.UID.FN_T_DECRYPT('A41234<rest of token>'));
 ```
 
-単一のUID2 Tokenに対するクエリ結果：
+単一の UID2 Token のクエリ結果は以下の通りです:
 
 ```
 +----------------------------------------------+-------------------+
@@ -548,7 +551,7 @@ select UID, SITE_ID, DECRYPTION_STATUS from table(UID2_PROD_UID_SH.UID.FN_T_DECR
 
 #### Decrypt Token Request Example&#8212;Multiple UID2 Tokens
 
-以下のクエリは、[Default database and schema names](#database-and-schema-names)を使用して、複数の UID2 Token を復号化する方法を示しています。
+以下のクエリは、[default database and schema names](#database-and-schema-names)を使用して、複数の UID2 Token を raw UID2 に復号化する方法です。
 
 ```sql
 select a.ID, b.UID, b.SITE_ID, CASE WHEN b.UID IS NULL THEN 'DECRYPT_FAILED' ELSE b.DECRYPTION_STATUS END as DECRYPTION_STATUS
@@ -557,9 +560,9 @@ select a.ID, b.UID, b.SITE_ID, CASE WHEN b.UID IS NULL THEN 'DECRYPT_FAILED' ELS
   on a.ID=b.ID;
 ```
 
-複数のUID2 Tokenに対するクエリ結果：
+複数の UID2 Token のクエリ結果は以下の通りです:
 
-以下の表は、`NULL` および期限切れの UID2 Token の `NULL` 値を含む、応答の各項目を識別しています。
+以下の表は、レスポンス内の各項目を識別し、`NULL` または不正な形式の電話番号ハッシュに対する `NULL` 値を含みます。
 
 ```
 +----+----------------------------------------------+----------+-------------------+
@@ -575,28 +578,28 @@ select a.ID, b.UID, b.SITE_ID, CASE WHEN b.UID IS NULL THEN 'DECRYPT_FAILED' ELS
 
 ### UID2 Sharing Example
 
-以下の指示は、Snowflakeを使用する送信者と受信者の両方について、共有がどのように機能するかの例を提供します。この例のシナリオでは、広告主（送信者）は Raw UID2 を持つオーディエンステーブル（`AUDIENCE_WITH_UID2S`）を持っており、[Snowflake Secure Data Sharing](https://docs.snowflake.com/en/user-guide/data-sharing-intro)機能を使用してデータプロバイダー（受信者）にテーブル内のデータを利用可能にしたいと考えています。
+以下の手順は、Snowflake を使用する送信者と受信者の両方の共有方法の例を示しています。この例では、広告主 (送信者) が raw UID2s を含むオーディエンステーブル (`AUDIENCE_WITH_UID2S`) を持ち、データプロバイダー (受信者) にテーブル内のデータを [Snowflake Secure Data Sharing](https://docs.snowflake.com/en/user-guide/data-sharing-intro) 機能を使用して利用可能にしたいと考えています。
 
 
 #### Sender Instructions
 
- 1. `AUDIENCE_WITH_UID2_TOKENS` という名前の新しいテーブルを作成します。
- 2. `AUDIENCE_WITH_UID2S`テーブル内の Raw UID2 を暗号化し、結果を `AUDIENCE_WITH_UID2_TOKENS` テーブルに保存します。例えば、以下のクエリでこのタスクを達成することができます：
+ 1. `AUDIENCE_WITH_UID2_TOKENS` テーブルを作成します。
+ 2. `AUDIENCE_WITH_UID2S` テーブル内の raw UID2s を暗号化し、結果を `AUDIENCE_WITH_UID2_TOKENS` テーブルに保存します。次のクエリは、このタスクを達成するのに役立ちます:
     ```sql
     insert into AUDIENCE_WITH_UID2_TOKENS select a.ID, t.UID_TOKEN from AUDIENCE_WITH_UID2S a, lateral UID2_PROD_UID_SH.UID.FN_T_ENCRYPT(a.RAW_UID2) t;
     ```
- 3. セキュア共有を作成し、`AUDIENCE_WITH_UID2_TOKENS` テーブルへのアクセス権を付与します。
- 4. 受信者にセキュア共有へのアクセス権を付与します。
+ 3. セキュアな共有を作成し、`AUDIENCE_WITH_UID2_TOKENS` テーブルへのアクセスを許可します。
+ 4. 受信者にセキュアな共有へのアクセスを許可します。
 
 :::warning
-共有中に UID2 Token が期限切れになるのを防ぐため、新しく暗号化された UID2 Token をできるだけ早く受信者に送信してください。
+UID2 Token が共有中に期限切れにならないようにするために、暗号化された UID2 Token をできるだけ早く受信者に送信してください。
 :::
 
 #### Receiver Instructions
 
- 1. 送信者がアクセス権を提供したセキュア共有からデータベースを作成します。
- 2. `RECEIVED_AUDIENCE_WITH_UID2` という名前の新しいテーブルを作成します。
- 3. 共有された `AUDIENCE_WITH_UID2_TOKENS` テーブルからトークンを復号化し、結果を `RECEIVED_AUDIENCE_WITH_UID2` テーブルに保存します。例えば、以下のクエリでこれを達成することができます：
+ 1. 送信者が提供したセキュアな共有からデータベースを作成します。
+ 2. `RECEIVED_AUDIENCE_WITH_UID2` という新しいテーブルを作成します。
+ 3. 共有された `AUDIENCE_WITH_UID2_TOKENS` テーブルからトークンを復号化し、その結果を `RECEIVED_AUDIENCE_WITH_UID2` テーブルに保存します。次のクエリは、このタスクを達成するのに役立ちます:
     ```sql
     insert into RECEIVED_AUDIENCE_WITH_UID2
       select a.ID, b.UID, CASE WHEN b.UID IS NULL THEN 'DECRYPT_FAILED' ELSE b.DECRYPTION_STATUS END as DECRYPTION_STATUS
@@ -606,66 +609,54 @@ select a.ID, b.UID, b.SITE_ID, CASE WHEN b.UID IS NULL THEN 'DECRYPT_FAILED' ELS
     ```
 
 :::warning
-UID2 Token が期限切れになるのを防ぐため、送信者から利用可能になり次第、UID2 Token をできるだけ早く復号化してください。
+UID2 Token が共有中に期限切れにならないようにするために、受信者は送信者からトークンをできるだけ早く復号化してください。
 :::
 
 ## Migration Guide
 
-このセクションには、新しいUID2 Snowflakeマーケットプレイス機能にアップグレードするのに役立つ以下の情報が含まれています：
+このセクションでは、以前のバージョンから新しい UID2 Snowflake v3 機能にアップグレードするための情報を提供します。
 
-- [Accessing the New Data Share](#accessing-the-new-data-share) 
-- [Changing Existing Code](#changing-existing-code) 
-
-### Accessing the New Data Share
-
-新しいデータシェアにアクセスするには、[Access the UID2 Share](#access-the-uid2-share)の指示に従ってください。
+:::note
+2025年2月以前のバージョンからアップグレードする場合は、以前のバージョンのドキュメントの [Migration Guide](integration-snowflake-previous.md#migration-guide) を参照してください。
+:::
 
 ### Changing Existing Code
 
-変更の概要については、[Changes from Previous Version](#changes-from-previous-version)を参照してください。このセクションのコードスニペットは、以前の関数がどのように実装されていたか、および新しい関数を使用するように更新する方法についての例です。
+変更の概要は、[Changes from Previous Version](#changes-from-previous-version)を参照してください。このセクションのコードスニペットは、以前の関数がどのように実装されていたかの前後の例であり、新しい関数を使用するように更新する方法を示しています。主な変更点は、`FN_T_IDENTITY_MAP`から`FN_T_IDENTITY_MAP_V3`への移行であり、これによりソルトバケット ID の代わりにリフレッシュタイムスタンプが提供され、以前の UID2 アクセスも含まれます。
 
 #### Example for Mapping Unhashed Emails
 
-変更前：
-
-```sql
-select UID2, BUCKET_ID, UNMAPPED from table({DATABASE_NAME}.{SCHEMA_NAME}.FN_T_UID2_IDENTITY_MAP(EMAIL, 'email'));
-```
-
-変更後：
+Before:
 
 ```sql
 select UID, BUCKET_ID, UNMAPPED from table({DATABASE_NAME}.{SCHEMA_NAME}.FN_T_IDENTITY_MAP(EMAIL, 'email'));
 ```
 
-#### Example for Mapping Unhashed Phone Numbers
-
-変更前：
+After:
 
 ```sql
-select UID2, BUCKET_ID, UNMAPPED from table({DATABASE_NAME}.{SCHEMA_NAME}.FN_T_UID2_IDENTITY_MAP(PHONE_NUMBER, 'phone'));
+select UID, PREV_UID, REFRESH_FROM, UNMAPPED from table({DATABASE_NAME}.{SCHEMA_NAME}.FN_T_IDENTITY_MAP_V3(EMAIL, 'email'));
 ```
 
-変更後：
+#### Example for Mapping Unhashed Phone Numbers
+
+Before:
 
 ```sql
 select UID, BUCKET_ID, UNMAPPED from table({DATABASE_NAME}.{SCHEMA_NAME}.FN_T_IDENTITY_MAP(PHONE_NUMBER, 'phone'));
 ```
 
-#### Example for Monitoring Salt Bucket Rotation and Regenerating Raw UID2s
-
-以下のクエリは、[Targeted Input Table](#targeted-input-table)で使用したのと同じ例のテーブル `AUDIENCE_WITH_UID2` を使用しています。
-
-変更前：
+After:
 
 ```sql
-select a.*, b.LAST_SALT_UPDATE_UTC
-  from AUDIENCE_WITH_UID2 a LEFT OUTER JOIN {DATABASE_NAME}.{SCHEMA_NAME}.UID2_SALT_BUCKETS b
-  on a.BUCKET_ID=b.BUCKET_ID
-  where a.LAST_UID2_UPDATE_UTC < b.LAST_SALT_UPDATE_UTC or a.UID2 IS NULL;
+select UID, PREV_UID, REFRESH_FROM, UNMAPPED from table({DATABASE_NAME}.{SCHEMA_NAME}.FN_T_IDENTITY_MAP_V3(PHONE_NUMBER, 'phone'));
 ```
 
-変更後：
+#### Example for Monitoring UID2 Refresh and Regenerating Raw UID2s
+
+v3 関数はリフレッシュタイムスタンプを直接提供するため、ソルトバケットを監視する必要がなくなりました。ソルトバケットビューと結合する代わりに、関数から返された `REFRESH_FROM` タイムスタンプを現在のタイムスタンプと比較できます。
+
+Before (ソルトバケットをモニタリング):
 
 ```sql
 select a.*, b.LAST_SALT_UPDATE_UTC
@@ -674,29 +665,9 @@ select a.*, b.LAST_SALT_UPDATE_UTC
   where a.LAST_UID2_UPDATE_UTC < b.LAST_SALT_UPDATE_UTC or a.UID2 IS NULL;
 ```
 
-#### Example for Token Encryption
-
-変更前：
+After (リフレッシュタイムスタンプを使用):
 
 ```sql
-select UID2_TOKEN, ENCRYPTION_STATUS from table({DATABASE_NAME}.{SCHEMA_NAME}.FN_T_UID2_ENCRYPT('2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU='));
-```
-
-変更後：
-
-```sql
-select UID_TOKEN, ENCRYPTION_STATUS from table({DATABASE_NAME}.{SCHEMA_NAME}.FN_T_ENCRYPT('2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU='));
-```
-
-#### Example for Token Decryption
-
-変更前：
-
-```sql
-select UID2, SITE_ID, DECRYPTION_STATUS from table({DATABASE_NAME}.{SCHEMA_NAME}.FN_T_UID2_DECRYPT('A41234<rest of token>'));
-```
-
-変更後：
-```sql
-select UID, SITE_ID, DECRYPTION_STATUS from table({DATABASE_NAME}.{SCHEMA_NAME}.FN_T_DECRYPT('A41234<rest of token>'));
+select * from AUDIENCE_WITH_UID2
+  where REFRESH_FROM <= DATE_PART(epoch_second, CURRENT_TIMESTAMP()) or UID2 IS NULL;
 ```

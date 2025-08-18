@@ -26,6 +26,23 @@ The following documents were released in this quarter.
 
 <CustomTagsContainer tags="Endpoints, Guides, SDKs">
 
+### Identity Map v3 (Python SDK, Snowflake)
+
+July 31, 2025
+
+We've released updated versions of two additional docs to reflect adoption of the new version of the Identity Map API (v3), announced 11 July, which provides significant improvements for advertisers and data providers.
+
+We updated the following additional implementations and corresponding documentation:
+
+- Python SDK: see [SDK for Python Reference Guide](../sdks/sdk-ref-python.md)
+- Snowflake: see [Snowflake Integration Guide](../guides/integration-snowflake.md)
+
+<!-- PIDOCS-3320 -->
+
+</CustomTagsContainer>
+
+<CustomTagsContainer tags="Endpoints, Guides, SDKs">
+
 ### Identity Map v3
 
 July 11, 2025
@@ -38,7 +55,7 @@ We've released a new version of the Identity Map API (v3) that provides signific
 
 ## Q1 2025
 
-The following documents were released in this quarter.
+The following documents were released in the first quarter of 2025.
 
 <CustomTagsContainer tags="Guides, Private Operator">
 

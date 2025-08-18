@@ -111,4 +111,4 @@ Refresh Token に関する主なポイントは次のとおりです:
 
 ## FAQs
 
-トークンのリフレッシュに関するよくある質問については、[パブリッシャー向け FAQ](../getting-started/gs-faqs.md#faqs-for-publishers) を参照してください。
+トークンのリフレッシュに関するよくある質問は、[パブリッシャー向け FAQ](../getting-started/gs-faqs.md#faqs-for-publishers) を参照してください。

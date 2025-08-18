@@ -21,7 +21,7 @@ Prebid.js を使って UID2 とインテグレーションするには、サイ�
 
 ## Prebid.js Version
 
-この実装には Prebid.js version 8.21.0 以降が必要です。バージョン情報については、[https://github.com/prebid/Prebid.js/releases](https://github.com/prebid/Prebid.js/releases) を参照してください。
+この実装には Prebid.js version 8.21.0 以降が必要です。バージョン情報は、[https://github.com/prebid/Prebid.js/releases](https://github.com/prebid/Prebid.js/releases) を参照してください。
 
 <!-- Diff in Prebid.js supported version for UID2/EUID is fine: verif SS 11/19/24 -->
 
@@ -50,7 +50,7 @@ UID2 Prebid.js Client-Side インテグレーション例は、以下のリン�
 
 UID2 とインテグレーションするには、UID2 アカウントが必要です。アカウントをまだ作成していない場合は、まず [Account Setup](../getting-started/gs-account-setup.md) ページの手順に従ってください。
 
-アカウントの初期設定が完了すると、[UID2 Portal](../portal/portal-overview.md) にアクセスするための手順とリンクが送信されます。UID2 Portalでは、[本番環境](../getting-started/gs-environments.md) のための [credentials](../getting-started/gs-credentials.md) を作成し、提供する必要がある追加の値を設定できます。詳細については、[Getting Started with the UID2 Portal](../portal/portal-getting-started.md) を参照してください。
+アカウントの初期設定が完了すると、[UID2 Portal](../portal/portal-overview.md) にアクセスするための手順とリンクが送信されます。UID2 Portalでは、[本番環境](../getting-started/gs-environments.md) のための [credentials](../getting-started/gs-credentials.md) を作成し、提供する必要がある追加の値を設定できます。詳細は、[Getting Started with the UID2 Portal](../portal/portal-getting-started.md) を参照してください。
 
 Client-Side インテグレーションには、UID2 Portalの [Client-Side Integration](../portal/client-side-integration.md) ページで以下の値を設定する必要があります:
 
@@ -91,7 +91,7 @@ Notes:
   1. 次に、SHA-256 ハッシングアルゴリズムを使用して結果をハッシュ化します。
   1. 次に、ハッシュ値のバイトを Base64 エンコードして結果をエンコードします。
 
-  詳細は [Normalization and Encoding](../getting-started/gs-normalization-encoding.md) を参照してください。例については、[Configuring the UID2 Module: Code Example](#configuring-the-uid2-module-code-example) を参照してください。
+  詳細は [Normalization and Encoding](../getting-started/gs-normalization-encoding.md) を参照してください。例は、[Configuring the UID2 Module: Code Example](#configuring-the-uid2-module-code-example) を参照してください。
 - UID2 module は、ハッシュ化された DII を UID2 Service に送信する前に暗号化します。
 - モジュールが複数回設定された場合、最新の設定値が使用されます。
 
@@ -119,7 +119,7 @@ const baseConfig = {
 ```
 
 :::note
-この例では、UID2 本番環境を使用していると仮定しています。インテグレーションテスト中は、`params.uid2ApiBase` を `'https://operator-integ.uidapi.com'` に設定して UID2 インテグレーション環境を使用してください (資格情報については [Getting Your Credentials](../getting-started/gs-credentials.md#getting-your-credentials) を参照)。UID2 インテグレーション環境からのトークンはビッドストリームに渡すために有効ではありません。インテグレーション環境では、異なる **Subscription ID** と **public key** の値があります。詳細は、[Getting Your Credentials](../getting-started/gs-credentials.md#getting-your-credentials) を参照してください。
+この例では、UID2 本番環境を使用していると仮定しています。インテグレーションテスト中は、`params.uid2ApiBase` を `'https://operator-integ.uidapi.com'` に設定して UID2 インテグレーション環境を使用してください (資格情報は [Getting Your Credentials](../getting-started/gs-credentials.md#getting-your-credentials) を参照)。UID2 インテグレーション環境からのトークンはビッドストリームに渡すために有効ではありません。インテグレーション環境では、異なる **Subscription ID** と **public key** の値があります。詳細は、[Getting Your Credentials](../getting-started/gs-credentials.md#getting-your-credentials) を参照してください。
 :::
 
 ## Storing the UID2 Token in the Browser
@@ -176,7 +176,7 @@ UID2 module が正常に UID2 Token を生成したかどうかを確認する�
 - アカウントのセットアップ中に、サイトのドメイン名を UID2 チームに提供したことを確認してください。必要に応じて、UID2 の担当者に確認してください。
 - ブラウザのデベロッパーツールを使って、UID2 Service への API コールを調べます。
 
-その他のヘルプについては、Prebid のドキュメント [Troubleshooting Prebid.js](https://docs.prebid.org/troubleshooting/troubleshooting-guide.html) および [Debugging Prebid.js](https://docs.prebid.org/debugging/debugging.html) を参照してください。
+その他のヘルプは、Prebid のドキュメント [Troubleshooting Prebid.js](https://docs.prebid.org/troubleshooting/troubleshooting-guide.html) および [Debugging Prebid.js](https://docs.prebid.org/debugging/debugging.html) を参照してください。
 
 Prebid.js の設定を検証・デバッグするツールの例として、オープンソースの Chrome 拡張機能である Professor Prebid があります:
 
@@ -187,7 +187,7 @@ Prebid.js の設定を検証・デバッグするツールの例として、オ�
 
 デフォルトでは、UID2 モジュールは米国の UID2 本番環境サーバーに対して呼び出しを行います。
 
-ユースケースに最適な URL を選択する方法と、有効なベース URL の完全なリストについては、[Environments](../getting-started/gs-environments.md) を参照してください。
+ユースケースに最適な URL を選択する方法と、有効なベース URL の完全なリストは、[Environments](../getting-started/gs-environments.md) を参照してください。
 
 UID2 モジュールをデフォルト以外の UID2 サーバーに指定するには、UID2 モジュールを設定する際に、オプションの `params.uid2ApiBase` パラメータを次の例に示すように設定します:
 

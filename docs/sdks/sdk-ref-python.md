@@ -10,15 +10,17 @@ import Link from '@docusaurus/Link';
 
 # SDK for Python Reference Guide
 
-You can use the SDK for Python on the server side to facilitate the process of generating or establishing client identity using UID2, retrieving advertising tokens for <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link> use, and automatically refreshing UID2 tokens. If you have the applicable permissions, you can also encrypt and decrypt for sharing, map DII to raw UID2s, and monitor rotated salt buckets.
+You can use the SDK for Python on the server side to facilitate the process of generating or establishing client identity using UID2, retrieving advertising tokens for <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link> use, and automatically refreshing UID2 tokens. If you have the applicable permissions, you can also encrypt and decrypt for sharing and map DII to raw UID2s.
 
 ## Functionality
 
 This SDK simplifies integration with UID2 for any DSPs or UID2 sharers who are using Python for their server-side coding. The following table shows the functions it supports.
 
-| Encrypt Raw UID2 to UID2 Token for Sharing | Decrypt UID2 Token to Raw UID2 | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to Raw UID2s | Monitor Rotated Salt Buckets |
+| Encrypt Raw UID2 to UID2 Token for Sharing | Decrypt UID2 Token to Raw UID2 | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to Raw UID2s | Monitor Rotated Salt Buckets&ast; |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | &#9989; | &#9989; | &#9989; | &#9989; | &#9989; | &#9989; | &#9989; |
+
+&ast;Only applicable to SDK versions referencing versions of the `POST /identity/map` endpoint prior to version 3.
 
 ## UID2 Account Setup
 
@@ -63,7 +65,7 @@ The initialization step depends on the role, as shown in the following table.
 | Role	                    | Create Instance of Class	 | Link to Instructions                                                         |
 |:-------------------------|:--------------------------|:-----------------------------------------------------------------------------|
 | Publisher                | `Uid2PublisherClient`     | [Usage for Publishers](#usage-for-publishers)                                |
-| Advertiser/Data Provider | `IdentityMapClient`       | [Usage for Advertisers/Data Providers](#usage-for-advertisersdata-providers) |
+| Advertiser/Data Provider | `IdentityMapV3Client`     | [Usage for Advertisers/Data Providers](#usage-for-advertisersdata-providers) |
 | DSP                      | `BidstreamClient`         | [Usage for DSPs](#usage-for-dsps)                                            |
 | Sharer                   | `SharingClient`           | [Usage for Sharers](#usage-for-uid2-sharers)                                 |
 
@@ -80,6 +82,7 @@ You will need to provide the values necessary for the SDK to authenticate with t
 ## Interface 
 
 The `BidstreamClient` class allows you to decrypt UID2 tokens into raw UID2s.
+
 For details on the bidding logic for handling user opt-outs, see [DSP Integration Guide](../guides/dsp-guide.md).
 
 The `SharingClient` class allows you to encrypt raw UID2s into UID2 tokens and decrypt UID2 tokens into raw UID2s.
@@ -146,7 +149,7 @@ Decryption response codes, and their meanings, are shown in the following table.
 2. Call a function that takes the user's email address or phone number as input and generates a `TokenGenerateResponse` object. The following example uses an email address:
 
    ```py
-   token_generate_response = client.generate_token(TokenGenerateInput.from_email(emailAddress).do_not_generate_tokens_for_opted_out())
+   token_generate_response = client.generate_token(TokenGenerateInput.from_email("user@example.com").do_not_generate_tokens_for_opted_out())
    ```
 
     <!-- :::important
@@ -157,7 +160,7 @@ Decryption response codes, and their meanings, are shown in the following table.
 
  `do_not_generate_tokens_for_opted_out()` applies `optout_check=1` in the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) call. Without this, `optout_check` is omitted to maintain backwards compatibility.
 
-#### Client-Server Integration
+### Client-Server Integration
 
 If you're using client-server integration (see [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md)), follow this step:
 
@@ -184,7 +187,7 @@ If you're using server-side integration (see [Publisher Integration Guide, Serve
    identity = token_generate_response.get_identity()
    if identity:
       advertising_token = identity.get_advertising_token()
-   ```
+    ```
 3. Periodically check if the user's UID2 token should be refreshed. This can be done at fixed intervals using a timer, or can be done whenever the user accesses another page:
     1. Retrieve the identity JSON string from the user's session, and then call the following function that takes the identity information as input and generates an `IdentityTokens` object:
 
@@ -195,20 +198,21 @@ If you're using server-side integration (see [Publisher Integration Guide, Serve
     2. Determine if the identity can be refreshed (that is, the refresh token hasn't expired):
 
        ```py
-       if not identity or not identity.is_refreshable(): # we must no longer use this identity (for example, remove this identity from the user's session)
+       if not identity or not identity.is_refreshable(): 
+          # we must no longer use this identity (for example, remove this identity from the user's session)
        ```
 
     3. Determine if a refresh is needed:
 
        ```py
-       if identity.is_due_for_refresh()):
+       if identity.is_due_for_refresh():
        ```
 
 4. If needed, refresh the token and associated values:
 
-   ```py
-   token_refresh_response = client.refresh_token(identity)`
-   ```
+    ```py
+    token_refresh_response = client.refresh_token(identity)
+    ```
 
 5. Store `token_refresh_response.get_identity_json_string()` in the user's session.
 
@@ -216,13 +220,187 @@ If you're using server-side integration (see [Publisher Integration Guide, Serve
 
 ## Usage for Advertisers/Data Providers
 
-There are two operations that apply to Advertisers/Data Providers:
-- [Map DII to Raw UID2s](#map-dii-to-raw-uid2s)
-- [Monitor rotated salt buckets](#monitor-rotated-salt-buckets)
+The following instructions provide an example of how to map DII to raw UID2s using the latest version of the `POST /identity/map` endpoint.
+
+For the earlier version, see [Previous Version (v2 Identity Map)](#previous-version-v2-identity-map). For migration steps to the latest version, see [Migration From Version Using v2 Identity Map](#migration-from-version-using-v2-identity-map).
 
 ### Map DII to Raw UID2s
 
-To map email addresses, phone numbers, or their respective hashes to their raw UID2s and salt bucket IDs, follow these steps.
+To map DII to raw UID2s, follow these steps:
+
+1. Create an `IdentityMapV3Client` as an instance variable:
+   ```py
+    identity_map_v3_client = IdentityMapV3Client(UID2_BASE_URL, UID2_API_KEY, UID2_SECRET_KEY)
+   ```
+
+2. Create an `IdentityMapV3Input` object. You can use emails, phone numbers, or their hashed forms:
+   ```py
+   input = IdentityMapV3Input.from_emails(["user@example.com", "user2@example.com"])
+   ```
+   Or combine multiple identity types:
+      ```py
+      input = IdentityMapV3Input()
+          .with_email("user@example.com")
+          .with_phone("+12345678901")
+          .with_hashed_email("pre_hashed_email")
+          .with_hashed_phone("pre_hashed_phone")
+      ```
+
+3. Call a function that takes the `input` and generates an `IdentityMapV3Response` object:
+   ```py
+   identity_map_response = identity_map_v3_client.generate_identity_map(input)
+   ```
+
+4. Retrieve the mapped and unmapped results:
+   ```py
+   mapped_identities = identity_map_response.mapped_identities
+   unmapped_identities = identity_map_response.unmapped_identities
+   ```
+
+5. Process the results for successfully mapped identities:
+   ```py
+   mapped_identity = mapped_identities.get("user@example.com")
+   if mapped_identity is not None:
+       current_uid = mapped_identity.current_raw_uid        # Current raw UID2
+       previous_uid = mapped_identity.previous_raw_uid      # Previous raw UID2 (of type Optional, only available for 90 days after rotation, otherwise is None)
+       refresh_from = mapped_identity.refresh_from          # When to refresh this identity (of type datetime)
+   else:
+       unmapped_identity = unmapped_identities.get("user@example.com")
+       reason = unmapped_identity.reason # OPTOUT, INVALID_IDENTIFIER, or UNKNOWN
+   ```
+
+:::note
+The SDK automatically handles email normalization and hashing, ensuring that raw email addresses and phone numbers do not leave your server.
+:::
+
+#### Usage Example
+
+```py
+client = IdentityMapV3Client(UID2_BASE_URL, UID2_API_KEY, UID2_SECRET_KEY)
+
+# Example 1: Single identity type
+email_input = IdentityMapV3Input.from_emails(["user@example.com", "optout@example.com"])
+email_response = client.generate_identity_map(email_input)
+
+# Process email results
+for email, identity in email_response.mapped_identities.items():
+    print("Email: " + email)
+    print("Current UID: " + identity.current_raw_uid)
+    print("Previous UID: " + identity.previous_raw_uid)
+    print("Refresh from: " + str(identity.refresh_from))
+
+for email, identity in email_response.unmapped_identities.items():
+    print("Unmapped email: " + email + " - Reason: " + identity.reason)
+
+# Example 2: Mixed identity types in single request
+mixed_input = IdentityMapV3Input()
+    .with_email("user1@example.com")
+    .with_phone("+12345678901")
+    .with_hashed_email("pre_hashed_email_value")
+    .with_hashed_phone("pre_hashed_phone_value")
+
+mixed_response = client.generate_identity_map(mixed_input)
+```
+
+## Migration From Version Using v2 Identity Map
+
+The following sections provide general information and guidance for migrating to the latest version of this SDK, which references `POST /identity/map` version 3, including:
+
+- [Version 3 Improvements](#version-3-improvements)
+- [Upgrading Client Version](#upgrading-client-version)
+- [Updating DII Mapping](#updating-dii-mapping)
+
+### Version 3 Improvements
+
+The `POST /v3/identity/map` provides the following improvements over v2:
+
+- **Simplified Refresh Management**: You can monitor for UID2s reaching `refresh_from` timestamps instead of polling <Link href="../ref-info/glossary-uid#gl-salt-bucket-id">salt buckets</Link> for rotation.
+- **Previous UID2 Access**: You have access to previous raw UID2s for 90 days after rotation for campaign measurement.
+- **Single Endpoint**: You use only one endpoint, `/v3/identity/map`, instead of both `/v2/identity/map` and `/v2/identity/buckets`.
+- **Multiple Identity Types in One Request**: You can process both emails and phone numbers in a single request.
+- **Improved Performance**: The updated version uses significantly less bandwidth to process the same amount of DII.
+
+### Upgrading Client Version
+
+To upgrade your client to the latest version (version 3), follow these steps:
+
+1. **Update dependency version**:
+   ```bash
+   pip install --upgrade "uid2-client>=2.6.0"
+   ```
+
+2. **Change client class**:
+   ```py
+   # Before
+   client = IdentityMapClient(UID2_BASE_URL, UID2_API_KEY, UID2_SECRET_KEY)
+
+   # After
+   client = IdentityMapV3Client(UID2_BASE_URL, UID2_API_KEY, UID2_SECRET_KEY)
+   ```
+
+3. **Update import statements**:
+   ```py
+   from uid2_client import IdentityMapV3Client, IdentityMapV3Input, IdentityMapV3Response, UnmappedIdentityReason
+   ```
+
+### Updating DII Mapping
+
+To update DII mapping from version 2 to version 3 of the `POST /identity/map` endpoint, follow these steps:
+
+1. **Update input construction**:
+   ```py
+   # Before
+   input = IdentityMapInput.from_emails(["user@example.com"])
+
+   # After - single identity type
+   input = IdentityMapV3Input.from_emails(["user@example.com"])
+
+   # Alternatively - mix identity types (new capability)
+   input = IdentityMapV3Input()
+       .with_email("user@example.com")
+       .with_phone("+12345678901")
+   ```
+
+2. **Update response handling**:
+   ```py
+   # Before
+   response = client.generate_identity_map(input)
+   mapped = response.mapped_identities.get("user@example.com")
+   uid = mapped.get_raw_uid()
+
+   # After
+   response = client.generate_identity_map(input)
+   mapped = response.mapped_identities.get("user@example.com")
+   current_uid = mapped.current_raw_uid
+   previous_uid = mapped.previous_raw_uid
+   refresh_from = mapped.refresh_from
+   ```
+
+3. **Update error handling**:
+   ```py
+   # Before
+   unmapped = response.unmapped_identities.get("user@example.com")
+   reason = unmapped.get_reason()
+
+   # After - structured error reasons
+   unmapped = response.unmapped_identities.get("user@example.com")
+   reason = unmapped.reason # Enum - OPTOUT, INVALID_IDENTIFIER, UNKNOWN
+
+   # Alternatively, you can retrieve the reason as a string. Values match v2 unmapped values.
+   raw_reason = unmapped.raw_reason
+   ```
+
+### Previous Version (v2 Identity Map)
+
+:::note
+The v2 Identity Map SDK is an earlier version maintained for backwards compatibility. Migrate to the current SDK for improved performance, multi-identity type support, and better UID2 rotation management.
+
+New integrations should not use this version.
+
+For instructions, see [Migration From Version Using v2 Identity Map](#migration-from-version-using-v2-identity-map).
+:::
+
+To map email addresses, phone numbers, or their respective hashes to their raw UID2s and salt bucket IDs, if you're using an earlier SDK version that uses `POST /identity/map` version 2, follow these steps.
 
 1. Create an instance of `IdentityMapClient` as an instance variable.
    ```py
@@ -255,7 +433,7 @@ To map email addresses, phone numbers, or their respective hashes to their raw U
         reason = unmapped_identity.get_reason()
    ```
 
-### Monitor Rotated Salt Buckets
+#### Monitor Rotated Salt Buckets
 
 To monitor salt buckets, follow these steps.
 
@@ -304,9 +482,9 @@ client.refresh()
 ```
 
 3. Decrypt a token into a raw UID2. Pass the token, and then do one of the following:
-* If the bid request originated from a publisher's website, pass the domain name. The domain name must be all lower case, without spaces and without subdomain. For example, for `Subdomain.DOMAIN.com`, pass `domain.com` instead.
-* If the bid request originated from a mobile app, pass the <Link href="../ref-info/glossary-uid#gl-app-name">app name</Link>.
-* Otherwise, pass `null`.
+   * If the bid request originated from a publisher's website, pass the domain name. The domain name must be all lower case, without spaces and without subdomain. For example, for `Subdomain.DOMAIN.com`, pass `domain.com` instead.
+   * If the bid request originated from a mobile app, pass the <Link href="../ref-info/glossary-uid#gl-app-name">app name</Link>.
+   * Otherwise, pass `null`.
 
 ```py
 decrypted = client.decrypt_token_into_raw_uid(uid_token, domainOrAppName)
@@ -385,7 +563,3 @@ You can run unit tests from command line or use your favorite Python IDE (exampl
 ```py
 python3 -m unittest discover -s ./tests/
 ```
-
-## FAQs
-
-For a list of frequently asked questions for DSPs, see [FAQs for DSPs](../getting-started/gs-faqs.md#faqs-for-dsps).

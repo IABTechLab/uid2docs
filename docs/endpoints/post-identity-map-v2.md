@@ -20,7 +20,7 @@ For details about the UID2 opt-out workflow and how users can opt out, see [User
 This documentation is for version 2 of this endpoint, which is not the latest version. For the latest version, v3, see [POST /identity/map](post-identity-map.md).
 
 :::note
-If you're using the v2 version, we recommend that you upgrade as soon as possible, to take advantage of improvements. For migration guidance, see [Migration from v2 Identity Map](post-identity-map.md#migration-from-v2-identity-map).
+If you're using an earlier version, we recommend that you upgrade as soon as possible, to take advantage of improvements. For migration guidance, see [Migration from v2 Identity Map](post-identity-map.md#migration-from-v2-identity-map). For deprecation information, see [Deprecation Schedule: Endpoint Versions](../ref-info/deprecation-schedule.md#endpoint-versions).
 :::
 
 ## Batch Size and Request Parallelization Requirements

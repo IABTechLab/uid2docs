@@ -1,0 +1,29 @@
+%%26/6/25: V3 API Update - Updated diagram to use V3 identity map API with refresh timestamps instead of salt bucket monitoring.
+
+  sequenceDiagram
+    participant ADP as Advertiser/Data Provider
+    participant UID as UID2 Operator
+    participant DSP
+    Note over ADP,DSP: 1. DII から raw UID2 を生成します。
+        loop 
+    ADP->>UID: 1-a. SDK, Snowflake, AWS Entity Resolution, HTTP endpoint に DII を含むリクエストを送信します。
+    UID->>ADP: 1-b. raw UID2 (u)、リフレッシュタイムスタンプ (r)、およびオプションで前の UID2 (p) を受信します。
+    end
+    Note over ADP,DSP: 2. raw UID2 とリフレッシュタイムスタンプを保存します。
+    Note over ADP,DSP: 3. raw UID2 を操作または組み合わせます。
+     Note over ADP,DSP: 4. raw UID2 を DSP に送信します。
+    ADP-->>DSP: 保存された raw UID2 を DSP に送信して、オーディエンスやコンバージョンを作成するか、測定に使用します。
+    Note over ADP,DSP: 5. raw UID2 の更新を監視します。
+    loop
+      ADP->>ADP: 5-a. 保存されているリフレッシュタイムスタンプと現在の時刻を比較します。
+      ADP->>UID: 5-b. リフレッシュ時間に達した場合、POST /identity/map エンドポイントに DII を再送信して更新された raw UID2 を取得します。
+      UID->>ADP: 5-c. 新しい raw UID2 (u)、リフレッシュタイムスタンプ (r)、およびオプションで前の UID2 (p) を保存します。
+    end
+    Note over ADP,DSP: 6. オプトアウトステータスを監視します。ローカルストレージからすべてのオプトアウトを削除し、使用しないでください。
+    loop
+       ADP->>UID: 6-a. POST /optout/status エンドポイントを使用してオプトアウトステータスを監視します。
+       UID->>ADP: 6-b. オプトアウトステータスを返します。
+    end
+
+%% URL:
+%% https://mermaid.live/edit#pako:eNpNj81qxCAUhV8lnLUETaKJbtsuu-quuJHxTibQ6OAodBry7rUZWgp3cX8O5zt3wyl6gkHTgGGltLrF13GzoWks8oVWsjC1PcdEt2xhw16VruT4dg8nmJwKMZSrd5meFzcnt_4uyS85ptcH4OAwXF2A2fAJIzrdKq71OEpZq5OS4Q4z9H07dZrrQXOluZTDzvAVY3UVrRgHOSnFharXSTCkWOYLzNl93Ogwfz-UD_6cfn75H_DlSPSnTxQ8padYQobp928lN1Ka

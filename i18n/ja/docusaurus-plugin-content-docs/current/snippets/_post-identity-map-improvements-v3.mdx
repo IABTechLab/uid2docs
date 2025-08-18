@@ -1,0 +1,8 @@
+<!-- Used by: endpoints/post-identity-map.md, sdks/sdk-ref-java.md -->
+
+V3 Identity Map API は、v2 に比べて以下の改善点を提供します:
+
+- **Support for multiple identity types**: 1 回のリクエストでメールアドレスと電話番号の両方を処理できます。
+- **Simpler refresh management**: ソルトバケットを監視する代わりに、raw UID2 がリフレッシュタイムスタンプに達したときにマッピングをやり直すだけです。
+- **Availability of previous raw UID2**: ローテーション後90日間、以前のUID2を見ることができます。
+- **Improved performance**: 新しいAPIバージョンは、同じ量の個人データを処理するために、帯域幅を大幅に削減します。

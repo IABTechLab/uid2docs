@@ -66,7 +66,7 @@ UID2 Portal で実行する操作（チームメンバーの追加、ドメイ�
 
 ## Set Up Your Account
 
-アカウントの設定については、[Getting Started with the UID2 Portal](portal-getting-started.md) を参照してください。
+アカウントの設定は、[Getting Started with the UID2 Portal](portal-getting-started.md) を参照してください。
 
 ## Participant Switcher
 
@@ -74,6 +74,6 @@ UID2 Portal で実行する操作（チームメンバーの追加、ドメイ�
 
 現在の参加者は、左サイドバーの上部に表示されます。現在のユーザーが複数の参加者のチームに所属している場合、矢印が表示され、ユーザーは正しい参加者のコンテキストで操作を実行するために参加者間を切り替えることができます。
 
-図については、[UID2 Portal Structure](#uid2-portal-structure) を参照してください。
+図は、[UID2 Portal Structure](#uid2-portal-structure) を参照してください。
 
 ユーザーがログアウトすると、最新の参加者の選択が保存され、次回ユーザーがログインすると適用されます。

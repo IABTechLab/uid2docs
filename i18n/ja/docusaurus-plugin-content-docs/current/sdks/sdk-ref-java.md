@@ -7,6 +7,7 @@ displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';
+import POSTIdentityMapImprovements from '../snippets/_post-identity-map-improvements-v3.mdx';
 
 # SDK for Java Reference Guide
 
@@ -30,7 +31,7 @@ UID2 とインテグレーションするには、UID2 アカウントが必要�
 - アカウント用の [credentials](../getting-started/gs-credentials.md) を生成します。
 - オプションとして、チームメンバーに関する情報を設定するなど、他の値を設定します。
 
-SDK が提供する特定の機能を使用する権限が与えられ、そのアクセスのための資格情報が提供されます。SDK には使用権限がない機能がある可能性があることに注意してください。詳細については、[API Permissions](../getting-started/gs-permissions.md) を参照してください。
+SDK が提供する特定の機能を使用する権限が与えられ、そのアクセスのための資格情報が提供されます。SDK には使用権限がない機能がある可能性があることに注意してください。詳細は、[API Permissions](../getting-started/gs-permissions.md) を参照してください。
 
 DSP の場合は、資格情報を送信します。
 
@@ -52,27 +53,28 @@ DSP の場合は、資格情報を送信します。
 
 初期化ステップは、次の表に示すように、役割によって異なります。
 
-| Role                     | Create Instance of Class | Link to Instructions                                                         |
-|:-------------------------| :--- |:-----------------------------------------------------------------------------|
-| Publisher                | `PublisherUid2Client` | [Usage for Publishers](#usage-for-publishers)                                |
+| Role | Create Instance of Class | Link to Instructions |
+| :--- | :--- | :--- |
+| Publisher | `PublisherUid2Client` | [Usage for Publishers](#usage-for-publishers) |
 | Advertiser/Data Provider | `IdentityMapClient` | [Usage for Advertisers/Data Providers](#usage-for-advertisersdata-providers) |
-| DSP                      | `BidstreamClient` | [Usage for DSPs](#usage-for-dsps)                                            |
-| Sharer                   | `SharingClient` | [Usage for UID2 Sharers](#usage-for-uid2-sharers)                            |
+| DSP | `BidstreamClient` | [Usage for DSPs](#usage-for-dsps) |
+| Sharer | `SharingClient` | [Usage for UID2 Sharers](#usage-for-uid2-sharers) |
 
 SDK が UID2 Service で認証するために必要な値を提供する必要があります。
 
-| Parameter | Description                                                                                | 
-| :--- |:-------------------------------------------------------------------------------------------|
-| `baseUrl/uid2BaseUrl` | The endpoint for the UID2 service. See [Environments](../getting-started/gs-environments). | 
-| `clientApiKey` | The API key. See [UID2 Credentials](../getting-started/gs-credentials).                    | 
-| `base64SecretKey` | The client secret. See [UID2 Credentials](../getting-started/gs-credentials).              | 
+| Parameter | Description | 
+| :--- | :--- |
+| `baseUrl/uid2BaseUrl` | The endpoint for the UID2 service. See [Environments](../getting-started/gs-environments). |
+| `clientApiKey` | The API key. See [UID2 Credentials](../getting-started/gs-credentials). |
+| `base64SecretKey` | The client secret. See [UID2 Credentials](../getting-started/gs-credentials). |
 
 ### Interface 
 
-`BidstreamClient` クラスを使用すると、UID2 Token を raw UID2 に復号することができます。
+`BidstreamClient` クラスを利用すると UID2 Token を raw UID2 に復号化できます。
+
 ユーザーのオプトアウトを処理する入札ロジックの詳細は [DSP Integration Guide](../guides/dsp-guide.md) を参照してください。
 
-`SharingClient` クラスを使うと、raw UID2 を暗号化して UID2 Token にしたり、UID2 Token を復号して raw UID2 にしたりすることができます。
+`SharingClient` クラスを利用すると、raw UID2 を UID2 Token に暗号化し、UID2 Token を raw UID2 に復号化することができます。
 
 :::note
 SDK を使用する際に、復号鍵を保存したり管理したりする必要はありません。
@@ -84,7 +86,7 @@ SDK を使用する際に、復号鍵を保存したり管理したりする必�
 
 | Method | Description |
 | :--- | :--- |
-| `getStatus()` | 暗号化結果のステータス。取り得る値のリストと定義については、[Encryption Response Statuses](#encryption-response-statuses) を参照してください。 |
+| `getStatus()` | 暗号化結果のステータス。取り得る値のリストと定義は、[Encryption Response Statuses](#encryption-response-statuses) を参照してください。 |
 | `getEncryptedData()` | 暗号化された UID2 token。 |
 
 ### Encryption Response Statuses
@@ -106,7 +108,7 @@ SDK を使用する際に、復号鍵を保存したり管理したりする必�
 
 | Methods | Description |
 | :--- | :--- |
-| `getStatus()` | 復号結果のステータス。取り得る値のリストと定義については、[Decryption Response Statuses](#decryption-response-statuses) を参照してください。 |
+| `getStatus()` | 復号結果のステータス。取り得る値のリストと定義は、[Decryption Response Statuses](#decryption-response-statuses) を参照してください。 |
 | `getUid()`    | UID2 Token に対応する raw UID2  |
 | `getEstablished()` | ユーザーがパブリッシャーと最初に UID2 を確立した時のタイムスタンプ。 |
 
@@ -131,7 +133,7 @@ SDK を使用する際に、復号鍵を保存したり管理したりする必�
 1. [**Basic Usage**](#basic-usage) は、この SDK の HTTP 実装 (synchronous [OkHttp](https://square.github.io/okhttp/)) を使いたいパブリッシャー向けです。
 2. [**Advanced Usage**](#advanced-usage) は、独自の HTTP ライブラリを使用したいパブリッシャー向けです。
 
-Basic と Advanced 両方の使い方を示すサンプルアプリケーションについては、[Java UID2 Integration Example](https://github.com/UnifiedID2/uid2-examples/tree/main/publisher/uid2-java-test-site#readme) を参照してください。
+Basic と Advanced 両方の使い方を示すサンプルアプリケーションは、[Java UID2 Integration Example](https://github.com/UnifiedID2/uid2-examples/tree/main/publisher/uid2-java-test-site#readme) を参照してください。
 
 ### Basic Usage
 
@@ -145,7 +147,7 @@ SDK の HTTP 実装を使用している場合は、以下の手順に従って�
 
 2. ユーザーのメールアドレスまたは電話番号を入力として受け取り、`TokenGenerateResponse` オブジェクトを生成する関数を呼び出します。以下の例では、メールアドレスを使用しています:
    ```java
-   TokenGenerateResponse tokenGenerateResponse = publisherUid2Client.generateTokenResponse(TokenGenerateInput.fromEmail(emailAddress).doNotGenerateTokensForOptedOut());
+   TokenGenerateResponse tokenGenerateResponse = publisherUid2Client.generateTokenResponse(TokenGenerateInput.fromEmail("user@example.com").doNotGenerateTokensForOptedOut());
    ```
 
    :::important
@@ -193,7 +195,9 @@ Server-Side Integration ([Publisher Integration Guide, Server-Side](../guides/in
    2. ID をリフレッシュできるかどうか (Refresh Token の有効期限が切れていないかどうか) を判断します:
 
       ```java
-      if (identity == null || !identity.isRefreshable()) { we must no longer use this identity (for example, remove this identity from the user's session) }
+      if (identity == null || !identity.isRefreshable()) { 
+          // we must no longer use this identity (for example, remove this identity from the user's session) 
+      }
       ```
    3. リフレッシュが必要かどうかを判断します:
 
@@ -220,13 +224,13 @@ Server-Side Integration ([Publisher Integration Guide, Server-Side](../guides/in
 2. ユーザーのメールアドレスまたは電話番号を入力として受け取り、安全なリクエストデータエンベロープを作成する関数を呼び出します。[Encrypting requests](../getting-started/gs-encryption-decryption.md#encrypting-requests) を参照してください。以下の例ではメールアドレスを使用しています:
 
     ```java
-    EnvelopeV2 envelope = publisherUid2Helper.createEnvelopeForTokenGenerateRequest(TokenGenerateInput.fromEmail(emailAddress).doNotGenerateTokensForOptedOut());
+    EnvelopeV2 envelope = publisherUid2Helper.createEnvelopeForTokenGenerateRequest(TokenGenerateInput.fromEmail("user@example.com").doNotGenerateTokensForOptedOut());
     ```
 3. 選択した HTTP クライアントライブラリを使用して、ヘッダーとボディを含むこのエンベロープを [POST&nbsp;token/generate](../endpoints/post-token-generate.md) エンドポイントにポストします:
    1. Headers: HTTP ライブラリによっては、以下のようになります:  
 
       `.putHeader("Authorization", "Bearer " + UID2_API_KEY)`  
-      `.putHeader("X-UID2-Client-Version", PublisherUid2Helper.getVersionHeader())`
+      `.putHeader("X-UID2-Client-Version", PublisherUid2Helper.getVersionHttpHeader())`
    2. Body: `envelope.getEnvelope()`
    :::important
    <!-- - Be sure to call the POST&nbsp;/token/generate endpoint only when you have a legal basis to convert the user’s <Link href="../ref-info/glossary-uid#gl-dii">directly identifying information (DII)</Link> to UID2 tokens for targeted advertising.
@@ -279,7 +283,9 @@ Server-Side Integration ([Publisher Integration Guide, Server-Side](../guides/in
    2. ID をリフレッシュできるかどうか (Refresh Token の有効期限が切れていないかどうか) を判断します: 
 
       ```java
-      if (identity == null || !identity.isRefreshable()) { we must no longer use this identity (for example, remove this identity from the user's session) }
+      if (identity == null || !identity.isRefreshable()) { 
+          // we must no longer use this identity (for example, remove this identity from the user's session) 
+      }
       ```
    3. リフレッシュが必要かどうかを判断します:
    
@@ -290,7 +296,7 @@ Server-Side Integration ([Publisher Integration Guide, Server-Side](../guides/in
    1. Headers: HTTPライブラリによっては、次のようになります:
     
       `.putHeader("Authorization", "Bearer " + UID2_API_KEY)`  
-      `.putHeader("X-UID2-Client-Version", PublisherUid2Helper.getVersionHeader())`. 
+      `.putHeader("X-UID2-Client-Version", PublisherUid2Helper.getVersionHttpHeader())`. 
    2. Body: `identity.getRefreshToken()`
 5. Refresh HTTP レスポンスステータスコードが 200 の場合:
 
@@ -303,25 +309,213 @@ Server-Side Integration ([Publisher Integration Guide, Server-Side](../guides/in
 
 ## Usage for Advertisers/Data Providers
 
-1. IdentityMapClient のインスタンスをインスタンス変数として作成します。
+1. IdentityMapClient のインスタンスをインスタンス変数として作成します:
    ```java
-   final private IdentityMapClient identityMapClient = new IdentityMapClient(UID2_BASE_URL, UID2_API_KEY, UID2_SECRET_KEY);
+   final private IdentityMapV3Client identityMapV3Client = new IdentityMapV3Client(UID2_BASE_URL, UID2_API_KEY, UID2_SECRET_KEY);
    ```
 
 2. メールアドレスまたは電話番号を入力として受け取り、IdentityMapResponse オブジェクトを生成する関数を呼び出します。以下の例では、メールアドレスを使用しています:
    ```java
+   IdentityMapV3Input input = IdentityMapV3Input.fromEmails(Arrays.asList("user@example.com", "user2@example.com"));
+   ```
+
+ 複数の ID タイプを組み合わせることもできます:
+   ```java
+   IdentityMapV3Input input = new IdentityMapV3Input()
+       .withEmail("user@example.com")
+       .withPhone("+12345678901")
+       .withHashedEmail("preHashedEmail")
+       .withHashedPhone("preHashedPhone");
+   ```
+
+3. `input` を受け取り、IdentityMapV3Response オブジェクトを生成する関数を呼び出します:
+   ```java
+   IdentityMapV3Response identityMapResponse = identityMapV3Client.generateIdentityMap(input);
+   ```
+
+4. マッピングされた結果とマッピングされていない結果を取得します:
+   ```java
+   HashMap<String, IdentityMapV3Response.MappedIdentity> mappedIdentities = identityMapResponse.getMappedIdentities();
+   HashMap<String, IdentityMapV3Response.UnmappedIdentity> unmappedIdentities = identityMapResponse.getUnmappedIdentities();
+   ```
+
+5. 結果を処理します。マッピングされた ID が成功した場合は、以下のようにします:
+   ```java
+   IdentityMapV3Response.MappedIdentity mappedIdentity = mappedIdentities.get("user@example.com");
+   if (mappedIdentity != null) {
+       String currentUid = mappedIdentity.getCurrentRawUid();     // Current raw UID2
+       String previousUid = mappedIdentity.getPreviousRawUid();   // Previous raw UID2 (nullable, only available for 90 days after rotation)
+       Instant refreshFrom = mappedIdentity.getRefreshFrom();     // When to refresh this identity
+   } else {
+       IdentityMapV3Response.UnmappedIdentity unmappedIdentity = unmappedIdentities.get("user@example.com");
+       UnmappedIdentityReason reason = unmappedIdentity.getReason(); // OPTOUT, INVALID_IDENTIFIER, or UNKNOWN
+   }
+   ```
+
+>**Note:** SDKは、メールアドレスの正規化とハッシュ化を自動的に処理し、生のメールアドレスや電話番号がサーバーから送信されないようにします。
+
+### Usage Example
+
+```java
+IdentityMapV3Client client = new IdentityMapV3Client(UID2_BASE_URL, UID2_API_KEY, UID2_SECRET_KEY);
+
+// Example 1: Single identity type
+IdentityMapV3Input emailInput = IdentityMapV3Input.fromEmails(
+    Arrays.asList("user@example.com", "optout@example.com")
+);
+IdentityMapV3Response emailResponse = client.generateIdentityMap(emailInput);
+
+// Process email results
+emailResponse.getMappedIdentities().forEach((email, identity) -> {
+    System.out.println("Email: " + email);
+    System.out.println("Current UID: " + identity.getCurrentRawUid());
+    System.out.println("Previous UID: " + identity.getPreviousRawUid());
+    System.out.println("Refresh from: " + identity.getRefreshFrom());
+});
+
+emailResponse.getUnmappedIdentities().forEach((email, identity) -> {
+    System.out.println("Unmapped email: " + email + " - Reason: " + identity.getReason());
+});
+
+// Example 2: Mixed identity types in single request
+IdentityMapV3Input mixedInput = new IdentityMapV3Input()
+    .withEmail("user1@example.com")
+    .withPhone("+12345678901")
+    .withHashedEmail("preHashedEmailValue")
+    .withHashedPhone("preHashedPhoneValue");
+
+IdentityMapV3Response mixedResponse = client.generateIdentityMap(mixedInput);
+```
+
+## Migration From Version Using v2 Identity Map
+
+以下のセクションでは、この SDK の最新バージョンへの移行に関する一般的な情報とガイダンスを提供します。最新バージョンは `POST /identity/map` バージョン 3 を参照しています:
+
+- [Version 3 Improvements](#version-3-improvements)
+- [Required Changes](#required-changes)
+- [Recommended Changes](#recommended-changes)
+
+### Version 3 Improvements
+
+<POSTIdentityMapImprovements />
+
+### Required Changes
+
+アップグレードするには、以下の手順に従ってください:
+
+1. [Update dependency version](#1-update-dependency-version)
+2. [Change client class](#2-change-client-class)
+3. [Update import statements](#3-update-import-statements)
+
+#### 1. Update dependency version
+
+コード内で参照されている依存関係のバージョンを、次の例のように更新します。
+
+```xml
+<dependency>
+  <groupId>com.uid2</groupId>
+  <artifactId>uid2-client</artifactId>
+  <version>4.8.0</version>
+</dependency>
+```
+
+#### 2. Change client class
+
+コード内で参照されているクライアントクラスを更新します。以下の例を参照してください。
+
+```java
+// Before
+IdentityMapClient identityMapClient = new IdentityMapClient(UID2_BASE_URL, UID2_API_KEY, UID2_SECRET_KEY);
+
+// After
+IdentityMapV3Client identityMapClient = new IdentityMapV3Client(UID2_BASE_URL, UID2_API_KEY, UID2_SECRET_KEY);
+```
+
+#### 3. Update import statements
+
+以下の例のように、インポートステートメントを更新します。
+
+```java
+import com.uid2.client.IdentityMapV3Client;
+import com.uid2.client.IdentityMapV3Input;
+import com.uid2.client.IdentityMapV3Response;
+import com.uid2.client.UnmappedIdentityReason;
+```
+
+### Recommended Changes
+
+以下の変更は**オプション**ですが、新しい v3 機能を活用できます。[必須の変更](#required-changes) で基本的な機能は十分ですが、これらの推奨される変更により、機能が向上します。
+
+1. **Mix identity types in a single request** - 1 回のリクエストでメールアドレスと電話番号の両方を処理します:
+   ```java
+   // Before - single identity type only
+   IdentityMapInput input = IdentityMapInput.fromEmails(Arrays.asList("user@example.com"));
+   
+   // After - can mix identity types (new v3 capability)
+   IdentityMapV3Input input = new IdentityMapV3Input()
+       .withEmail("user@example.com")
+       .withPhone("+12345678901")
+       .withHashedEmail("preHashedEmail")
+       .withHashedPhone("preHashedPhone");
+   ```
+
+2. **Access previous UID2s** - 90 日間の測定継続性のために、現在の UID2 と以前の UID2 の両方を取得します:
+   ```java
+   // Before - only current UID2 available
+   IdentityMapResponse response = client.generateIdentityMap(input);
+   MappedIdentity mapped = response.getMappedIdentities().get("user@example.com");
+   String uid = mapped.getRawUid();
+   
+   // After - access to both current and previous UID2s
+   IdentityMapV3Response response = client.generateIdentityMap(input);
+   IdentityMapV3Response.MappedIdentity mapped = response.getMappedIdentities().get("user@example.com");
+   String currentUid = mapped.getCurrentRawUid();
+   String previousUid = mapped.getPreviousRawUid();  // Available for 90 days after rotation
+   Instant refreshFrom = mapped.getRefreshFrom();
+   ```
+
+3. **Use structured error reasons** - マッピングされない理由を文字列ではなく、肩安全な列挙方として取得します:
+   ```java
+   // Before - string-based error reasons
+   IdentityMapResponse.UnmappedIdentity unmapped = identityMapResponse.getUnmappedIdentities().get("user@example.com");
+   String reason = unmapped.getReason();
+   
+   // After - structured enum-based error reasons
+   IdentityMapV3Response.UnmappedIdentity unmapped = response.getUnmappedIdentities().get("user@example.com");
+   UnmappedIdentityReason reason = unmapped.getReason(); // Enum: OPTOUT, INVALID_IDENTIFIER, UNKNOWN
+   
+   // Or continue using string reasons if preferred
+   String rawReason = unmapped.getRawReason();
+   ```
+
+## Previous SDK Version (using POST /identity/map v2)
+
+:::note
+下位互換性のために、`POST /identity/map` v2 エンドポイントを参照する SDK for Java の以前のバージョンも利用可能です。パフォーマンスの向上、複数の ID タイプのサポート、UID ローテーション管理の改善のために、現在の SDK に移行してください。新しいインテグレーションではこのバージョンを使用しないでください。
+詳細は [Migration From Version Using v2 Identity Map](#migration-from-version-using-v2-identity-map) を参照してください。
+:::
+
+以前のバージョンを使用するには、以下の手順に従ってください。
+
+1. IdentityMapClient のインスタンスをインスタンス変数として作成します:
+   ```java
+   final private IdentityMapClient identityMapClient = new IdentityMapClient(UID2_BASE_URL, UID2_API_KEY, UID2_SECRET_KEY);
+   ```
+
+2. メールアドレスまたは電話番号を入力として受け取り、IdentityMapResponse オブジェクトを生成する関数を呼び出します。以下の例ではメールアドレスを使用しています:
+   ```java
    IdentityMapResponse identityMapResponse = identityMapClient.generateIdentityMap(IdentityMapInput.fromEmails(Arrays.asList("email1@example.com", "email2@example.com")));
    ```
 
->Note: SDK は入力値を送信する前にハッシュ化します。これにより、元のメールアドレスや電話番号がサーバーから送信されることはありません。
+   >**Note:** SDK は、送信する前に入力値をハッシュ化します。これにより、生のメールアドレスや電話番号がサーバーから出ることはありません。
 
-3. マップされた結果とマップされていない結果を以下のように取得します:
+3. マッピングされた結果とマッピングされていない結果を次のように取得します:
    ```java
    Map<String, IdentityMapResponse.MappedIdentity> mappedIdentities = identityMapResponse.getMappedIdentities();
-   Map<String, IdentityMapResponse.UnmappedIdentity> unmappedIdentities = identityMapResponse.getUnmappedIdentities();`
+   Map<String, IdentityMapResponse.UnmappedIdentity> unmappedIdentities = identityMapResponse.getUnmappedIdentities();
    ```
 
-4. マップされた結果とマップされていない結果を Iterate するか、lookup を行います。以下の例では lookup を行っています:
+4. マッピングされた結果とマッピングされていない結果を反復処理するか、ルックアップを行います。次の例ではルックアップを行います:
    ```java
    IdentityMapResponse.MappedIdentity mappedIdentity = mappedIdentities.get("email1@example.com");
    if (mappedIdentity != null) {
@@ -334,24 +528,24 @@ Server-Side Integration ([Publisher Integration Guide, Server-Side](../guides/in
 
 ## Usage for DSPs
 
-以下の手順は、SDK for Java を使用して DSP が<Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link>のトークンを復号化する方法の例です。
+以下の手順は、DSP が SDK for Java を使用して <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link> のトークンを復号化する方法の例を示しています。
 
-1. `BidstreamClient` を生成します:
+1. `BidstreamClient` のインスタンスを作成します:
 
 ```java
-Bidstream client = new BidstreamClient(UID2_BASE_URL, UID2_API_KEY, UID2_SECRET_KEY);
+BidstreamClient client = new BidstreamClient(UID2_BASE_URL, UID2_API_KEY, UID2_SECRET_KEY);
 ```
 
-2. 起動時に一度リフレッシュし、その後定期的にリフレッシュします (推奨リフレッシュ間隔は1時間毎):
+2. 起動時に 1 回リフレッシュし、その後定期的にリフレッシュします (推奨されるリフレッシュ間隔は 1 時間ごとです):
 
 ```java
 client.refresh();
 ```
 
-3. トークンを raw UID2に復号します。トークンを渡し、以下のいずれかを実行します:
-* ビッドリクエスト元がパブリッシャーのウェブサイトである場合は、ドメイン名を渡します。ドメイン名はすべて小文字で、スペースを入れず、サブドメインを含まないものでなければなりません。たとえば、`Subdomain.DOMAIN.com` は `domain.com` を代わりに渡します。
-*ビッドリクエストがモバイルアプリから発生した場合は、<Link href="../ref-info/glossary-uid#gl-app-name">app name</Link> を渡します。
-* 上記以外は `null` を渡します。
+3. トークンを raw UID2 に復号化します。トークンを渡し、次のいずれかを行います:
+* ビッドリクエストがパブリッシャーのウェブサイトから発信された場合は、ドメイン名を渡します。ドメイン名はすべて小文字で、スペースやサブドメインなしで指定する必要があります。たとえば、`Subdomain.DOMAIN.com` の場合は、代わりに `domain.com` を渡します。
+* ビッドリクエストがモバイルアプリから発信された場合は、<Link href="../ref-info/glossary-uid#gl-app-name">アプリ名</Link>を渡します。
+* それ以外の場合は、`null` を渡します。
 
 ```java
 DecryptionResponse decrypted = client.decryptTokenIntoRawUid(uidToken, domainOrAppName); 
@@ -366,31 +560,31 @@ else
 }
 ```
 
-完全な例については、[test/IntegrationExamples.java](https://github.com/IABTechLab/uid2-client-java/blob/main/src/test/java/com/uid2/client/test/IntegrationExamples.java) の `ExampleBidStreamClient` メソッドを参照してください。
+詳細な例は、[test/IntegrationExamples.java](https://github.com/IABTechLab/uid2-client-java/blob/main/src/test/java/com/uid2/client/test/IntegrationExamples.java) を参照してください。
 
 ## Usage for UID2 Sharers
 
-UID2 <Link href="../ref-info/glossary-uid#gl-sharing-participant">Sharing Participant</Link> は、送信者または受信者として共有に参加し、他の参加者と UID2 を共有する企業です。
+UID2 <Link href="../ref-info/glossary-uid#gl-sharing">共有参加者</Link>は、送信者または受信者として共有に参加し、他の参加者と UID2 を共有する企業です。
 
-広告主やデータプロバイダは、この SDK を使用して他の認証された UID2 共有参加者と UID2 を共有できます (<Link href="../ref-info/glossary-uid#gl-tokenized-sharing">Tokenized Sharing</Link>)。彼らは [raw UID2s](../ref-info/glossary-uid#gl-raw-uid2) を <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> に暗号化し、それを他の参加者に送信して共有できます (詳細は [Tokenized Sharing in Pixels](../sharing/sharing-tokenized-from-data-pixel.md) を参照)。データをピクセルで送信していない場合でも、[Security Requirements for UID2 Sharing](../sharing/sharing-security.md) で示されている要件に従えば、UID2 共有に参加できます。
+広告主およびデータプロバイダーは、この SDK を使用して、他の承認された UID2 共有参加者と UID2 を共有できます (<Link href="../ref-info/glossary-uid#gl-tokenized-sharing">トークン化された共有</Link>)。彼らは [raw UID2](../ref-info/glossary-uid#gl-raw-uid2) を <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 Token</Link> に暗号化し、それを共有のために別の参加者に送信できます (ピクセルでの [Tokenized Sharing in Pixels](../sharing/sharing-tokenized-from-data-pixel.md)を参照)。ピクセルでデータを送信しない場合は、[Security Requirements for UID2 Sharing](../sharing/sharing-security.md)に記載されている要件に従う限り、UID2 共有に参加できます。
 
 :::important
-このプロセスで生成される UID2 Token は共有専用で、ビッドストリームでは使用できません。ビッドストリームで使用するには、別のワークフローがあります: [Tokenized Sharing in the Bidstream](../sharing/sharing-tokenized-from-data-bid-stream.md) を参照してください。
+このプロセスで生成される UID2 Token は共有専用であり、ビッドストリームでは使用できません。ビッドストリーム用のトークンを生成するための別のワークフローがあります: [Tokenized Sharing in the Bidstream](../sharing/sharing-tokenized-from-data-bid-stream.md)を参照してください。
 :::
 
-以下の手順は、SDK for Java を使用して、送信者または受信者として共有を実装する方法の例です。
+以下の手順は、SDK for Java を使用して、送信者または受信者として共有を実装する方法の例を示しています。
 
-1. `SharingClient`　を生成します:
+1. インスタンス変数として `SharingClient` のインスタンスを作成します:
 ```java
 SharingClient client = new SharingClient(UID2_BASE_URL, UID2_API_KEY, UID2_SECRET_KEY);
 ```
 
-2. 起動時に一度リフレッシュし、その後定期的にリフレッシュします。推奨されるリフレッシュ間隔は1時間ごとです。詳細は [Decryption Key Refresh Cadence for Sharing](../sharing/sharing-best-practices.md#decryption-key-refresh-cadence-for-sharing) を参照してください。
+2. 起動時に 1 回リフレッシュし、その後定期的にリフレッシュします (推奨されるリフレッシュ間隔は 1 時間ごとです):
+```java
+client.refresh();
+```
 
-   ```java
-   client.refresh();
-   ```
-3. 送信者なら `encryptRawUidIntoToken` を呼び出します:
+3. 送信者の場合は、`encryptRawUidIntoToken` を呼び出します:
 ```java
 EncryptionDataResponse encrypted = client.encryptRawUidIntoToken(raw_uid);
 // If encryption succeeded, send the UID2 token to the receiver.
@@ -403,7 +597,7 @@ else
         // Check encrypted.getStatus() for the failure reason.
 }
 ```
-受信者なら `decryptTokenIntoRawUid` を呼び出します:
+受信者である場合は、`decryptTokenIntoRawUid` を呼び出します:
 
 ```java
 DecryptionResponse decrypted = client.decryptTokenIntoRawUid(uid_token);
@@ -418,8 +612,4 @@ else
 }
 ```
 
-完全な例については、[test/IntegrationExamples.java](https://github.com/IABTechLab/uid2-client-java/blob/main/src/test/java/com/uid2/client/test/IntegrationExamples.java) の `ExampleSharingClient` メソッドを参照してください。
-
-## FAQs
-
-DSP に関するよくある質問については [FAQs for DSPs](../getting-started/gs-faqs.md#faqs-for-dsps) を参照してください。
+詳細な例は、[test/IntegrationExamples.java](https://github.com/IABTechLab/uid2-client-java/blob/main/src/test/java/com/uid2/client/test/IntegrationExamples.java) の `ExampleSharingClient` メソッドを参照してください。

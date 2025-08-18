@@ -53,7 +53,7 @@ For information about supported versions and deprecation dates, see [Private Ope
    ペストプラクティスは、まずインテグレーション環境にデプロイし、次に本番環境にデプロイすることです。
 1. 利用可能な[deployment options](#deployment-options) に関する情報を確認し、それぞれの利点を比較して、使用するオプションを決定します。
    
-      Terraform テンプレートオプションを勧めます。
+      Terraform テンプレートオプションを推奨します。
 1. 選択したデプロイメントオプションに従って、適用可能な手順に従います:
    - [Terraform Template](#deployterraform-template)
    - [gcloud CLI](#deploygcloud-cli)
@@ -75,7 +75,7 @@ UID2 Operator Service は、任意の GCP アカウントとプロジェクト�
 
 デプロイメントオプションを選択する前に、次の Google Cloud のセットアップ手順を完了してください:
 
-1. UID2 Operator を実行する GCP プロジェクトを作成します。UID2 Operator Service が実行される GCP プロジェクトを作成することを勧めますが、既存のプロジェクトを使用することもできます。次のガイドラインに従ってください:
+1. UID2 Operator を実行する GCP プロジェクトを作成します。UID2 Operator Service が実行される GCP プロジェクトを作成することを推奨しますが、既存のプロジェクトを使用することもできます。次のガイドラインに従ってください:
 
    - プロジェクト名を選択します。たとえば、`UID2-Operator-Production` とします。この値は、後の手順で `{PROJECT_ID}` 値として使用します。
    - 請求が有効になっている GCP プロジェクトを定義してください。
@@ -117,7 +117,7 @@ UID2 アカウント登録が完了し、gcloud CLI をインストールした�
 | Environment | Details |
 | :--- | :--- |
 | Integration (`integ`) | テスト専用。デバッグモードはインテグレーション環境で使用できます。 |
-| Production (`prod`) | 本番トラフィックの管理用。この環境では、Terraform テンプレート経由で、ロードバランシングを行い、HTTPS を有効にしてデプロイすることを勧めます。[Deployment Options](#deployment-options) を参照してください。 |
+| Production (`prod`) | 本番トラフィックの管理用。この環境では、Terraform テンプレート経由で、ロードバランシングを行い、HTTPS を有効にしてデプロイすることを推奨します。[Deployment Options](#deployment-options) を参照してください。 |
 
 ## Deployment Options
 
@@ -211,7 +211,7 @@ Terraform がインストールされていない場合は、[terraform.io](http
    | `uid_deployment_env` | `string` | `integ` | yes | 有効な値: `integ` はインテグレーション環境、`prod` は本番環境。<br/>マシンタイプはデプロイ環境によって決まります。`integ` は `n2d-standard-2` を使用し、`prod` は `n2d-standard-16` を使用します。 |
    | `debug_mode` | `bool` | `true` | yes | より多くの診断情報を有効にするには `true` に設定します。本番環境では `false` に設定しなければなりません。 |
 
-2. (オプション、強く勧めます) ロードバランサーを HTTPS に設定します。次の表に示すパラメータお値を設定します:
+2. (オプション、強く推奨します) ロードバランサーを HTTPS に設定します。次の表に示すパラメータお値を設定します:
 
    | Name | Type | Default | Required | Description |
    | :--- | :--- | :--- | :--- | :--- |
@@ -223,7 +223,7 @@ Terraform がインストールされていない場合は、[terraform.io](http
 
    | Name | Type | Default | Required | Description |
    | :--- | :--- | :--- | :--- | :--- |
-   | `region` | `string` | `us-east1` | no | デプロイ先のリージョン。有効なリージョンの一覧については、Google Cloud ドキュメントの [Available regions and zones](https://cloud.google.com/compute/docs/regions-zones#available) を参照してください。<br/>NOTE: GCP Confidential Space 用の UID2 Private Operator の実装は、次の地域ではサポートされていません: ヨーロッパ、中国。 |
+   | `region` | `string` | `us-east1` | no | デプロイ先のリージョン。有効なリージョンの一覧は、Google Cloud ドキュメントの [Available regions and zones](https://cloud.google.com/compute/docs/regions-zones#available) を参照してください。<br/>NOTE: GCP Confidential Space 用の UID2 Private Operator の実装は、次の地域ではサポートされていません: ヨーロッパ、中国。 |
    | `network_name` | `string` | `uid-operator` | no | VPC リソース名（ルール/インスタンスタグにも使用されます）。 |
    | `min_replicas` | `number` | `1` | no | デプロイする最小レプリカ数を示します。 |
    | `max_replicas` | `number` | `5` | no | デプロイする最大レプリカ数を示します。 |
@@ -248,7 +248,7 @@ Terraform の `state` ファイルに関する推奨に従ってください: �
 
 実装のヘルスをテストするために、ヘルスチェックエンドポイントを使用します。ヘルスチェックの期待される結果は、HTTP 200 で、レスポンスボディが `OK` です。
 
-手順については、[Health Check&#8212;Terraform Template](#health-checkterraform-template) を参照してください。
+手順は、[Health Check&#8212;Terraform Template](#health-checkterraform-template) を参照してください。
 
 #### Delete All Created Resources
 
@@ -273,7 +273,7 @@ Terraform テンプレートからの出力値は次の表の通りです。
 gcloud CLI を使用して GCP Confidential Space Enclave に新しい UID2 Operator をデプロイするには、次の手順に従います。
 
 :::note
-本番環境へのデプロイメントにはこのオプションを使用しないことを勧めます。本番環境へのデプロイメントには、Terraform テンプレートを使用し、ロードバランシングを行い、HTTPS を有効にすることを勧めます。
+本番環境へのデプロイメントにはこのオプションを使用しないことを推奨します。本番環境へのデプロイメントには、Terraform テンプレートを使用し、ロードバランシングを行い、HTTPS を有効にすることを推奨します。
 :::
 
    1. [Set Up Service Account Rules and Permissions](#set-up-service-account-rules-and-permissions)
@@ -463,7 +463,7 @@ $ gcloud compute instances create {INSTANCE_NAME} \
 
 ヘルスチェックエンドポイントを呼び出して、実装の健全性をテストします。期待される結果は、HTTP 200 で、レスポンスボディが `OK` です。
 
-手順については、[Health Check&#8212;gcloud CLI](#health-checkgcloud-cli) を参照してください。
+手順は、[Health Check&#8212;gcloud CLI](#health-checkgcloud-cli) を参照してください。
 
 ## Running the Health Check
 
@@ -541,7 +541,7 @@ Private Operator 起動時のエラーコードは、リリース v5.49.7 以降
 
 | Error Code | Issue | Steps to Resolve |
 | :--- | :--- | :--- |
-| E02 | OperatorKeyNotFoundError | オペレータと同じプロジェクトの GCP Secret Manager に指定されたシークレット名が存在し、サービスアカウントがシークレットにアクセスする権限を持っていることを確認してください。`tee-env-API_TOKEN_SECRET_NAME` に設定されていることを確認してください。必要に応じて、特定のシークレット名についてはログを確認できます。 |
+| E02 | OperatorKeyNotFoundError | オペレータと同じプロジェクトの GCP Secret Manager に指定されたシークレット名が存在し、サービスアカウントがシークレットにアクセスする権限を持っていることを確認してください。`tee-env-API_TOKEN_SECRET_NAME` に設定されていることを確認してください。必要に応じて、特定のシークレット名はログを確認できます。 |
 | E03 | ConfigurationMissingError | 構成に必要な属性が不足しています。詳細はログを参照し、GCP オペレーターを実行する前に不足している属性を更新してください。 |
 | E04 | ConfigurationValueError | 設定値が無効です。設定値が必要な形式と環境に一致していることを確認してください。注意: `debug_mode = true` は `integ` 環境でのみ許可されます。詳細はログを確認してください。 |
 | E05 | OperatorKeyValidationError | Operator Key が環境に対して正しいことを確認し、提供されたものと一致していることを確認してください。 |

@@ -41,7 +41,7 @@ The latest ZIP file is available in the Assets section at the bottom of the link
 | Q3 2024 | [v5.38.104](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.38.104) | 5.38.104 | September 12, 2024 | Mar 31, 2026 |
 | Q2 2024 | [v5.37.12](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.37.12) | 5.37.12 | June 12, 2024 | Sep 30, 2025 |
 
-For documentation, see [UID2 Private Operator for AWS Integration Guide](..\guides\operator-guide-aws-marketplace.md).
+For documentation, see [UID2 Private Operator for AWS Integration Guide](../guides/operator-guide-aws-marketplace.md).
 
 ### Private Operator for GCP
 
@@ -55,7 +55,7 @@ The latest ZIP file is linked in the GCP Download column in the following table.
 | Q3 2024 | [v5.38.104](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.38.104) | [gcp-oidc-deployment-files-5.38.104.zip](https://github.com/IABTechLab/uid2-operator/releases/download/v5.38.104/gcp-oidc-deployment-files-5.38.104.zip) | September 12, 2024 | Mar 31, 2026 |
 | Q2 2024 | [v5.37.12](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.37.12) | [gcp-oidc-deployment-files-5.37.12.zip](https://github.com/IABTechLab/uid2-operator/releases/download/v5.37.12/gcp-oidc-deployment-files-5.37.12.zip) | June 12, 2024 | Sep 30, 2025 |
 
-For documentation, see [UID2 Private Operator for GCP Integration Guide](..\guides\operator-private-gcp-confidential-space.md).
+For documentation, see [UID2 Private Operator for GCP Integration Guide](../guides/operator-private-gcp-confidential-space.md).
 
 ### Private Operator for Azure
 
@@ -69,7 +69,7 @@ The latest ZIP file is linked in the Azure Download column in the following tabl
 | Q3 2024 | [v5.38.104](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.38.104) | [azure-cc-deployment-files-5.38.104.zip](https://github.com/IABTechLab/uid2-operator/releases/download/v5.38.104/azure-cc-deployment-files-5.38.104.zip) | September 12, 2024 | Mar 31, 2026 |
 | Q2 2024 | [v5.37.12](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.37.12) | [azure-cc-deployment-files-5.37.12.zip](https://github.com/IABTechLab/uid2-operator/releases/download/v5.37.12/azure-cc-deployment-files-5.37.12.zip) | June 12, 2024 | Sep 30, 2025 |
 
-For documentation, see [UID2 Private Operator for Azure Integration Guide](..\guides\operator-guide-azure-enclave.md).
+For documentation, see [UID2 Private Operator for Azure Integration Guide](../guides/operator-guide-azure-enclave.md).
 
 <!-- ### Private Operator for AKS
 
@@ -79,3 +79,16 @@ The latest ZIP file is linked in the Release Notes column in the following table
 | ------- | ------ | ------ | ------ | ------ |
 | Q2 2025 | xxx | xxx | xxx | xxx | -->
 <!-- | Q1 2025 | 5.49.7 | [v5.49.7](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.49.7) | Mar 19, 2025 | Mar 31, 2026 | -->
+
+## Endpoint Versions
+
+Version 2 of the `POST /identity/map` endpoint has been superseded by version 3, which includes the additional advantages listed in [Version 3 Improvements](../endpoints/post-identity-map.md#version-3-improvements).
+
+With version 3 of the `POST /identity/map` endpoint, the `POST /identity/buckets` endpoint is no longer used at all.
+
+The following table shows the deprecation schedule for the v2 endpoints.
+
+Endpoint | Deprecation Date | 
+| ------- | ------ |
+| `POST /v2/identity/map` | June 30, 2026 |
+| `POST /v2/identity/buckets` | June 30, 2026 |

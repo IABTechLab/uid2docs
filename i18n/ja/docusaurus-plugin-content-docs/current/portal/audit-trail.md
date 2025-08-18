@@ -18,7 +18,7 @@ Audit Trail ログには、以下の表にまとめられた情報が表示さ�
 | :--- | :--- | 
 | Date | アクションが発生した日時。 |
 | User | アクションを実行したユーザー。 |
-| Event | 実行したアクションの詳細。 有効な値の概要については、[Audit Trail Event Types](#audit-trail-event-types) を参照してください。 |
+| Event | 実行したアクションの詳細。 有効な値の概要は、[Audit Trail Event Types](#audit-trail-event-types) を参照してください。 |
 | Event Data | アクションの詳細。 |
 | Succeeded | アクションが成功したかどうか。 |
 

@@ -88,7 +88,7 @@ raw UID2 から UID2 Token を生成して、Tokenized Sharing を行うワー�
    
    2. 送信者と受信者: 暗号鍵の更新スケジュールを定義します。
    
-      推奨される更新間隔は1時間です。例については、[Decryption Key Refresh Cadence for Sharing (SDK Only)](#decryption-key-refresh-cadence-for-sharing-sdk-only) を参照してください。
+      推奨される更新間隔は1時間です。例は、[Decryption Key Refresh Cadence for Sharing (SDK Only)](#decryption-key-refresh-cadence-for-sharing-sdk-only) を参照してください。
 
    3. 送信者: 暗号化を設定します。
 

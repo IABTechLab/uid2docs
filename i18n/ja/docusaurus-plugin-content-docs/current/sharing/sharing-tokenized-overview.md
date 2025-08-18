@@ -26,7 +26,7 @@ UID2 では、Tokenized Sharing は、<Link href="../ref-info/glossary-uid#gl-di
 | トラッキングピクセルで UID2 を送信する | どの共有参加者でも | どの共有参加者でも | [Tokenized Sharing in Pixels](sharing-tokenized-from-data-pixel.md) を参照してください |
 | 他の共有参加者に UID2 Token を送信する | どの共有参加者でも、[UID2 Sharing のセキュリティ要件](sharing-security.md) が満たされない場合、またはその他の理由がある場合 | どの共有参加者でも | [Tokenized Sharing from Raw UID2s](sharing-tokenized-from-raw.md) を参照してください |
 
-その他の例については、[Sharing UID2s: Use Cases](sharing-use-cases.md) を参照してください。
+その他の例は、[Sharing UID2s: Use Cases](sharing-use-cases.md) を参照してください。
 
 ## Sending UID2 Tokens to Another Sharing Participant
 

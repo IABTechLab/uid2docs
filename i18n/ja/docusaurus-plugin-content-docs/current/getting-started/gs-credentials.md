@@ -22,7 +22,7 @@ UID2 の <a href="../overviews/participants-overview#uid2-external-participants"
 
 インテグレーション<Link href="../ref-info/glossary-uid#gl-environment">環境</Link> と本番環境の両方を使用している場合、それぞれの環境用に別々の認証情報が提供されます。詳細は [Getting Your Credentials](#getting-your-credentials) を参照してください。
 
-さらに、いくつかのケースでは、異なるシナリオに対して異なるセットの認証情報を持つことを勧めますが、必須ではありません。たとえば:
+さらに、いくつかのケースでは、異なるシナリオに対して異なるセットの認証情報を持つことを推奨しますが、必須ではありません。たとえば:
 - UID2 Token を生成する Publisher である場合([POST /token/generate](../endpoints/post-token-generate.md) または他の方法で)、または自分のために UID2 を生成/マッピングする場合([POST /identity/map (v2)](../endpoints/post-identity-map-v2.md) を参照)、それぞれの活動に対して異なる認証情報を持つことがあります。
 - 広告主の場合、広告主キーを使用して複数のサービスプロバイダが運用するシナリオで、各サービスプロバイダに対して異なる認証情報割り当てることができます。
 
@@ -105,7 +105,7 @@ Client-Side または Server-Side の実装を使用している場合([UID2 Cli
 - 各キーには、それを使用できるエンドポイントを決定する [Permissions](gs-permissions.md) のセットがあります。
 - 各キーには対応するクライアントシークレットがあります。
 - ほとんどの API エンドポイントは、認証のために API Key とクライアントシークレットの両方を必要とします。詳細は [Authentication and Authorizatio](gs-auth.md) を参照してください。
-- インテグレーション環境と本番環境では、異なる <Link href="../ref-info/glossary-uid#gl-api-key">API Key</Link> が必要です。各環境の認証情報を取得する方法については、[Getting Your Credentials](../getting-started/gs-credentials.md#getting-your-credentials) を参照してください。
+- インテグレーション環境と本番環境では、異なる <Link href="../ref-info/glossary-uid#gl-api-key">API Key</Link> が必要です。各環境の認証情報を取得する方法は、[Getting Your Credentials](../getting-started/gs-credentials.md#getting-your-credentials) を参照してください。
 - クライアントシークレットは特定の [Environment](gs-environments.md) で有効です。インテグレーション環境と本番環境の両方を使っている場合、それぞれの環境用のクライアントシークレットを取得します。
 
 UID2 アカウントのセットアップの一環として、1つ以上の API Key が発行され、それぞれに対応するクライアントシークレットが割り当てられます。相談相手の詳細は [Contact Info](gs-account-setup.md#contact-info) を参照してください。

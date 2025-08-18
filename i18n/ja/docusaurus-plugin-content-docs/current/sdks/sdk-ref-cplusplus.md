@@ -34,7 +34,7 @@ UID2 とインテグレーションするには、UID2 アカウントが必要�
 - アカウント用の [credentials](../getting-started/gs-credentials.md) を生成します。
 - オプションとして、チームメンバーに関する情報を設定するなど、他の値を設定します。
 
-SDK が提供する特定の機能を使用する権限が与えられ、そのアクセスのための資格情報が提供されます。SDK には使用権限がない機能がある可能性があることに注意してください。詳細については、[API Permissions](../getting-started/gs-permissions.md) を参照してください。
+SDK が提供する特定の機能を使用する権限が与えられ、そのアクセスのための資格情報が提供されます。SDK には使用権限がない機能がある可能性があることに注意してください。詳細は、[API Permissions](../getting-started/gs-permissions.md) を参照してください。
 
 DSP の場合は、資格情報を送信します。
 
@@ -59,7 +59,7 @@ Release tags は以下の GitHub で入手できますが、バイナリーは�
 | Parameter | Description | Recommended Value |
 | :--- | :--- | :--- |
 | `endpoint` | UID2 Service のエンドポイント。 | N/A |
-| `authKey` | クライアントに付与された認証トークン。UID2 へのアクセスについては [Contact Info](../getting-started/gs-account-setup.md#contact-info) を参照してください。 | N/A |
+| `authKey` | クライアントに付与された認証トークン。UID2 へのアクセスは [Contact Info](../getting-started/gs-account-setup.md#contact-info) を参照してください。 | N/A |
 
 ## Interface 
 
@@ -88,7 +88,7 @@ SDK から返される利用可能な情報の概要を次の表に示します�
 
 | Function | Description |
 | :--- | :--- |
-| `GetStatus()` | 復号結果のステータス。指定可能な値の一覧と定義については、[Response Statuses](#response-statuses) を参照してください。 |
+| `GetStatus()` | 復号結果のステータス。指定可能な値の一覧と定義は、[Response Statuses](#response-statuses) を参照してください。 |
 | `GetUid()` | UID2 Advertising Token に対応する raw UID2。 |
 | `GetEstablished()` | ユーザーがパブリッシャーと最初に UID2 を確立した時を示すタイムスタンプ。 |
 
@@ -114,7 +114,7 @@ UID2 <Link href="../ref-info/glossary-uid#gl-sharing-participant">Sharing Partic
 このプロセスで生成される UID2 Token は共有専用です&#8212;<Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link>では使用できません。ビッドストリーム用のトークン生成には別のワークフローがあります: [Tokenized Sharing in the Bidstream](../sharing/sharing-tokenized-from-data-bid-stream.md) を参照してください。
 :::
 
- 使用例については [com.uid2.client.test.IntegrationExamples](https://github.com/IABTechLab/uid2-client-java/blob/master/src/test/java/com/uid2/client/test/IntegrationExamples.java) (`runSharingExample` メソッド) を参照してください。
+ 使用例は [com.uid2.client.test.IntegrationExamples](https://github.com/IABTechLab/uid2-client-java/blob/master/src/test/java/com/uid2/client/test/IntegrationExamples.java) (`runSharingExample` メソッド) を参照してください。
  
  次の手順では、SDK for C++ を送信者または受信者として使用して共有を実装する方法の例を示します。
 
@@ -165,7 +165,3 @@ UID2 <Link href="../ref-info/glossary-uid#gl-sharing-participant">Sharing Partic
          // check decrypted.GetStatus() for the failure reason 
       }
       ```
-
-## FAQs
-
-DSP に関するよくある質問については [FAQs for DSPs](../getting-started/gs-faqs.md#faqs-for-dsps) を参照してください。

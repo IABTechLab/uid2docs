@@ -7,6 +7,7 @@ displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';
+import POSTIdentityMapImprovements from '../snippets/_post-identity-map-improvements-v3.mdx';
 
 # POST /identity/map
 
@@ -174,7 +175,7 @@ For successfully mapped DII, the mapped object includes the properties shown in 
 | Property | Data Type  | Description                                                                                                                           |
 |:---------|:-----------|:--------------------------------------------------------------------------------------------------------------------------------------|
 | `u`      | string     | The raw UID2 corresponding to the email or phone number provided in the request.                                                                     |
-| `p`      | string     | One of the following:<ul><li>If the current raw UID2 has been rotated in the last 90 days: the previous value.</li><li>If the current raw UID2 is older than 90 days: `null`.</li></ul> |
+| `p`      | string     | One of the following:<ul><li>If the current raw UID2 was rotated in the last 90 days: the previous raw UID2.</li><li>Otherwise: `null`.</li></ul> |
 | `r`      | number     | The Unix timestamp (in milliseconds) that indicates when the raw UID2 might be refreshed. The raw UID2 is guaranteed to be valid until this timestamp. |
 
 For unsuccessfully mapped input values, the mapped object includes the properties shown in the following table.
@@ -206,19 +207,13 @@ The following sections provide general information and guidance for migrating to
 
 ### Version 3 Improvements
 
-The v3 Identity Map API provides the following improvements over v2:
-
-- **Simplified Refresh Management**: You can monitor for UID2s reaching `refresh_from` timestamps instead of polling <Link href="../ref-info/glossary-uid#gl-salt-bucket-id">salt buckets</Link> for rotation.
-- **Previous UID2 Access**: You have access to previous raw UID2s for 90 days after rotation for campaign measurement.
-- **Single Endpoint**: You use only one endpoint, `/v3/identity/map`, instead of both `/v2/identity/map` and `/v2/identity/buckets`.
-- **Multiple Identity Types in One Request**: You can process both emails and phone numbers in a single request.
-- **Improved Performance**: The updated version uses significantly less bandwidth to process the same amount of DII.
+<POSTIdentityMapImprovements />
 
 ### Key Differences Between v2 and v3
 
 The following table shows key differences between the versions.
 
-| Feature                        | V2 Implementation                           | V3 Implementation                          |
+| Feature                        | v2 Implementation                           | v3 Implementation                          |
 |:-------------------------------|:--------------------------------------------|:-------------------------------------------|
 | Endpoints Required         | `/v2/identity/map` + `/v2/identity/buckets` | `/v3/identity/map` only                    |
 | Identity Types per Request | Single identity type only                   | Multiple identity types                    |
@@ -230,7 +225,7 @@ The following table shows key differences between the versions.
 To upgrade from an earlier version to version 3, follow these steps:
 
 1. [Update Endpoint URL](#1-update-endpoint-url)
-2. [Update V3 Response Parsing Logic](#2-update-v3-response-parsing-logic)
+2. [Update v3 Response Parsing Logic](#2-update-v3-response-parsing-logic)
 3. [Replace Salt Bucket Monitoring with Refresh Timestamp Logic](#3-replace-salt-bucket-monitoring-with-refresh-timestamp-logic)
 
 #### 1. Update Endpoint URL
@@ -249,7 +244,7 @@ url = '/v3/identity/map'
 
 Update the logic for parsing the response, as shown in the following example.
 
-V2 Response Parsing:
+v2 Response Parsing:
 ```python
 # v2: Process mapped/unmapped objects with identifier lookup
 for item in response['body']['mapped']:
@@ -260,7 +255,7 @@ for item in response['body']['mapped']:
     store_mapping(original_identifier, raw_uid, bucket_id)
 ```
 
-V3 Response Parsing:
+v3 Response Parsing:
 ```python
 # v3: Process array-indexed responses
 for index, item in enumerate(response['body']['email']):

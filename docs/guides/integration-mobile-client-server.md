@@ -84,7 +84,7 @@ This example uses the [SDK for Android](../sdks/sdk-ref-android.md) in the clien
 
 ![Mobile Client-Server Integration Example](images/integration-mobile-client-server-uid2.png)
 
-<!-- (**GWH_ https://ttdcorp-my.sharepoint.com/:p:/r/personal/rita_aleksanyan_thetradedesk_com/_layouts/15/Doc.aspx?sourcedoc=%7BDF894943-3D6A-4A60-A1E2-176ACD0BBBCC%7D&file=Sample%20Data%20Flow.pptx&wdLOR=c8FEF9DB2-E2FD-4F07-B411-B094C4813ACE&fromShare=true&action=edit&mobileredirect=true**) -->
+<!-- (**GWH_ https://ttdcorp-my.sharepoint.com/:p:/r/personal/RA_FILLINNAME_thetradedesk_com/_layouts/15/Doc.aspx?sourcedoc=%7BDF894943-3D6A-4A60-A1E2-176ACD0BBBCC%7D&file=Sample%20Data%20Flow.pptx&wdLOR=c8FEF9DB2-E2FD-4F07-B411-B094C4813ACE&fromShare=true&action=edit&mobileredirect=true**) -->
 
 ## Implement Server-Side Token Generation
 
@@ -326,7 +326,9 @@ UID2Manager.shared.automaticRefreshEnabled = false
 ## Optional: UID2 Integration with Prebid Mobile SDK
 
 :::important
-The UID2 integration with Prebid Mobile SDK requires version 1.6.0 of the UID2 SDK for Android, or version 1.7.0 of the UID2 SDK for iOS.
+The UID2 integration with Prebid Mobile SDK v2 requires version 1.6.0 of the UID2 SDK for Android, or version 1.7.0 of the UID2 SDK for iOS.
+
+If you are using Prebid Mobile SDK v3, version 2.0.0 of the UID2 SDK for Android or iOS is required.
 :::
 
 <PrebidMobileSDK />

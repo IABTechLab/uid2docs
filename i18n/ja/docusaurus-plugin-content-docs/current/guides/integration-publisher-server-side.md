@@ -23,7 +23,7 @@ import IntegratingWithSSO from '../snippets/_integrating-with-sso.mdx';
 
 ワークフローをデモするサンプルアプリケーションもあります。[Sample Implementation](#sample-implementation) を参照してください。
 
-パブリッシャーインテグレーションオプションの完全な概要については、[Publisher Integrations](summary-guides.md#publisher-integrations) を参照してください。
+パブリッシャーインテグレーションオプションの完全な概要は、[Publisher Integrations](summary-guides.md#publisher-integrations) を参照してください。
 
 :::tip
 UID2 と UID2 Token を使用してクライアントのアイデンティティを確立し、UID2 Token を取得するプロセスを容易にするために、SDK for JavaScript を使用することを検討してください。詳細は [Client-Server Integration Guide for JavaScript](integration-javascript-client-server.md) を参照してください。
@@ -49,7 +49,7 @@ UID2 と UID2 Token を使用してクライアントのアイデンティティ
 
 UID2 とインテグレーションするには、UID2 アカウントが必要です。アカウントをまだ作成していない場合は、まず [Account Setup](../getting-started/gs-account-setup.md) ページの手順に従ってください。
 
-アカウントの初期設定が完了すると、UID2 Portalにアクセスするための手順とリンクが送信されます。UID2 Portalでは、本番環境のための [credentials](../getting-started/gs-credentials.md) を作成し、提供する必要がある追加の値を設定できます。詳細については、[Getting Started with the UID2 Portal](../portal/portal-getting-started.md) を参照してください。
+アカウントの初期設定が完了すると、UID2 Portalにアクセスするための手順とリンクが送信されます。UID2 Portalでは、本番環境のための [credentials](../getting-started/gs-credentials.md) を作成し、提供する必要がある追加の値を設定できます。詳細は、[Getting Started with the UID2 Portal](../portal/portal-getting-started.md) を参照してください。
 
 Server-Side インテグレーションの場合、UID2 Portalの [API Keys](../portal/api-keys.md) ページで以下の値を設定する必要があります:
 
@@ -57,7 +57,7 @@ Server-Side インテグレーションの場合、UID2 Portalの [API Keys](../
 - <Link href="../ref-info/glossary-uid#gl-client-secret">Client secret</Link>、参加者と UID2 Service のみが知る値。
 
 :::important
-これらの値を安全に保管することが非常に重要です。詳細については、[Security of API Key and Client Secret](../getting-started/gs-credentials.md#security-of-api-key-and-client-secret) を参照してください。
+これらの値を安全に保管することが非常に重要です。詳細は、[Security of API Key and Client Secret](../getting-started/gs-credentials.md#security-of-api-key-and-client-secret) を参照してください。
 :::
 
 ## Integration Steps
@@ -82,7 +82,7 @@ Server-Side SDK を使用している場合、SDK はエンドポイントに関
 Step 1-c で認証が行われい、パブリッシャーがユーザーのメールアドレスや電話番号を検証した後、パブリッシャーは Server-Side で UID2 Token を生成するリクエストを送信することができます。次の表は、トークン生成ステップの詳細です。
 
 :::tip
-このエンドポイントを直接呼び出す代わりに、SDK のいずれかを使用して管理することもできます。オプションの概要については、[SDKs: Summary](../sdks/summary-sdks.md) を参照してください。
+このエンドポイントを直接呼び出す代わりに、SDK のいずれかを使用して管理することもできます。オプションの概要は、[SDKs: Summary](../sdks/summary-sdks.md) を参照してください。
 :::
 
 | Step | Endpoint | Description |
@@ -100,7 +100,7 @@ UID2 ID 情報をどのように管理し、ターゲティング広告に使用
 | 2-a  | N/A      | Step [1-e](#establish-identity-capture-user-data) の `advertising_token` を入札のために SSP に送信します。そのままの値を送信します。 |
 
 :::note
-UID2 Token が SSP から DSP に送信されるとき、ビッドストリーム内でどのように見えるかの例については、[ビッドストリームで UID2 Token はどのように見えますか？](../getting-started/gs-faqs.md#what-does-a-uid2-token-look-like-in-the-bidstream) を参照してください。
+UID2 Token が SSP から DSP に送信されるとき、ビッドストリーム内でどのように見えるかの例は、[ビッドストリームで UID2 Token はどのように見えますか？](../getting-started/gs-faqs.md#what-does-a-uid2-token-look-like-in-the-bidstream) を参照してください。
 :::
 
 ### Refresh a UID2 Token

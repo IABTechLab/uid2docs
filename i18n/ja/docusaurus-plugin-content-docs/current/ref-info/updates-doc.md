@@ -20,6 +20,39 @@ UID2 ドキュメンテーションリソースの最新アップデートを確
 タグツールバーを使用して、ドキュメントの更新の一部を表示できます。
 :::
 
+## Q3 2025
+
+当四半期にリリースされたドキュメントは以下の通りです。
+
+<CustomTagsContainer tags="Endpoints, Guides, SDKs">
+
+### Identity Map v3 (Python SDK, Snowflake)
+
+July 31, 2025
+
+July 11 に発表された Identity Map API (v3) の新バージョンに対応するため、2 つの追加ドキュメントを更新しました。この新バージョンは、広告主とデータプロバイダーに大幅な改善を提供します。
+
+以下の実装と対応するドキュメントを更新しました:
+
+- Python SDK: [SDK for Python Reference Guide](../sdks/sdk-ref-python.md) を参照してください。
+- Snowflake: [Snowflake Integration Guide](../guides/integration-snowflake.md) を参照してください。
+
+<!-- PIDOCS-3320 -->
+
+</CustomTagsContainer>
+
+<CustomTagsContainer tags="Endpoints, Guides, SDKs">
+
+### Identity Map v3
+
+July 11, 2025
+
+Identity Map API (v3) の新バージョンをリリースしました。このバージョンは、広告主とデータプロバイダーに大幅な改善を提供します。この更新には、[POST /identity/map](../endpoints/post-identity-map.md) エンドポイント、[SDK for Java Reference Guide](../sdks/sdk-ref-java.md#usage-for-advertisersdata-providers)、および [Advertiser/Data Provider Integration Overview](../guides/integration-advertiser-dataprovider-overview.md) のドキュメントが含まれています。
+
+<!-- UID2-5558, UID2-5560, UID2-5559, APIDOCS-3070 -->
+
+</CustomTagsContainer>
+
 ## Q1 2025
 
 当四半期にリリースされたドキュメントは以下の通りです。
@@ -132,7 +165,7 @@ January 10, 2025
 
 広告主とデータプロバイダーのドキュメントを大幅に拡充し、再構築しました。新しい概要ドキュメントと、Snowflake、AWS Entity Resolution、HTTP エンドポイントの 3 つの主要なインテグレーションオプションに関する個別のドキュメントがあります:
 
-広告主とデータプロバイダー向けのすべてのインテグレーションオプションの概要については、[Advertiser/Data Provider Integration Overview](../guides/integration-advertiser-dataprovider-overview.md) を参照してください。
+広告主とデータプロバイダー向けのすべてのインテグレーションオプションの概要は、[Advertiser/Data Provider Integration Overview](../guides/integration-advertiser-dataprovider-overview.md) を参照してください。
 
 <!-- APIDOCS-1662 -->
 

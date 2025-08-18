@@ -35,7 +35,7 @@ import TabItem from '@theme/TabItem';
 
 - **SDK**: UID2 Server-Side SDK を使用して、Publisher Client クラスのいずれかを使用します。これらのクラスは、リクエストを 1 つのメソッド呼び出しに簡素化します。
 
-   手順については、次のいずれかを参照してください:
+   手順は、次のいずれかを参照してください:
    
    - [SDK for Java, Usage for Publishers, Basic Usage](../sdks/sdk-ref-java.md#basic-usage)
    - [SDK for Python, Usage for Publishers](../sdks/sdk-ref-python.md#usage-for-publishers)
@@ -61,7 +61,7 @@ import TabItem from '@theme/TabItem';
 
 - **API**: [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) エンドポイントを呼び出します。
 
-  このガイドの残りの部分で必要な `Identity` レスポンスは、成功したエンドポイントのレスポンスの body セクション内のコンテンツです。例については、[Successful Response](../endpoints/post-token-generate.md#successful-response) を参照してください。
+  このガイドの残りの部分で必要な `Identity` レスポンスは、成功したエンドポイントのレスポンスの body セクション内のコンテンツです。例は、[Successful Response](../endpoints/post-token-generate.md#successful-response) を参照してください。
   
 :::important
 トークンを生成する DII が UID2 からオプトアウトされている場合、エンドポイントと SDK API はオプトアウトステータスを返します。この場合、情報を保存し、同じ DII に対してトークン生成エンドポイントを呼び出さないでください。
