@@ -20,7 +20,7 @@ UID2 の Opt-Out ワークフローとユーザーが Opt-Out する方法の詳
 このドキュメントは、このエンドポイントのバージョン 2 のものであり、最新バージョンではありません。最新バージョン v3 の詳細は、[POST /identity/map](post-identity-map.md) を参照してください。
 
 :::note
-v2 バージョンを使用している場合は、改善点を活用するためにできるだけ早くアップグレードすることを推奨します。移行ガイダンスは、[Migration from v2 Identity Map](post-identity-map.md#migration-from-v2-identity-map) を参照してください。
+以前のバージョンを使用している場合は、改善点を活用するためにできるだけ早くアップグレードすることを推奨します。移行ガイダンスは、[Migration from v2 Identity Map](post-identity-map.md#migration-from-v2-identity-map) を参照してください。
 :::
 
 ## Batch Size and Request Parallelization Requirements

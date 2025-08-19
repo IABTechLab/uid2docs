@@ -213,7 +213,7 @@ DII が正常にマッピングされた場合、マッピングされたオブ�
 
 以下の表は、バージョン間の主な違いを示しています。
 
-| Feature | V2 Implementation | V3 Implementation |
+| Feature | v2 Implementation | v3 Implementation |
 | :--- | :--- | :--- |
 | 必要なエンドポイント | `/v2/identity/map` + `/v2/identity/buckets` | `/v3/identity/map` のみ |
 | リクエストごとのアイデンティティタイプ | 単一のアイデンティティタイプのみ | 複数のアイデンティティタイプ |
@@ -225,7 +225,7 @@ DII が正常にマッピングされた場合、マッピングされたオブ�
 以前のバージョンからバージョン 3 へのアップグレードは、以下の手順に従ってください。
 
 1. [Update Endpoint URL](#1-update-endpoint-url)
-2. [Update V3 Response Parsing Logic](#2-update-v3-response-parsing-logic)
+2. [Update v3 Response Parsing Logic](#2-update-v3-response-parsing-logic)
 3. [Replace Salt Bucket Monitoring with Refresh Timestamp Logic](#3-replace-salt-bucket-monitoring-with-refresh-timestamp-logic)
 
 #### 1. Update Endpoint URL
@@ -244,7 +244,7 @@ url = '/v3/identity/map'
 
 以下の例に従って、レスポンスの解析ロジックを更新してください。
 
-V2 Response Parsing:
+v2 Response Parsing:
 ```python
 # v2: Process mapped/unmapped objects with identifier lookup
 for item in response['body']['mapped']:
@@ -255,7 +255,7 @@ for item in response['body']['mapped']:
     store_mapping(original_identifier, raw_uid, bucket_id)
 ```
 
-V3 Response Parsing:
+v3 Response Parsing:
 ```python
 # v3: Process array-indexed responses
 for index, item in enumerate(response['body']['email']):
