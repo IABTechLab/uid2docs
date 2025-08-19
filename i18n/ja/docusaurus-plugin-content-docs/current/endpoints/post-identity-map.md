@@ -1,6 +1,6 @@
 ---
 title: POST /identity/map
-description: Maps DII to raw UID2s.
+description: DII を raw UID2 にマップします。
 hide_table_of_contents: false
 sidebar_position: 08
 displayed_sidebar: docs
