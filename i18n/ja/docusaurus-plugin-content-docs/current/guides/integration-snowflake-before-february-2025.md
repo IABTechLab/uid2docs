@@ -75,7 +75,6 @@ UID2 Share へのアクセスを要求するには、次の手順を実行しま
 
 リクエストを受け取った後、UID2 Administrator が適切なアクセス方法をご連絡します。Snowflake でのデータリクエストの管理についての詳細は [Snowflake documentation](https://docs.snowflake.com/en/user-guide/data-marketplace-consumer.html) を参照してください。
 
-
 ## Shared Objects
 
 選択した UID2 ソリューションに関係なく、以下の関数を使って、DII を UID2 にマッピングできます:
