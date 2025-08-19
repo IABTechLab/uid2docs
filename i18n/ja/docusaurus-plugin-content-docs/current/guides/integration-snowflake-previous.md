@@ -2,7 +2,7 @@
 title: Snowflake Integration Guide (Pre-July 2025)
 sidebar_label: Snowflake (previous version)
 pagination_label: Snowflake Integration
-description: UID2 Share in Snowflakeを通じたUID2とのインテグレーションに関する情報。
+description: UID2 Share in Snowflake (旧バージョン) による UID2 とのインテグレーションに関する情報。
 hide_table_of_contents: false
 sidebar_position: 04
 displayed_sidebar: docs
@@ -79,7 +79,6 @@ import Link from '@docusaurus/Link';
 UID2 Share へのアクセスは、[Snowflake Data Marketplace](https://www.snowflake.com/data-marketplace/)の以下のリスティングから利用できます：
 
 - [Unified ID 2.0: Advertiser and Data Provider Identity Solution](https://app.snowflake.com/marketplace/listing/GZT0ZRYXTN8/unified-id-2-0-unified-id-2-0-advertiser-and-data-provider-identity-solution)
-
 
 :::important
 データをリクエストするには、Snowflakeアカウントで `ACCOUNTADMIN` ロールまたは `CREATE DATABASE` および `IMPORT SHARE` 権限を持つ別のロールを使用する必要があります。
