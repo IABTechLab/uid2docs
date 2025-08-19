@@ -84,7 +84,7 @@ The latest ZIP file is linked in the Release Notes column in the following table
 
 `POST /identity/map` エンドポイントのバージョン 2 は、バージョン 3 に置き換えられました。バージョン 3 では、[Version 3 Improvements](../endpoints/post-identity-map.md#version-3-improvements)で説明されている追加の利点が含まれています。
 
-`POST /identity/map endpoint` のバージョン 3 では、`POST /identity/buckets` エンドポイントは完全に使用されなくなりました。
+`POST /identity/map` エンドポイントのバージョン 3 では、`POST /identity/buckets` エンドポイントは完全に使用されなくなりました。
 
 以下の表は、v2 エンドポイントの廃止スケジュールを示しています。
 

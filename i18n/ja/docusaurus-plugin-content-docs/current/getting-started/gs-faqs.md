@@ -213,7 +213,7 @@ A raw UID2 for a specific user changes roughly once per year. The latest version
 
 For implementations that reference earlier versions of this endpoint (see [POST&nbsp;/identity/map v2](../endpoints/post-identity-map-v2.md)):
 
-Even though each <Link href="../ref-info/glossary-uid#gl-salt-bucket">salt bucket</Link> is updated roughly once a year, individual bucket updates are spread over the year. This means that about 1/365th of all buckets are rotated daily. If fidelity is critical, consider calling the [POST&nbsp;/identity/buckets](../endpoints/post-identity-buckets.md) endpoint more frequently; for example, hourly.
+Even though each <Link href="../ref-info/glossary-uid#gl-salt-bucket">salt bucket</Link> is updated roughly once a year, individual bucket updates are spread over the year. This means that about 1/365th of all buckets are rotated daily. If fidelity is critical, consider calling the [POST&nbsp;/identity/buckets](../endpoints/post-identity-buckets.md) endpoint more frequently: for example, hourly.
 
 #### How should I generate the SHA-256 of DII for mapping?
 マッピング用の DII の SHA-256 はどのように生成すればよいですか？
@@ -261,7 +261,7 @@ Even though each <Link href="../ref-info/glossary-uid#gl-salt-bucket">salt bucke
 #### How do I know when to refresh the UID2 due to salt bucket rotation?
 ソルトバケットのローテーションによって UID2 をリフレッシュするタイミングを知るには？
 
-UID2 生成リクエストで提供されるメタデータには、UID2 の生成に使用される <Link href="../ref-info/glossary-uid#gl-salt-bucket">salt bucket</Link> が含まれます。ソルトバケットは持続し、UID2 の生成に使用された基礎となる DII に対応します。指定されたタイムスタンプ以降にローテーションしたソルトバケットを得るには、[POST&nbsp;/identity/buckets](../endpoints/post-identity-buckets.md) エンドポイントを使用します。返されたローテーションしたソルトバケットは、どの UID2 をリフレッシュすべきかを教えてくれます。
+UID2 生成リクエストで提供されるメタデータには、UID2 の生成に使用される <Link href="../ref-info/glossary-uid#gl-salt-bucket">salt bucket</Link> が含まれます。ソルトバケットは持続し、raw UID2 の生成に使用された基礎となる DII に対応します。指定されたタイムスタンプ以降にローテーションしたソルトバケットを得るには、[POST&nbsp;/identity/buckets](../endpoints/post-identity-buckets.md) エンドポイントを使用します。返されたローテーションしたソルトバケットは、どの UID2 をリフレッシュすべきかを教えてくれます。
 
 :::note
 ローテーションがいつ行われるかは、いかなる約束もいたしません。可能な限り最新の状態を保つため、1 時間に 1 回のチェックを推奨します。
@@ -284,8 +284,9 @@ demand-side platform (DSP) に関するよくある質問を紹介します。
 - [復号キーはどこで入手できますか？](#where-do-i-get-the-decryption-keys)
 - [メモリ上に存在する復号鍵の数は？](#how-many-decryption-keys-may-be-present-in-memory-at-any-point)
 - [マップされた raw UID2 を更新するタイミングを知るには？](#how-do-i-know-when-to-refresh-mapped-raw-uid2s)
+- [raw UID2 がローテーションしたか、またローテーション時期を確認するには？](#how-do-i-know-ifwhen-the-raw-uid2-has-rotated)
 - [DSP はレイテンシーを気にすべきでしょうか？](#should-the-dsp-be-concerned-with-latency)
-- [UID2 で DSP はどのように適切なフリクエンシーキャッピング周波数キャッピングを維持すべきでしょうか？](#how-should-the-dsp-maintain-proper-frequency-capping-with-uid2)
+- [UID2 で DSP はどのように適切なフリクエンシーキャッピングを維持すべきでしょうか？](#how-should-the-dsp-maintain-proper-frequency-capping-with-uid2)
 - [ユーザーのオプトアウトトラフィックはすべて DSP に送られますか？](#will-all-user-opt-out-traffic-be-sent-to-the-dsp)
 - [DSP は、すでに保存している UID2 についてのみオプトアウトシグナルを処理することを期待されているのか？](#is-the-dsp-expected-to-handle-opt-out-signals-only-for-the-uid2s-that-they-already-store)
 - [DSP はオプトアウトリストをどれくらいの期間保管すべきですか？](#how-long-should-the-dsp-keep-the-opt-out-list)
@@ -313,7 +314,7 @@ Server-Side SDK のいずれか([SDK](../sdks/summary-sdks.md) を参照) を使
 #### How do I know when to refresh mapped raw UID2s?
 マップされた raw UID2 を更新するタイミングを知るには？
 
-[Advertisers and Data Providers section](#how-do-i-know-when-to-refresh-a-raw-uid2) を参照して下さい。
+See [How do I know when to refresh a raw UID2?](#how-do-i-know-when-to-refresh-a-raw-uid2) in the FAQs for Advertisers and Data Providers.
 
 #### How do I know if/when the raw UID2 has rotated?
 raw UID2 がローテーションしたか、またローテーション時期を確認するには？
@@ -326,7 +327,7 @@ DSP はレイテンシーを気にすべきでしょうか？
 UID2 Service は、入札プロセスに遅延を生じさせることはありません。発生した遅延は、UID2 Service ではなく、ネットワークに起因すると考えられます
 
 #### How should the DSP maintain proper frequency capping with UID2?
-UID2 で DSP はどのように適切なフリクエンシーキャッピング周波数キャッピングを維持すべきでしょうか？
+UID2 で DSP はどのように適切なフリクエンシーキャッピングを維持すべきでしょうか？
 
 UID2 は、クッキーと同じように古くなる可能性があります。したがって、DSP は、クッキーまたは Device ID ベースのフリークエンシーキャッピングに現在使用されているものと同じインフラを UID2 に適応させることができます。詳細は [How do I know when to refresh the UID2 due to salt bucket rotation?](#how-do-i-know-when-to-refresh-the-uid2-due-to-salt-bucket-rotation) を参照してください。
 

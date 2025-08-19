@@ -54,9 +54,9 @@ UID2 Portal で実行する手順は、実装が Client-Side、Client-Server、S
 
 ## SDK Version
 
-<!-- As of 23 Oct 2024 -->
+<!-- As of 2025-08-07 -->
 
-このドキュメントは、SDK for Android バージョン 1.6.0 以降用です。
+このドキュメントは、SDK for Android バージョン 2.0.0 以降用です。
 
 リリースノートの情報は、[https://github.com/IABTechLab/uid2-android-sdk/releases](https://github.com/IABTechLab/uid2-android-sdk/releases) を参照してください。
 
@@ -98,7 +98,7 @@ Gradle を使用してインストールするには、build.gradle ファイル
 
 
 ```js
-implementation 'com.uid2:uid2-android-sdk:1.6.0'
+implementation 'com.uid2:uid2-android-sdk:2.0.0'
 ```
 
 ### Installing with Maven 
@@ -109,7 +109,7 @@ Maven を使用してインストールするには、`pom.xml` ファイルに�
 <dependency> 
   <groupId>com.uid2</groupId> 
   <artifactId>uid2-android-sdk</artifactId> 
-  <version>1.6.0</version>
+  <version>2.0.0</version>
 </dependency> 
 ```
 
