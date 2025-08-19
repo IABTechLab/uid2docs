@@ -10,13 +10,13 @@ import Link from '@docusaurus/Link';
 
 # SDK for Python Reference Guide
 
-Server-Side で Python SDK を使用すると、UID2 を使用してクライアント ID を生成または確立するプロセス、ビッドストリームでの Advertising Token の取得、UID2 Token の自動リフレッシュを容易にすることができます。適用可能な権限がある場合、共有のために暗号化および復号化、DII を raw UID2 にマッピング、およびローテーションされたソルトバケットの監視も行うことができます。
+Server-Side で UID2 を使用してクライアント ID の生成や確立、Advertiser ID の取得、UID2 Token の自動リフレッシュを行うために、Python SDK を使用できます。適用可能な権限がある場合は、共有のための暗号化と復号化、DII の raw UID2s へのマッピングも行えます。
 
 ## Functionality
 
 この SDK は、Server-Sideのコーディングに Python を使用している DSP または UID2 Sharers のために、UID2 とのインテグレーションを簡素化します。次の表に、この SDK がサポートする機能を示します。
 
-| Encrypt Raw UID2 to UID2 Token for Sharing | Decrypt UID2 Token to Raw UID2 | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to Raw UID2s | Monitor Rotated Salt Buckets |
+| Encrypt Raw UID2 to UID2 Token for Sharing | Decrypt UID2 Token to Raw UID2 | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to Raw UID2s | Monitor Rotated Salt Buckets&ast; |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | &#9989; | &#9989; | &#9989; | &#9989; | &#9989; | &#9989; | &#9989; |
 
@@ -65,7 +65,7 @@ pip install uid2-client
 | Role | Create Instance of Class | Link to Instructions |
 | :--- | :--- | :---|
 | Publisher | `Uid2PublisherClient` | [Usage for Publishers](#usage-for-publishers) |
-| Advertiser/Data Provider | `IdentityMapClient` | [Usage for Advertisers/Data Providers](#usage-for-advertisersdata-providers) |
+| Advertiser/Data Provider | `IdentityMapV3Client` | [Usage for Advertisers/Data Providers](#usage-for-advertisersdata-providers) |
 | DSP | `BidstreamClient` | [Usage for DSPs](#usage-for-dsps) |
 | Sharer | `SharingClient` | [Usage for Sharers](#usage-for-uid2-sharers) |
 
@@ -149,7 +149,7 @@ Decryption response codes, and their meanings, are shown in the following table.
 2. ユーザーのメールアドレスまたは電話番号を入力として受け取り、`TokenGenerateResponse` オブジェクトを生成する関数を呼び出します。次の例では、メールアドレスを使用しています:
 
    ```py
-   token_generate_response = client.generate_token(TokenGenerateInput.from_email(emailAddress).do_not_generate_tokens_for_opted_out())
+   token_generate_response = client.generate_token(TokenGenerateInput.from_email("user@example.com").do_not_generate_tokens_for_opted_out())
    ```
 
     <!-- :::important
@@ -220,9 +220,9 @@ Server-Side インテグレーションを使用している場合 (詳細は [P
 
 ## Usage for Advertisers/Data Providers
 
-広告主/データプロバイダーに適用される操作は次の2つです:
-- [Map DII to Raw UID2s](#map-dii-to-raw-uid2s)
-- [Monitor rotated salt buckets](#monitor-rotated-salt-buckets)
+以下の手順は、最新バージョンの `POST /identity/map` エンドポイントを使用して、DII を raw UID2 にマッピングする方法の例を示しています。
+
+以前のバージョンについては、[Previous Version (v2 Identity Map)](#previous-version-v2-identity-map) を参照してください。最新バージョンへの移行手順は、[Migration From Version Using v2 Identity Map](#migration-from-version-using-v2-identity-map) を参照してください。
 
 ### Map DII to Raw UID2s
 
