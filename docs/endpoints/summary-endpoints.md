@@ -12,6 +12,18 @@ import Link from '@docusaurus/Link';
 
 All UID2 endpoints require a client secret for encrypting API requests (except [POST&nbsp;/token/refresh](post-token-refresh.md) requests) and decrypting responses. For details, and code examples in different programming languages, see [Encrypting Requests and Decrypting Responses](../getting-started/gs-encryption-decryption.md).
 
+## UID2 Endpoints by Audience
+
+The following table shows the UID2 endpoints, with the audience for each. For details, click through to the applicable sections.
+
+| Endpoint | Audience | Details |
+| :--- | :--- | :--- |
+| [POST&nbsp;/token/generate](post-token-generate.md) | Publishers | [UID2 Tokens](#uid2-tokens) |
+| [POST&nbsp;/token/validate](post-token-validate.md) | Publishers | [UID2 Tokens](#uid2-tokens) |
+| [POST&nbsp;/token/refresh](post-token-refresh.md) | Publishers | [UID2 Tokens](#uid2-tokens) |
+| [POST&nbsp;/identity/map](post-identity-map.md) | Advertisers, data providers | [Identity Map](#identity-map) |
+| [POST&nbsp;/optout/status](post-optout-status.md)  | Advertisers, data providers, DSPs, sharers | [Opt-Out Status](#opt-out-status)|
+
 ## UID2 Tokens
 
 The following endpoints are for retrieving and managing UID2 tokens (identity tokens, advertising tokens), and are used mainly by publishers.
