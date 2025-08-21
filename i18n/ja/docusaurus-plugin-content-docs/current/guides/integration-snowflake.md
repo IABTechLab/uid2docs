@@ -80,7 +80,6 @@ UID2 Share へのアクセスは、[Snowflake Data Marketplace](https://www.snow
 
 - [Unified ID 2.0: Advertiser and Data Provider Identity Solution](https://app.snowflake.com/marketplace/listing/GZT0ZRYXTN8/unified-id-2-0-unified-id-2-0-advertiser-and-data-provider-identity-solution)
 
-
 :::important
 データのリクエストを行うには、`ACCOUNTADMIN` ロールまたは Snowflake アカウントで `CREATE DATABASE` および `IMPORT SHARE` 権限を持つ他のロールを使用する必要があります。
 :::
@@ -156,10 +155,10 @@ DII が電話番号の場合、UID2 [Phone Number Normalization](../getting-star
 
 | Column Name | Data Type | Description |
 | :--- | :--- | :--- |
-| `UID` | TEXT | 値は次のいずれかです:<ul><li>DII が正常にマッピングされた: DII に関連付けられた UID2。</li><li>DII が正常にマッピングされなかった: `NULL`。</li></ul> |
-| `PREV_UID` | TEXT | 値は次のいずれかです:<ul><li>DII が正常にマッピングされ、以前の UID2 が存在する: この DII の以前の UID2。以前の UID2 はローテーション後 90 日間利用可能です。</li><li>以前の UID2 が存在しないか、DII が正常にマッピングされなかった: `NULL`。</li></ul> |
-| `REFRESH_FROM` | TIMESTAMP | 値は次のいずれかです:<ul><li>DII が正常にマッピングされた: この UID2 を更新する必要がある時刻 (エポック秒) を示します。</li><li>DII が正常にマッピングされなかった: `NULL`。</li></ul> |
-| `UNMAPPED` | TEXT | 値は次のいずれかです:<ul><li>DII が正常にマッピングされた: `NULL`。</li><li>DII が正常にマッピングされなかった: 識別子がマッピングされなかった理由: `OPTOUT`、`INVALID IDENTIFIER`、または `INVALID INPUT TYPE`。<br/>詳細は、[UNMAPPED 列の値](#values-for-the-unmapped-column)を参照してください。</li></ul> |
+| `UID` | TEXT | 値は次のいずれかです:<ul><li>DII が正常にマッピングされた: DII に関連付けられた UID2。</li><li>それ以外の場合: `NULL`。</li></ul> |
+| `PREV_UID` | TEXT | 値は次のいずれかです:<ul><li>DII が正常にマッピングされ、現在の raw UID2 は過去 90 日間にローテーションしました: 以前の raw UID2</li><li>それ以外の場合: `NULL`。</li></ul> |
+| `REFRESH_FROM` | TIMESTAMP | 値は次のいずれかです:<ul><li>DII が正常にマッピングされた: この UID2 を更新する必要がある時刻 (エポック秒) を示します。</li><li>それ以外の場合: `NULL`。</li></ul> |
+| `UNMAPPED` | TEXT | 値は次のいずれかです:<ul><li>DII が正常にマッピングされた: `NULL`。</li><li>それ以外の場合: 識別子がマッピングされなかった理由: `OPTOUT`、`INVALID IDENTIFIER`、または `INVALID INPUT TYPE`。<br/>詳細は、[UNMAPPED 列の値](#values-for-the-unmapped-column)を参照してください。</li></ul> |
 
 #### Values for the UNMAPPED Column
 

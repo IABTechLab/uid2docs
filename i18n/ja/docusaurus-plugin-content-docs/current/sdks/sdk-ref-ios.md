@@ -51,9 +51,9 @@ UID2 Portal で実行する手順は、実装が Client-Side、Client-Server、S
 
 ## SDK Version
 
-<!-- As of 22 Oct 2024 -->
+<!-- As of 2025-08-07 -->
 
-このドキュメントは、iOS 用 UID2 SDK のバージョン 1.7.0 以降に対応しています。
+このドキュメントは、iOS 用 UID2 SDK のバージョン 2.0.0 以降に対応しています。
 
 リリースノートの情報は、[https://github.com/IABTechLab/uid2-ios-sdk/releases](https://github.com/IABTechLab/uid2-ios-sdk/releases) を参照してください。
 
@@ -90,7 +90,7 @@ Package.swift に次の依存関係を追加します:
 
 ```js
 dependencies: [
-  .package(url: "https://github.com/IABTechLab/uid2-ios-sdk.git", from: "1.7.0"),
+  .package(url: "https://github.com/IABTechLab/uid2-ios-sdk.git", from: "2.0.0"),
 ]
 ```
 
@@ -100,14 +100,14 @@ dependencies: [
 
 | Name | Location | Dependency Rule |
 | :--- | :--- | :--- |
-| uid2-ios-sdk | `git@github.com:IABTechLab/uid2-ios-sdk.git` | Up to next major version: 1.7.0 < 2.0.0 |
+| uid2-ios-sdk | `git@github.com:IABTechLab/uid2-ios-sdk.git` | Up to next major version: 2.0.0 < 3.0.0 |
 
 ### Installing with CocoaPods
 
 `Podfile` に次のエントリを追加します:
 
 ```
-pod 'UID2', '~> 1.7'
+pod 'UID2', '~> 2.0'
 ```
 
 ## Usage Guidelines

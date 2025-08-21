@@ -18,9 +18,9 @@ UID2 Interactive Media Ads (IMA) Plugin for Android は、[Google IMA SDK for An
 
 ## Version
 
-<!-- As of 2024-10-23 -->
+<!-- As of 2025-08-07 -->
 
-このドキュメントは、UID2 IMA Plugin for Android version 1.6.0 以降用です。
+このドキュメントは、UID2 IMA Plugin for Android version 2.0.0 以降用です。
 
 ## GitHub Repository
 
@@ -43,10 +43,10 @@ UID2 Portal で実行する手順は、実装が　Client-Side、Client-Server�
 1. Google IMA SDK v3.30.3 or later:
    - [SDK](https://developers.google.com/interactive-media-ads/docs/sdks/android/client-side)
    - [Release history](https://developers.google.com/interactive-media-ads/docs/sdks/android/client-side/history)
-1. SDK for Android v1.6.0 or later:
+1. SDK for Android v2.0.0 or later:
    - [SDK](https://central.sonatype.com/artifact/com.uid2/uid2-android-sdk)
    - [SDK for Android Reference Guide](../sdks/sdk-ref-android.md)
-1. [UID2 IMA Plugin for Android v1.6.0](https://central.sonatype.com/artifact/com.uid2/uid2-android-sdk-ima)
+1. [UID2 IMA Plugin for Android v2.0.0](https://central.sonatype.com/artifact/com.uid2/uid2-android-sdk-ima)
 1. R8 または Proguard を使用している場合は、[Notes for Using R8 or ProGuard](#notes-for-using-r8-or-proguard) に指定された適用オプションを追加します。
 
 ## Installation
@@ -63,7 +63,7 @@ SDK for Android と Google IMA SDK がインストールされている既存の
 Gradle でインストールするには、`build.gradle` ファイルに依存関係として SDK を追加します:
 
 ```js
-implementation 'com.uid2:uid2-android-sdk-ima:1.6.0'
+implementation 'com.uid2:uid2-android-sdk-ima:2.0.0'
 ```
 
 ### Maven
@@ -74,7 +74,7 @@ Maven でインストールするには、`pom.xml` ファイルに依存関係�
 <dependency>
   <groupId>com.uid2</groupId>
   <artifactId>uid2-android-sdk-ima</artifactId>
-  <version>1.6.0</version>
+  <version>2.0.0</version>
 </dependency>
 ```
 

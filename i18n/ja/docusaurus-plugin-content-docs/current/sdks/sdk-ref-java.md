@@ -543,9 +543,9 @@ client.refresh();
 ```
 
 3. トークンを raw UID2 に復号化します。トークンを渡し、次のいずれかを行います:
-* ビッドリクエストがパブリッシャーのウェブサイトから発信された場合は、ドメイン名を渡します。ドメイン名はすべて小文字で、スペースやサブドメインなしで指定する必要があります。たとえば、`Subdomain.DOMAIN.com` の場合は、代わりに `domain.com` を渡します。
-* ビッドリクエストがモバイルアプリから発信された場合は、<Link href="../ref-info/glossary-uid#gl-app-name">アプリ名</Link>を渡します。
-* それ以外の場合は、`null` を渡します。
+   * ビッドリクエストがパブリッシャーのウェブサイトから発信された場合は、ドメイン名を渡します。ドメイン名はすべて小文字で、スペースやサブドメインなしで指定する必要があります。たとえば、`Subdomain.DOMAIN.com` の場合は、代わりに `domain.com` を渡します。
+   * ビッドリクエストがモバイルアプリから発信された場合は、<Link href="../ref-info/glossary-uid#gl-app-name">アプリ名</Link>を渡します。
+   * それ以外の場合は、`null` を渡します。
 
 ```java
 DecryptionResponse decrypted = client.decryptTokenIntoRawUid(uidToken, domainOrAppName); 
