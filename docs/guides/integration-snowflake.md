@@ -65,18 +65,21 @@ This update provides two major benefits:
 
 ## Summary of Integration Steps
 
-The following list summarizes the integration steps for UID2 mapping in Snowflake: 
+The following list summarizes the integration steps for UID2 mapping in Snowflake in the production environment:
+
+:::note
+If you want to try out an integration before using the production environment, see [Testing in the Integration Environment](#testing-in-the-integration-environment).
+:::
 
 1. Make sure that the UID2 POC paperwork is signed with your UID2 contact.
 
-1. Request access to the UID2 share through the [Snowflake Marketplace Listing](#snowflake-marketplace-listing). In your request, include the following information:
+1. Request access to the UID2 share:
 
-   - Your Snowflake account number
-   - The region
+   - Request access through the [Snowflake Marketplace Listing](#snowflake-marketplace-listing). In your request, include your Snowflake account number and the region
 
-1. Your UID2 contact will arrange for your Snowflake account to be provisioned with access to the UID2 mapping share.
+   - In addition, let your UID2 contact know that you've requested access.
 
-   You can also download suggested workflow scripts to get started with basic mapping and salt bucket rotation concepts. [**GWH_KM__01 Do you know where I can get these scripts from? Not sure yet if we can offer them as a downloadable asset, but, first step is to get them.**]
+1. Your UID2 contact arranges for your Snowflake account to be provisioned with access to the UID2 mapping share.
 
 :::note
 If you did any initial testing (see [Testing in the Integration Environment](#testing-in-the-integration-environment)), be sure to update the functions to reflect the production UID2 share, along with your own relevant table names. 
@@ -84,14 +87,15 @@ If you did any initial testing (see [Testing in the Integration Environment](#te
 
 ## Testing in the Integration Environment
 
-If you'd like to test the mapping shares before signing a UID2 POC, you can ask your UID2 contact for access to the Snowflake share in the integ (integration) environment. This environment is for testing only, and has no production data. Be sure to include your account number and region in the request.
+If you'd like to test the mapping share before signing a UID2 POC, you can ask your UID2 contact for access to the Snowflake share in the integ (integration) environment. This environment is for testing only, and has no production data. In the request, be sure to include your account number and region (see [Summary of Integration Steps](#summary-of-integration-steps) Step 2).
 
 In this scenario, the following steps occur:
 
-1. Your UID2 contact provisions the share listing in the Snowflake Private Marketplace. [**GWH_KM__02 is there some other step, such as, the contact lets the advertiser know? Otherwise how will they know?**]
-2. You can then request access to the Private Marketplace listing.
+1. Your UID2 contact provisions the share listing in the Snowflake Private Marketplace, and lets you know when this step is complete.
 
-3. Your UID2 contact provisions the integ shares to your account. [**GWH_KM__03 Is it share rather than shares now that we have a combined listing? Or, is it still shares? Not sure.**]
+2. You can then view the Private Marketplace listing and request access to the integ share.
+
+3. When you've requested access, your UID2 contact provisions the integ share to your account.
 
 ## Workflow Diagram
 
