@@ -86,7 +86,7 @@ The following list summarizes the integration steps for UID2 mapping in Snowflak
 If you want to try out an integration before using the production environment, see [Testing in the Integ Environment](#testing-in-the-integ-environment).
 :::
 
-1. Make sure that the UID2 POC paperwork is signed with your UID2 contact.
+1. Make sure that the UID2 POC paperwork is signed with your UID2 contact. If you're not sure who to ask, see [Contact Info](../getting-started/gs-account-setup.md#contact-info).
 
 1. Request access to the UID2 share:
 
