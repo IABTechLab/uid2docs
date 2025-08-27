@@ -297,4 +297,6 @@ For migration guidance for specific SDKs, see:
 - SDK for Python Reference Guide, [Usage for Advertisers/Data Providers](../sdks/sdk-ref-python.md#usage-for-advertisersdata-providers) section
 - SDK for Java Reference Guide, [Usage for Advertisers/Data Providers](../sdks/sdk-ref-java.md#usage-for-advertisersdata-providers) section
 
+For Snowflake information, see [Snowflake Integration Guide](../guides/integration-snowflake.md).
+
 <!-- GWH 7/7 Commenting out the above until the SDK docs are available. -->
