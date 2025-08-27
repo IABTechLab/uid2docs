@@ -110,6 +110,10 @@ To get started as a Private Operator, follow these steps:
 5. Test.
 6. Go live.
 
+:::important
+Whatever option you use, the data that you send for processing must be normalized, hashed, and encoded before sending. For details, see [Normalization and Encoding](../getting-started/gs-normalization-encoding.md).
+:::
+
 ## Implementation Resources
 
 The following documentation resources are available for Private Operators to implement UID2.
