@@ -3,6 +3,7 @@ title: Tokenized Sharing Overview
 description: Tokenized Sharing のオプションについて学ぶ。
 hide_table_of_contents: false
 sidebar_position: 04
+displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';
@@ -25,7 +26,7 @@ UID2 では、Tokenized Sharing は、<Link href="../ref-info/glossary-uid#gl-di
 | トラッキングピクセルで UID2 を送信する | どの共有参加者でも | どの共有参加者でも | [Tokenized Sharing in Pixels](sharing-tokenized-from-data-pixel.md) を参照してください |
 | 他の共有参加者に UID2 Token を送信する | どの共有参加者でも、[UID2 Sharing のセキュリティ要件](sharing-security.md) が満たされない場合、またはその他の理由がある場合 | どの共有参加者でも | [Tokenized Sharing from Raw UID2s](sharing-tokenized-from-raw.md) を参照してください |
 
-その他の例については、[Sharing UID2s: Use Cases](sharing-use-cases.md) を参照してください。
+その他の例は、[Sharing UID2s: Use Cases](sharing-use-cases.md) を参照してください。
 
 ## Sending UID2 Tokens to Another Sharing Participant
 
@@ -165,7 +166,7 @@ raw UID2 から始める場合は、次の手順に従ってください:
 <tr>
 <td>1</td>
 <td>user@example.com</td>
-<td>メールアドレス/電話番号を raw UID2 に変換する:<br/><a href="../endpoints/post-identity-map">POST&nbsp;/identity/map</a> endpoint</td>
+<td>メールアドレス/電話番号を raw UID2 に変換する:<br/><a href="../endpoints/post-identity-map-v2">POST&nbsp;/identity/map (v2)</a> endpoint</td>
 <td>K2jlbu2ldlpKL1z6n5bET7L3<br/>g0xfqmldZPDdPTktdRQ=</td>
 </tr>
 <tr>

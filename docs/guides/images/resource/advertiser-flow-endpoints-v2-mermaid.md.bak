@@ -1,4 +1,4 @@
-<!-- 1/8/25: updated based on revised main Advertiser/Data Provider diagram, but listing endpoints: 
+<!-- 1/8/25: updated based on revised main Advertiser/Data Provider diagram, but listing endpoints:
 
   sequenceDiagram
     participant ADP as Advertiser/Data Provider

@@ -3,6 +3,7 @@ title: Tokenized Sharing Overview
 description: Learn about the options for tokenized sharing.
 hide_table_of_contents: false
 sidebar_position: 04
+displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';

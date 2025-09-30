@@ -270,7 +270,7 @@ const fullSidebar = [
           type: "doc",
           id: "guides/integration-sample-sites",
         },
-        items: [], 
+        items: [],
       },
     ],
   },
@@ -306,18 +306,27 @@ const fullSidebar = [
 
   {
     type: "category",
-    label: "Endpoints (v2)",
+    label: "Endpoints",
     link: {
       type: "doc",
       id: "endpoints/summary-endpoints",
     },
-    collapsed: true,
+    collapsed: false,
     items: [
       "endpoints/post-token-generate",
       "endpoints/post-token-validate",
       "endpoints/post-token-refresh",
       "endpoints/post-identity-buckets",
-      "endpoints/post-identity-map",
+      {
+        type: "category",
+        label: "POST /identity/map",
+        link: {
+          type: "doc",
+          id: "endpoints/post-identity-map",
+        },
+        collapsed: true,
+        items: ["endpoints/post-identity-map-v2"],
+      },
       "endpoints/post-optout-status",
     ],
   },

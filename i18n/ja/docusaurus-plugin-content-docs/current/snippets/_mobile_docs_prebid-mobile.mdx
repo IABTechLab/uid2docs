@@ -23,7 +23,7 @@ UID2 Prebid for Mobile インテグレーションを設定するには、次の
    <TabItem value='gradle' label='Gradle (Android)'>
    Gradle の設定に以下を追加します:
    ```js
-   implementation("com.uid2:uid2-android-sdk-prebid:1.6.0")
+   implementation("com.uid2:uid2-android-sdk-prebid:2.0.0")
    ```
    </TabItem>
    <TabItem value='maven' label='Maven (Android)'>
@@ -32,20 +32,22 @@ UID2 Prebid for Mobile インテグレーションを設定するには、次の
    <dependency>
       <groupId>com.uid2</groupId>
       <artifactId>uid2-android-sdk-prebid</artifactId>
-      <version>1.6.0</version>
+      <version>2.0.0</version>
    </dependency>
    ```
    </TabItem>
    <TabItem value='cocoapods' label='CocoaPods (iOS)'>
    `Podfile` に以下を追加します:
    ```js
-   pod 'UID2Prebid', '~> 1.7'
+   pod 'UID2Prebid', '~> 2.0'
    ```
    </TabItem>
    <TabItem value='spm' label='SPM (iOS)'>
-   :::warning
-   Swift Package Manager を用いたインテグレーションは、Prebid Mobile SDK がサポートするまでサポートされません。詳細は、[Prebid's Mobile SDK documentation](https://docs.prebid.org/prebid-mobile/pbm-api/ios/code-integration-ios.html#swift-pm) を参照してください。
-   :::
+   XCode のユーザーインターフェイスで、パッケージ依存関係の下に以下の URL を追加し、ターゲットに `UID2Prebid` を追加を選択します。
+   
+   ```js
+   https://github.com/IABTechLab/uid2-ios-sdk.git
+   ```
    </TabItem>
    </Tabs>
 

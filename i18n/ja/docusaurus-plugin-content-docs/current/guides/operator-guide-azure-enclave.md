@@ -5,10 +5,11 @@ pagination_label: UID2 Private Operator for Azure Integration Guide
 description: Microsoft Azure の Private Operator インテグレーション情報。
 hide_table_of_contents: false
 sidebar_position: 18
+displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';
-import ReleaseMatrix from '../snippets/_private-operator-release-matrix.mdx';
+import UpgradePolicy from '../snippets/_private-operator-upgrade-policy.mdx';
 
 # UID2 Private Operator for Azure Integration Guide
 
@@ -23,6 +24,22 @@ UID2 Operator Confidential Containers インスタンスの Docker コンテナ�
 :::caution
 UID2 Private Operator for Azure は、次の地域ではサポートされていません: ヨーロッパ、中国。
 :::
+
+## Operator Version
+
+最新の ZIP ファイルは、次の表の Azure Download 列にリンクされています。
+
+| Version Name | Version Number  | Release Notes | Azure Download |  Date | Deprecation Date |
+| ------- | ------ | ------ | ------ | ------ | ------ |
+| Q2 2025 | v5.55.9 | [v5.55.9](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.55.9-r1) | [azure-cc-deployment-files-5.55.9-r1.zip](https://github.com/IABTechLab/uid2-operator/releases/download/v5.55.9-r1/azure-cc-deployment-files-5.55.9-r1.zip) | July 1, 2025 | July 1, 2026 |
+
+:::note
+For information about supported versions and deprecation dates, see [Private Operator Versions](../ref-info/deprecation-schedule.md#private-operator-versions).
+:::
+
+## Private Operator Upgrade Policy
+
+<UpgradePolicy />
 
 ## Prerequisites
 
@@ -58,7 +75,7 @@ Azure CLI をインストールします。詳細は、Azure ドキュメント�
 
 ## Deployment Environments
 
-以下の環境が利用可能です。ベストプラクティスとして、本番環境にデプロイする前に、インテグレーション環境で実装をテストして検証することを勧めます。
+以下の環境が利用可能です。ベストプラクティスとして、本番環境にデプロイする前に、インテグレーション環境で実装をテストして検証することを推奨します。
 
 :::note
 各環境に対して別々の `{OPERATOR_KEY}` 値が受け取れます。使用する環境に応じて正しいキーを使用してください。デプロイメントの成果物と処理の流れは、どちらの環境でも同じです。
@@ -93,12 +110,6 @@ Azure CLI をインストールします。詳細は、Azure ドキュメント�
    - `operator.json` and `operator.parameters.json`
    - `gateway.json` and `gateway.parameters.json`
 
-### Operator Version
-
-最新の ZIP ファイルは、次の表の Azure Download 列にリンクされています。
-
-<ReleaseMatrix />
-
 ### Create Resource Group
 
 Azure で UID2 Operator を実行するためのリソースグループを作成するには、次のコマンドを実行します:
@@ -114,7 +125,7 @@ az group create --name {RESOURCE_GROUP_NAME} --location {LOCATION}
 ロケーションには、いくつかの制限があります:
 - UID2 Private Operator for Azure は、次の地域ではサポートされていません: Europe、China。
 
-- Azure 仮想ネットワーク展開の可用性については、Azure ドキュメントの「Linux container groups(https://learn.microsoft.com/en-us/azure/container-instances/container-instances-resource-and-quota-limits#confidential-container-resources-preview) を確認し、Confidential Containers の地域サポートの可用性を確認してください。
+- Azure 仮想ネットワーク展開の可用性は、Azure ドキュメントの[Linux container groups](https://learn.microsoft.com/en-us/azure/container-instances/container-instances-resource-and-quota-limits#confidential-container-resources-preview) を確認し、Confidential Containers の地域サポートの可用性を確認してください。
 
 - 場所のエイリアスを取得するには、次のコマンドを実行します。
 
@@ -269,11 +280,11 @@ Microsoft Azure で UID2 Private Operator をホストする Virtual Private Clo
    ```
 
 :::tip
-コンテナを更新しても、Azure バックエンドプールは新しいコンテナの IP アドレスで自動的に更新されません。ソリューションについては、Azure ドキュメントの [Automate infrastructure reconfiguration by using Azure](https://learn.microsoft.com/en-us/azure/architecture/web-apps/guides/networking/automation-application-gateway) を参照してください。
+コンテナを更新しても、Azure バックエンドプールは新しいコンテナの IP アドレスで自動的に更新されません。ソリューションは、Azure ドキュメントの [Automate infrastructure reconfiguration by using Azure](https://learn.microsoft.com/en-us/azure/architecture/web-apps/guides/networking/automation-application-gateway) を参照してください。
 :::
 
 :::caution
-この例では、HTTP を使用して Gateway Load Balancer をデプロイします。SSL を設定することを強く勧めます。手順については、Azure ドキュメントの [Tutorial: Configure an Application Gateway with TLS termination using the Azure portal](https://learn.microsoft.com/en-us/azure/application-gateway/create-ssl-portal) を参照してください。
+この例では、HTTP を使用して Gateway Load Balancer をデプロイします。SSL を設定することを強く推奨します。手順は、Azure ドキュメントの [Tutorial: Configure an Application Gateway with TLS termination using the Azure portal](https://learn.microsoft.com/en-us/azure/application-gateway/create-ssl-portal) を参照してください。
 :::
 
 ## Running the Health Check
@@ -336,8 +347,8 @@ Private Operator 起動時のエラーコードは、リリース v5.49.7 以降
 | Error Code | Issue | Steps to Resolve |
 | :--- | :--- | :--- |
 | E02 | OperatorKeyNotFoundError | Operator Key を格納するシークレットボールトとシークレット名が正しく構成されていることを確認してください。`VAULT_NAME` と `OPERATOR_KEY_SECRET_NAME` として設定されていることを確認してください。 |
-| E03 | ConfigurationMissingError | 構成に必要な属性が不足しています。詳細については、ログを参照し、Azure オペレーターを実行する前に不足している属性を更新してください。 |
+| E03 | ConfigurationMissingError | 構成に必要な属性が不足しています。詳細は、ログを参照し、Azure オペレーターを実行する前に不足している属性を更新してください。 |
 | E04 | ConfigurationValueError | 構成値が無効です。構成値が必要な形式と環境に一致していることを確認してください。Note: `debug_mode = true` は `integ` 環境でのみ許可されます。詳細はログを確認してください。 |
 | E05 | OperatorKeyValidationError | Operator Key が環境に適しており、提供されたものと一致していることを確認してください。 |
-| E06 | UID2ServicesUnreachableError | UID2 Core および Opt-out サービスの IP アドレスをアウトバウンドファイアウォールで許可します。IP アドレスと DNS の詳細については、ログを参照してください。 |
+| E06 | UID2ServicesUnreachableError | UID2 Core および Opt-out サービスの IP アドレスをアウトバウンドファイアウォールで許可します。IP アドレスと DNS の詳細は、ログを参照してください。 |
 | E08 | OperatorKeyPermissionError | コンテナを起動するマネージド ID (operatorIdentifier パラメータで指定) は、オペレーターキーが格納されているキーボールトへのアクセス権を持っている必要があります。`operatorIdentifier` の値は、すべての構成 JSON ファイルで同じである必要があります。 |

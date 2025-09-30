@@ -5,6 +5,7 @@ pagination_label: Google Ad Manager Secure Signals Integration
 description: UID2 と Google Ad Manager **セキュアシグナル** 機能を使用するパブリッシャー向けのインテグレーション手順。
 hide_table_of_contents: false
 sidebar_position: 10
+displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';
@@ -151,7 +152,7 @@ SDK for JavaScript バージョン 3.0.0 以降を使用している場合、UID
 
 ## Sample Implementations
 
-Google Ad Manager のセキュアシグナル機能との連携方法については、以下のサンプルアプリケーションを参照してください:
+Google Ad Manager のセキュアシグナル機能との連携方法は、以下のサンプルアプリケーションを参照してください:
 
 - UID2 JavaScript SDK と Google secure signals を使用した Server-Side インテグレーションのサンプル:
   - [Sample implementation](https://secure-signals-server-side-integ.uidapi.com/)

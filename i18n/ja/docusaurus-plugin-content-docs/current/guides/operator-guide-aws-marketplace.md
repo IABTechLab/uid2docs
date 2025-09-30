@@ -5,10 +5,11 @@ pagination_label: UID2 Private Operator for AWS Integration Guide
 description: AWS の Private Operator インテグレーションに関する情報。
 hide_table_of_contents: false
 sidebar_position: 17
+displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';
-import ReleaseMatrix from '../snippets/_private-operator-release-matrix.mdx';
+import UpgradePolicy from '../snippets/_private-operator-upgrade-policy.mdx';
 import AttestFailure from '../snippets/_private-operator-attest-failure.mdx';
 
 # UID2 Private Operator for AWS Integration Guide
@@ -16,8 +17,6 @@ import AttestFailure from '../snippets/_private-operator-attest-failure.mdx';
 UID2 Operator は、UID2 エコシステム内の API サーバーです。詳細は、[UID2 Operator](../ref-info/ref-operators-public-private.md) を参照してください。
 
 AWS Marketplace で稼働する <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link> Service の場合、UID2 Operator ソリューションは [AWS Nitro](https://aws.amazon.com/ec2/nitro/) Enclave テクノロジーで強化されています。これは、UID2 情報を不正なアクセスから保護するための追加のセキュリティ対策です。
-
-## UID2 Private Operator for AWS
 
 :::note
 [UID2 Private Operator for AWS](https://aws.amazon.com/marketplace/pp/prodview-wdbccsarov5la) は無償製品です。製品ページに表示されている費用は、必要なインフラの概算費用となります。
@@ -30,7 +29,23 @@ UID2 Private Operator for AWS を契約することで、以下を利用でき�
 - [CloudFormation](https://aws.amazon.com/cloudformation/) template:<br/>
   このテンプレートでは、UID2 Operator AMI がデプロイ展開されます。
 
-### Prerequisites
+## Operator Version
+
+最新の ZIP ファイルは、次の表の Release Notes 欄にリンクされています。
+
+| Version Name | Version&nbsp;#/Release&nbsp;Notes | AWS Version |  Date |
+| ------- | ------ | ------ | ------ | 
+| Q2 2025 | [v5.55.9](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.55.9-r1) | v5.55.9-r1 | July 1, 2025 |
+
+:::note
+For information about supported versions and deprecation dates, see [Private Operator Versions](../ref-info/deprecation-schedule.md#private-operator-versions).
+:::
+
+## Private Operator Upgrade Policy
+
+<UpgradePolicy />
+
+## Prerequisites
 
 AWS で 1 つまたは複数の UID2 Operator をサブスクライブしてデプロイするには、次の手順を実行します:
 
@@ -124,7 +139,7 @@ AWS で 1 つまたは複数の UID2 Operator をサブスクライブしてデ�
 - VPC: 既存の VPC と関連する VPC サブネット ID を指定する必要があります。
 - ルートボリュームサイズ (8G Minimum)
 - SSH キー: UID2 Operator の EC2 インスタンスにアクセスする際に使用する SSH キーです。
-- [Instance type](https://aws.amazon.com/ec2/instance-types/m5/): m5.2xlarge、m5.4xlarge、といった具合です。カスタマイズがない場合は、デフォルト値の m5.2xlarge を推奨します。
+- [Instance type](https://aws.amazon.com/ec2/instance-types/): m5.2xlarge、m5.4xlarge、といった具合です。カスタマイズがない場合は、デフォルト値の m5.2xlarge を推奨します。
 
 ### Security Group Policy
 
@@ -151,7 +166,7 @@ UID2 Operator を AWS Marketplace にデプロイするには、以下の手順�
 1. [Unified ID 2.0 Operator on AWS Marketplace](https://aws.amazon.com/marketplace/pp/prodview-wdbccsarov5la) をサブスクライブします。AWS がサブスクライブが完了するまで数分かかる場合があります。
 2. **Configuration** をクリックし、構成値を指定します。
 
-   ソフトウェアバージョンについては、[Operator Version](#operator-version) を参照し、AWS Version 列で値を選択します。
+   ソフトウェアバージョンは、[Operator Version](#operator-version) を参照し、AWS Version 列で値を選択します。
 3. Configuration ページで **Launch** をクリックし、**Launch CloudFormation** アクションを選択します。
 4. スタック作成ウィザードでテンプレートを指定し、**Next** をクリックします。テンプレートファイルの S3 パスが自動的に入力されます。
 5. [スタックの詳細](#stack-details) を入力し、**Next** をクリックします。
@@ -161,12 +176,6 @@ UID2 Operator を AWS Marketplace にデプロイするには、以下の手順�
 9. **Create stack** をクリックします。
 
 スタックの作成には数分かかります。Auto Scaling Group (ASG) が作成されたら、選択して EC2 インスタンスを確認できます。デフォルトでは、最初は 1 つのインスタンスのみが起動します。
-
-### Operator Version
-
-最新の ZIP ファイルは、次の表の Release Notes 欄にリンクされています。
-
-<ReleaseMatrix />
 
 ### Stack Details
 
@@ -363,10 +372,10 @@ Private Operator 起動時のエラーコードは、リリース v5.49.7 以降
 | :--- | :--- | :--- |
 | E01 | InstanceProfileMissingError | EC2 インスタンスに、必要な権限が付与されたIAMインスタンスプロファイルをアタッチします。UID2 Operator は、AWS Secrets Manager から設定にアクセスするためにこれらの権限が必要です。 |
 | E02 | OperatorKeyNotFoundError | Private Operator が参照するシークレットが、オペレーターと同じリージョンにある AWS Secrets Manager に存在することを確認し、IAM インスタンス プロファイルがシークレットにアクセスする権限を持っていることを確認してください。必要に応じて、特定のシークレット名とリージョンに関するログを確認できます。 |
-| E03 | ConfigurationMissingError | 構成に必須の属性が不足しています。詳細についてはログを確認し、Secrets Manager で不足している属性を更新してください。 |
-| E04 | ConfigurationValueError | 構成値が無効です。AWS Secrets Manager内の構成値が、必要な形式と環境と一致していることを確認してください。Note： `debug_mode = true` は `integ` 環境でのみ許可されています。詳細についてはログを確認してください。 |
+| E03 | ConfigurationMissingError | 構成に必須の属性が不足しています。詳細はログを確認し、Secrets Manager で不足している属性を更新してください。 |
+| E04 | ConfigurationValueError | 構成値が無効です。AWS Secrets Manager内の構成値が、必要な形式と環境と一致していることを確認してください。Note： `debug_mode = true` は `integ` 環境でのみ許可されています。詳細はログを確認してください。 |
 | E05 | OperatorKeyValidationError | Operator Key が環境に適しており、提供されたものと一致していることを確認してください。 |
-| E06 | UID2ServicesUnreachableError | UID2 Core および Opt-out Service の IP アドレスをアウトバウンドファイアウォールで許可します。IP アドレスおよび DNS の詳細については、ログを参照してください。 |
+| E06 | UID2ServicesUnreachableError | UID2 Core および Opt-out Service の IP アドレスをアウトバウンドファイアウォールで許可します。IP アドレスおよび DNS の詳細は、ログを参照してください。 |
 
 ## Technical Support
 

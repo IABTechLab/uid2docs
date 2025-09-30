@@ -5,11 +5,12 @@ pagination_label: UID2 Client-Side Integration Guide for Mobile
 description: Setting up a mobile integration with token generate and refresh both on the client side.
 hide_table_of_contents: false
 sidebar_position: 04
+displayed_sidebar: docs
 ---
 
+import Link from '@docusaurus/Link';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import Link from '@docusaurus/Link';
 import ExampleAdvertisingToken from '../snippets/_example-advertising-token.mdx';
 import EnableLogging from '../snippets/_mobile-docs-enable-logging.mdx';
 import GMAIMA_Plugins from '../snippets/_mobile_docs_gmaima-plugin-gss.mdx';
@@ -736,7 +737,9 @@ If the response status indicates that the DII has been opted out of UID2, you mi
 ## Optional: UID2 Integration with Prebid Mobile SDK
 
 :::important
-The UID2 integration with Prebid Mobile SDK requires version 1.6.0 of the UID2 SDK for Android, or version 1.7.0 of the UID2 SDK for iOS.
+The UID2 integration with Prebid Mobile SDK v2 requires version 1.6.0 of the UID2 SDK for Android, or version 1.7.0 of the UID2 SDK for iOS.
+
+If you are using Prebid Mobile SDK v3, version 2.0.0 of the UID2 SDK for Android or iOS is required.
 :::
 
 <PrebidMobileSDK />

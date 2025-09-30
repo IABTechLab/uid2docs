@@ -3,6 +3,7 @@ title: POST /token/refresh
 description: Refresh Token を使用して、更新された UID2 Token を生成。
 hide_table_of_contents: false
 sidebar_position: 04
+displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';
@@ -17,7 +18,7 @@ Used by: このエンドポイントは、主にパブリッシャーが使用�
 このエンドポイントは、Client-Side (たとえば、ブラウザやモバイルアプリ) から呼び出すことができます。それは、<Link href="../ref-info/glossary-uid#gl-api-key">API key</Link> を使用する必要がないためです。
 
 :::note
-このエンドポイントを直接呼び出す代わりに、UID2 SDK のいずれかを使用して管理することができます。オプションの概要については、[SDKs: Summary](../sdks/summary-sdks.md) を参照してください。
+このエンドポイントを直接呼び出す代わりに、UID2 SDK のいずれかを使用して管理することができます。オプションの概要は、[SDKs: Summary](../sdks/summary-sdks.md) を参照してください。
 :::
 
 ## Request Format 

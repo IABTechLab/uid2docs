@@ -5,6 +5,7 @@ pagination_label: LiveRamp Integration Tips
 description: LiveRamp と UID2 をインテグレーションするためのヒント。 
 hide_table_of_contents: false
 sidebar_position: 04
+displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';
@@ -39,4 +40,4 @@ For details, see [Normalization and Encoding](../getting-started/gs-normalizatio
 
 ## Troubleshooting Assistance
 
-詳細情報や LiveRamp のトラブルシューティング支援については、[LiveRamp support page](https://docs.liveramp.com/connect/en/support.html) を参照してください。ヘルプリソースを確認するか、LiveRamp の担当者に連絡してください。
+詳細情報や LiveRamp のトラブルシューティング支援は、[LiveRamp support page](https://docs.liveramp.com/connect/en/support.html) を参照してください。ヘルプリソースを確認するか、LiveRamp の担当者に連絡してください。

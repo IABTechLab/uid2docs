@@ -3,6 +3,7 @@ title: API Keys
 description: API Key の設定と管理。
 hide_table_of_contents: false
 sidebar_position: 07
+displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';
@@ -28,7 +29,7 @@ API Key とクライアント シークレットを使用すると、UID2 <Link 
 UID2 Portal で API Key を追加するときは、キーとそれに対応するシークレットを安全に保存し、これらの値が漏洩しないようにするために必要な措置をすべて講じる必要があります。詳細は、[API Key and Client Secret](../getting-started/gs-credentials.md#api-key-and-client-secret) を参照してください。
 :::
 
-各 API Keyは、1 年ごとにローテーションすることを勧めます。
+各 API Keyは、1 年ごとにローテーションすることを推奨します。
 
 API Key を追加するときには、次のいずれかの権限を割り当てることができます:
 
@@ -101,7 +102,7 @@ API Key を削除するには、次の手順を実行します:
 
 ## Rotating an API Key
 
-API Key をローテーションすることを勧めます。API Key をローテーションするには、次の手順を実行します:
+API Key をローテーションすることを推奨します。API Key をローテーションするには、次の手順を実行します:
 
 1. UID2 Portal で **API Keys** ページに移動します。
 1. リストでローテーションする Key を見つけます。
@@ -114,7 +115,7 @@ API Key をローテーションすることを勧めます。API Key をロー�
 
 セキュリティのベストプラクティスとして、異なる役割に対して異なるキーを持つことが推奨されます。
 
-追加のセキュリティに関する推奨事項については、[API Key and Client Secret のセキュリティ](../getting-started/gs-credentials.md#security-of-api-key-and-client-secret) を参照してください。
+追加のセキュリティに関する推奨事項は、[API Key and Client Secret のセキュリティ](../getting-started/gs-credentials.md#security-of-api-key-and-client-secret) を参照してください。
 
 <!-- In some instances, you might create API keys for one permission/role and then want to add a role to your account. For example, you might be an advertiser, but also want to operate as an inventory provider.
 

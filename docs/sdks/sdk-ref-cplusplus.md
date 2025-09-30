@@ -3,6 +3,7 @@ title: SDK for C++
 description: Reference information about the C++ server-side SDK.
 hide_table_of_contents: false
 sidebar_position: 10
+displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';
@@ -164,7 +165,3 @@ The following instructions provide an example of how you can implement sharing u
          // check decrypted.GetStatus() for the failure reason 
       }
       ```
-
-## FAQs
-
-For a list of frequently asked questions for DSPs, see [FAQs for DSPs](../getting-started/gs-faqs.md#faqs-for-dsps).

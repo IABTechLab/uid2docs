@@ -3,6 +3,7 @@ title: UID2 IMA Plugin for Android
 description:  Android アプリの広告リクエストに IMA を使用するパブリッシャー向けのガイド。
 hide_table_of_contents: false
 sidebar_position: 14
+displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';
@@ -17,9 +18,9 @@ UID2 Interactive Media Ads (IMA) Plugin for Android は、[Google IMA SDK for An
 
 ## Version
 
-<!-- As of 2024-10-23 -->
+<!-- As of 2025-08-07 -->
 
-このドキュメントは、UID2 IMA Plugin for Android version 1.6.0 以降用です。
+このドキュメントは、UID2 IMA Plugin for Android version 2.0.0 以降用です。
 
 ## GitHub Repository
 
@@ -31,9 +32,9 @@ UID2 Interactive Media Ads (IMA) Plugin for Android は、[Google IMA SDK for An
 
 UID2 とインテグレーションするには、UID2 アカウントが必要です。アカウントを作成していない場合は、まず [Account Setup](../getting-started/gs-account-setup.md) ページの手順に従ってください。
 
-アカウントの初期設定が完了すると、[UID2 Portal](../portal/portal-overview.md) にアクセスするための手順とリンクが送信されます。ここで、本番環境用の [credentials](../getting-started/gs-credentials.md) を作成し、必要に応じて追加の値を設定できます。詳細については、[Getting Started with the UID2 Portal](../portal/portal-getting-started.md) を参照してください。
+アカウントの初期設定が完了すると、[UID2 Portal](../portal/portal-overview.md) にアクセスするための手順とリンクが送信されます。ここで、本番環境用の [credentials](../getting-started/gs-credentials.md) を作成し、必要に応じて追加の値を設定できます。詳細は、[Getting Started with the UID2 Portal](../portal/portal-getting-started.md) を参照してください。
 
-UID2 Portal で実行する手順は、実装が　Client-Side、Client-Server、Server-Side のいずれであるかによって異なります。各実装ガイドに具体的な手順が記載されています。概要については、[Client-Side, Client-Server, or Server-Side Integration?](integration-mobile-overview#client-side-client-server-or-server-side-integration) を参照してください。
+UID2 Portal で実行する手順は、実装が　Client-Side、Client-Server、Server-Side のいずれであるかによって異なります。各実装ガイドに具体的な手順が記載されています。概要は、[Client-Side, Client-Server, or Server-Side Integration?](integration-mobile-overview#client-side-client-server-or-server-side-integration) を参照してください。
 
 ## Requirements 
 
@@ -42,10 +43,10 @@ UID2 Portal で実行する手順は、実装が　Client-Side、Client-Server�
 1. Google IMA SDK v3.30.3 or later:
    - [SDK](https://developers.google.com/interactive-media-ads/docs/sdks/android/client-side)
    - [Release history](https://developers.google.com/interactive-media-ads/docs/sdks/android/client-side/history)
-1. SDK for Android v1.6.0 or later:
+1. SDK for Android v2.0.0 or later:
    - [SDK](https://central.sonatype.com/artifact/com.uid2/uid2-android-sdk)
    - [SDK for Android Reference Guide](../sdks/sdk-ref-android.md)
-1. [UID2 IMA Plugin for Android v1.6.0](https://central.sonatype.com/artifact/com.uid2/uid2-android-sdk-ima)
+1. [UID2 IMA Plugin for Android v2.0.0](https://central.sonatype.com/artifact/com.uid2/uid2-android-sdk-ima)
 1. R8 または Proguard を使用している場合は、[Notes for Using R8 or ProGuard](#notes-for-using-r8-or-proguard) に指定された適用オプションを追加します。
 
 ## Installation
@@ -62,7 +63,7 @@ SDK for Android と Google IMA SDK がインストールされている既存の
 Gradle でインストールするには、`build.gradle` ファイルに依存関係として SDK を追加します:
 
 ```js
-implementation 'com.uid2:uid2-android-sdk-ima:1.6.0'
+implementation 'com.uid2:uid2-android-sdk-ima:2.0.0'
 ```
 
 ### Maven
@@ -73,7 +74,7 @@ Maven でインストールするには、`pom.xml` ファイルに依存関係�
 <dependency>
   <groupId>com.uid2</groupId>
   <artifactId>uid2-android-sdk-ima</artifactId>
-  <version>1.6.0</version>
+  <version>2.0.0</version>
 </dependency>
 ```
 

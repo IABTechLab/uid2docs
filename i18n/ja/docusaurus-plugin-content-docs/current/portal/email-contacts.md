@@ -3,6 +3,7 @@ title: Email Contacts
 description: UID2 アップデートのための連絡先の設定と管理。
 hide_table_of_contents: false
 sidebar_position: 09
+displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';
@@ -23,7 +24,7 @@ UID2 Portal では、UID2 の最新アップデートやリリースに関する
 
 メール連絡先ページにアクセスするには、UID2 Portal ユーザーインターフェースの右上にある名前が表示されている場所に移動します。下矢印をクリックし、**Email Contacts** を選択します。
 
-例については [UID2 Portal Structure](portal-overview.md#uid2-portal-structure) を参照してください。
+例は [UID2 Portal Structure](portal-overview.md#uid2-portal-structure) を参照してください。
 
 ## Configuring Email Contacts
 

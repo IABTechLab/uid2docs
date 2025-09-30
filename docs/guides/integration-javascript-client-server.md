@@ -5,6 +5,7 @@ pagination_label: Client-Server Integration Guide for JavaScript
 description: Information for publishers about using UID2 to generate identity tokens for the RTB bidstream, generating tokens on the server side and refreshing on the client side.
 hide_table_of_contents: false
 sidebar_position: 02
+displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';

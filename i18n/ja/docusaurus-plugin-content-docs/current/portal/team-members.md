@@ -3,6 +3,7 @@ title: Team Members
 description: UID2 チームを設定および管理します。
 hide_table_of_contents: false
 sidebar_position: 07
+displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';
@@ -12,6 +13,7 @@ import Link from '@docusaurus/Link';
 UID2 Portal の **Team Members** ページでは、Admin 権限を持つユーザーが、アカウントへのアクセスを許可する個人の設定に関連するすべてのアクティビティを実行できます。これには、次の操作が含まれます:
 
 - [Add a Team Member](#add-a-team-member)
+- [Set the Primary Contact](#set-the-primary-contact)
 - [Resend an Invitation to a Team Member](#resend-an-invitation-to-a-team-member) 
 - [Edit Information for a Team Member](#edit-information-for-a-team-member) 
 - [Remove a Team Member](#remove-a-team-member)
@@ -31,7 +33,9 @@ Team Member ページにアクセスするには、UID2 Portal ユーザーイ�
   - すべての人が利用可能: ![the Edit icon](images/icon-pencil-solid.png) (Edit) と ![the Delete icon](images/icon-trash-can-solid.png) (Delete)。
   - ユーザーが招待されたがまだ承認されていない場合、**Resend Invitation** リンクも利用可能です。
 
-例については、「チームメンバーへの招待状の再送」（#resend-an-invitation-to-a-team-member）を参照してください。
+Team Member のうち、主要な連絡先であるメンバーには、名前の後にタグが表示されます。
+
+例は、[Resend an Invitation to a Team Member](#resend-an-invitation-to-a-team-member) を参照してください。
 
 ## User Roles
 
@@ -40,7 +44,7 @@ Team Member ページにアクセスするには、UID2 Portal ユーザーイ�
 | Role | Actions |
 | :--- | :--- |
 | Admin | Admin 権限を持つユーザーは、[UID2 Portal Overview](portal-overview.md) に記載されているように、現在の参加組織に関連する UID2 参加に関連するすべてのアクティビティを実行できます。 |
-| Operations | Operation 権限を持つユーザーは、Admin ユーザーとほぼ同じアクションを実行できます。ただし、いくつかの制限があります:<ul><li>チームメンバーを追加、変更、削除することはできません。代わりに、[Team Members](team-members.md) ページには読み取り専用アクセスがあります。</li><li>[Audit Trail](audit-trail.md) ページを表示できません。</li></ul> |
+| Operations | Operation 権限を持つユーザーは、Admin ユーザーとほぼ同じアクションを実行できます。ただし、いくつかの制限があります:<ul><li>Team Member を追加、変更、削除することはできません。代わりに、[Team Members](team-members.md) ページには読み取り専用アクセスがあります。</li><li>[Audit Trail](audit-trail.md) ページを表示できません。</li></ul> |
 
 ユーザー権限は、Admin 権限を持つユーザーのみが変更できます。詳細は、[Edit Information for a Team Member](#edit-information-for-a-team-member) を参照してください。
 
@@ -51,14 +55,35 @@ Team Member を追加するには、次の手順を実行します:
 1. UID2 Portal アカウントでログインします。
 1. 右上にある下矢印をクリックし、**Manage Team Members** を選択します。
 1. **Add Team Member** をクリックします。
-1. 名、姓、メール、職務、および役割を入力します。
+1. 姓、名、メールアドレス、職務、役割を入力します。役割の詳細については、[User Roles](#user-roles) を参照してください。
+1. オプション: このユーザーを主要な連絡先として設定するには、**Set as primary contact** ボックスをチェックします。主要な連絡先には Admin 権限が必要です。詳細は、[Set the Primary Contact](#set-the-primary-contact) を参照してください。
 1. **Save Team Member** をクリックします。
 
    Team Member がリストに追加され、保留中のステータスで、招待メールが招待された人に送信されます。
 
 :::note
-Team Member は複数の参加者に追加できます。複数の参加者に所属する Team Member は、[UID2 Portal Structure](portal-overview.md#uid2-portal-structure) に示されているように、参加者間を切り替えることができます。
+同じチームメンバーを複数の参加者に追加できます。複数の参加者に属するチームメンバーは、[UID2 Portal Structure](portal-overview.md#uid2-portal-structure) に示されているように、参加者間を切り替えることができます。
 :::
+
+## Set the Primary Contact
+
+各チームには、UID2 に関するコミュニケーションの主な窓口となる主要な連絡先がいます。
+
+主要な連絡先に関する重要な情報は次のとおりです:
+
+- デフォルトでは、最初のチームメンバーが追加されると、その人が主要な連絡先になります。
+- 主要な連絡先は Admin 権限を持っている必要があります。
+- 現在の主要な連絡先を削除するか、その人の役割を Operations に変更するには、最初に別のチームメンバーを主要な連絡先として指定する必要があります。
+- チームメンバーのリストには、主要な連絡先の名前の後にタグが表示されます。例については、[Resend an Invitation to a Team Member](#resend-an-invitation-to-a-team-member) を参照してください。
+
+主要な連絡先を設定するには、次の手順を実行します:
+
+1. UID2 Portal アカウントでログインします。
+1. 右上にある下矢印をクリックし、**Manage Team Members** を選択します。
+1. 次のいずれかの操作を行います:
+
+   - 既存のチームメンバーを主要な連絡先として設定するには: リストからそのチームメンバーを見つけ、![the Edit icon](images/icon-pencil-solid.png) (Edit アイコン) をクリックします。**Set as primary contact** をチェックし、必要に応じて役割を Admin に更新し、変更を保存します。
+   - 新しいチームメンバーを主要な連絡先として追加するには: [Add a Team Member](#add-a-team-member) の手順に従います。**Set as primary contact** をチェックし、役割を Admin に設定し、変更を保存します。
 
 ## Resend an Invitation to a Team Member
 

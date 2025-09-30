@@ -1,0 +1,8 @@
+<!-- Used by: endpoints/post-identity-map.md, sdks/sdk-ref-java.md -->
+
+POST /identity/map エンドポイントのバージョン 3 では、v2 から以下の改善が行われています:
+
+- **Support for multiple identity types**: 1 回のリクエストでメールアドレスと電話番号の両方を処理できます。
+- **Simpler refresh management**: ソルトバケットを監視する代わりに、リフレッシュのタイムスタンプに達した raw UID2 を再マッピングするだけで済みます。ソルトバケットの監視は、別の API 呼び出しです。
+- **Availability of previous raw UID2**: ローテーション後90日間、以前の UID2 を見ることができます。
+- **Improved performance**: 新しい API バージョンでは、同じ量の個人データに対して必要な帯域幅が大幅に削減されています。

@@ -3,11 +3,12 @@ title: SDK for JavaScript
 description: JavaScript Client-Side SDK に関するリファレンス情報。
 hide_table_of_contents: false
 sidebar_position: 02
+displayed_sidebar: docs
 ---
 
+import Link from '@docusaurus/Link';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import Link from '@docusaurus/Link';
 import ExampleUid2Cookie from '../snippets/_example-uid2-cookie.mdx';
 import ExampleJavaScriptInit from '../snippets/_example-javascript-init.mdx';
 
@@ -27,7 +28,7 @@ UID2 Identify Module、または UID2 サポートのある他の製品と Prebi
 
 ## SDK Version
 
-このページは、最新の UID2 SDK for JavaScript バージョン 4 を説明しています。以前のバージョンを使用している場合は、[Migration Guide](#migration-guide) を使用してインテグレーションをアップグレードすることを勧めます。必要に応じて、以下の以前のバージョンのドキュメントも利用できます:
+このページは、最新の UID2 SDK for JavaScript バージョン 4 を説明しています。以前のバージョンを使用している場合は、[Migration Guide](#migration-guide) を使用してインテグレーションをアップグレードすることを推奨します。必要に応じて、以下の以前のバージョンのドキュメントも利用できます:
 
 - [Version 3](./sdk-ref-javascript-v3.md)
 - [Version 2.x and earlier](./sdk-ref-javascript-v2.md)
@@ -36,7 +37,7 @@ UID2 Identify Module、または UID2 サポートのある他の製品と Prebi
 
 Version 4 には、Version 3 からの主な変更が含まれています:
 
-- **New**: `isIdentityAvailable()` 関数は Version 3.10.0 でリリースされました。詳細については、[isIdentityAvailable](#isidentityavailable-boolean) を参照してください。
+- **New**: `isIdentityAvailable()` 関数は Version 3.10.0 でリリースされました。詳細は、[isIdentityAvailable](#isidentityavailable-boolean) を参照してください。
 
 - **Removed elements**:
   - `abort()` 関数は v3 で非推奨となり、v4 には含まれていません。代わりに、`abort()` と同じ機能を持つ [disconnect()](#disconnect-void) を使用してください。また、より徹底的な切断ロジックも含まれています。
@@ -148,7 +149,7 @@ SDK を使用して UID2 ID を確立するための Client-Side ワークフロ
 	- Advertising Token が利用可能な場合、それを使用してターゲティング広告のリクエストを開始します。
 	- Advertising Token が利用可能でない場合は、ターゲティング広告を使用しないか、同意フォームでユーザーをデータキャプチャにリダイレクトします。
 
-より詳細な Web インテグレーションの手順については、[Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md) を参照してください。
+より詳細な Web インテグレーションの手順は、[Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md) を参照してください。
 
 ### Background Token Auto-Refresh
 
@@ -358,7 +359,7 @@ SDK を初期化し、ターゲティング広告用のユーザー ID を確立
 
 詳細は、以前のバージョンの SDK のドキュメントの[Legacy Callback Function](./sdk-ref-javascript-v2#callback-function) を参照してください。
 
-すでにレガシーコールバック関数を使用してインテグレーションを構築している場合は、現在のバージョンの SDK で変更なく使用できます。ただし、この機能は SDK の将来のバージョンで削除される予定です。新しいスタイルの [callback function](#callback-function) を使用するようにインテグレーションを更新することを強く勧めます。
+すでにレガシーコールバック関数を使用してインテグレーションを構築している場合は、現在のバージョンの SDK で変更なく使用できます。ただし、この機能は SDK の将来のバージョンで削除される予定です。新しいスタイルの [callback function](#callback-function) を使用するようにインテグレーションを更新することを強く推奨します。
 
 ### getAdvertisingToken(): string
 
@@ -564,7 +565,7 @@ Version 3 では、レガシーコールバックシステムが非推奨とさ�
 
 #### Benefits in Version 4
 
-Version 4 は、以前のバージョンよりも堅牢です。利点の概要については、[Changes in Version 4](#changes-in-version-4) を参照してください。
+Version 4 は、以前のバージョンよりも堅牢です。利点の概要は、[Changes in Version 4](#changes-in-version-4) を参照してください。
 
 ### Required Changes
 
@@ -572,9 +573,9 @@ Version 4 に移行するためには、現在の実装がどのように構成�
 
 - **Migration from version 3, with no elements from earlier versions**: 必要な作業は、スクリプトタグを更新して、バージョン 4.0.1 CDN URL から SDK をロードすることだけです。[Include the SDK Script](#include-the-sdk-script) を参照してください。
 
-- **Migration from version 3, and you previously migrated from version 2 without completing the steps to update your implementation**: スクリプトタグを更新し、また、Version 4 で削除された要素を参照しないようにコードを更新してください。詳細については、[Changes in Version 4](#changes-in-version-4) を参照してください。
+- **Migration from version 3, and you previously migrated from version 2 without completing the steps to update your implementation**: スクリプトタグを更新し、また、Version 4 で削除された要素を参照しないようにコードを更新してください。詳細は、[Changes in Version 4](#changes-in-version-4) を参照してください。
 
-- **Migration from version 2 or earlier**: スクリプトタグを更新し、また、Version 4 で削除された要素を参照しないようにコードを更新してください。詳細については、[Changes in Version 4](#changes-in-version-4) を参照してください。
+- **Migration from version 2 or earlier**: スクリプトタグを更新し、また、Version 4 で削除された要素を参照しないようにコードを更新してください。詳細は、[Changes in Version 4](#changes-in-version-4) を参照してください。
 
 ### Additional Changes: Migration from v2 or Earlier
 

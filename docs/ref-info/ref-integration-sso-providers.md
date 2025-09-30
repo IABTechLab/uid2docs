@@ -4,6 +4,7 @@ sidebar_label: Publisher SSO Integration
 description: Information for publishers for using single sign-on (SSO) providers with UID2.
 hide_table_of_contents: false
 sidebar_position: 06
+displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';

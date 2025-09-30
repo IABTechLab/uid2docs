@@ -5,6 +5,7 @@ pagination_label: Google Ad Manager Secure Signals Integration
 description: Covers integration steps for publishers using UID2 with the Google Ad ManagerSecure Signals feature.
 hide_table_of_contents: false
 sidebar_position: 10
+displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';

@@ -3,6 +3,7 @@ title: UID2 Tokens and Refresh Tokens
 description: パブリッシャー向けの UID2 Token と Refresh Token に関する情報。
 hide_table_of_contents: false
 sidebar_position: 06
+displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';
@@ -110,4 +111,4 @@ Refresh Token に関する主なポイントは次のとおりです:
 
 ## FAQs
 
-トークンのリフレッシュに関するよくある質問については、[パブリッシャー向け FAQ](../getting-started/gs-faqs.md#faqs-for-publishers) を参照してください。
+トークンのリフレッシュに関するよくある質問は、[パブリッシャー向け FAQ](../getting-started/gs-faqs.md#faqs-for-publishers) を参照してください。

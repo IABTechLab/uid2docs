@@ -3,11 +3,12 @@ title: Server-Side Token Generation
 description: Information for publishers about generating the token on the server side.
 hide_table_of_contents: false
 sidebar_position: 06
+displayed_sidebar: docs
 ---
 
+import Link from '@docusaurus/Link';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import Link from '@docusaurus/Link';
 
 # Server-Side Token Generation
 

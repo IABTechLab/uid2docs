@@ -5,6 +5,7 @@ pagination_label: LiveRamp Integration Tips
 description: Tips for integrating with UID2 with LiveRamp. 
 hide_table_of_contents: false
 sidebar_position: 04
+displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';

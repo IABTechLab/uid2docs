@@ -5,11 +5,12 @@ pagination_label: UID2 Client-Side Integration Guide for Mobile
 description: Client-Side でトークン生成とリフレッシュの両方を行うモバイルインテグレーションの設定。
 hide_table_of_contents: false
 sidebar_position: 04
+displayed_sidebar: docs
 ---
 
+import Link from '@docusaurus/Link';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import Link from '@docusaurus/Link';
 import GMAIMA_Plugins from '../snippets/_mobile_docs_gmaima-plugin-gss.mdx';
 import ExampleAdvertisingToken from '../snippets/_example-advertising-token.mdx';
 import EnableLogging from '../snippets/_mobile-docs-enable-logging.mdx';
@@ -34,7 +35,7 @@ UID2 は、[Android](../sdks/sdk-ref-android.md) および [iOS](../sdks/sdk-ref
 このガイドの、**UID2 mobile SDKs** は、SDK for Android と SDK for iOS の両方を含むグループ用語です。
 :::
 
-モバイルパブリッシャーインテグレーションに関する FAQs については、[FAQs for Mobile Integrations](../guides/integration-mobile-overview.md#faqs-for-mobile-integrations) を参照してください。
+モバイルパブリッシャーインテグレーションに関する FAQs は、[FAQs for Mobile Integrations](../guides/integration-mobile-overview.md#faqs-for-mobile-integrations) を参照してください。
 
 UID2 を Client-Side でインテグレーションするには、以下の手順を完了する必要があります:
 
@@ -55,11 +56,11 @@ UID2 を Client-Side でインテグレーションするには、以下の手�
 - SDK for Android (version 1.6.0 以降)
 - SDK for iOS (version 1.7.0 以降)
 
-正しい SDK/バージョンをモバイルアプリにインストールする手順については、[Add the UID2 Mobile SDK to Your Mobile App](#add-the-uid2-mobile-sdk-to-your-mobile-app) を参照してください。
+正しい SDK/バージョンをモバイルアプリにインストールする手順は、[Add the UID2 Mobile SDK to Your Mobile App](#add-the-uid2-mobile-sdk-to-your-mobile-app) を参照してください。
 
 ## Client-Side Integration Example
 
-UID2 mobile SDK の設定方法と、モバイル用の Client-Side インテグレーションを使用したトークンの生成方法の例については、UID2 開発アプリを試してください。
+UID2 mobile SDK の設定方法と、モバイル用の Client-Side インテグレーションを使用したトークンの生成方法の例は、UID2 開発アプリを試してください。
 
 Android または iOS 向けの適用可能な手順に従ってください:
 
@@ -228,7 +229,7 @@ SDK をアプリに追加したら、SDK を使用して UID2 Token を生成す
 
 ### Using the UID2 Integration Environment
 
-デフォルトでは、この SDK は UID2 本番環境: `https://prod.uidapi.com` で動作するように構成されています。UID2 インテグレーション環境を使用する場合は、(認証情報については [Getting Your Credentials](../getting-started/gs-credentials.md#getting-your-credentials) を参照)、`UID2Manager` の初期化する際に次の URL を指定してください:
+デフォルトでは、この SDK は UID2 本番環境: `https://prod.uidapi.com` で動作するように構成されています。UID2 インテグレーション環境を使用する場合は、(認証情報は [Getting Your Credentials](../getting-started/gs-credentials.md#getting-your-credentials) を参照)、`UID2Manager` の初期化する際に次の URL を指定してください:
 
 <Tabs groupId="language-selection">
 <TabItem value='android' label='Android'>
@@ -263,7 +264,7 @@ UID2Settings.shared.uid2Environment = .custom(
 
 デフォルトでは、この SDK は米国の UID2 本番環境サーバーにリクエストを送信します。
 
-ユースケースに最適な URL を選択する方法と、有効なベース URL の完リストについては、[Environments](../getting-started/gs-environments.md) を参照してください。
+ユースケースに最適な URL を選択する方法と、有効なベース URL の完リストは、[Environments](../getting-started/gs-environments.md) を参照してください。
 
 別の UID2 サーバを指定するには、次の例に示すように構成変更を行います:
 
@@ -609,11 +610,11 @@ UID2Manager.shared.getAdvertisingToken()
     - **Android Kotlin**: `UID2Manager.getInstance().currentIdentityStatus()`
     - **iOS**: `UID2Manager.shared.identityStatus`
 
-    UID2 から DII がオプトアウトされている可能性があります: 詳細については [When to Pass DII into the SDK](#when-to-pass-dii-into-the-sdk) を参照してください。
+    UID2 から DII がオプトアウトされている可能性があります: 詳細は [When to Pass DII into the SDK](#when-to-pass-dii-into-the-sdk) を参照してください。
 - ロギングを有効 (`isLoggingEnabled` を `true` に設定する) にして詳細情報を取得できます: [Enable Logging](#enable-logging) を参照してください。
 - UID2 identity 内の Advertising Token の有効期限が切れていて、Refresh Token も有効期限が切れているため、SDK がトークンをリフレッシュできません。
 
-Identity が無い場合は、`generateIdentity` メソッドを再度呼び出す必要があります: 詳細については [Configure the UID2 Mobile SDK](#configure-the-uid2-mobile-sdk) を参照してください。
+Identity が無い場合は、`generateIdentity` メソッドを再度呼び出す必要があります: 詳細は [Configure the UID2 Mobile SDK](#configure-the-uid2-mobile-sdk) を参照してください。
 
 詳細は、[When to Pass DII into the SDK](#when-to-pass-dii-into-the-sdk)(次項) を参照してください。
 
@@ -737,6 +738,8 @@ If the response status indicates that the DII has been opted out of UID2, you mi
 
 :::important
 UID2 Prebid Mobile SDK インテグレーションは、UID2 SDK for Android version 1.6.0 または UID2 SDK for iOS version 1.7.0 が必要です。
+
+Prebid Mobile SDK v3 を使用している場合は、UID2 SDK for Android または iOS のバージョン 2.0.0 が必要です。
 :::
 
 <PrebidMobileSDK />

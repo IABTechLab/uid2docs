@@ -108,4 +108,4 @@ Optionally, if DSPs want to generate UID2s themselves from DII, they can also fo
 
 ## FAQs for DSPs
 
-UID2 フレームワークを使用する DSP に関するよくある質問については [FAQs for DSPs](../getting-started/gs-faqs.md#faqs-for-dsps) を参照してください。
+UID2 フレームワークを使用する DSP に関するよくある質問は [FAQs for DSPs](../getting-started/gs-faqs.md#faqs-for-dsps) を参照してください。

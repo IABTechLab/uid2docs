@@ -3,6 +3,7 @@ title: The UID2 Operator
 description: Public と Private Operator、それぞれの違いについての情報。
 hide_table_of_contents: false
 sidebar_position: 06
+displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';
@@ -69,4 +70,4 @@ Private Operator オプションのデメリットは、構築と維持に継続
 
 Public Operator とのインテグレーションは、独自のインスタンスを作成するよりもはるかに簡単なオプションです。参加者に費用はかからず、初期設定と構成以外のエンジニアリング作業は事実上必要ありません。
 
-これらの理由から、Public Operator を選択することを勧めます。
+これらの理由から、Public Operator を選択することを推奨します。

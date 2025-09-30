@@ -3,6 +3,7 @@ title: Documentation Updates
 description: A summary of significant UID2 documentation updates.
 hide_table_of_contents: false
 sidebar_position: 06
+displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';
@@ -19,9 +20,42 @@ Check out the latest updates to our UID2 documentation resources.
 Use the Tags toolbar to view a subset of documentation updates.
 :::
 
-## Q1 2025
+## Q3 2025
 
 The following documents were released in this quarter.
+
+<CustomTagsContainer tags="Endpoints, Guides, SDKs">
+
+### Identity Map v3 (Python SDK, Snowflake)
+
+July 31, 2025
+
+We've released updated versions of two additional docs to reflect adoption of the new version of the Identity Map API (v3), announced 11 July, which provides significant improvements for advertisers and data providers.
+
+We updated the following additional implementations and corresponding documentation:
+
+- Python SDK: see [SDK for Python Reference Guide](../sdks/sdk-ref-python.md)
+- Snowflake: see [Snowflake Integration Guide](../guides/integration-snowflake.md)
+
+<!-- PIDOCS-3320 -->
+
+</CustomTagsContainer>
+
+<CustomTagsContainer tags="Endpoints, Guides, SDKs">
+
+### Identity Map v3
+
+July 11, 2025
+
+We've released a new version of the Identity Map API (v3) that provides significant improvements for advertisers and data providers. This update includes documentation for the [POST /identity/map](../endpoints/post-identity-map.md) endpoint, the [SDK for Java Reference Guide](../sdks/sdk-ref-java.md#usage-for-advertisersdata-providers), and the [Advertiser/Data Provider Integration Overview](../guides/integration-advertiser-dataprovider-overview.md).
+
+<!-- UID2-5558, UID2-5560, UID2-5559, APIDOCS-3070 -->
+
+</CustomTagsContainer>
+
+## Q1 2025
+
+The following documents were released in the first quarter of 2025.
 
 <CustomTagsContainer tags="Guides, Private Operator">
 
@@ -422,7 +456,7 @@ For details, see [UID2 Hashing Tool](../getting-started/gs-normalization-encodin
 
 February 28, 2024
 
-The Java SDK now supports Advertisers and Data Providers wanting to use the [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) endpoint.
+The Java SDK now supports Advertisers and Data Providers wanting to use the [POST&nbsp;/identity/map (v2)](../endpoints/post-identity-map-v2.md) endpoint.
 
 For details, see the updated documentation in the *SDK for Java Reference Guide*: [Usage for Advertisers and Data Providers](../sdks/sdk-ref-java.md#usage-for-advertisersdata-providers).
 

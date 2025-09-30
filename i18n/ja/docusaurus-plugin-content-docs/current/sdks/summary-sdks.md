@@ -18,7 +18,7 @@ SDK の機能を確認して使用する SDK を決定し、SDK の表をクリ�
 
 次の表は、各 SDK で利用可能な機能をまとめたものです。
 
-| UID2 SDK for... | Client-Side or Server-Side | Encrypt Raw UID2 to UID2 Token for Sharing | Decrypt UID2 Token to Raw UID2 | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to Raw UID2s&ast; | Monitor Rotated Salt Buckets      |
+| UID2 SDK for... | Client-Side or Server-Side | Encrypt Raw UID2 to UID2 Token for Sharing | Decrypt UID2 Token to Raw UID2 | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to Raw UID2s&ast; | Monitor Rotated Salt Buckets |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 |JavaScript | Client | &#8212; | &#8212; | &#9989; | &#9989; | &#8212; | &#8212; |
 |Java | Server | &#9989; | &#9989; | &#9989; | &#9989; | &#9989; | &#8212; |
@@ -28,13 +28,15 @@ SDK の機能を確認して使用する SDK を決定し、SDK の表をクリ�
 |Android | Client&nbsp;(Mobile) | &#8212; | &#8212; | &#9989; | &#9989; | &#8212; | &#8212; |
 |iOS | Client (Mobile) | &#8212; | &#8212; | &#9989;| &#9989; |&#8212; | &#8212; |
 
-&ast;DII から raw UID2 を生成する必要がある広告主およびデータプロバイダは Snowflake ([Snowflake Integration Guide](../guides/integration-snowflake.md) を参照) または [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) エンドポイントを使用することができます。
+&ast;DII から raw UID2 を生成する必要がある広告主およびデータプロバイダは Snowflake ([Snowflake Integration Guide](../guides/integration-snowflake.md) を参照) または [POST&nbsp;/identity/map (v2)](../endpoints/post-identity-map-v2.md) エンドポイントを使用することができます。
+
+&ast;&ast; 最新バージョンの [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) エンドポイントを使用している実装では、ソルトバケットの監視は必要ありません。
 
 <!-- &#9989; = Supported | &#8212; = Not Supported -->
 
 ## SDK Documentation
 
-UID2 インテグレーションについては、以下の SDK ドキュメントを参照してください。ドキュメンテーションのリンクは最初の欄にあります。
+UID2 インテグレーションは、以下の SDK ドキュメントを参照してください。ドキュメンテーションのリンクは最初の欄にあります。
 
 | SDK/Link&nbsp;to&nbsp;Guide | Description | Audience
 | :--- | :--- | :--- |

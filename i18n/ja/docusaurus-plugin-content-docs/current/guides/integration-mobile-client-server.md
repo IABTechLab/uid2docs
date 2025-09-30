@@ -5,11 +5,12 @@ pagination_label: UID2 Client-Server Integration Guide for Mobile
 description: トークンをサーバーで生成し、クライアントで更新するモバイルインテグレーションの設定。
 hide_table_of_contents: false
 sidebar_position: 04
+displayed_sidebar: docs
 ---
 
+import Link from '@docusaurus/Link';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import Link from '@docusaurus/Link';
 import ExampleAdvertisingToken from '../snippets/_example-advertising-token.mdx';
 import EnableLogging from '../snippets/_mobile-docs-enable-logging.mdx';
 import GMAIMA_Plugins from '../snippets/_mobile_docs_gmaima-plugin-gss.mdx';
@@ -36,7 +37,7 @@ UID2 は、[Android](../sdks/sdk-ref-android.md) および [iOS](../sdks/sdk-ref
 このガイドの、**UID2 mobile SDKs** は、SDK for Android と SDK for iOS の両方を含むグループ用語です。
 :::
 
-モバイルパブリッシャーインテグレーションに関する FAQs については、[FAQs for Mobile Integrations](../guides/integration-mobile-overview.md#faqs-for-mobile-integrations) を参照してください。
+モバイルパブリッシャーインテグレーションに関する FAQs は、[FAQs for Mobile Integrations](../guides/integration-mobile-overview.md#faqs-for-mobile-integrations) を参照してください。
 
 以下の手順を完了する必要があります:
 
@@ -54,7 +55,7 @@ UID2 は、[Android](../sdks/sdk-ref-android.md) および [iOS](../sdks/sdk-ref
 - SDK for Android (version 1.6.0 以降)
 - SDK for iOS (version 1.7.0 以降)
 
-正しい SDK/バージョンをモバイルアプリにインストールする手順については、[Add the UID2 Mobile SDK to Your Mobile App](#add-the-uid2-mobile-sdk-to-your-mobile-app) を参照してください。
+正しい SDK/バージョンをモバイルアプリにインストールする手順は、[Add the UID2 Mobile SDK to Your Mobile App](#add-the-uid2-mobile-sdk-to-your-mobile-app) を参照してください。
 
 ## Integrating with Single Sign-On (SSO)
 
@@ -83,13 +84,13 @@ Client-Server インテグレーションには、UID2 Portal の [API Keys](../
 
 ![Mobile Client-Server Integration Example](images/integration-mobile-client-server-uid2.png)
 
-<!-- (**GWH_ https://ttdcorp-my.sharepoint.com/:p:/r/personal/rita_aleksanyan_thetradedesk_com/_layouts/15/Doc.aspx?sourcedoc=%7BDF894943-3D6A-4A60-A1E2-176ACD0BBBCC%7D&file=Sample%20Data%20Flow.pptx&wdLOR=c8FEF9DB2-E2FD-4F07-B411-B094C4813ACE&fromShare=true&action=edit&mobileredirect=true**) -->
+<!-- (**GWH_ https://ttdcorp-my.sharepoint.com/:p:/r/personal/RA_FILLINNAME_thetradedesk_com/_layouts/15/Doc.aspx?sourcedoc=%7BDF894943-3D6A-4A60-A1E2-176ACD0BBBCC%7D&file=Sample%20Data%20Flow.pptx&wdLOR=c8FEF9DB2-E2FD-4F07-B411-B094C4813ACE&fromShare=true&action=edit&mobileredirect=true**) -->
 
 ## Implement Server-Side Token Generation
 
 モバイル向けの Client-Server UID2 インテグレーションの場合、最初のステップは、サーバーで UID2 Token を生成できるようにすることです。その後、トークンをモバイルアプリに渡して RTB ビッドストリームに送信できます。
 
-手順や例については、[Server-Side Token Generation](../ref-info/ref-server-side-token-generation.md) を参照してください。
+手順や例は、[Server-Side Token Generation](../ref-info/ref-server-side-token-generation.md) を参照してください。
 
 `Identity` レスポンスをモバイルアプリに渡す必要があります: [Configure the UID2 Mobile SDK](#configure-the-uid2-mobile-sdk) を参照してください。
 
@@ -108,13 +109,13 @@ Token Refresh を Server-Side で管理し、クライアント/モバイルサ�
 - [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) エンドポイントを呼び出します。
 - UID2 Server-Side SDK のいずれかの Publisher Client クラスを使用します。これらのクラスは、リクエストを単一のメソッド呼び出しに簡素化します。
 
-  手順については、[SDK for Java, Usage for Publishers, Basic Usage Server-Side Integration section](../sdks/sdk-ref-java.md#basic-usage-server-side-integration) または [SDK for Python, Usage for Publishers, Server-Side Integration section](../sdks/sdk-ref-python.md#server-side-integration) を参照してください。
+  手順は、[SDK for Java, Usage for Publishers, Basic Usage Server-Side Integration section](../sdks/sdk-ref-java.md#basic-usage-server-side-integration) または [SDK for Python, Usage for Publishers, Server-Side Integration section](../sdks/sdk-ref-python.md#server-side-integration) を参照してください。
 
 その後、このガイドの残りの部分に従って、新しくリフレッシュされた `Identity` 値をモバイルアプリに渡します。
 
 ## Add the UID2 Mobile SDK to Your Mobile App
 
-インストール方法については、以下のいずれかを参照してください:
+インストール方法は、以下のいずれかを参照してください:
 
 - [SDK for Android Reference Guide](../sdks/sdk-ref-android.md)
 - [SDK for iOS Reference Guide](../sdks/sdk-ref-ios.md)
@@ -125,7 +126,7 @@ Token Refresh を Server-Side で管理し、クライアント/モバイルサ�
 
 デフォルトでは、この SDK は UID2 本番環境: `https://prod.uidapi.com` で動作するように構成されています。代わりに UID2 インテグレーション環境を使用する場合は、UID2Manager の初期化時に次の URL を指定してください。
 
-各環境の認証情報を取得する方法については、[Getting Your Credentials](../getting-started/gs-credentials.md#getting-your-credentials) を参照してください。
+各環境の認証情報を取得する方法は、[Getting Your Credentials](../getting-started/gs-credentials.md#getting-your-credentials) を参照してください。
 
 <Tabs groupId="language-selection">
 <TabItem value='android' label='Android'>
@@ -160,7 +161,7 @@ UID2Settings.shared.uid2Environment = .custom(
 
 デフォルトでは、この SDK は米国の UID2 本番環境サーバーにリクエストを送信します。
 
-ユースケースに最適な URL を選択する方法と、有効なベース URL の完リストについては、[Environments](../getting-started/gs-environments.md) を参照してください。
+ユースケースに最適な URL を選択する方法と、有効なベース URL の完リストは、[Environments](../getting-started/gs-environments.md) を参照してください。
 
 異なる UID2 サーバーを指定するには、`init` 呼び出しで変更してください:
 
@@ -219,7 +220,7 @@ UID2Manager.shared.setIdentity()
 `setIdentity` メソッドを呼び出すと、UID2 identity がローカルファイルストレージに永続化されます。
 
 :::warning
-ローカルファイルストレージに保存されたファイルの形式、またはファイル名自体が予告なく変更される可能性があります。ファイルを直接読み取ったり更新したりしないことを勧めます。
+ローカルファイルストレージに保存されたファイルの形式、またはファイル名自体が予告なく変更される可能性があります。ファイルを直接読み取ったり更新したりしないことを推奨します。
 :::
 
 ## Pass Generated Token for Bidstream Use
@@ -326,6 +327,8 @@ UID2Manager.shared.automaticRefreshEnabled = false
 
 :::important
 UID2 Prebid Mobile SDK インテグレーションは、UID2 SDK for Android version 1.6.0 または UID2 SDK for iOS version 1.7.0 が必要です。
+
+Prebid Mobile SDK v3 を使用している場合は、UID2 SDK for Android または iOS のバージョン 2.0.0 が必要です。
 :::
 
 <PrebidMobileSDK />

@@ -3,6 +3,7 @@ title: FAQs
 description: UID2 の実装に関するよくある質問。
 hide_table_of_contents: false
 sidebar_position: 20
+displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';
@@ -10,7 +11,15 @@ import ExampleTokenInBidstream from '../snippets/_example-token-in-bidstream.mdx
 
 # Frequently Asked Questions
 
-UID2 に関するよくある質問は、以下のカテゴリーに分かれています:
+このドキュメントの UID2 に関するよくある質問は、オーディエンスごとにグループ化され、以下の一般的なカテゴリに分類されています:
+
+- [FAQs&#8212;General](#faqsgeneral)
+- [FAQs for Publishers](#faqs-for-publishers)
+- [FAQs for Advertisers and Data Providers](#faqs-for-advertisers-and-data-providers)
+- [FAQs for DSPs](#faqs-for-dsps)
+
+パブリッシャー向けの以下の追加の FAQ 情報も利用可能です:
+- [FAQs for Mobile Integrations](../guides/integration-mobile-overview.md#faqs-for-mobile-integrations)
 
 ## FAQs&#8212;General
 
@@ -23,7 +32,7 @@ UID2 フレームワークに関するよくある質問を紹介します。
 - [パブリックオペレーターとプライベートオペレーターのどちらを使用すべきですか？](#should-i-use-a-public-operator-or-a-private-operator)
 
 :::note
-モバイルパブリッシャーインテグレーションに関する FAQs については、[FAQs for Mobile Integrations](../guides/integration-mobile-overview.md#faqs-for-mobile-integrations) を参照してください。
+モバイルパブリッシャーインテグレーションに関する FAQs は、[FAQs for Mobile Integrations](../guides/integration-mobile-overview.md#faqs-for-mobile-integrations) を参照してください。
 :::
 
 #### Will all integration partners in the EUID infrastructure (SSPs, third-party data providers, measurement providers) be automatically integrated with UID2?
@@ -41,7 +50,7 @@ UID2 に DII を送信すると、UID2 はその情報を保存しますか？
 
 いいえ。<Link href="../ref-info/glossary-uid#gl-uid2-service">UID2 service</Link> のコンポーネントは、DII を保存しません。
 
-さらに、ほとんどの場合、UID2 は、[POST&nbsp;/token/generate](../endpoints/post-token-generate.md)、[POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md)、または [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) の呼び出しが完了すると、値を全く保存しません。必要な例外は、ユーザーがオプトアウトした場合です。この場合、UID2 は、オプトアウトしたユーザーを示すハッシュ化された不透明な値を保存します。保存された値は、DII から生成された同じ UID2 に関する将来のリクエストを識別するために使用され、そのため拒否されます。
+さらに、ほとんどの場合、UID2 は、[POST&nbsp;/token/generate](../endpoints/post-token-generate.md)、[POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md)、または [POST&nbsp;/identity/map (v2)](../endpoints/post-identity-map-v2.md) の呼び出しが完了すると、値を全く保存しません。必要な例外は、ユーザーがオプトアウトした場合です。この場合、UID2 は、オプトアウトしたユーザーを示すハッシュ化された不透明な値を保存します。保存された値は、DII から生成された同じ UID2 に関する将来のリクエストを識別するために使用され、そのため拒否されます。
 
 #### Does UID2 allow the processing of HIPAA-regulated data?
 UID2 は HIPAA で規制されているデータの処理を許可しますか？
@@ -53,7 +62,7 @@ UID2 は HIPAA で規制されているデータの処理を許可しますか�
 
 ほとんどの参加者にとって、<Link href="../ref-info/glossary-uid#gl-public-operator">Public Operator</Link> が最もシンプルなソリューションです。Public Operator のインテグレーションは、独自の <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link> をホストするよりも簡単なオプションです。Private Operator インスタンスを持つことにはいくつかの利点がありますが、追加の複雑さとコストがかかります。
 
-最適な選択肢は、自身の状況やニーズによって異なります。決定に役立つ情報については、以下を参照してください:
+最適な選択肢は、自身の状況やニーズによって異なります。決定に役立つ情報は、以下を参照してください:
 
 1. [The UID2 Operator](../ref-info/ref-operators-public-private.md)
 
@@ -171,39 +180,40 @@ UID2 をシングルサインオン (SSO) とインテグレーションする�
 
 UID2 フレームワークを使用する広告主やデータプロバイダーによくある質問を紹介します。
 
-- [ソルトバケットのローテーションによって UID2 をリフレッシュするタイミングを知るには？](#how-do-i-know-when-to-refresh-the-uid2-due-to-salt-bucket-rotation)
-- [更新されたメールアドレスは、以前関連付けられていたバケットと同じバケットに割り当てられますか？](#do-refreshed-emails-get-assigned-to-the-same-bucket-with-which-they-were-previously-associated)
-- [インクリメンタルアップデートの場合、UID2 はどのくらいの頻度で更新するべきですか？](#how-often-should-uid2s-be-refreshed-for-incremental-updates)
+- [raw UID2 を更新するタイミングはどのように判断すればよいですか？](#how-do-i-know-when-to-refresh-a-raw-uid2)
+- [インクリメンタルアップデートの場合、UID2 はどのくらいの頻度で更新するべきですか？](#how-often-should-raw-uid2s-be-refreshed-for-incremental-updates)
 - [マッピング用の DII の SHA-256 はどのように生成すればよいですか？](#how-should-i-generate-the-sha-256-of-dii-for-mapping)
 - [メールアドレス、電話番号、または対応するハッシュと raw UID2 のマッピングを、自身のデータセットに保存すべきでしょうか？](#should-i-store-mapping-of-email-addresses-phone-numbers-or-corresponding-hashes-to-raw-uid2s-in-my-own-datasets)
 - [ユーザーのオプトアウトはどのように処理すればよいですか？](#how-should-i-handle-user-opt-outs)
 - [同じ DII は常に同じ生UID2になりますか？](#does-the-same-dii-always-result-in-the-same-raw-uid2)
+- [If two operators process the same DII, are the results the same?](#if-two-operators-process-the-same-dii-are-the-results-the-same)
 - [2 つの Operator が同じ DII を処理した場合、結果は同じになりますか？](#if-two-operators-process-the-same-dii-are-the-results-the-same)
+- [更新されたメールアドレスは、以前関連付けられていたバケットと同じバケットに割り当てられますか？](#do-refreshed-emails-get-assigned-to-the-same-bucket-that-they-were-previously-associated-with)
 
-#### How do I know when to refresh the UID2 due to salt bucket rotation?
-ソルトバケットのローテーションによって UID2 をリフレッシュするタイミングを知るには？
+#### How do I know when to refresh a raw UID2?
+raw UID2 を更新するタイミングはどのように判断すればよいですか？
 
-UID2 生成リクエストで提供されるメタデータには、UID2 の生成に使用される <Link href="../ref-info/glossary-uid#gl-salt-bucket">salt bucket</Link> が含まれます。ソルトバケットは持続し、UID2 の生成に使用された基礎となる DII に対応します。指定されたタイムスタンプ以降にローテーションしたソルトバケットを得るには、[POST&nbsp;/identity/buckets](../endpoints/post-identity-buckets.md) エンドポイントを使用します。返されたローテーションしたソルトバケットは、どの UID2 をリフレッシュすべきかを教えてくれます。
+[POST&nbsp;/identity/map](../endpoints/post-identity-map.md) エンドポイントは、レスポンス内のリフレッシュタイムスタンプ（`r`フィールド）を提供します。このタイムスタンプ以降に、各 raw UID2 がリフレッシュされる可能性があります。このタイムスタンプを使用して、保存されたデータの raw UID2 を再生成するタイミングを判断します。
+
+raw UID2 を更新するかどうかを決定するには：
+
+1. [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) のレスポンスから保存したリフレッシュタイムスタンプと現在の時刻を比較します。
+2. 現在の時刻がリフレッシュタイムスタンプ以降であれば、同じ <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> を使用して再度アイデンティティマップエンドポイントを呼び出すことで、raw UID2 を再生成します。
 
 :::note
-ローテーションがいつ行われるかについては、いかなる約束もいたしません。可能な限り最新の状態を保つため、1 時間に 1 回のチェックを勧めます。
+リフレッシュの機会を毎日チェックすることをお勧めします。raw UID2 は、指定されたタイムスタンプの前にリフレッシュされることは保証されていません。その時点以降のいつかで、raw UID2 がリフレッシュされます。
 :::
 
-#### Do refreshed emails get assigned to the same bucket with which they were previously associated?
-更新されたメールアドレスは、以前関連付けられていたバケットと同じバケットに割り当てられますか？
-
-必ずしもそうとは限りません。特定のバケット ID に関連付けられたメールアドレスを再マッピングした後、そのメールが異なるバケット ID に割り当てられる可能性があります。バケット ID を確認するには、[マッピング関数を呼び出す](../guides/integration-advertiser-dataprovider-overview.md#1-generate-raw-uid2s-from-dii) そして返された raw UID2 とバケット ID を再び保存してください。
-
-:::info
-メールアドレスのマッピングや再マッピングを行う際には、バケットの数やローテーションする日、メールアドレスが割り当てられる特定のバケットについて、いかなる仮定も行わないようにしてください。
-:::
-
-#### How often should UID2s be refreshed for incremental updates?
+#### How often should raw UID2s be refreshed for incremental updates?
 インクリメンタルアップデートの場合、UID2 はどのくらいの頻度で更新するべきですか？
 
-オーディエンスの更新は、毎日行うことが推奨されています。
+The recommended cadence for updating audiences is daily.
 
-ソルトバケットは 1 年に 1 回程度更新されますが、個々のバケットの更新は 1 年に分散して行われます。これは、全バケットの約 1/365 が毎日ローテーションされることを意味します。もし忠実さが重要であれば、[POST&nbsp;/identity/buckets](../endpoints/post-identity-buckets.md) エンドポイントをもっと頻繁に、たとえば 1 時間ごとに呼び出すことを検討してください。
+A raw UID2 for a specific user changes roughly once per year. The latest version of the [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) endpoint provides refresh timestamps that indicate a point after which each raw UID2 might refresh. We recommend checking these timestamps daily to ensure your raw UID2s remain current and valid for audience targeting.
+
+For implementations that reference earlier versions of this endpoint (see [POST&nbsp;/identity/map v2](../endpoints/post-identity-map-v2.md)):
+
+Even though each <Link href="../ref-info/glossary-uid#gl-salt-bucket">salt bucket</Link> is updated roughly once a year, individual bucket updates are spread over the year. This means that about 1/365th of all buckets are rotated daily. If fidelity is critical, consider calling the [POST&nbsp;/identity/buckets](../endpoints/post-identity-buckets.md) endpoint more frequently: for example, hourly.
 
 #### How should I generate the SHA-256 of DII for mapping?
 マッピング用の DII の SHA-256 はどのように生成すればよいですか？
@@ -222,7 +232,7 @@ UID2 生成リクエストで提供されるメタデータには、UID2 の生�
 #### How should I handle user opt-outs?
 ユーザーのオプトアウトはどのように処理すればよいですか？
 
-ユーザーが [Transparency and Control Portal](https://www.transparentadvertising.com/) を通じて UID2 ベースのターゲティング広告をオプトアウトすると、オプトアウト信号が DSP とパブリッシャーに送信され、DSP とパブリッシャーが入札時にオプトアウトを処理します。広告主やデータプロバイダーは、[POST&nbsp;/identity/map](../endpoints/post-identity-map.md) エンドポイントを通じて、ユーザーがオプトアウトしたかどうかを定期的に確認することを勧めます。
+ユーザーが [Transparency and Control Portal](https://www.transparentadvertising.com/) を通じて UID2 ベースのターゲティング広告をオプトアウトすると、オプトアウト信号が DSP とパブリッシャーに送信され、DSP とパブリッシャーが入札時にオプトアウトを処理します。広告主やデータプロバイダーは、[POST&nbsp;/identity/map (v2)](../endpoints/post-identity-map-v2.md) エンドポイントを通じて、ユーザーがオプトアウトしたかどうかを定期的に確認することを推奨します。
 
 広告主やデータプロバイダーは、raw UID2 に対するオプトアウトステータスを確認するために、[POST&nbsp;/optout/status](../endpoints/post-optout-status.md) エンドポイントを使用することもできます。
 
@@ -231,23 +241,40 @@ UID2 生成リクエストで提供されるメタデータには、UID2 の生�
 #### Does the same DII always result in the same raw UID2?
 同じ DII は常に同じ raw UID2 になりますか？
 
-一般的にその通りです。DII から raw UID2 を生成するプロセスは同じであり、誰がリクエストを送信したかに関係なく、結果は同じ値になります。 2 人の UID2 参加者が同じメールアドレスを [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) エンドポイントに同時に送信した場合、応答として両方とも同じ raw UID2 を取得します。 
+一般的にその通りです。DII から raw UID2 を生成するプロセスは同じであり、誰がリクエストを送信したかに関係なく、結果は同じ値になります。 2 人の UID2 参加者が同じメールアドレスを [POST&nbsp;/identity/map (v2)](../endpoints/post-identity-map-v2.md) エンドポイントに同時に送信した場合、応答として両方とも同じ raw UID2 を取得します。 
 
-ただし、raw UID2 の生成に使用される秘密の [ソルト](../ref-info/glossary-uid.md#gl-salt) 値という可変要素があります。ソルト値は定期的にローテーションされます(詳細は [How often should UID2s be refreshed for incremental updates?](#how-often-should-uid2s-be-refreshed-for-incremental-updates)) を参照)。あるリクエストと別のリクエストの間でソルト値が変化する場合、DII が同じであっても、これら 2 つのリクエストは 2 つの異なる raw UID2 になります。
+ただし、raw UID2 の生成に使用される秘密の [ソルト](../ref-info/glossary-uid.md#gl-salt) 値という可変要素があります。ソルト値は定期的にローテーションされます(詳細は [How often should raw UID2s be refreshed for incremental updates?](#how-often-should-raw-uid2s-be-refreshed-for-incremental-updates)) を参照)。あるリクエストと別のリクエストの間でソルト値が変化する場合、DII が同じであっても、これら 2 つのリクエストは 2 つの異なる raw UID2 になります。
 
-詳細は、*Advertiser/Data Provider Integration Guide*の [Monitor for Salt Bucket Rotations for Your Stored Raw UID2s](../guides/integration-advertiser-dataprovider-overview.md#5-monitor-for-salt-bucket-rotations-for-your-stored-raw-uid2s) を参照してください。
+詳細は、*Advertiser/Data Provider Integration Guide*の [Monitor for Raw UID2 Refresh](../guides/integration-advertiser-dataprovider-overview.md#5-monitor-for-raw-uid2-refresh)  を参照してください。
 
 #### If two operators process the same DII, are the results the same?
 2 つの Operator が同じ DII を処理した場合、結果は同じになりますか？
 
-はい、リクエストが <Link href="../ref-info/glossary-uid#gl-raw-uid2">raw UID2</Link> に対するものである場合は、同じです。前の FAQ で説明したように、[同じ DII は常に同じ raw UID2 になりますか？](#does-the-same-dii-always-result-in-the-same-raw-uid2)、広告主やデータプロバイダーが同時に同じ DII を UID2 Operator に送信する場合、SDK または [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) エンドポイントを使用して、同じ raw UID2 が生成されます。
+はい、リクエストが <Link href="../ref-info/glossary-uid#gl-raw-uid2">raw UID2</Link> に対するものである場合は、同じです。前の FAQ で説明したように、[同じ DII は常に同じ raw UID2 になりますか？](#does-the-same-dii-always-result-in-the-same-raw-uid2)、広告主やデータプロバイダーが同時に同じ DII を UID2 Operator に送信する場合、SDK または [POST&nbsp;/identity/map (v2)](../endpoints/post-identity-map-v2.md) エンドポイントを使用して、同じ raw UID2 が生成されます。
 
 <Link href="../ref-info/glossary-uid#gl-operator">Operator</Link> に関係なく、また、Private Operator と Public Operator のどちらであっても、結果は同じです。
 
 タイミングが重要なのは、ソルトバケットのローテーションのためです。リクエスト間でソルト値が変化すると、結果は異なる raw UID2 になります。
 
-
 しかし、パブリッシャーが [POST /token/generate](../endpoints/post-token-generate.md) または [POST /token/refresh](../endpoints/post-token-refresh.md) エンドポイント経由、または SDK 経由で <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 Token</Link> のリクエストに DII を送信した場合、生成される UID2 Token には同じ暗号化された raw UID が含まれます。ただし、トークン自体は常に一意です。
+
+#### How do I know when to refresh the UID2 due to salt bucket rotation?
+ソルトバケットのローテーションによって UID2 をリフレッシュするタイミングを知るには？
+
+UID2 生成リクエストで提供されるメタデータには、UID2 の生成に使用される <Link href="../ref-info/glossary-uid#gl-salt-bucket">salt bucket</Link> が含まれます。ソルトバケットは持続し、raw UID2 の生成に使用された基礎となる DII に対応します。指定されたタイムスタンプ以降にローテーションしたソルトバケットを得るには、[POST&nbsp;/identity/buckets](../endpoints/post-identity-buckets.md) エンドポイントを使用します。返されたローテーションしたソルトバケットは、どの UID2 をリフレッシュすべきかを教えてくれます。
+
+:::note
+ローテーションがいつ行われるかは、いかなる約束もいたしません。可能な限り最新の状態を保つため、1 時間に 1 回のチェックを推奨します。
+:::
+
+#### Do refreshed emails get assigned to the same bucket that they were previously associated with?
+更新されたメールアドレスは、以前関連付けられていたバケットと同じバケットに割り当てられますか？
+
+必ずしもそうとは限りません。特定のバケット ID に関連付けられたメールアドレスを再マッピングした後、そのメールが異なるバケット ID に割り当てられる可能性があります。バケット ID を確認するには、[マッピング関数を呼び出す](../guides/integration-advertiser-dataprovider-overview.md#1-generate-raw-uid2s-from-dii) そして返された raw UID2 とバケット ID を再び保存してください。
+
+:::info
+メールアドレスのマッピングや再マッピングを行う際には、バケットの数やローテーションする日、メールアドレスが割り当てられる特定のバケットについて、いかなる仮定も行わないようにしてください。
+:::
 
 ## FAQs for DSPs
 
@@ -256,13 +283,13 @@ demand-side platform (DSP) に関するよくある質問を紹介します。
 - [UID2 に適用する復号キーを知るには？](#how-do-i-know-which-decryption-key-to-apply-to-a-uid2)
 - [復号キーはどこで入手できますか？](#where-do-i-get-the-decryption-keys)
 - [メモリ上に存在する復号鍵の数は？](#how-many-decryption-keys-may-be-present-in-memory-at-any-point)
-- [ソルトバケットがローテーションしたかどうか、あるいはいつローテーションしたかを知るにはどうしたらいいですか？](#how-do-i-know-ifwhen-the-salt-bucket-has-rotated)
+- [マップされた raw UID2 を更新するタイミングを知るには？](#how-do-i-know-when-to-refresh-mapped-raw-uid2s)
+- [raw UID2 がローテーションしたか、またローテーション時期を確認するには？](#how-do-i-know-ifwhen-the-raw-uid2-has-rotated)
 - [DSP はレイテンシーを気にすべきでしょうか？](#should-the-dsp-be-concerned-with-latency)
-- [UID2 で DSP はどのように適切なフリクエンシーキャッピング周波数キャッピングを維持すべきでしょうか？](#how-should-the-dsp-maintain-proper-frequency-capping-with-uid2)
+- [UID2 で DSP はどのように適切なフリクエンシーキャッピングを維持すべきでしょうか？](#how-should-the-dsp-maintain-proper-frequency-capping-with-uid2)
 - [ユーザーのオプトアウトトラフィックはすべて DSP に送られますか？](#will-all-user-opt-out-traffic-be-sent-to-the-dsp)
 - [DSP は、すでに保存している UID2 についてのみオプトアウトシグナルを処理することを期待されているのか？](#is-the-dsp-expected-to-handle-opt-out-signals-only-for-the-uid2s-that-they-already-store)
 - [DSP はオプトアウトリストをどれくらいの期間保管すべきですか？](#how-long-should-the-dsp-keep-the-opt-out-list)
-- [オプトアウトされたユーザーの UID2 は、暗号化された形式でオプトアウトエンドポイントに送信されますか？](#is-the-uid2-of-an-opted-out-user-sent-to-the-opt-out-endpoint-in-an-encrypted-form)
 - [オプトアウトされたユーザーの UID2 は、どのような形式で Webhook に送信されますか？](#in-what-format-is-the-uid2-of-an-opted-out-user-sent-to-the-webhook)
 - [オプトアウトはどのリクエストタイプを使いますか？](#what-request-type-do-opt-outs-use)
 - [オプトアウトに応じるための条件はどの程度厳しいのですか？](#how-strict-are-the-requirements-for-honoring-opt-outs)
@@ -284,10 +311,15 @@ Server-Side SDK のいずれか([SDK](../sdks/summary-sdks.md) を参照) を使
 
 システムには、ある時点で何千もの復号鍵が存在する可能性があります。
 
-#### How do I know if/when the salt bucket has rotated?
-ソルトバケットがローテーションしたかどうか、あるいはいつローテーションしたかを知るにはどうしたらいいですか？
+#### How do I know when to refresh mapped raw UID2s?
+マップされた raw UID2 を更新するタイミングを知るには？
 
-DSP は、UID2 ソルトバケットがいつローテーションしたかを知ることができません。これは、ユーザーが Cookie をクリアしても DSP が気づかないのと同じです。ソルトバケットのローテーションは、DSP に大きな影響を与えません。
+See [How do I know when to refresh a raw UID2?](#how-do-i-know-when-to-refresh-a-raw-uid2) in the FAQs for Advertisers and Data Providers.
+
+#### How do I know if/when the raw UID2 has rotated?
+raw UID2 がローテーションしたか、またローテーション時期を確認するには？
+
+DSP は、raw UID2 がローテーションしたかどうかを知ることはできません。これは、ユーザーがクッキーをクリアした場合に DSP がそのことを知らないのと同様です。raw UID2 のローテーションは、DSP にとって大きな影響はありません。
 
 #### Should the DSP be concerned with latency?
 DSP はレイテンシーを気にすべきでしょうか？
@@ -295,7 +327,7 @@ DSP はレイテンシーを気にすべきでしょうか？
 UID2 Service は、入札プロセスに遅延を生じさせることはありません。発生した遅延は、UID2 Service ではなく、ネットワークに起因すると考えられます
 
 #### How should the DSP maintain proper frequency capping with UID2?
-UID2 で DSP はどのように適切なフリクエンシーキャッピング周波数キャッピングを維持すべきでしょうか？
+UID2 で DSP はどのように適切なフリクエンシーキャッピングを維持すべきでしょうか？
 
 UID2 は、クッキーと同じように古くなる可能性があります。したがって、DSP は、クッキーまたは Device ID ベースのフリークエンシーキャッピングに現在使用されているものと同じインフラを UID2 に適応させることができます。詳細は [How do I know when to refresh the UID2 due to salt bucket rotation?](#how-do-i-know-when-to-refresh-the-uid2-due-to-salt-bucket-rotation) を参照してください。
 
@@ -312,7 +344,7 @@ DSP は、すでに保存している UID2 についてのみオプトアウト�
 #### How long should the DSP keep the opt-out list?
 DSP はオプトアウトリストをどれくらいの期間保管すべきですか？
 
-オプトアウト情報は無期限に保管することを勧めます。
+オプトアウト情報は無期限に保管することを推奨します。
 
 #### Is the UID2 of an opted-out user sent to the opt-out endpoint in an encrypted form?
 オプトアウトされたユーザーの UID2 は、暗号化された形式でオプトアウトエンドポイントに送信されますか？

@@ -3,6 +3,7 @@ title: How the UID2 Token Is Created
 description: Reference information about the process for generating a UID2 token.
 hide_table_of_contents: false
 sidebar_position: 06
+displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';

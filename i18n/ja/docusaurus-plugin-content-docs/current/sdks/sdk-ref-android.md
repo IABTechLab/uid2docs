@@ -3,6 +3,7 @@ title: SDK for Android
 description: Android SDK のリファレンス情報。
 hide_table_of_contents: false
 sidebar_position: 12
+displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';
@@ -18,7 +19,7 @@ Android SDK を使用すると、UID2 を使用したクライアント ID の�
 | Google Mobile Ads (GMA) SDK を使用して、Android アプリからの広告リクエストで <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 token</Link> を [Secure Signals](https://support.google.com/admob/answer/11556288) として送信するには、次の手順に従います。 | [UID2 GMA Plugin for Android Integration Guide](../guides/mobile-plugin-gma-android.md) |
 | Google Interactive Media Ads (IMA) SDK for Android を使用して、Android アプリからの広告リクエストで <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 token</Link> を [Secure Signals](https://support.google.com/admob/answer/11556288) として送信するには、次の手順に従います。 | [UID2 IMA Plugin for Android Integration Guide](../guides/mobile-plugin-ima-android.md) |
 
-モバイルパブリッシャーインテグレーションに関する FAQs については、[FAQs for Mobile Integrations](../guides/integration-mobile-overview.md#faqs-for-mobile-integrations) を参照してください。
+モバイルパブリッシャーインテグレーションに関する FAQs は、[FAQs for Mobile Integrations](../guides/integration-mobile-overview.md#faqs-for-mobile-integrations) を参照してください。
 
 ## Non-Mobile Android Device Support
 
@@ -47,17 +48,17 @@ UID2 とのインテグレーションを行うには、UID2 アカウントが�
 - オプション: Client-Side の実装の場合、ドメイン名やモバイルアプリ ID などの設定値を設定します。
 - オプションとして、チームメンバーに関する情報を設定するなど、他の値を設定します。
 
-UID2 Portal で実行する手順は、実装が Client-Side、Client-Server、Server-Side のいずれであるかによって異なります。モバイルインテグレーションオプションの概要については、[Client-Side, Client-Server, or Server-Side Integration?](../guides/integration-mobile-overview#client-side-client-server-or-server-side-integration) を参照してください。
+UID2 Portal で実行する手順は、実装が Client-Side、Client-Server、Server-Side のいずれであるかによって異なります。モバイルインテグレーションオプションの概要は、[Client-Side, Client-Server, or Server-Side Integration?](../guides/integration-mobile-overview#client-side-client-server-or-server-side-integration) を参照してください。
 
 <!-- You'll be granted permission to use specific functions offered by the SDK, and given credentials for that access. -->
 
 ## SDK Version
 
-<!-- As of 23 Oct 2024 -->
+<!-- As of 2025-08-07 -->
 
-このドキュメントは、SDK for Android バージョン 1.6.0 以降用です。
+このドキュメントは、SDK for Android バージョン 2.0.0 以降用です。
 
-リリースノートの情報については、[https://github.com/IABTechLab/uid2-android-sdk/releases](https://github.com/IABTechLab/uid2-android-sdk/releases) を参照してください。
+リリースノートの情報は、[https://github.com/IABTechLab/uid2-android-sdk/releases](https://github.com/IABTechLab/uid2-android-sdk/releases) を参照してください。
 
 ## GitHub Repository/Binary
 
@@ -97,7 +98,7 @@ Gradle を使用してインストールするには、build.gradle ファイル
 
 
 ```js
-implementation 'com.uid2:uid2-android-sdk:1.6.0'
+implementation 'com.uid2:uid2-android-sdk:2.0.0'
 ```
 
 ### Installing with Maven 
@@ -108,7 +109,7 @@ Maven を使用してインストールするには、`pom.xml` ファイルに�
 <dependency> 
   <groupId>com.uid2</groupId> 
   <artifactId>uid2-android-sdk</artifactId> 
-  <version>1.6.0</version>
+  <version>2.0.0</version>
 </dependency> 
 ```
 
@@ -134,9 +135,9 @@ class MyApplication : Application() {
 
 最初の UID2 Identity を確立する方法は 2 つあります:
 
-1. DII を使用して UID2 ID を生成します&#8212;メール (ハッシュ化または非ハッシュ化) または電話番号 (ハッシュ化または非ハッシュ化) を使用します。インテグレーション手順については、[Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side.md) を参照してください。
+1. DII を使用して UID2 ID を生成します&#8212;メール (ハッシュ化または非ハッシュ化) または電話番号 (ハッシュ化または非ハッシュ化) を使用します。インテグレーション手順は、[Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side.md) を参照してください。
 
-2. Server-Side で UID2 ID を生成し、それを UID2 SDK に渡します。インテグレーション手順については、[Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server.md) を参照してください。
+2. Server-Side で UID2 ID を生成し、それを UID2 SDK に渡します。インテグレーション手順は、[Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server.md) を参照してください。
 
 UID2 Mobile SDK は、UID2 identifier が確立された後に UID2 identities をリフレッシュできます。これは、リフレッシュ機能が UID2 Identity の一部である Refresh Token に依存しているためです。
 
@@ -181,7 +182,7 @@ UID2Manager API の一部として利用可能な関数は次のとおりです:
 
 #### generateIdentity()
 
-<Link href="../ref-info/glossary-uid#gl-dii">D直接識別情報 (DII)</Link> を使用して UID2 Identity を生成します。手順については、*Client-Side Integration Guide for Mobile* の [Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side.md#configure-the-uid2-mobile-sdk) を参照してください。
+<Link href="../ref-info/glossary-uid#gl-dii">D直接識別情報 (DII)</Link> を使用して UID2 Identity を生成します。手順は、*Client-Side Integration Guide for Mobile* の [Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side.md#configure-the-uid2-mobile-sdk) を参照してください。
 
 #### setIdentity()
 
