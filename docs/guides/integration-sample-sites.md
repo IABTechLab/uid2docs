@@ -12,7 +12,9 @@ This page lists all official UID2 sample implementations, with links to code, li
 
 ---
 
-### Client-Side and JavaScript Integrations
+### Web Integrations
+
+Sample implementations for publishers integrating UID2 directly into their websites using JavaScript or server-side logic. For more details, see [Publisher Web Integration Overview](../guides/integration-options-publisher-web.md).
 
 #### UID2 CSTG with JavaScript SDK
 
@@ -39,6 +41,8 @@ This page lists all official UID2 sample implementations, with links to code, li
 
 ### Prebid Integrations
 
+Sample implementations for adding UID2 support to Prebid.js header bidding setups. For more details, see [Prebid Integration Overview](../guides/integration-prebid.md).
+
 #### UID2 CSTG with Prebid.js
 
 - Site: [UID2 Prebid.js Client-Side Integration Example](https://unifiedid.com/examples/cstg-prebid-example/)
@@ -49,6 +53,8 @@ This page lists all official UID2 sample implementations, with links to code, li
 ---
 
 ### Google Secure Signals Integrations
+
+Sample implementations for passing UID2 tokens to Google Ad Manager via Secure Signals. For more details, see [Google Ad Manager Secure Signals Guide](../guides/integration-google-ss.md).
 
 #### Client-Side Secure Signals
 
@@ -98,11 +104,5 @@ This page lists all official UID2 sample implementations, with links to code, li
 ---
 
 :::note
-The Sites above highlight some common integrations, but do not represent all available UID2 integration options.
-
-For the full list of supported integration types, see:
-
-- [Publisher Web Integration Overview](../guides/integration-options-publisher-web.md)
-- [Prebid Integration Overview](../guides/integration-prebid.md)
-- [Google Ad Manager Secure Signals Guide](../guides/integration-google-ss.md)  
-  :::
+The Sample Sites above highlight some common integrations, but do not represent all available UID2 integration options. For a summary of all the integration options available, see [UID2 Integration Guides Overview](../guides/integration-guides-summary.md).
+:::
