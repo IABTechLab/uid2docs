@@ -270,7 +270,7 @@ const fullSidebar = [
           type: "doc",
           id: "guides/integration-sample-sites",
         },
-        items: [], // ← required even if empty!
+        items: [], 
       },
     ],
   },
