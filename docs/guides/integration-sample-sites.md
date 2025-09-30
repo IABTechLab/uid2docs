@@ -8,7 +8,7 @@ import Link from '@docusaurus/Link';
 
 # UID2 Sample Sites
 
-This page lists all official UID2 sample implementations, with links to code, live demo sites, related documentation, and the primary use cases each serves. Use this page to quickly find, compare, and switch between sample integrations that match your setup.
+This page lists all official UID2 sample implementations, with links to code, live demo sites, related documentation, and common use cases. Use this page to quickly find, compare, and switch between sample integrations that match your setup.
 
 ---
 
