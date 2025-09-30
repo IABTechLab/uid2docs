@@ -6,7 +6,7 @@ hide_table_of_contents: false
 
 import Link from '@docusaurus/Link';
 
-# UID2 Sites
+# UID2 Sample Sites
 
 This page lists all official UID2 sample implementations, with links to code, live demo sites, related documentation, and the primary use cases each serves. Use this page to quickly find, compare, and switch between sample integrations that match your setup.
 
