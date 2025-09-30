@@ -8,7 +8,7 @@ import Link from '@docusaurus/Link';
 
 # UID2 Sample Sites
 
-This page lists all official UID2 sample implementations, with links to code, live demo sites, related documentation, and common use cases. Use this page to quickly find, compare, and switch between sample integrations that match your setup.
+This page lists all official UID2 sample implementations, with links to code, live demo sites, related documentation, and common use cases. Use this page to quickly find, compare, and switch between sample integrations that may match your setup.
 
 ---
 
@@ -16,19 +16,19 @@ This page lists all official UID2 sample implementations, with links to code, li
 
 Sample pages for publishers integrating UID2 directly into their websites using JavaScript or server-side logic. For more details, see [Publisher Web Integration Overview](../guides/integration-options-publisher-web.md).
 
-#### UID2 CSTG with JavaScript SDK
+#### Client-Side Integration using UID2 JavaScript SDK
 
-- Site: [UID2 Publisher Client-Side Integration Example using UID2 JavaScript SDK](https://cstg-integ.uidapi.com/)
+- Site: [UID2 CSTG with JS SDK Example](https://cstg-integ.uidapi.com/)
 - Code: [`uid2-web-integrations/examples/cstg`](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/cstg)
 - Docs: [Client-Side Integration Guide for JavaScript](../guides/integration-javascript-client-side.md)
-- Use Case: For publishers who want a purely client-side integration with consent gating (CSTG). Best for fast prototyping or when minimal server infrastructure is available.
+- Use Case: For publishers who want to generate UID2 tokens directly in the browser using the JavaScript SDK (Client-Side Token Generation). Best for fast prototyping and minimal effort.
 
-#### UID2 Client-Server JS SDK (no CSTG)
+#### Client-Server Integration using UID2 JavaScript SDK
 
-- Site: [UID2 Publisher Standard Integration Example](https://example-jssdk-integ.uidapi.com/)
+- Site: [UID2 Client-Server Integration Example](https://example-jssdk-integ.uidapi.com/)
 - Code: [`uid2-web-integrations/examples/js-sdk`](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/js-sdk)
 - Docs: [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md)
-- Use Case: For publishers who already have a backend and want token generation centralized server-side, while still running UID2 logic on the client.
+- Use Case: For publishers who want token generation centralized server-side requiring additional backend configuration, while still passing and refreshing tokens on the client side.
 
 #### UID2 Server-Only (Server-Side)
 
