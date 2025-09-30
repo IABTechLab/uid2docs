@@ -14,7 +14,7 @@ This page lists all official UID2 sample implementations, with links to code, li
 
 ### Web Integrations
 
-Sample implementations for publishers integrating UID2 directly into their websites using JavaScript or server-side logic. For more details, see [Publisher Web Integration Overview](../guides/integration-options-publisher-web.md).
+Sample pages for publishers integrating UID2 directly into their websites using JavaScript or server-side logic. For more details, see [Publisher Web Integration Overview](../guides/integration-options-publisher-web.md).
 
 #### UID2 CSTG with JavaScript SDK
 
@@ -41,7 +41,7 @@ Sample implementations for publishers integrating UID2 directly into their websi
 
 ### Prebid Integrations
 
-Sample implementations for adding UID2 support to Prebid.js header bidding setups. For more details, see [Prebid Integration Overview](../guides/integration-prebid.md).
+Sample pages for adding UID2 support to Prebid.js header bidding setups. For more details, see [Prebid Integration Overview](../guides/integration-prebid.md).
 
 #### UID2 CSTG with Prebid.js
 
@@ -54,7 +54,7 @@ Sample implementations for adding UID2 support to Prebid.js header bidding setup
 
 ### Google Secure Signals Integrations
 
-Sample implementations for passing UID2 tokens to Google Ad Manager via Secure Signals. For more details, see [Google Ad Manager Secure Signals Guide](../guides/integration-google-ss.md).
+Sample pages for passing UID2 tokens to Google Ad Manager via Secure Signals. For more details, see [Google Ad Manager Secure Signals Guide](../guides/integration-google-ss.md).
 
 #### Client-Side Secure Signals
 
