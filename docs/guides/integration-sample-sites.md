@@ -21,7 +21,7 @@ Sample pages for publishers integrating UID2 directly into their websites using 
 - Site: [UID2 CSTG with JS SDK Example](https://cstg-integ.uidapi.com/)
 - Code: [`uid2-web-integrations/examples/cstg`](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/cstg)
 - Docs: [Client-Side Integration Guide for JavaScript](https://unifiedid.com/docs/guides/integration-javascript-client-side)
-- Use Case: For publishers who want to generate UID2 tokens directly in the browser using the JavaScript SDK (Client-Side Token Generation). Best for fast prototyping and minimal effort.
+- Use Case: For publishers who want want a purely client-side integration on their website to generate UID2 tokens directly in the browser using the JavaScript SDK (Client-Side Token Generation). Best for fast prototyping and minimal effort.
 
 #### Client-Server Integration using UID2 JavaScript SDK
 
@@ -32,7 +32,7 @@ Sample pages for publishers integrating UID2 directly into their websites using 
 
 #### UID2 Server-Only (Server-Side)
 
-- Site: [UID2 Publisher Server-Only Integration Example](https://example-srvonly-integ.uidapi.com/login)
+- Site: [UID2 Server-Only Integration Example](https://example-srvonly-integ.uidapi.com/login)
 - Code: [`uid2-examples/publisher/server_only`](https://github.com/IABTechLab/uid2-examples/tree/main/publisher/server_only)
 - Docs: [Publisher Integration Guide, Server-Side](https://unifiedid.com/docs/guides/integration-publisher-server-side)
 - Use Case: For publishers who want all UID2 logic handled server-side (no client SDK). Good for environments with strict client limitations or security requirements.
@@ -58,21 +58,21 @@ Sample pages for passing UID2 tokens to Google Ad Manager (GAM) via Secure Signa
 
 #### Client-Side Secure Signals
 
-- Site: [UID2 Publisher Client-Side Integration Example (JS SDK + Secure Signals)](https://secure-signals-client-integ.uidapi.com)
+- Site: [UID2 Client-Side Integration Example (JS SDK + Secure Signals)](https://secure-signals-client-integ.uidapi.com)
 - Code: [`uid2-web-integrations/examples/google-secure-signals-integration/client_side`](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/google-secure-signals-integration/client_side)
 - Docs: [Secure Signals Integration Guide](https://unifiedid.com/docs/guides/integration-google-ss)
 - Use Case: For publishers who want a purely client-side integration with GAM Secure Signals.
 
 #### React Client-Side Secure Signals
 
-- Site: [UID2 Publisher React Client-Side Integration Example](https://secure-signals-react-integ.uidapi.com/)
+- Site: [UID2 React Client-Side Integration Example with Google Secure Signals](https://secure-signals-react-integ.uidapi.com/)
 - Code: [`uid2-web-integrations/examples/google-secure-signals-integration/react_client_side`](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/google-secure-signals-integration/react_client_side)
 - Docs: [Secure Signals Sample Implementation](https://unifiedid.com/docs/guides/integration-google-ss#sample-implementations)
 - Use Case: For publishers with React apps who want to integrate UID2 + Secure Signals directly into their component-based architecture.
 
 #### Server-Side Secure Signals
 
-- Site: [Server-Side UID2 Integration Example with Google Secure Signals](https://secure-signals-server-side-integ.uidapi.com/login)
+- Site: [UID2 Server-Side Integration Example with Google Secure Signals](https://secure-signals-server-side-integ.uidapi.com/login)
 - Code: [`uid2-web-integrations/examples/google-secure-signals-integration/server_side`](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/google-secure-signals-integration/server_side)
 - Docs: [Secure Signals Integration Guide](https://unifiedid.com/docs/guides/integration-google-ss)
 - Additional Site Domains:
