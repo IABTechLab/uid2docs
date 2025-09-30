@@ -18,7 +18,7 @@ Sample pages for publishers integrating UID2 directly into their websites using 
 
 #### Client-Side Integration using UID2 JavaScript SDK
 
-- Site: [UID2 CSTG with JS SDK Example](https://cstg-integ.uidapi.com/)
+- Site: [UID2 Client-Side with JS SDK Example](https://cstg-integ.uidapi.com/)
 - Code: [`uid2-web-integrations/examples/cstg`](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/cstg)
 - Docs: [Client-Side Integration Guide for JavaScript](https://unifiedid.com/docs/guides/integration-javascript-client-side)
 - Use Case: For publishers who want want a purely client-side integration on their website to generate UID2 tokens directly in the browser using the JavaScript SDK (Client-Side Token Generation). Best for fast prototyping and minimal effort.
