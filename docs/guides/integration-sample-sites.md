@@ -1,6 +1,6 @@
 ---
-title: UID2 Sites Reference
-description: Overview and reference for all UID2 Site integrations.
+title: UID2 Sample Sites Reference
+description: Overview and reference for all UID2 Sample Site examples.
 hide_table_of_contents: false
 ---
 
