@@ -67,7 +67,7 @@ Sample pages for passing UID2 tokens to Google Ad Manager (GAM) via Secure Signa
 
 - Site: [UID2 React Client-Side Integration Example with Google Secure Signals](https://secure-signals-react-integ.uidapi.com/)
 - Code: [`uid2-web-integrations/examples/google-secure-signals-integration/react_client_side`](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/google-secure-signals-integration/react_client_side)
-- Docs: [Secure Signals Sample Implementation](https://unifiedid.com/docs/guides/integration-google-ss#sample-implementations)
+- Docs: [Secure Signals Integration Guide](https://unifiedid.com/docs/guides/integration-google-ss)
 - Use Case: For publishers with React apps who want to integrate UID2 + Secure Signals directly into their component-based architecture.
 
 #### Server-Side Secure Signals
