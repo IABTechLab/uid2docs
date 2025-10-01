@@ -14,7 +14,7 @@ This page lists all official UID2 sample implementations, with links to code, li
 
 ### Web Integrations
 
-Sample pages for publishers integrating UID2 directly into their websites using JavaScript or server-side logic. For more details, see [Web Integration Overview](https://unifiedid.com/docs/guides/integration-options-publisher-web).
+Sample pages demonstrating how organizations can integrate UID2 directly into their websites using JavaScript or server-side logic. For more details, see [Web Integration Overview](https://unifiedid.com/docs/guides/integration-options-publisher-web).
 
 #### Client-Side Integration using UID2 JavaScript SDK
 
