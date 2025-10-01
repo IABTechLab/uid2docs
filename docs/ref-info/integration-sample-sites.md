@@ -1,12 +1,12 @@
 ---
 title: Sample Sites Reference
-description: Overview and reference for all UID2 Sample Site examples.
+description: Overview and reference for all UID2 sample site examples.
 hide_table_of_contents: false
 ---
 
 import Link from '@docusaurus/Link';
 
-# UID2 Integration Saamples
+# UID2 Integration Samples
 
 This page lists all official UID2 sample implementations, with links to code, live demo sites, related documentation, and common use cases. Use this page to quickly find, compare, and switch between sample integrations that may match your setup.
 
@@ -14,34 +14,34 @@ This page lists all official UID2 sample implementations, with links to code, li
 
 ### Web Integrations
 
-Sample pages demonstrating how organizations can integrate UID2 directly into their websites using JavaScript or server-side logic. For more details, see [Web Integration Overview](https://unifiedid.com/docs/guides/integration-options-publisher-web).
+This section includes sample pages that demonstrate how organizations can integrate UID2 directly into their websites to generate and manage UID2 tokens used for targeted advertising. For details, see [Web Integration Overview](https://unifiedid.com/docs/guides/integration-options-publisher-web).
 
-#### Client-Side Integration using UID2 JavaScript SDK
+#### Client-Side Integration Using UID2 JavaScript SDK
 
 - Site: [UID2 Client-Side with JS SDK Example](https://cstg-integ.uidapi.com/)
 - Code: [`uid2-web-integrations/examples/cstg`](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/cstg)
 - Docs: [Client-Side Integration Guide for JavaScript](https://unifiedid.com/docs/guides/integration-javascript-client-side)
-- Use Case: For publishers who want want a purely client-side integration on their website to generate UID2 tokens directly in the browser using the JavaScript SDK (Client-Side Token Generation). Best for fast prototyping and minimal effort.
+- Use Case: For publishers who prefer a fully client-side integration using the UID2 JavaScript SDK to generate and manage tokens directly in the browser. Ideal for fast prototyping with minimal backend requirements.
 
-#### Client-Server Integration using UID2 JavaScript SDK
+#### Client-Server Integration Using UID2 JavaScript SDK
 
 - Site: [UID2 Client-Server Integration Example](https://example-jssdk-integ.uidapi.com/)
 - Code: [`uid2-web-integrations/examples/js-sdk`](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/js-sdk)
 - Docs: [Client-Server Integration Guide for JavaScript](https://unifiedid.com/docs/guides/integration-javascript-client-server)
-- Use Case: For publishers who want token generation centralized server-side requiring additional backend configuration, while still passing and refreshing tokens on the client side.
+- Use Case: For publishers who want more control over UID2 token creation (handled on your servers), while using the JavaScript SDK on the client side to manage and refresh tokens in the browser.
 
 #### UID2 Server-Only (Server-Side)
 
 - Site: [UID2 Server-Only Integration Example](https://example-srvonly-integ.uidapi.com/login)
 - Code: [`uid2-examples/publisher/server_only`](https://github.com/IABTechLab/uid2-examples/tree/main/publisher/server_only)
 - Docs: [Publisher Integration Guide, Server-Side](https://unifiedid.com/docs/guides/integration-publisher-server-side)
-- Use Case: For publishers who want all UID2 logic handled server-side (no client SDK). Good for environments with strict client limitations or security requirements.
+- Use Case: For publishers who want all UID2 operations to occur on the server-side, offering maximum control, security, and flexibility without relying on a client-side SDK.
 
 ---
 
 ### Prebid.js Integrations
 
-Sample pages for adding UID2 support to Prebid.js header bidding setups. For more details, see [Prebid Integration Overview](https://unifiedid.com/docs/guides/integration-prebid).
+This section includes a sample implementation demonstrating how organizations can integrate with UID2 to generate tokens and pass UID2 identity data into header bidding auctions. For details, see [Prebid Integration Overview](https://unifiedid.com/docs/guides/integration-prebid).
 
 #### UID2 Client-Side Integration with Prebid.js
 
@@ -54,7 +54,7 @@ Sample pages for adding UID2 support to Prebid.js header bidding setups. For mor
 
 ### Google Secure Signals Integrations
 
-Sample pages for passing UID2 tokens to Google Ad Manager (GAM) via Secure Signals. For more details, see [Google Ad Manager Secure Signals Guide](https://unifiedid.com/docs/guides/integration-google-ss).
+This section includes sample pages for passing UID2 identity data to Google's advertising systems through their Secure Signals feature. For details, see [Google Ad Manager Secure Signals Guide](https://unifiedid.com/docs/guides/integration-google-ss).
 
 #### Client-Side Secure Signals
 
@@ -80,7 +80,7 @@ Sample pages for passing UID2 tokens to Google Ad Manager (GAM) via Secure Signa
   - [https://esp-srvonly-integ.uidapi.com](https://esp-srvonly-integ.uidapi.com)
 - Use Case: For publishers who want all Secure Signals and UID2 logic server-side for better control and security.
 
-#### Client-Server Secure Signals 
+#### Client-Server Secure Signals
 
 - Site: [UID2 Client-Server Integration Example (Server + JS SDK + Secure Signals)](https://secure-signals-client-server-integ.uidapi.com/)
 - Code: [`uid2-web-integrations/examples/google-secure-signals-integration/with_sdk_v3`](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/google-secure-signals-integration/with_sdk_v3)
