@@ -272,15 +272,6 @@ const fullSidebar = [
             'guides/operator-guide-aks-enclave',
           ],
         },
-        {
-        type: "category",
-        label: "UID2 Sample Sites",
-        link: {
-          type: "doc",
-          id: "guides/integration-sample-sites",
-        },
-        items: [],
-      },
       ],
     },
 
@@ -390,6 +381,15 @@ const fullSidebar = [
         'getting-started/gs-opt-out',
         'ref-info/ref-operators-public-private',
         'ref-info/ref-integration-approaches',
+        {
+          type: 'category',
+          label: 'Live UID2 Examples',
+          link: {
+            type: 'doc',
+            id: 'ref-info/integration-sample-sites',
+          },
+          items: [],
+        },
         'ref-info/ref-tokens',
         'ref-info/ref-how-uid-is-created',
         'ref-info/ref-server-side-token-generation',
