@@ -14,7 +14,7 @@ This page lists all official UID2 sample implementations, with links to code, li
 
 ### Web Integrations
 
-Sample pages for publishers integrating UID2 directly into their websites using JavaScript or server-side logic. For more details, see [Publisher Web Integration Overview](https://unifiedid.com/docs/guides/integration-options-publisher-web).
+Sample pages for publishers integrating UID2 directly into their websites using JavaScript or server-side logic. For more details, see [Web Integration Overview](https://unifiedid.com/docs/guides/integration-options-publisher-web).
 
 #### Client-Side Integration using UID2 JavaScript SDK
 
@@ -43,7 +43,7 @@ Sample pages for publishers integrating UID2 directly into their websites using 
 
 Sample pages for adding UID2 support to Prebid.js header bidding setups. For more details, see [Prebid Integration Overview](https://unifiedid.com/docs/guides/integration-prebid).
 
-#### UID2 CSTG with Prebid.js
+#### UID2 Client-Side Integration with Prebid.js
 
 - Site: [UID2 Prebid.js Client-Side Integration Example](https://unifiedid.com/examples/cstg-prebid-example/)
 - Code: [`uid2docs/static/examples/cstg-prebid-example`](https://github.com/IABTechLab/uid2docs/tree/main/static/examples/cstg-prebid-example)
@@ -78,9 +78,9 @@ Sample pages for passing UID2 tokens to Google Ad Manager (GAM) via Secure Signa
 - Additional Site Domains:
   - [https://secure-signals-srvonly-integ.uidapi.com](https://secure-signals-srvonly-integ.uidapi.com)
   - [https://esp-srvonly-integ.uidapi.com](https://esp-srvonly-integ.uidapi.com)
-- Use Case: For publishers who want all Secure Signals logic server-side for better control and security.
+- Use Case: For publishers who want all Secure Signals and UID2 logic server-side for better control and security.
 
-#### Client-Server Secure Signals (JS SDK v3)
+#### Client-Server Secure Signals 
 
 - Site: [UID2 Client-Server Integration Example (Server + JS SDK + Secure Signals)](https://secure-signals-client-server-integ.uidapi.com/)
 - Code: [`uid2-web-integrations/examples/google-secure-signals-integration/with_sdk_v3`](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/google-secure-signals-integration/with_sdk_v3)
