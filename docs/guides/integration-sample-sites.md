@@ -104,5 +104,5 @@ Sample pages for passing UID2 tokens to Google Ad Manager (GAM) via Secure Signa
 ---
 
 :::note
-The Sample Sites above highlight some common integrations, but do not represent all available UID2 integration options. For a summary of all the integration options available, see [UID2 Integration Guides Overview](https://unifiedid.com/docs/uid2/guides/integration-guides-summary).
+The Sample Sites above highlight some common integrations, but do not represent all available UID2 integration options. For a summary of all the integration options available, see [UID2 Integration Guides Overview](https://unifiedid.com/docs/guides/summary-guides).
 :::
