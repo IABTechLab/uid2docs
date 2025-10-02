@@ -381,15 +381,7 @@ const fullSidebar = [
         'getting-started/gs-opt-out',
         'ref-info/ref-operators-public-private',
         'ref-info/ref-integration-approaches',
-        {
-          type: 'category',
-          label: 'Live UID2 Examples',
-          link: {
-            type: 'doc',
-            id: 'ref-info/integration-sample-sites',
-          },
-          items: [],
-        },
+        'ref-info/integration-sample-sites',
         'ref-info/ref-tokens',
         'ref-info/ref-how-uid-is-created',
         'ref-info/ref-server-side-token-generation',
@@ -504,7 +496,7 @@ const sidebars = {
     'guides/integration-aws-entity-resolution',
     'guides/advertiser-dataprovider-endpoints',
     'sharing/sharing-bid-stream',
-    'Live UID2 Examples'
+    'ref-info/integration-sample-sites'
     ),
 
   sidebarDataProviders: removeItems(fullSidebar, 
