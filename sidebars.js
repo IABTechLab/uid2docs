@@ -11,7 +11,7 @@ function removeItems(sidebar, ...remove) {
       if (!remove.includes(item.label)) {
         const {items, ...rest} = item;
         const keepItems = removeItems(items, ...remove);
-        if (keepItems?.length > 0) result.push({...rest, items: keepItems});
+        if (keepItems?.length > 0 || rest.link) result.push({...rest, items: keepItems});
       }
     }
   }
@@ -503,7 +503,8 @@ const sidebars = {
     'guides/integration-snowflake-integration-snowflake-previous',
     'guides/integration-aws-entity-resolution',
     'guides/advertiser-dataprovider-endpoints',
-    'sharing/sharing-bid-stream'
+    'sharing/sharing-bid-stream',
+    'Live UID2 Examples'
     ),
 
   sidebarDataProviders: removeItems(fullSidebar, 
