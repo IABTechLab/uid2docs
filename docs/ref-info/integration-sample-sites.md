@@ -58,7 +58,7 @@ This section includes sample pages for passing UID2 identity data to Google's ad
 
 This sample is for publishers who want a purely client-side integration with GAM Secure Signals. The sample integration is available at the following links:
 
-- Site: [UID2 Client-Side Integration Example (JS SDK + Secure Signals)](https://secure-signals-client-integ.uidapi.com)
+- Site: [UID2 Client-Side Integration Example (JS SDK + Secure Signals)](https://secure-signals-client-side-integ.uidapi.com/)
 - Code: [`uid2-web-integrations/examples/google-secure-signals-integration/client_side`](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/google-secure-signals-integration/client_side)
 - Docs: [Secure Signals Integration Guide](https://unifiedid.com/docs/guides/integration-google-ss)
 
