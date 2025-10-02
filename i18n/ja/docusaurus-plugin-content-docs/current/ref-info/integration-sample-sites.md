@@ -8,7 +8,7 @@ import Link from '@docusaurus/Link';
 
 # UID2 Integration Samples
 
-This page lists all official UID2 sample implementations, with links to code, live demo sites, related documentation, and common use cases. Use this page to quickly find, compare, and switch between sample integrations that may match your setup.
+This page lists all official UID2 sample implementations. Each sample includes a description of the target audience and integration scenario, along with links to live demo sites, source code, and related documentation. Use this page to quickly identify which sample matches your needs and explore working examples.
 
 ### Web Integrations
 
@@ -44,7 +44,7 @@ This section includes a sample implementation demonstrating how organizations ca
 
 #### UID2 Client-Side Integration with Prebid.js
 
-This sample is for publishers using Prebid header bidding who want to generate UID2 tokens using client-side token generation to be passed by Prebid. The sample integration is available at the following links:
+This sample is for publishers using Prebid.js who want to generate UID2 tokens client-side and pass them into header bidding auctions. The sample integration is available at the following links:
 
 - Site: [UID2 Prebid.js Client-Side Integration Example](https://unifiedid.com/examples/cstg-prebid-example/)
 - Code: [`uid2docs/static/examples/cstg-prebid-example`](https://github.com/IABTechLab/uid2docs/tree/main/static/examples/cstg-prebid-example)
