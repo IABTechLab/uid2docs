@@ -12,7 +12,7 @@ This page lists all official UID2 sample implementations. Each sample includes a
 
 ### Web Integrations
 
-This section includes sample pages that demonstrate how organizations can integrate UID2 directly into their websites to generate and manage UID2 tokens used for targeted advertising. For details, see [Web Integration Overview](https://unifiedid.com/docs/guides/integration-options-publisher-web).
+This section summarizes the sample integrations available for publishers who want to integrate UID2 directly into their websites. For a full summary of integration options for websites, see [Web Integration Overview](https://unifiedid.com/docs/guides/integration-options-publisher-web).
 
 #### Client-Side Integration Using UID2 JavaScript SDK
 
