@@ -48,7 +48,7 @@ This section includes a sample implementation demonstrating how organizations ca
 - Site: [UID2 Prebid.js Client-Side Integration Example](https://unifiedid.com/examples/cstg-prebid-example/)
 - Code: [`uid2docs/static/examples/cstg-prebid-example`](https://github.com/IABTechLab/uid2docs/tree/main/static/examples/cstg-prebid-example)
 - Docs: [Client-Side Integration Guide for Prebid.js](https://unifiedid.com/docs/guides/integration-prebid-client-side)
-- Use Case: For publishers using Prebid header bidding who want to generate UID2 tokens using client-side token generation to be passed by Prebid.
+- Use Case: For publishers who want to generate UID2 tokens in the browser and pass them into header bidding auctions using Prebid.
 
 ---
 
