@@ -38,13 +38,9 @@ This sample is for publishers who want all UID2 operations to occur on the serve
 - Code: [`uid2-examples/publisher/server_only`](https://github.com/IABTechLab/uid2-examples/tree/main/publisher/server_only)
 - Docs: [Publisher Integration Guide, Server-Side](https://unifiedid.com/docs/guides/integration-publisher-server-side)
 
-### Prebid.js Integrations
+### Prebid.js Client-Side Integration
 
-This section includes a sample implementation demonstrating how organizations can integrate with UID2 to generate tokens and pass UID2 identity data into header bidding auctions. For details, see [Prebid Integration Overview](https://unifiedid.com/docs/guides/integration-prebid).
-
-#### UID2 Client-Side Integration with Prebid.js
-
-This sample is for publishers using Prebid.js who want to generate UID2 tokens client-side and pass them into header bidding auctions.
+This sample is for publishers who want to generate UID2 tokens on the client side and pass them into header bidding auctions using Prebid.js.
 
 - Site: [UID2 Prebid.js Client-Side Integration Example](https://unifiedid.com/examples/cstg-prebid-example/)
 - Code: [`uid2docs/static/examples/cstg-prebid-example`](https://github.com/IABTechLab/uid2docs/tree/main/static/examples/cstg-prebid-example)
@@ -77,7 +73,7 @@ This sample is for publishers who want all Secure Signals and UID2 logic server-
 - Site: [UID2 Server-Side Integration Example with Google Secure Signals](https://secure-signals-server-side-integ.uidapi.com/login)
 - Code: [`uid2-web-integrations/examples/google-secure-signals-integration/server_side`](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/google-secure-signals-integration/server_side)
 - Docs: [Secure Signals Integration Guide](https://unifiedid.com/docs/guides/integration-google-ss)
-- Additional Site Domains:
+- Additional site domains:
   - [https://secure-signals-srvonly-integ.uidapi.com](https://secure-signals-srvonly-integ.uidapi.com)
   - [https://esp-srvonly-integ.uidapi.com](https://esp-srvonly-integ.uidapi.com)
 
@@ -88,7 +84,7 @@ This sample is for publishers who want a hybrid approach with token generation o
 - Site: [UID2 Client-Server Integration Example (Server + JS SDK + Secure Signals)](https://secure-signals-client-server-integ.uidapi.com/)
 - Code: [`uid2-web-integrations/examples/google-secure-signals-integration/with_sdk_v3`](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/google-secure-signals-integration/with_sdk_v3)
 - Docs: [Secure Signals Integration Guide](https://unifiedid.com/docs/guides/integration-google-ss)
-- Additional Site Domains:
+- Additional site domains:
   - [https://secure-signals-jssdk-integ.uidapi.com](https://secure-signals-jssdk-integ.uidapi.com)
   - [https://esp-jssdk-integ.uidapi.com](https://esp-jssdk-integ.uidapi.com)
 
