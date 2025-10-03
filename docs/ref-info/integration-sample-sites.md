@@ -101,5 +101,5 @@ This tool is for developers or clients validating data preparation, such as hash
 - Docs: [Normalization and Encoding](https://unifiedid.com/docs/getting-started/gs-normalization-encoding)
 
 :::note
-The Sample Sites above highlight some common integrations, but do not represent all available UID2 integration options. For a summary of all the integration options available, see [UID2 Integration Guides Overview](https://unifiedid.com/docs/guides/summary-guides).
+The sample sites above highlight some common integrations, but do not represent all available UID2 integration options. For a summary of all the integration options available, see [UID2 Integration Guides Overview](https://unifiedid.com/docs/guides/summary-guides).
 :::
