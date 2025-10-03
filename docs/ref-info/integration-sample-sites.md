@@ -1,12 +1,12 @@
 ---
-title: Integration Samples
+title: Integration Samples and Tools
 description: Overview and reference for all UID2 sample site examples.
 hide_table_of_contents: false
 ---
 
 import Link from '@docusaurus/Link';
 
-# Live UID2 Integration Samples
+# Integration Samples and Tools
 
 This page lists all official UID2 sample implementations highlighting common integration use cases, along with links to live demo sites, source code, and related documentation. Use this page to quickly identify which sample matches your needs and explore working examples.
 
@@ -88,11 +88,7 @@ This sample is for publishers who want a hybrid approach with token generation o
   - [https://secure-signals-jssdk-integ.uidapi.com](https://secure-signals-jssdk-integ.uidapi.com)
   - [https://esp-jssdk-integ.uidapi.com](https://esp-jssdk-integ.uidapi.com)
 
-### Utilities
-
-This section includes useful tools for working with UID2.
-
-#### UID2 Hashing Tool
+### UID2 Hashing Tool
 
 This tool is for developers or clients validating data preparation, such as hashing and normalization of emails before token requests. The tool is available at the following links:
 
@@ -101,5 +97,5 @@ This tool is for developers or clients validating data preparation, such as hash
 - Docs: [Normalization and Encoding](https://unifiedid.com/docs/getting-started/gs-normalization-encoding)
 
 :::note
-The sample sites above highlight some common integrations, but do not represent all available UID2 integration options. For a summary of all the integration options available, see [UID2 Integration Guides Overview](https://unifiedid.com/docs/guides/summary-guides).
+The sample sites in this file highlight some common integrations, but do not represent all available UID2 integration options. For a summary of all the integration options available, see [UID2 Integration Guides Overview](https://unifiedid.com/docs/guides/summary-guides).
 :::
