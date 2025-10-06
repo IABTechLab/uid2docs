@@ -32,7 +32,7 @@ This sample is for publishers who want more control over UID2 token creation (ha
 
 ### UID2 Server-Only (Server-Side)
 
-This sample is for publishers who want all UID2 operations to occur on the server-side, offering maximum control, security, and flexibility without relying on a client-side SDK.
+This sample is for publishers who want all UID2 operations to occur on the server side, offering maximum control, security, and flexibility without relying on a client-side SDK.
 
 - Site: [Server-Only UID2 Integration Example](https://example-srvonly-integ.uidapi.com/login)
 - Code: [uid2-examples/publisher/server_only](https://github.com/IABTechLab/uid2-examples/tree/main/publisher/server_only)
