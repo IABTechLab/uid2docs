@@ -38,7 +38,11 @@ This sample is for publishers who want all UID2 operations to occur on the serve
 - Code: [uid2-examples/publisher/server_only](https://github.com/IABTechLab/uid2-examples/tree/main/publisher/server_only)
 - Doc: [Publisher Integration Guide, Server-Side](../guides/integration-publisher-server-side)
 
-## Prebid.js Client-Side Integration
+## Prebid.js Integrations
+
+This section includes a sample page for generating UID2 tokens to be passed by Prebid.js in the RTB bidstream. For details, see [UID2 Integration Overview for Prebid](../guides/integration-prebid).
+
+### Client-Side Integration with Prebid.js
 
 This sample is for publishers who want to generate UID2 tokens on the client side and pass them into header bidding auctions using Prebid.js.
 
