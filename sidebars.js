@@ -495,8 +495,7 @@ const sidebars = {
     'guides/integration-snowflake-integration-snowflake-previous',
     'guides/integration-aws-entity-resolution',
     'guides/advertiser-dataprovider-endpoints',
-    'sharing/sharing-bid-stream',
-    'ref-info/integration-sample-sites'
+    'sharing/sharing-bid-stream'
     ),
 
   sidebarDataProviders: removeItems(fullSidebar, 
