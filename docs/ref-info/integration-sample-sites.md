@@ -16,7 +16,7 @@ This section summarizes the sample integrations available for publishers who wan
 
 ### Client-Side Integration Using UID2 SDK for JavaScript
 
-This sample is for publishers who prefer a fully client-side integration using the [UID2 SDK for JavaScript](../sdks/sdk-ref-javascript) to generate and manage tokens directly in the browser. This approach is ideal for fast prototyping with minimal back-end requirements.
+This sample is for publishers who prefer a fully client-side integration using the [SDK for JavaScript Reference Guide](../sdks/sdk-ref-javascript) to generate and manage tokens directly in the browser. This approach is ideal for fast prototyping with minimal back-end requirements.
 
 - Site: [UID2 Publisher Client-Side Integration Example using UID2 JavaScript SDK](https://cstg-integ.uidapi.com/)
 - Code: [uid2-web-integrations/examples/cstg](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/cstg)
@@ -48,7 +48,7 @@ This sample is for publishers who want to generate UID2 tokens on the client sid
 
 ## Google Secure Signals Integrations
 
-This section includes sample pages for passing UID2 identity data to Google's advertising systems through their Secure Signals feature. For details, see [Google Ad Manager Secure Signals Integration](../guides/integration-google-ss).
+This section includes sample pages for passing UID2 identity data to Google's advertising systems through their Secure Signals feature. For details, see [Google Ad Manager Secure Signals Integration Guide](../guides/integration-google-ss).
 
 ### Client-Side Secure Signals
 
@@ -56,7 +56,7 @@ This sample is for publishers who want a purely client-side integration with GAM
 
 - Site: [UID2 Publisher Client-Side Integration Example using UID2 JavaScript SDK, Secure Signals](https://secure-signals-client-side-integ.uidapi.com/)
 - Code: [uid2-web-integrations/examples/google-secure-signals-integration/client_side](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/google-secure-signals-integration/client_side)
-- Doc: [Google Ad Manager Secure Signals Integration](../guides/integration-google-ss)
+- Doc: [Google Ad Manager Secure Signals Integration Guide](../guides/integration-google-ss)
 
 ### React Client-Side Secure Signals
 
@@ -64,7 +64,7 @@ This sample is for publishers with React apps who want to integrate UID2 + Secur
 
 - Site: [UID2 React Client-Side Integration Example with Google Secure Signals](https://secure-signals-react-integ.uidapi.com/)
 - Code: [uid2-web-integrations/examples/google-secure-signals-integration/react_client_side](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/google-secure-signals-integration/react_client_side)
-- Doc: [Google Ad Manager Secure Signals Integration](../guides/integration-google-ss)
+- Doc: [Google Ad Manager Secure Signals Integration Guide](../guides/integration-google-ss)
 
 ### Server-Side Secure Signals
 
@@ -72,7 +72,7 @@ This sample is for publishers who want all Secure Signals and UID2 logic server-
 
 - Site: [Server-Side UID2 Integration Example with Google Secure Signals](https://secure-signals-server-side-integ.uidapi.com/login)
 - Code: [uid2-web-integrations/examples/google-secure-signals-integration/server_side](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/google-secure-signals-integration/server_side)
-- Doc: [Google Ad Manager Secure Signals Integration](../guides/integration-google-ss)
+- Doc: [Google Ad Manager Secure Signals Integration Guide](../guides/integration-google-ss)
 - Additional site domains:
   - [https://secure-signals-srvonly-integ.uidapi.com](https://secure-signals-srvonly-integ.uidapi.com)
   - [https://esp-srvonly-integ.uidapi.com](https://esp-srvonly-integ.uidapi.com)
@@ -83,7 +83,7 @@ This sample is for publishers who want a hybrid approach with token generation o
 
 - Site: [Example for Client-Server UID2 SDK Integration with Google Secure Signals](https://secure-signals-client-server-integ.uidapi.com/)
 - Code: [uid2-web-integrations/examples/google-secure-signals-integration/with_sdk_v3](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/google-secure-signals-integration/with_sdk_v3)
-- Doc: [Google Ad Manager Secure Signals Integration](../guides/integration-google-ss)
+- Doc: [Google Ad Manager Secure Signals Integration Guide](../guides/integration-google-ss)
 - Additional site domains:
   - [https://secure-signals-jssdk-integ.uidapi.com](https://secure-signals-jssdk-integ.uidapi.com)
   - [https://esp-jssdk-integ.uidapi.com](https://esp-jssdk-integ.uidapi.com)
@@ -97,5 +97,5 @@ This tool is for developers or clients validating data preparation, such as hash
 - Doc: [Normalization and Encoding](../getting-started/gs-normalization-encoding)
 
 :::note
-The sample sites in this file highlight some common integrations, but do not represent all available UID2 integration options. For a summary of all the integration options available, see [UID2 Integration Guides: Summary](https://unifiedid.com/docs/guides/summary-guides).
+The sample sites in this file highlight some common integrations, but do not represent all available UID2 integration options. For a summary of all the integration options available, see [UID2 Integration Guides: Summary](../guides/summary-guides).
 :::
