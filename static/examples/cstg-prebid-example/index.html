@@ -116,6 +116,7 @@
       var pbjs = pbjs || {};
       pbjs.que = pbjs.que || [];
       pbjs.que.push(function () {
+        setUid2Config();
         pbjs.addAdUnits(adUnits);
         pbjs.requestBids();
 
