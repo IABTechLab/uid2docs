@@ -15,15 +15,15 @@
         SUBSCRIPTION_ID: '4WvryDGbR5',
       };
 
-      let justAttemptedLogin = false;
+      let attemptedTokenGeneration = false;
 
       function updateGuiElements() {
         console.log('Updating displayed values.');
         const uid2  = pbjs.getUserIds().uid2;
         $('#targeted_advertising_ready').text(uid2 ? 'yes' : 'no');
         
-        // If login was just attempted and uid2 is null, it means opt-out
-        if (justAttemptedLogin && !uid2) {
+        // If token generation was attempted and uid2 is null, it means opt-out
+        if (attemptedTokenGeneration && !uid2) {
           $('#advertising_token').text('This email has opted out.');
           $('#login_form').hide();
           $('#clear_storage_form').show();
@@ -38,12 +38,12 @@
           }
         }
         
-        justAttemptedLogin = false;
+        attemptedTokenGeneration = false;
       }
 
       async function handleLogin() {
         const email = $('#email').val();
-        justAttemptedLogin = true;
+        attemptedTokenGeneration = true;
         setUid2Config(email);
         await pbjs.refreshUserIds();
         updateGuiElements();
