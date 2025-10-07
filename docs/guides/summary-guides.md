@@ -31,6 +31,8 @@ Publisher integrations fall into the following main categories:
 - [Prebid Integrations](#prebid-integrations)
 - [Google Ad Manager Integrations](#google-ad-manager-integrations)
 
+To explore live, working examples of UID2 implementations with source code, see [UID2 Integration Samples](../ref-info/integration-sample-sites.md).
+
 ### Web Integrations
 
 The following documentation resources are available for publisher web integrations.
