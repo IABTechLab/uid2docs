@@ -10,27 +10,40 @@
     <script>
       console.log('Initializing example.')
       window.uid2_example_settings = {
-        UID2_BASE_URL: 'https://operator-integ.uidapi.com',
-        SERVER_PUBLIC_KEY: 'UID2-X-I-MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEo+jcPlk8GWn3iG0R5Il2cbFQI9hR3TvHxaBUKHl5Vh+ugr+9uLMiXihka8To07ETFGghEifY96Hrpe5RnYko7Q==',
-        SUBSCRIPTION_ID: 'DMr7uHxqLU',
+        UID2_BASE_URL: 'http://localhost:8080/',
+        SERVER_PUBLIC_KEY: 'UID2-X-L-MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEtXJdTSZAYHvoRDWiehMHoWF1BNPuqLs5w2ZHiAZ1IJc7O4/z0ojPTB0V+KYX/wxQK0hxx6kxCvHj335eI/ZQsQ==',
+        SUBSCRIPTION_ID: '4WvryDGbR5',
       };
+
+      let justAttemptedLogin = false;
 
       function updateGuiElements() {
         console.log('Updating displayed values.');
         const uid2  = pbjs.getUserIds().uid2;
         $('#targeted_advertising_ready').text(uid2 ? 'yes' : 'no');
-        $('#advertising_token').text(uid2 ? String(uid2.id) : '');
-        if (!uid2) {
-          $('#login_form').show();
-          $('#clear_storage_form').hide();
-        } else {
+        
+        // If login was just attempted and uid2 is null, it means opt-out
+        if (justAttemptedLogin && !uid2) {
+          $('#advertising_token').text('This email has opted out.');
           $('#login_form').hide();
           $('#clear_storage_form').show();
+        } else {
+          $('#advertising_token').text(uid2 && !uid2.optout ? String(uid2.id) : uid2 && uid2.optout ? 'This email has opted out.' : '');
+          if (!uid2) {
+            $('#login_form').show();
+            $('#clear_storage_form').hide();
+          } else {
+            $('#login_form').hide();
+            $('#clear_storage_form').show();
+          }
         }
+        
+        justAttemptedLogin = false;
       }
 
       async function handleLogin() {
         const email = $('#email').val();
+        justAttemptedLogin = true;
         setUid2Config(email);
         await pbjs.refreshUserIds();
         updateGuiElements();
@@ -39,7 +52,10 @@
       function handleClearStorage() {
         console.log('Clearing storage.');
         localStorage.removeItem('__uid2_advertising_token');
-        location.reload();
+        $('#targeted_advertising_ready').text('no');
+        $('#advertising_token').text('');
+        $('#login_form').show();
+        $('#clear_storage_form').hide();
       }
 
       function onDocumentReady() {
@@ -97,7 +113,6 @@
       var pbjs = pbjs || {};
       pbjs.que = pbjs.que || [];
       pbjs.que.push(function () {
-        setUid2Config();
         pbjs.addAdUnits(adUnits);
         pbjs.requestBids();
 
