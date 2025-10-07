@@ -20,8 +20,8 @@
         const uid2  = pbjs.getUserIds().uid2;
         
         // Check localStorage for opt-out status
-        const storedToken = localStorage.getItem('__uid2_advertising_token');
         let isOptedOut = false;
+        const storedToken = localStorage.getItem('__uid2_advertising_token');
         if (storedToken) {
           try {
             const tokenData = JSON.parse(storedToken);
@@ -59,14 +59,14 @@
       function handleClearStorage() {
         console.log('Clearing storage.');
         localStorage.removeItem('__uid2_advertising_token');
-        $('#targeted_advertising_ready').text('no');
-        $('#advertising_token').text('');
-        $('#login_form').show();
-        $('#clear_storage_form').hide();
+        location.reload();
       }
 
       function onDocumentReady() {
         console.log('Setting up interface handlers.');
+        // Clear storage on page load for fresh start
+        localStorage.removeItem('__uid2_advertising_token');
+        
         $('#login').click(handleLogin);
         $('#clear_storage').click(handleClearStorage);
         
