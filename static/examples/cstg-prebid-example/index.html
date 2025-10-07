@@ -33,13 +33,12 @@
         
         $('#targeted_advertising_ready').text(uid2 ? 'yes' : 'no');
         
-        // Handle opt-out case
         if (isOptedOut) {
           $('#advertising_token').text('This email has opted out.');
           $('#login_form').hide();
           $('#clear_storage_form').show();
         } else {
-          $('#advertising_token').text(uid2 && !uid2.optout ? String(uid2.id) : uid2 && uid2.optout ? 'This email has opted out.' : '');
+          $('#advertising_token').text(uid2 ? String(uid2.id) : '');
           if (!uid2) {
             $('#login_form').show();
             $('#clear_storage_form').hide();
