@@ -19,7 +19,6 @@
         console.log('Updating displayed values.');
         const uid2  = pbjs.getUserIds().uid2;
         
-        // Check localStorage for opt-out status
         let isOptedOut = false;
         const storedToken = localStorage.getItem('__uid2_advertising_token');
         if (storedToken) {
