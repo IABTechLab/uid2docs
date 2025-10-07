@@ -64,9 +64,6 @@
 
       function onDocumentReady() {
         console.log('Setting up interface handlers.');
-        // Clear storage on page load for fresh start
-        localStorage.removeItem('__uid2_advertising_token');
-        
         $('#login').click(handleLogin);
         $('#clear_storage').click(handleClearStorage);
         
