@@ -1,7 +1,7 @@
 export type PartnersDataType = {
   name: string;
   logo: string;
-  type: ("Publishers" | "Data" | "DSP" | "CDP")[];
+  type: ("Publishers" | "Data" | "DSP" | "CDP" | "Advertisers")[];
   featured?: boolean;
   order?: number;
 }[];
@@ -229,7 +229,7 @@ export const partnersData: PartnersDataType = [
   },
   {
     name: "coc coc",
-    logo: "CocCoc_RGB.png",
+    logo: "cc_logo.png",
     type: ["Publishers"],
   },
   {
@@ -253,6 +253,11 @@ export const partnersData: PartnersDataType = [
     name: "deepintent",
     logo: "deepintent.png",
     type: ["DSP"],
+  },
+  {
+    name: "Dentsu",
+    logo: "dentsu-logo-black.png",
+    type: ["Advertisers"],
   },
   {
     name: "Dek-D",
@@ -365,11 +370,16 @@ export const partnersData: PartnersDataType = [
     logo: "gma-logo.png",
     type: ["Publishers"],
   },
-  // {
-  //   name: "Gum Gum",
-  //   logo: "PartnerLogo_gumgum_580x250.png",
-  //   type: ["DSP"],
-  // },
+  {
+    name: "Gum Tree",
+    logo: "gumtree-logo.png",
+    type: ["Publishers"],
+  },
+  {
+    name: "Guru Game",
+    logo: "gurugame-logo.png",
+    type: ["Publishers"],
+  },
   {
     name: "GrowthLoop",
     logo: "GrowthLoop.png",
@@ -434,6 +444,11 @@ export const partnersData: PartnersDataType = [
     name: "Index Exchange",
     logo: "Index_Exchange_Logo_2021.png",
     type: ["DSP"],
+  },
+  {
+    name: "Interplay Media",
+    logo: "interplay-logo.png",
+    type: ["Publishers"],
   },
   // {
   //   name: "Infosum",
@@ -516,8 +531,8 @@ export const partnersData: PartnersDataType = [
   },
   {
     name: "Lotame",
-    logo: "lotame-logo.png",
-    type: ["Data"],
+    logo: "lotame-epsilon-logo.png",
+    type: ["Data", "Advertisers"],
   },
   {
     name: "Lotte Members",
@@ -632,13 +647,6 @@ export const partnersData: PartnersDataType = [
     type: ["Publishers"],
   },
   {
-    name: "Neustar",
-    logo: "PartnerLogo_Neustar_256x256.png",
-    type: ["Data", "CDP"],
-    featured: true,
-    order: 14,
-  },
-  {
     name: "News Cafe",
     logo: "newscafe-logo-580x250.png",
     type: ["Publishers"],
@@ -668,6 +676,11 @@ export const partnersData: PartnersDataType = [
   {
     name: "NRich",
     logo: "NRich.png",
+    type: ["DSP"],
+  },
+  {
+    name: "OGURY",
+    logo: "ogury.png",
     type: ["DSP"],
   },
   {
@@ -737,10 +750,14 @@ export const partnersData: PartnersDataType = [
     logo: "PartnerLogo_PubMatic_580x250.png",
     type: ["DSP"],
   },
-
+  {
+    name: "Publift",
+    logo: "publift-logo.png",
+    type: ["Publishers"],
+  },
   {
     name: "Qiyi",
-    logo: "PartnerLogo_iQiyi_256x256.png",
+    logo: "iQiyi.png",
     type: ["Publishers"],
   },
   {
@@ -756,6 +773,11 @@ export const partnersData: PartnersDataType = [
   {
     name: "RBB Today",
     logo: "rbb-today-logo-580x250.png",
+    type: ["Publishers"],
+  },
+  {
+    name: "REA Group",
+    logo: "rea-group.png",
     type: ["Publishers"],
   },
   {
@@ -946,6 +968,13 @@ export const partnersData: PartnersDataType = [
     name: "TNL Media Group",
     logo: "TNL-Media-Group-580x250.png",
     type: ["Publishers"],
+  },
+  {
+    name: "Transunion",
+    logo: "TULogo-blue.png",
+    type: ["Data", "CDP", "Advertisers"],
+    featured: true,
+    order: 14,
   },
   {
     name: "Treasure Data",
