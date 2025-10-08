@@ -111,7 +111,7 @@ To get started as a Private Operator, follow these steps:
 6. Go live.
 
 :::important
-Whatever option you use, the data that you send for processing must be normalized, hashed, and encoded before sending. For details, see [Normalization and Encoding](../getting-started/gs-normalization-encoding.md).
+Whatever option you use, the data that you send for generating UID2s must be normalized, hashed, and encoded before sending. For details, see [Normalization and Encoding](../getting-started/gs-normalization-encoding.md).
 :::
 
 ## Implementation Resources
