@@ -461,6 +461,11 @@ export const partnersData: PartnersDataType = [
     type: ["Publishers"],
   },
   {
+    name: "iQiyi",
+    logo: "iQiyi.png",
+    type: ["Publishers"],
+  },
+  {
     name: "Kargo",
     logo: "PartnerLogo_Kargo_580x250.png",
     type: ["DSP"],
@@ -532,7 +537,7 @@ export const partnersData: PartnersDataType = [
   {
     name: "Lotame",
     logo: "lotame-epsilon-logo.png",
-    type: ["Data", "Advertisers"],
+    type: ["Data"],
   },
   {
     name: "Lotte Members",
@@ -755,11 +760,7 @@ export const partnersData: PartnersDataType = [
     logo: "publift-logo.png",
     type: ["Publishers"],
   },
-  {
-    name: "Qiyi",
-    logo: "iQiyi.png",
-    type: ["Publishers"],
-  },
+
   {
     name: "Ranker",
     logo: "Ranker-logo.png",
@@ -972,7 +973,7 @@ export const partnersData: PartnersDataType = [
   {
     name: "Transunion",
     logo: "TULogo-blue.png",
-    type: ["Data", "CDP", "Advertisers"],
+    type: ["Data", "CDP"],
     featured: true,
     order: 14,
   },

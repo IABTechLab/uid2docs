@@ -11,7 +11,7 @@ function removeItems(sidebar, ...remove) {
       if (!remove.includes(item.label)) {
         const {items, ...rest} = item;
         const keepItems = removeItems(items, ...remove);
-        if (keepItems?.length > 0) result.push({...rest, items: keepItems});
+        if (keepItems?.length > 0 || rest.link) result.push({...rest, items: keepItems});
       }
     }
   }
@@ -381,6 +381,7 @@ const fullSidebar = [
         'getting-started/gs-opt-out',
         'ref-info/ref-operators-public-private',
         'ref-info/ref-integration-approaches',
+        'ref-info/integration-sample-sites',
         'ref-info/ref-tokens',
         'ref-info/ref-how-uid-is-created',
         'ref-info/ref-server-side-token-generation',
