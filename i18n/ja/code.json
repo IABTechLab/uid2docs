@@ -501,6 +501,10 @@
     "message": "CDPs / Clean Rooms",
     "description": "The partners page CDPs / Clean Rooms title"
   },
+  "partners.advertisersPartners": {
+    "message": "Advertisers / Agencies",
+    "description": "The partners page Advertisers / Agencies title"
+  },
   "requestAccess.metaTitle": {
     "message": "アクセスをリクエストする",
     "description": "The request access page meta title"
