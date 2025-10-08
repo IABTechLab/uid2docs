@@ -18,14 +18,33 @@
       function updateGuiElements() {
         console.log('Updating displayed values.');
         const uid2  = pbjs.getUserIds().uid2;
+        
+        let isOptedOut = false;
+        const storedToken = localStorage.getItem('__uid2_advertising_token');
+        if (storedToken) {
+          try {
+            const tokenData = JSON.parse(storedToken);
+            isOptedOut = tokenData.latestToken === 'optout';
+          } catch (e) {
+            console.log('Could not parse stored token');
+          }
+        }
+        
         $('#targeted_advertising_ready').text(uid2 ? 'yes' : 'no');
-        $('#advertising_token').text(uid2 ? String(uid2.id) : '');
-        if (!uid2) {
-          $('#login_form').show();
-          $('#clear_storage_form').hide();
-        } else {
+        
+        if (isOptedOut) {
+          $('#advertising_token').text('This email has opted out.');
           $('#login_form').hide();
           $('#clear_storage_form').show();
+        } else {
+          $('#advertising_token').text(uid2 ? String(uid2.id) : '');
+          if (!uid2) {
+            $('#login_form').show();
+            $('#clear_storage_form').hide();
+          } else {
+            $('#login_form').hide();
+            $('#clear_storage_form').show();
+          }
         }
       }
 
@@ -133,7 +152,6 @@
           name="email"
           placeholder="Enter an email address"
           style="border-style: none"
-          value="test@example.com"
         />
       </div>
       <div><button type="button" class="button" id="login">Generate UID2</button></div>

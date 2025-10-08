@@ -56,6 +56,11 @@ const componentData = {
     message: "CDPs / Clean Rooms",
     description: "The partners page CDPs / Clean Rooms title",
   }),
+  advertisersPartners: translate({
+    id: "partners.advertisersPartners",
+    message: "Advertisers / Agencies",
+    description: "The partners page Advertisers / Agencies title",
+  }),
 };
 
 const dspPartners = partnersData.filter((partner) =>
@@ -72,6 +77,10 @@ const dataPartners = partnersData.filter((partner) =>
 
 const cdpPartners = partnersData.filter((partner) =>
   partner.type.includes("CDP"),
+);
+
+const advertisersPartners = partnersData.filter((partner) =>
+  partner.type.includes("Advertisers"),
 );
 
 function PartnerSection({ title, partners }: PartnerSection) {
@@ -134,6 +143,10 @@ export default function Partners(): JSX.Element {
               partners={dataPartners}
             />
             <PartnerSection title={componentData.cdp} partners={cdpPartners} />
+            <PartnerSection
+              title={componentData.advertisersPartners}
+              partners={advertisersPartners}
+            />
           </div>
         </div>
       </main>
