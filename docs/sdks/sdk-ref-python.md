@@ -57,7 +57,7 @@ The package is published in this location:
 
 ## Release Notes
 
-Release notes for the source code changes in every release can be found [here](https://github.com/IABTechLab/uid2-client-python/releases)
+For detailed information about changes, bug fixes, and new features in each release, see the [release notes on GitHub](https://github.com/IABTechLab/uid2-client-python/releases).
 
 ## Installation
 
