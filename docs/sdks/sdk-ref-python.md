@@ -38,7 +38,12 @@ If you're a DSP, we'll send credentials to you.
 
 ## Version
 
-The SDK supports Python 3.6 and above.
+The minimum supported Python version depends on the [UID2 SDK for Python](https://pypi.org/project/uid2-client/) 
+version:
+
+- **v2.8.0+**: Python 3.10 or higher
+- **v2.6.0**: Python 3.8 or higher  
+- **v2.5.0 and below**: Python 3.6 or higher
 
 ## GitHub Repository/Package
 
@@ -49,6 +54,10 @@ This SDK is in the following open-source GitHub repository:
 The package is published in this location:
 
 - [https://pypi.org/project/uid2-client/](https://pypi.org/project/uid2-client/)
+
+## Release Notes
+
+For detailed information about changes, bug fixes, and new features in each release, see the [release notes on GitHub](https://github.com/IABTechLab/uid2-client-python/releases).
 
 ## Installation
 
