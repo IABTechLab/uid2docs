@@ -8,9 +8,9 @@ import Link from '@docusaurus/Link';
 
 # Integration Samples and Tools
 
-This page lists all official UID2 sample implementations highlighting common integrations for websites, along with links to live demo sites, source codes, and references. Use this page to quickly identify which sample matches your needs and explore working examples.
+This page lists all official UID2 sample implementations highlighting common integration use cases, along with links to live demo sites, source code, and related documentation. Use this page to quickly identify which sample matches your needs and explore working examples.
 
-## Web SDK Integrations
+## Web Integrations
 
 This section summarizes the sample integrations available for integrating UID2 directly into websites. For integration options by participant type, see [Publisher Web Integration Overview](https://unifiedid.com/docs/guides/integration-options-publisher-web) or [Advertiser/Data Provider Integration Overview](https://unifiedid.com/docs/guides/integration-advertiser-dataprovider-overview).
 
@@ -30,9 +30,9 @@ This sample is for publishers who want more control over UID2 token creation (ha
 - Code: [uid2-web-integrations/examples/js-sdk](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/js-sdk)
 - Doc: [Client-Server Integration Guide for JavaScript](https://unifiedid.com/docs/guides/integration-javascript-client-server)
 
-### Server‑Side Integration (No Client SDK)
+### Server‑Side Integration for UID2
 
-This sample is for publishers who want all UID2 operations (token generation + identity management) to occur on the server side, offering maximum control and security by not exposing operator keys or logic in the browser.
+This sample is for publishers who want all UID2 operations to occur on the server side, offering maximum control, security, and flexibility without relying on a client-side SDK.
 
 - Site: [Server-Side UID2 Integration Example](https://example-srvonly-integ.uidapi.com/login)
 - Code: [uid2-examples/publisher/server_only](https://github.com/IABTechLab/uid2-examples/tree/main/publisher/server_only)
@@ -85,7 +85,7 @@ This sample is for publishers who want a hybrid approach with token generation o
 
 This sample is for publishers who want all Secure Signals and UID2 logic server-side for better control and security.
 
-- Site: [Server-Side UID2 SDK Integration Example with Google Secure Signals](https://secure-signals-server-side-integ.uidapi.com/login)
+- Site: [Server-Side UID2 Integration Example with Google Secure Signals](https://secure-signals-server-side-integ.uidapi.com/login)
 - Code: [uid2-web-integrations/examples/google-secure-signals-integration/server_side](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/google-secure-signals-integration/server_side)
 - Doc: [Google Ad Manager Secure Signals Integration Guide](https://unifiedid.com/docs/guides/integration-google-ss)
 - Additional site domains:
