@@ -33,6 +33,7 @@ Notes:
 - All UID2 endpoints use the same base URL.
 - The integration environment and the production environment require different <Link href="../ref-info/glossary-uid#gl-api-key">API keys</Link>. For information about getting credentials for each environment, see [Getting Your Credentials](../getting-started/gs-credentials.md#getting-your-credentials).
 - The expiration time of the <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 token</Link> returned by the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) or [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) endpoints is subject to change, but is always significantly shorter in the integration environment than it is in the production environment.
+- The integration environment and the production environments produce different UID2 values. You cannot use them interchangeably. Use the integration environment only for testing. When you're ready to go live, generate UID2s for bidstream use.
 
 ## Getting Credentials for Each Environment
 
