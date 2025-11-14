@@ -376,6 +376,14 @@ Error codes for Private Operator startup issues are applicable only to release v
 | E05 | OperatorKeyValidationError | Ensure the operator key is correct for the environment and matches the one provided to you. |
 | E06 | UID2ServicesUnreachableError | Allow UID2 core and opt-out service IP addresses in the egress firewall. For IP addresses and DNS details, refer to the logs.  |
 
+### Runtime Errors
+
+The following errors occur during operator runtime (after startup):
+
+| Error Code | Issue | How to Identify in Logs | Steps to Resolve |
+| :--- | :--- | :--- | :--- |
+| E12 | Data Download Failure | Look for log messages containing `"Cannot download required files"` along with `"Failed to load"` errors from `RotatingStoreVerticle`. These will include HTTP status codes (e.g., `"HTTP response code 403"`) or exception types (e.g., `"exception: RequestTimeoutException"`). | Check the HTTP status code or exception in the error message: <br/>**404 errors** - Verify operator key is valid and configuration paths are correct.<br/>**403 errors** - Check IAM permissions for S3 access and verify operator credentials.<br/>**Timeout errors** - Verify network connectivity, check firewall/security group settings allow outbound HTTPS, and ensure UID2 service endpoints are accessible.<br/>**500 errors** - Temporary UID2 service issue, retry or contact UID2 support if persistent. |
+
 ## Technical Support
 
 If you have trouble subscribing to the product, or deploying, [contact us](mailto:aws-mktpl-uid@thetradedesk.com).
