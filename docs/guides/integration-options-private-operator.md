@@ -7,6 +7,7 @@ displayed_sidebar: docs
 
 import Link from '@docusaurus/Link';
 import UpgradePolicy from '../snippets/_private-operator-upgrade-policy.mdx';
+import SnptRotatingTheKeys from '../snippets/_private-operator-rotating-the-keys.mdx';
 
 # UID2 Private Operator Integration Overview
 
@@ -92,6 +93,10 @@ For information about supported versions and deprecation dates, see [Private Ope
 ## Private Operator Upgrade Policy
 
 <UpgradePolicy />
+
+## Rotating the Keys
+
+<SnptRotatingTheKeys />
 
 ## Getting Started
 
