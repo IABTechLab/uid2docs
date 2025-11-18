@@ -234,7 +234,8 @@ const fullSidebar = [
           ],
         },
 
-      'guides/integration-aws-entity-resolution',
+      'guides/integration-databricks',
+        'guides/integration-aws-entity-resolution',
       'guides/integration-advertiser-dataprovider-endpoints',
     ],
   },
