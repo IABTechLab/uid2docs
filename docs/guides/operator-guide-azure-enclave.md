@@ -337,7 +337,7 @@ To upgrade, complete the following steps:
    for i in {0..COUNT}; az container delete --name uid-operator-OLD-VERSION-$i --resource-group {RESOURCE_GROUP} --yes
    ```
 
-## Rotating the Keys
+## Keeping the Operator Key Secure
 
 <SnptRotatingTheKeys />
 

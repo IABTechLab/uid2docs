@@ -94,7 +94,7 @@ For information about supported versions and deprecation dates, see [Private Ope
 
 <UpgradePolicy />
 
-## Rotating the Keys
+## Keeping the Operator Key Secure
 
 <SnptRotatingTheKeys />
 

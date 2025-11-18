@@ -473,6 +473,6 @@ To upgrade, complete the following steps:
    kubectl get pods
    ```
 
-## Rotating the Keys
+## Keeping the Operator Key Secure
 
 <SnptRotatingTheKeys />

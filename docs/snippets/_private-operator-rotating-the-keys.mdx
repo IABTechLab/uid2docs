@@ -1,7 +1,8 @@
 <!-- Used by: all Private Operator guides plus intro: guides/operator-guide-aks-enclave.md, operator-guide-aws-marketplace.md, operator-guide-azure-enclave.md, operator-private-gcp-confidential-space.md, also integration-options-private-operator.md -->
 
-It's a good security practice to rotate the keys on a regular cadence.
+Here are some guidelines for keeping your operator key secure:
 
-[**GWH__SW question. In this doc (AWS) we mention: KMSKey, SSMKeyAlias, "the operator key", SSH key, the key store, OPERATOR_KEY, EC2 key pair. I'd like to be clear about naming and I'm frankly not sure... is it the operator key? Just need to be a bit clearer than "rotate the keys"**]
-
-For specific recommendations, see [Security of API Key and Client Secret](../getting-started/gs-credentials.md#security-of-api-key-and-client-secret).
+- When you receive your operator key, store it in a secure location.
+- Keep track of all places where the key is used, so that if you need to rotate it you can do so quickly.
+- Establish a process for replacing the existing value with a new one if the key is compromised.
+- Rotate it on a regular cadence&#8212;for example, yearly&#8212;to help reduce the risk of the key being compromised.
