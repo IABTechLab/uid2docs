@@ -11,6 +11,7 @@ displayed_sidebar: docs
 import Link from '@docusaurus/Link';
 import UpgradePolicy from '../snippets/_private-operator-upgrade-policy.mdx';
 import AttestFailure from '../snippets/_private-operator-attest-failure.mdx';
+import SnptRotatingTheKeys from '../snippets/_private-operator-rotating-the-keys.mdx';
 
 # UID2 Private Operator for AWS Integration Guide
 
@@ -359,6 +360,9 @@ The following table includes some additional commands that might help you manage
 | Runs one iteration of `logrotate` manually, without changing the scheduled interval. | `sudo logrotate -f /etc/logrotate.conf --force` |
 | Reloads `syslog-ng`. | `sudo /usr/sbin/syslog-ng-ctl reload` |
 
+## Keeping the Operator Key Secure
+
+<SnptRotatingTheKeys />
 
 ## UID2 Operator Error Codes
 

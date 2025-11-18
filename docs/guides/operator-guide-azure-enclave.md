@@ -10,6 +10,7 @@ displayed_sidebar: docs
 
 import Link from '@docusaurus/Link';
 import UpgradePolicy from '../snippets/_private-operator-upgrade-policy.mdx';
+import SnptRotatingTheKeys from '../snippets/_private-operator-rotating-the-keys.mdx';
 
 # UID2 Private Operator for Azure Integration Guide
 
@@ -335,6 +336,10 @@ To upgrade, complete the following steps:
    ```
    for i in {0..COUNT}; az container delete --name uid-operator-OLD-VERSION-$i --resource-group {RESOURCE_GROUP} --yes
    ```
+
+## Keeping the Operator Key Secure
+
+<SnptRotatingTheKeys />
 
 ## UID2 Operator Error Codes
 

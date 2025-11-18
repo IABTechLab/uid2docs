@@ -10,6 +10,7 @@ displayed_sidebar: docs
 
 import Link from '@docusaurus/Link';
 import UpgradePolicy from '../snippets/_private-operator-upgrade-policy.mdx';
+import SnptRotatingTheKeys from '../snippets/_private-operator-rotating-the-keys.mdx';
 
 # UID2 Private Operator for AKS Integration Guide
 
@@ -471,3 +472,7 @@ To upgrade, complete the following steps:
    ```
    kubectl get pods
    ```
+
+## Keeping the Operator Key Secure
+
+<SnptRotatingTheKeys />
