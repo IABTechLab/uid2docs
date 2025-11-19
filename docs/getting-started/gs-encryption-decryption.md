@@ -9,7 +9,7 @@ displayed_sidebar: docs
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import Link from '@docusaurus/Link';
-import IdentityGenerateResponse from '../snippets/_example-identity-generate-response.mdx';
+import SnptIdentityGenerateResponse from '../snippets/_snpt-example-identity-generate-response.mdx';
 
 # Encrypting Requests and Decrypting Responses
 
@@ -105,7 +105,7 @@ The following table describes the field layout for response decryption code.
 
 For example, a decrypted response to the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) request for an email address might look like this:
 
-<IdentityGenerateResponse />
+<SnptIdentityGenerateResponse />
 
 ## Encryption and Decryption Code Examples
 

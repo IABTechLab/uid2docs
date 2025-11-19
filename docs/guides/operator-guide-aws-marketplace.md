@@ -9,9 +9,9 @@ displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';
-import UpgradePolicy from '../snippets/_private-operator-upgrade-policy.mdx';
-import AttestFailure from '../snippets/_private-operator-attest-failure.mdx';
-import SnptRotatingTheKeys from '../snippets/_private-operator-rotating-the-keys.mdx';
+import SnptUpgradePolicy from '../snippets/_snpt-private-operator-upgrade-policy.mdx';
+import SnptAttestFailure from '../snippets/_snpt-private-operator-attest-failure.mdx';
+import SnptRotatingTheKeys from '../snippets/_snpt-private-operator-rotating-the-keys.mdx';
 
 # UID2 Private Operator for AWS Integration Guide
 
@@ -44,7 +44,7 @@ For information about supported versions and deprecation dates, see [Private Ope
 
 ## Private Operator Upgrade Policy
 
-<UpgradePolicy />
+<SnptUpgradePolicy />
 
 ## Prerequisites
 
@@ -253,7 +253,7 @@ To check the UID2 Operator status of your Load Balancer, complete the following 
 
 ### Private Operator Attestation Failure
 
-<AttestFailure />
+<SnptAttestFailure />
 
 ## Upgrading the UID2 Operator
 

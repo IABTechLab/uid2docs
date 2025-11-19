@@ -9,8 +9,8 @@ displayed_sidebar: docs
 import Link from '@docusaurus/Link';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import ExampleUid2Cookie from '../snippets/_example-uid2-cookie.mdx';
-import ExampleJavaScriptInit from '../snippets/_example-javascript-init.mdx';
+import SnptExampleUid2Cookie from '../snippets/_snpt-example-uid2-cookie.mdx';
+import SnptExampleJavaScriptInit from '../snippets/_snpt-example-javascript-init.mdx';
 
 # SDK for JavaScript Reference Guide
 
@@ -294,7 +294,7 @@ SDK を初期化し、ターゲティング広告用のユーザー ID を確立
 
 以下は、Server-side で生成された ID を含むコールバックを使った `init()` 呼び出しの例です。
 
-<ExampleJavaScriptInit />
+<SnptExampleJavaScriptInit />
 
 以下は、以前に提供された ID があれば、それをローカルストレージからロードする `init()` 呼び出しの例です。このようなスクリプトは、ID が確立された後にユーザーが訪れる可能性のある任意のページに配置することができます。
 
@@ -512,7 +512,7 @@ UID2 Cookie の内容は、[POST&nbsp;/token/generate](../endpoints/post-token-g
 
 以下は UID2 cookie 構造の例です:
 
-<ExampleUid2Cookie />
+<SnptExampleUid2Cookie />
 
 :::warning
 `private` オブジェクトの内容は明示的に指定されておらず、SDK が解釈するようになっています。このオブジェクトの構造、セマンティクス、互換性について、いかなる仮定もしないでください。クッキーの更新はその構造を保持しなければなりません。

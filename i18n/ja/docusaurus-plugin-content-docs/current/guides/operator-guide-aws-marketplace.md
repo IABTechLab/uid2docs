@@ -9,8 +9,8 @@ displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';
-import UpgradePolicy from '../snippets/_private-operator-upgrade-policy.mdx';
-import AttestFailure from '../snippets/_private-operator-attest-failure.mdx';
+import SnptUpgradePolicy from '../snippets/_snpt-private-operator-upgrade-policy.mdx';
+import SnptAttestFailure from '../snippets/_snpt-private-operator-attest-failure.mdx';
 
 # UID2 Private Operator for AWS Integration Guide
 
@@ -43,7 +43,7 @@ For information about supported versions and deprecation dates, see [Private Ope
 
 ## Private Operator Upgrade Policy
 
-<UpgradePolicy />
+<SnptUpgradePolicy />
 
 ## Prerequisites
 
@@ -252,7 +252,7 @@ UID2 Operator を AWS Marketplace にデプロイするには、以下の手順�
 
 ### Private Operator Attestation Failure
 
-<AttestFailure />
+<SnptAttestFailure />
 
 ## Upgrading the UID2 Operator
 

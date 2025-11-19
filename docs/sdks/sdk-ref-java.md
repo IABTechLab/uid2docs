@@ -7,7 +7,7 @@ displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';
-import POSTIdentityMapImprovements from '../snippets/_post-identity-map-improvements-v3.mdx';
+import SnptPOSTIdentityMapImprovements from '../snippets/_snpt-post-identity-map-improvements-v3.mdx';
 
 # SDK for Java Reference Guide
 
@@ -401,7 +401,7 @@ The following sections provide general information and guidance for migrating to
 
 ### Version 3 Improvements
 
-<POSTIdentityMapImprovements />
+<SnptPOSTIdentityMapImprovements />
 
 ### Required Changes
 

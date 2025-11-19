@@ -7,7 +7,7 @@ displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';
-import IdentityGenerateResponse from '../snippets/_example-identity-generate-response.mdx';
+import SnptIdentityGenerateResponse from '../snippets/_snpt-example-identity-generate-response.mdx';
 
 # POST /token/generate
 
@@ -108,7 +108,7 @@ echo '{"email_hash": "tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ=","optout_chec
 
 復号化に成功すると、指定されたメールアドレス、電話番号、またはそれぞれのハッシュに対するユーザーの Advertising Token および Refresh Token が返されます。
 
-<IdentityGenerateResponse />
+<SnptIdentityGenerateResponse />
 
 #### Optout
 

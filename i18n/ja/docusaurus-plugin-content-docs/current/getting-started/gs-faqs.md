@@ -7,7 +7,7 @@ displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';
-import ExampleTokenInBidstream from '../snippets/_example-token-in-bidstream.mdx';
+import SnptExampleTokenInBidstream from '../snippets/_snpt-example-token-in-bidstream.mdx';
 
 # Frequently Asked Questions
 
@@ -168,7 +168,7 @@ UID2 Token は、ビッドストリームではどのように見えますか？
 
 UID2 実装のアプローチにはさまざまな方法があります。以下は、UID2 Token が<Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link>でどのように渡されるかを示すコードスニペットの一例です:
 
-<ExampleTokenInBidstream />
+<SnptExampleTokenInBidstream />
 
 #### Can I integrate UID2 with Single Sign-On (SSO)?
 UID2 をシングルサインオン (SSO) とインテグレーションすることはできますか？

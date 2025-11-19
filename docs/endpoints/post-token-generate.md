@@ -7,7 +7,7 @@ displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';
-import IdentityGenerateResponse from '../snippets/_example-identity-generate-response.mdx';
+import SnptIdentityGenerateResponse from '../snippets/_snpt-example-identity-generate-response.mdx';
 
 # POST /token/generate
 
@@ -108,7 +108,7 @@ This section includes the following sample responses:
 
 A successful decrypted response returns the user's advertising and refresh tokens for the specified email address, phone number, or the respective hash.
 
-<IdentityGenerateResponse />
+<SnptIdentityGenerateResponse />
 
 #### Optout
 
