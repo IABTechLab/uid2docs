@@ -407,6 +407,7 @@ const sidebars = {
     'guides/integration-advertiser-dataprovider-overview',
     'guides/integration-snowflake',
     'guides/integration-snowflake-previous',
+    'guides/integration-databricks',
     'guides/integration-aws-entity-resolution',
     'guides/advertiser-dataprovider-endpoints',
     'DSP Integrations',
@@ -493,7 +494,8 @@ const sidebars = {
     'Advertiser/Data Provider Integrations',
     'guides/integration-advertiser-dataprovider-overview',
     'guides/integration-snowflake',
-    'guides/integration-snowflake-integration-snowflake-previous',
+    'guides/integration-snowflake-previous',
+    'guides/integration-databricks',
     'guides/integration-aws-entity-resolution',
     'guides/advertiser-dataprovider-endpoints',
     'sharing/sharing-bid-stream'
