@@ -7,7 +7,7 @@ displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';
-import POSTIdentityMapImprovements from '../snippets/_post-identity-map-improvements-v3.mdx';
+import SnptPOSTIdentityMapImprovements from '../snippets/_snpt-post-identity-map-improvements-v3.mdx';
 
 # POST /identity/map
 
@@ -207,7 +207,7 @@ DII が正常にマッピングされた場合、マッピングされたオブ�
 
 ### Version 3 Improvements
 
-<POSTIdentityMapImprovements />
+<SnptPOSTIdentityMapImprovements />
 
 ### Key Differences Between v2 and v3
 

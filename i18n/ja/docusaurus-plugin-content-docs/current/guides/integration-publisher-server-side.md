@@ -9,7 +9,7 @@ displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';
-import IntegratingWithSSO from '../snippets/_integrating-with-sso.mdx';
+import SnptIntegratingWithSSO from '../snippets/_snpt-integrating-with-sso.mdx';
 
 # Publisher Integration Guide, Server-Side
 
@@ -43,7 +43,7 @@ UID2 と UID2 Token を使用してクライアントのアイデンティティ
 
 ## Integrating with Single Sign-On (SSO)
 
-<IntegratingWithSSO />
+<SnptIntegratingWithSSO />
 
 ## Complete UID2 Account Setup and Configure Account
 

@@ -9,8 +9,8 @@ displayed_sidebar: sidebarPublishers
 ---
 
 import Link from '@docusaurus/Link';
-import IntegratingWithSSO from '../snippets/_integrating-with-sso.mdx';
-import StoreUID2TokenInBrowser from '../snippets/_prebid-storing-uid2-token-in-browser.mdx';
+import SnptIntegratingWithSSO from '../snippets/_snpt-integrating-with-sso.mdx';
+import SnptStoreUID2TokenInBrowser from '../snippets/_snpt-prebid-storing-uid2-token-in-browser.mdx';
 
 # UID2 Integration Overview for Prebid
 
@@ -35,7 +35,7 @@ UID2 は <Link href="../ref-info/glossary-uid#gl-gdpr">GDPR</Link> が適用さ�
 
 ## Integrating with Single Sign-On (SSO)
 
-<IntegratingWithSSO />
+<SnptIntegratingWithSSO />
 
 ### Generating the UID2 Token
 
@@ -54,7 +54,7 @@ Prebid.js UID2 Module は、UID2 Token を自動的にリフレッシュする�
 
 ### Storing the UID2 Token in the Browser
 
-<StoreUID2TokenInBrowser />
+<SnptStoreUID2TokenInBrowser />
 
 ### Passing the UID2 Token to the Bidstream
 

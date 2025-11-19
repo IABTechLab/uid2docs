@@ -7,8 +7,8 @@ displayed_sidebar: sidebarPublishers
 ---
 
 import Link from '@docusaurus/Link';
-import PublisherImplementationResources from '../snippets/_publisher-implementation-resources.mdx';
+import SnptPublisherImplementationResources from '../snippets/_snpt-publisher-implementation-resources.mdx';
 
 # Publisher Integration Resources
 
-<PublisherImplementationResources/>
+<SnptPublisherImplementationResources/>

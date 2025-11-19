@@ -15,9 +15,9 @@ displayed_sidebar: sidebarPublishers
 ---
 
 import Link from '@docusaurus/Link';
-import IntegratingWithSSO from '../snippets/_integrating-with-sso.mdx';
-import PrivateOperatorOption from '../snippets/_private-operator-option.mdx';
-import PublisherImplementationResources from '../snippets/_publisher-implementation-resources.mdx';
+import SnptIntegratingWithSSO from '../snippets/_snpt-integrating-with-sso.mdx';
+import SnptPrivateOperatorOption from '../snippets/_snpt-private-operator-option.mdx';
+import SnptPublisherImplementationResources from '../snippets/_snpt-publisher-implementation-resources.mdx';
 
 パブリッシャーとして、Unified ID 2.0 (UID2) のクロスデバイスプレゼンスの恩恵を受け、すべてのインベントリで一貫した ID ファブリックを活用することができます。
 
@@ -70,11 +70,11 @@ UID2 とインテグレーションすることで得られるメリットの一
 
 ## Integrating with Single Sign-On (SSO)
 
-<IntegratingWithSSO />
+<SnptIntegratingWithSSO />
 
 ## Private Operator Option
 
-<PrivateOperatorOption/>
+<SnptPrivateOperatorOption />
 
 ## Getting Started
 
@@ -102,7 +102,7 @@ UID2 とインテグレーションすることで得られるメリットの一
 
 ## Implementation Resources
 
-<PublisherImplementationResources/>
+<SnptPublisherImplementationResources />
 
 ## FAQs for Publishers
 

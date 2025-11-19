@@ -9,8 +9,8 @@ displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';
-import ExampleClientServerSendUid2ToSdk from '../snippets/_example-client-server-send-uid2-to-sdk.mdx'; 
-import IntegratingWithSSO from '../snippets/_integrating-with-sso.mdx';
+import SnptExampleClientServerSendUid2ToSdk from '../snippets/_snpt-example-client-server-send-uid2-to-sdk.mdx'; 
+import SnptIntegratingWithSSO from '../snippets/_snpt-integrating-with-sso.mdx';
 
 # Client-Server Integration Guide for JavaScript
 
@@ -50,7 +50,7 @@ If you are using Google Ad Manager and want to use the secure signals feature, f
 
 ## Integrating with Single Sign-On (SSO)
 
-<IntegratingWithSSO />
+<SnptIntegratingWithSSO />
 
 ## Complete UID2 Account Setup and Configure Account
 
@@ -109,7 +109,7 @@ For security reasons, the API key and secret used in token generation must be ca
 
 The following code examples illustrate steps 1-f and 1-g, in JavaScript and TypeScript.
 
-<ExampleClientServerSendUid2ToSdk />
+<SnptExampleClientServerSendUid2ToSdk />
 
 The SDK invokes the specified [callback function](../sdks/sdk-ref-javascript.md#callback-function) (which indicates the identity availability) and makes the established identity available client-side for bidding. 
 

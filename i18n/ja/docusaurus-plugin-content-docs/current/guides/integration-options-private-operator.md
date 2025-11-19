@@ -6,7 +6,7 @@ displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';
-import UpgradePolicy from '../snippets/_private-operator-upgrade-policy.mdx';
+import SnptUpgradePolicy from '../snippets/_snpt-private-operator-upgrade-policy.mdx';
 
 # UID2 Private Operator Integration Overview
 
@@ -91,7 +91,7 @@ Private Operator にはいくつかの制限があります:
 
 ## Private Operator Upgrade Policy
 
-<UpgradePolicy />
+<SnptUpgradePolicy />
 
 ## Getting Started
 

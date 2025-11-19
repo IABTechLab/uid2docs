@@ -11,7 +11,7 @@ displayed_sidebar: docs
 import Link from '@docusaurus/Link';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import IntegratingWithSSO from '../snippets/_integrating-with-sso.mdx';
+import SnptIntegratingWithSSO from '../snippets/_snpt-integrating-with-sso.mdx';
 
 # Client-Side Integration Guide for JavaScript
 
@@ -67,7 +67,7 @@ For a sample implementation, see this example:
 
 ## Integrating with Single Sign-On (SSO)
 
-<IntegratingWithSSO />
+<SnptIntegratingWithSSO />
 
 ## Complete UID2 Account Setup and Configure Account
 

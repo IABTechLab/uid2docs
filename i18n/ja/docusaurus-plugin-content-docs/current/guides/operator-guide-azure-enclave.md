@@ -9,7 +9,8 @@ displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';
-import UpgradePolicy from '../snippets/_private-operator-upgrade-policy.mdx';
+import SnptUpgradePolicy from '../snippets/_snpt-private-operator-upgrade-policy.mdx';
+import SnptAttestFailure from '../snippets/_snpt-private-operator-attest-failure.mdx';
 
 # UID2 Private Operator for Azure Integration Guide
 
@@ -39,7 +40,7 @@ For information about supported versions and deprecation dates, see [Private Ope
 
 ## Private Operator Upgrade Policy
 
-<UpgradePolicy />
+<SnptUpgradePolicy />
 
 ## Prerequisites
 
@@ -301,9 +302,9 @@ Microsoft Azure で UID2 Private Operator をホストする Virtual Private Clo
 
    HTTP 200 と `OK` という応答本文が表示された場合、正常な状態です。
 
-import AttestFailure from '../snippets/_private-operator-attest-failure.mdx';
+import AttestFailure from '../snippets/_snpt-private-operator-attest-failure.mdx';
 
-<AttestFailure />
+<SnptAttestFailure />
 
 ### Scraping Metrics
 Azure の Private Operator は、ポート 9080 で `/metrics` エンドポイントを介して [Prometheus-formatted metric](https://prometheus.io/docs/concepts/data_model/) を公開します。これらのメトリクスを収集して集計するために、Prometheus 互換のスクレイパーを使用できます。
