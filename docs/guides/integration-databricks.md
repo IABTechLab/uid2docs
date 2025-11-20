@@ -12,7 +12,7 @@ import Link from '@docusaurus/Link';
 
 # UID2 Databricks Clean Room Integration Guide
 
-This guide is for advertisers and data providers who want to manage their raw UID2s in a Databricks environment.
+This guide is for advertisers and data providers who want to convert their user data to raw UID2s in a Databricks environment.
 
 [**GWH__MC01 "Amazon Web Services, Google Cloud Platform, or Microsoft Azure." -- which do we use? Or, any and all?**]
 
@@ -86,7 +86,7 @@ Add one or more tables or views to the clean room. You can use any names for the
 
 ### Map DII
 
-Run the `identity_map_v3` clean room [notebook](#https://docs.databricks.com/aws/en/notebooks/) to map email addresses, phone numbers, or their respective hashes to raw UID2s.
+Run the `identity_map_v3` clean room [notebook](https://docs.databricks.com/aws/en/notebooks/) to map email addresses, phone numbers, or their respective hashes to raw UID2s.
 
 ## Running the Clean Room Notebook
 
@@ -156,9 +156,8 @@ The following table shows possible values for the `UNMAPPED` column.
 | `INVALID INPUT TYPE` | The value of `INPUT_TYPE` is invalid. Valid values for `INPUT_TYPE` are: `email`, `email_hash`, `phone`, `phone_hash`. |
 
 
-<!-- 
 
-------------------- BELOW IS A COPY OF SNOWFLAKE DOC HEADINGS ------------------------------
+## BELOW IS A COPY OF SNOWFLAKE DOC HEADINGS
 
 ## Testing in the Integ Environment
 
@@ -175,6 +174,8 @@ Query examples?
 xxx                                                                                                              |
 
 ### Map DII
+
+(**we have this... but, leaving these notes in in case we want to add anything**)
 
 Define types of <Link href="../ref-info/glossary-uid#gl-dii">DII</Link>?
 
@@ -381,4 +382,3 @@ xxx
 Query results:
 
 xxx
- -->
