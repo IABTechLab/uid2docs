@@ -11,12 +11,12 @@ displayed_sidebar: docs
 import Link from '@docusaurus/Link';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import GMAIMA_Plugins from '../snippets/_mobile_docs_gmaima-plugin-gss.mdx';
-import ExampleAdvertisingToken from '../snippets/_example-advertising-token.mdx';
-import EnableLogging from '../snippets/_mobile-docs-enable-logging.mdx';
-import PrebidMobileSDK from '../snippets/_mobile_docs_prebid-mobile.mdx';
-import ErrorResponseStates from '../snippets/_mobile-docs-error-response-states.mdx';
-import IntegratingWithSSO from '../snippets/_integrating-with-sso.mdx';
+import SnptGMAIMA_Plugins from '../snippets/_snpt-mobile_docs_gmaima-plugin-gss.mdx';
+import SnptExampleAdvertisingToken from '../snippets/_snpt-example-advertising-token.mdx';
+import SnptEnableLogging from '../snippets/_snpt-mobile-docs-enable-logging.mdx';
+import SnptPrebidMobileSDK from '../snippets/_snpt-mobile_docs_prebid-mobile.mdx';
+import SnptErrorResponseStates from '../snippets/_snpt-mobile-docs-error-response-states.mdx';
+import SnptIntegratingWithSSO from '../snippets/_snpt-integrating-with-sso.mdx';
 
 # UID2 Client-Side Integration Guide for Mobile
 
@@ -194,7 +194,7 @@ see UID2SDKDevelopmentApp/UID2SDKDevelopmentApp/Info.plist
 
 ## Integrating with Single Sign-On (SSO)
 
-<IntegratingWithSSO />
+<SnptIntegratingWithSSO />
 
 ## Complete UID2 Account Setup and Configure Account
 
@@ -595,7 +595,7 @@ UID2Manager.shared.getAdvertisingToken()
 
 成功すると、このメソッドコールはトークンを返します。&#8212;以下のような、非 null の文字列オブジェクトが返されます:
 
-<ExampleAdvertisingToken />
+<SnptExampleAdvertisingToken />
 
 このトークンを使用して、ビッドストリームに送信するためにダウンストリームに渡すことができます。
 
@@ -728,11 +728,11 @@ If the response status indicates that the DII has been opted out of UID2, you mi
 
 ## Enable Logging
 
-<EnableLogging />
+<SnptEnableLogging />
 
 ## Optional: UID2 GMA/IMA Plugin for GAM Secure Signals integration
 
-<GMAIMA_Plugins />
+<SnptGMAIMA_Plugins />
 
 ## Optional: UID2 Integration with Prebid Mobile SDK
 
@@ -742,8 +742,8 @@ UID2 Prebid Mobile SDK インテグレーションは、UID2 SDK for Android ver
 Prebid Mobile SDK v3 を使用している場合は、UID2 SDK for Android または iOS のバージョン 2.0.0 が必要です。
 :::
 
-<PrebidMobileSDK />
+<SnptPrebidMobileSDK />
 
 ## Error Response States
 
-<ErrorResponseStates />
+<SnptErrorResponseStates />

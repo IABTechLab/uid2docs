@@ -7,7 +7,7 @@ displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';
-import IdentityGenerateResponse from '../snippets/_example-identity-generate-response.mdx';
+import SnptIdentityGenerateResponse from '../snippets/_snpt-example-identity-generate-response.mdx';
 
 # POST /token/refresh
 
@@ -69,7 +69,7 @@ Used by: このエンドポイントは、主にパブリッシャーが使用�
 
 すべての値が有効で、ユーザーが Opt-Out していない場合、レスポンスは成功し、新しい UID2 Token が関連する値とともに返されます。以下の例は、トークンを含む成功したレスポンスを復号したものです:
 
-<IdentityGenerateResponse />
+<SnptIdentityGenerateResponse />
 
 #### Successful Response With Opt-Out
 

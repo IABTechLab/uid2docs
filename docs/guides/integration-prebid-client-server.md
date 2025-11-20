@@ -9,9 +9,9 @@ displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';
-import AddPrebidjsToYourSite from '../snippets/_prebid-add-prebidjs-to-your-site.mdx';
-import StoreUID2TokenInBrowser from '../snippets/_prebid-storing-uid2-token-in-browser.mdx';
-import IntegratingWithSSO from '../snippets/_integrating-with-sso.mdx';
+import SnptAddPrebidjsToYourSite from '../snippets/_snpt-prebid-add-prebidjs-to-your-site.mdx';
+import SnptStoreUID2TokenInBrowser from '../snippets/_snpt-prebid-storing-uid2-token-in-browser.mdx';
+import SnptIntegratingWithSSO from '../snippets/_snpt-integrating-with-sso.mdx';
 
 # UID2 Client-Server Integration Guide for Prebid.js
 
@@ -42,7 +42,7 @@ GWH note 12/14/23 updated 2/7/25: we have a client-side example for Prebid.js bu
 
 ## Integrating with Single Sign-On (SSO)
 
-<IntegratingWithSSO />
+<SnptIntegratingWithSSO />
 
 ## Integration Overview: High-Level Steps
 
@@ -73,7 +73,7 @@ When account setup is complete, you'll receive a client keypair consisting of tw
 
 ## Add Prebid.js to Your Site
 
-<AddPrebidjsToYourSite />
+<SnptAddPrebidjsToYourSite />
 
 ## Configure the UID2 Module
 
@@ -268,7 +268,7 @@ In planning your Prebid implementation, consider the following:
 
 ## Storing the UID2 Token in the Browser
 
-<StoreUID2TokenInBrowser />
+<SnptStoreUID2TokenInBrowser />
 
 ## Determining Whether the Module Has a Valid Token
 

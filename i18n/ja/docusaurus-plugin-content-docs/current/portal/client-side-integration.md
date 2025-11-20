@@ -6,6 +6,8 @@ sidebar_position: 09
 displayed_sidebar: docs
 ---
 
+import Link from '@docusaurus/Link';
+
 # Client-Side Integration
 
 :::note

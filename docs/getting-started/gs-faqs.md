@@ -7,7 +7,7 @@ displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';
-import ExampleTokenInBidstream from '../snippets/_example-token-in-bidstream.mdx';
+import SnptExampleTokenInBidstream from '../snippets/_snpt-example-token-in-bidstream.mdx';
 
 # Frequently Asked Questions
 
@@ -156,7 +156,7 @@ The UID2 service encrypts UID2 tokens using random initialization vectors. The U
 
 There are many ways to approach UID2 implementation. Here is one example of a code snippet showing how a UID2 token is passed in the <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link>:
 
-<ExampleTokenInBidstream />
+<SnptExampleTokenInBidstream />
 
 #### Can I integrate UID2 with Single Sign-On (SSO)?
 

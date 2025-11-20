@@ -9,8 +9,8 @@ displayed_sidebar: docs
 import Link from '@docusaurus/Link';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import ExampleUid2Cookie from '/docs/snippets/_example-uid2-cookie.mdx';
-import ExampleJavaScriptInit from '/docs/snippets/_example-javascript-init.mdx';
+import SnptExampleUid2Cookie from '/docs/snippets/_snpt-example-uid2-cookie.mdx';
+import SnptExampleJavaScriptInit from '/docs/snippets/_snpt-example-javascript-init.mdx';
 
 export const New = () => (
   <span className='pill'>NEW IN V3</span>
@@ -310,7 +310,7 @@ Here's what you need to know about this function:
 
 The following is an example of an `init()` call made using a callback with the server-side generated identity included.
 
-<ExampleJavaScriptInit />
+<SnptExampleJavaScriptInit />
 
 The following is an example of an `init()` call that loads a previously-provided identity from local storage, if one is available. You can put a script like this on any page that the user might visit after the identity has been established.
 
@@ -541,7 +541,7 @@ The content of the UID2 local storage or cookie is a URI-encoded string represen
 
 The following is an example of the UID2 cookie structure:
 
-<ExampleUid2Cookie />
+<SnptExampleUid2Cookie />
 
 :::warning
 The contents of the `private` object are explicitly unspecified and are left for the SDK to interpret. Do not make any assumptions about the structure, semantics, or compatibility of this object. Any updates to the cookie must retain its structure.

@@ -9,7 +9,7 @@ displayed_sidebar: docs
 import Link from '@docusaurus/Link';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import IdentityGenerateResponse from '../snippets/_example-identity-generate-response.mdx';
+import SnptIdentityGenerateResponse from '../snippets/_snpt-example-identity-generate-response.mdx';
 
 # Encrypting Requests and Decrypting Responses
 
@@ -105,7 +105,7 @@ UID2 API のリクエストレスポンスワークフローは、以下のス�
 
 たとえば、先行例 のメールアドレスに対する [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) リクエストに対する復号されたレスポンスは、次のようになります:
 
-<IdentityGenerateResponse />
+<SnptIdentityGenerateResponse />
 
 ## Encryption and Decryption Code Examples
 

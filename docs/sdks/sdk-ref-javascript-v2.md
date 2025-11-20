@@ -7,8 +7,8 @@ displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';
-import ExampleUid2Cookie from '../snippets/_example-uid2-cookie.mdx';
-import ExampleJavaScriptV2Init from '../snippets/_example-javascript-v2-init.mdx';
+import SnptExampleUid2Cookie from '../snippets/_snpt-example-uid2-cookie.mdx';
+import SnptExampleJavaScriptV2Init from '../snippets/_snpt-example-javascript-v2-init.mdx';
 
 # SDK for JavaScript Reference Guide (v2.x and earlier)
 
@@ -153,7 +153,7 @@ The following is a template of an `init()` call with the server-side generated i
 
 For example:
 
-<ExampleJavaScriptV2Init />
+<SnptExampleJavaScriptV2Init />
 
 The following is an example of an `init()` call that uses identity from a first-party cookie. You can put a script like this on any page that the user might visit after the identity has been established.
 
@@ -329,7 +329,7 @@ The UID2 cookie contents are a URI-encoded string representation of a JSON objec
 
 The following is an example of the UID2 cookie structure:
 
-<ExampleUid2Cookie />
+<SnptExampleUid2Cookie />
 
 :::important
 The contents of the `private` object are explicitly unspecified and are left for the SDK to interpret. Do not make any assumptions about the structure, semantics, or compatibility of this object. Any updates to the cookie must retain its structure.
