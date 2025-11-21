@@ -58,7 +58,7 @@ For examples of various scenarios, see [Normalization Examples for Email](#norma
 
 An email hash is a Base64-encoded <Link href="../ref-info/glossary-uid#gl-sha-256">SHA-256</Link> hash of a normalized email address. The email address is first normalized, then hashed using the SHA-256 hashing algorithm, and then the resulting bytes of the hash value are encoded using Base64 encoding. Note that the Base64 encoding is applied to the bytes of the hash value, not the hex-encoded string representation.
 
-The following table shows an example of a simple input phone number, and the result as each step is applied to arrive at a secure, opaque, URL-safe value.
+The following table shows an example of a simple input email address, and the result as each step is applied to arrive at a secure, opaque, URL-safe value.
 
 The final value, the hex to Base64 encoded representation of the SHA-256 hash, is the value to provide to the UID2 Operator endpoint.
 
