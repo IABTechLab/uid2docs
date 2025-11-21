@@ -16,6 +16,18 @@ This guide is for advertisers and data providers who want to convert their user 
 
 [**GWH__MC01 "Amazon Web Services, Google Cloud Platform, or Microsoft Azure." -- which do we use? Or, any and all? And Matt said: "Let's discuss next week."**]
 
+## Integration Overview
+
+A Databricks clean room is a secure and privacy-protected environment where multiple parties can work together on sensitive enterprise data without direct access to each other's data.
+
+In the context of UID2, you set up the clean room and place your data there. You set up a trust relationship with the UID2 Operator and allow the Operator to convert your data to raw UID2s.
+
+The Secure Clean Room environment ensures that all UID2 operations occur within your Databricks workspace. You never send raw <Link href="../ref-info/glossary-uid#gl-dii">DII</Link>, and all calculations are performed via programmable, policy-enforced queries.
+
+With UID2 supported in the Databricks environment, advertisers and data partners can securely connect their first-party data to drive more relevant and measurable campaigns across the open internet.
+
+[**GWH__MC11 is it only first-party data for the moment? If they're just sending phone numbers and emails, I don't see what the difference is... it's just data?**]
+
 ## Databricks Partner Network Listing
 
 [**GWH__EE or MC for listing update when available. https://www.databricks.com/company/partners/technology? Guessing it will be here.**]
