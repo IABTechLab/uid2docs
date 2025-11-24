@@ -58,7 +58,7 @@ For examples of various scenarios, see [Normalization Examples for Email](#norma
 
 An email hash is a Base64-encoded <Link href="../ref-info/glossary-uid#gl-sha-256">SHA-256</Link> hash of a normalized email address. The email address is first normalized, then hashed using the SHA-256 hashing algorithm, and then the resulting bytes of the hash value are encoded using Base64 encoding. Note that the Base64 encoding is applied to the bytes of the hash value, not the hex-encoded string representation.
 
-The following table shows an example of a simple input email address, and the result as each step is applied to arrive at a secure, opaque, URL-safe value.
+The following table shows an example of a simple input email address, and the result as each step is applied to arrive at a secure, opaque value.
 
 The final value, the hex to Base64 encoded representation of the SHA-256 hash, is the value to provide to the UID2 Operator endpoint.
 
@@ -84,6 +84,96 @@ Some of the examples show email addresses that include the plus sign (+), with d
 :::important
 In working with your own UID2s, always provide the final value, the Base64-encoded value, to the UID2 Operator endpoint.
 :::
+
+[**GWH__SW Not entirely sure what you're asking, but, trying a couple of different treatments here. Below is #1. I'd tried this before the one I checked in, but felt there was too much separation between the values.**]
+
+<table>
+  <thead>
+    <tr>
+      <th>Original Value</th>
+      <th>Processing Steps</th>
+      <th>Resulting Values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td rowspan="3">`MyEmail@example.com`</td>
+      <td>1. Normalize</td>
+      <td>`myemail@example.com`</td>
+    </tr>
+    <tr>
+
+      <td>2. Hash</td>
+      <td>`16c18d336f0b250f0e2d907452ceb9658a74ecdae8bc94864c23122a72cc27a5`</td>
+    </tr>
+    <tr>
+
+      <td>3. Base64-Encode</td>
+      <td>`FsGNM28LJQ8OLZB0Us65ZYp07NrovJSGTCMSKnLMJ6U=`</td>
+    </tr>
+    <tr>
+      <td rowspan="3">`MyEmail@example.com`<br/>`MYEMAIL@example.com`</td>
+      <td>1. Normalize</td>
+      <td>`myemail@example.com`</td>
+    </tr> 
+    <tr>
+
+      <td>2. Hash</td>
+      <td>`16c18d336f0b250f0e2d907452ceb9658a74ecdae8bc94864c23122a72cc27a5`</td>
+    </tr>
+    <tr>
+
+      <td>3. Base64-Encode</td>
+      <td>`4itTvG+HEnTzpiqzejyu1yFPwU1nYhWpaiQvz62hyB8=`</td>
+    </tr>
+    <tr>
+      <td rowspan="3">`My.Email@example.com`</td>
+      <td>1. Normalize</td>
+      <td>`my.email@example.com`</td>
+    </tr>
+    <tr>
+
+      <td>2. Hash</td>
+      <td>`e22b53bc6f871274f3a62ab37a3caed7214fc14d676215a96a242fcfada1c81f`</td>
+    </tr>
+    <tr>
+
+      <td>3. Base64-Encode</td>
+      <td>`4itTvG+HEnTzpiqzejyu1yFPwU1nYhWpaiQvz62hyB8=`</td>
+    </tr>
+ </tbody>
+</table>
+
+
+[**GWH__SW here is another. If you don't like either of these, let's discuss in our  meeting my Tues your Wed. Note: I could add space between the steps and values, but don't have a way to align them, AFAIK, with our current CSS.But, the above example has the values in separate rows, and the below example combines them. I felt that separate rows were too spread out; but if you feel that combining them is too squashed or otherwise less readable, we can have separate rows of course.**]
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Original Value</th>
+      <th>Processing Steps and Resulting Values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>`MyEmail@example.com`<br/>`MYEMAIL@example.com`</td>
+      <td>1. Normalize: `myemail@example.com`<br/>2. Hash: `16c18d336f0b250f0e2d907452ceb9658a74ecdae8bc94864c23122a72cc27a5`<br/>3. Base64-Encode: `FsGNM28LJQ8OLZB0Us65ZYp07NrovJSGTCMSKnLMJ6U=`</td>
+    </tr>
+    <tr>
+      <td>`MyEmail@example.com`<br/>`MYEMAIL@example.com`</td>
+      <td>1. Normalize: `myemail@example.com`<br/>2. Hash: `16c18d336f0b250f0e2d907452ceb9658a74ecdae8bc94864c23122a72cc27a5`<br/>3. Base64-Encode: `FsGNM28LJQ8OLZB0Us65ZYp07NrovJSGTCMSKnLMJ6U=`</td>
+    </tr>
+    <tr>
+      <td>`My.Email@example.com`</td>
+      <td>1. Normalize: `my.email@example.com`<br/>2. Hash: `e22b53bc6f871274f3a62ab37a3caed7214fc14d676215a96a242fcfada1c81f`<br/>3. Base64-Encode: `4itTvG+HEnTzpiqzejyu1yFPwU1nYhWpaiQvz62hyB8=`</td>
+    </tr>
+ </tbody>
+</table>
+
+
+[**GWH__SW here is the table I checked in, for comparison**]
+
 
 <table>
   <thead>
@@ -166,7 +256,7 @@ Make sure that the normalized phone number is UTF-8, not another encoding system
 
 A phone number hash is a Base64-encoded SHA-256 hash of a normalized phone number. The phone number is first normalized, then hashed using the SHA-256 hashing algorithm, and then the resulting bytes of the hash value are encoded using Base64 encoding. Note that the Base64 encoding is applied to the bytes of the hash value, not the hex-encoded string representation. 
 
-The following table shows an example of a simple input phone number, and the result as each step is applied to arrive at a secure, opaque, URL-safe value.
+The following table shows an example of a simple input phone number, and the result as each step is applied to arrive at a secure, opaque value.
 
 The final value, the hex to Base64 encoded representation of the SHA-256 hash, is the value to provide to the UID2 Operator endpoint.
 
