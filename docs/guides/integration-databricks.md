@@ -145,7 +145,7 @@ The following table provides information about the structure of the output data,
 | :--- | :--- | :--- |
 | `UID` | string | The value is one of the following:<ul><li>**DII was successfully mapped**: The UID2 associated with the DII.</li><li>**Otherwise**: `NULL`.</li></ul> |
 | `PREV_UID` | string | The value is one of the following:<ul><li>**DII was successfully mapped and the current raw UID2 was rotated in the last 90 days**: the previous raw UID2.</li><li>**Otherwise**: `NULL`.</li></ul> |
-| `REFRESH_FROM` | timestamp | The value is one of the following:<ul><li>**DII was successfully mapped**: The timestamp (in epoch seconds) indicating when this UID2 should be refreshed.</li><li>**Otherwise**: `NULL`.</li></ul> |
+| `REFRESH_FROM` | timestamp | The value is one of the following:<ul><li>**DII was successfully mapped**: The timestamp indicating when this UID2 should be refreshed.</li><li>**Otherwise**: `NULL`.</li></ul> |
 | `UNMAPPED` | string | The value is one of the following:<ul><li>**DII was successfully mapped**: `NULL`.</li><li>**Otherwise**: The reason why the identifier was not mapped: `OPTOUT`, `INVALID IDENTIFIER`, or `INVALID INPUT TYPE`.<br/>For details, see [Values for the UNMAPPED Column](#values-for-the-unmapped-column).</li></ul> |
 
 #### Values for the UNMAPPED Column
