@@ -10,27 +10,27 @@ displayed_sidebar: docs
 
 import Link from '@docusaurus/Link';
 
-# UID2 Databricks Clean Room Integration Guide
+# Databricks Clean Rooms Integration Guide
 
 This guide is for advertisers and data providers who want to convert their user data to raw UID2s in a Databricks environment.
 
-[**GWH__MC01 "Amazon Web Services, Google Cloud Platform, or Microsoft Azure." -- which do we use? Or, any and all? And Matt said: "Let's discuss next week."**]
-
 ## Integration Overview
 
-A Databricks clean room is a secure and privacy-protected environment where multiple parties can work together on sensitive enterprise data without direct access to each other's data.
+[Databricks Clean Rooms](https://docs.databricks.com/aws/en/clean-rooms/) is a Databricks data warehousing solution, where you as a partner can store your data and integrate with the UID2 framework. Using Databricks Clean Rooms, UID2 enables you to securely share consumer identifier data without exposing sensitive <Link href="../ref-info/glossary-uid#gl-dii">directly identifying information (DII)</Link>.
 
-In the context of UID2, you set up the clean room and place your data there. You set up a trust relationship with the UID2 Operator and allow the Operator to convert your data to raw UID2s.
+In the context of UID2, you set up the Databricks Clean Rooms environment and place your data there. You set up a trust relationship with the UID2 Operator and allow the Operator to convert your data to raw UID2s.
 
-The Secure Clean Room environment ensures that all UID2 operations occur within your Databricks workspace. You never send raw <Link href="../ref-info/glossary-uid#gl-dii">DII</Link>, and all calculations are performed via programmable, policy-enforced queries.
+With UID2 supported in the clean room, advertisers and data partners can securely process their first-party data within Databricks.
 
-With UID2 supported in the Databricks environment, advertisers and data partners can securely connect their first-party data to drive more relevant and measurable campaigns across the open internet.
+[**GWH__EE01 is it only first-party data, or just data? If they're just sending phone numbers and emails, I don't see what the difference is... it's just data?**]
 
-[**GWH__MC11 is it only first-party data for the moment? If they're just sending phone numbers and emails, I don't see what the difference is... it's just data?**]
+[**GWH__EE02 Please provide any additional content you want in the overview. Thx.**]
 
+<!-- 
 ## Databricks Partner Network Listing
 
-[**GWH__EE or MC for listing update when available. https://www.databricks.com/company/partners/technology? Guessing it will be here.**]
+[**GWH__EE or MC for listing update when available. https://www.databricks.com/company/partners/technology?**] 
+-->
 
 ## Functionality
 
@@ -38,9 +38,7 @@ The following table summarizes the functionality available with the UID2 Databri
 
 | Encrypt Raw UID2 to UID2 Token for Sharing | Decrypt UID2 Token to Raw UID2 | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to Raw UID2s |
 | :--- | :--- | :--- | :--- | :--- |
-| &#8212; | &#8212; | &#8212;* | &#8212; | &#9989; |
-
-*You cannot use Databricks to generate a UID2 token directly from <Link href="../ref-info/glossary-uid#gl-dii">DII</Link>. However, you can convert DII to a raw UID2, and then encrypt the raw UID2 into a UID2 token.
+| &#8212; | &#8212; | &#8212; | &#8212; | &#9989; |
 
 ## Key Benefits
 
@@ -63,7 +61,7 @@ At a high level, the following are the steps to set up your Databricks integrati
 
 ### Create Clean Room for UID2 Collaboration
 
-As a starting point, create a Databricks clean room&#8212;a secure environment for you to collaborate with UID2 to process your data.
+As a starting point, create a Databricks Clean Rooms environment&#8212;a secure environment for you to collaborate with UID2 to process your data.
 
 Follow the steps in [Create clean rooms](https://docs.databricks.com/aws/en/clean-rooms/create-clean-room) in the Databricks documentation. Use the correct sharing identifier based on the [UID2 environment](../getting-started/gs-environments) you want to connect to: see [UID2 Sharing Identifiers](#uid2-sharing-identifiers).
 
@@ -90,13 +88,13 @@ Add one or more tables or views to the clean room. You can use any names for the
 
 ### Map DII
 
-Run the `identity_map_v3` clean room [notebook](https://docs.databricks.com/aws/en/notebooks/) to map email addresses, phone numbers, or their respective hashes to raw UID2s.
+Run the `identity_map_v3` Databricks Clean Rooms [notebook](https://docs.databricks.com/aws/en/notebooks/) to map email addresses, phone numbers, or their respective hashes to raw UID2s.
 
 A successful notebook run results in raw UID2s populated in the output table. For details, see [Output Table](#output-table).
 
-## Running the Clean Room Notebook
+## Running the Clean Rooms Notebook
 
-This section provides details to help you use your Databricks clean room to process your DII into raw UID2s, including the following:
+This section provides details to help you use your Databricks Clean Rooms environment to process your DII into raw UID2s, including the following:
 
 - [Notebook Parameters](#notebook-parameters)
 - [Input Table](#input-table)
@@ -115,7 +113,7 @@ For example, to map DII in the clean room table named `creator.default.emails`, 
 | Parameter Name | Description |
 | :--- | :--- |
 | `input_schema` | The schema containing the table or view. |
-| `input_table` | The name of the table or view containing the DII to be mapped. |
+| `input_table` | The name you specify for the table or view containing the DII to be mapped. |
 
 ### Input Table
 
@@ -163,7 +161,13 @@ The following table shows possible values for the `UNMAPPED` column in the outpu
 
 ## Testing in the Integ Environment
 
-[**GWH__MC content for this section is to come.**]
+If you'd like to test the Databricks Clean Rooms implementation before signing a UID2 POC, you can ask your UID2 contact for access in the integ (integration) environment. This environment is for testing only, and has no production data.
+
+In the request, be sure to include your sharing identifier, and use the sharing identifier for the UID2 integration environment. For details, see [UID2 Sharing Identifiers](#uid2-sharing-identifiers).
+
+While you're waiting to hear back, you could create the clean room, invite UID2, and put your assets into the clean room. For details, see [Integration Steps](#integration-steps).
+
+When your access is ready, your UID2 contact notifies you.
 
 ## Reference
 
@@ -192,6 +196,3 @@ At the top, click the gear icon and select **Delta Sharing**.
 On the **Shared with me** tab, in the upper right, click your Databricks sharing organization and then select **Copy sharing identifier**.
 
 For details, see [Request the recipient's sharing identifier](https://docs.databricks.com/aws/en/delta-sharing/create-recipient#step-1-request-the-recipients-sharing-identifier) in the Databricks documentation.
-
-
-

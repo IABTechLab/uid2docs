@@ -10,6 +10,6 @@ displayed_sidebar: docs
 
 import Link from '@docusaurus/Link';
 
-# UID2 Databricks Clean Room Integration Guide
+# UID2 Databricks Clean Rooms Integration Guide
 
 **COPY OF DATABRICKS DOC WILL GO HERE WHEN IT'S FINALIZED.**
