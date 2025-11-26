@@ -16,15 +16,13 @@ This guide is for advertisers and data providers who want to convert their user 
 
 ## Integration Overview
 
-[Databricks Clean Rooms](https://docs.databricks.com/aws/en/clean-rooms/) is a Databricks data warehousing solution, where you as a partner can store your data and integrate with the UID2 framework. Using Databricks Clean Rooms, UID2 enables you to securely share consumer identifier data without exposing sensitive <Link href="../ref-info/glossary-uid#gl-dii">directly identifying information (DII)</Link>.
+[Databricks Clean Rooms](https://docs.databricks.com/aws/en/clean-rooms/) is Databricks feature that provides a secure and privacy-protecting environment for working on sensitive data. Using Databricks Clean Rooms, UID2 enables you to securely share consumer identifier data without exposing sensitive <Link href="../ref-info/glossary-uid#gl-dii">directly identifying information (DII)</Link>.
 
 In the context of UID2, you set up the Databricks Clean Rooms environment and place your data there. You set up a trust relationship with the UID2 Operator and allow the Operator to convert your data to raw UID2s.
 
-With UID2 supported in the clean room, advertisers and data partners can securely process their first-party data within Databricks.
+With UID2 supported in the clean room, advertisers and data partners can securely process their data within Databricks.
 
-[**GWH__EE01 is it only first-party data, or just data? If they're just sending phone numbers and emails, I don't see what the difference is... it's just data?**]
-
-[**GWH__EE02 Please provide any additional content you want in the overview. Thx.**]
+[**GWH__EE Please provide any additional content you want in the overview. Thx.**]
 
 <!-- 
 ## Databricks Partner Network Listing
@@ -71,7 +69,7 @@ After you've created a clean room, you cannot change its collaborators. If you h
 
 ### Send Sharing Identifier to UID2 Contact
 
-To establish a relationship with your UID2 contact, you'll need to send the Databricks sharing identifier.
+Before you can use the clean room notebook, you'll need to send your Databricks sharing identifier to your UID2 contact.
 
 The sharing identifier is a string in this format: `<cloud>:<region>:<uuid>`.
 
