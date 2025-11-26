@@ -16,7 +16,7 @@ This guide is for advertisers and data providers who want to convert their user 
 
 ## Integration Overview
 
-[Databricks Clean Rooms](https://docs.databricks.com/aws/en/clean-rooms/) is Databricks feature that provides a secure and privacy-protecting environment for working on sensitive data. Using Databricks Clean Rooms, UID2 enables you to securely share consumer identifier data without exposing sensitive <Link href="../ref-info/glossary-uid#gl-dii">directly identifying information (DII)</Link>.
+[Databricks Clean Rooms](https://docs.databricks.com/aws/en/clean-rooms/) is a Databricks feature that provides a secure and privacy-protecting environment for working on sensitive data. Using Databricks Clean Rooms, UID2 enables you to securely share consumer identifier data without exposing sensitive <Link href="../ref-info/glossary-uid#gl-dii">directly identifying information (DII)</Link>.
 
 In the context of UID2, you set up the Databricks Clean Rooms environment and place your data there. You set up a trust relationship with the UID2 Operator and allow the Operator to convert your data to raw UID2s.
 
