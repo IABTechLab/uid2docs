@@ -157,9 +157,11 @@ The following table shows possible values for the `UNMAPPED` column in the outpu
 
 If you'd like to test the Databricks Clean Rooms implementation before signing a UID2 POC, you can ask your UID2 contact for access in the integ (integration) environment. This environment is for testing only, and has no production data.
 
-In the request, be sure to include your sharing identifier, and use the sharing identifier for the UID2 integration environment. For details, see [UID2 Sharing Identifiers](#uid2-sharing-identifiers).
+In the request, include the following:
+- Your own sharing identifier.
+- The sharing identifier for the UID2 integration environment. For details, see [UID2 Sharing Identifiers](#uid2-sharing-identifiers).
 
-While you're waiting to hear back, you could create the clean room, invite UID2, and put your assets into the clean room. For details, see [Integration Steps](#integration-steps).
+While you're waiting to hear back, you can create the clean room, invite UID2, and put your assets into the clean room. For details, see [Integration Steps](#integration-steps).
 
 When your access is ready, your UID2 contact notifies you.
 
@@ -172,7 +174,7 @@ This section includes the following reference information:
 
 ### UID2 Sharing Identifiers
 
-UID2 sharing identifiers can change. Be sure to check this page for the latest sharing identifiers.
+UID2 sharing identifiers can change. Check this page regularly for the latest sharing identifiers.
 
 | Environment | UID2 Sharing Identifier |
 | :--- | :--- |
