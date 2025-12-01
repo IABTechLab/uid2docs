@@ -85,7 +85,7 @@ Some of the examples show email addresses that include the plus sign (+), with d
 In working with your own UID2s, always provide the final value, the Base64-encoded value, to the UID2 Operator endpoint.
 :::
 
- <table>
+<table>
   <thead>
     <tr>
       <th>Original Value</th>
