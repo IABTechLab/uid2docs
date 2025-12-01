@@ -85,70 +85,7 @@ Some of the examples show email addresses that include the plus sign (+), with d
 In working with your own UID2s, always provide the final value, the Base64-encoded value, to the UID2 Operator endpoint.
 :::
 
-[**GWH__SW Not entirely sure what you're asking, but, trying a couple of different treatments here. Below is #1. I'd tried this before the one I checked in, but felt there was too much separation between the values.**]
-
-<table>
-  <thead>
-    <tr>
-      <th>Original Value</th>
-      <th>Processing Steps</th>
-      <th>Resulting Values</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td rowspan="3">`MyEmail@example.com`</td>
-      <td>1. Normalize</td>
-      <td>`myemail@example.com`</td>
-    </tr>
-    <tr>
-
-      <td>2. Hash</td>
-      <td>`16c18d336f0b250f0e2d907452ceb9658a74ecdae8bc94864c23122a72cc27a5`</td>
-    </tr>
-    <tr>
-
-      <td>3. Base64-Encode</td>
-      <td>`FsGNM28LJQ8OLZB0Us65ZYp07NrovJSGTCMSKnLMJ6U=`</td>
-    </tr>
-    <tr>
-      <td rowspan="3">`MyEmail@example.com`<br/>`MYEMAIL@example.com`</td>
-      <td>1. Normalize</td>
-      <td>`myemail@example.com`</td>
-    </tr> 
-    <tr>
-
-      <td>2. Hash</td>
-      <td>`16c18d336f0b250f0e2d907452ceb9658a74ecdae8bc94864c23122a72cc27a5`</td>
-    </tr>
-    <tr>
-
-      <td>3. Base64-Encode</td>
-      <td>`4itTvG+HEnTzpiqzejyu1yFPwU1nYhWpaiQvz62hyB8=`</td>
-    </tr>
-    <tr>
-      <td rowspan="3">`My.Email@example.com`</td>
-      <td>1. Normalize</td>
-      <td>`my.email@example.com`</td>
-    </tr>
-    <tr>
-
-      <td>2. Hash</td>
-      <td>`e22b53bc6f871274f3a62ab37a3caed7214fc14d676215a96a242fcfada1c81f`</td>
-    </tr>
-    <tr>
-
-      <td>3. Base64-Encode</td>
-      <td>`4itTvG+HEnTzpiqzejyu1yFPwU1nYhWpaiQvz62hyB8=`</td>
-    </tr>
- </tbody>
-</table>
-
-
-[**GWH__SW here is another. If you don't like either of these, let's discuss in our  meeting my Tues your Wed. Note: I could add space between the steps and values, but don't have a way to align them, AFAIK, with our current CSS.But, the above example has the values in separate rows, and the below example combines them. I felt that separate rows were too spread out; but if you feel that combining them is too squashed or otherwise less readable, we can have separate rows of course.**]
-
-
-<table>
+ <table>
   <thead>
     <tr>
       <th>Original Value</th>
@@ -161,75 +98,27 @@ In working with your own UID2s, always provide the final value, the Base64-encod
       <td>1. Normalize: `myemail@example.com`<br/>2. Hash: `16c18d336f0b250f0e2d907452ceb9658a74ecdae8bc94864c23122a72cc27a5`<br/>3. Base64-Encode: `FsGNM28LJQ8OLZB0Us65ZYp07NrovJSGTCMSKnLMJ6U=`</td>
     </tr>
     <tr>
-      <td>`MyEmail@example.com`<br/>`MYEMAIL@example.com`</td>
-      <td>1. Normalize: `myemail@example.com`<br/>2. Hash: `16c18d336f0b250f0e2d907452ceb9658a74ecdae8bc94864c23122a72cc27a5`<br/>3. Base64-Encode: `FsGNM28LJQ8OLZB0Us65ZYp07NrovJSGTCMSKnLMJ6U=`</td>
-    </tr>
-    <tr>
       <td>`My.Email@example.com`</td>
       <td>1. Normalize: `my.email@example.com`<br/>2. Hash: `e22b53bc6f871274f3a62ab37a3caed7214fc14d676215a96a242fcfada1c81f`<br/>3. Base64-Encode: `4itTvG+HEnTzpiqzejyu1yFPwU1nYhWpaiQvz62hyB8=`</td>
     </tr>
- </tbody>
-</table>
-
-
-[**GWH__SW here is the table I checked in, for comparison**]
-
-
-<table>
-  <thead>
-    <tr>
-      <th>Original Value</th>
-      <th>Processing Steps</th>
-      <th>Resulting Values</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>`MyEmail@example.com`<br/>`MYEMAIL@example.com`</td>
-      <td>1. Normalize<br/>2. Hash<br/>3. Base64-Encode</td>
-      <td>`myemail@example.com`<br/>`16c18d336f0b250f0e2d907452ceb9658a74ecdae8bc94864c23122a72cc27a5`<br/>`FsGNM28LJQ8OLZB0Us65ZYp07NrovJSGTCMSKnLMJ6U=`</td>
-    </tr>
-    <tr>
-      <td>`MyEmail@example.com`<br/>`MYEMAIL@example.com`</td>
-      <td>1. Normalize<br/>2. Hash<br/>3. Base64-Encode</td>
-      <td>`myemail@example.com`<br/>`16c18d336f0b250f0e2d907452ceb9658a74ecdae8bc94864c23122a72cc27a5`<br/>`FsGNM28LJQ8OLZB0Us65ZYp07NrovJSGTCMSKnLMJ6U=`</td>
-    </tr>
-    <tr>
-      <td>`My.Email@example.com`</td>
-      <td>1. Normalize<br/>2. Hash<br/>3. Base64-Encode</td>
-      <td>`my.email@example.com`<br/>`e22b53bc6f871274f3a62ab37a3caed7214fc14d676215a96a242fcfada1c81f`<br/>`4itTvG+HEnTzpiqzejyu1yFPwU1nYhWpaiQvz62hyB8=`</td>
-    </tr>
     <tr>
       <td>`JANESAOIRSE@example.com`<br/>`JaneSaoirse@example.com`</td>
-      <td>1. Normalize<br/>2. Hash<br/>3. Base64-Encode</td>
-      <td>`janesaoirse@example.com`<br/>`d6670e7a92007f1b5ff785f1fc81e53aa6d3d7bd06bdf5c473cdc7286c284b6d`<br/>`1mcOepIAfxtf94Xx/IHlOqbT170GvfXEc83HKGwoS20=`</td>
+      <td>1. Normalize: `janesaoirse@example.com`<br/>2. Hash: `d6670e7a92007f1b5ff785f1fc81e53aa6d3d7bd06bdf5c473cdc7286c284b6d`<br/>3. Base64-Encode: `1mcOepIAfxtf94Xx/IHlOqbT170GvfXEc83HKGwoS20=`</td>
     </tr>
     <tr>
       <td>`jane.saoirse@example.com`<br/>`Jane.Saoirse@example.com`</td>
-      <td>1. Normalize<br/>2. Hash<br/>3. Base64-Encode</td>
-      <td>`jane.saoirse@example.com`<br/>`b196432c7b989a2ca91c83799957c515da53e6c13abf20b78fea94f117e90bf8`<br/>`sZZDLHuYmiypHIN5mVfFFdpT5sE6vyC3j+qU8RfpC/g=`</td>
+      <td>1. Normalize: `jane.saoirse@example.com`<br/>2. Hash: `b196432c7b989a2ca91c83799957c515da53e6c13abf20b78fea94f117e90bf8`<br/>3. Base64-Encode: `sZZDLHuYmiypHIN5mVfFFdpT5sE6vyC3j+qU8RfpC/g=`</td>
     </tr>
     <tr>
       <td>`JaneSaoirse+Work@example.com`</td>
-      <td>1. Normalize<br/>2. Hash<br/>3. Base64-Encode</td>
-      <td>`janesaoirse+work@example.com`<br/>`28aaee4815230cd3b4ebd88c515226550666e91ac019929e3adac3f66c288180`<br/>`KKruSBUjDNO069iMUVImVQZm6RrAGZKeOtrD9mwogYA=`</td>
+      <td>1. Normalize: `janesaoirse+work@example.com`<br/>2. Hash: `28aaee4815230cd3b4ebd88c515226550666e91ac019929e3adac3f66c288180`<br/>3. Base64-Encode: `KKruSBUjDNO069iMUVImVQZm6RrAGZKeOtrD9mwogYA=`</td>
     </tr>
     <tr>
       <td>`JANE.SAOIRSE@gmail.com`<br/>`Jane.Saoirse@gmail.com`<br/>`JaneSaoirse+Work@gmail.com`</td>
-      <td>1. Normalize<br/>2. Hash<br/>3. Base64-Encode</td>
-      <td>`janesaoirse@gmail.com`<br/>`92ee26057ed9dea2535d6c8b141d48373932476599196e00352254896db5888f`<br/>`ku4mBX7Z3qJTXWyLFB1INzkyR2WZGW4ANSJUiW21iI8=`</td>
+      <td>1. Normalize: `janesaoirse@gmail.com`<br/>2. Hash: `92ee26057ed9dea2535d6c8b141d48373932476599196e00352254896db5888f`<br/>3. Base64-Encode: `ku4mBX7Z3qJTXWyLFB1INzkyR2WZGW4ANSJUiW21iI8=`</td>
     </tr>
  </tbody>
 </table>
-
-<!-- | Original Value | Normalized | Hashed and Base64-Encoded |
-| :--- | :--- | :--- |
-| `MyEmail@example.com`<br/>`MYEMAIL@example.com` | `myemail@example.com` | Hashed: `16c18d336f0b250f0e2d907452ceb9658a74ecdae8bc94864c23122a72cc27a5`<br/>Base64-Encoded: `FsGNM28LJQ8OLZB0Us65ZYp07NrovJSGTCMSKnLMJ6U=` |
-| `My.Email@example.com` | `my.email@example.com` | Hashed: `e22b53bc6f871274f3a62ab37a3caed7214fc14d676215a96a242fcfada1c81f`<br/>Base64-Encoded: `4itTvG+HEnTzpiqzejyu1yFPwU1nYhWpaiQvz62hyB8=` |
-| `JANESAOIRSE@example.com`<br/>`JaneSaoirse@example.com` | `janesaoirse@example.com` | Hashed: `d6670e7a92007f1b5ff785f1fc81e53aa6d3d7bd06bdf5c473cdc7286c284b6d`<br/>Base64-Encoded: `1mcOepIAfxtf94Xx/IHlOqbT170GvfXEc83HKGwoS20=` |
-| `jane.saoirse@example.com`<br/>`Jane.Saoirse@example.com` | `jane.saoirse@example.com` | Hashed: `	b196432c7b989a2ca91c83799957c515da53e6c13abf20b78fea94f117e90bf8`<br/>Base64-Encoded: `sZZDLHuYmiypHIN5mVfFFdpT5sE6vyC3j+qU8RfpC/g=` |
-| `JaneSaoirse+Work@example.com` | `janesaoirse+work@example.com` | Hashed: `28aaee4815230cd3b4ebd88c515226550666e91ac019929e3adac3f66c288180`<br/>Base64-Encoded: `KKruSBUjDNO069iMUVImVQZm6RrAGZKeOtrD9mwogYA=` |
-| `JANE.SAOIRSE@gmail.com`<br/>`Jane.Saoirse@gmail.com`<br/>`JaneSaoirse+Work@gmail.com` | `janesaoirse@gmail.com` | Hashed: `92ee26057ed9dea2535d6c8b141d48373932476599196e00352254896db5888f`<br/>Base64-Encoded: `ku4mBX7Z3qJTXWyLFB1INzkyR2WZGW4ANSJUiW21iI8=` | -->
 
 ## Phone Number Normalization
 
