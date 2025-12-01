@@ -101,7 +101,7 @@ The following documentation resources are available for advertisers and data pro
 | Integration Guide | Content Description |
 | :--- | :--- |
 | [Advertiser/Data Provider Overview](integration-advertiser-dataprovider-overview.md) | This guide provides an overview of integration options for organizations that collect user data and push it to other UID2 participants. |
-| [Snowflake Integration Guide](integration-snowflake.md) | Instructions for generating UID2s from emails within Snowflake. |
+| [Snowflake Integration Guide](integration-snowflake.md) | Instructions for generating UID2s from emails or phone numbers within Snowflake. |
 | [Databricks Clean Rooms Integration Guide](integration-databricks.md) | Instructions for generating UID2s from emails or phone numbers in a Databricks Clean Rooms environment. |
 | [AWS Entity Resolution Integration Guide](integration-aws-entity-resolution.md) | Instructions for integrating with the UID2 framework using AWS Entity Resolution. |
 | [Advertiser/Data Provider Integration to HTTP Endpoints](integration-advertiser-dataprovider-endpoints.md) | This guide covers integration steps for advertisers and data providers to integrate with UID2 by writing code to call UID2 HTTP endpoints, rather than using another implementation option such as an SDK, Snowflake, or AWS Entity Resolution. |
