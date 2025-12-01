@@ -173,7 +173,7 @@ When your access is ready, your UID2 contact notifies you.
 This section includes the following reference information:
 
 - [UID2 Sharing Identifiers](#uid2-sharing-identifiers)
-- [Finding the Sharing Identifier for Your UID2 Contact](#finding-the-sharing-identifier-for-your-uid2-contact)
+- [Finding a Sharing Identifier](#finding-a-sharing-identifier)
 
 ### UID2 Sharing Identifiers
 
