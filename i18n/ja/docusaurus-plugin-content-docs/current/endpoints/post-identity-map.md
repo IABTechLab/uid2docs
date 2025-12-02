@@ -290,11 +290,13 @@ remap_identities(to_remap)
 ```
 
 ### Additional Resources
-- [SDK for Java](../sdks/sdk-ref-java.md) Java 実装 (Advertisers/Data Providers section を参照)
 
-<!-- For SDK-specific migration guidance, see:
-- [SDK for Python](../sdks/sdk-ref-python.md) for Python implementations -->
+Identity mapping の一般的な情報については、[Advertiser/Data Provider Integration Overview](../guides/integration-advertiser-dataprovider-overview.md) を参照してください。
+
+特定の SDK の移行ガイダンスについては、以下を参照してください:
+- SDK for Python Reference Guide, [Usage for Advertisers/Data Providers](../sdks/sdk-ref-python.md#usage-for-advertisersdata-providers) section
+- SDK for Java Reference Guide, [Usage for Advertisers/Data Providers](../sdks/sdk-ref-java.md#usage-for-advertisersdata-providers) section
+
+Snowflake に関する情報は、[Snowflake Integration Guide](../guides/integration-snowflake.md) を参照してください。
 
 <!-- GWH 7/7 Commenting out the above until the SDK docs are available. -->
-
-ID マッピングの一般的な情報は、[Advertiser/Data Provider Integration Overview](../guides/integration-advertiser-dataprovider-overview.md) を参照してください。
