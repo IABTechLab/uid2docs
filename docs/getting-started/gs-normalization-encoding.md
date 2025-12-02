@@ -58,16 +58,20 @@ For examples of various scenarios, see [Normalization Examples for Email](#norma
 
 An email hash is a Base64-encoded <Link href="../ref-info/glossary-uid#gl-sha-256">SHA-256</Link> hash of a normalized email address. The email address is first normalized, then hashed using the SHA-256 hashing algorithm, and then the resulting bytes of the hash value are encoded using Base64 encoding. Note that the Base64 encoding is applied to the bytes of the hash value, not the hex-encoded string representation.
 
+The following table shows an example of a simple input email address, and the result as each step is applied to arrive at a secure, opaque value.
+
+The final value, the hex to Base64 encoded representation of the SHA-256 hash, is the value to provide to the UID2 Operator endpoint.
+
+:::warning
+When applying Base64 encoding, be sure to Base64-encode the raw bytes of the hash or use a Base64 encoder that takes a hex-encoded value as input. If you use a function that takes text as input, the result is a longer string which is invalid for the purposes of UID2.
+:::
+
 | Type | Example | Comments and Usage |
 | :--- | :--- | :--- |
 | Raw email address | `USER@example.com` | N/A |
 | Normalized email address | `user@example.com` | Normalization is always the first step. |
 | SHA-256 hash of normalized email address | `b4c9a289323b21a01c3e940f150eb9b8c542587f1abfd8f0e1cc1ffc5e475514` | This 64-character string is a hex-encoded representation of the 32-byte SHA-256. |
 | Hex to Base64 encoding of SHA-256 hash | `tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ=` | This 44-character string is a Base64-encoded representation of the 32-byte SHA-256.<br/>WARNING: The SHA-256 hash string in the example above is a hex-encoded representation of the hash value. You must Base64-encode the raw bytes of the hash or use a Base64 encoder that takes a hex-encoded value as input.<br/>Use this encoding for `email_hash` values sent in the request body. |
-
-:::important
-When applying Base64 encoding, be sure to Base64-encode the raw bytes of the hash or use a Base64 encoder that takes a hex-encoded value as input.
-:::
 
 For additional examples, see [Normalization Examples for Email](#normalization-examples-for-email).
 
@@ -77,14 +81,44 @@ The following table shows examples of original email addresses and the normalize
 
 Some of the examples show email addresses that include the plus sign (+), with different domains. For `gmail` addresses, the plus sign and following characters, up to the `@` sign, are ignored in normalization. For other domains, these characters are included in the normalized value.
 
-| Original Value | Normalized | Hashed and Base64-Encoded |
-| :--- | :--- | :--- |
-| `MyEmail@example.com`<br/>`MYEMAIL@example.com` | `myemail@example.com` | Hashed: `16c18d336f0b250f0e2d907452ceb9658a74ecdae8bc94864c23122a72cc27a5`<br/>Base64-Encoded: `FsGNM28LJQ8OLZB0Us65ZYp07NrovJSGTCMSKnLMJ6U=` |
-| `My.Email@example.com` | `my.email@example.com` | Hashed: `e22b53bc6f871274f3a62ab37a3caed7214fc14d676215a96a242fcfada1c81f`<br/>Base64-Encoded: `4itTvG+HEnTzpiqzejyu1yFPwU1nYhWpaiQvz62hyB8=` |
-| `JANESAOIRSE@example.com`<br/>`JaneSaoirse@example.com` | `janesaoirse@example.com` | Hashed: `d6670e7a92007f1b5ff785f1fc81e53aa6d3d7bd06bdf5c473cdc7286c284b6d`<br/>Base64-Encoded: `1mcOepIAfxtf94Xx/IHlOqbT170GvfXEc83HKGwoS20=` |
-| `jane.saoirse@example.com`<br/>`Jane.Saoirse@example.com` | `jane.saoirse@example.com` | Hashed: `	b196432c7b989a2ca91c83799957c515da53e6c13abf20b78fea94f117e90bf8`<br/>Base64-Encoded: `sZZDLHuYmiypHIN5mVfFFdpT5sE6vyC3j+qU8RfpC/g=` |
-| `JaneSaoirse+Work@example.com` | `janesaoirse+work@example.com` | Hashed: `28aaee4815230cd3b4ebd88c515226550666e91ac019929e3adac3f66c288180`<br/>Base64-Encoded: `KKruSBUjDNO069iMUVImVQZm6RrAGZKeOtrD9mwogYA=` |
-| `JANE.SAOIRSE@gmail.com`<br/>`Jane.Saoirse@gmail.com`<br/>`JaneSaoirse+Work@gmail.com` | `janesaoirse@gmail.com` | Hashed: `92ee26057ed9dea2535d6c8b141d48373932476599196e00352254896db5888f`<br/>Base64-Encoded: `ku4mBX7Z3qJTXWyLFB1INzkyR2WZGW4ANSJUiW21iI8=` |
+:::important
+In working with your own UID2s, always provide the final value, the Base64-encoded value, to the UID2 Operator endpoint.
+:::
+
+<table>
+  <thead>
+    <tr>
+      <th>Original Value</th>
+      <th>Processing Steps and Resulting Values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>`MyEmail@example.com`<br/>`MYEMAIL@example.com`</td>
+      <td>1. Normalize: `myemail@example.com`<br/>2. Hash: `16c18d336f0b250f0e2d907452ceb9658a74ecdae8bc94864c23122a72cc27a5`<br/>3. Base64-Encode: `FsGNM28LJQ8OLZB0Us65ZYp07NrovJSGTCMSKnLMJ6U=`</td>
+    </tr>
+    <tr>
+      <td>`My.Email@example.com`</td>
+      <td>1. Normalize: `my.email@example.com`<br/>2. Hash: `e22b53bc6f871274f3a62ab37a3caed7214fc14d676215a96a242fcfada1c81f`<br/>3. Base64-Encode: `4itTvG+HEnTzpiqzejyu1yFPwU1nYhWpaiQvz62hyB8=`</td>
+    </tr>
+    <tr>
+      <td>`JANESAOIRSE@example.com`<br/>`JaneSaoirse@example.com`</td>
+      <td>1. Normalize: `janesaoirse@example.com`<br/>2. Hash: `d6670e7a92007f1b5ff785f1fc81e53aa6d3d7bd06bdf5c473cdc7286c284b6d`<br/>3. Base64-Encode: `1mcOepIAfxtf94Xx/IHlOqbT170GvfXEc83HKGwoS20=`</td>
+    </tr>
+    <tr>
+      <td>`jane.saoirse@example.com`<br/>`Jane.Saoirse@example.com`</td>
+      <td>1. Normalize: `jane.saoirse@example.com`<br/>2. Hash: `b196432c7b989a2ca91c83799957c515da53e6c13abf20b78fea94f117e90bf8`<br/>3. Base64-Encode: `sZZDLHuYmiypHIN5mVfFFdpT5sE6vyC3j+qU8RfpC/g=`</td>
+    </tr>
+    <tr>
+      <td>`JaneSaoirse+Work@example.com`</td>
+      <td>1. Normalize: `janesaoirse+work@example.com`<br/>2. Hash: `28aaee4815230cd3b4ebd88c515226550666e91ac019929e3adac3f66c288180`<br/>3. Base64-Encode: `KKruSBUjDNO069iMUVImVQZm6RrAGZKeOtrD9mwogYA=`</td>
+    </tr>
+    <tr>
+      <td>`JANE.SAOIRSE@gmail.com`<br/>`Jane.Saoirse@gmail.com`<br/>`JaneSaoirse+Work@gmail.com`</td>
+      <td>1. Normalize: `janesaoirse@gmail.com`<br/>2. Hash: `92ee26057ed9dea2535d6c8b141d48373932476599196e00352254896db5888f`<br/>3. Base64-Encode: `ku4mBX7Z3qJTXWyLFB1INzkyR2WZGW4ANSJUiW21iI8=`</td>
+    </tr>
+ </tbody>
+</table>
 
 ## Phone Number Normalization
 
@@ -111,7 +145,13 @@ Make sure that the normalized phone number is UTF-8, not another encoding system
 
 A phone number hash is a Base64-encoded SHA-256 hash of a normalized phone number. The phone number is first normalized, then hashed using the SHA-256 hashing algorithm, and then the resulting bytes of the hash value are encoded using Base64 encoding. Note that the Base64 encoding is applied to the bytes of the hash value, not the hex-encoded string representation. 
 
-The following table shows an example of a simple input phone number, and the result as each step is applied to arrive at a secure, opaque, URL-safe value.
+The following table shows an example of a simple input phone number, and the result as each step is applied to arrive at a secure, opaque value.
+
+The final value, the hex to Base64 encoded representation of the SHA-256 hash, is the value to provide to the UID2 Operator endpoint.
+
+:::warning
+When applying Base64 encoding, be sure to use a function that takes a hex value as input. If you use a function that takes text as input, the result is a longer string which is invalid for the purposes of UID2.
+:::
 
 | Type | Example | Comments and Usage |
 | :--- | :--- | :--- |
@@ -119,10 +159,6 @@ The following table shows an example of a simple input phone number, and the res
 | Normalized phone number | `+12345678901` | Normalization is always the first step. |
 | SHA-256 hash of normalized phone number | `10e6f0b47054a83359477dcb35231db6de5c69fb1816e1a6b98e192de9e5b9ee` |This 64-character string is a hex-encoded representation of the 32-byte SHA-256. |
 | Hex to Base64 encoding of SHA-256 hash | `EObwtHBUqDNZR33LNSMdtt5cafsYFuGmuY4ZLenlue4=` | This 44-character string is a Base64-encoded representation of the 32-byte SHA-256.<br/>NOTE: The SHA-256 hash is a hexadecimal value. You must use a Base64 encoder that takes a hex value as input. Use this encoding for `phone_hash` values sent in the request body. |
-
-:::warning
-When applying Base64 encoding, be sure to use a function that takes a hex value as input. If you use a function that takes text as input, the result is a longer string which is invalid for the purposes of UID2.
-:::
 
 ## Example Code
 
@@ -151,3 +187,19 @@ The tool does the following:
 If the input data doesn't have a valid email or phone number format, or if the phone number is not normalized, the tool gives an error.
 
 You can use this tool to verify that your internal processes are set up to correctly create normalized, hashed, and encoded values for UID2.
+
+## Troubleshooting
+
+In all scenarios, follow the steps on your side to prepare your DII for processing, and then check your resulting values by using the [UID2 Hashing Tool](#uid2-hashing-tool). If the results don't match, check each step to find the error.
+
+If you're having trouble or getting errors, or even if you just want to be sure you're following the steps correctly, here are some things you can check:
+
+- **Phone numbers**: Make sure you're normalizing&#8212;and normalizing correctly&#8212;as the first step.
+
+  The service normalizes emails, but it can't normalize phone numbers. For example, it can't determine the value for a missing country code. Use these resources:
+  - Instructions:  [Phone Number Normalization](#phone-number-normalization).
+  - Tool for cross-checking: [UID2 Hashing Tool](#uid2-hashing-tool).
+
+- **Use the Base64-encoded value**: The process includes normalizing, then hashing, then Base64-encoding the bytes of the hash value. When generating UID2s, the input is the Base64-encoded value. Make sure you're using this 44-character string value.
+
+- You might see the following error message: "The hashing value must be 44 characters." In this scenario, there is an error with the hashing function you're using. Use the hex to Base64 encoding of the SHA-256 hash. For details, see [Email Address Hash Encoding](#email-address-hash-encoding) or [Phone Number Hash Encoding](#phone-number-hash-encoding). To cross-check, test using the [UID2 Hashing Tool](#uid2-hashing-tool).
