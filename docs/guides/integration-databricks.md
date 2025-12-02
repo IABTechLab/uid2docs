@@ -122,7 +122,7 @@ The input table or view must have the two columns shown in the following table. 
 
 The normalization requirements depend on the type of DII you're processing, as follows:
 
-- **Email address**: The notebook normalizes the data using the UID2 [Email Address Normalization](../getting-started/gs-normalization-encoding#email-address-normalization) rules.
+- **Email address**: The notebook automatically normalizes the data using the UID2 [Email Address Normalization](../getting-started/gs-normalization-encoding#email-address-normalization) rules.
 - **Phone number**: You must normalize the phone number before mapping it with the notebook, using the UID2 [Phone Number Normalization](../getting-started/gs-normalization-encoding#phone-number-normalization) rules.
 
 ### Output Table
