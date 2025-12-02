@@ -298,5 +298,3 @@ Identity mapping の一般的な情報については、[Advertiser/Data Provide
 - SDK for Java Reference Guide, [Usage for Advertisers/Data Providers](../sdks/sdk-ref-java.md#usage-for-advertisersdata-providers) section
 
 Snowflake に関する情報は、[Snowflake Integration Guide](../guides/integration-snowflake.md) を参照してください。
-
-<!-- GWH 7/7 Commenting out the above until the SDK docs are available. -->
