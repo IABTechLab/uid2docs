@@ -303,7 +303,7 @@ Microsoft Azure で UID2 Private Operator をホストする Virtual Private Clo
 
    HTTP 200 と `OK` という応答本文が表示された場合、正常な状態です。
 
-import AttestFailure from '../snippets/_snpt-private-operator-attest-failure.mdx';
+### Private Operator Attestation Failure
 
 <SnptAttestFailure />
 

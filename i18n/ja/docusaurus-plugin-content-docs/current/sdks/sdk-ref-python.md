@@ -57,7 +57,6 @@ version:
 
 ## Release Notes
 
-For detailed information about changes, bug fixes, and new features in each release, see the [release notes on GitHub](https://github.com/IABTechLab/uid2-client-python/releases).
 各リリースの変更点、バグ修正、新機能の詳細については、[release notes on GitHub](https://github.com/IABTechLab/uid2-client-python/releases) を参照してください。
 
 ## Installation
