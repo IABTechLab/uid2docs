@@ -119,7 +119,8 @@ const fullSidebar = [
               items: [
                 {
                   type: 'category',
-                  label: 'Prebid Web',
+                  label: 'Prebid',
+                  key: 'Prebid-Web-Only-Guides'
                   link: {
                     type: 'doc',
                     id: 'guides/integration-prebid',
@@ -168,7 +169,8 @@ const fullSidebar = [
 
           {
             type: 'category',
-            label: 'Prebid Mobile',
+            label: 'Prebid',
+            key: 'Prebid-Web-And-Mobile-Guides'
             link: {
               type: 'doc',
               id: 'guides/integration-prebid',
