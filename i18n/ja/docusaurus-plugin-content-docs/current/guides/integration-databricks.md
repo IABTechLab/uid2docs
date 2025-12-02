@@ -161,7 +161,6 @@ In the request, include your sharing identifier.
 
 While you're waiting to hear back, you can complete the following actions:
 - Create the clean room, using the UID2 sharing identifier for the integration environment.
-- Invite UID2.
 - Put your assets into the clean room.
 
 For details, see [Integration Steps](#integration-steps).
