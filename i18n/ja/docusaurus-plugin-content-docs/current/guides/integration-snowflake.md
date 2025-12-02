@@ -74,26 +74,43 @@ The following table shows the differences between the old and new identity mappi
 | パートナーとして、データをホストし、UID2 インテグレーションに参加するための Snowflake アカウントをセットアップします。UID2 Share を通じて関数とビューを消費します。 | UID2 インテグレーションは、Snowflake アカウントでホストされ、UID2 関連のタスクを実行するために必要なデータのみを引き出す認可された関数とビューへのアクセスを提供します。プライベートテーブルにはアクセスできません。UID2 Share は、UID2 関連のタスクを実行するために必要な基本的なデータのみを公開します。<br/>**Note**: <Link href="../ref-info/glossary-uid#gl-salt">Salt</Link> と暗号化キーはプライベートテーブルに保存されています。<Link href="../ref-info/glossary-uid#gl-dii">DII</Link> はどの時点でも保存されません。 | ETL (Extract Transform Load) ジョブは、UID2 Core/Optout Snowflake ストレージを常に更新し、UID2 Operator Web サービスを動かす内部データを提供します。Operator Web サービスで使用されるデータは、UID2 Share を通じても利用可能です。 |
 | 共有関数とビューを使用すると、トランザクションコンピューティングコストを Snowflake に支払います。 | これらのプライベートテーブルは、UID2 Snowflake アカウントで保護され、UID2 関連のタスクを完了するために使用される内部データを保持する UID2 Core/Optout Snowflake ストレージと自動的に同期します。 | |
 
-## Access the UID2 Share
-
-UID2 Share へのアクセスは、[Snowflake Data Marketplace](https://www.snowflake.com/data-marketplace/) の以下のリスティングを通じて利用可能です:
-
-- [Unified ID 2.0: Advertiser and Data Provider Identity Solution](https://app.snowflake.com/marketplace/listing/GZT0ZRYXTN8/unified-id-2-0-unified-id-2-0-advertiser-and-data-provider-identity-solution)
+## Summary of Integration Steps
 
 :::important
 データのリクエストを行うには、`ACCOUNTADMIN` ロールまたは Snowflake アカウントで `CREATE DATABASE` および `IMPORT SHARE` 権限を持つ他のロールを使用する必要があります。
 :::
 
-UID2 Share へのアクセスをリクエストするには、以下の手順を完了します:
+以下のリストは、本番環境での Snowflake における UID2 マッピングのインテグレーション手順をまとめたものです:
 
-1.  Snowflake Data Marketplace にログインし、UID2 リスティングを選択します:
-      - [Unified ID 2.0: Advertiser and Data Provider Identity Solution](https://app.snowflake.com/marketplace/listing/GZT0ZRYXTN8/unified-id-2-0-unified-id-2-0-advertiser-and-data-provider-identity-solution)
-2.	**Personalized Data** セクションで、**Request Data** をクリックします。
-3.	画面の指示に従って、連絡先の詳細やその他の必要な情報を確認して提供します。
-4.	The Trade Desk の既存のクライアントである場合は、データリクエストフォームの **Message** フィールドに The Trade Desk によって発行されたパートナーおよび広告主 ID を含めてください。
-5.	フォームを送信します。
+:::note
+本番環境を使用する前にインテグレーションを試してみたい場合は、[Testing in the Integ Environment](#testing-in-the-integ-environment)を参照してください。
+:::
 
-リクエストが受信されると、UID2 Administrator が適切なアクセス手順について連絡します。Snowflake でのデータリクエストの管理に関する詳細は、[Snowflake documentation](https://docs.snowflake.com/en/user-guide/data-marketplace-consumer.html)を参照してください。
+1. UID2 POC が UID2 担当者によって署名されていることを確認してください。担当者がわからない場合は、[Contact Info](../getting-started/gs-account-setup.md#contact-info)を参照してください。
+
+1. UID2 Share へのアクセスをリクエストします:
+
+   - [Snowflake Marketplace Listing](#snowflake-marketplace-listing) でアクセスをリクエストします。リクエストには、Snowflake アカウント番号とリージョンを含めてください。
+
+   - UID2 担当者にアクセスをリクエストしたことを伝えてください。
+
+1. UID2 担当者が、UID2 mapping share へのアクセスをあなたの Snowflake アカウントにプロビジョニングします。
+
+:::note
+初期のテストを行った場合（[Testing in the Integ Environment](#testing-in-the-integ-environment)を参照）、関数を本番の UID2 Share に更新し、関連するテーブル名も更新してください。
+:::
+
+## Testing in the Integ Environment
+
+UID2 POC に署名する前に mapping share をテストしたい場合は、UID2 担当者に integ (インテグレーション) 環境の Snowflake シェアへのアクセスをリクエストできます。この環境はテスト専用であり、本番データはありません。リクエストには、アカウント番号とリージョンを必ず含めてください。
+
+このシナリオでは、以下の手順が実行されます:
+
+1. UID2 担当者がSnowflakeプライベートマーケットプレイスにシェアリスティングをプロビジョニングし、このステップが完了したら知らせます。
+
+2. その後、プライベートマーケットプレイスのリスティングを表示し、integ シェアへのアクセスをリクエストできます。
+
+3. アクセスをリクエストすると、UID2 担当者が integ シェアをあなたのアカウントにプロビジョニングします。
 
 ## Shared Objects
 

@@ -14,7 +14,7 @@ import Link from '@docusaurus/Link';
 この記事では、パブリッシャーがビッドストリームで送信する UID2 Token の作成方法について説明します。広告主がコンバージョンピクセルのために UID2 Token を作成する場合も同じプロセスが適用されます。UID2 Token を他の共有参加者に送信する前に、raw UID2 が UID2 Token に暗号化される <Link href="../ref-info/glossary-uid#gl-tokenized-sharing">Tokenized Sharing</Link>には適用されません。
 :::
 
-パブリッシャーがユーザーの <Link href="../ref-info/glossary-uid#gl-dii">DII</Link>（ハッシュ化されたまたはハッシュ化されていないメールアドレスまたは電話番号）を UID2 <Link href="../ref-info/glossary-uid#gl-operator">Operator</Link> に送信し、ターゲティング広告に使用するための UID2 Token を受け取ると、その過程で特定の処理手順が実行されます。
+パブリッシャーがユーザーの <Link href="../ref-info/glossary-uid#gl-dii">DII</Link>（ハッシュ化されたまたはハッシュされていないメールアドレスまたは電話番号）を UID2 <Link href="../ref-info/glossary-uid#gl-operator">Operator</Link> に送信し、ターゲティング広告に使用するための UID2 Token を受け取ると、その過程で特定の処理手順が実行されます。
 
 パブリッシャーによってはいくつかの事前作業が行われますが、ほとんどの処理ステップは UID2 Operator によって行われます。
 

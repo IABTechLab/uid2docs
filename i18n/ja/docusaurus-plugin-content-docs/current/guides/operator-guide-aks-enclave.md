@@ -11,6 +11,7 @@ displayed_sidebar: docs
 import Link from '@docusaurus/Link';
 import SnptUpgradePolicy from '../snippets/_snpt-private-operator-upgrade-policy.mdx';
 import SnptAttestFailure from '../snippets/_snpt-private-operator-attest-failure.mdx';
+import SnptRotatingTheKeys from '../snippets/_snpt-private-operator-rotating-the-keys.mdx';
 
 # UID2 Private Operator for AKS Integration Guide
 
@@ -472,3 +473,7 @@ ASK 用の UID2 Private Operator の新しいバージョンがリリースさ�
    ```
    kubectl get pods
    ```
+
+## Keeping the Operator Key Secure
+
+<SnptRotatingTheKeys />

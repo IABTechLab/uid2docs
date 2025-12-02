@@ -307,7 +307,7 @@ UID2 は、以下の値を提供します。これらは、UID2 Token を Client
 
 これらの値は、アカウントセットアップ時に受け取ります。インテグレーション環境用の 1 つのセットと、本番環境用の別のセットがあります。
 
-SDK を構成するには、アカウントセットアップ時に受け取った Subscription ID と public key、およびユーザーのハッシュ化またはハッシュ化されていない直接識別情報 (<Link href="../ref-info/glossary-uid#gl-dii">DII</Link>) (メールアドレスまたは電話番号) を次のメソッドコールに渡す必要があります:
+SDK を構成するには、アカウントセットアップ時に受け取った Subscription ID と public key、およびユーザーのハッシュ化またはハッシュされていない直接識別情報 (<Link href="../ref-info/glossary-uid#gl-dii">DII</Link>) (メールアドレスまたは電話番号) を次のメソッドコールに渡す必要があります:
 
 <Tabs groupId="language-selection">
 <TabItem value='android' label='Android'>
@@ -343,7 +343,7 @@ UID2Manager.shared.generateIdentity(
 - アプリが開いている間、必要に応じてトークンを自動的にリフレッシュします。
 
 :::tip
-ユーザーの <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> を UID2 mobile SDK に渡す際、ハッシュ化またはハッシュ化されていない DII を渡すことができます。DII をハッシュ化されていない状態で渡す場合、SDK がハッシュ化します。ハッシュ化された DII を SDK に渡す場合、ハッシュ化する前に正規化する必要があります。詳細は [Normalization and Encoding](../getting-started/gs-normalization-encoding.md) を参照してください。
+ユーザーの <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> を UID2 mobile SDK に渡す際、ハッシュ化またはハッシュされていない DII を渡すことができます。DII をハッシュされていない状態で渡す場合、SDK がハッシュ化します。ハッシュ化された DII を SDK に渡す場合、ハッシュ化する前に正規化する必要があります。詳細は [Normalization and Encoding](../getting-started/gs-normalization-encoding.md) を参照してください。
 :::
 
 ### Format Examples for DII

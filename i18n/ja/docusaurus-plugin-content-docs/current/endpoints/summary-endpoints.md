@@ -12,6 +12,18 @@ import Link from '@docusaurus/Link';
 
 すべての UID2 エンドポイントでは、API リクエストの暗号化([POST&nbsp;/token/refresh](post-token-refresh.md) を除く) とレスポンスの復号化にクライアントシークレットが必要です。詳細といくつかのプログラミング言語でのコードの例は、[リクエストの暗号化とレスポンスの復号化](../getting-started/gs-encryption-decryption.md) を参照してください。
 
+## UID2 Endpoints by Audience
+
+以下の表は、UID2 エンドポイントと各エンドポイントの対象ユーザーを示しています。詳細については、該当するセクションをクリックしてください。
+
+| Endpoint | Audience | Details |
+| :--- | :--- | :--- |
+| [POST&nbsp;/token/generate](post-token-generate.md) | パブリッシャー | [UID2 Tokens](#uid2-tokens) |
+| [POST&nbsp;/token/validate](post-token-validate.md) | パブリッシャー | [UID2 Tokens](#uid2-tokens) |
+| [POST&nbsp;/token/refresh](post-token-refresh.md) | パブリッシャー | [UID2 Tokens](#uid2-tokens) |
+| [POST&nbsp;/identity/map](post-identity-map.md) | 広告主、データプロバイダー | [Identity Map](#identity-map) |
+| [POST&nbsp;/optout/status](post-optout-status.md)  | 広告主、データプロバイダー、DSP、共有者 | [Opt-Out Status](#opt-out-status)|
+
 ## UID2 Tokens
 
 以下のエンドポイントは、UID2 Token (identity tokens, advertising tokens) を取得および管理するためのもので、主にパブリッシャーが使用します。

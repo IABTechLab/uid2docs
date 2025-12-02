@@ -33,6 +33,7 @@ Notes:
 - すべての UID2 エンドポイントは同じベース URL を使用します。
 - インテグレーション環境と本番環境では、異なる <Link href="../ref-info/glossary-uid#gl-api-key">API Key</Link> が必要です。各環境用の認証情報の取得方法は、[Getting Your Credentials](../getting-started/gs-credentials.md#getting-your-credentials) を参照してください。
 - [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) エンドポイントまたは [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) エンドポイントで返される <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 Token</Link> の有効期限は変更される可能性がありますが、常にインテグレーション環境では本番環境よりもはるかに短くなります。
+- インテグレーション環境と本番環境では異なる UID2 値が生成されます。相互に使用することはできません。インテグレーション環境はテスト専用に使用してください。本番稼働の準備ができたら、ビッドストリームで使用する UID2 を生成してください。
 
 ## Getting Credentials for Each Environment
 

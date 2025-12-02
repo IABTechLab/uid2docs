@@ -16,17 +16,110 @@ SDK の機能を確認して使用する SDK を決定し、SDK の表をクリ�
 
 ## SDK Functionality
 
-次の表は、各 SDK で利用可能な機能をまとめたものです。
+以下の表は、各 SDK で利用可能な機能をまとめたものです。
 
-| UID2 SDK for... | Client-Side or Server-Side | Encrypt Raw UID2 to UID2 Token for Sharing | Decrypt UID2 Token to Raw UID2 | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to Raw UID2s&ast; | Monitor Rotated Salt Buckets |
+<!-- | UID2 SDK for... | Client-Side or Server-Side | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to Raw UID2s&ast; | Monitor Rotated Salt Buckets&ast;&ast; | Encrypt Raw UID2 to UID2 Token for Sharing | Decrypt UID2 Token to Raw UID2 |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-|JavaScript | Client | &#8212; | &#8212; | &#9989; | &#9989; | &#8212; | &#8212; |
-|Java | Server | &#9989; | &#9989; | &#9989; | &#9989; | &#9989; | &#8212; |
+|JavaScript | Client | &#9989; | &#9989; | &#8212; | &#8212; | &#8212; | &#8212; |
+|Java | Server | &#9989; | &#9989; | &#9989; | &#8212; | &#9989; | &#9989; |
 |Python | Server | &#9989; | &#9989; | &#9989; | &#9989; | &#9989; | &#9989; |
-|C# / .NET | Server | &#9989; | &#9989; | &#8212; | &#8212; | &#8212; | &#8212; |
-|C++ | Server | &#9989; | &#9989; | &#8212; | &#8212; | &#8212; | &#8212; |
-|Android | Client&nbsp;(Mobile) | &#8212; | &#8212; | &#9989; | &#9989; | &#8212; | &#8212; |
-|iOS | Client (Mobile) | &#8212; | &#8212; | &#9989;| &#9989; |&#8212; | &#8212; |
+|C# / .NET | Server | &#8212; | &#8212; | &#8212; | &#8212; | &#9989; | &#9989; |
+|C++ | Server | &#8212; | &#8212; | &#8212; | &#8212; | &#9989; | &#9989; |
+|Android | Client&nbsp;(Mobile) | &#9989; | &#9989; | &#8212; | &#8212; | &#8212; | &#8212; |
+|iOS | Client (Mobile) | &#9989;| &#9989; |&#8212; | &#8212; | &#8212; | &#8212; | -->
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="2">Audience&nbsp;&nbsp;&gt;&nbsp;&gt;&nbsp;&gt;</th>
+      <th colspan="2">パブリッシャー</th>
+      <th colspan="2">広告主 / データプロバイダー</th>
+      <th colspan="2">DSP</th>
+    </tr>
+    <tr>
+      <th> SDK for...</th>
+      <th>Client-Side or Server-Side</th>
+      <th>Generate UID2 Token from DII</th>
+      <th>Refresh UID2 Token</th>
+      <th>Map DII to Raw UID2s&ast;</th>
+      <th>Monitor Rotated Salt Buckets&ast;&ast;</th>
+      <th>Encrypt Raw UID2 to UID2 Token for Sharing</th>
+      <th>Decrypt UID2 Token to Raw UID2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>JavaScript</td>
+      <td>Client</td>
+      <td>&#9989;</td>
+      <td>&#9989;</td>
+      <td>&#8212;</td>
+      <td>&#8212;</td>
+      <td>&#8212;</td>
+      <td>&#8212;</td>
+    </tr>
+    <tr>
+      <td>Java</td>
+      <td>Server</td>
+      <td>&#9989;</td>
+      <td>&#9989;</td>
+      <td>&#9989;</td>
+      <td>&#8212;</td>
+      <td>&#9989;</td>
+      <td>&#9989;</td>
+    </tr>
+    <tr>
+      <td>Python</td>
+      <td>Server</td>
+      <td>&#9989;</td>
+      <td>&#9989;</td>
+      <td>&#9989;</td>
+      <td>&#9989;</td>
+      <td>&#9989;</td>
+      <td>&#9989;</td>
+    </tr>
+    <tr>
+      <td>C# / .NET</td>
+      <td>Server</td>
+      <td>&#8212;</td>
+      <td>&#8212;</td>
+      <td>&#8212;</td>
+      <td>&#8212;</td>
+      <td>&#9989;</td>
+      <td>&#9989;</td>
+    </tr>
+    <tr>
+      <td>C++</td>
+      <td>Server</td>
+      <td>&#8212;</td>
+      <td>&#8212;</td>
+      <td>&#8212;</td>
+      <td>&#8212;</td>
+      <td>&#9989;</td>
+      <td>&#9989;</td>
+    </tr>
+    <tr>
+      <td>Android</td>
+      <td>Client&nbsp;(Mobile)</td>
+      <td>&#9989;</td>
+      <td>&#9989;</td>
+      <td>&#8212;</td>
+      <td>&#8212;</td>
+      <td>&#8212;</td>
+      <td>&#8212;</td>
+    </tr>
+    <tr>
+      <td>iOS</td>
+      <td>Client&nbsp;(Mobile)</td>
+      <td>&#9989;</td>
+      <td>&#9989;</td>
+      <td>&#8212;</td>
+      <td>&#8212;</td>
+      <td>&#8212;</td>
+      <td>&#8212;</td>
+    </tr>
+  </tbody>
+</table>
 
 &ast;DII から raw UID2 を生成する必要がある広告主およびデータプロバイダは Snowflake ([Snowflake Integration Guide](../guides/integration-snowflake.md) を参照) または [POST&nbsp;/identity/map (v2)](../endpoints/post-identity-map-v2.md) エンドポイントを使用することができます。
 

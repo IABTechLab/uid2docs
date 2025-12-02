@@ -72,7 +72,7 @@ When account setup is complete, you'll receive a client keypair consisting of tw
 
 ### Configure the UID2 Module
 
-UID2 module を設定するには、アカウント設定時に受け取った **Public Key** と **Subscription ID**、およびユーザーのハッシュ化された、またはハッシュ化されていないメールアドレスまたは電話番号を含むオブジェクトを使用して `pbjs.setConfig` を呼び出します。
+UID2 module を設定するには、アカウント設定時に受け取った **Public Key** と **Subscription ID**、およびユーザーのハッシュ化された、またはハッシュされていないメールアドレスまたは電話番号を含むオブジェクトを使用して `pbjs.setConfig` を呼び出します。
 
 いったん設定されると、UID2 module はユーザー用の UID2 Token を生成し、それをユーザーのブラウザに保存します。このモジュールは、あなたのサイトがユーザーのブラウザで開かれている限り、必要に応じてトークンを自動的にリフレッシュします。
 
