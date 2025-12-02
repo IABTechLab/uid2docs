@@ -29,7 +29,7 @@ UID2 のオプトアウト手順とユーザーがオプトアウトする方法
 
 - 最大リクエストサイズは 1MB です。
 - 大量のメールアドレス、電話番号、またはそれぞれのハッシュをマッピングする場合は、1 バッチあたり最大 5,000 アイテムの *順次* バッチで送信します。
-- <Link href="../ref-info/glossary-uid#gl-private-operator">プライベートオペレーター</Link>を使用していない限り、バッチを並行して送信しないでください。つまり、単一の HTTP 接続を使用し、ハッシュ化または非ハッシュ化された <Link href="../ref-info/glossary-uid#gl-dii">直接識別情報 (DII)</Link> 値のバッチを連続して送信し、複数の並行接続を作成しないでください。
+- <Link href="../ref-info/glossary-uid#gl-private-operator">プライベートオペレーター</Link>を使用していない限り、バッチを並行して送信しないでください。つまり、単一の HTTP 接続を使用し、ハッシュ化またはハッシュされていない <Link href="../ref-info/glossary-uid#gl-dii">直接識別情報 (DII)</Link> 値のバッチを連続して送信し、複数の並行接続を作成しないでください。
 - メールアドレス、電話番号、またはそれぞれのハッシュのマッピングを必ず保存してください。<br/>マッピングを保存しないと、数百万のメールアドレスや電話番号をマッピングする際に処理時間が大幅に増加する可能性があります。ただし、実際に更新が必要なマッピングのみを再計算すると、UID2 の約 1/365 が毎日更新されるため、総処理時間が短縮されます。詳細は、[Advertiser/Data Provider Integration Overview](../guides/integration-advertiser-dataprovider-overview.md) と [FAQs for Advertisers and Data Providers](../getting-started/gs-faqs.md#faqs-for-advertisers-and-data-providers) を参照してください。
 
 ## Request Format
