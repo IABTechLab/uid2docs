@@ -11,7 +11,7 @@ import Link from '@docusaurus/Link';
 
 # Advertiser/Data Provider Integration to HTTP Endpoints
 
-This guide covers integration steps for advertisers and data providers to integrate with UID2 by writing code to call UID2 HTTP endpoints, rather than using another implementation option such as an SDK, Snowflake, or AWS Entity Resolution.
+This guide covers integration steps for advertisers and data providers to integrate with UID2 by writing code to call UID2 HTTP endpoints, rather than using another implementation option such as an SDK, Snowflake, Databricks, or AWS Entity Resolution.
 
 :::tip
 For a summary of all integration options and steps for advertisers and data providers, see [Advertiser/Data Provider Integration Overview](integration-advertiser-dataprovider-overview.md).

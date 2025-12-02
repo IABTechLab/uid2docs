@@ -20,6 +20,24 @@ Check out the latest updates to our UID2 documentation resources.
 Use the Tags toolbar to view a subset of documentation updates.
 :::
 
+## Q4 2025
+
+The following documents were released in this quarter.
+
+<CustomTagsContainer tags="Guides">
+
+### Databricks Integration Guide
+
+November 25, 2025
+
+We've added an integration guide for the UID2 Databricks integration.
+
+For details, see [UID2 Databricks Clean Rooms Integration Guide](../guides/integration-databricks.md).
+
+<!-- APIDOCS-2552 -->
+
+</CustomTagsContainer>
+
 ## Q3 2025
 
 The following documents were released in this quarter.
@@ -37,13 +55,13 @@ We updated the following additional implementations and corresponding documentat
 - Python SDK: see [SDK for Python Reference Guide](../sdks/sdk-ref-python.md)
 - Snowflake: see [Snowflake Integration Guide](../guides/integration-snowflake.md)
 
-<!-- PIDOCS-3320 -->
+<!-- APIDOCS-3320 -->
 
 </CustomTagsContainer>
 
 <CustomTagsContainer tags="Endpoints, Guides, SDKs">
 
-### Identity Map v3
+### Identity Map v3 (Endpoint Doc)
 
 July 11, 2025
 
