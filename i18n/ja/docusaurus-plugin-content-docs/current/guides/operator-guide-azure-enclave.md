@@ -10,7 +10,8 @@ displayed_sidebar: docs
 
 import Link from '@docusaurus/Link';
 import SnptUpgradePolicy from '../snippets/_snpt-private-operator-upgrade-policy.mdx';
-import SnptRotatingTheKeys from '../snippets/_private-operator-rotating-the-keys.mdx';
+import SnptAttestFailure from '../snippets/_snpt-private-operator-attest-failure.mdx';
+import SnptRotatingTheKeys from '../snippets/_snpt-private-operator-rotating-the-keys.mdx';
 
 # UID2 Private Operator for Azure Integration Guide
 
