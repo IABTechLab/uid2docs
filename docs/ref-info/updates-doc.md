@@ -28,7 +28,7 @@ The following documents were released in this quarter.
 
 ### Databricks Integration Guide
 
-November 25, 2025
+December 2, 2025
 
 We've added an integration guide for the UID2 Databricks integration.
 
