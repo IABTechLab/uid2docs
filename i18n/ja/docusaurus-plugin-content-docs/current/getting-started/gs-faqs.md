@@ -82,6 +82,7 @@ UID2 フレームワークを使用するパブリッシャーからのよくあ
 - [UID2 Token の一意性とローテーションポリシーは何ですか？](#what-is-the-uniqueness-and-rotation-policy-for-uid2-tokens)
 - [UID2 Token は、ビッドストリームではどのように見えますか？](#what-does-a-uid2-token-look-like-in-the-bidstream)
 - [UID2 をシングルサインオン (SSO) とインテグレーションすることはできますか？](#can-i-integrate-uid2-with-single-sign-on-sso)
+- [Prebid をモバイル SDK と一緒に使用しています&#8212;atype 値は何を使用すればよいですか？](#im-using-prebid-with-a-mobile-sdkwhat-atype-value-should-i-use)
 
 #### How can I test that the DII sent and the returned token match up?
 送信した DII と返されたトークンが一致していることをテストするにはどうすればよいですか？
@@ -175,6 +176,17 @@ UID2 をシングルサインオン (SSO) とインテグレーションする�
 
 はい。Google、Facebook ログイン、Apple ログイン、または OpenPass などの人気のある SSO インテグレーションオプションを使用すると、メールアドレスを取得して UID2 を生成できます。
 詳細は、[Publisher Integration with SSO Providers](../ref-info/ref-integration-sso-providers.md) を参照してください。
+
+#### I'm using Prebid with a Mobile SDK&#8212;what atype value should I use?
+Prebid をモバイル SDK と一緒に使用しています&#8212;atype 値は何を使用すればよいですか？
+
+IAB のドキュメントによると、`atype` (エージェントタイプ) 値は、マッチがどのタイプのユーザーエージェントからのものであるかを示します。IAB はこのプロパティを定義することを推奨しています。
+
+Prebid を [SDK for Android](../sdks/sdk-ref-android.md) または [SDK for iOS](../sdks/sdk-ref-ios.md) と一緒に使用している場合、`atype` 値として `3` を使用します。これは、個人ベースの ID を示します。
+
+詳細は、以下の IAB ドキュメントのセクションを参照してください:
+- [Object: Extended Identifier UIDs](https://github.com/InteractiveAdvertisingBureau/AdCOM/blob/main/AdCOM%20v1.0%20FINAL.md#object_eid_uids)
+- [List: Agent Types](https://github.com/InteractiveAdvertisingBureau/AdCOM/blob/main/AdCOM%20v1.0%20FINAL.md#list_agenttypes)
 
 ## FAQs for Advertisers and Data Providers
 
