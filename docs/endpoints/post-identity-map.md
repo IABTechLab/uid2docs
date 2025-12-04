@@ -179,7 +179,7 @@ For successfully mapped DII, the mapped object includes the properties shown in 
 | `r`      | number     | The Unix timestamp (in milliseconds) that indicates when the raw UID2 might be refreshed. The raw UID2 is guaranteed to be valid until this timestamp. |
 
 :::note
-It is guaranteed that the raw UID2 will not rotate before the refresh timestamp. After the refresh timestamp, when remapping the DII, a new refresh timestamp will be returned but the raw UID2 may not rotate.
+The raw UID2 is guaranteed not to rotate before the refresh timestamp. After the refresh timestamp, remapping the DII returns a new refresh timestamp, but the raw UID2 may remain unchanged across multiple refresh cycles. The raw UID2 will eventually rotate after approximately one year.
 :::
 
 For unsuccessfully mapped input values, the mapped object includes the properties shown in the following table.
