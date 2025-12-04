@@ -332,6 +332,10 @@ For the earlier version, see [Previous SDK Version (using POST /identity/map v2)
        .withHashedPhone("preHashedPhone");
    ```
 
+:::note
+The SDK automatically handles email normalization and hashing, ensuring that raw email addresses and phone numbers do not leave your server.
+:::
+
 3. Call a function that takes the `input` and generates an IdentityMapV3Response object:
    ```java
    IdentityMapV3Response identityMapResponse = identityMapV3Client.generateIdentityMap(input);
@@ -356,7 +360,9 @@ For the earlier version, see [Previous SDK Version (using POST /identity/map v2)
    }
    ```
 
->**Note:** The SDK automatically handles email normalization and hashing, ensuring that raw email addresses and phone numbers do not leave your server.
+:::note
+It is guaranteed that the raw UID2 will not rotate before the refresh timestamp. After the refresh timestamp, when remapping the DII, a new refresh timestamp will be returned but the raw UID2 may not rotate. This is by design to encourage more frequent checks of the opt-out status of the underlying DII. 
+:::
 
 ### Usage Example
 

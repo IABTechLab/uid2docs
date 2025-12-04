@@ -198,7 +198,7 @@ To determine whether to refresh a raw UID2:
 2. If the current time is greater than or equal to the refresh timestamp, regenerate the raw UID2 by calling the identity map endpoint again with the same <Link href="../ref-info/glossary-uid#gl-dii">DII</Link>.
 
 :::note
-We recommend checking for refresh opportunities daily. It is guaranteed that the raw UID2 won't refresh before the indicated timestamp. At some point on or after that time, the raw UID2 is refreshed.
+It is guaranteed that the raw UID2 will not rotate before the refresh timestamp. After the refresh timestamp, when remapping the DII, a new refresh timestamp will be returned but the raw UID2 may not rotate. This is by design to encourage more frequent checks of the opt-out status of the underlying DII. We recommend checking for refresh opportunities daily.
 :::
 
 #### How often should raw UID2s be refreshed for incremental updates?

@@ -178,6 +178,10 @@ For successfully mapped DII, the mapped object includes the properties shown in 
 | `p`      | string     | One of the following:<ul><li>If the current raw UID2 was rotated in the last 90 days: the previous raw UID2.</li><li>Otherwise: `null`.</li></ul> |
 | `r`      | number     | The Unix timestamp (in milliseconds) that indicates when the raw UID2 might be refreshed. The raw UID2 is guaranteed to be valid until this timestamp. |
 
+:::note
+It is guaranteed that the raw UID2 will not rotate before the refresh timestamp. After the refresh timestamp, when remapping the DII, a new refresh timestamp will be returned but the raw UID2 may not rotate. This is by design to encourage more frequent checks of the opt-out status of the underlying DII. 
+:::
+
 For unsuccessfully mapped input values, the mapped object includes the properties shown in the following table.
 
 | Property | Data Type | Description                                                                                                      |

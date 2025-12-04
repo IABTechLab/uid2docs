@@ -142,6 +142,10 @@ The following table provides information about the structure of the output data,
 | `REFRESH_FROM` | timestamp | The value is one of the following:<ul><li>**DII was successfully mapped**: The timestamp indicating when this UID2 should be refreshed.</li><li>**Otherwise**: `NULL`.</li></ul> |
 | `UNMAPPED` | string | The value is one of the following:<ul><li>**DII was successfully mapped**: `NULL`.</li><li>**Otherwise**: The reason why the identifier was not mapped: `OPTOUT`, `INVALID IDENTIFIER`, or `INVALID INPUT TYPE`.<br/>For details, see [Values for the UNMAPPED Column](#values-for-the-unmapped-column).</li></ul> |
 
+:::note
+It is guaranteed that the raw UID2 will not rotate before the refresh timestamp. After the refresh timestamp, when remapping the DII, a new refresh timestamp will be returned but the raw UID2 may not rotate. This is by design to encourage more frequent checks of the opt-out status of the underlying DII. 
+:::
+
 #### Values for the UNMAPPED Column
 
 The following table shows possible values for the `UNMAPPED` column in the output table schema.
