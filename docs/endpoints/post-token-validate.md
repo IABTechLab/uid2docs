@@ -45,11 +45,11 @@ The integration environment and the production environment require different <Li
 
 | Body Parameter | Data Type | Attribute | Description |
 | :--- | :--- | :--- | :--- |
-| `token` | string | Required | The advertising token returned by the [POST&nbsp;/token/generate](post-token-generate.md) response. |
-| `email` | string | Conditionally Required | The email address for token validation.<br/>The only valid value is: `validate@example.com`. |
-| `email_hash` | string | Conditionally Required | The [Base64-encoded SHA-256](../getting-started/gs-normalization-encoding.md#email-address-hash-encoding) hash of the [normalized](../getting-started/gs-normalization-encoding.md#email-address-normalization) email address for token validation (`validate@example.com`).<br/>The only valid value is: `ntI244ZRTXwAwpki6/M5cyBYW7h/Wq576lnN3l9+W/c=`. |
-| `phone` | string | Conditionally Required | The [normalized](../getting-started/gs-normalization-encoding.md#phone-number-normalization) phone number for which to generate tokens.<br/>The only valid value is: `+12345678901`. |
-| `phone_hash` | string | Conditionally Required | The [Base64-encoded SHA-256](../getting-started/gs-normalization-encoding.md#phone-number-hash-encoding) hash of a [normalized](../getting-started/gs-normalization-encoding.md#phone-number-normalization) phone number.<br/>The only valid value is: `EObwtHBUqDNZR33LNSMdtt5cafsYFuGmuY4ZLenlue4=`. |
+| `token` | string | Required | The advertising token returned by the [POST&nbsp;/token/generate](post-token-generate.md) response.<br/><br/>You may only validate advertising tokens that have been generated with your own credentials. |
+| `email` | string | Conditionally Required | The email address for token validation. |
+| `email_hash` | string | Conditionally Required | The [Base64-encoded SHA-256](../getting-started/gs-normalization-encoding.md#email-address-hash-encoding) hash of the [normalized](../getting-started/gs-normalization-encoding.md#email-address-normalization) email address for token validation. |
+| `phone` | string | Conditionally Required | The [normalized](../getting-started/gs-normalization-encoding.md#phone-number-normalization) phone number for which to generate tokens. |
+| `phone_hash` | string | Conditionally Required | The [Base64-encoded SHA-256](../getting-started/gs-normalization-encoding.md#phone-number-hash-encoding) hash of a [normalized](../getting-started/gs-normalization-encoding.md#phone-number-normalization) phone number. |
 
 ### Request Examples
 
@@ -111,7 +111,7 @@ A successful decrypted response returns a boolean value that indicates the valid
 
 | Property | Data Type | Description |
 | :--- | :--- | :--- |
-| `body` | boolean | A value of `true` indicates that the email address, phone number, or the respective hash specified in the request is the same as the one used to generate the advertising token.<br/>A value of `false` indicates any of the following:<br/>- The request included an invalid advertising token.<br/>- The email address, phone number, or the respective hash specified in the request is not one of the four valid values specified in the [Unencrypted JSON Body Parameters](#unencrypted-json-body-parameters) table. |
+| `body` | boolean | A value of `true` indicates that the email address, phone number, or the respective hash specified in the request is the same as the one used to generate the advertising token.<br/><br/>A value of `false` indicates that the email address, phone number, or the respective hash specified in the request is not the same as the oned used to generated the advertising token. |
 
 ### Response Status Codes
 
@@ -120,7 +120,7 @@ The following table lists the `status` property values and their HTTP status cod
 | Status | HTTP Status Code | Description |
 | :--- | :--- | :--- |
 | `success` | 200 | The request was successful. The response will be encrypted. |
-| `client_error` | 400 | The request had missing or invalid parameters.|
+| `client_error` | 400 | The request had missing or invalid parameters. |
 | `unauthorized` | 401 | The request did not include a bearer token, included an invalid bearer token, or included a bearer token unauthorized to perform the requested operation. |
 
 If the `status` value is anything other than `success`, the `message` field provides additional information about the issue.
@@ -129,8 +129,7 @@ If the `status` value is anything other than `success`, the `message` field prov
 
 You can use this endpoint to test whether the <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> that you are sending through [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) is valid. Follow these steps.
 
-1. Depending on whether the DII is a hashed or unhashed email address or phone number, send a [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) request using one of the four valid options listed in the [Unencrypted JSON Body Parameters](#unencrypted-json-body-parameters) table&#8212;`email`, `email_hash`, `phone`, or `phone_hash`&#8212;with the corresponding value as listed in the table.
-
+1. Send a [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) request using an `email`, `email_hash`, `phone` or `phone_hash` to generate an advertising token to validate.
 2. Store the returned `advertising_token` value for use in the next step.
 3. Send a `POST /token/validate` request using the `email`, `email_hash`, `phone`, or `phone_hash` value that you sent in Step 1, with the `advertising_token` that you saved in Step 2 as the `token` property value.
 4. Check the response to the `POST /token/validate` request. The results indicate the success of your process, as follows: 
