@@ -40,16 +40,18 @@ The integration environment and the production environment require different <Li
 
 ### Unencrypted JSON Body Parameters
 
-- Include only one of the following four valid options, as listed in the Body Parameter table: `email`, `email_hash`, `phone`, or `phone_hash`. For the parameter you choose to test with, use the exact value listed.
-- Include the required body parameters as key-value pairs in the JSON body of a request when encrypting it.
+Here are some key points about using this endpoint:
+
+- Include only one of the following four valid options, as listed in the Body Parameter table: `email`, `email_hash`, `phone`, or `phone_hash`.
+- Include the required body parameters as key-value pairs in the JSON body of the request when encrypting it.
 
 | Body Parameter | Data Type | Attribute | Description |
 | :--- | :--- | :--- | :--- |
-| `token` | string | Required | The advertising token returned by the [POST&nbsp;/token/generate](post-token-generate.md) response.<br/>You can only validate advertising tokens that have been generated with your own credentials. |
-| `email` | string | Conditionally Required | The email address for token validation. |
-| `email_hash` | string | Conditionally Required | The [Base64-encoded SHA-256](../getting-started/gs-normalization-encoding.md#email-address-hash-encoding) hash of the [normalized](../getting-started/gs-normalization-encoding.md#email-address-normalization) email address for token validation. |
-| `phone` | string | Conditionally Required | The [normalized](../getting-started/gs-normalization-encoding.md#phone-number-normalization) phone number for which to generate tokens. |
-| `phone_hash` | string | Conditionally Required | The [Base64-encoded SHA-256](../getting-started/gs-normalization-encoding.md#phone-number-hash-encoding) hash of a [normalized](../getting-started/gs-normalization-encoding.md#phone-number-normalization) phone number. |
+| `token` | string | Required | The advertising token returned by the [POST&nbsp;/token/generate](post-token-generate.md) response.<br/>You can only validate an advertising token that has been generated with your own credentials.
+| `email` | string | Conditionally Required | The email address for token validation. You can use any valid email value, normalized or not. |
+| `email_hash` | string | Conditionally Required | The [Base64-encoded SHA-256](../getting-started/gs-normalization-encoding.md#email-address-hash-encoding) hash of any valid [normalized](../getting-started/gs-normalization-encoding.md#email-address-normalization) email address. |
+| `phone` | string | Conditionally Required | The phone number for which to generate tokens. You can use any valid phone number value, but it must be [normalized](../getting-started/gs-normalization-encoding.md#phone-number-normalization). |
+| `phone_hash` | string | Conditionally Required | The [Base64-encoded SHA-256](../getting-started/gs-normalization-encoding.md#phone-number-hash-encoding) hash of any valid [normalized](../getting-started/gs-normalization-encoding.md#phone-number-normalization) phone number. |
 
 ### Request Examples
 
@@ -109,9 +111,11 @@ A successful decrypted response returns a boolean value that indicates the valid
 
 ## Body Response Properties
 
+The following table provides information about the response body.
+
 | Property | Data Type | Description |
 | :--- | :--- | :--- |
-| `body` | boolean | A value of `true` indicates that the email address, phone number, or the respective hash specified in the request is the same as the one used to generate the advertising token.<br/><br/>A value of `false` indicates that the email address, phone number, or the respective hash specified in the request is not the same as the one used to generated the advertising token. |
+| `body` | boolean | A value of `true` indicates that the email address, phone number, or the respective hash specified in the request is the same as the one used to generate the advertising token.<br/>A value of `false` indicates that the email address, phone number, or the respective hash specified in the request is not the same as the one used to generated the advertising token. |
 
 ### Response Status Codes
 
