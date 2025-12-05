@@ -50,7 +50,7 @@ Here are some key points about using this endpoint:
 | `token` | string | Required | The advertising token returned by the [POST&nbsp;/token/generate](post-token-generate.md) response.<br/>You can only validate an advertising token that has been generated with your own credentials.
 | `email` | string | Conditionally Required | The email address for token validation. You can use any valid email value, normalized or not. |
 | `email_hash` | string | Conditionally Required | The [Base64-encoded SHA-256](../getting-started/gs-normalization-encoding.md#email-address-hash-encoding) hash of any valid [normalized](../getting-started/gs-normalization-encoding.md#email-address-normalization) email address. |
-| `phone` | string | Conditionally Required | The phone number for which to generate tokens. You can use any valid phone number value, but it must be [normalized](../getting-started/gs-normalization-encoding.md#phone-number-normalization). |
+| `phone` | string | Conditionally Required | The phone number for token validation. You can use any valid phone number value, but it must be [normalized](../getting-started/gs-normalization-encoding.md#phone-number-normalization). |
 | `phone_hash` | string | Conditionally Required | The [Base64-encoded SHA-256](../getting-started/gs-normalization-encoding.md#phone-number-hash-encoding) hash of any valid [normalized](../getting-started/gs-normalization-encoding.md#phone-number-normalization) phone number. |
 
 ### Request Examples
