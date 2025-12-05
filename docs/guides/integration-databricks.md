@@ -143,7 +143,7 @@ The following table provides information about the structure of the output data,
 | `UNMAPPED` | string | The value is one of the following:<ul><li>**DII was successfully mapped**: `NULL`.</li><li>**Otherwise**: The reason why the identifier was not mapped: `OPTOUT`, `INVALID IDENTIFIER`, or `INVALID INPUT TYPE`.<br/>For details, see [Values for the UNMAPPED Column](#values-for-the-unmapped-column).</li></ul> |
 
 :::note
-The raw UID2 is guaranteed not to rotate before the refresh timestamp. After the refresh timestamp, remapping the DII returns a new refresh timestamp, but the raw UID2 may remain unchanged across multiple refresh cycles. The raw UID2 will eventually rotate after approximately one year.
+The raw UID2 is guaranteed not to change before the refresh timestamp. After the refresh timestamp, remapping the DII returns a new refresh timestamp, but the raw UID2 might or might not change. It is possible for the raw UID2 to remain unchanged for multiple refresh intervals.
 :::
 
 #### Values for the UNMAPPED Column

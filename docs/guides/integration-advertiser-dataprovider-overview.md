@@ -125,7 +125,7 @@ A raw UID2 is an identifier for a user at a specific moment in time. The raw UID
 
 The v3 Identity Map API provides a refresh timestamp (`r` field) in the response that indicates when each raw UID2 might rotate. Use this timestamp to determine when to regenerate raw UID2s for your stored data. 
 
-The raw UID2 is guaranteed not to rotate before the refresh timestamp. After the refresh timestamp, remapping the DII returns a new refresh timestamp, but the raw UID2 may remain unchanged across multiple refresh cycles. The raw UID2 will eventually rotate after approximately one year.
+The raw UID2 is guaranteed not to change before the refresh timestamp. After the refresh timestamp, remapping the DII returns a new refresh timestamp, but the raw UID2 might or might not change. It is possible for the raw UID2 to remain unchanged for multiple refresh intervals.
 
 We recommend checking for refresh opportunities daily. To determine whether to refresh a raw UID2:
 

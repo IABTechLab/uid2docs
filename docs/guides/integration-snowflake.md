@@ -388,7 +388,7 @@ The following table identifies each item in the response, including `NULL` value
 The `FN_T_IDENTITY_MAP_V3` function returns refresh timestamps (`REFRESH_FROM`) that indicate when each UID2 should be refreshed.
 
 :::note
-The raw UID2 is guaranteed not to rotate before the refresh timestamp. After the refresh timestamp, remapping the DII returns a new refresh timestamp, but the raw UID2 may remain unchanged across multiple refresh cycles. The raw UID2 will eventually rotate after approximately one year.
+The raw UID2 is guaranteed not to change before the refresh timestamp. After the refresh timestamp, remapping the DII returns a new refresh timestamp, but the raw UID2 might or might not change. It is possible for the raw UID2 to remain unchanged for multiple refresh intervals.
 :::
 
 To determine which UID2s need regeneration, compare the current time to the `REFRESH_FROM` timestamps returned by the function.
