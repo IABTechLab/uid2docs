@@ -45,7 +45,7 @@ The integration environment and the production environment require different <Li
 
 | Body Parameter | Data Type | Attribute | Description |
 | :--- | :--- | :--- | :--- |
-| `token` | string | Required | The advertising token returned by the [POST&nbsp;/token/generate](post-token-generate.md) response.<br/><br/>You may only validate advertising tokens that have been generated with your own credentials. |
+| `token` | string | Required | The advertising token returned by the [POST&nbsp;/token/generate](post-token-generate.md) response.<br/>You can only validate advertising tokens that have been generated with your own credentials. |
 | `email` | string | Conditionally Required | The email address for token validation. |
 | `email_hash` | string | Conditionally Required | The [Base64-encoded SHA-256](../getting-started/gs-normalization-encoding.md#email-address-hash-encoding) hash of the [normalized](../getting-started/gs-normalization-encoding.md#email-address-normalization) email address for token validation. |
 | `phone` | string | Conditionally Required | The [normalized](../getting-started/gs-normalization-encoding.md#phone-number-normalization) phone number for which to generate tokens. |
@@ -111,7 +111,7 @@ A successful decrypted response returns a boolean value that indicates the valid
 
 | Property | Data Type | Description |
 | :--- | :--- | :--- |
-| `body` | boolean | A value of `true` indicates that the email address, phone number, or the respective hash specified in the request is the same as the one used to generate the advertising token.<br/><br/>A value of `false` indicates that the email address, phone number, or the respective hash specified in the request is not the same as the oned used to generated the advertising token. |
+| `body` | boolean | A value of `true` indicates that the email address, phone number, or the respective hash specified in the request is the same as the one used to generate the advertising token.<br/><br/>A value of `false` indicates that the email address, phone number, or the respective hash specified in the request is not the same as the one used to generated the advertising token. |
 
 ### Response Status Codes
 
