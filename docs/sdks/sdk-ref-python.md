@@ -255,6 +255,10 @@ To map DII to raw UID2s, follow these steps:
           .with_hashed_phone("pre_hashed_phone")
       ```
 
+   :::note
+   The SDK automatically handles email normalization and hashing, ensuring that raw email addresses and phone numbers do not leave your server.
+   :::
+
 3. Call a function that takes the `input` and generates an `IdentityMapV3Response` object:
    ```py
    identity_map_response = identity_map_v3_client.generate_identity_map(input)
@@ -278,9 +282,9 @@ To map DII to raw UID2s, follow these steps:
        reason = unmapped_identity.reason # OPTOUT, INVALID_IDENTIFIER, or UNKNOWN
    ```
 
-:::note
-The SDK automatically handles email normalization and hashing, ensuring that raw email addresses and phone numbers do not leave your server.
-:::
+   :::note
+   The raw UID2 does not change before the refresh timestamp. After the refresh timestamp, remapping the DII returns a new refresh timestamp, but the raw UID2 might or might not change. It is possible for the raw UID2 to remain unchanged for multiple refresh intervals.
+   :::
 
 #### Usage Example
 
