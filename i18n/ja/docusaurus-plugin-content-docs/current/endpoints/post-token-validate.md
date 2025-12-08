@@ -10,7 +10,7 @@ import Link from '@docusaurus/Link';
 
 # POST /token/validate
 
-Advertising Token が指定されたハッシュ化された、またはハッシュ化されていないメールアドレスまたは電話番号と一致するかどうかを検証します。
+Advertising Token が指定されたハッシュ化された、またはハッシュされていないメールアドレスまたは電話番号と一致するかどうかを検証します。
 
 Used by: このエンドポイントは、主にパブリッシャーが使用します。
 
@@ -129,7 +129,7 @@ echo '{"token": "AdvertisingTokenmZ4dZgeuXXl6DhoXqbRXQbHlHhA96leN94U1uavZVspwKXl
 
 このエンドポイントを使用して、[POST&nbsp;/token/generate](../endpoints/post-token-generate.md) で送信する <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> が有効かどうかをテストできます。以下の手順に従ってください。
 
-1. DII がハッシュ化されたメールアドレスか、ハッシュ化されていないメールアドレスか、電話番号かに応じて、[Unencrypted JSON Body Parameters](#unencrypted-json-body-parameters) の表に記載されている4つの有効なオプションのいずれかを使用して、[POST&nbsp;/token/generate](../endpoints/post-token-generate.md) リクエストを送信します。表に記載されている対応する値 - `email`、`email_hash`、`phone`、`phone_hash` - を使用します。
+1. DII がハッシュ化されたメールアドレスか、ハッシュされていないメールアドレスか、電話番号かに応じて、[Unencrypted JSON Body Parameters](#unencrypted-json-body-parameters) の表に記載されている4つの有効なオプションのいずれかを使用して、[POST&nbsp;/token/generate](../endpoints/post-token-generate.md) リクエストを送信します。表に記載されている対応する値 - `email`、`email_hash`、`phone`、`phone_hash` - を使用します。
 
 2. 返された `advertising_token` の値を次のステップで使用するために保存します。
 3. Step 1 で送信した `email`、`email_hash`、`phone`、`phone_hash` の値と、Step 2 で保存した `advertising_token` を `token` プロパティの値として、`POST /token/validate` リクエストを送信します。

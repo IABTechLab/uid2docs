@@ -11,6 +11,7 @@ displayed_sidebar: docs
 import Link from '@docusaurus/Link';
 import SnptUpgradePolicy from '../snippets/_snpt-private-operator-upgrade-policy.mdx';
 import SnptAttestFailure from '../snippets/_snpt-private-operator-attest-failure.mdx';
+import SnptRotatingTheKeys from '../snippets/_snpt-private-operator-rotating-the-keys.mdx';
 
 # UID2 Private Operator for Azure Integration Guide
 
@@ -302,7 +303,7 @@ Microsoft Azure で UID2 Private Operator をホストする Virtual Private Clo
 
    HTTP 200 と `OK` という応答本文が表示された場合、正常な状態です。
 
-import AttestFailure from '../snippets/_snpt-private-operator-attest-failure.mdx';
+### Private Operator Attestation Failure
 
 <SnptAttestFailure />
 
@@ -337,6 +338,10 @@ UID2 Azure Confidential Containers の新しいバージョンがリリースさ
    for i in {0..COUNT}; az container delete --name uid-operator-OLD-VERSION-$i --resource-group {RESOURCE_GROUP} --yes
    ```
 
+## Keeping the Operator Key Secure
+
+<SnptRotatingTheKeys />
+
 ## UID2 Operator Error Codes
 
 以下の表は、Private Operator 起動シーケンス中に発生する可能性のあるエラーを一覧表示しています。
@@ -352,4 +357,4 @@ Private Operator 起動時のエラーコードは、リリース v5.49.7 以降
 | E04 | ConfigurationValueError | 構成値が無効です。構成値が必要な形式と環境に一致していることを確認してください。Note: `debug_mode = true` は `integ` 環境でのみ許可されます。詳細はログを確認してください。 |
 | E05 | OperatorKeyValidationError | Operator Key が環境に適しており、提供されたものと一致していることを確認してください。 |
 | E06 | UID2ServicesUnreachableError | UID2 Core および Opt-out サービスの IP アドレスをアウトバウンドファイアウォールで許可します。IP アドレスと DNS の詳細は、ログを参照してください。 |
-| E08 | OperatorKeyPermissionError | コンテナを起動するマネージド ID (operatorIdentifier パラメータで指定) は、オペレーターキーが格納されているキーボールトへのアクセス権を持っている必要があります。`operatorIdentifier` の値は、すべての構成 JSON ファイルで同じである必要があります。 |
+| E08 | OperatorKeyPermissionError | コンテナを起動するマネージド ID (operatorIdentifier パラメータで指定) は、 Operator Key が格納されているキーボールトへのアクセス権を持っている必要があります。`operatorIdentifier` の値は、すべての構成 JSON ファイルで同じである必要があります。 |

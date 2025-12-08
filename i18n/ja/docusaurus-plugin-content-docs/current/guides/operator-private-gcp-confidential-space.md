@@ -11,6 +11,7 @@ displayed_sidebar: docs
 import Link from '@docusaurus/Link';
 import SnptUpgradePolicy from '../snippets/_snpt-private-operator-upgrade-policy.mdx';
 import SnptAttestFailure from '../snippets/_snpt-private-operator-attest-failure.mdx';
+import SnptRotatingTheKeys from '../snippets/_snpt-private-operator-rotating-the-keys.mdx';
 
 # UID2 Private Operator for GCP Integration Guide
 
@@ -229,7 +230,7 @@ Terraform がインストールされていない場合は、[terraform.io](http
    | `network_name` | `string` | `uid-operator` | no | VPC リソース名（ルール/インスタンスタグにも使用されます）。 |
    | `min_replicas` | `number` | `1` | no | デプロイする最小レプリカ数を示します。 |
    | `max_replicas` | `number` | `5` | no | デプロイする最大レプリカ数を示します。 |
-   | `uid_operator_key_secret_name` | `string` | `"secret-operator-key"` | no | オペレーターキーのシークレットの名前を指定します。Terraform テンプレートは、GCP Secret Manager に `uid_operator_key` 値を保持するためのシークレットを作成します。名前を定義できます。例: `uid2-operator-operator-key-secret-integ`。 |
+   | `uid_operator_key_secret_name` | `string` | `"secret-operator-key"` | no | Operator Key のシークレットの名前を指定します。Terraform テンプレートは、GCP Secret Manager に `uid_operator_key` 値を保持するためのシークレットを作成します。名前を定義できます。例: `uid2-operator-operator-key-secret-integ`。 |
    | `debug_mode` | `bool`  | `false` | no | UID2 チームと協力して問題をデバッグする場合を除き、`true` に設定しないでください。それ以外の場合、このフラグを `true` に設定すると、認証が失敗します。 |
 
 #### Run Terraform
@@ -324,7 +325,7 @@ gcloud CLI を使用して、UID2 Operator Service を実行するためのサ�
    | :--- | :--- |
    | `confidentialcomputing.workloadUser` | 認証トークンを生成し、VM でワークロードを実行する権限を提供します。 |
    | `logging.logWriter` | gcloud ロギングでログエントリを書き込む権限を提供します。 |
-   | `secretmanager.secretAccessor` | GCP Secret Manager で管理されているオペレーターキーにアクセスする権限を提供します。 |
+   | `secretmanager.secretAccessor` | GCP Secret Manager で管理されている Operator Key にアクセスする権限を提供します。 |
 
    `confidentialcomputing.workloadUser` 権限を付与します:
 
@@ -363,7 +364,7 @@ gcloud CLI を使用して、UID2 Operator Service を実行するためのサ�
 
 #### Create Secret for the Operator Key in Secret Manager
 
-UID2 Operator には、Operator Key が必要です。UID2 アカウントの設定（[UID2 Operator Account Setup](#uid2-operator-account-setup) を参照）の一環として、各環境のオペレーターキーを受け取ります。
+UID2 Operator には、Operator Key が必要です。UID2 アカウントの設定（[UID2 Operator Account Setup](#uid2-operator-account-setup) を参照）の一環として、各環境の Operator Key を受け取ります。
 
 次のステップは、`{OPERATOR_KEY}` 値を GCP Secret Manager に保存し、それに対する完全なシークレット名を取得し、それをデプロイメントスクリプト内の `{OPERATOR_KEY_SECRET_FULL_NAME}` プレースホルダで置き換えることです ([Update the Script with Valid Values](#update-the-script-with-valid-values) を参照)。
 
@@ -379,7 +380,7 @@ UID2 Operator には、Operator Key が必要です。UID2 アカウントの設
  
     1. 自分の値を使用してスクリプトを準備します:
 
-       - `{OPERATOR_KEY}` には、環境のオペレーターキー値を使用します。
+       - `{OPERATOR_KEY}` には、環境の Operator Key 値を使用します。
        - `{OPERATOR_KEY_SECRET_NAME}` には、この環境の API シークレットの名前を指定します。例: `uid2-operator-operator-key-secret-integ`。
 
     2. スクリプトを実行します。
@@ -533,6 +534,10 @@ gcloud CLI を使用してデプロイした場合、アップグレードする
 ## Scraping Metrics
 GCP の Private Operator は、`/metrics` エンドポイントで [Prometheus-formatted metrics](https://prometheus.io/docs/concepts/data_model/) ポート 9080 で公開します。Prometheus 互換のスクレイパーを使用して、これらのメトリクスを収集して集計することができます。
 
+## Keeping the Operator Key Secure
+
+<SnptRotatingTheKeys />
+
 ## UID2 Operator Error Codes
 
 以下の表は、Private Operator 起動シーケンス中に発生する可能性のあるエラーを一覧表示しています。
@@ -548,4 +553,4 @@ Private Operator 起動時のエラーコードは、リリース v5.49.7 以降
 | E04 | ConfigurationValueError | 設定値が無効です。設定値が必要な形式と環境に一致していることを確認してください。注意: `debug_mode = true` は `integ` 環境でのみ許可されます。詳細はログを確認してください。 |
 | E05 | OperatorKeyValidationError | Operator Key が環境に対して正しいことを確認し、提供されたものと一致していることを確認してください。 |
 | E06 | UID2ServicesUnreachableError | UID2 core および opt-out サービスの IP アドレスをアウトバウンドファイアウォールで許可します。IP アドレスと DNS の詳細は、ログを参照してください。 |
-| E08 | OperatorKeyPermissionError | Compute Engine インスタンステンプレートにサービスアカウントをアタッチします。UID2 Operator は、GCP Secret Manager からオペレーターキーにアクセスするためにこれらの権限が必要です。 |
+| E08 | OperatorKeyPermissionError | Compute Engine インスタンステンプレートにサービスアカウントをアタッチします。UID2 Operator は、GCP Secret Manager から Operator Key にアクセスするためにこれらの権限が必要です。 |

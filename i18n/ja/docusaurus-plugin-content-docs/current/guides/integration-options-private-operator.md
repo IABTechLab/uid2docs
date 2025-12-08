@@ -7,6 +7,7 @@ displayed_sidebar: docs
 
 import Link from '@docusaurus/Link';
 import SnptUpgradePolicy from '../snippets/_snpt-private-operator-upgrade-policy.mdx';
+import SnptRotatingTheKeys from '../snippets/_snpt-private-operator-rotating-the-keys.mdx';
 
 # UID2 Private Operator Integration Overview
 
@@ -92,6 +93,10 @@ Private Operator にはいくつかの制限があります:
 ## Private Operator Upgrade Policy
 
 <SnptUpgradePolicy />
+
+## Keeping the Operator Key Secure
+
+<SnptRotatingTheKeys />
 
 ## Getting Started
 
