@@ -1,7 +1,7 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
-import ConfigLocalized from "./docusaurus.config.localized.json";
 import { themes } from "prism-react-renderer";
+import ConfigLocalized from "./docusaurus.config.localized.json";
 
 const lightCodeTheme = themes.github;
 const darkCodeTheme = themes.dracula;
@@ -79,7 +79,7 @@ const config = {
         label: "日本語",
         direction: "ltr",
         htmlLang: "ja",
-        calendar: "japanese",
+        calendar: "gregory",
       },
     },
   },

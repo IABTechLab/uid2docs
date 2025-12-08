@@ -323,7 +323,7 @@ Server-Side Integration ([Publisher Integration Guide, Server-Side](../guides/in
    IdentityMapV3Input input = IdentityMapV3Input.fromEmails(Arrays.asList("user@example.com", "user2@example.com"));
    ```
 
- 複数の ID タイプを組み合わせることもできます:
+   複数の ID タイプを組み合わせることもできます:
    ```java
    IdentityMapV3Input input = new IdentityMapV3Input()
        .withEmail("user@example.com")
