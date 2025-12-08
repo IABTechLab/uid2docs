@@ -7,7 +7,7 @@ displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';
-import SnptSnptPOSTIdentityMapImprovements from '../snippets/_snpt-post-identity-map-improvements-v3.mdx';
+import SnptPOSTIdentityMapImprovements from '../snippets/_snpt-post-identity-map-improvements-v3.mdx';
 
 # SDK for Java Reference Guide
 
@@ -401,7 +401,7 @@ IdentityMapV3Response mixedResponse = client.generateIdentityMap(mixedInput);
 
 ### Version 3 Improvements
 
-<SnptSnptPOSTIdentityMapImprovements />
+<SnptPOSTIdentityMapImprovements />
 
 ### Required Changes
 
