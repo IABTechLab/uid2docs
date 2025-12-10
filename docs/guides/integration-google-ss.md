@@ -9,7 +9,7 @@ displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';
-import IntegratingWithSSO from '../snippets/_integrating-with-sso.mdx';
+import SnptIntegratingWithSSO from '../snippets/_snpt-integrating-with-sso.mdx';
 
 # Google Ad Manager Secure Signals Integration Guide
 
@@ -84,7 +84,7 @@ If you want to use Secure Signals with Prebid.js, you must complete both these a
 
 ## Integrating with Single Sign-On (SSO)
 
-<IntegratingWithSSO />
+<SnptIntegratingWithSSO />
 
 ## Publisher Integration
 

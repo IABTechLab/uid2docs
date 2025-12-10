@@ -9,9 +9,9 @@ displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';
-import AddPrebidjsToYourSite from '../snippets/_prebid-add-prebidjs-to-your-site.mdx';
-import StoreUID2TokenInBrowser from '../snippets/_prebid-storing-uid2-token-in-browser.mdx';
-import IntegratingWithSSO from '../snippets/_integrating-with-sso.mdx';
+import SnptAddPrebidjsToYourSite from '../snippets/_snpt-prebid-add-prebidjs-to-your-site.mdx';
+import SnptStoreUID2TokenInBrowser from '../snippets/_snpt-prebid-storing-uid2-token-in-browser.mdx';
+import SnptIntegratingWithSSO from '../snippets/_snpt-integrating-with-sso.mdx';
 
 # UID2 Client-Side Integration Guide for Prebid.js
 
@@ -36,7 +36,7 @@ An example of the UID2 Prebid.js client-side integration is available at the fol
 
 ## Integrating with Single Sign-On (SSO)
 
-<IntegratingWithSSO />
+<SnptIntegratingWithSSO />
 
 ## Integration Overview: High-Level Steps
 
@@ -68,7 +68,7 @@ Only root-level domains are required for account setup. For example, if you're g
 
 ### Add Prebid.js to Your Site
 
-<AddPrebidjsToYourSite />
+<SnptAddPrebidjsToYourSite />
 
 ### Configure the UID2 Module
 
@@ -124,7 +124,7 @@ This example assumes that you're using the UID2 production environment. During i
 
 ## Storing the UID2 Token in the Browser
 
-<StoreUID2TokenInBrowser />
+<SnptStoreUID2TokenInBrowser />
 
 ## When to Pass DII to the UID2 Module
 

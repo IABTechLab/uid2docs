@@ -120,6 +120,7 @@ const fullSidebar = [
                 {
                   type: 'category',
                   label: 'Prebid',
+                  key: 'Prebid-Web-Only-Guides',
                   link: {
                     type: 'doc',
                     id: 'guides/integration-prebid',
@@ -169,6 +170,7 @@ const fullSidebar = [
           {
             type: 'category',
             label: 'Prebid',
+            key: 'Prebid-Web-And-Mobile-Guides',
             link: {
               type: 'doc',
               id: 'guides/integration-prebid',
@@ -234,7 +236,8 @@ const fullSidebar = [
           ],
         },
 
-      'guides/integration-aws-entity-resolution',
+      'guides/integration-databricks',
+        'guides/integration-aws-entity-resolution',
       'guides/integration-advertiser-dataprovider-endpoints',
     ],
   },
@@ -406,6 +409,7 @@ const sidebars = {
     'guides/integration-advertiser-dataprovider-overview',
     'guides/integration-snowflake',
     'guides/integration-snowflake-previous',
+    'guides/integration-databricks',
     'guides/integration-aws-entity-resolution',
     'guides/advertiser-dataprovider-endpoints',
     'DSP Integrations',
@@ -492,7 +496,8 @@ const sidebars = {
     'Advertiser/Data Provider Integrations',
     'guides/integration-advertiser-dataprovider-overview',
     'guides/integration-snowflake',
-    'guides/integration-snowflake-integration-snowflake-previous',
+    'guides/integration-snowflake-previous',
+    'guides/integration-databricks',
     'guides/integration-aws-entity-resolution',
     'guides/advertiser-dataprovider-endpoints',
     'sharing/sharing-bid-stream'

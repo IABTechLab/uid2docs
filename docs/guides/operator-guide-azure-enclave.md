@@ -9,7 +9,9 @@ displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';
-import UpgradePolicy from '../snippets/_private-operator-upgrade-policy.mdx';
+import SnptUpgradePolicy from '../snippets/_snpt-private-operator-upgrade-policy.mdx';
+import SnptAttestFailure from '../snippets/_snpt-private-operator-attest-failure.mdx';
+import SnptRotatingTheKeys from '../snippets/_snpt-private-operator-rotating-the-keys.mdx';
 
 # UID2 Private Operator for Azure Integration Guide
 
@@ -39,7 +41,7 @@ For information about supported versions and deprecation dates, see [Private Ope
 
 ## Private Operator Upgrade Policy
 
-<UpgradePolicy />
+<SnptUpgradePolicy />
 
 ## Prerequisites
 
@@ -301,9 +303,9 @@ Follow these steps:
 
    An HTTP 200 with a response body of `OK` indicates healthy status.
 
-import AttestFailure from '../snippets/_private-operator-attest-failure.mdx';
+### Private Operator Attestation Failure
 
-<AttestFailure />
+<SnptAttestFailure />
 
 ### Scraping Metrics
 The Private Operator for Azure exposes [Prometheus-formatted metrics](https://prometheus.io/docs/concepts/data_model/) on port 9080 through the `/metrics` endpoint. You can use a Prometheus-compatible scraper to collect and aggregate these metrics for your own needs. 
@@ -335,6 +337,10 @@ To upgrade, complete the following steps:
    ```
    for i in {0..COUNT}; az container delete --name uid-operator-OLD-VERSION-$i --resource-group {RESOURCE_GROUP} --yes
    ```
+
+## Keeping the Operator Key Secure
+
+<SnptRotatingTheKeys />
 
 ## UID2 Operator Error Codes
 

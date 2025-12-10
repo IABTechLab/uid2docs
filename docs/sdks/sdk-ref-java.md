@@ -7,7 +7,7 @@ displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';
-import POSTIdentityMapImprovements from '../snippets/_post-identity-map-improvements-v3.mdx';
+import SnptPOSTIdentityMapImprovements from '../snippets/_snpt-post-identity-map-improvements-v3.mdx';
 
 # SDK for Java Reference Guide
 
@@ -332,6 +332,10 @@ For the earlier version, see [Previous SDK Version (using POST /identity/map v2)
        .withHashedPhone("preHashedPhone");
    ```
 
+   :::note
+   The SDK automatically handles email normalization and hashing, ensuring that raw email addresses and phone numbers do not leave your server.
+   :::
+
 3. Call a function that takes the `input` and generates an IdentityMapV3Response object:
    ```java
    IdentityMapV3Response identityMapResponse = identityMapV3Client.generateIdentityMap(input);
@@ -356,7 +360,9 @@ For the earlier version, see [Previous SDK Version (using POST /identity/map v2)
    }
    ```
 
->**Note:** The SDK automatically handles email normalization and hashing, ensuring that raw email addresses and phone numbers do not leave your server.
+   :::note
+   The raw UID2 does not change before the refresh timestamp. After the refresh timestamp, remapping the DII returns a new refresh timestamp, but the raw UID2 might or might not change. It is possible for the raw UID2 to remain unchanged for multiple refresh intervals.
+   :::
 
 ### Usage Example
 
@@ -401,7 +407,7 @@ The following sections provide general information and guidance for migrating to
 
 ### Version 3 Improvements
 
-<POSTIdentityMapImprovements />
+<SnptPOSTIdentityMapImprovements />
 
 ### Required Changes
 

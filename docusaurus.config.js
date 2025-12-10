@@ -1,7 +1,7 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
-import ConfigLocalized from "./docusaurus.config.localized.json";
 import { themes } from "prism-react-renderer";
+import ConfigLocalized from "./docusaurus.config.localized.json";
 
 const lightCodeTheme = themes.github;
 const darkCodeTheme = themes.dracula;
@@ -51,10 +51,15 @@ const config = {
   trailingSlash: false,
 
   onBrokenLinks: "warn",
-  onBrokenMarkdownLinks: "warn",
   //setting to ignore until we have time to properly code markdown jump anchors through docusaurus react hook
   //https://docusaurus.io/docs/docusaurus-core#useBrokenLinks
   onBrokenAnchors: "warn",
+
+  markdown: {
+    hooks: {
+      onBrokenMarkdownLinks: "warn",
+    },
+  },
 
   scripts: [
     // String format.
@@ -79,7 +84,7 @@ const config = {
         label: "日本語",
         direction: "ltr",
         htmlLang: "ja",
-        calendar: "japanese",
+        calendar: "gregory",
       },
     },
   },
@@ -262,7 +267,7 @@ const config = {
               },
               {
                 label: "UID2 Privacy Policy",
-                href: "https://transparentadvertising.com/privacy"
+                href: "https://transparentadvertising.com/privacy",
               },
               {
                 type: "doc",
@@ -295,13 +300,13 @@ const config = {
                     </a>`,
               },
               {
-                html: `<a class="truevault-polaris-optout footer__link-item" 
+                html: `<a class="truevault-polaris-optout footer__link-item"
                     href="${getLocalizedConfigValue("adsrvrURL")}"
-                    target="_blank" 
+                    target="_blank"
                     rel="noreferrer noopener">
-                    <img src="https://polaris.truevaultcdn.com/static/assets/icons/optout-icon-black.svg" 
-                    alt="California Consumer Privacy Act (CCPA) Opt-Out Icon" 
-                    height="14px" 
+                    <img src="https://polaris.truevaultcdn.com/static/assets/icons/optout-icon-black.svg"
+                    alt="California Consumer Privacy Act (CCPA) Opt-Out Icon"
+                    height="14px"
                     style="vertical-align:middle" />
                     Your Privacy Choices
                     </a>`,

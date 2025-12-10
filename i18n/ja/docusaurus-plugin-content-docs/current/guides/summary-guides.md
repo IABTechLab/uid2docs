@@ -31,6 +31,8 @@ import Link from '@docusaurus/Link';
 - [Prebid Integrations](#prebid-integrations)
 - [Google Ad Manager Integrations](#google-ad-manager-integrations)
 
+ソースコード付きのライブで動作する UID2 実装の例については、[UID2 Integration Samples](../ref-info/integration-sample-sites.md) を参照してください。
+
 ### Web Integrations
 
 パブリッシャーの Web インテグレーションには、以下のドキュメントリソースが利用できます。

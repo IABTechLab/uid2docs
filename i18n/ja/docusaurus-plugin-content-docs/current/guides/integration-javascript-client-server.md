@@ -9,8 +9,8 @@ displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';
-import ExampleClientServerSendUid2ToSdk from '../snippets/_example-client-server-send-uid2-to-sdk.mdx'; 
-import IntegratingWithSSO from '../snippets/_integrating-with-sso.mdx';
+import SnptExampleClientServerSendUid2ToSdk from '../snippets/_snpt-example-client-server-send-uid2-to-sdk.mdx'; 
+import SnptIntegratingWithSSO from '../snippets/_snpt-integrating-with-sso.mdx';
 
 # Client-Server Integration Guide for JavaScript
 
@@ -50,7 +50,7 @@ Google Ad Managerを使用していて、セキュアシグナル機能を使用
 
 ## Integrating with Single Sign-On (SSO)
 
-<IntegratingWithSSO />
+<SnptIntegratingWithSSO />
 
 ## Complete UID2 Account Setup and Configure Account
 
@@ -109,7 +109,7 @@ Step 1-c でパブリッシャーがユーザーのメールアドレスまた�
 
 以下のコード例は、JavaScript と TypeScript でのステップ 1-f と 1-g の説明です。
 
-<ExampleClientServerSendUid2ToSdk />
+<SnptExampleClientServerSendUid2ToSdk />
 
 SDKは、指定された [callback function](../sdks/sdk-ref-javascript.md#callback-function) (ID の可用性を示します) を呼び出し、確立された ID をClient-Side で入札可能な状態にします。
 

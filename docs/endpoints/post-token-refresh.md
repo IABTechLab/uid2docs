@@ -7,7 +7,7 @@ displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';
-import IdentityGenerateResponse from '../snippets/_example-identity-generate-response.mdx';
+import SnptIdentityGenerateResponse from '../snippets/_snpt-example-identity-generate-response.mdx';
 
 # POST /token/refresh
 
@@ -69,7 +69,7 @@ This section includes the following sample responses:
 
 If all values are valid and the user has not opted out, the response is successful and a new UID2 token is returned, with associated values. The following example shows a decrypted successful response with tokens:
 
-<IdentityGenerateResponse />
+<SnptIdentityGenerateResponse />
 
 #### Successful Response With Opt-Out
 

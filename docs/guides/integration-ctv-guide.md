@@ -9,8 +9,8 @@ displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';
-import IntegratingWithSSO from '../snippets/_integrating-with-sso.mdx';
-import PrivateOperatorOption from '../snippets/_private-operator-option.mdx';
+import SnptIntegratingWithSSO from '../snippets/_snpt-integrating-with-sso.mdx';
+import SnptPrivateOperatorOption from '../snippets/_snpt-private-operator-option.mdx';
 
 # CTV Integration Guide
 
@@ -27,11 +27,11 @@ To determine how you'll implement these steps, choose from the [CTV Integration 
 
 ## Integrating with Single Sign-On (SSO)
 
-<IntegratingWithSSO />
+<SnptIntegratingWithSSO />
 
 ## Private Operator Option
 
-<PrivateOperatorOption/>
+<SnptPrivateOperatorOption />
 
 ## Complete UID2 Account Setup and Configure Account
 

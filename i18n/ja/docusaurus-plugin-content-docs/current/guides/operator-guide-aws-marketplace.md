@@ -9,8 +9,9 @@ displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';
-import UpgradePolicy from '../snippets/_private-operator-upgrade-policy.mdx';
-import AttestFailure from '../snippets/_private-operator-attest-failure.mdx';
+import SnptUpgradePolicy from '../snippets/_snpt-private-operator-upgrade-policy.mdx';
+import SnptAttestFailure from '../snippets/_snpt-private-operator-attest-failure.mdx';
+import SnptRotatingTheKeys from '../snippets/_snpt-private-operator-rotating-the-keys.mdx';
 
 # UID2 Private Operator for AWS Integration Guide
 
@@ -43,7 +44,7 @@ For information about supported versions and deprecation dates, see [Private Ope
 
 ## Private Operator Upgrade Policy
 
-<UpgradePolicy />
+<SnptUpgradePolicy />
 
 ## Prerequisites
 
@@ -252,7 +253,7 @@ UID2 Operator を AWS Marketplace にデプロイするには、以下の手順�
 
 ### Private Operator Attestation Failure
 
-<AttestFailure />
+<SnptAttestFailure />
 
 ## Upgrading the UID2 Operator
 
@@ -359,6 +360,9 @@ logrotate のドキュメントに従って指示に従ってください: [logr
 | スケジュールされた間隔を変更することなく、手動で `logrotate` を1回実行します。 | `sudo logrotate -f /etc/logrotate.conf --force` |
 | `syslog-ng` をリロードします。 | `sudo /usr/sbin/syslog-ng-ctl reload` |
 
+## Keeping the Operator Key Secure
+
+<SnptRotatingTheKeys />
 
 ## UID2 Operator Error Codes
 

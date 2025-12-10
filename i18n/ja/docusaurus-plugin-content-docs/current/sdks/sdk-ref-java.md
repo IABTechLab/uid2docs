@@ -7,7 +7,7 @@ displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';
-import POSTIdentityMapImprovements from '../snippets/_post-identity-map-improvements-v3.mdx';
+import SnptPOSTIdentityMapImprovements from '../snippets/_snpt-post-identity-map-improvements-v3.mdx';
 
 # SDK for Java Reference Guide
 
@@ -309,6 +309,10 @@ Server-Side Integration ([Publisher Integration Guide, Server-Side](../guides/in
 
 ## Usage for Advertisers/Data Providers
 
+以下のの手順は、最新バージョンの `POST /identity/map` エンドポイントを使用して DII を raw UID2 にマップする方法の例です。
+
+以前のバージョンを使用する場合は、[Previous SDK Version (using POST /identity/map v2)](#previous-sdk-version-using-post-identitymap-v2) を参照してください。最新バージョンへの移行手順については、[Migration From Version Using v2 Identity Map](#migration-from-version-using-v2-identity-map) を参照してください。
+
 1. IdentityMapClient のインスタンスをインスタンス変数として作成します:
    ```java
    final private IdentityMapV3Client identityMapV3Client = new IdentityMapV3Client(UID2_BASE_URL, UID2_API_KEY, UID2_SECRET_KEY);
@@ -319,7 +323,7 @@ Server-Side Integration ([Publisher Integration Guide, Server-Side](../guides/in
    IdentityMapV3Input input = IdentityMapV3Input.fromEmails(Arrays.asList("user@example.com", "user2@example.com"));
    ```
 
- 複数の ID タイプを組み合わせることもできます:
+   複数の ID タイプを組み合わせることもできます:
    ```java
    IdentityMapV3Input input = new IdentityMapV3Input()
        .withEmail("user@example.com")
@@ -397,7 +401,7 @@ IdentityMapV3Response mixedResponse = client.generateIdentityMap(mixedInput);
 
 ### Version 3 Improvements
 
-<POSTIdentityMapImprovements />
+<SnptPOSTIdentityMapImprovements />
 
 ### Required Changes
 

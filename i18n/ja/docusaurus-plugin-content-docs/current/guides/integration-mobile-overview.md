@@ -9,7 +9,7 @@ displayed_sidebar: sidebarPublishers
 ---
 
 import Link from '@docusaurus/Link';
-import IntegratingWithSSO from '../snippets/_integrating-with-sso.mdx';
+import SnptIntegratingWithSSO from '../snippets/_snpt-integrating-with-sso.mdx';
 
 # UID2 Mobile Integration Overview for Android and iOS
 
@@ -31,7 +31,7 @@ UID2 は、Android/iOS 向けの SDK を提供しており、次の機能をサ�
 
 ## Integrating with Single Sign-On (SSO)
 
-<IntegratingWithSSO />
+<SnptIntegratingWithSSO />
 
 ## Integration Overview: High-Level Steps
 

@@ -11,7 +11,7 @@ displayed_sidebar: docs
 import Link from '@docusaurus/Link';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import IntegratingWithSSO from '../snippets/_integrating-with-sso.mdx';
+import SnptIntegratingWithSSO from '../snippets/_snpt-integrating-with-sso.mdx';
 
 # Client-Side Integration Guide for JavaScript
 
@@ -67,7 +67,7 @@ For a sample implementation, see this example:
 
 ## Integrating with Single Sign-On (SSO)
 
-<IntegratingWithSSO />
+<SnptIntegratingWithSSO />
 
 ## Complete UID2 Account Setup and Configure Account
 
@@ -174,6 +174,10 @@ To configure the SDK, call one of the following methods, with an object containi
 *  `__uid2.setIdentityFromEmailHash`
 *  `__uid2.setIdentityFromPhone`
 *  `__uid2.setIdentityFromPhoneHash`
+
+:::important
+For `__uid2.setIdentityFromEmailHash` or `__uid2.setIdentityFromPhoneHash`, the `emailHash` or `PhoneHash` argument must be the Base64-encoded value. For details, see [Email Address Hash Encoding](../getting-started/gs-normalization-encoding.md/#email-address-hash-encoding) and [Phone Number Hash Encoding](../getting-started/gs-normalization-encoding.md#phone-number-hash-encoding).
+:::
 
 The following sections include coding examples for each scenario.
 

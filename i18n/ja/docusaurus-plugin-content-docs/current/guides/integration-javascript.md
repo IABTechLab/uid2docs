@@ -9,7 +9,7 @@ displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';
-import IntegratingWithSSO from '../snippets/_integrating-with-sso.mdx';
+import SnptIntegratingWithSSO from '../snippets/_snpt-integrating-with-sso.mdx';
 
 # UID2 Integration Overview for JavaScript
 
@@ -29,7 +29,7 @@ UID2 は、以下をサポートする JavaScript 用の SDK を提供してい�
 
 ## Integrating with Single Sign-On (SSO)
 
-<IntegratingWithSSO />
+<SnptIntegratingWithSSO />
 
 ## Client-Side or Client-Server Integration
 

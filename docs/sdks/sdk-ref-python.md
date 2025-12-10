@@ -38,7 +38,12 @@ If you're a DSP, we'll send credentials to you.
 
 ## Version
 
-The SDK supports Python 3.6 and above.
+The minimum supported Python version depends on the [UID2 SDK for Python](https://pypi.org/project/uid2-client/) 
+version:
+
+- **v2.8.0+**: Python 3.10 or higher
+- **v2.6.0**: Python 3.8 or higher  
+- **v2.5.0 and below**: Python 3.6 or higher
 
 ## GitHub Repository/Package
 
@@ -49,6 +54,10 @@ This SDK is in the following open-source GitHub repository:
 The package is published in this location:
 
 - [https://pypi.org/project/uid2-client/](https://pypi.org/project/uid2-client/)
+
+## Release Notes
+
+For detailed information about changes, bug fixes, and new features in each release, see the [release notes on GitHub](https://github.com/IABTechLab/uid2-client-python/releases).
 
 ## Installation
 
@@ -246,6 +255,10 @@ To map DII to raw UID2s, follow these steps:
           .with_hashed_phone("pre_hashed_phone")
       ```
 
+   :::note
+   The SDK automatically handles email normalization and hashing, ensuring that raw email addresses and phone numbers do not leave your server.
+   :::
+
 3. Call a function that takes the `input` and generates an `IdentityMapV3Response` object:
    ```py
    identity_map_response = identity_map_v3_client.generate_identity_map(input)
@@ -269,9 +282,9 @@ To map DII to raw UID2s, follow these steps:
        reason = unmapped_identity.reason # OPTOUT, INVALID_IDENTIFIER, or UNKNOWN
    ```
 
-:::note
-The SDK automatically handles email normalization and hashing, ensuring that raw email addresses and phone numbers do not leave your server.
-:::
+   :::note
+   The raw UID2 does not change before the refresh timestamp. After the refresh timestamp, remapping the DII returns a new refresh timestamp, but the raw UID2 might or might not change. It is possible for the raw UID2 to remain unchanged for multiple refresh intervals.
+   :::
 
 #### Usage Example
 

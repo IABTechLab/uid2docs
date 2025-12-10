@@ -9,7 +9,9 @@ displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';
-import UpgradePolicy from '../snippets/_private-operator-upgrade-policy.mdx';
+import SnptUpgradePolicy from '../snippets/_snpt-private-operator-upgrade-policy.mdx';
+import SnptAttestFailure from '../snippets/_snpt-private-operator-attest-failure.mdx';
+import SnptRotatingTheKeys from '../snippets/_snpt-private-operator-rotating-the-keys.mdx';
 
 # UID2 Private Operator for AKS Integration Guide
 
@@ -43,7 +45,7 @@ For information about supported versions and deprecation dates, see [Private Ope
 
 ## Private Operator Upgrade Policy
 
-<UpgradePolicy />
+<SnptUpgradePolicy />
 
 ## Prerequisites
 
@@ -450,9 +452,9 @@ Private Operator のセットアップを完了するには、次の手順に従
 
    HTTP 200 とレスポンスボディ `OK` が表示される場合、ステータスは正常です。
 
-import AttestFailure from '../snippets/_private-operator-attest-failure.mdx';
+### Private Operator Attestation Failure
 
-<AttestFailure />
+<SnptAttestFailure />
 
 ## Upgrading
 
@@ -471,3 +473,7 @@ ASK 用の UID2 Private Operator の新しいバージョンがリリースさ�
    ```
    kubectl get pods
    ```
+
+## Keeping the Operator Key Secure
+
+<SnptRotatingTheKeys />
