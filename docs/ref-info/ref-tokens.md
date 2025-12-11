@@ -20,13 +20,12 @@ Here are some key points about UID2 tokens:
 
 - The UID2 token is a unique value: no two UID2 tokens are the same.
 - UID2 tokens are case sensitive.
+- Publishers send UID2 tokens in the bidstream.
 - The token value is an <a href="glossary-uid#gl-opaque">opaque</a> string: do not make any assumptions about the format or length of the string.
 - UID2 tokens representing different instances of user activity, on browsers, CTV, and electronic devices such as phones and tablets, can still be matched to the same raw UID2.
 - The token generation logic checks for user opt-out. If the user has opted out of UID2, no UID2 token is generated. For details, see [User Opt-Out](../getting-started/gs-opt-out.md).
 - The token has a limited life, but can be refreshed using the refresh token.
 - You can refresh many times, to get a new UID2 token and corresponding new refresh token, as long as the current UID2 token is always refreshed before the current refresh token expires.
-- If the token has expired, or as an alternative to refreshing an existing token, you can generate a new UID2 token from the original hashed or unhashed email address or phone number.
-- Publishers send UID2 tokens in the bidstream.
 - Refreshing a UID2 token does not invalidate/expire the original or previous UID2 token. You can still use the earlier token until it expires.
 
 For more information, see [How the UID2 Token Is Created](ref-how-uid-is-created.md).
@@ -47,6 +46,14 @@ Here are some key points about refresh tokens:
 - When a new UID2 token is generated and returned in response to the refresh token, a new refresh token is returned along with it.
 - In most cases, you can refresh tokens on the client side, even if the token was generated on the server side. For details about refresh functionality for the various SDKs, see [SDK Functionality](../sdks/summary-sdks.md#sdk-functionality) (*Refresh UID2 Token* column).
 - When the UID2 <Link href="../ref-info/glossary-uid#gl-operator-service">Operator Service</Link> receives the refresh token with a request for a new UID2 token, it checks for user opt-out. If the user has opted out of UID2, no new UID2 token is generated. For details, see [User Opt-Out](../getting-started/gs-opt-out.md).
+
+### Keeping the Token Current
+
+It's very important to keep your UID2 tokens current (not expired). You get the advantages of UID2 only if the token is current.
+
+There are two options for keeping your UID2 tokens current:
+- Refresh frequently, using the [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) endpoint or the token refresh feature of many UID2 SDKs. For details, see [Recommended Token Refresh Frequency](#recommended-token-refresh-frequency).
+- As an alternative to refreshing an existing token, generate a new token each time, using the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) endpoint or the token generate feature of many UID2 SDKs.
 
 ### Recommended Token Refresh Frequency
 

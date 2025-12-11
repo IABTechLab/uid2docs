@@ -20,7 +20,9 @@ If you're a Connected TV (CTV) publisher, there are several ways that you can in
 At a high level, to integrate with UID2, you'll implement these three key steps: 
 
 1. Generate the UID2 token.
-1. Refresh the UID2 token as needed.
+1. Refresh or regenerate the UID2 token frequently to ensure the token stays current.
+
+   For details, see [Keeping the Token Current](../ref-info/ref-tokens.md#keeping-the-token-current) and [Recommended Token Refresh Frequency](../ref-info/ref-tokens.md#recommended-token-refresh-frequency).
 1. Pass the UID2 token into the bidstream.
 
 To determine how you'll implement these steps, choose from the [CTV Integration Options](#ctv-integration-options).
