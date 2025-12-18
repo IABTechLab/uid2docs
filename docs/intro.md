@@ -10,7 +10,7 @@ import Link from '@docusaurus/Link';
 
 # Unified ID 2.0 Overview
 
-UID2 is a framework that enables deterministic identity for advertising opportunities on the open internet for many [participants](overviews/participants-overview.md#uid2-external-participants) across the advertising ecosystem. The UID2 framework enables publisher websites, mobile apps, and Connected TV (CTV) apps to monetize through programmatic workflows. Built as an open-source, standalone solution with its own unique namespace, the framework offers privacy controls designed to help participants meet local market requirements.
+UID2 is a framework that enables deterministic identity for advertising opportunities on the open internet for many [participants](overviews/participants-overview.md#uid2-external-participants) across the advertising ecosystem. The UID2 framework enables publisher websites, mobile apps, and Connected TV (CTV) apps to monetize through programmatic workflows. Built as an open-source, standalone solution with its own unique namespace, the framework offers privacy controls designed to help participants meet local market requirements. 
 
 :::note
 The term "UID2" can refer to either the framework or an actual identifier. Unless otherwise indicated, this page provides an overview of the UID2 framework.
