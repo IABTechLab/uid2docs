@@ -11,4 +11,4 @@ import SnptPublisherImplementationResources from '../snippets/_snpt-publisher-im
 
 # Publisher Integration Resources
 
-<SnptPublisherImplementationResources/>
+<SnptPublisherImplementationResources />
