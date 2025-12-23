@@ -207,12 +207,12 @@ pbjs.setConfig({
 
 ## Optional: Deferred Client-Side UID2 Configuration with mergeConfig
 
-In some scenarios, you may want to add UID2 to your Prebid.js configuration *after* the page has already loaded—for example, when the user logs in after page load, or when consent is granted asynchronously.
+If you already have Prebid.js configured but didn't include UID2 in the initial setup, you can still add the UID2 module using `mergeConfig()` and `refreshUserIds()`. This allows Prebid.js to handle all UID2 work—token generation, storage, and refresh—even when UID2 wasn't part of your original configuration.
 
 Instead of using `setConfig()` (which overwrites existing configuration), use `mergeConfig()` to add UID2 without affecting other settings, and then call `refreshUserIds()` to trigger token generation:
 
 ```js
-// Step 1: User logs in or provides consent after page load
+// Step 1: Define the UID2 configuration
 const uidConfig = {
   userSync: {
     userIds: [{
