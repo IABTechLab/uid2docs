@@ -208,7 +208,7 @@ Provide values for the input parameters, as needed, in the `terraform.tfvars` fi
    | :--- | :--- | :--- | :--- | :--- |
    | `project_id` | `string` | `uid2-test` | yes | The ID of the GCP project that you want the UID2 Operator to run in; for example, `UID2-Operator-Production`. |
    | `service_account_name` | `string` | `tf-test` | yes | The name of the service account that you want to use for your UID2 Operator instance in GCP Confidential Space. |
-   | `uid_operator_image` | `string` | `us-docker.pkg.dev/uid2-prod-project/iabtechlab/uid2-operator:v5.62.24-r2` | yes | The Docker image URL for the UID2 Private Operator for GCP, used in configuration. The version number changes depending on the version being deployed. |
+   | `uid_operator_image` | `string` | `us-docker.pkg.dev/uid2-prod-project/iabtechlab/uid2-operator:{version_number}` | yes | The Docker image URL for the UID2 Private Operator for GCP, used in configuration. The version number changes depending on the version being deployed. |
    | `uid_operator_key` | `string` | n/a | yes | The UID2 operator key, which you received as part of [UID2 Operator Account Setup](#uid2-operator-account-setup). |
    | `uid_operator_key_secret_name` | `string` | `secret-operator-key` | yes | The name of the key to create in Secret Manager. |
    | `uid_deployment_env` | `string` | `integ` | yes | Valid values: `integ` for integration environment, `prod` for production environment.<br/>Machine type is determined by the deployment environment: `integ` uses `n2d-standard-2` and `prod` uses `n2d-standard-16`. |

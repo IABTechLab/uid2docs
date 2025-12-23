@@ -208,7 +208,7 @@ Terraform がインストールされていない場合は、[terraform.io](http
    | :--- | :--- | :--- | :--- | :--- |
    | `project_id` | `string` | `uid2-test` | yes | UID2 Operator を実行する GCP プロジェクトの ID。たとえば、`UID2-Operator-Production`。 |
    | `service_account_name` | `string` | `tf-test` | yes | GCP Confidential Space の UID2 Operator インスタンスに使用するサービスアカウントの名前。 |
-   | `uid_operator_image` | `string` | `us-docker.pkg.dev/uid2-prod-project/iabtechlab/uid2-operator:v5.62.24-r2` | yes | コンフィギュレーションで使用する UID2 Private Operator for GCP の Docker イメージ URL。バージョン番号は、デプロイされるバージョンによって変わります。 |
+   | `uid_operator_image` | `string` | `us-docker.pkg.dev/uid2-prod-project/iabtechlab/uid2-operator:{version_number}` | yes | コンフィギュレーションで使用する UID2 Private Operator for GCP の Docker イメージ URL。バージョン番号は、デプロイされるバージョンによって変わります。 |
    | `uid_operator_key` | `string` | n/a | yes | UID2 Operator Keyは、[UID2 Operator Account Setup](#uid2-operator-account-setup) で受け取ったものです。 |
    | `uid_operator_key_secret_name` | `string` | `secret-operator-key` | yes | Secret Manager で作成するキーの名前。 |
    | `uid_deployment_env` | `string` | `integ` | yes | 有効な値: `integ` はインテグレーション環境、`prod` は本番環境。<br/>マシンタイプはデプロイ環境によって決まります。`integ` は `n2d-standard-2` を使用し、`prod` は `n2d-standard-16` を使用します。 |
