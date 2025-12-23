@@ -33,7 +33,7 @@ The latest ZIP file is linked in the Azure Download column in the following tabl
 
 | Version Name | Version Number  | Release Notes | Azure Download |  Date | Deprecation Date |
 | ------- | ------ | ------ | ------ | ------ | ------ |
-| Q2 2025 | v5.55.9 | [v5.55.9](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.55.9-r1) | [azure-cc-deployment-files-5.55.9-r1.zip](https://github.com/IABTechLab/uid2-operator/releases/download/v5.55.9-r1/azure-cc-deployment-files-5.55.9-r1.zip) | July 1, 2025 | July 1, 2026 |
+| Q4 2025 | v5.62.24 | [v5.62.24](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.62.24-r2) | [azure-cc-deployment-files-5.62.24-r2.zip](https://github.com/IABTechLab/uid2-operator/releases/download/v5.62.24-r2/azure-cc-deployment-files-5.62.24-r2.zip) | January 15, 2026 | January 15, 2027 |
 
 :::note
 For information about supported versions and deprecation dates, see [Private Operator Versions](../ref-info/deprecation-schedule.md#private-operator-versions).
