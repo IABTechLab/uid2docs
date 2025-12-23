@@ -32,7 +32,7 @@ If you need to use an earlier version of Prebid.js, use the implementation solut
 An example of the UID2 Prebid.js client-side integration is available at the following links:
 
 - Code: [Example Prebid.js UID2 Integration](https://github.com/IABTechLab/uid2-examples/tree/main/web-integrations/prebid-integrations/client-side)
-- Running site: [UID2 Prebid.js Client-Side Integration Example](https://prebid-client.samples.uidapi.com/)
+- Running site: [Client-Side UID2 Integration with Prebid.js](https://prebid-client.samples.uidapi.com/)
 
 ## Integrating with Single Sign-On (SSO)
 
@@ -205,7 +205,7 @@ pbjs.setConfig({
 }); 
 ```
 
-## Optional: Deferred UID2 Configuration with mergeConfig
+## Optional: Deferred Client-Side UID2 Configuration with mergeConfig
 
 In some scenarios, you may want to add UID2 to your Prebid.js configuration *after* the page has already loaded—for example, when the user logs in after page load, or when consent is granted asynchronously.
 
@@ -240,12 +240,12 @@ await pbjs.refreshUserIds({ submoduleNames: ['uid2'] });
 - **`refreshUserIds()`**: Triggers Prebid to generate/refresh user IDs. Use `{ submoduleNames: ['uid2'] }` to refresh only the UID2 module.
 - **Clearing UID2**: Prebid does not provide a built-in way to remove a single user ID module after it's been added. To clear UID2 on logout, remove the token from localStorage and reload the page.
 
-### Deferred Integration Example
+### Deferred Client-Side Integration Example
 
 An example of the deferred UID2 Prebid.js integration using `mergeConfig()` is available at the following links:
 
 - Code: [Deferred Prebid.js UID2 Integration](https://github.com/IABTechLab/uid2-examples/tree/main/web-integrations/prebid-integrations/client-side-deferred)
-- Running site: [UID2 Prebid.js Deferred Integration Example](https://prebid-deferred.samples.uidapi.com/)
+- Running site: [Deferred UID2 Integration with Prebid.js](https://prebid-deferred.samples.uidapi.com/)
 
 ## Optional: Prebid.js Integration with Google Secure Signals
 
