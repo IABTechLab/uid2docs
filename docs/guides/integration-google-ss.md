@@ -84,7 +84,7 @@ If you want to use Secure Signals with Prebid.js, you must complete both these a
 
 A sample implementation for Prebid.js with Secure Signals is available at the following links:
 
-- Running site: [UID2 Prebid.js Secure Signals Integration Example](https://prebid-secure-signals.samples.uidapi.com/)
+- Site: [UID2 Prebid.js Secure Signals Integration Example](https://prebid-secure-signals.samples.uidapi.com/)
 - Code: [uid2-examples/web-integrations/prebid-secure-signals](https://github.com/IABTechLab/uid2-examples/tree/main/web-integrations/prebid-secure-signals)
 
 ## Integrating with Single Sign-On (SSO)

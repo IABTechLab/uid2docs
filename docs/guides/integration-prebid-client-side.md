@@ -31,8 +31,8 @@ If you need to use an earlier version of Prebid.js, use the implementation solut
 
 An example of the UID2 Prebid.js client-side integration is available at the following links:
 
-- Code: [Example Prebid.js UID2 Integration](https://github.com/IABTechLab/uid2-examples/tree/main/web-integrations/prebid-integrations/client-side)
-- Running site: [Client-Side UID2 Integration with Prebid.js](https://prebid-client.samples.uidapi.com/)
+- Site: [Client-Side UID2 Integration with Prebid.js](https://prebid-client.samples.uidapi.com/)
+- Code: [uid2-examples/web-integrations/prebid-integrations/client-side](https://github.com/IABTechLab/uid2-examples/tree/main/web-integrations/prebid-integrations/client-side)
 
 ## Integrating with Single Sign-On (SSO)
 
@@ -207,9 +207,12 @@ pbjs.setConfig({
 
 ## Optional: Deferred Client-Side UID2 Configuration with mergeConfig
 
-If you already have Prebid.js configured but didn't include UID2 in the initial setup, you can still add the UID2 module using `mergeConfig()` and `refreshUserIds()`. This allows Prebid.js to handle all UID2 work—token generation, storage, and refresh—even when UID2 wasn't part of your original configuration.
+If you already have Prebid.js configured but didn't include UID2 in the initial setup, you can still add the UID2 module using two functions provided by Prebid.js:
 
-Instead of using `setConfig()` (which overwrites existing configuration), use `mergeConfig()` to add UID2 without affecting other settings, and then call `refreshUserIds()` to trigger token generation:
+- [mergeConfig()](https://docs.prebid.org/dev-docs/publisher-api-reference/mergeConfig.html): Merges new configuration into the existing Prebid config without overwriting other settings. Use this to add the UID2 module to your existing `userSync.userIds` array.
+- [refreshUserIds()](https://docs.prebid.org/dev-docs/publisher-api-reference/refreshUserIds.html): Reruns the user ID submodules to fetch the latest IDs. Call this after `mergeConfig()` to trigger UID2 token generation.
+
+You still pass the same configuration information as described above (API base URL, credentials, and DII) so that Prebid can handle the entire UID2 token lifecycle:
 
 ```js
 // Step 1: Define the UID2 configuration
@@ -234,18 +237,18 @@ pbjs.mergeConfig(uidConfig);
 await pbjs.refreshUserIds({ submoduleNames: ['uid2'] });
 ```
 
-### Key Points
+:::note
+Once you add UID2 to your configuration, Prebid does not provide functionality to remove individual submodules without overwriting the entire `userIds` array. For client-side integrations where Prebid has access to the UID2 token in localStorage, it is important to clear localStorage where the token is stored after the user logs out and reload the page to clear caches. This prevents future bid requests from using the identity.
 
-- **`mergeConfig()` is additive**: It adds UID2 to the existing `userSync.userIds` array without overwriting other user ID modules.
-- **`refreshUserIds()`**: Triggers Prebid to generate/refresh user IDs. Use `{ submoduleNames: ['uid2'] }` to refresh only the UID2 module.
-- **Clearing UID2**: Prebid does not provide a built-in way to remove a single user ID module after it's been added. To clear UID2 on logout, remove the token from localStorage and reload the page.
+If you are managing the UID2 SDK separately, use `window.__uid2.disconnect()` which handles all logout functionality&#8212;clearing both memory and storage&#8212;without requiring a page refresh.
+:::
 
 ### Deferred Client-Side Integration Example
 
-An example of the deferred UID2 Prebid.js integration using `mergeConfig()` is available at the following links:
+An example of the deferred UID2 Prebid.js integration is available at the following links:
 
-- Code: [Deferred Prebid.js UID2 Integration](https://github.com/IABTechLab/uid2-examples/tree/main/web-integrations/prebid-integrations/client-side-deferred)
-- Running site: [Deferred UID2 Integration with Prebid.js](https://prebid-deferred.samples.uidapi.com/)
+- Site: [Deferred UID2 Integration with Prebid.js](https://prebid-deferred.samples.uidapi.com/)
+- Code: [uid2-examples/web-integrations/prebid-integrations/client-side-deferred](https://github.com/IABTechLab/uid2-examples/tree/main/web-integrations/prebid-integrations/client-side-deferred)
 
 ## Optional: Prebid.js Integration with Google Secure Signals
 
