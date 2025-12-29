@@ -169,13 +169,13 @@ The client lifecycle is complete when the user decides to log out from the publi
 </script>
 ```
 
-## FAQs
-
-For a list of frequently asked questions for the publisher audience, see [FAQs for Publishers](../getting-started/gs-faqs.md#faqs-for-publishers).
-
 ## Sample Implementation
 
 A sample implementation is available for client-server integration using the UID2 SDK for JavaScript:
 
 - Site: [Client-Server UID2 Integration Example using JavaScript SDK](https://js-client-server.samples.uidapi.com/)
 - Code: [uid2-examples/web-integrations/javascript-sdk/client-server](https://github.com/IABTechLab/uid2-examples/tree/main/web-integrations/javascript-sdk/client-server)
+
+## FAQs
+
+For a list of frequently asked questions for the publisher audience, see [FAQs for Publishers](../getting-started/gs-faqs.md#faqs-for-publishers).
