@@ -90,7 +90,7 @@ This section includes sample pages for passing UID2 identity data to Google's ad
 
 ### Client-Side Secure Signals
 
-This sample is for publishers who want a client-side integration with Google Ad Manager Secure Signals. It uses the UID2 SDK for JavaScript to generate and manage tokens, while the Secure Signal script automatically shares the token with Google Ad Manager for ad requests.
+This sample is for publishers who want a client-side integration with Google Ad Manager Secure Signals. It uses the UID2 SDK for JavaScript to generate and manage tokens, while the Secure Signals script automatically shares the token with Google Ad Manager for ad requests.
 
 - Site: [Client-Side UID2 Integration with Google Secure Signals](https://secure-signals-client-side.samples.uidapi.com/)
 - Code: [uid2-examples/web-integrations/google-secure-signals/client-side](https://github.com/IABTechLab/uid2-examples/tree/main/web-integrations/google-secure-signals/client-side)
@@ -98,7 +98,7 @@ This sample is for publishers who want a client-side integration with Google Ad 
 
 ### Client-Server Secure Signals
 
-This sample is for publishers who want to generate UID2 tokens on the server side while using the SDK for JavaScript on the client to manage tokens. The Secure Signal script automatically shares the token with Google Ad Manager for ad requests.
+This sample is for publishers who want to generate UID2 tokens on the server side while using the SDK for JavaScript on the client to manage tokens. The Secure Signals script automatically shares the token with Google Ad Manager for ad requests.
 
 - Site: [Client-Server UID2 SDK Integration Example with Google Secure Signals](https://secure-signals-client-server.samples.uidapi.com/)
 - Code: [uid2-examples/web-integrations/google-secure-signals/client-server](https://github.com/IABTechLab/uid2-examples/tree/main/web-integrations/google-secure-signals/client-server)
@@ -106,7 +106,7 @@ This sample is for publishers who want to generate UID2 tokens on the server sid
 
 ### Server-Side Secure Signals
 
-This sample is for publishers who want all UID2 token logic handled server-side. The Secure Signal script reads the token and automatically shares it with Google Ad Manager for ad requests.
+This sample is for publishers who want all UID2 token logic handled server-side. The Secure Signals script reads the token and automatically shares it with Google Ad Manager for ad requests.
 
 - Site: [Server-Side UID2 Integration with Google Secure Signals](https://secure-signals-server-side.samples.uidapi.com/)
 - Code: [uid2-examples/web-integrations/google-secure-signals/server-side](https://github.com/IABTechLab/uid2-examples/tree/main/web-integrations/google-secure-signals/server-side)
@@ -114,7 +114,7 @@ This sample is for publishers who want all UID2 token logic handled server-side.
 
 ### React Client-Side Secure Signals
 
-This sample is for publishers with React apps who want a client-side integration with Google Secure Signals. It uses the UID2 SDK for JavaScript within a React component to generate and manage tokens, while the Secure Signal script automatically shares the token with Google Ad Manager.
+This sample is for publishers with React apps who want a client-side integration with Google Secure Signals. It uses the UID2 SDK for JavaScript within a React component to generate and manage tokens, while the Secure Signals script automatically shares the token with Google Ad Manager.
 
 - Site: [React Client-Side UID2 Integration with Google Secure Signals](https://secure-signals-react.samples.uidapi.com/)
 - Code: [uid2-examples/web-integrations/google-secure-signals/react-client-side](https://github.com/IABTechLab/uid2-examples/tree/main/web-integrations/google-secure-signals/react-client-side)
