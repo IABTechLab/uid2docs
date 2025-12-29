@@ -82,10 +82,7 @@ If you want to use Secure Signals with Prebid.js, you must complete both these a
 
    For details, see [ESP Configurations](https://docs.prebid.org/dev-docs/modules/userId.html#esp-configurations) in the Prebid documentation.
 
-A sample implementation for Prebid.js with Secure Signals is available at the following links:
-
-- Site: [UID2 Prebid.js Secure Signals Integration Example](https://prebid-secure-signals.samples.uidapi.com/)
-- Code: [uid2-examples/web-integrations/prebid-secure-signals](https://github.com/IABTechLab/uid2-examples/tree/main/web-integrations/prebid-secure-signals)
+A sample implementation for Prebid.js with Secure Signals is also available. For details, see [Sample Implementations](#sample-implementations).
 
 ## Integrating with Single Sign-On (SSO)
 
@@ -171,6 +168,9 @@ The following sample implementations are available to illustrate how to integrat
 - Client-side integration example using React, the UID2 JavaScript SDK, and Google secure signals:
   - [Sample implementation](https://secure-signals-react-integ.uidapi.com)
   - [Code repository](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/google-secure-signals-integration/react_client_side)
+- Client-side integration example using Prebid.js with Google Secure Signals:
+  - [Sample implementation](https://prebid-secure-signals.samples.uidapi.com/)
+  - [Code repository](https://github.com/IABTechLab/uid2-examples/tree/main/web-integrations/prebid-secure-signals)
 
 Each sample implementation has its own instructions.
 
