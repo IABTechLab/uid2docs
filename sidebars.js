@@ -381,6 +381,7 @@ const fullSidebar = [
         'getting-started/gs-environments',
         'getting-started/gs-encryption-decryption',
         'getting-started/gs-normalization-encoding',
+        'ref-info/ref-preparing-emails-and-phone-numbers-for-processing',
         'getting-started/gs-opt-out',
         'ref-info/ref-operators-public-private',
         'ref-info/ref-integration-approaches',

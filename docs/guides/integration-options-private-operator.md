@@ -8,6 +8,7 @@ displayed_sidebar: docs
 import Link from '@docusaurus/Link';
 import SnptUpgradePolicy from '../snippets/_snpt-private-operator-upgrade-policy.mdx';
 import SnptRotatingTheKeys from '../snippets/_snpt-private-operator-rotating-the-keys.mdx';
+import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emails-and-phone-numbers.mdx';
 
 # UID2 Private Operator Integration Overview
 
@@ -97,6 +98,13 @@ For information about supported versions and deprecation dates, see [Private Ope
 ## Keeping the Operator Key Secure
 
 <SnptRotatingTheKeys />
+
+## Preparing DII for Processing
+
+<!-- uptohere need to replicate this section in many places -->
+
+<SnptPreparingEmailsAndPhoneNumbers />
+
 
 ## Getting Started
 
