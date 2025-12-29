@@ -27,13 +27,6 @@ This implementation requires Prebid.js version 8.21.0 or later. For version info
 
 If you need to use an earlier version of Prebid.js, use the implementation solution presented in the [UID2 Client-Server Integration Guide for Prebid.js](integration-prebid-client-server.md) instead.
 
-## Integration Example
-
-An example of the UID2 Prebid.js client-side integration is available at the following links:
-
-- Site: [Client-Side UID2 Integration with Prebid.js](https://prebid-client.samples.uidapi.com/)
-- Code: [uid2-examples/web-integrations/prebid-integrations/client-side](https://github.com/IABTechLab/uid2-examples/tree/main/web-integrations/prebid-integrations/client-side)
-
 ## Integrating with Single Sign-On (SSO)
 
 <SnptIntegratingWithSSO />
@@ -243,12 +236,7 @@ Once you add UID2 to your configuration, Prebid does not provide functionality t
 If you are managing the UID2 SDK separately, use `window.__uid2.disconnect()` which handles all logout functionality&#8212;clearing both memory and storage&#8212;without requiring a page refresh.
 :::
 
-### Deferred Client-Side Integration Example
-
-An example of the deferred UID2 Prebid.js integration is available at the following links:
-
-- Site: [Deferred UID2 Integration with Prebid.js](https://prebid-deferred.samples.uidapi.com/)
-- Code: [uid2-examples/web-integrations/prebid-integrations/client-side-deferred](https://github.com/IABTechLab/uid2-examples/tree/main/web-integrations/prebid-integrations/client-side-deferred)
+A sample implementation for deferred configuration is also available. For details, see [Sample Implementations](#sample-implementations).
 
 ## Optional: Prebid.js Integration with Google Secure Signals
 
@@ -256,3 +244,21 @@ if you're using Prebid.js, and you're planning to pass UID2 tokens to Google usi
 
 - In your Google Ad Manager account, make sure that encrypted signals are properly shared with third-party bidders: see [Allow Secure Signals Sharing](integration-google-ss.md#allow-secure-signals-sharing).
 - Update your Prebid.js configuration: see [Optional: Enable Secure Signals in Prebid.js](integration-google-ss.md#optional-enable-secure-signals-in-prebidjs).
+
+A sample implementation for Prebid.js with Secure Signals is also available. For details, see [Sample Implementations](#sample-implementations).
+
+## Sample Implementations
+
+The following sample implementations are available to illustrate how to integrate UID2 with Prebid.js on the client side:
+
+- Client-side integration example using Prebid.js:
+  - [Sample implementation](https://prebid-client.samples.uidapi.com/)
+  - [Code repository](https://github.com/IABTechLab/uid2-examples/tree/main/web-integrations/prebid-integrations/client-side)
+- Deferred client-side integration example using Prebid.js:
+  - [Sample implementation](https://prebid-deferred.samples.uidapi.com/)
+  - [Code repository](https://github.com/IABTechLab/uid2-examples/tree/main/web-integrations/prebid-integrations/client-side-deferred)
+- Client-side integration example using Prebid.js with Google Secure Signals:
+  - [Sample implementation](https://prebid-secure-signals.samples.uidapi.com/)
+  - [Code repository](https://github.com/IABTechLab/uid2-examples/tree/main/web-integrations/prebid-secure-signals)
+
+Each sample implementation has its own instructions.
