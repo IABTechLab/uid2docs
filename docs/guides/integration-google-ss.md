@@ -82,6 +82,8 @@ If you want to use Secure Signals with Prebid.js, you must complete both these a
 
    For details, see [ESP Configurations](https://docs.prebid.org/dev-docs/modules/userId.html#esp-configurations) in the Prebid documentation.
 
+A sample implementation for Prebid.js with Secure Signals is also available. For details, see [Sample Implementations](#sample-implementations).
+
 ## Integrating with Single Sign-On (SSO)
 
 <SnptIntegratingWithSSO />
@@ -154,18 +156,21 @@ For details, see [Client-Side Integration Guide for JavaScript](integration-java
 
 The following sample implementations are available to illustrate how to integrate with the Google Ad Manager secure signals feature:
 
-- Server-side integration example using the UID2 JavaScript SDK with Google secure signals:
-  - [Sample implementation](https://secure-signals-server-side-integ.uidapi.com/)
-  - [Code repository](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/google-secure-signals-integration/server_side)
-- Client-server integration example using the UID2 JavaScript SDK with Google secure signals:
-  - [Sample implementation](https://secure-signals-client-server-integ.uidapi.com/)
-  - [Code repository](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/google-secure-signals-integration/with_sdk_v3)
-- Client-side integration example using the UID2 JavaScript SDK with Google secure signals:
-  - [Sample implementation](https://secure-signals-client-side-integ.uidapi.com/)
-  - [Code repository](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/google-secure-signals-integration/client_side)
-- Client-side integration example using React, the UID2 JavaScript SDK, and Google secure signals:
-  - [Sample implementation](https://secure-signals-react-integ.uidapi.com)
-  - [Code repository](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/google-secure-signals-integration/react_client_side)
+- Client-side integration example using the UID2 JavaScript SDK with Google Secure Signals:
+  - Site: [Client-Side UID2 Integration with Google Secure Signals](https://secure-signals-client-side.samples.uidapi.com/)
+  - Code: [uid2-examples/web-integrations/google-secure-signals/client-side](https://github.com/IABTechLab/uid2-examples/tree/main/web-integrations/google-secure-signals/client-side)
+- Client-server integration example using the UID2 JavaScript SDK with Google Secure Signals:
+  - Site: [Client-Server UID2 SDK Integration Example with Google Secure Signals](https://secure-signals-client-server.samples.uidapi.com/)
+  - Code: [uid2-examples/web-integrations/google-secure-signals/client-server](https://github.com/IABTechLab/uid2-examples/tree/main/web-integrations/google-secure-signals/client-server)
+- Server-side integration example using the UID2 JavaScript SDK with Google Secure Signals:
+  - Site: [Server-Side UID2 Integration with Google Secure Signals](https://secure-signals-server-side.samples.uidapi.com/)
+  - Code: [uid2-examples/web-integrations/google-secure-signals/server-side](https://github.com/IABTechLab/uid2-examples/tree/main/web-integrations/google-secure-signals/server-side)
+- Client-side integration example using React, the UID2 JavaScript SDK, and Google Secure Signals:
+  - Site: [React Client-Side UID2 Integration with Google Secure Signals](https://secure-signals-react.samples.uidapi.com/)
+  - Code: [uid2-examples/web-integrations/google-secure-signals/react-client-side](https://github.com/IABTechLab/uid2-examples/tree/main/web-integrations/google-secure-signals/react-client-side)
+- Client-side integration example using Prebid.js with Google Secure Signals:
+  - Site: [Client-Side UID2 Integration with Prebid.js (with Google Secure Signals)](https://prebid-secure-signals.samples.uidapi.com/)
+  - Code: [uid2-examples/web-integrations/prebid-secure-signals](https://github.com/IABTechLab/uid2-examples/tree/main/web-integrations/prebid-secure-signals)
 
 Each sample implementation has its own instructions.
 

@@ -36,10 +36,6 @@ Information about how to integrate Prebid with UID2 is also in the following loc
 - On the Prebid site, on the [Unified ID 2.0](https://docs.prebid.org/dev-docs/modules/userid-submodules/unified2.html) page for the Prebid User ID submodule.
 - In the Prebid GitHub repository, on the [UID2 User ID Submodule](https://github.com/prebid/Prebid.js/blob/master/modules/uid2IdSystem.md) page.
 
-<!-- ## Integration Example
-
-GWH note 12/14/23 updated 2/7/25: we have a client-side example for Prebid.js but no client-server example. -->
-
 ## Integrating with Single Sign-On (SSO)
 
 <SnptIntegratingWithSSO />
@@ -394,3 +390,11 @@ if you're using Prebid.js, and you're planning to pass UID2 tokens to Google usi
 
 - In your Google Ad Manager account, make sure that encrypted signals are properly shared with third-party bidders: see [Allow Secure Signals Sharing](integration-google-ss.md#allow-secure-signals-sharing).
 - Update your Prebid.js configuration: see [Optional: Enable Secure Signals in Prebid.js](integration-google-ss.md#optional-enable-secure-signals-in-prebidjs).
+
+## Sample Implementation
+
+The following sample implementation is available to illustrate how to integrate UID2 with Prebid.js using client-server integration:
+
+- Client-server integration example using Prebid.js:
+  - Site: [Client-Server UID2 Integration with Prebid.js](https://prebid-client-server.samples.uidapi.com/)
+  - Code: [uid2-examples/web-integrations/prebid-integrations/client-server](https://github.com/IABTechLab/uid2-examples/tree/main/web-integrations/prebid-integrations/client-server)
