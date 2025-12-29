@@ -80,7 +80,7 @@ This sample demonstrates how publishers who already have Prebid.js configured ca
 
 This sample demonstrates how to configure Prebid.js with both UID2 and Google Secure Signals, enabling the integration between header bidding and Google Ad Manager.
 
-- Site: [UID2 Prebid.js Secure Signals Integration Example](https://prebid-secure-signals.samples.uidapi.com/)
+- Site: [Client-Side UID2 Integration with Prebid.js (with Google Secure Signals)](https://prebid-secure-signals.samples.uidapi.com/)
 - Code: [uid2-examples/web-integrations/prebid-secure-signals](https://github.com/IABTechLab/uid2-examples/tree/main/web-integrations/prebid-secure-signals)
 - Doc: [Google Ad Manager Secure Signals Integration Guide](https://unifiedid.com/docs/guides/integration-google-ss)
 
