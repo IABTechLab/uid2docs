@@ -396,5 +396,5 @@ if you're using Prebid.js, and you're planning to pass UID2 tokens to Google usi
 The following sample implementation is available to illustrate how to integrate UID2 with Prebid.js using client-server integration:
 
 - Client-server integration example using Prebid.js:
-  - [Sample implementation](https://prebid-client-server.samples.uidapi.com/)
-  - [Code repository](https://github.com/IABTechLab/uid2-examples/tree/main/web-integrations/prebid-integrations/client-server)
+  - Site: [Client-Server UID2 Integration with Prebid.js](https://prebid-client-server.samples.uidapi.com/)
+  - Code: [uid2-examples/web-integrations/prebid-integrations/client-server](https://github.com/IABTechLab/uid2-examples/tree/main/web-integrations/prebid-integrations/client-server)

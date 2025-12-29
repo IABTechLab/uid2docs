@@ -252,13 +252,13 @@ A sample implementation for Prebid.js with Secure Signals is also available. For
 The following sample implementations are available to illustrate how to integrate UID2 with Prebid.js on the client side:
 
 - Client-side integration example using Prebid.js:
-  - [Sample implementation](https://prebid-client.samples.uidapi.com/)
-  - [Code repository](https://github.com/IABTechLab/uid2-examples/tree/main/web-integrations/prebid-integrations/client-side)
+  - Site: [Client-Side UID2 Integration with Prebid.js](https://prebid-client.samples.uidapi.com/)
+  - Code: [uid2-examples/web-integrations/prebid-integrations/client-side](https://github.com/IABTechLab/uid2-examples/tree/main/web-integrations/prebid-integrations/client-side)
 - Deferred client-side integration example using Prebid.js:
-  - [Sample implementation](https://prebid-deferred.samples.uidapi.com/)
-  - [Code repository](https://github.com/IABTechLab/uid2-examples/tree/main/web-integrations/prebid-integrations/client-side-deferred)
+  - Site: [Deferred UID2 Integration with Prebid.js](https://prebid-deferred.samples.uidapi.com/)
+  - Code: [uid2-examples/web-integrations/prebid-integrations/client-side-deferred](https://github.com/IABTechLab/uid2-examples/tree/main/web-integrations/prebid-integrations/client-side-deferred)
 - Client-side integration example using Prebid.js with Google Secure Signals:
-  - [Sample implementation](https://prebid-secure-signals.samples.uidapi.com/)
-  - [Code repository](https://github.com/IABTechLab/uid2-examples/tree/main/web-integrations/prebid-secure-signals)
+  - Site: [Client-Side UID2 Integration with Prebid.js (with Google Secure Signals)](https://prebid-secure-signals.samples.uidapi.com/)
+  - Code: [uid2-examples/web-integrations/prebid-secure-signals](https://github.com/IABTechLab/uid2-examples/tree/main/web-integrations/prebid-secure-signals)
 
 Each sample implementation has its own instructions.
