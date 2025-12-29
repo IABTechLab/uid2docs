@@ -12,6 +12,10 @@ This page lists all official UID2 sample implementations highlighting common int
 
 All sample sites are available at [https://samples.uidapi.com/](https://samples.uidapi.com/).
 
+:::note
+The sample implementations on this page demonstrate email-based integrations; however, phone numbers are also supported and follow the same integration patterns, using a different SDK method and requiring an additional normalization step. For a phone number integration example, see the [UID2 Hashing Tool](#uid2-hashing-tool).
+:::
+
 ## JavaScript SDK Integrations
 
 This section summarizes sample integrations using the UID2 SDK for JavaScript directly, without Prebid.js or Google Secure Signals. For integration options by participant type, see [Publisher Web Integration Overview](https://unifiedid.com/docs/guides/integration-options-publisher-web) or [Advertiser/Data Provider Integration Overview](https://unifiedid.com/docs/guides/integration-advertiser-dataprovider-overview).
@@ -72,7 +76,7 @@ This sample is for publishers who have access to DII on the server side and can 
 
 This sample demonstrates how publishers who already have Prebid.js configured can still add the UID2 module using functions provided by Prebid. This allows Prebid.js to handle all UID2 work even when the module wasn't included in the initial configuration.
 
-- Site: [Deferred UID2 Integration with Prebid.js](https://prebid-deferred.samples.uidapi.com/)
+- Site: [Deferred Client-Side UID2 Integration with Prebid.js](https://prebid-deferred.samples.uidapi.com/)
 - Code: [uid2-examples/web-integrations/prebid-integrations/client-side-deferred](https://github.com/IABTechLab/uid2-examples/tree/main/web-integrations/prebid-integrations/client-side-deferred)
 - Doc: [UID2 Client-Side Integration Guide for Prebid.js](https://unifiedid.com/docs/guides/integration-prebid-client-side)
 
