@@ -10,8 +10,6 @@ import Link from '@docusaurus/Link';
 
 このページでは、一般的なインテグレーションのユースケースを強調するすべての公式 UID2 サンプル実装のリストと、ライブデモサイト、ソースコード、および関連ドキュメントへのリンクを示します。このページを使用して、ニーズに合ったサンプルを見つけて、動作する例を調べてください。
 
-All sample sites are available at [https://samples.uidapi.com/](https://samples.uidapi.com/).
-
 ## JavaScript SDK Integrations
 
 このセクションでは、Prebid.js や Google Secure Signals を使用せずに UID2 SDK for JavaScript を直接使用したサンプル統合をまとめています。

@@ -27,7 +27,7 @@ Prebid.js を使って UID2 とインテグレーションするには、サイ�
 
 以前のバージョンの Prebid.js を使用する必要がある場合は、代わりに [UID2 Client-Server Integration Guide for Prebid.js](integration-prebid-client-server.md) で説明している実装ソリューションを使用してください。
 
-## Sample Implementations
+## Sample Implementation
 
 UID2 Prebid.js Client-Side インテグレーション例は、以下のリンクから入手できます:
 
