@@ -20,7 +20,7 @@ import SnptExampleJavaScriptV2Init from '../snippets/_snpt-example-javascript-v2
 
 コンテンツパブリッシャー向けのインテグレーション手順は、[Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md) を参照してください。
 
-関連ドキュメントと [example application](https://example-jssdk-integ.uidapi.com/) は、[UID2 SDK Integration Example](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/js-sdk) を参照してください。
+サンプルアプリケーションについては、[Client-Server UID2 Integration Example using JavaScript SDK](https://js-client-server.samples.uidapi.com/) と [uid2-examples/web-integrations/javascript-sdk/client-server](https://github.com/IABTechLab/uid2-examples/tree/main/web-integrations/javascript-sdk/client-server) を参照してください。
 
 ## Functionality
 

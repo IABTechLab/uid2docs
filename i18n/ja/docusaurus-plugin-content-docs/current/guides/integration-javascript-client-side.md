@@ -60,10 +60,8 @@ SDK のデバッグビルドを使用したい場合は、代わりに以下の 
 ## Sample Implementation
 
 実装例は、次の例を参照してください:
-- Code: [Example Client-Side Integration for JavaScript](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/cstg)
-- ランニングサイト: [Client-Side Integration Example, UID2 JavaScript SDK](https://cstg-integ.uidapi.com/)
-
-<!-- (Source code for running site: https://github.com/IABTechLab/uid2-web-integrations) -->
+- Site: [Client-Side UID2 Integration Example using JavaScript SDK](https://js-client-side.samples.uidapi.com/)
+- Code: [uid2-examples/web-integrations/javascript-sdk/client-side](https://github.com/IABTechLab/uid2-examples/tree/main/web-integrations/javascript-sdk/client-side)
   
 ## Integrating with Single Sign-On (SSO)
 
