@@ -25,8 +25,8 @@ SDK の技術的な詳細は [SDK for JavaScript Reference Guide](../sdks/sdk-re
 ## Sample Implementation
 
 実装例は、次の UID2 SDK インテグレーション例を参照してください。
-- [Client-Server UID2 SDK Integration Example](https://example-jssdk-integ.uidapi.com/)
-- [Code Repository with Readme](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/js-sdk)
+- Site: [Client-Server UID2 Integration Example using JavaScript SDK](https://js-client-server.samples.uidapi.com/)
+- Code: [uid2-examples/web-integrations/javascript-sdk/client-server](https://github.com/IABTechLab/uid2-examples/tree/main/web-integrations/javascript-sdk/client-server)
 
 ## Introduction
 
@@ -36,7 +36,7 @@ SDK の技術的な詳細は [SDK for JavaScript Reference Guide](../sdks/sdk-re
 
 UID2 の Opt-out ワークフローとユーザーが Opt-out する方法の詳細は、[User Opt-Out](../getting-started/gs-opt-out.md) を参照してください。
 
-UID2 を使用してクライアントの ID を確立し、Advertising Token を取得するプロセスを容易にするために、このガイドで提供する Web インテグレーション手順は、JavaScript 用の UID2 SDK に依存しています。このガイドに記載されているインテグレーションステップと SDK の使用方法(現在はメールアドレスのみ) を示す [example application](https://example-jssdk-integ.uidapi.com/) を以下に示します。アプリケーションのドキュメントは、[UID2 SDK Integration Example](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/js-sdk) を参照してください。
+UID2 を使用してクライアントの ID を確立し、Advertising Token を取得するプロセスを容易にするために、このガイドで提供する Web インテグレーション手順は、JavaScript 用の UID2 SDK に依存しています。このガイドに記載されているインテグレーションステップと SDK の使用方法を示す実装例については、[Sample Implementation](#sample-implementation) を参照してください。
 
 :::tip
 ファーストパーティ Cookie とローカルストレージの実装の詳細は 将来変更される可能性があります。潜在的な問題を回避するため、ID 管理には [SDK for JavaScript API Reference](../sdks/sdk-ref-javascript.md#api-reference) に記載されている機能を使用してください。

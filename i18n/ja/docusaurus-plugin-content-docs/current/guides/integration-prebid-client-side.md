@@ -27,12 +27,12 @@ Prebid.js を使って UID2 とインテグレーションするには、サイ�
 
 以前のバージョンの Prebid.js を使用する必要がある場合は、代わりに [UID2 Client-Server Integration Guide for Prebid.js](integration-prebid-client-server.md) で説明している実装ソリューションを使用してください。
 
-## Integration Example
+## Sample Implementations
 
 UID2 Prebid.js Client-Side インテグレーション例は、以下のリンクから入手できます:
 
-- コード: [Example Prebid.js UID2 Integration](https://github.com/IABTechLab/uid2docs/tree/main/static/examples/cstg-prebid-example)
-- ランニングサイト: [UID2 Prebid.js Client-Side Integration Example](https://unifiedid.com/examples/cstg-prebid-example/)
+- Site: [Client-Side UID2 Integration with Prebid.js](https://prebid-client.samples.uidapi.com/)
+- Code: [uid2-examples/web-integrations/prebid-integrations/client-side](https://github.com/IABTechLab/uid2-examples/tree/main/web-integrations/prebid-integrations/client-side)
 
 ## Integrating with Single Sign-On (SSO)
 

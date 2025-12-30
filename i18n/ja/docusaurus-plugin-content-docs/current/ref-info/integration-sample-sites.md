@@ -10,32 +10,42 @@ import Link from '@docusaurus/Link';
 
 このページでは、一般的なインテグレーションのユースケースを強調するすべての公式 UID2 サンプル実装のリストと、ライブデモサイト、ソースコード、および関連ドキュメントへのリンクを示します。このページを使用して、ニーズに合ったサンプルを見つけて、動作する例を調べてください。
 
-## Web Integrations
+All sample sites are available at [https://samples.uidapi.com/](https://samples.uidapi.com/).
 
-このセクションでは、UID2 を直接ウェブサイトに統合したいパブリッシャー向けのサンプル統合をまとめています。ウェブサイト向けの統合オプションの完全な概要については、[Publisher Web Integration Overview](../guides/integration-options-publisher-web) を参照してください。
+## JavaScript SDK Integrations
+
+このセクションでは、Prebid.js や Google Secure Signals を使用せずに UID2 SDK for JavaScript を直接使用したサンプル統合をまとめています。
 
 ### Client-Side Integration Using UID2 SDK for JavaScript
 
 このサンプルは、[SDK for JavaScript Reference Guide](../sdks/sdk-ref-javascript) を使用してブラウザ内で直接トークンを生成および管理する完全なクライアントサイド統合を好むパブリッシャー向けです。このアプローチは、最小限のバックエンド要件で迅速なプロトタイピングに最適です。
 
-- Site: [UID2 Publisher Client-Side Integration Example using UID2 JavaScript SDK](https://cstg-integ.uidapi.com/)
-- Code: [uid2-web-integrations/examples/cstg](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/cstg)
+- Site: [Client-Side UID2 Integration Example using JavaScript SDK](https://js-client-side.samples.uidapi.com/)
+- Code: [uid2-examples/web-integrations/javascript-sdk/client-side](https://github.com/IABTechLab/uid2-examples/tree/main/web-integrations/javascript-sdk/client-side)
 - Doc: [Client-Side Integration Guide for JavaScript](../guides/integration-javascript-client-side)
 
 ### Client-Server Integration Using UID2 SDK for JavaScript
 
 このサンプルは、UID2 Token の作成をより細かく制御したいパブリッシャー向けです（サーバー側で処理されます）。クライアント側では JavaScript SDK を使用して、ブラウザ内のトークンを管理および更新します。
 
-- Site: [UID2 SDK Integration Example](https://example-jssdk-integ.uidapi.com/)
-- Code: [uid2-web-integrations/examples/js-sdk](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/js-sdk)
+- Site: [Client-Server UID2 Integration Example using JavaScript SDK](https://js-client-server.samples.uidapi.com/)
+- Code: [uid2-examples/web-integrations/javascript-sdk/client-server](https://github.com/IABTechLab/uid2-examples/tree/main/web-integrations/javascript-sdk/client-server)
 - Doc: [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server)
+
+### React Client-Side Integration Using UID2 SDK for JavaScript
+
+このサンプルは、React アプリを持つパブリッシャー向けで、SDK for JavaScript を使用して UID2 をコンポーネントベースのアーキテクチャに直接統合したい場合のものです。
+
+- Site: [React Client-Side UID2 Integration Example using JavaScript SDK](https://js-react.samples.uidapi.com/)
+- Code: [uid2-examples/web-integrations/javascript-sdk/react-client-side](https://github.com/IABTechLab/uid2-examples/tree/main/web-integrations/javascript-sdk/react-client-side)
+- Doc: [Client-Side Integration Guide for JavaScript](../guides/integration-javascript-client-side)
 
 ### UID2 Server-Only (Server-Side)
 
 このサンプルは、すべての UID2 操作をサーバー側で実行し、クライアント側の SDK に依存せずに最大の制御、セキュリティ、および柔軟性を提供したいパブリッシャー向けです。
 
-- Site: [Server-Only UID2 Integration Example](https://example-srvonly-integ.uidapi.com/login)
-- Code: [uid2-examples/publisher/server_only](https://github.com/IABTechLab/uid2-examples/tree/main/publisher/server_only)
+- Site: [Server-Side UID2 Integration Example](https://server-side.samples.uidapi.com/)
+- Code: [uid2-examples/web-integrations/server-side](https://github.com/IABTechLab/uid2-examples/tree/main/web-integrations/server-side)
 - Doc: [Publisher Integration Guide, Server-Side](../guides/integration-publisher-server-side)
 
 ## Prebid.js Integrations
@@ -44,11 +54,35 @@ import Link from '@docusaurus/Link';
 
 ### Client-Side Integration with Prebid.js
 
-このサンプルは、クライアント側で UID2 Tokenを生成し、Prebid.js を使用してヘッダービディングオークションに渡したいパブリッシャー向けです。
+このサンプルは、クライアント側で DII にアクセスでき、フロントエンド開発のみを行いたいパブリッシャー向けです。Prebid.js がトークン生成、ストレージ、自動更新を含む UID2 ワークフロー全体を処理します。
 
-- Site: [UID2 Prebid.js Client-Side Integration Example](https://unifiedid.com/examples/cstg-prebid-example/)
-- Code: [uid2docs/static/examples/cstg-prebid-example](https://github.com/IABTechLab/uid2docs/tree/main/static/examples/cstg-prebid-example)
+- Site: [Client-Side UID2 Integration with Prebid.js](https://prebid-client.samples.uidapi.com/)
+- Code: [uid2-examples/web-integrations/prebid-integrations/client-side](https://github.com/IABTechLab/uid2-examples/tree/main/web-integrations/prebid-integrations/client-side)
 - Doc: [UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side)
+
+### Client-Server Integration with Prebid.js
+
+このサンプルは、サーバー側で DII にアクセスでき、サーバー側開発を行えるパブリッシャー向けです。サーバーが初期 UID2 トークンを生成し、Prebid.js がストレージと自動更新を含むトークンライフサイクルを引き続き管理します。
+
+- Site: [Client-Server UID2 Integration with Prebid.js](https://prebid-client-server.samples.uidapi.com/)
+- Code: [uid2-examples/web-integrations/prebid-integrations/client-server](https://github.com/IABTechLab/uid2-examples/tree/main/web-integrations/prebid-integrations/client-server)
+- Doc: [UID2 Client-Server Integration Guide for Prebid.js](../guides/integration-prebid-client-server)
+
+### Deferred Client-Side Integration with Prebid.js
+
+このサンプルは、すでに Prebid.js を設定しているパブリッシャーが、Prebid が提供する機能を使用して UID2 モジュールを追加する方法を示しています。
+
+- Site: [Deferred Client-Side UID2 Integration with Prebid.js](https://prebid-deferred.samples.uidapi.com/)
+- Code: [uid2-examples/web-integrations/prebid-integrations/client-side-deferred](https://github.com/IABTechLab/uid2-examples/tree/main/web-integrations/prebid-integrations/client-side-deferred)
+- Doc: [UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side)
+
+### Prebid.js with Secure Signals
+
+このサンプルは、UID2 と Google Secure Signals の両方で Prebid.js を設定し、ヘッダービディングと Google Ad Manager 間の統合を可能にする方法を示しています。
+
+- Site: [Client-Side UID2 Integration with Prebid.js (with Google Secure Signals)](https://prebid-secure-signals.samples.uidapi.com/)
+- Code: [uid2-examples/web-integrations/prebid-secure-signals](https://github.com/IABTechLab/uid2-examples/tree/main/web-integrations/prebid-secure-signals)
+- Doc: [Google Ad Manager Secure Signals Integration Guide](../guides/integration-google-ss)
 
 ## Google Secure Signals Integrations
 
@@ -56,48 +90,44 @@ import Link from '@docusaurus/Link';
 
 ### Client-Side Secure Signals
 
-このサンプルは、GAM Secure Signals との純粋なクライアントサイド統合を望むパブリッシャー向けです。
+このサンプルは、GAM Secure Signals との純粋なクライアントサイド統合を望むパブリッシャー向けです。UID2 SDK for JavaScript がトークンを生成および管理し、Secure Signals スクリプトがトークンを Google Ad Manager と自動的に共有します。
 
-- Site: [UID2 Publisher Client-Side Integration Example using UID2 JavaScript SDK, Secure Signals](https://secure-signals-client-side-integ.uidapi.com/)
-- Code: [uid2-web-integrations/examples/google-secure-signals-integration/client_side](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/google-secure-signals-integration/client_side)
+- Site: [Client-Side UID2 Integration with Google Secure Signals](https://secure-signals-client-side.samples.uidapi.com/)
+- Code: [uid2-examples/web-integrations/google-secure-signals/client-side](https://github.com/IABTechLab/uid2-examples/tree/main/web-integrations/google-secure-signals/client-side)
+- Doc: [Google Ad Manager Secure Signals Integration Guide](../guides/integration-google-ss)
+
+### Client-Server Secure Signals
+
+このサンプルは、サーバー側で UID2 トークンを生成し、クライアント側で SDK for JavaScript を使用してトークンを管理したいパブリッシャー向けです。Secure Signals スクリプトがトークンを Google Ad Manager と自動的に共有します。
+
+- Site: [Client-Server UID2 SDK Integration Example with Google Secure Signals](https://secure-signals-client-server.samples.uidapi.com/)
+- Code: [uid2-examples/web-integrations/google-secure-signals/client-server](https://github.com/IABTechLab/uid2-examples/tree/main/web-integrations/google-secure-signals/client-server)
+- Doc: [Google Ad Manager Secure Signals Integration Guide](../guides/integration-google-ss)
+
+### Server-Side Secure Signals
+
+このサンプルは、すべての UID2 トークンロジックをサーバー側で処理したいパブリッシャー向けです。Secure Signals スクリプトがトークンを読み取り、Google Ad Manager と自動的に共有します。
+
+- Site: [Server-Side UID2 Integration with Google Secure Signals](https://secure-signals-server-side.samples.uidapi.com/)
+- Code: [uid2-examples/web-integrations/google-secure-signals/server-side](https://github.com/IABTechLab/uid2-examples/tree/main/web-integrations/google-secure-signals/server-side)
 - Doc: [Google Ad Manager Secure Signals Integration Guide](../guides/integration-google-ss)
 
 ### React Client-Side Secure Signals
 
 このサンプルは、React アプリを持つパブリッシャー向けで、UID2 と Secure Signals をコンポーネントベースのアーキテクチャに直接統合したい場合のものです。
 
-- Site: [UID2 React Client-Side Integration Example with Google Secure Signals](https://secure-signals-react-integ.uidapi.com/)
-- Code: [uid2-web-integrations/examples/google-secure-signals-integration/react_client_side](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/google-secure-signals-integration/react_client_side)
+- Site: [React Client-Side UID2 Integration with Google Secure Signals](https://secure-signals-react.samples.uidapi.com/)
+- Code: [uid2-examples/web-integrations/google-secure-signals/react-client-side](https://github.com/IABTechLab/uid2-examples/tree/main/web-integrations/google-secure-signals/react-client-side)
 - Doc: [Google Ad Manager Secure Signals Integration Guide](../guides/integration-google-ss)
 
-### Server-Side Secure Signals
+## Tools
 
-このサンプルは、より良い制御とセキュリティのために、すべての Secure Signals および UID2 ロジックをサーバー側で実行したいパブリッシャー向けです。
+### UID2 Hashing Tool
 
-- Site: [Server-Side UID2 Integration Example with Google Secure Signals](https://secure-signals-server-side-integ.uidapi.com/login)
-- Code: [uid2-web-integrations/examples/google-secure-signals-integration/server_side](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/google-secure-signals-integration/server_side)
-- Doc: [Google Ad Manager Secure Signals Integration Guide](../guides/integration-google-ss)
-- Additional site domains:
-  - [https://secure-signals-srvonly-integ.uidapi.com](https://secure-signals-srvonly-integ.uidapi.com)
-  - [https://esp-srvonly-integ.uidapi.com](https://esp-srvonly-integ.uidapi.com)
+このツールは、トークンリクエスト前のメールや電話番号のハッシュ化や正規化など、データ準備を検証する開発者またはクライアント向けです。ツールは以下のリンクで利用できます：
 
-### Client-Server Secure Signals
-
-このサンプルは、トークン生成をサーバー側で行い、Secure Signals のロジックをクライアント側で実行するハイブリッドアプローチを望むパブリッシャー向けです。
-
-- Site: [Example for Client-Server UID2 SDK Integration with Google Secure Signals](https://secure-signals-client-server-integ.uidapi.com/)
-- Code: [uid2-web-integrations/examples/google-secure-signals-integration/with_sdk_v3](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/google-secure-signals-integration/with_sdk_v3)
-- Doc: [Google Ad Manager Secure Signals Integration Guide](../guides/integration-google-ss)
-- Additional site domains:
-  - [https://secure-signals-jssdk-integ.uidapi.com](https://secure-signals-jssdk-integ.uidapi.com)
-  - [https://esp-jssdk-integ.uidapi.com](https://esp-jssdk-integ.uidapi.com)
-
-## UID2 Hashing Tool
-
-このツールは、トークンリクエスト前のメールのハッシュ化や正規化など、データ準備を検証する開発者またはクライアント向けです。ツールは以下のリンクで利用できます：
-
-- Site: [UID2 Hashing Tool](https://unifiedid.com/examples/hashing-tool/)
-- Code: [uid2Docs/static/examples/hashing-tool](https://github.com/IABTechLab/uid2docs/tree/main/static/examples/hashing-tool)
+- Site: [UID2 Hashing Tool](https://hashing-tool.samples.uidapi.com/)
+- Code: [uid2-examples/tools/hashing-tool](https://github.com/IABTechLab/uid2-examples/tree/main/tools/hashing-tool)
 - Doc: [Normalization and Encoding](../getting-started/gs-normalization-encoding)
 
 :::note
