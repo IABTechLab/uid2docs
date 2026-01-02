@@ -18,12 +18,16 @@ This is true in all cases, whichever of these solutions you're using to convert 
 - By using any of the UID2 SDK integrations, Prebid.js integration, or Android/iOS integration.
 - By using Snowflake.
 
+## Processing Steps
+
 The exact steps for preparing your data to be consumed by the UID2 service are laid out in the [Normalization and Encoding](../getting-started/gs-normalization-encoding.md) documentation. The steps, in sequence, are as follows:
 1. Normalize the raw data.
 2. Create a 32-byte SHA-256 hash of the normalized raw data.
 3. Apply Base64-encoding to the 32-byte SHA-256 value.
 
 If you're making direct calls to the UID2 APIs, or calling the UID2 APIs via your own Private Operator, you must complete each step, exactly as described and in the correct sequence.
+
+## Valid Input
 
 If you're using a UID2 SDK, or other integration solution such as the Prebid.js integration, Android/iOS integration, or Snowflake, the options for your input data are shown in the following table.
 
