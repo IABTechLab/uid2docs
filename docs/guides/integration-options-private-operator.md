@@ -101,10 +101,7 @@ For information about supported versions and deprecation dates, see [Private Ope
 
 ## Preparing DII for Processing
 
-<!-- uptohere need to replicate this section in many places -->
-
 <SnptPreparingEmailsAndPhoneNumbers />
-
 
 ## Getting Started
 

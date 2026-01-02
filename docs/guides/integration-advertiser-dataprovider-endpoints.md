@@ -8,6 +8,7 @@ displayed_sidebar: sidebarAdvertisers
 ---
 
 import Link from '@docusaurus/Link';
+import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emails-and-phone-numbers.mdx';
 
 # Advertiser/Data Provider Integration to HTTP Endpoints
 
@@ -47,6 +48,10 @@ At a high level, the steps for advertisers and data providers integrating with U
 5. [Monitor for Raw UID2 Refresh](#5-monitor-for-raw-uid2-refresh)
 
 6. [Monitor for Opt-Out Status](#6-monitor-for-opt-out-status)
+
+## Preparing DII for Processing
+
+<SnptPreparingEmailsAndPhoneNumbers />
 
 ## Integration Diagram
 

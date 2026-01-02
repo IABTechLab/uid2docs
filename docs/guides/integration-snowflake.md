@@ -9,6 +9,7 @@ displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';
+import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emails-and-phone-numbers.mdx';
 
 # Snowflake Integration Guide
 
@@ -99,6 +100,10 @@ If you want to try out an integration before using the production environment, s
 :::note
 If you did any initial testing (see [Testing in the Integ Environment](#testing-in-the-integ-environment)), be sure to update the functions to reflect the production UID2 share, along with your own relevant table names. 
 :::
+
+## Preparing DII for Processing
+
+<SnptPreparingEmailsAndPhoneNumbers />
 
 ## Testing in the Integ Environment
 
