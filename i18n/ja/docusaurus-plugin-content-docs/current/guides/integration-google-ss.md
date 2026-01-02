@@ -154,20 +154,23 @@ SDK for JavaScript バージョン 3.0.0 以降を使用している場合、UID
 
 Google Ad Manager のセキュアシグナル機能との連携方法は、以下のサンプルアプリケーションを参照してください:
 
-- UID2 JavaScript SDK と Google secure signals を使用した Server-Side インテグレーションのサンプル:
-  - [Sample implementation](https://secure-signals-server-side-integ.uidapi.com/)
-  - [Code repository](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/google-secure-signals-integration/server_side)
-- UID2 JavaScript SDK と Google secure signals を使用した Client-Server インテグレーションのサンプル:
-  - [Sample implementation](https://secure-signals-client-server-integ.uidapi.com/)
-  - [Code repository](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/google-secure-signals-integration/with_sdk_v3)
 - UID2 JavaScript SDK と Google secure signals を使用した Client-Side インテグレーションのサンプル:
-  - [Sample implementation](https://secure-signals-client-side-integ.uidapi.com/)
-  - [Code repository](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/google-secure-signals-integration/client_side)
-- Client-side integration example using React, the UID2 JavaScript SDK, and Google secure signals:
-  - [Sample implementation](https://secure-signals-react-integ.uidapi.com)
-  - [Code repository](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/google-secure-signals-integration/react_client_side)
+  - Site: [Client-Side UID2 Integration with Google Secure Signals](https://secure-signals-client-side.samples.uidapi.com/)
+  - Code: [uid2-examples/web-integrations/google-secure-signals/client-side](https://github.com/IABTechLab/uid2-examples/tree/main/web-integrations/google-secure-signals/client-side)
+- UID2 JavaScript SDK と Google secure signals を使用した Client-Server インテグレーションのサンプル:
+  - Site: [Client-Server UID2 SDK Integration Example with Google Secure Signals](https://secure-signals-client-server.samples.uidapi.com/)
+  - Code: [uid2-examples/web-integrations/google-secure-signals/client-server](https://github.com/IABTechLab/uid2-examples/tree/main/web-integrations/google-secure-signals/client-server)
+- UID2 JavaScript SDK と Google secure signals を使用した Server-Side インテグレーションのサンプル:
+  - Site: [Server-Side UID2 Integration with Google Secure Signals](https://secure-signals-server-side.samples.uidapi.com/)
+  - Code: [uid2-examples/web-integrations/google-secure-signals/server-side](https://github.com/IABTechLab/uid2-examples/tree/main/web-integrations/google-secure-signals/server-side)
+- React、UID2 JavaScript SDK、Google secure signals を使用した Client-Side インテグレーションのサンプル:
+  - Site: [React Client-Side UID2 Integration with Google Secure Signals](https://secure-signals-react.samples.uidapi.com/)
+  - Code: [uid2-examples/web-integrations/google-secure-signals/react-client-side](https://github.com/IABTechLab/uid2-examples/tree/main/web-integrations/google-secure-signals/react-client-side)
+- Prebid.js と Google Secure Signals を使用した Client-Side インテグレーションのサンプル:
+  - Site: [Client-Side UID2 Integration with Prebid.js (with Google Secure Signals)](https://prebid-secure-signals.samples.uidapi.com/)
+  - Code: [uid2-examples/web-integrations/prebid-secure-signals](https://github.com/IABTechLab/uid2-examples/tree/main/web-integrations/prebid-secure-signals)
 
-各サンプル実装には、それぞれのの手順があります。
+各サンプル実装には、それぞれの手順があります。
 
 ## Troubleshooting
 

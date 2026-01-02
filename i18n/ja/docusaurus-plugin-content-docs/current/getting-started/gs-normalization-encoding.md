@@ -130,7 +130,7 @@ Base64 エンコーディングを適用する際は、ハッシュの生のバ�
 
 ## UID2 Hashing Tool
 
-正規化、ハッシュ化、エンコードが正しく行われているかを確認するには、[UID2 hashing tool](https://unifiedid.com/examples/hashing-tool/) を使用できます。
+正規化、ハッシュ化、エンコードが正しく行われているかを確認するには、[UID2 hashing tool](https://hashing-tool.samples.uidapi.com/) を使用できます。
 
 Email または Phone Number を選択し、値を入力または貼り付けてから **Enter** をクリックします。
 
