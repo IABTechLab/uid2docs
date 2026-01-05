@@ -11,12 +11,13 @@ displayed_sidebar: docs
 import Link from '@docusaurus/Link';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import SnptIntegratingWithSSO from '../snippets/_snpt-integrating-with-sso.mdx';
+import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emails-and-phone-numbers.mdx';
 import SnptExampleAdvertisingToken from '../snippets/_snpt-example-advertising-token.mdx';
 import SnptEnableLogging from '../snippets/_snpt-mobile-docs-enable-logging.mdx';
 import SnptGMAIMA_Plugins from '../snippets/_snpt-mobile_docs_gmaima-plugin-gss.mdx';
 import SnptPrebidMobileSDK from '../snippets/_snpt-mobile_docs_prebid-mobile.mdx';
 import SnptErrorResponseStates from '../snippets/_snpt-mobile-docs-error-response-states.mdx';
-import SnptIntegratingWithSSO from '../snippets/_snpt-integrating-with-sso.mdx';
 
 # UID2 Client-Side Integration Guide for Mobile
 
@@ -195,6 +196,10 @@ If necessary, you can also change the default Subscription ID and public key to 
 ## Integrating with Single Sign-On (SSO)
 
 <SnptIntegratingWithSSO />
+
+## Preparing DII for Processing
+
+<SnptPreparingEmailsAndPhoneNumbers />
 
 ## Complete UID2 Account Setup and Configure Account
 

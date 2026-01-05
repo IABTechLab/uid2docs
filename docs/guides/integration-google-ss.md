@@ -10,6 +10,7 @@ displayed_sidebar: docs
 
 import Link from '@docusaurus/Link';
 import SnptIntegratingWithSSO from '../snippets/_snpt-integrating-with-sso.mdx';
+import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emails-and-phone-numbers.mdx';
 
 # Google Ad Manager Secure Signals Integration Guide
 
@@ -87,6 +88,10 @@ A sample implementation for Prebid.js with Secure Signals is also available. For
 ## Integrating with Single Sign-On (SSO)
 
 <SnptIntegratingWithSSO />
+
+## Preparing DII for Processing
+
+<SnptPreparingEmailsAndPhoneNumbers />
 
 ## Publisher Integration
 

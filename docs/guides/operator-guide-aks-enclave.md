@@ -10,6 +10,7 @@ displayed_sidebar: docs
 
 import Link from '@docusaurus/Link';
 import SnptUpgradePolicy from '../snippets/_snpt-private-operator-upgrade-policy.mdx';
+import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emails-and-phone-numbers.mdx';
 import SnptAttestFailure from '../snippets/_snpt-private-operator-attest-failure.mdx';
 import SnptRotatingTheKeys from '../snippets/_snpt-private-operator-rotating-the-keys.mdx';
 
@@ -88,6 +89,10 @@ Install the Kubernetes `kubectl` command-line interface. For details, see [Insta
 ### Install the Helm CLI
 
 Install the `helm` command-line interface. For details, see [Installing Helm](https://helm.sh/docs/intro/install/) in the Helm documentation.
+
+## Preparing DII for Processing
+
+<SnptPreparingEmailsAndPhoneNumbers />
 
 ## Deployment Environments
 

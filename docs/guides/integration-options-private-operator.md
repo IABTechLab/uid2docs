@@ -8,6 +8,7 @@ displayed_sidebar: docs
 import Link from '@docusaurus/Link';
 import SnptUpgradePolicy from '../snippets/_snpt-private-operator-upgrade-policy.mdx';
 import SnptRotatingTheKeys from '../snippets/_snpt-private-operator-rotating-the-keys.mdx';
+import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emails-and-phone-numbers.mdx';
 
 # UID2 Private Operator Integration Overview
 
@@ -98,6 +99,10 @@ For information about supported versions and deprecation dates, see [Private Ope
 
 <SnptRotatingTheKeys />
 
+## Preparing DII for Processing
+
+<SnptPreparingEmailsAndPhoneNumbers />
+
 ## Getting Started
 
 To get started as a Private Operator, follow these steps:
@@ -114,6 +119,10 @@ To get started as a Private Operator, follow these steps:
    :::
 5. Test.
 6. Go live.
+
+:::important
+Whatever option you use, the data that you send for generating UID2s must be normalized, hashed, and encoded before sending. For details, see [Normalization and Encoding](../getting-started/gs-normalization-encoding.md).
+:::
 
 ## Implementation Resources
 

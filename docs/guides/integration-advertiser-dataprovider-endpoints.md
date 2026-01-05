@@ -8,6 +8,7 @@ displayed_sidebar: sidebarAdvertisers
 ---
 
 import Link from '@docusaurus/Link';
+import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emails-and-phone-numbers.mdx';
 
 # Advertiser/Data Provider Integration to HTTP Endpoints
 
@@ -31,6 +32,10 @@ You'll need to set up these values, in the UID2 Portal on the [API Keys](../port
 :::important
 It's very important that you keep these values secure. For details, see [Security of API Key and Client Secret](../getting-started/gs-credentials.md#security-of-api-key-and-client-secret).
 :::
+
+## Preparing DII for Processing
+
+<SnptPreparingEmailsAndPhoneNumbers />
 
 ## High-Level Steps
 

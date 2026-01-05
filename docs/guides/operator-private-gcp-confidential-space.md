@@ -10,6 +10,7 @@ displayed_sidebar: docs
 
 import Link from '@docusaurus/Link';
 import SnptUpgradePolicy from '../snippets/_snpt-private-operator-upgrade-policy.mdx';
+import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emails-and-phone-numbers.mdx';
 import SnptAttestFailure from '../snippets/_snpt-private-operator-attest-failure.mdx';
 import SnptRotatingTheKeys from '../snippets/_snpt-private-operator-rotating-the-keys.mdx';
 
@@ -106,6 +107,10 @@ When the registration process is complete, you'll receive the following:
 When UID2 account registration is complete, and you've installed the gcloud CLI, your next steps are:
 -  Review information about [deployment environments](#deployment-environments).
 -  Review information about the [deployment options](#deployment-options) available, including the benefits of each, and decide which to use.
+
+## Preparing DII for Processing
+
+<SnptPreparingEmailsAndPhoneNumbers />
 
 ## Deployment Environments
 

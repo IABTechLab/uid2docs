@@ -9,6 +9,7 @@ displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';
+import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emails-and-phone-numbers.mdx';
 
 # Databricks Clean Rooms Integration Guide
 
@@ -43,6 +44,10 @@ Here are some key benefits of integrating with Databricks for your UID2 processi
 - Direct lineage and observability for all UID2-related transformations and joins, for auditing and traceability.
 - Streamlined integration between UID2 identifiers and The Trade Desk activation ecosystem.
 - Self-service support for marketers and advertisers through Databricks.
+
+## Preparing DII for Processing
+
+<SnptPreparingEmailsAndPhoneNumbers />
 
 ## Integration Steps
 

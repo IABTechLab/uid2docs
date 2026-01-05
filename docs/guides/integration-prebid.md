@@ -10,11 +10,20 @@ displayed_sidebar: sidebarPublishers
 
 import Link from '@docusaurus/Link';
 import SnptIntegratingWithSSO from '../snippets/_snpt-integrating-with-sso.mdx';
+import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emails-and-phone-numbers.mdx';
 import SnptStoreUID2TokenInBrowser from '../snippets/_snpt-prebid-storing-uid2-token-in-browser.mdx';
 
 # UID2 Integration Overview for Prebid
 
 This guide is an overview of integration options for publishers who want to integrate with UID2 and generate <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> (advertising tokens) to be passed by Prebid.js or the Prebid Mobile SDK in the RTB <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link>.
+
+## Integrating with Single Sign-On (SSO)
+
+<SnptIntegratingWithSSO />
+
+## Preparing DII for Processing
+
+<SnptPreparingEmailsAndPhoneNumbers />
 
 ## Prebid.js Support for Web
 
@@ -32,10 +41,6 @@ UID2 is not designed to be used where <Link href="../ref-info/glossary-uid#gl-gd
 :::
 
 <!-- GDPR statement difference for UID2/EUID | UID2 is not designed to be used where GDPR applies | EUID is designed to be used only where GDPR applies. -->
-
-## Integrating with Single Sign-On (SSO)
-
-<SnptIntegratingWithSSO />
 
 ### Generating the UID2 Token
 
