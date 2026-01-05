@@ -66,7 +66,7 @@ UID2 とインテグレーションすることで得られるメリットの一
 
 <!-- The publisher requests updated UID2 tokens using a refresh token. When applicable, the refresh token includes a user’s opt-out request. -->
 
-![Publisher Workflow](images/UID2PublisherAndSSPWorkflow.svg)
+![Publisher Workflow](images/UID2PublisherAndSSPWorkflow.jpg)
 
 ## Integrating with Single Sign-On (SSO)
 
@@ -106,4 +106,4 @@ UID2 とインテグレーションすることで得られるメリットの一
 
 ## FAQs for Publishers
 
-UID2 フレームワークを使用するパブリッシャー向けのよくある質問のリストは、[FAQs for Publishers](/docs/getting-started/gs-faqs.md#faqs-for-publishers) を参照してください。
+UID2 フレームワークを使用するパブリッシャー向けのよくある質問のリストは、[FAQs for Publishers](../getting-started/gs-faqs.md#faqs-for-publishers) を参照してください。

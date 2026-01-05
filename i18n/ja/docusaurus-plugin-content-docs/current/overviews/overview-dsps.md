@@ -58,7 +58,7 @@ UID2 を使用する DSP のメリットの一部を次に示します。以下�
    - raw UID2 をオーディエンスセグメントにマッチさせます。 
 4. DSP は UID2 Token を付加したビッドレスポンス (入札レスポンス) をビッドストリームに送信します。
 
-![Buy-Side Workflow](images/UID2BuySIdeDSPWorkflow.svg)
+![Buy-Side Workflow](images/UID2BuySIdeDSPWorkflow.jpg)
 
 ## Getting Started
 

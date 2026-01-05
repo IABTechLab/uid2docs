@@ -55,7 +55,7 @@ UID2 を採用するデータプロバイダーのためのメリット、ワー
 
    Server-Side: データプロバイダーは、UID2 とリフレッシュタイムスタンプをマッピングテーブル、DMP、データレイク、またはその他のサーバーサイドアプリケーションに保存します。
 
-![Data Provider Workflow](images/UID2AdvertiserAndThirdPartyDataProviderWorkflow.svg)
+![Data Provider Workflow](images/UID2AdvertiserAndThirdPartyDataProviderWorkflow.jpg)
 
 ## Getting Started
 
