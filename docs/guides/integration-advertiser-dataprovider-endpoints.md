@@ -33,6 +33,10 @@ You'll need to set up these values, in the UID2 Portal on the [API Keys](../port
 It's very important that you keep these values secure. For details, see [Security of API Key and Client Secret](../getting-started/gs-credentials.md#security-of-api-key-and-client-secret).
 :::
 
+## Preparing DII for Processing
+
+<SnptPreparingEmailsAndPhoneNumbers />
+
 ## High-Level Steps
 
 At a high level, the steps for advertisers and data providers integrating with UID2 are as follows:
@@ -48,10 +52,6 @@ At a high level, the steps for advertisers and data providers integrating with U
 5. [Monitor for Raw UID2 Refresh](#5-monitor-for-raw-uid2-refresh)
 
 6. [Monitor for Opt-Out Status](#6-monitor-for-opt-out-status)
-
-## Preparing DII for Processing
-
-<SnptPreparingEmailsAndPhoneNumbers />
 
 ## Integration Diagram
 

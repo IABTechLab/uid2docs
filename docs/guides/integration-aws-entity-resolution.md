@@ -9,6 +9,7 @@ displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';
+import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emails-and-phone-numbers.mdx';
 
 # AWS Entity Resolution Integration Guide
 
@@ -72,6 +73,10 @@ The following table shows the sequence of steps shown in the diagram.
 | 15 | API Gateway | Returns raw UID2s to the Amazon Data Exchange. |
 | 16 | Amazon Data Exchange | Returns raw UID2s to AWS Entity Resolution. |
 | 17 | AWS Entity Resolution | Writes the output records to the S3 bucket including the raw UID2s. |
+
+## Preparing DII for Processing
+
+<SnptPreparingEmailsAndPhoneNumbers />
 
 ## Initial Setup Steps
 
