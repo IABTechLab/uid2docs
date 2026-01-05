@@ -1,6 +1,6 @@
 ---
 title: Overview of UID2 Participants
-description: An overview of different types of UID2 participants.
+description: さまざまなタイプの UID2 参加者の概要。
 hide_table_of_contents: false
 sidebar_position: 06
 displayed_sidebar: docs
@@ -10,9 +10,9 @@ import Link from '@docusaurus/Link';
 
 # Overview of UID2 Participants
 
-With its transparent and interoperable approach, UID2 provides a collaborative framework for many participants across the advertising ecosystem—advertisers, publishers, DSPs, SSPs, single sign-on (SSO) providers, customer data platforms (CDPs), consent management providers (CMPs), identity providers, third-party data providers, and measurement providers.
+透明性と相互運用可能なアプローチにより、UID2 は広告エコシステム全体の多くの参加者（広告主、パブリッシャー、DSP、SSP、シングルサインオン (SSO) プロバイダー、カスタマーデータプラットフォーム (CDP)、同意管理プロバイダー (CMP)、ID プロバイダー、サードパーティデータプロバイダー、測定プロバイダー）に協調的なフレームワークを提供します。
 
-The following tables list the key participants and their roles in the [UID2 workflows](../ref-info/uid-workflows.md). They are grouped into three categories:
+以下の表は、[UID2 ワークフロー](../ref-info/uid-workflows.md) における主要な参加者とその役割の一覧です。これらは次の 3 つのカテゴリに分類されます:
 
 - [UID2 Component Services](#uid2-component-services)
 - [UID2 External Participants](#uid2-external-participants)
@@ -20,30 +20,30 @@ The following tables list the key participants and their roles in the [UID2 work
 
 ## UID2 Component Services
 
-The following table summarizes information about key participant components of the UID2 service.
+以下の表は、UID2 Service の主要な参加者コンポーネントに関する情報の要約です。
 
-For a diagram of how the different services work together, see [UID2 Workflows](../ref-info/uid-workflows.md).
+さまざまなサービスがどのように連携して機能するかの図については、[UID2 Workflows](../ref-info/uid-workflows.md) を参照してください。
 
 | Participant | Role Description |
 | :--- | :--- |
-| **Core Administrator** | An organization (currently, The Trade Desk) that manages the UID2 Core Service and other component services. For example, it distributes encryption keys and salts to UID2 operators and sends user opt-out requests to operators and DSPs. |
-| **Operators** | Organizations that run the <Link href="../ref-info/glossary-uid#gl-operator-service">Operator Service</Link> (via the UID2 APIs). Operators periodically receive and store up-to-date encryption keys and salts from the UID2 Core Service, salt and hash <Link href="../ref-info/glossary-uid#gl-dii">directly identifying information (DII)</Link> to return raw UID2s, encrypt raw UID2s to generate UID2 tokens, and distribute UID2 token decryption keys.<br/>Public Operators (Open Operators) run public instances of the Operator Service. For example, The Trade Desk currently serves as a Public Operator for the UID2 framework, available to all participants. If other Public Operators are available, a participant can choose which operator to work with.<br/>Any participant can also choose to become a Private Operator to generate and manage UID2s. |
+| **Core Administrator** | UID2 Core Service およびその他のコンポーネントサービスを管理する組織（現在は The Trade Desk）。たとえば、暗号化キーとソルトを UID2 Operator に配布し、ユーザーオプトアウト要求を Operator と DSP に送信します。 |
+| **Operators** | (UID2 API 経由で) <Link href="../ref-info/glossary-uid#gl-operator-service">Operator Service</Link> を実行する組織。Operator は定期的に UID2 Core Service から最新の暗号化キーとソルトを受信して保存し、<Link href="../ref-info/glossary-uid#gl-dii">DII (directly identifying information)</Link> をソルト化およびハッシュ化して raw UID2 を返し、raw UID2 を暗号化して UID2 Token を生成し、UID2 Token 復号化キーを配布します。<br/>Public Operator (Open Operator) は、Operator Service のパブリックインスタンスを実行します。例えば、The Trade Desk は現在、UID2 フレームワークの Public Operator として機能しており、すべての参加者が利用できます。他の Public Operator が利用可能な場合、参加者は連携する Operator を選択できます。<br/>任意の参加者は、UID2 を生成および管理するために Private Operator になることも選択できます。 |
 
 ## UID2 External Participants
 
-The following table summarizes the main types of external participant partners for UID2, with a link to the overview page for more information on each participant type.
+以下の表は、UID2 の外部参加者パートナーの主なタイプの要約です。各参加者タイプの詳細については、概要ページへのリンクを参照してください。
 
 | Participant Type | Role Description |
 | :--- | :--- |
-| [Publishers](overview-publishers.md) | Organizations that propagate UID2 tokens to the bidstream via SSPs—for example, identity providers, publishers, and SSO providers. Publishers can choose to work with an SSO provider or an independent ID provider that is interoperable with UID2. Independent ID providers can handle the UID2 integration on behalf of publishers. |
-| [Advertisers](overview-advertisers.md) | Organizations that buy impressions across a range of publisher sites and use DSPs to decide which ad impressions to purchase and how much to bid on them. |
-| [DSPs](overview-dsps.md) | DSPs integrate with the UID2 system to receive UID2s from advertisers (as first-party data) and third-party data providers (as third-party data) and leverage them to inform bidding on UID2s in the bidstream. |
-| [Data Providers](overview-data-providers.md) | Organizations that collect user data and push it to other UID2 participants&#8212;for example, advertisers, identity graph providers, and third-party data providers. |
+| [Publishers](overview-publishers.md) | SSP を介して UID2 Token をビッドストリームに伝播する組織—たとえば、ID プロバイダー、パブリッシャー、SSO プロバイダーなど。パブリッシャーは、SSO プロバイダーまたは UID2 と相互運用可能な独立した ID プロバイダーと連携することを選択できます。独立した ID プロバイダーは、パブリッシャーに代わって UID2 インテグレーションを処理できます。 |
+| [Advertisers](overview-advertisers.md) | さまざまなパブリッシャーサイトでインプレッションを購入し、DSP を使用して購入する広告インプレッションとその入札額を決定する組織。 |
+| [DSPs](overview-dsps.md) | DSP は UID2 システムと連携 (integrate) し、広告主（ファーストパーティデータとして）およびサードパーティデータプロバイダー（サードパーティデータとして）から UID2 を受信し、それらを活用してビッドストリーム内の UID2 に対する入札 (bidding) を通知します。 |
+| [Data Providers](overview-data-providers.md) | ユーザーデータを収集し、他の UID2 参加者にプッシュする組織—たとえば、広告主、ID グラフプロバイダー、サードパーティデータプロバイダーなど。 |
 
 ## UID2 Consumers
 
-A UID2 consumer is a user who has had a UID2 token or raw UID2 created from an email address or phone number.
+UID2 消費者 (consumer) とは、メールアドレスまたは電話番号から UID2 Token または raw UID2 を作成されたユーザーのことです。
 
-UID2 leverages multiple layers of security to help protect user and other participant data. UID2 is a privacy-compliant identifier. With UID2, consumers can enjoy more personalized advertising without compromising privacy.
+UID2 は、ユーザーおよびその他の参加者のデータを保護するために、多層的なセキュリティを活用しています。UID2 はプライバシーに準拠した識別子です。UID2 を使用することで、消費者はプライバシーを侵害することなく、よりパーソナライズされた広告を楽しむことができます。
 
-Consumers can opt out of UID2 in the [Transparency and Control Portal](https://www.transparentadvertising.com/).
+消費者は、[Transparency and Control Portal](https://www.transparentadvertising.com/) で UID2 からオプトアウトできます。
