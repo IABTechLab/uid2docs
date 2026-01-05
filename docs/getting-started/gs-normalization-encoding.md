@@ -169,7 +169,7 @@ For an example of how to generate email and phone hashes in JavaScript, see [Exa
 To check that you're correctly normalizing, hashing, and encoding, you can test with the [UID2 hashing tool](https://hashing-tool.samples.uidapi.com/).
 
 :::note
-The UID2 hashing tool has moved from its previous location at `https://unifiedid.com/examples/hashing-tool/` to the new URL above.
+The UID2 hashing tool has moved from its previous location at `https://unifiedid.com/examples/hashing-tool/`. If you have any saved links to the hashing tool, be sure to update to the latest URL.
 :::
 
 Choose Email or Phone Number, type or paste the value, and then click **Enter**.
