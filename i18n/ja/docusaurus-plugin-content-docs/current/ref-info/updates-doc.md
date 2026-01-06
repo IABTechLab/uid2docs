@@ -28,11 +28,11 @@ UID2 ドキュメンテーションリソースの最新アップデートを確
 
 ### Databricks Integration Guide
 
-November 25, 2025
+December 2, 2025
 
 UID2 Databricks Clean Rooms インテグレーションガイドを追加しました。
 
-詳細は、[UID2 Databricks Clean Rooms Integration Guide](../guides/integration-databricks.md) を参照してください。
+詳細は、[Databricks Clean Rooms Integration Guide](../guides/integration-databricks.md) を参照してください。
 
 <!-- APIDOCS-2552 -->
 
