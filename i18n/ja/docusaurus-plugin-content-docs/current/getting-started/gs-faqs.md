@@ -25,7 +25,7 @@ import SnptExampleTokenInBidstream from '../snippets/_snpt-example-token-in-bids
 
 UID2 フレームワークに関するよくある質問を紹介します。
 
-- [EUID インフラのすべてのインテグレーションパートナー(SSP、サードパーティデータプロバイダー、測定プロバイダー)は、自動的に UID2 にインテグレーションされますか？](#will-all-integration-partners-in-the-euid-infrastructure-ssps-third-party-data-providers-measurement-providers-be-automatically-integrated-with-uid2)
+- [EUID インフラのすべての連携パートナー (SSP、サードパーティデータプロバイダー、測定プロバイダー) は、自動的に UID2 と連携されますか？](#will-all-integration-partners-in-the-euid-infrastructure-ssps-third-party-data-providers-measurement-providers-be-automatically-integrated-with-uid2)
 - [ユーザーは、自分の UID2 ID に基づいたターゲティング広告をオプトアウトできますか？](#can-users-opt-out-of-targeted-advertising-tied-to-their-uid2)
 - [UID2 に DII を送信すると、UID2 はその情報を保存しますか？](#when-i-send-dii-to-uid2-does-uid2-store-the-information)
 - [UID2 は HIPAA で規制されているデータの処理を許可しますか？](#does-uid2-allow-the-processing-of-hipaa-regulated-data)
@@ -36,14 +36,14 @@ UID2 フレームワークに関するよくある質問を紹介します。
 :::
 
 #### Will all integration partners in the EUID infrastructure (SSPs, third-party data providers, measurement providers) be automatically integrated with UID2?
-EUID インフラのすべてのインテグレーションパートナー(SSP、サードパーティデータプロバイダー、測定プロバイダー)は、自動的に UID2 にインテグレーションされますか？
+EUID インフラのすべての連携パートナー (SSP、サードパーティデータプロバイダー、測定プロバイダー) は、自動的に UID2 と連携されますか？
 
 いいえ。UID2 は EUID とは別の独自のフレームワークとして機能します。そのため、EUID フレームワークへのアクセスや使用に関する事務手続きは、UID2 フレームワークへの使用やアクセスを自動的に許可するものではありません。新規契約を UID2 用に締結する必要があります。
 
 #### Can users opt out of targeted advertising tied to their UID2?
 ユーザーは、自分の UID2 ID に基づいたターゲティング広告をオプトアウトできますか？
 
-はい。[Transparency and Control Portal](https://www.transparentadvertising.com/) を通して、ユーザーは自分の UID2 に関連するターゲティング広告の配信をオプトアウトできます。各リクエストは、UID2 Opt-Opt Service と UID2 Operator を通じて配信され、UID2 Operator はオプトアウト情報を関連するすべての参加者に公開します。
+はい。[Transparency and Control Portal](https://www.transparentadvertising.com/) を通して、ユーザーは自分の UID2 に関連するターゲティング広告の配信をオプトアウトできます。各リクエストは、UID2 Opt-Out Service と UID2 Operator を通じて配信され、UID2 Operator はオプトアウト情報を関連するすべての参加者に公開します。
 
 #### When I send DII to UID2, does UID2 store the information?
 UID2 に DII を送信すると、UID2 はその情報を保存しますか？
@@ -133,7 +133,7 @@ Refresh Token のワークフローをテストするにはどうすればよい
 `refresh-optout@example.com` のメールアドレスまたは `+00000000002` の電話番号を使用して、トークンリフレッシュのワークフローをテストすることができます。どちらかのパラメータ値をリクエストに使用すると、常に `refresh_token` を含む identity レスポンスが生成され、ログアウトレスポンスが返されます。
 
 :::tip
-メールアドレスの正規化、ハッシュ化、Base64　エンコードされたハッシュ値、または、電話番号のハッシュ化、Base64 エンコードされたハッシュ値を取得するには、ハッシングツールを使用できます。詳細は、[UID2 Hashing Tool](gs-normalization-encoding.md#uid2-hashing-tool) を参照してください。
+メールアドレスの正規化、ハッシュ化、Base64 エンコードされたハッシュ値、または、電話番号のハッシュ化、Base64 エンコードされたハッシュ値を取得するには、ハッシングツールを使用できます。詳細は、[UID2 Hashing Tool](gs-normalization-encoding.md#uid2-hashing-tool) を参照してください。
 :::
 
 SDKを使うかどうかで手順は少し異なります。
@@ -167,7 +167,7 @@ UID2 Service は、ランダムな初期化ベクトルを使用して UID2 Toke
 #### What does a UID2 token look like in the bidstream?
 UID2 Token は、ビッドストリームではどのように見えますか？
 
-UID2 実装のアプローチにはさまざまな方法があります。以下は、UID2 Token が<Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link>でどのように渡されるかを示すコードスニペットの一例です:
+UID2 実装のアプローチにはさまざまな方法があります。以下は、UID2 Token が <Link href="../ref-info/glossary-uid#gl-bidstream">Bidstream</Link> でどのように渡されるかを示すコードスニペットの一例です:
 
 <SnptExampleTokenInBidstream />
 
@@ -180,7 +180,7 @@ UID2 をシングルサインオン (SSO) とインテグレーションする�
 #### I'm using Prebid with a Mobile SDK&#8212;what atype value should I use?
 Prebid をモバイル SDK と一緒に使用しています&#8212;atype 値は何を使用すればよいですか？
 
-IAB のドキュメントによると、`atype` (エージェントタイプ) 値は、マッチがどのタイプのユーザーエージェントからのものであるかを示します。IAB はこのプロパティを定義することを推奨しています。
+IAB のドキュメントによると、`atype` (Agent Type) 値は、マッチがどのタイプのユーザーエージェントからのものであるかを示します。IAB はこのプロパティを定義することを推奨しています。
 
 Prebid を [SDK for Android](../sdks/sdk-ref-android.md) または [SDK for iOS](../sdks/sdk-ref-ios.md) と一緒に使用している場合、`atype` 値として `3` を使用します。これは、個人ベースの ID を示します。
 
@@ -197,35 +197,34 @@ UID2 フレームワークを使用する広告主やデータプロバイダー
 - [マッピング用の DII の SHA-256 はどのように生成すればよいですか？](#how-should-i-generate-the-sha-256-of-dii-for-mapping)
 - [メールアドレス、電話番号、または対応するハッシュと raw UID2 のマッピングを、自身のデータセットに保存すべきでしょうか？](#should-i-store-mapping-of-email-addresses-phone-numbers-or-corresponding-hashes-to-raw-uid2s-in-my-own-datasets)
 - [ユーザーのオプトアウトはどのように処理すればよいですか？](#how-should-i-handle-user-opt-outs)
-- [同じ DII は常に同じ生UID2になりますか？](#does-the-same-dii-always-result-in-the-same-raw-uid2)
-- [If two operators process the same DII, are the results the same?](#if-two-operators-process-the-same-dii-are-the-results-the-same)
+- [同じ DII は常に同じ raw UID2 になりますか？](#does-the-same-dii-always-result-in-the-same-raw-uid2)
 - [2 つの Operator が同じ DII を処理した場合、結果は同じになりますか？](#if-two-operators-process-the-same-dii-are-the-results-the-same)
 - [更新されたメールアドレスは、以前関連付けられていたバケットと同じバケットに割り当てられますか？](#do-refreshed-emails-get-assigned-to-the-same-bucket-that-they-were-previously-associated-with)
 
 #### How do I know when to refresh a raw UID2?
-raw UID2 を更新するタイミングはどのように判断すればよいですか？
+raw UID2 をリフレッシュするタイミングはどのように判断すればよいですか？
 
 [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) エンドポイントは、レスポンス内のリフレッシュタイムスタンプ（`r`フィールド）を提供します。このタイムスタンプ以降に、各 raw UID2 がリフレッシュされる可能性があります。このタイムスタンプを使用して、保存されたデータの raw UID2 を再生成するタイミングを判断します。
 
-raw UID2 を更新するかどうかを決定するには：
+raw UID2 をリフレッシュするかどうかを決定するには：
 
 1. [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) のレスポンスから保存したリフレッシュタイムスタンプと現在の時刻を比較します。
-2. 現在の時刻がリフレッシュタイムスタンプ以降であれば、同じ <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> を使用して再度アイデンティティマップエンドポイントを呼び出すことで、raw UID2 を再生成します。
+2. 現在の時刻がリフレッシュタイムスタンプ以降であれば、同じ <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> を使用して再度 Identity Map エンドポイントを呼び出すことで、raw UID2 を再生成します。
 
 :::note
-リフレッシュの機会を毎日チェックすることをお勧めします。raw UID2 は、指定されたタイムスタンプの前にリフレッシュされることは保証されていません。その時点以降のいつかで、raw UID2 がリフレッシュされます。
+raw UID2 は、リフレッシュタイムスタンプの前では変化しません。リフレッシュタイムスタンプの後、DII を再マッピングすると新しいリフレッシュタイムスタンプが返されますが、raw UID2 は変化する場合もあれば変化しない場合もあります。raw UID2 が複数のリフレッシュ間隔にわたって変化しない可能性もあります。
 :::
 
 #### How often should raw UID2s be refreshed for incremental updates?
-インクリメンタルアップデートの場合、UID2 はどのくらいの頻度で更新するべきですか？
+インクリメンタルアップデートの場合、UID2 はどのくらいの頻度でリフレッシュするべきですか？
 
-The recommended cadence for updating audiences is daily.
+インクリメンタルアップデートの場合、オーディエンスの更新は毎日行うことを推奨します。
 
-A raw UID2 for a specific user changes roughly once per year. The latest version of the [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) endpoint provides refresh timestamps that indicate a point after which each raw UID2 might refresh. We recommend checking these timestamps daily to ensure your raw UID2s remain current and valid for audience targeting.
+特定のユーザーの raw UID2 は、およそ年に 1 回変化します。[POST /identity/map](../endpoints/post-identity-map.md) エンドポイントの最新バージョンでは、各 raw UID2 がリフレッシュされる可能性のある時点を示すリフレッシュタイムスタンプが提供されます。オーディエンスターゲティングのために raw UID2 を最新かつ有効な状態に保つために、これらのタイムスタンプを毎日確認することを推奨します。
 
-For implementations that reference earlier versions of this endpoint (see [POST&nbsp;/identity/map v2](../endpoints/post-identity-map-v2.md)):
+このエンドポイントの以前のバージョン ([POST /identity/map (v2)](../endpoints/post-identity-map-v2.md)) を参照する実装の場合:
 
-Even though each <Link href="../ref-info/glossary-uid#gl-salt-bucket">salt bucket</Link> is updated roughly once a year, individual bucket updates are spread over the year. This means that about 1/365th of all buckets are rotated daily. If fidelity is critical, consider calling the [POST&nbsp;/identity/buckets](../endpoints/post-identity-buckets.md) endpoint more frequently: for example, hourly.
+各 <Link href="../ref-info/glossary-uid#gl-salt-bucket">ソルトバケット</Link> はおよそ年に 1 回更新されますが、個々のバケットの更新は年間を通じて分散されています。つまり、全バケットの約 1/365 が毎日ローテーションされます。忠実度が重要な場合は、[POST /identity/buckets](../endpoints/post-identity-buckets.md) エンドポイントをより頻繁に（例：1 時間ごと）呼び出すことを検討してください。
 
 #### How should I generate the SHA-256 of DII for mapping?
 マッピング用の DII の SHA-256 はどのように生成すればよいですか？
@@ -268,7 +267,7 @@ Even though each <Link href="../ref-info/glossary-uid#gl-salt-bucket">salt bucke
 
 タイミングが重要なのは、ソルトバケットのローテーションのためです。リクエスト間でソルト値が変化すると、結果は異なる raw UID2 になります。
 
-しかし、パブリッシャーが [POST /token/generate](../endpoints/post-token-generate.md) または [POST /token/refresh](../endpoints/post-token-refresh.md) エンドポイント経由、または SDK 経由で <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 Token</Link> のリクエストに DII を送信した場合、生成される UID2 Token には同じ暗号化された raw UID が含まれます。ただし、トークン自体は常に一意です。
+しかし、パブリッシャーが [POST /token/generate](../endpoints/post-token-generate.md) または [POST /token/refresh](../endpoints/post-token-refresh.md) エンドポイント経由、または SDK 経由で <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 Token</Link> のリクエストに DII を送信した場合、生成される UID2 Token には同じ暗号化された raw UID2 が含まれます。ただし、トークン自体は常に一意です。
 
 #### How do I know when to refresh the UID2 due to salt bucket rotation?
 ソルトバケットのローテーションによって UID2 をリフレッシュするタイミングを知るには？
@@ -309,12 +308,12 @@ demand-side platform (DSP) に関するよくある質問を紹介します。
 - [SDK のエラーは DSP の入札対応能力にどのような影響を与えますか？](#how-do-sdk-errors-impact-the-dsps-ability-to-respond-to-a-bid)
 
 #### How do I know which decryption key to apply to a UID2?
-UID2 に適用する復号キーを知るには？
+UID2 に適用する復号鍵を知るには？
 
-各 Server-Side SDK ([SDKs: Summary](../sdks/summary-sdks.md) を参照)は、復号鍵を自動的に更新します。UID2 Token と共に提供されるメタデータは、使用する復号鍵の ID を示します。
+各 Server-Side SDK ([SDKs: Summary](../sdks/summary-sdks.md) を参照) は、復号鍵を自動的に更新します。UID2 Token と共に提供されるメタデータは、使用する復号鍵の ID を示します。
 
 #### Where do I get the decryption keys?
-復号キーはどこで入手できますか？
+復号鍵はどこで入手できますか？
 
 Server-Side SDK のいずれか([SDK](../sdks/summary-sdks.md) を参照) を使用して UID2 Service と通信し、最新の鍵を取得することができます。鍵を確実に最新に保つため、1 時間に 1 回など、定期的に鍵を取得することを推奨します。
 
@@ -326,7 +325,7 @@ Server-Side SDK のいずれか([SDK](../sdks/summary-sdks.md) を参照) を使
 #### How do I know when to refresh mapped raw UID2s?
 マップされた raw UID2 を更新するタイミングを知るには？
 
-See [How do I know when to refresh a raw UID2?](#how-do-i-know-when-to-refresh-a-raw-uid2) in the FAQs for Advertisers and Data Providers.
+[Advertisers and Data Providers](gs-faqs.md#faqs-for-advertisers-and-data-providers) の FAQ の [raw UID2 をリフレッシュするタイミングはどのように判断すればよいですか？](#how-do-i-know-when-to-refresh-a-raw-uid2) を参照してください。
 
 #### How do I know if/when the raw UID2 has rotated?
 raw UID2 がローテーションしたか、またローテーション時期を確認するには？
@@ -336,7 +335,7 @@ DSP は、raw UID2 がローテーションしたかどうかを知ることは�
 #### Should the DSP be concerned with latency?
 DSP はレイテンシーを気にすべきでしょうか？
 
-UID2 Service は、入札プロセスに遅延を生じさせることはありません。発生した遅延は、UID2 Service ではなく、ネットワークに起因すると考えられます
+UID2 Service は、入札プロセスに遅延を生じさせることはありません。発生した遅延は、UID2 Service ではなく、ネットワークに起因すると考えられます。
 
 #### How should the DSP maintain proper frequency capping with UID2?
 UID2 で DSP はどのように適切なフリクエンシーキャッピングを維持すべきでしょうか？
@@ -383,7 +382,7 @@ DSP のオプトアウトプロセスの詳細は [Honor User Opt-Outs](../guide
 #### How can I check if a user has opted out?
 ユーザーがオプトアウトしたかどうかを確認するにはどうすればよいですか？
 
-DSP は、[POST&nbsp;/optout/status](../endpoints/post-optout-status.md) エンドポイントを使用して、生 UID2 に対するオプトアウトステータスを確認できます。
+DSP は、[POST&nbsp;/optout/status](../endpoints/post-optout-status.md) エンドポイントを使用して、raw UID2 に対するオプトアウトステータスを確認できます。
 
 #### How do SDK errors impact the DSP's ability to respond to a bid?
 SDK のエラーは DSP の入札対応能力にどのような影響を与えますか？

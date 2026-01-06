@@ -65,13 +65,13 @@ The following table shows the differences between the old and new identity mappi
 
 ## Workflow Diagram
 
-以下の図は、Snowflake における UID2 インテグレーションプロセスの異なる部分とワークフローをです。
+以下の図は、Snowflake における UID2 インテグレーションプロセスの異なる部分とワークフローを示しています。
 
 ![Snowflake Integration Architecture](images/uid2-snowflake-integration-architecture-drawio.png)
 
 | Partner Snowflake Account | UID2 Snowflake Account | UID2 Core Opt-Out Cloud Setup |
 | :--- | :--- | :--- |
-| パートナーとして、データをホストし、UID2 インテグレーションに参加するための Snowflake アカウントをセットアップします。UID2 Share を通じて関数とビューを消費します。 | UID2 インテグレーションは、Snowflake アカウントでホストされ、UID2 関連のタスクを実行するために必要なデータのみを引き出す認可された関数とビューへのアクセスを提供します。プライベートテーブルにはアクセスできません。UID2 Share は、UID2 関連のタスクを実行するために必要な基本的なデータのみを公開します。<br/>**Note**: <Link href="../ref-info/glossary-uid#gl-salt">Salt</Link> と暗号化キーはプライベートテーブルに保存されています。<Link href="../ref-info/glossary-uid#gl-dii">DII</Link> はどの時点でも保存されません。 | ETL (Extract Transform Load) ジョブは、UID2 Core/Optout Snowflake ストレージを常に更新し、UID2 Operator Web サービスを動かす内部データを提供します。Operator Web サービスで使用されるデータは、UID2 Share を通じても利用可能です。 |
+| パートナーとして、データをホストし、UID2 インテグレーションに参加するための Snowflake アカウントをセットアップします。UID2 Share を通じて関数とビューを消費します。 | UID2 インテグレーションは、Snowflake アカウントでホストされ、UID2 関連のタスクを実行するために必要なデータのみを引き出す認可された関数とビューへのアクセスを提供します。プライベートテーブルにはアクセスできません。UID2 Share は、UID2 関連のタスクを実行するために必要な基本的なデータのみを公開します。<br/>**Note**: <Link href="../ref-info/glossary-uid#gl-salt">ソルト</Link> と暗号化キーはプライベートテーブルに保存されています。<Link href="../ref-info/glossary-uid#gl-dii">DII</Link> はどの時点でも保存されません。 | ETL (Extract Transform Load) ジョブは、UID2 Core/Optout Snowflake ストレージを常に更新し、UID2 Operator Web サービスを動かす内部データを提供します。Operator Web サービスで使用されるデータは、UID2 Share を通じても利用可能です。 |
 | 共有関数とビューを使用すると、トランザクションコンピューティングコストを Snowflake に支払います。 | これらのプライベートテーブルは、UID2 Snowflake アカウントで保護され、UID2 関連のタスクを完了するために使用される内部データを保持する UID2 Core/Optout Snowflake ストレージと自動的に同期します。 | |
 
 ## Summary of Integration Steps
@@ -183,7 +183,7 @@ DII が電話番号の場合、UID2 [Phone Number Normalization](../getting-star
 
 | Value | Meaning |
 | :-- | :-- |
-| `NULL` | DII が正常にマッピングされまし。 |
+| `NULL` | DII が正常にマッピングされました。 |
 | `OPTOUT` | ユーザーがオプトアウトしています。 |
 | `INVALID IDENTIFIER` | メールアドレスまたは電話番号が無効です。 |
 | `INVALID INPUT_TYPE` | `INPUT_TYPE` の値が無効です。`INPUT_TYPE` の有効な値は、`email`、`email_hash`、`phone`、`phone_hash` です。 |
@@ -317,7 +317,7 @@ select UID, PREV_UID, REFRESH_FROM, UNMAPPED from table(UID2_PROD_UID_SH.UID.FN_
 
 #### Mapping Request Example - Multiple Hashed Emails
 
-以下のクエリは、[default database and schema names](#database-and-schema-names)を使用して、複数のメールアドレスハッシュをマッピングする方法をです
+以下のクエリは、[default database and schema names](#database-and-schema-names)を使用して、複数のメールアドレスハッシュをマッピングする方法です。
 
 ```sql
 select a.ID, a.EMAIL_HASH, m.UID, m.PREV_UID, m.REFRESH_FROM, m.UNMAPPED from AUDIENCE a LEFT JOIN(
@@ -386,6 +386,10 @@ select a.ID, a.PHONE_HASH, m.UID, m.PREV_UID, m.REFRESH_FROM, m.UNMAPPED from AU
 ### Monitor Raw UID2 Refresh and Regenerate Raw UID2s
 
 `FN_T_IDENTITY_MAP_V3` 関数は、各 UID2 をリフレッシュする必要がある時刻を示すリフレッシュタイムスタンプ (`REFRESH_FROM`) を返します。
+
+:::note
+raw UID2 は、リフレッシュタイムスタンプの前では変化しません。リフレッシュタイムスタンプの後、DII を再マッピングすると新しいリフレッシュタイムスタンプが返されますが、raw UID2 は変化する場合もあれば変化しない場合もあります。raw UID2 が複数のリフレッシュ間隔にわたって変化しない可能性もあります。
+:::
 
 UID2 のリフレッシュが必要なものを特定するには、関数から返された `REFRESH_FROM` タイムスタンプを現在の時刻と比較します。
 
@@ -475,7 +479,7 @@ raw UID2 を UID2 Token に暗号化するには、`FN_T_ENCRYPT` 関数を使�
 | `MISSING_OR_INVALID_RAW_UID2` | raw UID2 が `NULL` です。 |
 | `INVALID_RAW_UID2` | raw UID2 が無効です。 |
 | `MISMATCHING_IDENTITY_SCOPE` | raw UID2 が不正なアイデンティティスコープに属しています。たとえば、UID2 が期待される場所に EUID が渡されます。 |
-| `NOT_AUTHORIZED_FOR_MASTER_KEY` | 呼び出し元が必要な<a href="../ref-info/glossary-uid#gl-encryption-key">暗号化キー</a>にアクセスできません。UID2 管理者にお問い合わせください。 |
+| `NOT_AUTHORIZED_FOR_MASTER_KEY` | 呼び出し元が必要な<Link href="../ref-info/glossary-uid#gl-encryption-key">暗号化キー</Link>にアクセスできません。UID2 管理者にお問い合わせください。 |
 | `NOT_AUTHORIZED_FOR_SITE_KEY` | 呼び出し元が必要な暗号化キーにアクセスできません。UID2 管理者にお問い合わせください。 |
 
 #### Encrypt Token Request Example - Single Raw UID2
