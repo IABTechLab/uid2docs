@@ -53,7 +53,7 @@ UID2 とインテグレーションする広告主とデータプロバイダー
 
 | High-Level Step | Implementation Options |
 | --- | --- |
-| [1: Generate Raw UID2s from DII](#1-generate-raw-uid2s-from-dii) | DII を raw UID2 にマップするには、次のいずれかのぷションを利用します:<ul><li>UID2 SDK のいずれか:<ul><li>Python SDK: [Map DII to Raw UID2s](../sdks/sdk-ref-python.md#map-dii-to-raw-uid2s)</li><li>Java SDK: [Usage for Advertisers/Data Providers](../sdks/sdk-ref-java.md#usage-for-advertisersdata-providers)</li></ul></li><li>Snowflake: [Map DII](integration-snowflake.md#map-dii)</li><li>AWS Entity Resolution: [AWS Entity Resolution Integration Guide](integration-aws-entity-resolution.md)</li><li>HTTP endpoints: [POST&nbsp;/identity/map](../endpoints/post-identity-map.md)</li></ul> |
+| [1: Generate Raw UID2s from DII](#1-generate-raw-uid2s-from-dii) | DII を raw UID2 にマップするには、次のいずれかのオプションを利用します:<ul><li>UID2 SDK のいずれか:<ul><li>Python SDK: [Map DII to Raw UID2s](../sdks/sdk-ref-python.md#map-dii-to-raw-uid2s)</li><li>Java SDK: [Usage for Advertisers/Data Providers](../sdks/sdk-ref-java.md#usage-for-advertisersdata-providers)</li></ul></li><li>Snowflake: [Map DII](integration-snowflake.md#map-dii)</li><li>Databricks: [Map DII](integration-databricks.md#map-dii)</li><li>AWS Entity Resolution: [AWS Entity Resolution Integration Guide](integration-aws-entity-resolution.md)</li><li>HTTP endpoints: [POST&nbsp;/identity/map](../endpoints/post-identity-map.md)</li></ul> |
 | [2: Store Raw UID2s and Refresh Timestamps](#2-store-raw-uid2s-and-refresh-timestamps) | カスタム（必要に応じて） |
 | [3: Manipulate or Combine Raw UID2s](#3-manipulate-or-combine-raw-uid2s) | カスタム（必要に応じて） |
 | [4: Send Stored Raw UID2s to DSPs to Create Audiences or Conversions](#4-send-stored-raw-uid2s-to-dsps-to-create-audiences-or-conversions) | カスタム（必要に応じて） |
@@ -86,6 +86,8 @@ raw UID2 を生成するには、次のいずれかのオプションを使用�
   - Java SDK: See [Usage for Advertisers/Data Providers](../sdks/sdk-ref-java.md#usage-for-advertisersdata-providers).
 
 - Snowflake: [Map DII](integration-snowflake.md#map-dii) を参照してください。
+
+- Databricks: [Map DII](integration-databricks.md#map-dii) を参照してください。
 
 - AWS Entity Resolution: [AWS Entity Resolution Integration Guide](integration-aws-entity-resolution.md) を参照してください。
 
@@ -127,7 +129,7 @@ V3 Identity Map API は、各 raw UID2 がいつリフレッシュされるか�
 
 1. 現在の時刻と[POST&nbsp;/identity/map](../endpoints/post-identity-map.md) レスポンスから保存したリフレッシュタイムスタンプ (`r` フィールド) を比較します。
 
-2. If the current time is greater than or equal to the refresh timestamp, regenerate the raw UID2 by calling [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) again with the same DII.
+2. 現在の時刻がリフレッシュタイムスタンプ以降である場合、同じ DII で [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) を再度呼び出して raw UID2 を再生成します。
 
 このアプローチにより、raw UID2 が最新かつ有効であり、オーディエンスのターゲティングや測定に使用できることが保証されます。
 
@@ -181,7 +183,7 @@ Step 1 のレスポンスには、マッピング情報が含まれています�
 このステップは、v3 実装の Step 5 を置き換えます。
 :::
 
-raw UID2 は特定の時点でのユーザーの識別子です。特定のユーザーの raw UID2 は、<Link href="../ref-info/glossary-uid#gl-salt-bucket">salt bucket</Link>のローテーションの結果として、約 1 年に 1 回変更されます。
+raw UID2 は特定の時点でのユーザーの識別子です。特定のユーザーの raw UID2 は、<Link href="../ref-info/glossary-uid#gl-salt-bucket">ソルトバケット</Link>のローテーションの結果として、約 1 年に 1 回変更されます。
 
 各ソルトバケットは約 1 年に 1 回更新されますが、個々のバケットの更新は年間を通じて分散されます。おおよそ 365 分の 1 のソルトバケットが毎日ローテーションされます。これに基づいて、オーディエンスの更新に合わせて定期的にソルトバケットのローテーションを確認することを推奨します。たとえば、毎週更新する場合は、毎週ソルトバケットの更新を確認します。
 

@@ -60,3 +60,10 @@ This glossary defines standard Japanese translations for technical terms used in
 | High-level | (翻訳しない / 概要) | 文脈により削除するか、「概要」と訳す。「ハイレベル」とは訳さない。 |
 | Request Access | アクセスリクエスト | ページタイトル等。 |
 | Go live | 本番稼働する | |
+| **Databricks Terms** | | |
+| Clean Room | クリーンルーム | Databricks Clean Rooms (製品名) は英語。 |
+| Sharing Identifier | 共有識別子 | Databricks 用語 (Delta Sharing)。 |
+| Catalog Explorer | Catalog Explorer (カタログエクスプローラ) | UI 名称。 |
+| Delta Sharing | Delta Sharing | 製品機能名。 |
+| Unity Catalog | Unity Catalog | 製品機能名。 |
+| Lineage | リネージ (系統) | データの来歴。 |

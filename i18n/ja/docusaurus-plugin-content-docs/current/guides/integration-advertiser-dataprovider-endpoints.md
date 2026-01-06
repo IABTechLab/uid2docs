@@ -11,7 +11,7 @@ import Link from '@docusaurus/Link';
 
 # Advertiser/Data Provider Integration to HTTP Endpoints
 
-このガイドでは、広告主やデータプロバイダーが UID2 HTTP エンドポイントを呼び出すコードを記述して、SDK、Snowflake、または AWS Entity Resolution などの他の実装オプションを使用するのではなく、UID2 とインテグレーションする手順について説明します。
+このガイドでは、広告主やデータプロバイダーが UID2 HTTP エンドポイントを呼び出すコードを記述して、SDK、Snowflake、Databricks、または AWS Entity Resolution などの他の実装オプションを使用するのではなく、UID2 とインテグレーションする手順について説明します。
 
 :::tip
 広告主及びデータプロバイダー向けのインテグレーションオプションと手順の概要は、[Advertiser/Data Provider Integration Overview](integration-advertiser-dataprovider-overview.md) を参照してください。
@@ -63,14 +63,14 @@ DII は、ユーザーの正規化されたメールアドレスまたは電話�
 | Step | Endpoint | Description |
 | --- | --- | --- |
 | 1-a | [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) request | DIIを含むリクエストをアイデンティティマッピングエンドポイントに送信します。 |
-| 1-b | [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) response | レスポンスで返される raw UID2 (`u` フィールド) は、関連する DSP でオーディエンスをターゲティングするために使用できます。<br/>レスポンスは、ユーザーの raw UID2 (`u`)、リフレッシュ タイムスタンプ (`r`)、およびオプションで、現在の UID2 が過去 90 日以内にローテーションされた場合の前の raw UID2 (`p`) を返します。リフレッシュ タイムスタンプを使用して、UID2 を更新するタイミングを判断します。詳細は、[5: Monitor for Raw UID2 Refresh](#5-monitor-for-raw-uid2-refresh) を参照してください。 |
+| 1-b | [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) response | レスポンスで返される raw UID2 (`u` フィールド) は、関連する DSP でオーディエンスをターゲティングするために使用できます。<br/>レスポンスは、ユーザーの raw UID2 (`u`)、リフレッシュタイムスタンプ (`r`)、およびオプションで、現在の UID2 が過去 90 日以内にローテーションされた場合の前の raw UID2 (`p`) を返します。リフレッシュタイムスタンプを使用して、UID2 を更新するタイミングを判断します。詳細は、[5: Monitor for Raw UID2 Refresh](#5-monitor-for-raw-uid2-refresh) を参照してください。 |
 
 ### 2: Store Raw UID2s and Refresh Timestamps
 
 Step 1、[Generate Raw UID2s from DII](#1-generate-raw-uid2s-from-dii) のレスポンスには、マッピング情報が含まれています。以下の情報を保存することを推奨します:
 
 - DII と raw UID2 (`u` フィールド) のマッピングをキャッシュします。
-- raw UID2 がいつ更新されるかを知るために、リフレッシュ タイムスタンプ (`r` フィールド) を保存します。
+- raw UID2 がいつ更新されるかを知るために、リフレッシュタイムスタンプ (`r` フィールド) を保存します。
 - 過去 90 日以内にローテーションされた場合の前の raw UID2 (`p` フィールド) をオプションで保存します。
 
 ### 3: Manipulate or Combine Raw UID2s
@@ -84,8 +84,8 @@ Step 1 で受け取った UID2 を使用します。例えば、以下のよう�
 
 raw UID2 は、以下のような目的で使用できます:
 
-   - 保存されている raw UID2s を DSP に送信して、オーディエンスやコンバージョンを作成します。
-   - 測定（アトリビューション）のために raw UID2s を使用します。
+   - 保存されている raw UID2 を DSP に送信して、オーディエンスやコンバージョンを作成します。
+   - 測定（アトリビューション）のために raw UID2 を使用します。
 
 例えば、Step 1-b で返された (<Link href="../ref-info/glossary-uid#gl-raw-uid2">raw UID2</Link>) (`u` フィールド) を DSP に送信して、オーディエンスを構築することができます。各 DSP には、オーディエンスを構築するための独自のインテグレーションプロセスがあります。DSP が提供するインテグレーションガイダンスに従って、raw UID2 を送信してオーディエンスを構築してください。
 
@@ -95,15 +95,15 @@ API またはピクセルを介してコンバージョン情報を送信し、�
 
 raw UID2 は、特定の時点でのユーザーの識別子です。特定のユーザーの raw UID2 は、UID2 リフレッシュプロセスの一環として、およそ 1 年に 1 回変更されます。
 
-v3 Identity Map API のレスポンスには、各 raw UID2 がいつリフレッシュされるかを示すリフレッシュ タイムスタンプ (`r` フィールド) が含まれています。このタイムスタンプを使用して、保存されたデータの raw UID2 を再生成するタイミングを判断します。このタイムスタンプ以降に raw UID2 がリフレッシュされることは保証されています。
+v3 Identity Map API のレスポンスには、各 raw UID2 がいつリフレッシュされるかを示すリフレッシュタイムスタンプ (`r` フィールド) が含まれています。このタイムスタンプを使用して、保存されたデータの raw UID2 を再生成するタイミングを判断します。このタイムスタンプ以降に raw UID2 がリフレッシュされることは保証されています。
 
 リフレッシュの機会を毎日確認することを推奨します。以下の表は、raw UID2 のリフレッシュを監視する手順を示しています。
 
 | Step | Action | Description |
 | :--- | :--- | :--- |
-| 5-a | ローカルでのタイムスタンプチェック | 現在の時刻と、以前に [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) レスポンスから保存したリフレッシュ タイムスタンプ (`r` フィールド) を比較します。 |
-| 5-b | [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) | 現在の時刻がリフレッシュ タイムスタンプ以降である場合、同じ DII でアイデンティティマップエンドポイントを再度呼び出して raw UID2 を再生成します。 |
-| 5-c | ローカルストレージの更新 | レスポンスから返された新しい raw UID2 (`u` フィールド)、リフレッシュ タイムスタンプ (`r` フィールド)、およびオプションで前の UID2 (`p` フィールド) を保存します。 |
+| 5-a | ローカルでのタイムスタンプチェック | 現在の時刻と、以前に [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) レスポンスから保存したリフレッシュタイムスタンプ (`r` フィールド) を比較します。 |
+| 5-b | [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) | 現在の時刻がリフレッシュタイムスタンプ以降である場合、同じ DII でアイデンティティマップエンドポイントを再度呼び出して raw UID2 を再生成します。 |
+| 5-c | ローカルストレージの更新 | レスポンスから返された新しい raw UID2 (`u` フィールド)、リフレッシュタイムスタンプ (`r` フィールド)、およびオプションで前の UID2 (`p` フィールド) を保存します。 |
 
 #### Determine whether to refresh a raw UID2
 
@@ -111,7 +111,7 @@ raw UID2 を更新する必要があるかを判断するには、以下の手�
 
 1.  現在の時刻と、[POST&nbsp;/identity/map](../endpoints/post-identity-map.md) のレスポンスから保存したリフレッシュタイムスタンプ（`r` フィールド）を比較します。
 
-2. 現在の時刻がリフレッシュ タイムスタンプ以降である場合、同じ DII で [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) を再度呼び出して raw UID2 を再生成します。
+2. 現在の時刻がリフレッシュタイムスタンプ以降である場合、同じ DII で [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) を再度呼び出して raw UID2 を再生成します。
 
 このアプローチにより、raw UID2 が最新の状態で、オーディエンスターゲティングや測定に有効であることが保証されます。
 
