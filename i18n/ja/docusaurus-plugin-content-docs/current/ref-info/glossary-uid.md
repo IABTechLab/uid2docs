@@ -229,7 +229,7 @@ import MdxJumpAnchor from '@site/src/components/MdxJumpAnchor';
 
 <dt><MdxJumpAnchor id="gl-dii">Directly Identifying Information (DII)</MdxJumpAnchor></dt>
 <dd>直接識別情報 (directly identifying information, DII) とは、氏名、メールアドレス、電話番号など、個人を直接識別する情報のことです。</dd>
-<dd>UID2 はメールアドレスと電話番号をサポートし、DII をターゲットを絞った広告の目的で使用できる値に変換しますが、元の値に遡ることはできません。</dd>
+<dd>UID2 はメールアドレスと電話番号をサポートし、DII をターゲティング広告の目的で使用できる値に変換しますが、元の値に遡ることはできません。</dd>
 
 <dt><MdxJumpAnchor id="gl-docker">Docker</MdxJumpAnchor></dt>
 <dd>Docker は Platform as a Service (PaaS)製品群で、コンテナと呼ばれるパッケージを介してソフトウェアのデプロイを自動化するために使用します。Docker 製品群は、アプリケーションを、そのすべての依存関係とともに、ほとんどのオペレーティングシステム上で実行可能な仮想コンテナにパッケージ化できるため、アプリケーションをさまざまな環境で効率的に動作させることができます。</dd>
@@ -443,7 +443,7 @@ import MdxJumpAnchor from '@site/src/components/MdxJumpAnchor';
 
 <dt><MdxJumpAnchor id="gl-server-side"><a href="#gl-server-side">Server-side integration</a></MdxJumpAnchor></dt>
 <dd>UID2 の <a href="#gl-integration-approaches">インテグレーションアプローチ</a> の一つは、完全に Server-Side でインテグレーションすることです。</dd>
-<dd>Server-Side インテグレーションでは、raw YUD2 または UID2 Token がサーバーサイドで生成およびリフレッシュされます。</dd>
+<dd>Server-Side インテグレーションでは、raw UID2 または UID2 Token がサーバーサイドで生成およびリフレッシュされます。</dd>
 <dd>たとえば、Server-Side インテグレーションでは、広告主は、広告ターゲティングのために Server-Side で raw UID2 を生成し、パブリッシャーは、ビッドストリームのために Server-Side で UID2 Token を生成し、リフレッシュします。</dd>
 <dd>パブリッシャーサーバーサイドのインテグレーションに関するドキュメントの例は、<a href="../guides/integration-publisher-server-side">Publisher Integration Guide, Server-Side</a> です。</dd>
 
@@ -468,6 +468,12 @@ import MdxJumpAnchor from '@site/src/components/MdxJumpAnchor';
 
 <dt><MdxJumpAnchor id="gl-subscription-id">Subscription ID</MdxJumpAnchor></dt>
 <dd>Client-Side のパブリッシャーインテグレーションでは、パブリッシャーに発行される2つの値のうちの1つがアカウントを一意に識別する公開鍵です。詳細は <a href="../getting-started/gs-credentials#subscription-id-and-public-key">Subscription ID and Public Key</a> を参照してください。</dd>
+
+<dt><MdxJumpAnchor id="gl-targeted-advertising">Targeted advertising</MdxJumpAnchor></dt>
+<dd>ターゲティング広告を参照してください。</dd>
+
+<dt><MdxJumpAnchor id="gl-targetingu-koukoku">ターゲティング広告</MdxJumpAnchor></dt>
+<dd>ターゲティング広告とは、特定のオーディエンスや人口統計に向けられたデジタル広告の一種です。</dd>
 
 </dl>
 

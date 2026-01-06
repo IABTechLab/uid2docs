@@ -10,26 +10,26 @@ import Link from '@docusaurus/Link';
 
 # Preparing Emails and Phone Numbers for Processing
 
-The input data that you provide to the UID2 Service must be in the correct format so that the data is correctly converted to valid UID2s that you can use for targeted advertising.
+UID2 Service に提供する入力データは、ターゲティング広告に使用できる有効な UID2 に正しく変換されるように、正しい形式である必要があります。
 
-This is true in all cases, whichever of these solutions you're using to convert your emails and phone numbers to UID2s:
-- By making direct calls to the UID2 APIs.
-- Via your own Private Operator.
-- By using any of the UID2 SDK integrations, Prebid.js integration, or Android/iOS integration.
-- By using Snowflake.
+これは、メールアドレスや電話番号を UID2 に変換するために、以下のどのソリューションを使用している場合でも当てはまります:
+- UID2 API を直接呼び出す場合。
+- 独自の Private Operator を介する場合。
+- UID2 SDK インテグレーション、Prebid.js インテグレーション、または Android/iOS インテグレーションを使用する場合。
+- Snowflake を使用する場合。
 
 ## Processing Steps
 
-The exact steps for preparing your data to be consumed by the UID2 service are laid out in the [Normalization and Encoding](../getting-started/gs-normalization-encoding.md) documentation. The steps, in sequence, are as follows:
-1. Normalize the raw data.
-2. Create a 32-byte SHA-256 hash of the normalized raw data.
-3. Apply Base64-encoding to the 32-byte SHA-256 value.
+データを UID2 Service で利用できるように準備するための正確な手順は、[Normalization and Encoding](../getting-started/gs-normalization-encoding.md) ドキュメントに記載されています。手順は順に以下の通りです:
+1. 生データを正規化 (Normalize) します。
+2. 正規化された生データの 32 バイト SHA-256 ハッシュを作成します。
+3. 32 バイト SHA-256 値に Base64 エンコーディングを適用します。
 
-If you're making direct calls to the UID2 APIs, or calling the UID2 APIs via your own Private Operator, you must complete each step, exactly as described and in the correct sequence.
+UID2 API を直接呼び出す場合、または独自の Private Operator を介して UID2 API を呼び出す場合は、各ステップを説明通り正確に、正しい順序で完了する必要があります。
 
 ## Valid Input
 
-If you're using a UID2 SDK, or other integration solution such as the Prebid.js integration, Android/iOS integration, or Snowflake, the options for your input data are shown in the following table.
+UID2 SDK、または Prebid.js インテグレーション、Android/iOS インテグレーション、Snowflake などの他のインテグレーションソリューションを使用している場合、入力データのオプションは次の表の通りです。
 
 <table>
   <thead>
@@ -42,12 +42,12 @@ If you're using a UID2 SDK, or other integration solution such as the Prebid.js 
   <tbody>
     <tr>
       <td>Email</td>
-      <td>Must be one of the following:<ul><li>Raw email</li><li>Normalized email</li><li>Normalized, then hashed, then base64-encoded</li></ul></td>
+      <td>以下のいずれかでなければなりません:<ul><li>生のメールアドレス</li><li>正規化されたメールアドレス</li><li>正規化され、ハッシュ化され、Base64 エンコードされたもの</li></ul></td>
       <td>[Email Address Normalization](../getting-started/gs-normalization-encoding#email-address-normalization)<br/>[Email Address Hash Encoding](../getting-started/gs-normalization-encoding#email-address-hash-encoding)</td>
     </tr>
     <tr>
       <td>Phone Number</td>
-      <td>Must be one of the following:<ul><li>Normalized, including country code</li><li>Normalized, then hashed, then base64-encoded</li></ul></td>
+      <td>以下のいずれかでなければなりません:<ul><li>国番号を含む正規化されたもの</li><li>正規化され、ハッシュ化され、Base64 エンコードされたもの</li></ul></td>
       <td>[Phone Number Normalization](../getting-started/gs-normalization-encoding#phone-number-normalization)<br/>[Phone Number Hash Encoding](../getting-started/gs-normalization-encoding#phone-number-hash-encoding)</td>
     </tr>
  </tbody>
