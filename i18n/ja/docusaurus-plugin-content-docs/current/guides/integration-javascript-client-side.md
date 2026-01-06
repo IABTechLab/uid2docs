@@ -21,7 +21,7 @@ import SnptIntegratingWithSSO from '../snippets/_snpt-integrating-with-sso.mdx';
 この方法は、次の参加者タイプで使用されます:
 
 - **Publishers**: このワークフローは、UID2 Token をビッドストリームに送信したいパブリッシャー向けです。
-- **Advertisers** および **Data Providers**: さらに、広告主やデータプロバイダは、UID2 Token をトラッキングピクセルに追加するために使用します (詳細は [Tokenized Sharing in Pixels](sharing/sharing-tokenized-from-data-pixel.md) を参照)。
+- **Advertisers** および **Data Providers**: さらに、広告主やデータプロバイダーは、UID2 Token をトラッキングピクセルに追加するために使用します (詳細は [Tokenized Sharing in Pixels](sharing/sharing-tokenized-from-data-pixel.md) を参照)。
 
 <!-- End of UID2-only section. -->
 <!-- Begin EUID-only section. -->
@@ -63,6 +63,8 @@ SDK のデバッグビルドを使用したい場合は、代わりに以下の 
 - Site: [Client-Side UID2 Integration Example using JavaScript SDK](https://js-client-side.samples.uidapi.com/)
 - Code: [uid2-examples/web-integrations/javascript-sdk/client-side](https://github.com/IABTechLab/uid2-examples/tree/main/web-integrations/javascript-sdk/client-side)
   
+<!-- (Source code for running site: https://github.com/IABTechLab/uid2-web-integrations) -->
+
 ## Integrating with Single Sign-On (SSO)
 
 <SnptIntegratingWithSSO />
@@ -140,7 +142,7 @@ __uid2.init({
 });
 ```
 :::note
-UID2 インテグレーション環境からのトークンは、<Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link>に渡しても無効です。インテグレーション環境では、**Subscription ID** と **public key** の値が異なります。各環境の認証情報を取得すr方法は、[Getting Your Credentials](../getting-started/gs-credentials.md#getting-your-credentials) を参照してください。
+UID2 インテグレーション環境からのトークンは、<Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link>に渡しても無効です。インテグレーション環境では、**Subscription ID** と **public key** の値が異なります。各環境の認証情報を取得する方法は、[Getting Your Credentials](../getting-started/gs-credentials.md#getting-your-credentials) を参照してください。
 :::
 
 ### Optional: Specifying the API Base URL to Reduce Latency
@@ -172,6 +174,10 @@ SDK を設定するには、アカウントセットアップ時に受け取っ�
 *  `__uid2.setIdentityFromEmailHash`
 *  `__uid2.setIdentityFromPhone`
 *  `__uid2.setIdentityFromPhoneHash`
+
+:::important
+`__uid2.setIdentityFromEmailHash` または `__uid2.setIdentityFromPhoneHash` の場合、`emailHash` または `PhoneHash` 引数は Base64 エンコードされた値でなければなりません。詳細は、[Email Address Hash Encoding](../getting-started/gs-normalization-encoding.md#email-address-hash-encoding) および [Phone Number Hash Encoding](../getting-started/gs-normalization-encoding.md#phone-number-hash-encoding) を参照してください。
+:::
 
 以下のセクションでは、各シナリオのコーディング例を示します。
 
@@ -284,7 +290,7 @@ await __uid2.setIdentityFromPhoneHash(
 [Configure the SDK for JavaScript](#configure-the-sdk-for-javascript) に記載されているメソッドのいずれかを正常に呼び出すと、<Link href="../ref-info/glossary-uid#gl-identity">identity</Link> が生成され、`UID2-sdk-identity` というキーでローカルストレージに保存されます。SDK は UID2 Token を定期的にリフレッシュします。
 
 :::warning
-ローカルストレージに保存されているオブジェクトのフォーマットは予告なく変更される可能性があります。ローカルストレージのオブジェクトを直接読み込んだり更新したり**しないこと**でください。
+ローカルストレージに保存されているオブジェクトのフォーマットは予告なく変更される可能性があります。ローカルストレージのオブジェクトを直接読み込んだり更新したり**しない**でください。
 :::
 
 ## Example Integration Code and When to Pass DII to the UID2 SDK
