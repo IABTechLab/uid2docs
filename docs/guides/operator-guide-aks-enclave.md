@@ -447,19 +447,3 @@ To upgrade, complete the following steps:
    ```
    kubectl get pods
    ```
-
-## UID2 Operator Error Codes
-
-The following sections list error codes that might occur during a Private Operator's runtime.
-
-:::note
-Error codes for Private Operator issues are applicable only to release v5.49.7 and later.
-:::
-
-### Runtime Errors
-
-The following errors occur during operator runtime:
-
-| Error Code | Issue | How to Identify in Logs | Steps to Resolve |
-| :--- | :--- | :--- | :--- |
-| E12 | Data Download Failure | Look for log messages containing `"E12: Data Download Failure"` along with `"Failed to load"` errors from `RotatingStoreVerticle`. These will include HTTP status codes (e.g., `"HTTP response code 403"`) or exception types (e.g., `"exception: IOException"`). | Check the HTTP status code or exception in the error message: <br/>**404 errors** - Verify operator key is valid for the environment.<br/>**403 errors** - Verify operator key and credentials are correct.<br/>**Timeout errors** - Verify network connectivity, check NSG/firewall rules allow outbound HTTPS (port 443), and ensure UID2 service endpoints are accessible.<br/>**500 errors** - Temporary UID2 service issue, retry or contact UID2 support if persistent. |
