@@ -23,6 +23,10 @@ Used by: このエンドポイントは、主にパブリッシャーが使用�
 
 このエンドポイントを直接呼び出すのではなく、UID2 SDK を使って管理することもできます。オプションの概要は、[SDKs: Summary](../sdks/summary-sdks.md) を参照してください。
 
+:::important
+どのオプションを使用する場合でも、UID2 を生成するために送信するデータは、送信前に正規化、ハッシュ化、およびエンコードする必要があります。詳細については、[Normalization and Encoding](../getting-started/gs-normalization-encoding.md)を参照してください。:::
+:::
+
 ## Request Format 
 
 `POST '{environment}/v2/token/generate'`
