@@ -10,6 +10,7 @@ displayed_sidebar: docs
 
 import Link from '@docusaurus/Link';
 import SnptUpgradePolicy from '../snippets/_snpt-private-operator-upgrade-policy.mdx';
+import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emails-and-phone-numbers.mdx';
 import SnptAttestFailure from '../snippets/_snpt-private-operator-attest-failure.mdx';
 import SnptRotatingTheKeys from '../snippets/_snpt-private-operator-rotating-the-keys.mdx';
 
@@ -106,6 +107,10 @@ UID2 の連絡先に、あなたの組織を UID2 Operator として登録する
 UID2 アカウント登録が完了し、gcloud CLI をインストールしたら、次のステップに進みます:
 - [deployment environments](#deployment-environments) に関する情報を確認します。
 - 利用可能な[deployment options](#deployment-options) に関する情報を確認し、それぞれの利点を比較して、使用するオプションを決定します。
+
+## Preparing DII for Processing
+
+<SnptPreparingEmailsAndPhoneNumbers />
 
 ## Deployment Environments
 

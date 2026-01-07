@@ -10,6 +10,7 @@ displayed_sidebar: docs
 
 import Link from '@docusaurus/Link';
 import SnptUpgradePolicy from '../snippets/_snpt-private-operator-upgrade-policy.mdx';
+import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emails-and-phone-numbers.mdx';
 import SnptAttestFailure from '../snippets/_snpt-private-operator-attest-failure.mdx';
 import SnptRotatingTheKeys from '../snippets/_snpt-private-operator-rotating-the-keys.mdx';
 
@@ -159,6 +160,10 @@ AWS で 1 つまたは複数の UID2 Operator をサブスクライブしてデ�
 次の図は、Private Operator をホストする仮想プライベートクラウドを示したものです。
 
 ![EUID Operator VPC Chart](images/aws-vpc-chart-uid2.png)
+
+## Preparing DII for Processing
+
+<SnptPreparingEmailsAndPhoneNumbers />
 
 ## Deployment
 

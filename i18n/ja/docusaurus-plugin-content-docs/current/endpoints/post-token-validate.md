@@ -136,4 +136,6 @@ echo '{"token": "AdvertisingTokenmZ4dZgeuXXl6DhoXqbRXQbHlHhA96leN94U1uavZVspwKXl
 1. 検証する Advertising Token を生成するために、`email`、`email_hash`、`phone`、または `phone_hash` を使用して [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) リクエストを送信します。
 2. 次のステップで使用するために、返された `advertising_token` の値を保存します。
 3. ステップ 1 で送信した `email`、`email_hash`、`phone`、または `phone_hash` の値と、ステップ 2 で保存した `advertising_token` を `token` プロパティの値として使用して、`POST /token/validate` リクエストを送信します。
-4. `POST /token/validate` リクエストへのレスポンスを確認します。結果は、以下のようにプロセスの成功を示します: 
+4. `POST /token/validate` リクエストへのレスポンスを確認します。結果は、以下のようにプロセスの成功を示します。
+    - `true` のレスポンスは、ステップ 1 でリクエストとして送信した DII が、ステップ 1 のレスポンスで受け取ったトークンと一致することを示します。
+    - `false` のレスポンスは、メールアドレス、電話番号、またはそれらのハッシュの送信方法に問題がある可能性があることを示します。

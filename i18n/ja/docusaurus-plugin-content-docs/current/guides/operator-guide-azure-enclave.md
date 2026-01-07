@@ -10,6 +10,7 @@ displayed_sidebar: docs
 
 import Link from '@docusaurus/Link';
 import SnptUpgradePolicy from '../snippets/_snpt-private-operator-upgrade-policy.mdx';
+import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emails-and-phone-numbers.mdx';
 import SnptAttestFailure from '../snippets/_snpt-private-operator-attest-failure.mdx';
 import SnptRotatingTheKeys from '../snippets/_snpt-private-operator-rotating-the-keys.mdx';
 
@@ -74,6 +75,10 @@ Azure CLI をインストールします。詳細は、Azure ドキュメント�
 詳細は、Azure ドキュメントの [Azure roles](https://learn.microsoft.com/en-us/azure/role-based-access-control/rbac-and-directory-admin-roles#azure-roles) を参照してください。
 
 前提条件のすべての手順が完了したら、UID2 Private Operator をデプロイする準備が整います。[Deployment](#deployment) を参照してください。
+
+## Preparing DII for Processing
+
+<SnptPreparingEmailsAndPhoneNumbers />
 
 ## Deployment Environments
 
@@ -301,7 +306,7 @@ Microsoft Azure で UID2 Private Operator をホストする Virtual Private Clo
 
 2. オペレーターステータスをテストするために、ブラウザでヘルスチェックエンドポイントに移動します: `http://{LB_IP}/ops/healthcheck`。
 
-   HTTP 200 と `OK` という応答本文が表示された場合、正常な状態です。
+   HTTP 200 と `OK` というレスポンス本文が表示された場合、正常な状態です。
 
 ### Private Operator Attestation Failure
 

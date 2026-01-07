@@ -9,9 +9,10 @@ displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';
+import SnptIntegratingWithSSO from '../snippets/_snpt-integrating-with-sso.mdx';
+import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emails-and-phone-numbers.mdx';
 import SnptAddPrebidjsToYourSite from '../snippets/_snpt-prebid-add-prebidjs-to-your-site.mdx';
 import SnptStoreUID2TokenInBrowser from '../snippets/_snpt-prebid-storing-uid2-token-in-browser.mdx';
-import SnptIntegratingWithSSO from '../snippets/_snpt-integrating-with-sso.mdx';
 
 # UID2 Client-Server Integration Guide for Prebid.js
 
@@ -36,13 +37,13 @@ Prebid と UID2 のインテグレーション方法に関する情報は、以�
 - Prebid サイトの Prebid User ID Submodule の [Unified ID 2.0](https://docs.prebid.org/dev-docs/modules/userid-submodules/unified2.html) ページ。
 - Prebid GitHub リポジトリの [UID2 User ID Submodule](https://github.com/prebid/Prebid.js/blob/master/modules/uid2IdSystem.md) ページ。
 
-<!-- ## Integration Example
-
-GWH note 12/14/23 updated 2/7/25: we have a client-side example for Prebid.js but no client-server example. -->
-
 ## Integrating with Single Sign-On (SSO)
 
 <SnptIntegratingWithSSO />
+
+## Preparing DII for Processing
+
+<SnptPreparingEmailsAndPhoneNumbers />
 
 ## Integration Overview: High-Level Steps
 
@@ -394,3 +395,11 @@ Prebid.js を使用しており、Google Secure Signals を使用して UID2 Tok
 
 - Google Ad Manager アカウントで、暗号化されたシグナルが適切にサードパーティビッダと共有されていることを確認します: [Secure Signals Sharing を許可](integration-google-ss.md#allow-secure-signals-sharing) を参照してください。
 - Prebid.js の設定を更新します: [Optional: Enable Secure Signals in Prebid.js](integration-google-ss.md#optional-enable-secure-signals-in-prebidjs) を参照してください。
+
+## Sample Implementation
+
+以下のサンプル実装は、Client-Server インテグレーションを使用して UID2 を Prebid.js にインテグレーションする方法を示すために利用可能です。
+
+-  Prebid.js を使用した Client-Server インテグレーションの例:
+  - Site: [Client-Server UID2 Integration with Prebid.js](https://prebid-client-server.samples.uidapi.com/)
+  - Code: [uid2-examples/web-integrations/prebid-integrations/client-server](https://github.com/IABTechLab/uid2-examples/tree/main/web-integrations/prebid-integrations/client-server)

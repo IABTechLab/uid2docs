@@ -8,6 +8,7 @@ displayed_sidebar: docs
 import Link from '@docusaurus/Link';
 import SnptUpgradePolicy from '../snippets/_snpt-private-operator-upgrade-policy.mdx';
 import SnptRotatingTheKeys from '../snippets/_snpt-private-operator-rotating-the-keys.mdx';
+import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emails-and-phone-numbers.mdx';
 
 # UID2 Private Operator Integration Overview
 
@@ -98,6 +99,10 @@ Private Operator にはいくつかの制限があります:
 
 <SnptRotatingTheKeys />
 
+## Preparing DII for Processing
+
+<SnptPreparingEmailsAndPhoneNumbers />
+
 ## Getting Started
 
 Private Operator を開始するには、次の手順に従います:
@@ -114,6 +119,10 @@ Private Operator を開始するには、次の手順に従います:
    :::
 5. テストします。
 6. 本番環境に移行します。
+
+:::important
+どのオプションを使用する場合でも、UID2 を生成するために送信するデータは、送信前に正規化、ハッシュ化、およびエンコードする必要があります。詳細については、[Normalization and Encoding](../getting-started/gs-normalization-encoding.md)を参照してください。
+:::
 
 ## Implementation Resources
 

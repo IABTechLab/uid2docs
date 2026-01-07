@@ -9,6 +9,7 @@ displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';
+import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emails-and-phone-numbers.mdx';
 
 # Snowflake Integration Guide
 
@@ -73,6 +74,10 @@ The following table shows the differences between the old and new identity mappi
 | :--- | :--- | :--- |
 | パートナーとして、データをホストし、UID2 インテグレーションに参加するための Snowflake アカウントをセットアップします。UID2 Share を通じて関数とビューを消費します。 | UID2 インテグレーションは、Snowflake アカウントでホストされ、UID2 関連のタスクを実行するために必要なデータのみを引き出す認可された関数とビューへのアクセスを提供します。プライベートテーブルにはアクセスできません。UID2 Share は、UID2 関連のタスクを実行するために必要な基本的なデータのみを公開します。<br/>**Note**: <Link href="../ref-info/glossary-uid#gl-salt">ソルト</Link> と暗号化キーはプライベートテーブルに保存されています。<Link href="../ref-info/glossary-uid#gl-dii">DII</Link> はどの時点でも保存されません。 | ETL (Extract Transform Load) ジョブは、UID2 Core/Optout Snowflake ストレージを常に更新し、UID2 Operator Web サービスを動かす内部データを提供します。Operator Web サービスで使用されるデータは、UID2 Share を通じても利用可能です。 |
 | 共有関数とビューを使用すると、トランザクションコンピューティングコストを Snowflake に支払います。 | これらのプライベートテーブルは、UID2 Snowflake アカウントで保護され、UID2 関連のタスクを完了するために使用される内部データを保持する UID2 Core/Optout Snowflake ストレージと自動的に同期します。 | |
+
+## Preparing DII for Processing
+
+<SnptPreparingEmailsAndPhoneNumbers />
 
 ## Summary of Integration Steps
 

@@ -9,8 +9,9 @@ displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';
-import SnptExampleClientServerSendUid2ToSdk from '../snippets/_snpt-example-client-server-send-uid2-to-sdk.mdx'; 
 import SnptIntegratingWithSSO from '../snippets/_snpt-integrating-with-sso.mdx';
+import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emails-and-phone-numbers.mdx';
+import SnptExampleClientServerSendUid2ToSdk from '../snippets/_snpt-example-client-server-send-uid2-to-sdk.mdx'; 
 
 # Client-Server Integration Guide for JavaScript
 
@@ -21,12 +22,6 @@ import SnptIntegratingWithSSO from '../snippets/_snpt-integrating-with-sso.mdx';
 Client-Side の JavaScript の変更 **だけ** で UID2 とインテグレーションする場合は、[Client-Side Integration Guide for JavaScript](integration-javascript-client-side.md) を参照してください。
 
 SDK の技術的な詳細は [SDK for JavaScript Reference Guide](../sdks/sdk-ref-javascript.md) を参照してください。
-
-## Sample Implementation
-
-実装例は、次の UID2 SDK インテグレーション例を参照してください。
-- Site: [Client-Server UID2 Integration Example using JavaScript SDK](https://js-client-server.samples.uidapi.com/)
-- Code: [uid2-examples/web-integrations/javascript-sdk/client-server](https://github.com/IABTechLab/uid2-examples/tree/main/web-integrations/javascript-sdk/client-server)
 
 ## Introduction
 
@@ -51,6 +46,10 @@ Google Ad Managerを使用していて、セキュアシグナル機能を使用
 ## Integrating with Single Sign-On (SSO)
 
 <SnptIntegratingWithSSO />
+
+## Preparing DII for Processing
+
+<SnptPreparingEmailsAndPhoneNumbers />
 
 ## Complete UID2 Account Setup and Configure Account
 
@@ -174,6 +173,13 @@ UID2 Token が SSP から DSP に送信されるとき、ビッドストリー�
   __uid2.disconnect();
 </script>
 ```
+
+## Sample Implementation
+
+実装例は、次の UID2 SDK インテグレーション例を参照してください。
+
+- Site: [Client-Server UID2 Integration Example using JavaScript SDK](https://js-client-server.samples.uidapi.com/)
+- Code: [uid2-examples/web-integrations/javascript-sdk/client-server](https://github.com/IABTechLab/uid2-examples/tree/main/web-integrations/javascript-sdk/client-server)
 
 ## FAQs
 

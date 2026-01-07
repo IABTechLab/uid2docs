@@ -9,6 +9,7 @@ displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';
+import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emails-and-phone-numbers.mdx';
 
 # AWS Entity Resolution Integration Guide
 
@@ -72,6 +73,10 @@ AWS Entity Resolution を使用して UID2 とインテグレーションに関�
 | 15 | API Gateway | raw UID2 を Amazon Data Exchange に返します。 |
 | 16 | Amazon Data Exchange | raw UID2 を AWS Entity Resolution に返します。 |
 | 17 | AWS Entity Resolution | raw UID2 を含む出力レコードを S3 バケットに書き込みます。 |
+
+## Preparing DII for Processing
+
+<SnptPreparingEmailsAndPhoneNumbers />
 
 ## Initial Setup Steps
 
