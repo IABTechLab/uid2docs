@@ -469,12 +469,6 @@ import MdxJumpAnchor from '@site/src/components/MdxJumpAnchor';
 <dt><MdxJumpAnchor id="gl-subscription-id">Subscription ID</MdxJumpAnchor></dt>
 <dd>Client-Side のパブリッシャーインテグレーションでは、パブリッシャーに発行される2つの値のうちの1つがアカウントを一意に識別する公開鍵です。詳細は <a href="../getting-started/gs-credentials#subscription-id-and-public-key">Subscription ID and Public Key</a> を参照してください。</dd>
 
-<dt><MdxJumpAnchor id="gl-targeted-advertising">Targeted advertising</MdxJumpAnchor></dt>
-<dd>ターゲティング広告を参照してください。</dd>
-
-<dt><MdxJumpAnchor id="gl-targetingu-koukoku">ターゲティング広告</MdxJumpAnchor></dt>
-<dd>ターゲティング広告とは、特定のオーディエンスや人口統計に向けられたデジタル広告の一種です。</dd>
-
 </dl>
 
 ### T
