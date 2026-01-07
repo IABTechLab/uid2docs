@@ -332,6 +332,10 @@ Server-Side Integration ([Publisher Integration Guide, Server-Side](../guides/in
        .withHashedPhone("preHashedPhone");
    ```
 
+   :::note
+   SDK はメールアドレスの正規化とハッシュ化を自動的に処理するため、生のメールアドレスや電話番号がサーバーから出ることはありません。
+   :::
+
 3. `input` を受け取り、IdentityMapV3Response オブジェクトを生成する関数を呼び出します:
    ```java
    IdentityMapV3Response identityMapResponse = identityMapV3Client.generateIdentityMap(input);
@@ -356,7 +360,9 @@ Server-Side Integration ([Publisher Integration Guide, Server-Side](../guides/in
    }
    ```
 
->**Note:** SDKは、メールアドレスの正規化とハッシュ化を自動的に処理し、生のメールアドレスや電話番号がサーバーから送信されないようにします。
+   :::note
+   raw UID2 は、リフレッシュタイムスタンプの前では変化しません。リフレッシュタイムスタンプの後、DII を再マッピングすると新しいリフレッシュタイムスタンプが返されますが、raw UID2 は変化する場合もあれば変化しない場合もあります。raw UID2 が複数のリフレッシュ間隔にわたって変化しない可能性もあります。
+   :::
 
 ### Usage Example
 
@@ -478,7 +484,7 @@ import com.uid2.client.UnmappedIdentityReason;
    Instant refreshFrom = mapped.getRefreshFrom();
    ```
 
-3. **Use structured error reasons** - マッピングされない理由を文字列ではなく、肩安全な列挙方として取得します:
+3. **Use structured error reasons** - マッピングされない理由を文字列ではなく、型安全な列挙型として取得します:
    ```java
    // Before - string-based error reasons
    IdentityMapResponse.UnmappedIdentity unmapped = identityMapResponse.getUnmappedIdentities().get("user@example.com");

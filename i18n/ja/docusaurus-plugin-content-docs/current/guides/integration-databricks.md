@@ -2,23 +2,24 @@
 title: Databricks Integration
 sidebar_label: Databricks
 pagination_label: Databricks Integration
-description: Information about integrating with UID2 through Databricks. 
+description: Databricks を使用した UID2 とのインテグレーション（連携）に関する情報。
 hide_table_of_contents: false
 sidebar_position: 04
 displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';
+import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emails-and-phone-numbers.mdx';
 
 # Databricks Clean Rooms Integration Guide
 
-This guide is for advertisers and data providers who want to convert their user data to raw UID2s in a Databricks environment.
+このガイドは、Databricks 環境でユーザーデータを raw UID2 に変換したい広告主およびデータプロバイダーを対象としています。
 
 ## Integration Overview
 
-This solution enables you to securely share consumer identifier data without exposing sensitive <Link href="../ref-info/glossary-uid#gl-dii">directly identifying information (DII)</Link>, by processing your data in an instance of the [Databricks Clean Rooms](https://docs.databricks.com/aws/en/clean-rooms/) feature. This feature provides a secure and privacy-protecting environment for working on sensitive data.
+このソリューションでは、[Databricks Clean Rooms](https://docs.databricks.com/aws/en/clean-rooms/) 機能のインスタンスでデータを処理することにより、<Link href="../ref-info/glossary-uid#gl-dii">DII (直接識別情報)</Link> を公開することなく、コンシューマー識別データを安全に共有できます。この機能は、機密データを扱うための、安全でプライバシーが保護された環境を提供します。
 
-When you've set up the Databricks Clean Rooms environment, you establish a trust relationship with the UID2 service and allow the service to convert your data, which you share in the clean room, to raw UID2s. 
+Databricks Clean Rooms 環境をセットアップしたら、UID2 サービスとの信頼関係を確立し、クリーンルームで共有したデータを raw UID2 に変換することを許可します。
 
 <!-- 
 ## Databricks Partner Network Listing
@@ -28,7 +29,7 @@ When you've set up the Databricks Clean Rooms environment, you establish a trust
 
 ## Functionality
 
-The following table summarizes the functionality available with the UID2 Databricks integration.
+以下の表は、UID2 Databricks インテグレーションで利用可能な機能をまとめたものです。
 
 | Encrypt Raw UID2 to UID2 Token for Sharing | Decrypt UID2 Token to Raw UID2 | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to Raw UID2s |
 | :--- | :--- | :--- | :--- | :--- |
@@ -36,59 +37,63 @@ The following table summarizes the functionality available with the UID2 Databri
 
 ## Key Benefits
 
-Here are some key benefits of integrating with Databricks for your UID2 processing:
+UID2 処理に Databricks を統合する主なメリットは以下の通りです。
 
-- Native support for managing UID2 workflows within a Databricks data clean room.
-- Secure identity interoperability between partner datasets.
-- Direct lineage and observability for all UID2-related transformations and joins, for auditing and traceability.
-- Streamlined integration between UID2 identifiers and The Trade Desk activation ecosystem.
-- Self-service support for marketers and advertisers through Databricks.
+- Databricks データクリーンルーム内での UID2 ワークフロー管理をネイティブにサポート。
+- パートナーデータセット間での安全なアイデンティティ相互運用性。
+- 監査と追跡可能性のための、UID2 関連のすべての変換と結合に関する直接的なリネージ（系統）と可観測性。
+- UID2 識別子と The Trade Desk アクティベーションエコシステム間の合理化されたインテグレーション。
+- Databricks を通じたマーケターや広告主向けのセルフサービスサポート。
+
+## Preparing DII for Processing
+
+<SnptPreparingEmailsAndPhoneNumbers />
 
 ## Integration Steps
 
-At a high level, the following are the steps to set up your Databricks integration and process your data:
+概要レベルでは、Databricks インテグレーションをセットアップし、データを処理する手順は以下の通りです。
 
-1. [Create a clean room for UID2 collaboration](#create-clean-room-for-uid2-collaboration).
-1. [Send your Databricks sharing identifier to your UID2 contact](#send-sharing-identifier-to-uid2-contact).
-1. [Add data to the clean room](#add-data-to-the-clean-room).
-1. [Map DII](#map-dii) by running the clean room notebook.
+1. [UID2 コラボレーション用のクリーンルームを作成する](#create-clean-room-for-uid2-collaboration)。
+1. [Databricks 共有識別子を UID2 担当者に送信する](#send-sharing-identifier-to-uid2-contact)。
+1. [クリーンルームにデータを追加する](#add-data-to-the-clean-room)。
+1. クリーンルームのノートブックを実行して [DII をマッピングする](#map-dii)。
 
 ### Create Clean Room for UID2 Collaboration
 
-As a starting point, create a Databricks Clean Rooms environment&#8212;a secure environment for you to collaborate with UID2 to process your data.
+出発点として、Databricks Clean Rooms 環境（UID2 とコラボレーションしてデータを処理するための安全な環境）を作成します。
 
-Follow the steps in [Create clean rooms](https://docs.databricks.com/aws/en/clean-rooms/create-clean-room) in the Databricks documentation. Use the correct sharing identifier based on the [UID2 environment](../getting-started/gs-environments) you want to connect to: see [UID2 Sharing Identifiers](#uid2-sharing-identifiers).
+Databricks ドキュメントの [Create clean rooms](https://docs.databricks.com/aws/en/clean-rooms/create-clean-room) の手順に従ってください。接続する [UID2 環境](../getting-started/gs-environments) に基づいて、正しい共有識別子を使用してください。[UID2 Sharing Identifiers](#uid2-sharing-identifiers) を参照してください。
 
 :::important
-After you've created a clean room, you cannot change its collaborators. If you have the option to set clean room collaborator aliases&#8212;for example, if you’re using the Databricks Python SDK to create the clean room&#8212;your collaborator alias must be `creator` and the UID2 collaborator alias must be `collaborator`. If you’re creating the clean room using the Databricks web UI, the correct collaborator aliases are set for you.
+クリーンルームを作成した後は、コラボレーターを変更することはできません。Databricks Python SDK を使用してクリーンルームを作成する場合など、クリーンルームのコラボレーターのエイリアスを設定するオプションがある場合、自身のコラボレーターエイリアスは `creator`、UID2 コラボレーターエイリアスは `collaborator` である必要があります。Databricks Web UI を使用してクリーンルームを作成する場合は、正しいコラボレーターエイリアスが自動的に設定されます。
 :::
 
 ### Send Sharing Identifier to UID2 Contact
 
-Before you can use the clean room notebook, you'll need to send your Databricks sharing identifier to your UID2 contact.
+クリーンルームのノートブックを使用する前に、Databricks 共有識別子を UID2 担当者に送信する必要があります。
 
-The sharing identifier is a string in this format: `<cloud>:<region>:<uuid>`.
+共有識別子は、`<cloud>:<region>:<uuid>` という形式の文字列です。
 
-Follow these steps:
+以下の手順に従ってください。
 
-1. Find the sharing identifier for the Unity Catalog metastore that is attached to the Databricks workspace where you’ll work with the clean room.
+1. クリーンルームで作業する Databricks ワークスペースにアタッチされている Unity Catalog メタストアの共有識別子を見つけます。
 
-   For information on how to find this value, see [Finding a Sharing Identifier](#finding-a-sharing-identifier).
-1. Send the sharing identifier to your UID2 contact.
+   この値を見つける方法については、[Finding a Sharing Identifier](#finding-a-sharing-identifier) を参照してください。
+1. 共有識別子を UID2 担当者に送信します。
 
 ### Add Data to the Clean Room
 
-Add one or more tables or views to the clean room. You can use any names for the schema, tables, and views. Tables and views must follow the schema detailed in [Input Table](#input-table ).
+1 つ以上のテーブルまたはビューをクリーンルームに追加します。スキーマ、テーブル、ビューの名前は任意です。テーブルとビューは、[Input Table](#input-table) で詳述されているスキーマに従う必要があります。
 
 ### Map DII
 
-Run the `identity_map_v3` Databricks Clean Rooms [notebook](https://docs.databricks.com/aws/en/notebooks/) to map email addresses, phone numbers, or their respective hashes to raw UID2s.
+Databricks Clean Rooms の `identity_map_v3` [ノートブック](https://docs.databricks.com/aws/en/notebooks/) を実行して、メールアドレス、電話番号、またはそれぞれのハッシュを raw UID2 にマッピングします。
 
-A successful notebook run results in raw UID2s populated in the output table. For details, see [Output Table](#output-table).
+ノートブックの実行が成功すると、出力テーブルに raw UID2 が生成されます。詳細については、[Output Table](#output-table) を参照してください。
 
 ## Running the Clean Rooms Notebook
 
-This section provides details to help you use your Databricks Clean Rooms environment to process your DII into raw UID2s, including the following:
+このセクションでは、Databricks Clean Rooms 環境を使用して DII を raw UID2 に処理するための詳細を提供します。これには以下が含まれます。
 
 - [Notebook Parameters](#notebook-parameters)
 - [Input Table](#input-table)
@@ -98,85 +103,89 @@ This section provides details to help you use your Databricks Clean Rooms enviro
 
 ### Notebook Parameters
 
-You can use the `identity_map_v3` notebook to map DII in any table or view that you've added to the `creator` catalog of the clean room.
+`identity_map_v3` ノートブックを使用して、クリーンルームの `creator` カタログに追加した任意のテーブルまたはビュー内の DII をマッピングできます。
 
-The notebook has two parameters, `input_schema` and `input_table`. Together, these two parameters identify the table or view in the clean room that contains the DII to be mapped.
+ノートブックには、`input_schema` と `input_table` の 2 つのパラメータがあります。これら 2 つのパラメータを合わせて、マッピング対象の DII を含むクリーンルーム内のテーブルまたはビューを特定します。
 
-For example, to map DII in the clean room table named `creator.default.emails`, set `input_schema` to `default` and `input_table` to `emails`.
+たとえば、`creator.default.emails` という名前のクリーンルームテーブル内の DII をマッピングするには、`input_schema` を `default` に、`input_table` を `emails` に設定します。
 
 | Parameter Name | Description |
 | :--- | :--- |
-| `input_schema` | The schema containing the table or view. |
-| `input_table` | The name you specify for the table or view containing the DII to be mapped. |
+| `input_schema` | テーブルまたはビューを含むスキーマ。 |
+| `input_table` | マッピング対象の DII を含むテーブルまたはビューに指定した名前。 |
 
 ### Input Table
 
-The input table or view must have the two columns shown in the following table. The table or view can have additional columns, but the notebook doesn't use any additional columns, only these two.
+入力テーブルまたはビューには、以下の表に示す 2 つのカラムが必要です。テーブルまたはビューに追加のカラムがあってもかまいませんが、ノートブックはこれら 2 つのカラムのみを使用し、他のカラムは使用しません。
 
 | Column Name | Data Type | Description |
 | :--- | :--- | :--- |
-| `INPUT` | string | The DII to map. |
-| `INPUT_TYPE` | string | The type of DII to map. Allowed values: `email`, `email_hash`, `phone`, and `phone_hash`. |
+| `INPUT` | string | マッピングする DII。 |
+| `INPUT_TYPE` | string | マッピングする DII のタイプ。許容値: `email`, `email_hash`, `phone`, `phone_hash`。 |
 
 ### DII Format and Normalization
 
-The normalization requirements depend on the type of DII you're processing, as follows:
+正規化の要件は、処理する DII のタイプによって異なり、以下の通りです。
 
-- **Email address**: The notebook automatically normalizes the data using the UID2 [Email Address Normalization](../getting-started/gs-normalization-encoding#email-address-normalization) rules.
-- **Phone number**: You must normalize the phone number before mapping it with the notebook, using the UID2 [Phone Number Normalization](../getting-started/gs-normalization-encoding#phone-number-normalization) rules.
+- **Email address**: ノートブックは、UID2 [Email Address Normalization](../getting-started/gs-normalization-encoding#email-address-normalization) ルールを使用してデータを自動的に正規化します。
+- **Phone number**: UID2 [Phone Number Normalization](../getting-started/gs-normalization-encoding#phone-number-normalization) ルールを使用して、ノートブックでマッピングする前に電話番号を正規化する必要があります。
 
 ### Output Table
 
-If the clean room has an output catalog, the mapped DII is written to a table in the output catalog. Output tables are stored for 30 days.
+クリーンルームに出力カタログがある場合、マッピングされた DII は出力カタログ内のテーブルに書き込まれます。出力テーブルは 30 日間保存されます。
 
-For details, see [Overview of output tables](https://docs.databricks.com/aws/en/clean-rooms/output-tables#overview-of-output-tables) in the Databricks documentation.
+詳細については、Databricks ドキュメントの [Overview of output tables](https://docs.databricks.com/aws/en/clean-rooms/output-tables#overview-of-output-tables) を参照してください。
 
 ### Output Table Schema
 
-The following table provides information about the structure of the output data, including field names and values.
+以下の表は、フィールド名や値など、出力データの構造に関する情報を示しています。
 
 | Column Name | Data Type | Description |
 | :--- | :--- | :--- |
-| `UID` | string | The value is one of the following:<ul><li>**DII was successfully mapped**: The UID2 associated with the DII.</li><li>**Otherwise**: `NULL`.</li></ul> |
-| `PREV_UID` | string | The value is one of the following:<ul><li>**DII was successfully mapped and the current raw UID2 was rotated in the last 90 days**: the previous raw UID2.</li><li>**Otherwise**: `NULL`.</li></ul> |
-| `REFRESH_FROM` | timestamp | The value is one of the following:<ul><li>**DII was successfully mapped**: The timestamp indicating when this UID2 should be refreshed.</li><li>**Otherwise**: `NULL`.</li></ul> |
-| `UNMAPPED` | string | The value is one of the following:<ul><li>**DII was successfully mapped**: `NULL`.</li><li>**Otherwise**: The reason why the identifier was not mapped: `OPTOUT`, `INVALID IDENTIFIER`, or `INVALID INPUT TYPE`.<br/>For details, see [Values for the UNMAPPED Column](#values-for-the-unmapped-column).</li></ul> |
+| `UID` | string | 値は以下のいずれかです。<ul><li>**DII が正常にマッピングされた場合**: DII に関連付けられた UID2。</li><li>**それ以外の場合**: `NULL`。</li></ul> |
+| `PREV_UID` | string | 値は以下のいずれかです。<ul><li>**DII が正常にマッピングされ、現在の raw UID2 が過去 90 日以内にローテーションされた場合**: 以前の raw UID2。</li><li>**それ以外の場合**: `NULL`。</li></ul> |
+| `REFRESH_FROM` | timestamp | 値は以下のいずれかです。<ul><li>**DII が正常にマッピングされた場合**: この UID2 をリフレッシュすべき日時を示すタイムスタンプ。</li><li>**それ以外の場合**: `NULL`。</li></ul> |
+| `UNMAPPED` | string | 値は以下のいずれかです。<ul><li>**DII が正常にマッピングされた場合**: `NULL`。</li><li>**それ以外の場合**: 識別子がマッピングされなかった理由。(`OPTOUT`, `INVALID IDENTIFIER`, または `INVALID INPUT TYPE`)。<br/>詳細については、[Values for the UNMAPPED Column](#values-for-the-unmapped-column) を参照してください。</li></ul> |
+
+:::note
+raw UID2 は、リフレッシュのタイムスタンプより前には変更されません。リフレッシュのタイムスタンプ以降に DII を再マッピングすると、新しいリフレッシュのタイムスタンプが返されますが、raw UID2 は変更される場合と変更されない場合があります。raw UID2 は、複数のリフレッシュ間隔にわたって変更されない可能性があります。
+:::
 
 #### Values for the UNMAPPED Column
 
-The following table shows possible values for the `UNMAPPED` column in the output table schema.
+以下の表は、出力テーブルスキーマの `UNMAPPED` カラムに設定可能な値を示しています。
 
 | Value | Meaning |
 | :--- | :--- |
-| `NULL` | The DII was successfully mapped. |
-| `OPTOUT` | The user has opted out. |
-| `INVALID IDENTIFIER` | The email address or phone number is invalid. |
-| `INVALID INPUT TYPE` | The value of `INPUT_TYPE` is invalid. Valid values for `INPUT_TYPE` are: `email`, `email_hash`, `phone`, `phone_hash`. |
+| `NULL` | DII が正常にマッピングされました。 |
+| `OPTOUT` | ユーザーがオプトアウトしています。 |
+| `INVALID IDENTIFIER` | メールアドレスまたは電話番号が無効です。 |
+| `INVALID INPUT TYPE` | `INPUT_TYPE` の値が無効です。`INPUT_TYPE` の有効な値は、`email`, `email_hash`, `phone`, `phone_hash` です。 |
 
 ## Testing in the Integ Environment
 
-If you'd like to test the Databricks Clean Rooms implementation before signing a UID2 POC, you can ask your UID2 contact for access in the integ (integration) environment. This environment is for testing only, and has no production data.
+UID2 POC に署名する前に Databricks Clean Rooms の実装をテストしたい場合は、UID2 担当者にインテグレーション (integ) 環境へのアクセスを依頼できます。この環境はテスト専用であり、本番データは含まれません。
 
-In the request, include your sharing identifier.
+リクエストには、共有識別子を含めてください。
 
-While you're waiting to hear back, you can complete the following actions:
-- Create the clean room, using the UID2 sharing identifier for the integration environment.
-- Put your assets into the clean room.
+返答を待っている間に、以下のアクションを完了できます。
+- インテグレーション環境用の UID2 共有識別子を使用して、クリーンルームを作成する。
+- アセットをクリーンルームに配置する。
 
-For details, see [Integration Steps](#integration-steps).
+詳細については、[Integration Steps](#integration-steps) を参照してください。
 
-When your access is ready, your UID2 contact notifies you.
+アクセスの準備ができると、UID2 担当者から通知があります。
 
 ## Reference
 
-This section includes the following reference information:
+このセクションには、以下の参照情報が含まれています。
 
 - [UID2 Sharing Identifiers](#uid2-sharing-identifiers)
 - [Finding a Sharing Identifier](#finding-a-sharing-identifier)
 
 ### UID2 Sharing Identifiers
 
-UID2 sharing identifiers can change. Before creating a new clean room, check this section to make sure you have the latest sharing identifier.
+UID2 共有識別子は変更される可能性があります。新しいクリーンルームを作成する前に、このセクションを確認して最新の共有識別子を入手してください。
 
 | Environment | UID2 Sharing Identifier |
 | :--- | :--- |
@@ -185,12 +194,12 @@ UID2 sharing identifiers can change. Before creating a new clean room, check thi
 
 ### Finding a Sharing Identifier
 
-To find the sharing identifier for your UID2 contact, follow these steps:
+UID2 担当者向けの共有識別子を見つけるには、以下の手順に従ってください。
 
-In your Databricks workspace, in the Catalog Explorer, click **Catalog**.
+Databricks ワークスペースの Catalog Explorer (カタログエクスプローラ) で、**Catalog** をクリックします。
 
-At the top, click the gear icon and select **Delta Sharing**.
+上部の歯車アイコンをクリックし、**Delta Sharing** を選択します。
 
-On the **Shared with me** tab, in the upper right, click your Databricks sharing organization and then select **Copy sharing identifier**.
+**Shared with me** タブで、右上の Databricks 共有組織 (sharing organization) をクリックし、**Copy sharing identifier** を選択します。
 
-For details, see [Request the recipient's sharing identifier](https://docs.databricks.com/aws/en/delta-sharing/create-recipient#step-1-request-the-recipients-sharing-identifier) in the Databricks documentation.
+詳細については、Databricks ドキュメントの [Request the recipient's sharing identifier](https://docs.databricks.com/aws/en/delta-sharing/create-recipient#step-1-request-the-recipients-sharing-identifier) を参照してください。

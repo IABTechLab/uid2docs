@@ -10,6 +10,7 @@ displayed_sidebar: docs
 
 import Link from '@docusaurus/Link';
 import SnptIntegratingWithSSO from '../snippets/_snpt-integrating-with-sso.mdx';
+import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emails-and-phone-numbers.mdx';
 import SnptPrivateOperatorOption from '../snippets/_snpt-private-operator-option.mdx';
 
 # CTV Integration Guide
@@ -20,7 +21,9 @@ Connected TV (CTV) パブリッシャーであれば、UID2 とインテグレ�
 UID2 とインテグレーションするには、次の 3 つの主要なステップを実装します:
 
 1. UID2 Token を生成します。
-1. 必要に応じて UID2 Token をリフレッシュします。
+1. UID2 Token を頻繁に更新または再生成し、トークンが最新の状態を維持するようにしてください。
+
+   詳細については、[Keeping the Token Current](../ref-info/ref-tokens.md#keeping-the-token-current) と [Recommended Token Refresh Frequency](../ref-info/ref-tokens.md#recommended-token-refresh-frequency) を参照してください。
 1. UID2 Token をビッドストリームに渡します。
 
 これらのステップをどのように実装するかを決定するには、[CTV Integration Options](#ctv-integration-options) から選択してください。
@@ -28,6 +31,10 @@ UID2 とインテグレーションするには、次の 3 つの主要なステ
 ## Integrating with Single Sign-On (SSO)
 
 <SnptIntegratingWithSSO />
+
+## Preparing DII for Processing
+
+<SnptPreparingEmailsAndPhoneNumbers />
 
 ## Private Operator Option
 

@@ -11,12 +11,13 @@ displayed_sidebar: docs
 import Link from '@docusaurus/Link';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import SnptGMAIMA_Plugins from '../snippets/_snpt-mobile_docs_gmaima-plugin-gss.mdx';
+import SnptIntegratingWithSSO from '../snippets/_snpt-integrating-with-sso.mdx';
+import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emails-and-phone-numbers.mdx';
 import SnptExampleAdvertisingToken from '../snippets/_snpt-example-advertising-token.mdx';
 import SnptEnableLogging from '../snippets/_snpt-mobile-docs-enable-logging.mdx';
+import SnptGMAIMA_Plugins from '../snippets/_snpt-mobile_docs_gmaima-plugin-gss.mdx';
 import SnptPrebidMobileSDK from '../snippets/_snpt-mobile_docs_prebid-mobile.mdx';
 import SnptErrorResponseStates from '../snippets/_snpt-mobile-docs-error-response-states.mdx';
-import SnptIntegratingWithSSO from '../snippets/_snpt-integrating-with-sso.mdx';
 
 # UID2 Client-Side Integration Guide for Mobile
 
@@ -195,6 +196,10 @@ see UID2SDKDevelopmentApp/UID2SDKDevelopmentApp/Info.plist
 ## Integrating with Single Sign-On (SSO)
 
 <SnptIntegratingWithSSO />
+
+## Preparing DII for Processing
+
+<SnptPreparingEmailsAndPhoneNumbers />
 
 ## Complete UID2 Account Setup and Configure Account
 
@@ -651,7 +656,7 @@ UID2Manager.shared.generateIdentity(
 
 メソッドコールが成功すると、Advertising Token (UID2 Token) が生成され、ビッドストリームに送信するために使用できます。
 
-ローカルファイルストレージに保存されている UID2 identity が期限切れで、リフレッシュできない場合は、新しい identity を生成するために `generateIdentity` メソッドを再度呼び出す必要があります。ただし、次の Android メソッド/iOS オブジェクトの応答が示すように、DII が UID2 からオプトアウトされている場合は、UID2 Token は生成されません:
+ローカルファイルストレージに保存されている UID2 identity が期限切れで、リフレッシュできない場合は、新しい identity を生成するために `generateIdentity` メソッドを再度呼び出す必要があります。ただし、次の Android メソッド/iOS オブジェクトのレスポンスが示すように、DII が UID2 からオプトアウトされている場合は、UID2 Token は生成されません:
 
 <Tabs groupId="language-selection">
 <TabItem value='android' label='Android'>

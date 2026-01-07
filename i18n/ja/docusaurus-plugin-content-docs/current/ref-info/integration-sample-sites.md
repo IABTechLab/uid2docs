@@ -10,6 +10,12 @@ import Link from '@docusaurus/Link';
 
 このページでは、一般的なインテグレーションのユースケースを強調するすべての公式 UID2 サンプル実装のリストと、ライブデモサイト、ソースコード、および関連ドキュメントへのリンクを示します。このページを使用して、ニーズに合ったサンプルを見つけて、動作する例を調べてください。
 
+すべてのサンプルサイトは [https://samples.uidapi.com/](https://samples.uidapi.com/) で利用できます。
+
+:::note
+このページに掲載されているサンプル実装はメールベースのインテグレーションを行なっていますが、電話番号も同様にサポートされており、別の SDK メソッドを使用し追加の正規化ステップを必要とするものの、同じインテグレーションパターンに従います。電話番号統合の例については、[UID2 Hashing Tool](#uid2-hashing-tool)を参照してください。
+:::
+
 ## JavaScript SDK Integrations
 
 このセクションでは、Prebid.js や Google Secure Signals を使用せずに UID2 SDK for JavaScript を直接使用したサンプル統合をまとめています。

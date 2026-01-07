@@ -10,7 +10,7 @@ import Link from '@docusaurus/Link';
 
 # POST /identity/buckets
 
-<Link href="../ref-info/glossary-uid#gl-salt-bucket">salt buckets</Link> のローテーションをモニターします。
+<Link href="../ref-info/glossary-uid#gl-salt-bucket">ソルトバケット</Link> のローテーションをモニターします。
 
 Used by: このエンドポイントは、主に広告主とデータプロバイダーによって使用されます。詳細は [Advertiser/Data Provider Integration Overview](../guides/integration-advertiser-dataprovider-overview.md) を参照してください。
 
@@ -27,7 +27,7 @@ v2 バージョンを使用している場合は、改善点を活用するた�
 認証の詳細は、 [Authentication and Authorization](../getting-started/gs-auth.md) を参照してください。
 
 :::important
-すべてのリクエストを秘密鍵で暗号化する必要があります。詳細といくつかのプログラミング言語でのコードの例は、[リクエストの暗号化とレスポンスの復号化](../getting-started/gs-encryption-decryption.md) を参照してください。
+すべてのリクエストを秘密鍵で暗号化する必要があります。詳細といくつかのプログラミング言語でのコードの例は、[Encrypting Requests and Decrypting Responses](../getting-started/gs-encryption-decryption.md) を参照してください。
 :::
 
 ### Path Parameters
@@ -65,7 +65,7 @@ v2 バージョンを使用している場合は、改善点を活用するた�
 echo '{"since_timestamp": "2023-04-19T13:00:00"}' | python3 uid2_request.py https://prod.uidapi.com/v2/identity/buckets [Your-Client-API-Key] [Your-Client-Secret]
 ```
 
-詳細といくつかのプログラミング言語でのコードの例は、[リクエストの暗号化とレスポンスの復号化](../getting-started/gs-encryption-decryption.md) を参照してください。
+詳細といくつかのプログラミング言語でのコードの例は、[Encrypting Requests and Decrypting Responses](../getting-started/gs-encryption-decryption.md) を参照してください。
 
 ## Decrypted JSON Response Format
 
@@ -111,6 +111,6 @@ echo '{"since_timestamp": "2023-04-19T13:00:00"}' | python3 uid2_request.py http
 | :--- | :--- | :--- |
 | `success` | 200 | リクエストは成功しました。レスポンスは暗号化されています。 |
 | `client_error` | 400 | リクエストに不足している、または無効なパラメータがありました。|
-| `unauthorized` | 401 | クエストにベアラートークンが含まれていない、無効なベアラートークンが含まれている、またはリクエストされた操作を実行するのに許可されていないベアラートークンが含まれていました。 |
+| `unauthorized` | 401 | リクエストにベアラートークンが含まれていない、無効なベアラートークンが含まれている、またはリクエストされた操作を実行するのに許可されていないベアラートークンが含まれていました。 |
 
 `status` の値が `success` 以外であれば、`message` フィールドにその問題に関する追加情報が表示されます。

@@ -39,6 +39,8 @@ This glossary defines standard Japanese translations for technical terms used in
 | Bidstream | ビッドストリーム | |
 | Bid Request | ビッドリクエスト | |
 | Bid Response | ビッドレスポンス | 「入札レスポンス」ではなく「ビッドレスポンス」で統一。 |
+| Request | リクエスト | |
+| Response | レスポンス | |
 | Third-party cookie | サードパーティクッキー | 「サードパーティー」と伸ばさない表記が優勢。 |
 | First-party data | ファーストパーティデータ | |
 | Client-Side | Client-Side | 大文字始まりキャメルケース。 |
@@ -60,3 +62,10 @@ This glossary defines standard Japanese translations for technical terms used in
 | High-level | (翻訳しない / 概要) | 文脈により削除するか、「概要」と訳す。「ハイレベル」とは訳さない。 |
 | Request Access | アクセスリクエスト | ページタイトル等。 |
 | Go live | 本番稼働する | |
+| **Databricks Terms** | | |
+| Clean Room | クリーンルーム | Databricks Clean Rooms (製品名) は英語。 |
+| Sharing Identifier | 共有識別子 | Databricks 用語 (Delta Sharing)。 |
+| Catalog Explorer | Catalog Explorer (カタログエクスプローラ) | UI 名称。 |
+| Delta Sharing | Delta Sharing | 製品機能名。 |
+| Unity Catalog | Unity Catalog | 製品機能名。 |
+| Lineage | リネージ (系統) | データの来歴。 |

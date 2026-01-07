@@ -11,56 +11,55 @@ import Link from '@docusaurus/Link';
 
 # DSP Direct Integration Instructions
 
-This document provides instructions for DSPs who want to integrate with UID2 but who are using a programming language not supported by an existing UID2 SDK.
+このドキュメントは、既存の UID2 SDK でサポートされていないプログラミング言語を使用していて、UID2 とインテグレーションを行いたい DSP 向けの手順を提供します。
 
-For a list of the existing SDKs, see [SDKs: Summary](../sdks/summary-sdks.md).
+全ての SDK のリストについては、[SDKs: Summary](../sdks/summary-sdks.md) を参照してください。
 
 ## Overview
 
-DSPs must be able to decrypt UID2 tokens to raw UID2s and verify the token validity, so that they can use the decrypted tokens for targeted advertising and bidding purposes. To do this, a DSP must do the following:
+DSP が、ターゲティング広告や入札の目的で復号化されたトークンを使用使用できるようにするには、UID2 Token を raw UID2 に復号化し、トークンの有効性を検証できる必要があります。これを行うために、DSP は以下を行う必要があります:
 
 - [Retrieve a set of encryption keys](#retrieverefresh-encryption-keys)
 - [Decrypt UID2 tokens into raw UID2s](#decrypt-uid2-tokens-into-raw-uid2s)
 - [Periodically re-retrieve the latest set of encryption keys](#retrieverefresh-encryption-keys)
 
-An example implementation, in the [UID2 SDK for C#&nbsp;/&nbsp;.NET](https://github.com/IABTechLab/uid2-client-net), is the `BidstreamClient` class: see [BidstreamClient.cs](https://github.com/IABTechLab/uid2-client-net/blob/6ac53b106301e431a4aada3cbfbb93f8164ff7be/src/UID2.Client/BidstreamClient.cs).
+[UID2 SDK for C#&nbsp;/&nbsp;.NET](https://github.com/IABTechLab/uid2-client-net) での実装例は、`BidstreamClient` クラスです。[BidstreamClient.cs](https://github.com/IABTechLab/uid2-client-net/blob/6ac53b106301e431a4aada3cbfbb93f8164ff7be/src/UID2.Client/BidstreamClient.cs) を参照してください。
 
-This document refers to additional code sections from the C#&nbsp;/&nbsp;.NET SDK as examples.
+このドキュメントでは、例として C#&nbsp;/&nbsp;.NET SDK の追加のコードセクションを参照します。
 
 ## Retrieve/Refresh Encryption Keys
 
-To retrieve or refresh the encryption keys, so that you can decrypt UID2 tokens into raw UID2s, you'll need to write code to do the following:
+UID2 Token を raw UID2 に復号化できるように、暗号化キーを取得またはリフレッシュするには、以下を行うコードを記述する必要があります:
 
-- Encrypt the request.
-- Call the endpoint.
-- Decrypt the response.
-- Parse the response.
+- リクエストを暗号化する。
+- エンドポイントを呼び出す。
+- レスポンスを復号化する。
+- レスポンスをパースする。
 
-You'll call the following API endpoint:
+次の API エンドポイントを呼び出します:
 
 ```
 /v2/key/bidstream
 ```
 
-Refresh the keys once at startup, and then periodically (recommended refresh interval is hourly).
+起動時に一度キーをリフレッシュし、その後定期的にリフレッシュします (推奨されるリフレッシュ間隔は 1 時間ごとです)。
 
-The UID2 SDK for C# / .NET uses a `Refresh` function. For details, see [BidstreamClient.cs, line 26](https://github.com/IABTechLab/uid2-client-net/blob/6ac53b106301e431a4aada3cbfbb93f8164ff7be/src/UID2.Client/BidstreamClient.cs#L26).
+UID2 SDK for C# / .NET は `Refresh` 関数を使用します。詳細は、[BidstreamClient.cs, line 26](https://github.com/IABTechLab/uid2-client-net/blob/6ac53b106301e431a4aada3cbfbb93f8164ff7be/src/UID2.Client/BidstreamClient.cs#L26) を参照してください。
 
-For an implementation example that shows encrypting the request and decrypting the response, see [Encryption and Decryption Code Examples](../getting-started/gs-encryption-decryption.md#encryption-and-decryption-code-examples).
+リクエストの暗号化とレスポンスの復号化を示す実装例については、[Encryption and Decryption Code Examples](../getting-started/gs-encryption-decryption.md#encryption-and-decryption-code-examples) を参照してください。
 
-The decrypted API response is in JSON format, and includes `site_data`, the list of domains or app names that are allowed for the site.
+復号化された API レスポンスは JSON 形式で、`site_data` (サイトに許可されたドメインまたはアプリ名のリスト) が含まれています。
 
-To see how all the fields are parsed, refer to the UID2 SDK for C#&nbsp;/&nbsp;.NET parse function: see [KeyParser.cs, lines 41-74](https://github.com/IABTechLab/uid2-client-net/blob/6ac53b106301e431a4aada3cbfbb93f8164ff7be/src/UID2.Client/KeyParser.cs#L41-L74).
+すべてのフィールドがどのようにパースされるかを確認するには、UID2 SDK for C#&nbsp;/&nbsp;.NET の parse 関数を参照してください: [KeyParser.cs, lines 41-74](https://github.com/IABTechLab/uid2-client-net/blob/6ac53b106301e431a4aada3cbfbb93f8164ff7be/src/UID2.Client/KeyParser.cs#L41-L74)。
 
-After decrypting the token into a raw UID2, if the token was generated on the client side, you must use the information in `site_data` to verify that a specific domain or app name is on the list of names allowed for it. For details, see [Verify the Domain or App Name](#for-tokens-generated-on-the-client-side-verify-the-domain-or-app-name).
+トークンを raw UID2 に復号化した後、トークンが Client-Side で生成された場合は、特定のドメインまたはアプリ名が許可された名前のリストにあることを確認するために、`site_data` の情報を使用する必要があります。詳細は、[Verify the Domain or App Name](#for-tokens-generated-on-the-client-side-verify-the-domain-or-app-name) を参照してください。
 
 ## Decrypt UID2 Tokens into Raw UID2s
 
-When you have current keys, you'll be able to decrypt a UID2 token into a raw UID2. You also need to check several conditions to make sure that the token is eligible for use in the bidstream.
+現在のキーがあれば、UID2 Token を raw UID2 に復号化できます。また、トークンがビッドストリームで使用可能であることを確認するために、いくつかの条件をチェックする必要があります。
 
-You'll need to complete the following steps:
+以下の手順を完了する必要があります:
 
-1. [Check the token version](#check-the-token-version).
 
 1. [Decrypt the token](#decrypt-the-token).
 
@@ -68,19 +67,11 @@ You'll need to complete the following steps:
 
 1. [Verify that the domain or app name is valid](#for-tokens-generated-on-the-client-side-verify-the-domain-or-app-name).
 
-The UID2 SDK for C# / .NET uses a `DecryptTokenIntoRawUid` function to perform these steps: see [BidstreamClient.cs, line 15](https://github.com/IABTechLab/uid2-client-net/blob/6ac53b106301e431a4aada3cbfbb93f8164ff7be/src/UID2.Client/BidstreamClient.cs#L15).
-
-### Check the Token Version
-
-There are different UID2 token versions in current use, and later processing steps are a little different depending on whether the token version is v2 or a later version.
-
-You can check the token version using the first few bytes of the token.
-
-To review detailed logic, see [UID2Encryption.cs, lines 36-50](https://github.com/IABTechLab/uid2-client-net/blob/6ac53b106301e431a4aada3cbfbb93f8164ff7be/src/UID2.Client/UID2Encryption.cs#L36-L50).
+UID2 SDK for C# / .NET は、これらのステップを実行するために `DecryptTokenIntoRawUid` 関数を使用します: [BidstreamClient.cs, line 15](https://github.com/IABTechLab/uid2-client-net/blob/6ac53b106301e431a4aada3cbfbb93f8164ff7be/src/UID2.Client/BidstreamClient.cs#L15) を参照してください。
 
 ### Decrypt the Token
 
-Use the master key and site key to decrypt the token. For a code example, refer to the `Decrypt` function: see [UID2Encryption.cs, line 29](https://github.com/IABTechLab/uid2-client-net/blob/6ac53b106301e431a4aada3cbfbb93f8164ff7be/src/UID2.Client/UID2Encryption.cs#L29). This function decrypts UID2 tokens into raw UID2s as part of the UID2 SDK for C# / .NET, and includes logic to handle different token versions.
+マスターキーとサイトキーを使用してトークンを復号化します。コード例については、`Decrypt` 関数を参照してください: [UID2Encryption.cs, line 29](https://github.com/IABTechLab/uid2-client-net/blob/6ac53b106301e431a4aada3cbfbb93f8164ff7be/src/UID2.Client/UID2Encryption.cs#L29)。この関数は UID2 SDK for C# / .NET の一部として、UID2 Token を raw UID2 に復号化します。
 
 <!--
 ### For Tokens Generated on the Client Side: Honor Opt-Out Status
@@ -102,38 +93,23 @@ For more information about client-side UID2 integration, refer to one of these i
 
 ### Make Sure Token Lifetime and Expiration Are Valid
 
-A token must be valid and current so that it can be used in the bidstream. You must do two things:
+ビッドストリームで使用するためには、トークンが有効で最新である必要があります。次の 2 つのことを行う必要があります:
 
-- Make sure that the token hasn't expired.
-- Check that the token lifetime is a valid value.
+- トークンの有効期限が切れていないことを確認する。
+- トークンの寿命が有効な値であることを確認する。
 
-For an example of code that makes sure the token hasn't expired, see [UID2Encryption.cs, line 196](https://github.com/IABTechLab/uid2-client-net/blob/6ac53b106301e431a4aada3cbfbb93f8164ff7be/src/UID2.Client/UID2Encryption.cs#L196).
+トークンの有効期限が切れていないことを確認するコードの例については、[UID2Encryption.cs, line 196](https://github.com/IABTechLab/uid2-client-net/blob/6ac53b106301e431a4aada3cbfbb93f8164ff7be/src/UID2.Client/UID2Encryption.cs#L196) を参照してください。
 
-To make sure that the token lifetime has a valid value, check these two conditions:
+トークンの寿命が有効な値であることを確認するには、次の 2 つの条件をチェックします:
 
-- The lifetime of the token must not exceed the `max_bidstream_lifetime_seconds` value from the `/v2/key/bidstream` response.
-- The time until token generation value must not exceed the `allow_clock_skew_seconds` value.
+- トークンの寿命が、`/v2/key/bidstream` レスポンスの `max_bidstream_lifetime_seconds` 値を超えていないこと。
+- トークン生成までの時間が、`allow_clock_skew_seconds` 値を超えていないこと。
 
- For an example of how this is done, review the code for the `DoesTokenHaveValidLifetimeImpl` function: see [UID2Encryption.cs, line 237](https://github.com/IABTechLab/uid2-client-net/blob/6ac53b106301e431a4aada3cbfbb93f8164ff7be/src/UID2.Client/UID2Encryption.cs#L237).
+これがどのように行われるかの例については、`DoesTokenHaveValidLifetimeImpl` 関数のコードを確認してください: [UID2Encryption.cs, line 237](https://github.com/IABTechLab/uid2-client-net/blob/6ac53b106301e431a4aada3cbfbb93f8164ff7be/src/UID2.Client/UID2Encryption.cs#L237) を参照してください。
 
-The following sections show how the lifetime for a token is calculated, and the time until token generation for versions later than v2. The calculation depends on the token version:
+#### Calculating Token Lifetime
 
-- [Calculating Token Lifetime: Token v2](#calculating-token-lifetime-token-v2)
-- [Calculating Token Lifetime: All Later Versions](#calculating-token-lifetime-all-later-versions)
-
-#### Calculating Token Lifetime: Token v2
-
-For token v2, the calculation to make sure that the token lifetime is valid for bidstream use is as follows:
-
-```
-lifetime = token expiry - current time
-```
-
-For v2, we use the token expiry minus the current time to calculate the lifetime. This is because v2 doesn't have a **Token Generated** field, which is present in later versions. All token versions have an **Identity Established** field, but this indicates the time that the original token was generated, before any token refreshes, so it can't be used to calculate whether the token is still valid.
-
-#### Calculating Token Lifetime: All Later Versions
-
-For all token versions later than v2, the calculation to make sure that the token lifetime is valid for bidstream use is as follows:
+ビッドストリームの使用に対してトークンの寿命が有効であることを確認するための計算式は次のとおりです:
 
 ```
 lifetime = token expiry - token generated
@@ -141,15 +117,15 @@ lifetime = token expiry - token generated
 time until token generation = token generated - current time
 ```
 
-Versions later than v2 have a **Token Generated** field, which is updated if the token is refreshed, so we use this to calculate the token lifetime.
+トークンには **Token Generated** フィールドが含まれており、トークンがリフレッシュされると更新されるため、これを使用してトークンの寿命を計算します。
 
 ### For Tokens Generated on the Client Side: Verify the Domain or App Name
 
-For tokens generated on the client side, after decrypting the token, you must verify that the domain name or app name is valid. To do this, make sure the `domainOrAppName` value is included in the `domain_names` list of the site ID, within the `site_data` section of the response from the `/v2/key/bidstream` API endpoint.
+Client-Side で生成されたトークンの場合、トークンを復号化した後、ドメイン名またはアプリ名が有効であることを確認する必要があります。これを行うには、`/v2/key/bidstream` API エンドポイントからのレスポンスの `site_data` セクション内のサイト ID の `domain_names` リストに `domainOrAppName` の値が含まれていることを確認します。
 
-For an example of code that does this, refer to the `IsDomainOrAppNameAllowedForSite` function in [UID2Encryption.cs, line 245](https://github.com/IABTechLab/uid2-client-net/blob/6ac53b106301e431a4aada3cbfbb93f8164ff7be/src/UID2.Client/UID2Encryption.cs#L245).
+これを行うコードの例については、[UID2Encryption.cs, line 245](https://github.com/IABTechLab/uid2-client-net/blob/6ac53b106301e431a4aada3cbfbb93f8164ff7be/src/UID2.Client/UID2Encryption.cs#L245) の `IsDomainOrAppNameAllowedForSite` 関数を参照してください。
 
-For more information about client-side UID2 integration, refer to one of these integration guides:
+Client-Side UID2 インテグレーションの詳細は、以下のインテグレーションガイドのいずれかを参照してください:
 
 - [Client-Side Integration Guide for JavaScript](integration-javascript-client-side.md)
 - [UID2 Client-Side Integration Guide for Prebid.js](integration-prebid-client-side.md)
@@ -157,6 +133,6 @@ For more information about client-side UID2 integration, refer to one of these i
 
 ## Honor User Opt-Out After Token Decryption
 
-After decrypting the token, you must check the resulting raw UID2 against your opt-out records. If it appears on your opt-out records, you must honor the user's opt-out preference, including by not using the UID2 for bidding.
+トークンを復号化した後、結果の raw UID2 をオプトアウトレコードと照合する必要があります。オプトアウトレコードにある場合は、入札に UID2 を使用しないなど、ユーザーのオプトアウト設定を尊重する必要があります。
 
-For more information, refer to [Honor User Opt-Outs](dsp-guide.md#honor-user-opt-outs) in the *DSP Integration Guide*.
+詳細については、*DSP Integration Guide* の [Honor User Opt-Outs](dsp-guide.md#honor-user-opt-outs) を参照してください。

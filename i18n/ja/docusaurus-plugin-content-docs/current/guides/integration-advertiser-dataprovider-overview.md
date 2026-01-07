@@ -8,6 +8,7 @@ displayed_sidebar: sidebarAdvertisers
 ---
 
 import Link from '@docusaurus/Link';
+import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emails-and-phone-numbers.mdx';
 
 # Advertiser/Data Provider Integration Overview
 
@@ -15,7 +16,7 @@ import Link from '@docusaurus/Link';
 
 ## Advertiser/Data Provider Routes to Use UID2
 
-アドテクノロジー業界では、広告主はアイデンティティを使用してオーディエンスを構築し、コンバージョンを追跡し、グラフを生成します。広告主として、または広告主に代わって行動するデータプロバイダーとして、以下の表は UID2 を使用してこれらの目標の一部を達成する方法の例を示しています。
+アドテクノロジー業界では、広告主はアイデンティティを使用してオーディエンスを構築し、コンバージョンを追跡し、グラフを作成します。広告主として、または広告主に代わって行動するデータプロバイダーとして、以下の表は UID2 を使用してこれらの目標の一部を達成する方法の例を示しています。
 
 :::note
 UID2 は、これらのユースケース以外でも使用できます。これらは一部の例に過ぎません。
@@ -25,7 +26,11 @@ UID2 は、これらのユースケース以外でも使用できます。これ
 | --- | --- | --- |
 | オーディエンスを送信 | API またはピクセルを介して raw UID2 を送信 | オーディエンスを作成します。 |
 | コンバージョンを送信 | コンバージョン情報として raw UID2 を送信 | コンバージョン情報を計測（アトリビューション）または API やピクセルを介してリターゲティングに使用します。 |
-| グラフデータを受信 | API またはピクセルを介してグラフ/データプロバイダーから raw UID2 を受信 | グラフデータを構築します。 |
+| グラフデータを受信 | API またはピクセルを介してグラフ/データプロバイダーから raw UID2 を受信 | グラフデータを作成します。 |
+
+## Preparing DII for Processing
+
+<SnptPreparingEmailsAndPhoneNumbers />
 
 ## High-Level Steps
 
@@ -53,11 +58,11 @@ UID2 とインテグレーションする広告主とデータプロバイダー
 
 | High-Level Step | Implementation Options |
 | --- | --- |
-| [1: Generate Raw UID2s from DII](#1-generate-raw-uid2s-from-dii) | DII を raw UID2 にマップするには、次のいずれかのぷションを利用します:<ul><li>UID2 SDK のいずれか:<ul><li>Python SDK: [Map DII to Raw UID2s](../sdks/sdk-ref-python.md#map-dii-to-raw-uid2s)</li><li>Java SDK: [Usage for Advertisers/Data Providers](../sdks/sdk-ref-java.md#usage-for-advertisersdata-providers)</li></ul></li><li>Snowflake: [Map DII](integration-snowflake.md#map-dii)</li><li>AWS Entity Resolution: [AWS Entity Resolution Integration Guide](integration-aws-entity-resolution.md)</li><li>HTTP endpoints: [POST&nbsp;/identity/map](../endpoints/post-identity-map.md)</li></ul> |
+| [1: Generate Raw UID2s from DII](#1-generate-raw-uid2s-from-dii) | DII を raw UID2 にマップするには、次のいずれかのオプションを利用します:<ul><li>UID2 SDK のいずれか:<ul><li>Python SDK: [Map DII to Raw UID2s](../sdks/sdk-ref-python.md#map-dii-to-raw-uid2s)</li><li>Java SDK: [Usage for Advertisers/Data Providers](../sdks/sdk-ref-java.md#usage-for-advertisersdata-providers)</li></ul></li><li>Snowflake: [Map DII](integration-snowflake.md#map-dii)</li><li>Databricks: [Map DII](integration-databricks.md#map-dii)</li><li>AWS Entity Resolution: [AWS Entity Resolution Integration Guide](integration-aws-entity-resolution.md)</li><li>HTTP endpoints: [POST&nbsp;/identity/map](../endpoints/post-identity-map.md)</li></ul> |
 | [2: Store Raw UID2s and Refresh Timestamps](#2-store-raw-uid2s-and-refresh-timestamps) | カスタム（必要に応じて） |
 | [3: Manipulate or Combine Raw UID2s](#3-manipulate-or-combine-raw-uid2s) | カスタム（必要に応じて） |
 | [4: Send Stored Raw UID2s to DSPs to Create Audiences or Conversions](#4-send-stored-raw-uid2s-to-dsps-to-create-audiences-or-conversions) | カスタム（必要に応じて） |
-| [5: Monitor for Raw UID2 Refresh](#5-monitor-for-raw-uid2-refresh) | [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) エンドポイントから返されるリフレッシュタイムスタンプ（`r` フィールド）を使用して、Raw UID2 を更新するタイミングを判断します。 |
+| [5: Monitor for Raw UID2 Refresh](#5-monitor-for-raw-uid2-refresh) | [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) エンドポイントから返されるリフレッシュタイムスタンプ（`r` フィールド）を使用して、raw UID2 を更新するタイミングを判断します。 |
 | [6: Monitor for Opt-Out Status](#6-monitor-for-opt-out-status) | [POST /optout/status](../endpoints/post-optout-status.md) エンドポイントへの API コール。 |
 
 ## Integration Diagram
@@ -76,7 +81,7 @@ UID2 ベースのオーディエンス情報を正確かつ最新の状態に保
 
 ### 1: Generate Raw UID2s from DII
 
-<Link href="../ref-info/glossary-uid#gl-dii">directly identifying information (DII)</Link> から raw UID2 を生成するか、データプロバイダーなどの他の UID2 参加者から UID2 を受信できます。
+<Link href="../ref-info/glossary-uid#gl-dii">Directly Identifying Information (DII)</Link> から raw UID2 を生成するか、データプロバイダーなどの他の UID2 参加者から UID2 を受信できます。
 
 raw UID2 を生成するには、次のいずれかのオプションを使用します:
 
@@ -87,9 +92,11 @@ raw UID2 を生成するには、次のいずれかのオプションを使用�
 
 - Snowflake: [Map DII](integration-snowflake.md#map-dii) を参照してください。
 
+- Databricks: [Map DII](integration-databricks.md#map-dii) を参照してください。
+
 - AWS Entity Resolution: [AWS Entity Resolution Integration Guide](integration-aws-entity-resolution.md) を参照してください。
 
-- HTTP endpoints: [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) を参照してください。詳細は、[Generate Raw UID2s from DII](integration-advertiser-dataprovider-endpoints.md#1-generate-raw-uid2s-from-dii) を参照してください。
+- HTTP endpoints: [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) を参照してください。詳細は、[Advertiser/Data Provider Integration to HTTP Endpoints](integration-advertiser-dataprovider-endpoints.md#1-generate-raw-uid2s-from-dii) を参照してください。
 
 ### 2: Store Raw UID2s and Refresh Timestamps
 
@@ -113,7 +120,7 @@ raw UID2 を次の目的で使用します:
    - 保存された raw UID2 を DSP に送信して、オーディエンスやコンバージョンを作成します。
    - 測定のために raw UID2 を使用します。
 
-たとえば、Step 1 で返された (<Link href="../ref-info/glossary-uid#gl-raw-uid2">raw UID2</Link> (`u` フィールド)) を DSP に送信してオーディエンスを構築することができます。各 DSP にはオーディエンスを構築するための独自のインテグレーションプロセスがあるため、raw UID2 を送信してオーディエンスを構築するためのインテグレーションガイダンスに従ってください。
+たとえば、Step 1 で返された (<Link href="../ref-info/glossary-uid#gl-raw-uid2">raw UID2</Link> (`u` フィールド)) を DSP に送信してオーディエンスを作成することができます。各 DSP にはオーディエンスを作成するための独自のインテグレーションプロセスがあるため、raw UID2 を送信してオーディエンスを作成するためのインテグレーションガイダンスに従ってください。
 
 コンバージョン情報を API またはピクセルを介して送信して、測定 (アトリビューション) またはリターゲティングを行うこともできます。
 
@@ -121,13 +128,15 @@ raw UID2 を次の目的で使用します:
 
 raw UID2 は、特定の時点でのユーザーの識別子です。特定のユーザーの raw UID2 は、UID2 リフレッシュプロセスの一環として、約 1 年に 1 回変更されます。
 
-V3 Identity Map API は、各 raw UID2 がいつリフレッシュされるかを示すリフレッシュタイムスタンプ (`r` フィールド) をレスポンスで提供します。このタイムスタンプを使用して、保存されたデータの raw UID2 を再生成するタイミングを判断します。この時刻より前にリフレッシュされないことが保証されています。
+v3 Identity Map API のレスポンスには、各 raw UID2 がいつリフレッシュされるかを示すリフレッシュタイムスタンプ (`r` フィールド) が含まれています。このタイムスタンプを使用して、保存されたデータの raw UID2 を再生成するタイミングを判断します。このタイムスタンプ以降に raw UID2 がリフレッシュされることは保証されています。
+
+raw UID2 は、更新タイムスタンプ以降の時間には変更されません。更新タイムスタンプ以降、DII を再マッピングすると、新しい更新タイムスタンプが返されます。しかし、raw UID2 は変更される可能性もあります。複数の更新間隔で raw UID2 が変更されない可能性もあります。
 
 リフレッシュのタイミングを毎日確認することを推奨します。raw UID2 をリフレッシュするかどうかを判断するには、次の手順に従います:
 
 1. 現在の時刻と[POST&nbsp;/identity/map](../endpoints/post-identity-map.md) レスポンスから保存したリフレッシュタイムスタンプ (`r` フィールド) を比較します。
 
-2. If the current time is greater than or equal to the refresh timestamp, regenerate the raw UID2 by calling [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) again with the same DII.
+2. 現在の時刻がリフレッシュタイムスタンプ以降である場合、同じ DII で [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) を再度呼び出して raw UID2 を再生成します。
 
 このアプローチにより、raw UID2 が最新かつ有効であり、オーディエンスのターゲティングや測定に使用できることが保証されます。
 
@@ -181,7 +190,7 @@ Step 1 のレスポンスには、マッピング情報が含まれています�
 このステップは、v3 実装の Step 5 を置き換えます。
 :::
 
-raw UID2 は特定の時点でのユーザーの識別子です。特定のユーザーの raw UID2 は、<Link href="../ref-info/glossary-uid#gl-salt-bucket">salt bucket</Link>のローテーションの結果として、約 1 年に 1 回変更されます。
+raw UID2 は特定の時点でのユーザーの識別子です。特定のユーザーの raw UID2 は、<Link href="../ref-info/glossary-uid#gl-salt-bucket">ソルトバケット</Link>のローテーションの結果として、約 1 年に 1 回変更されます。
 
 各ソルトバケットは約 1 年に 1 回更新されますが、個々のバケットの更新は年間を通じて分散されます。おおよそ 365 分の 1 のソルトバケットが毎日ローテーションされます。これに基づいて、オーディエンスの更新に合わせて定期的にソルトバケットのローテーションを確認することを推奨します。たとえば、毎週更新する場合は、毎週ソルトバケットの更新を確認します。
 

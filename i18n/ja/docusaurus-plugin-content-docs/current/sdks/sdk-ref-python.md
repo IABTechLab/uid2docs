@@ -139,8 +139,8 @@ Decryption response codes, and their meanings, are shown in the following table.
 
 | Value | Description |
 | :--- | :--- |
-| `SUCCESS` | UID2 Token は正常に複合化され、raw UID2 が返されました。 |
-| `NOT_AUTHORIZED_FOR_KEY` | 呼び出し元は、この UID2 Token を複合化する権限を持っていません。 |
+| `SUCCESS` | UID2 Token は正常に復号化され、raw UID2 が返されました。 |
+| `NOT_AUTHORIZED_FOR_KEY` | 呼び出し元は、この UID2 Token を復号化する権限を持っていません。 |
 | `NOT_INITIALIZED` | クライアントライブラリは初期化待ちです。 |
 | `INVALID_PAYLOAD` | 受信した UID2 Token は有効なペイロードではありません。 |
 | `EXPIRED_TOKEN` | 受信した UID2 Token の有効期限が切れています。 |
@@ -255,6 +255,10 @@ DII を raw UID2s にマッピングするには、次の手順に従います:
           .with_hashed_phone("pre_hashed_phone")
       ```
 
+   :::note
+   SDK はメールアドレスの正規化とハッシュ化を自動的に処理するため、生のメールアドレスや電話番号がサーバーから出ることはありません。
+   :::
+
 3. `input` を引数に取り、`IdentityMapV3Response` オブジェクトを生成する関数を呼び出します:
    ```py
    identity_map_response = identity_map_v3_client.generate_identity_map(input)
@@ -278,9 +282,9 @@ DII を raw UID2s にマッピングするには、次の手順に従います:
        reason = unmapped_identity.reason # OPTOUT, INVALID_IDENTIFIER, or UNKNOWN
    ```
 
-:::note
-SDK はメールの正規化とハッシュ化を自動的に処理し、生のメールアドレスや電話番号がサーバーから送信されないようにします。
-:::
+   :::note
+   raw UID2 は、リフレッシュタイムスタンプの前では変化しません。リフレッシュタイムスタンプの後、DII を再マッピングすると新しいリフレッシュタイムスタンプが返されますが、raw UID2 は変化する場合もあれば変化しない場合もあります。raw UID2 が複数のリフレッシュ間隔にわたって変化しない可能性もあります。
+   :::
 
 #### Usage Example
 

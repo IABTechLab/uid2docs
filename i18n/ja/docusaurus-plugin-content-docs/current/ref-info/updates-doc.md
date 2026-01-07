@@ -20,6 +20,24 @@ UID2 ドキュメンテーションリソースの最新アップデートを確
 タグツールバーを使用して、ドキュメントの更新の一部を表示できます。
 :::
 
+## Q4 2025
+
+当四半期にリリースされたドキュメントは以下の通りです。
+
+<CustomTagsContainer tags="Guides">
+
+### Databricks Integration Guide
+
+December 2, 2025
+
+UID2 Databricks Clean Rooms インテグレーションガイドを追加しました。
+
+詳細は、[Databricks Clean Rooms Integration Guide](../guides/integration-databricks.md) を参照してください。
+
+<!-- APIDOCS-2552 -->
+
+</CustomTagsContainer>
+
 ## Q3 2025
 
 当四半期にリリースされたドキュメントは以下の通りです。
@@ -37,13 +55,13 @@ July 11 に発表された Identity Map API (v3) の新バージョンに対応�
 - Python SDK: [SDK for Python Reference Guide](../sdks/sdk-ref-python.md) を参照してください。
 - Snowflake: [Snowflake Integration Guide](../guides/integration-snowflake.md) を参照してください。
 
-<!-- PIDOCS-3320 -->
+<!-- APIDOCS-3320 -->
 
 </CustomTagsContainer>
 
 <CustomTagsContainer tags="Endpoints, Guides, SDKs">
 
-### Identity Map v3
+### Identity Map v3 (Endpoint Doc)
 
 July 11, 2025
 

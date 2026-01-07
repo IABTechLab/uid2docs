@@ -58,9 +58,7 @@ UID2 Identify Module、または UID2 サポートのある他の製品と Prebi
   - JavaScript SDK を使用した Client-Side インテグレーション:
     - Site: [Client-Side UID2 Integration Example using JavaScript SDK](https://js-client-side.samples.uidapi.com/)
     - Code: [uid2-examples/web-integrations/javascript-sdk/client-side](https://github.com/IABTechLab/uid2-examples/tree/main/web-integrations/javascript-sdk/client-side)
-  - JavaScript SDK を使用した Client-Server インテグレーション:
-    - Site: [Client-Server UID2 Integration Example using JavaScript SDK](https://js-client-server.samples.uidapi.com/)
-    - Code: [uid2-examples/web-integrations/javascript-sdk/client-server](https://github.com/IABTechLab/uid2-examples/tree/main/web-integrations/javascript-sdk/client-server)
+  - JavaScript SDK を使用した Client-Server インテグレーション: Code: [uid2-examples/web-integrations/javascript-sdk/client-server](https://github.com/IABTechLab/uid2-examples/tree/main/web-integrations/javascript-sdk/client-server) および動作サイト ([Client-Server UID2 Integration Example using JavaScript SDK](https://js-client-server.samples.uidapi.com/))
 
 ## UID2 Account Setup
 

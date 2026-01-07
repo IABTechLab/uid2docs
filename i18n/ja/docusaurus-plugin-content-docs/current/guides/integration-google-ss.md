@@ -10,6 +10,7 @@ displayed_sidebar: docs
 
 import Link from '@docusaurus/Link';
 import SnptIntegratingWithSSO from '../snippets/_snpt-integrating-with-sso.mdx';
+import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emails-and-phone-numbers.mdx';
 
 # Google Ad Manager Secure Signals Integration Guide
 
@@ -80,11 +81,17 @@ Prebid.js で Secure Signals を使用する場合は、UID2 が正しく処理�
    }
    ```
 
-   For details, see [ESP Configurations](https://docs.prebid.org/dev-docs/modules/userId.html#esp-configurations) in the Prebid documentation.
+   詳細は、Prebid ドキュメントの [ESP Configurations](https://docs.prebid.org/dev-docs/modules/userId.html#esp-configurations) を参照してください。
+
+Prebid.js とセキュアシグナルを用いたサンプル実装も利用可能です。詳細は[Sample Implementations](#sample-implementations)を 参照してください。
 
 ## Integrating with Single Sign-On (SSO)
 
 <SnptIntegratingWithSSO />
+
+## Preparing DII for Processing
+
+<SnptPreparingEmailsAndPhoneNumbers />
 
 ## Publisher Integration
 

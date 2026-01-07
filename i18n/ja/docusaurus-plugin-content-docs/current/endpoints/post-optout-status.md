@@ -10,7 +10,7 @@ import Link from '@docusaurus/Link';
 
 # POST /optout/status
 
-<Link href="../ref-info/glossary-uid#gl-raw-uid2">raw UID2s</Link> のオプトアウトステータスを確認します。指定された raw UID2 のリストを使用して、このエンドポイントはオプトアウトした raw UID2 とそのオプトアウトが行われた時刻を返します。詳細は [User Opt-Out](../getting-started/gs-opt-out.md) を参照してください。
+<Link href="../ref-info/glossary-uid#gl-raw-uid2">raw UID2</Link> のオプトアウトステータスを確認します。指定された raw UID2 のリストを使用して、このエンドポイントはオプトアウトした raw UID2 とそのオプトアウトが行われた時刻を返します。詳細は [User Opt-Out](../getting-started/gs-opt-out.md) を参照してください。
 
 Used by: このエンドポイントは、主に広告主、データプロバイダー、DSP、共有者によって使用されます。一般的には、元のメールアドレスや電話番号にアクセスできないが、オプトアウトステータスを知りたい参加者向けです。
 
@@ -83,7 +83,7 @@ echo '{"advertising_ids": ["ufv1uGRovNiJNbJqiE/xzM+aKE7jP69MgspOZoEQ3xc="]}' | p
 レスポンスは、HTTP ステータスコードが 200 の場合のみ暗号化されます。それ以外の場合、レスポンスは暗号化されません。
 :::
 
-復号化に成功した応答は、オプトアウトした raw UID2 を返します。それぞれについて、オプトアウトリクエストが行われた時刻が含まれます。オプトアウトしていない UID2 は応答に含まれません。
+復号化に成功したレスポンスは、オプトアウトした raw UID2 を返します。それぞれについて、オプトアウトリクエストが行われた時刻が含まれます。オプトアウトしていない UID2 はレスポンスに含まれません。
 
 ```json
 {
@@ -118,7 +118,7 @@ echo '{"advertising_ids": ["ufv1uGRovNiJNbJqiE/xzM+aKE7jP69MgspOZoEQ3xc="]}' | p
 
 | Status | HTTP Status Code | Description |
 | :--- | :--- | :--- |
-| `success` | 200 | リクエストは成功しました。応答は暗号化されます。 |
+| `success` | 200 | リクエストは成功しました。レスポンスは暗号化されます。 |
 | `client_error` | 400 | リクエストにパラメータがないか無効でした。 |
 | `unauthorized` | 401 | リクエストにベアラートークンが含まれていないか、無効なベアラートークンが含まれているか、またはリクエストされた操作を実行するのに許可されていないベアラートークンが含まれています。 |
 

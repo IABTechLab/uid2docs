@@ -20,13 +20,12 @@ UID2 Token に関する主なポイントは次のとおりです:
 
 - UID2 Token は一意の値です: 2 つの UID2 Token が同じであることはありません。
 - UID2 Token　は大文字と小文字が区別されます。
+- パブリッシャーは、UID2 Token をビッドストリームに送信します。
 - トークンの値は、<a href="glossary-uid#gl-opaque">opaque (不透明)</a>な文字列です: 文字列の形式や長さについての仮定をしないでください。
 - ブラウザ、CTV、電話、タブレットなどの電子デバイスでのユーザーのアクティビティの異なるインスタンスを表す UID2 Token は、依然として同じ raw UID2 に一致させることができます。
 - トークン生成時に、UID2 Operator はユーザーのオプトアウトを確認します。ユーザーが UID2 からオプトアウトしている場合、UID2 Token は生成されません。詳細は、[User Opt-Out](../getting-started/gs-opt-out.md) を参照してください。
 - トークンは有効期限がありますが、Refresh Token を使用してリフレッシュできます。
 - 現在の UID2 Token が有効期限切れになる前に、常に現在の Refresh Token をリフレッシュすることで、新しい UID2 Token と対応する新しい Refresh Token を取得するために何度でもリフレッシュできます。
-- トークンが期限切れの場合、または既存のトークンをリフレッシュする代わりに、元のハッシュ化されたまたはハッシュされていないメールアドレスまたは電話番号から新しい UID2 Token を生成することができます。
-- パブリッシャーは、UID2 Token をビッドストリームに送信します。
 - UID2 Token をリフレッシュしても、元の UID2 Token は無効になりません。有効期限が切れるまで、以前のトークンを引き続き使用できます。
 
 詳細は、[How the UID2 Token Is Created](ref-how-uid-is-created.md) を参照してください。
@@ -47,6 +46,14 @@ Refresh Token に関する主なポイントは次のとおりです:
 - 新しい UID2 Token が生成され、リフレッシュトークンに対するレスポンスとして返されると、新しい Refresh Token も返されます。
 - ほとんどの場合、サーバーサイドで生成されたトークンでも、Client-Side でトークンをリフレッシュできます。各 SDK のリフレッシュ機能についての詳細は、[SDK Functionality](../sdks/summary-sdks.md#sdk-functionality) (*Refresh UID2 Token* 列) を参照してください。
 - UID2 <Link href="../ref-info/glossary-uid#gl-operator-service">Operator Service</Link> が、新しい UID2 Token をリクエエストする際に Refresh Token を受け取ると、ユーザーのオプトアウトを確認します。ユーザーが UID2 からオプトアウトしている場合、新しい UID2 Token は生成されません。詳細は、[User Opt-Out](../getting-started/gs-opt-out.md) を参照してください。
+
+### Keeping the Token Current
+
+UID2 Token を有効期限内に保つことが非常に重要です。トークンが有効な場合のみ、UID 2の利点を享受できます。
+
+UID2 Token を最新の状態に保つには、次の2つの方法があります：
+- [POST /token/refresh](../endpoints/post-token-refresh.md) エンドポイントまたは多くの UID2 SDK のトークン更新機能を使用して、頻繁に更新してください。詳細は[推奨されるトークン更新頻度](#recommended-token-refresh-frequency)を参照してください。
+- 既存トークンの更新に代わる方法として、[POST&nbsp;/token/generate](../endpoints/post-token-generate.md) エンドポイントまたは多くの UID2 SDK のトークン生成機能を使用して、毎回新しいトークンを生成してください。
 
 ### Recommended Token Refresh Frequency
 
