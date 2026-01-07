@@ -252,7 +252,7 @@ raw UID2 は、リフレッシュタイムスタンプの前では変化しま�
 #### Does the same DII always result in the same raw UID2?
 同じ DII は常に同じ raw UID2 になりますか？
 
-一般的にその通りです。DII から raw UID2 を生成するプロセスは同じであり、誰がリクエストを送信したかに関係なく、結果は同じ値になります。 2 人の UID2 参加者が同じメールアドレスを [POST&nbsp;/identity/map (v2)](../endpoints/post-identity-map-v2.md) エンドポイントに同時に送信した場合、応答として両方とも同じ raw UID2 を取得します。 
+一般的にその通りです。DII から raw UID2 を生成するプロセスは同じであり、誰がリクエストを送信したかに関係なく、結果は同じ値になります。 2 人の UID2 参加者が同じメールアドレスを [POST&nbsp;/identity/map (v2)](../endpoints/post-identity-map-v2.md) エンドポイントに同時に送信した場合、レスポンスとして両方とも同じ raw UID2 を取得します。 
 
 ただし、raw UID2 の生成に使用される秘密の [ソルト](../ref-info/glossary-uid.md#gl-salt) 値という可変要素があります。ソルト値は定期的にローテーションされます(詳細は [How often should raw UID2s be refreshed for incremental updates?](#how-often-should-raw-uid2s-be-refreshed-for-incremental-updates)) を参照)。あるリクエストと別のリクエストの間でソルト値が変化する場合、DII が同じであっても、これら 2 つのリクエストは 2 つの異なる raw UID2 になります。
 

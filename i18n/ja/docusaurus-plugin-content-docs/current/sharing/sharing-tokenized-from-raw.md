@@ -114,7 +114,7 @@ Snowflake を使用している場合は、この手順を実行する必要は�
 | :--- | :--- |
 | 12:00 pm | 共有権限がまだ有効になっていません。<br/>データプロバイダ XYZ が `uid2client.refresh()` を呼び出します。広告主 ABC の復号鍵が返されないため、データプロバイダ XYZ は UID2 Token を復号化できません。 |
 | 12:30&nbsp;pm | 広告主 ABC が UID2 Portal にログインし、データプロバイダ XYZ との共有許可を作成します。 |
-| 1:00 pm | データプロバイダ XYZ は、1時間ごとに `uid2client.refresh()` を再度呼び出します。新しい共有許可があるため、広告主 ABC の鍵が応答に返されます。<br/>データプロバイダ XYZ は、広告主 ABC から受け取った UID2 Token を復号化して raw UID2 に変換できます。 |
+| 1:00 pm | データプロバイダ XYZ は、1時間ごとに `uid2client.refresh()` を再度呼び出します。新しい共有許可があるため、広告主 ABC の鍵がレスポンスに返されます。<br/>データプロバイダ XYZ は、広告主 ABC から受け取った UID2 Token を復号化して raw UID2 に変換できます。 |
 
 ## Implementing Sharing Encryption/Decryption Using Snowflake
 

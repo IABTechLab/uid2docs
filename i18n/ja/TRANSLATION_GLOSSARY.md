@@ -39,6 +39,8 @@ This glossary defines standard Japanese translations for technical terms used in
 | Bidstream | ビッドストリーム | |
 | Bid Request | ビッドリクエスト | |
 | Bid Response | ビッドレスポンス | 「入札レスポンス」ではなく「ビッドレスポンス」で統一。 |
+| Request | リクエスト | |
+| Response | レスポンス | |
 | Third-party cookie | サードパーティクッキー | 「サードパーティー」と伸ばさない表記が優勢。 |
 | First-party data | ファーストパーティデータ | |
 | Client-Side | Client-Side | 大文字始まりキャメルケース。 |
