@@ -173,7 +173,7 @@ SDKを設定するには、アカウント設定時に受け取った **Public K
 *  `__uid2.setIdentityFromPhoneHash`
 
 :::important
-`__uid2.setIdentityFromEmailHash` または `__uid2.setIdentityFromPhoneHash` の場合、`emailHash` または `PhoneHash` 引数はBase64エンコードされた値である必要があります。詳細は [Email Address Hash Encoding](../getting-started/gs-normalization-encoding.md/#email-address-hash-encoding) および [Phone Number Hash Encoding](../getting-started/gs-normalization-encoding.md#phone-number-hash-encoding) を参照してください。
+`__uid2.setIdentityFromEmailHash` または `__uid2.setIdentityFromPhoneHash` の場合、`emailHash` または `PhoneHash` 引数はBase64エンコードされた値である必要があります。詳細は [Email Address Hash Encoding](../getting-started/gs-normalization-encoding.md#email-address-hash-encoding) および [Phone Number Hash Encoding](../getting-started/gs-normalization-encoding.md#phone-number-hash-encoding) を参照してください。
 :::
 
 以下のセクションでは、各シナリオのコーディング例を示します。
