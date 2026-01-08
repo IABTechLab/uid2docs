@@ -3,6 +3,8 @@
 This document outlines the rules for style, tone, and terminology unification for translating UID2 documentation into Japanese.
 このドキュメントは、UID2 ドキュメントの日本語翻訳における、スタイル、トーン、用語の統一ルールをまとめたものです。
 
+英語版ドキュメントは /docs ディレクトリにあり、対応する日本語ドキュメントは、 i18n/ja/docusaurus-plugin-content-docs/current ディレクトリに配置されています。
+
 ## 1. 全般的なスタイルとトーン
 
 *   **文体**: 「〜です」「〜ます」調（敬体）を使用します。
@@ -57,9 +59,13 @@ This document outlines the rules for style, tone, and terminology unification fo
 
 ## 4. リンクテキスト
 
-*   リンク先の用語が英語で定義されている場合（Glossaryへのリンクなど）、リンクテキスト自体も英語のままにすることが多いです。
-    *   例: `<Link href="...">bidstream</Link>` -> `<Link href="...">bidstream</Link>` (日本語文中でカタカナ「ビッドストリーム」とする場合もあるため、文脈によるが、用語定義へのリンクは英語表記が目立つ)
-    *   ※ただし、既存ドキュメントでは「<Link ...>ビッドストリーム</Link>」となっている箇所もあるため、自然な日本語の一部として機能させる場合はカタカナにします。Glossary等で定義を参照させる文脈（初出時など）では英語表記が見られます。
+*   **用語集への準拠**: リンクテキストは、原則として `TRANSLATION_GLOSSARY.md` の定義に従います。
+    *   用語集でカタカナと定義されている場合 (例: Publisher -> パブリッシャー): リンクテキストもカタカナを使用します。
+        *   例: `<Link href="...">パブリッシャー</Link>`
+    *   用語集で英語と定義されている場合 (例: UID2 Token -> UID2 Token): リンクテキストも英語を使用します。
+        *   例: `<Link href="...">UID2 Token</Link>`
+*   **文章・節のリンク**: リンクテキストが文章や節の場合は、文脈に合わせて日本語に翻訳します。ただし、リンクに含まれる固有名詞やドキュメントタイトルは、英語のまま（または用語集に従った表記）とします。
+    *   例: `See [Getting Started](...)` -> `[Getting Started](...) を参照してください`
 
 ## 5. 箇条書き
 
@@ -78,6 +84,13 @@ This document outlines the rules for style, tone, and terminology unification fo
     *   **Identity (アイデンティティ)**: 抽象概念・設計思想を指す場合に使用。
     *   **ID**: 具体的な識別子（UID2、EUID 等）を指す場合に使用。
 
+*   **Sharing の役割名**:
+    *   `Sharer` などの役割名は本文では「共有参加者」と訳す。
+    *   リンクテキストでは「Sharer（共有参加者）」のように英語併記可。リンク先のアンカーやパスは英語のまま保持する。
+
+*   **英日間のスペース**:
+    *   `Portal は`、`API や Amazon` のように英単語と日本語の間に半角スペースを入れる。
+
 
 ## 7. 行構成と同期
 
@@ -88,5 +101,115 @@ This document outlines the rules for style, tone, and terminology unification fo
 *   **相対パスの使用**: サイト内の別ドキュメントへのリンクは、可能な限り相対パスを使用してください。
     *   絶対パス (例: `/docs/intro`) を使用すると、言語を切り替えた際（日本語版閲覧時など）に、常にデフォルト言語（英語）のページに遷移してしまう問題が発生するためです。
     *   例: `[Getting Started](getting-started/gs-account-setup.md)`
+
+## 9. コードブロック
+
+*   **翻訳しない**: コードブロック内のコード、コメント、文字列値などは、すべて英語のまま翻訳しません。
+    *   理由: コードの一貫性を保ち、動作を保証するため。
+    *   例: JSON、JavaScript、Python、Shell コマンドなど、すべてのコードブロックが対象。
+*   **例**:
+    ```json
+    {
+        "email": "username@example.com",
+        "optout_check": 1
+    }
+    ```
+    このようなコードブロック内の `"email"` や `"username@example.com"` などの文字列は翻訳しません。
+
+## 10. 表のヘッダー
+
+*   **英語のまま**: 技術ドキュメント内の表のヘッダーは英語のまま維持します。
+    *   対象: `Data Type`, `Attribute`, `Description`, `Parameter`, `Property`, `Status`, `Type`, `Comments and Usage`, `Original Value`, `Processing Steps and Resulting Values` など
+    *   理由: 技術文書としての参照性と一貫性を保つため。
+*   **例**:
+    | Parameter | Data Type | Description |
+    | :--- | :--- | :--- |
+    | `email` | string | トークンを生成するメールアドレスです。 |
+
+## 11. 補助テキストとラベル
+
+*   **英語のまま**: 以下のような補助的なテキストやラベルは英語のまま維持します。
+    *   ラベル: `Used by:`, `Note:`, `Tip:`, `Warning:`, `Important:`, `Example:`, `Step`, `SDK`, `Parameter`
+    *   セクション識別子: これらは技術文書の構造を示すため、英語のまま。
+    *   例外: Docusaurus の admonition 構文（`:::note`, `:::tip`, `:::warning`, `:::important`）の**内容**は日本語に翻訳します。構文自体は英語のまま。
+
+## 12. URLと環境名
+
+*   **英語のまま**: 以下は常に英語のまま維持します。
+    *   URL: `https://operator-integ.uidapi.com`, `https://prod.uidapi.com` など
+    *   環境名: `integ`, `prod`, `integration`, `production` など
+    *   リージョン名: `us-east`, `ap-southeast` など
+    *   API エンドポイントパス: `/v2/token/generate`, `/token/refresh` など
+
+## 13. 技術値とステータス
+
+*   **英語のまま**: 以下の技術的な値は常に英語（原文）のまま維持します。
+    *   API レスポンスのステータス値: `success`, `optout`, `client_error`, `unauthorized` など
+    *   HTTP ステータスコード: `200`, `400`, `401` など
+    *   JSON フィールド名: `advertising_token`, `refresh_token`, `identity_expires`, `optout_check` など
+    *   パラメータ名: `email`, `email_hash`, `phone`, `phone_hash` など
+    *   環境変数名やパス変数: `{environment}` など
+
+## 14. 翻訳品質チェックリスト
+
+翻訳完了後、以下をチェックしてください:
+
+- [ ] 見出し（H1, H2, H3 など）は英語のままになっているか（FAQ など例外を除く）
+- [ ] 見出し（H1, H2, H3 など）の開始行番号は英語版と同じか（FAQ など例外を除く）
+- [ ] `TRANSLATION_GLOSSARY.md` の用語集に従った用語を使用しているか
+- [ ] 日本語と英数字の間に半角スペースが入っているか
+- [ ] 句読点の直前・直後にスペースが入っていないか
+- [ ] 全角括弧と半角括弧が適切に使い分けられているか
+- [ ] コードブロック内のコード、コメント、文字列が英語のままになっているか
+- [ ] 表のヘッダーが英語のままになっているか
+- [ ] 補助テキストとラベル（`Used by:`, `Note:` など）が英語のままになっているか
+- [ ] URL と環境名が英語のままになっているか
+- [ ] API レスポンスのステータス値、JSON フィールド名、パラメータ名が英語のままになっているか
+- [ ] リンクパスが相対パスになっているか
+- [ ] 用語の表記揺れがないか（例: 「トークン」と「Token」の使い分けが適切か）
+
+## 15. よくある翻訳ミスと注意点
+
+以下は翻訳時によくあるミスです。注意してください:
+
+### 正規化とハッシュ化の順序
+- ❌ 正規化せずにハッシュ化する
+- ✅ 必ず正規化してからハッシュ化する
+- 説明: メールアドレスや電話番号は、必ず正規化してからハッシュ化する必要があります。順序を間違えると、異なる UID2 が生成され、マッチングができなくなります。
+
+### 大文字小文字の維持
+- ❌ UID2 Token の大文字小文字を変更する
+- ✅ 常に元の大文字小文字を維持する
+- 説明: raw UID2 と UID2 Token はケースセンシティブです。大文字小文字を変更すると、ID の解析やトークンの復号化エラーが発生します。
+
+### リンクの絶対パスと相対パス
+- ❌ `/docs/intro` のような絶対パス
+- ✅ `./intro.md` や `../guides/guide.md` のような相対パス
+- 説明: 絶対パスを使用すると、言語切り替え時に常に英語版にリダイレクトされます。
+
+### JSON 内の値の翻訳
+- ❌ JSON のフィールド名や値を日本語に翻訳する
+- ✅ JSON のフィールド名や値は常に英語のままにする
+- 説明: コードブロック内の JSON は、フィールド名も値も翻訳しません。
+
+### 見出しの翻訳
+- ❌ 技術用語を含む見出しを日本語に翻訳する（例: `## UID2 Token の生成`）
+- ✅ 見出しは英語のまま維持する（例: `## Generate UID2 Token`）
+- 説明: 見出しを翻訳すると、アンカーリンクが変更され、リンク切れの原因になります。FAQ など、翻訳が必要な場合のみ例外とします。
+
+### 表のヘッダーの翻訳
+- ❌ 表のヘッダーを日本語に翻訳する（例: `パラメータ | データ型 | 説明`）
+- ✅ 表のヘッダーは英語のまま維持する（例: `Parameter | Data Type | Description`）
+- 説明: 技術文書としての一貫性と参照性を保つため、表のヘッダーは英語のままにします。
+
+### 用語の表記揺れ
+- ❌ 同じドキュメント内で「トークン」と「Token」を混在させる
+- ✅ 用語集に従って一貫した表記を使用する
+- 説明: `TRANSLATION_GLOSSARY.md` を参照し、一貫した用語を使用してください。複合語（例: `UID2 Token`）は英語、単独の場合は文脈に応じて使い分けます。
+
+### URL とエンドポイントパスの翻訳
+- ❌ URL やエンドポイントパスを日本語に翻訳する
+- ✅ URL とエンドポイントパスは常に英語のままにする
+- 説明: `https://prod.uidapi.com/v2/token/generate` のような URL やパスは、絶対に翻訳しません。
 
 詳細は、別途 `TRANSLATION_GLOSSARY.md` を参照してください。
