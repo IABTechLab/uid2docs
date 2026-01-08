@@ -349,11 +349,15 @@ To upgrade, complete the following steps:
 
 ## UID2 Operator Error Codes
 
-The following table lists errors that might occur during a Private Operator's startup sequence.
+The following sections list error codes that might occur during a Private Operator's startup or runtime.
 
 :::note
-Error codes for Private Operator startup issues are applicable only to release v5.49.7 and later.
+Error codes for Private Operator issues are applicable only to release v5.49.7 and later.
 :::
+
+### Startup Errors
+
+The following errors occur during operator startup:
 
 | Error Code | Issue | Steps to Resolve |
 | :--- | :--- | :--- |
@@ -363,3 +367,11 @@ Error codes for Private Operator startup issues are applicable only to release v
 | E05 | OperatorKeyValidationError | Ensure the operator key is correct for the environment and matches the one provided to you. |
 | E06 | UID2ServicesUnreachableError | Allow UID2 core and opt-out service IP addresses in the egress firewall. For IP addresses and DNS details, refer to the logs.  |
 | E08 | OperatorKeyPermissionError | The managed identity (specified via the `operatorIdentifier` parameter) that launches the container must have access to the key vault where the operator key is stored. The value of `operatorIdentifier` must be identical across all configuration JSON files. |
+
+### Runtime Errors
+
+The following errors occur during operator runtime:
+
+| Error Code | Issue | How to Identify in Logs | Steps to Resolve |
+| :--- | :--- | :--- | :--- |
+| E12 | Data Download Failure | Look for log messages containing `"E12: Data Download Failure"` along with `"Failed to load"` errors from `RotatingStoreVerticle`. These will include HTTP status codes (e.g., `"HTTP response code 403"`) or exception types (e.g., `"exception: IOException"`). | Check the HTTP status code or exception in the error message: <br/>**404 errors** - Verify operator key is valid for the environment.<br/>**403 errors** - Verify operator key and credentials are correct.<br/>**Timeout errors** - Verify network connectivity, check NSG/firewall rules allow outbound HTTPS (port 443), and ensure UID2 service endpoints are accessible.<br/>**500/503 errors** - Temporary UID2 service issue, retry or contact UID2 support if persistent. |
