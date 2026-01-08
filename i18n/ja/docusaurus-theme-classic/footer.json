@@ -47,10 +47,6 @@
     "message": "個人情報の販売許可について",
     "description": "The label of footer link with label=Do not sell my data linking to https://www.adsrvr.org/"
   },
-  "copyright": {
-    "message": "© 2023 All rights reserved.",
-    "description": "The footer copyright"
-  },
   "logo.alt": {
     "message": "UID2 logo",
     "description": "The alt text of footer logo"
