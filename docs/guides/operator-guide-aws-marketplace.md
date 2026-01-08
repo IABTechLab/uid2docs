@@ -5,14 +5,11 @@ pagination_label: UID2 Private Operator for AWS Integration Guide
 description: Integration information for Private Operator in AWS.
 hide_table_of_contents: false
 sidebar_position: 17
-displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';
-import SnptUpgradePolicy from '../snippets/_snpt-private-operator-upgrade-policy.mdx';
-import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emails-and-phone-numbers.mdx';
-import SnptAttestFailure from '../snippets/_snpt-private-operator-attest-failure.mdx';
-import SnptRotatingTheKeys from '../snippets/_snpt-private-operator-rotating-the-keys.mdx';
+import UpgradePolicy from '../snippets/_private-operator-upgrade-policy.mdx';
+import AttestFailure from '../snippets/_private-operator-attest-failure.mdx';
 
 # UID2 Private Operator for AWS Integration Guide
 
@@ -379,7 +376,7 @@ Error codes for Private Operator issues are applicable only to release v5.49.7 a
 
 ### Startup Errors
 
-The following errors occur during operator startup:
+The following errors might occur during operator startup:
 
 | Error Code | Issue | Steps to Resolve |
 | :--- | :--- | :--- |
@@ -392,11 +389,11 @@ The following errors occur during operator startup:
 
 ### Runtime Errors
 
-The following errors occur during operator runtime:
+The following errors might occur during operator runtime:
 
 | Error Code | Issue | How to Identify in Logs | Steps to Resolve |
 | :--- | :--- | :--- | :--- |
-| E12 | Data Download Failure | Look for log messages containing `"E12: Data Download Failure"` along with `"Failed to load"` errors from `RotatingStoreVerticle`. These will include HTTP status codes (e.g., `"HTTP response code 403"`) or exception types (e.g., `"exception: IOException"`). | Check the HTTP status code or exception in the error message: <br/>**404 errors** - Verify operator key is valid for the environment.<br/>**403 errors** - Verify operator key and credentials are correct.<br/>**Timeout errors** - Verify network connectivity, check firewall/security group settings allow outbound HTTPS (port 443), and ensure UID2 service endpoints are accessible.<br/>**500/503 errors** - Temporary UID2 service issue, retry or contact UID2 support if persistent. |
+| E12 | Data Download Failure | Look for log messages containing `E12: Data Download Failure` or `Failed to load` errors from `RotatingStoreVerticle`. These messages include HTTP status codes (for example, `HTTP response code 403`) or exception types (for example, `exception: IOException`). | Check the HTTP status code or exception in the error message and resolve accordingly:<br/>**404 errors**: Verify that the operator key is valid for the environment.<br/>**403 errors**: Verify that the operator key and credentials are correct.<br/>**Timeout errors**: Verify network connectivity, check that firewall/security group settings allow outbound HTTPS (port 443), and ensure that the UID2 service endpoints are accessible.<br/>**500/503 errors**: This code indicates a temporary UID2 service issue. Retry, and if the error persists contact UID2 support. |
 
 ## Technical Support
 
