@@ -37,7 +37,7 @@ UID2 Private Operator for AWS を契約することで、以下を利用でき�
 
 | Version Name | Version&nbsp;#/Release&nbsp;Notes | AWS Version |  Date |
 | ------- | ------ | ------ | ------ | 
-| Q2 2025 | [v5.55.9](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.55.9-r1) | v5.55.9-r1 | July 1, 2025 |
+| Q4 2025 | [v5.62.24](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.62.24-r2) | v5.62.24-r2 | January 15, 2026 |
 
 :::note
 For information about supported versions and deprecation dates, see [Private Operator Versions](../ref-info/deprecation-schedule.md#private-operator-versions).
