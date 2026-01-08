@@ -13,6 +13,7 @@ import SnptUpgradePolicy from '../snippets/_snpt-private-operator-upgrade-policy
 import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emails-and-phone-numbers.mdx';
 import SnptAttestFailure from '../snippets/_snpt-private-operator-attest-failure.mdx';
 import SnptRotatingTheKeys from '../snippets/_snpt-private-operator-rotating-the-keys.mdx';
+import SnptRuntimeErrors from '../snippets/_snpt-private-operator-runtime-errors.mdx';
 
 # UID2 Private Operator for GCP Integration Guide
 
@@ -553,7 +554,7 @@ Error codes for Private Operator issues are applicable only to release v5.49.7 a
 
 ### Startup Errors
 
-The following errors occur during operator startup:
+The following errors might occur during operator startup:
 
 | Error Code | Issue | Steps to Resolve |
 | :--- | :--- | :--- |
@@ -566,8 +567,6 @@ The following errors occur during operator startup:
 
 ### Runtime Errors
 
-The following errors occur during operator runtime:
+The following errors might occur during operator runtime:
 
-| Error Code | Issue | How to Identify in Logs | Steps to Resolve |
-| :--- | :--- | :--- | :--- |
-| E12 | Data Download Failure | Look for log messages containing `"E12: Data Download Failure"` along with `"Failed to load"` errors from `RotatingStoreVerticle`. These will include HTTP status codes (e.g., `"HTTP response code 403"`) or exception types (e.g., `"exception: IOException"`). | Check the HTTP status code or exception in the error message: <br/>**404 errors** - Verify operator key is valid for the environment.<br/>**403 errors** - Verify operator key and credentials are correct.<br/>**Timeout errors** - Verify network connectivity, check VPC firewall rules allow outbound HTTPS (port 443), and ensure UID2 service endpoints are accessible.<br/>**500/503 errors** - Temporary UID2 service issue, retry or contact UID2 support if persistent. |
+<SnptRuntimeErrors />
