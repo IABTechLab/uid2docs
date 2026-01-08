@@ -5,11 +5,14 @@ pagination_label: UID2 Private Operator for AWS Integration Guide
 description: Integration information for Private Operator in AWS.
 hide_table_of_contents: false
 sidebar_position: 17
+displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';
-import UpgradePolicy from '../snippets/_private-operator-upgrade-policy.mdx';
-import AttestFailure from '../snippets/_private-operator-attest-failure.mdx';
+import SnptUpgradePolicy from '../snippets/_snpt-private-operator-upgrade-policy.mdx';
+import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emails-and-phone-numbers.mdx';
+import SnptAttestFailure from '../snippets/_snpt-private-operator-attest-failure.mdx';
+import SnptRotatingTheKeys from '../snippets/_snpt-private-operator-rotating-the-keys.mdx';
 
 # UID2 Private Operator for AWS Integration Guide
 
