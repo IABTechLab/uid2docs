@@ -9,7 +9,7 @@ import Link from '@docusaurus/Link';
 
 # POST /identity/map (v2)
 
-複数のメールアドレス、電話番号、またはそれぞれのハッシュを、raw UID2 と <Link href="../ref-info/glossary-uid#gl-salt-bucket-id">ソルトバケット ID</Link> にマッピングします。このエンドポイントを使用して、オプトアウト情報の更新をチェックすることもできます
+複数のメールアドレス、電話番号、またはそれぞれのハッシュを、raw UID2 と <Link href="../ref-info/glossary-uid#gl-salt-bucket-id">ソルトバケット ID</Link> にマッピングします。このエンドポイントを使用して、オプトアウト情報の更新をチェックすることもできます。
 
 Used by: このエンドポイントは、主に広告主やデータプロバイダーが使用します。詳細は [Advertiser/Data Provider Integration Overview](../guides/integration-advertiser-dataprovider-overview.md) を参照してください。
 
@@ -44,9 +44,9 @@ UID2 のオプトアウトワークフローとユーザーがオプトアウト
 
 ### Path Parameters
 
-| Path Parameter | Data Type | Attribute | Description |
-| :--- | :--- | :--- | :--- |
-| `{environment}` | string | 必須 | テスト (インテグレーション) 環境: `https://operator-integ.uidapi.com`<br/>本番環境: `https://prod.uidapi.com`<br/>リージョンごとのオペレーターを含む全リストは [Environments](../getting-started/gs-environments.md) を参照してください。 |
+| Path Parameter  | Data Type | Attribute | Description                                                                                                                                                                                                                               |
+| :-------------- | :-------- | :-------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `{environment}` | string    | 必須      | テスト (インテグレーション) 環境: `https://operator-integ.uidapi.com`<br/>本番環境: `https://prod.uidapi.com`<br/>リージョンごとのオペレーターを含む全リストは [Environments](../getting-started/gs-environments.md) を参照してください。 |
 
 :::note
 インテグレーション環境と本番環境では、異なる <Link href="../ref-info/glossary-uid#gl-api-key">API Key</Link> が必要です。各環境の認証情報を取得する方法は、[Getting Your Credentials](../getting-started/gs-credentials.md#getting-your-credentials) を参照してください。
@@ -55,15 +55,15 @@ UID2 のオプトアウトワークフローとユーザーがオプトアウト
 ### Unencrypted JSON Body Parameters
 
 :::important
-リクエストを暗号化するときは、以下の 4 つの条件パラメータのうち、**1つ** だけをリクエストの JSON ボディにキーと値のペアとして含める必要があります。
+リクエストを暗号化するときは、以下の 4 つの条件パラメータのうち、**1 つ** だけをリクエストの JSON ボディにキーと値のペアとして含める必要があります。
 :::
 
-| Body Parameter | Data Type | Attribute | Description |
-| :--- | :--- | :--- | :--- |
-| `email` | string array | 条件付きで必要 | マッピングするメールアドレスのリストです。 |
-| `email_hash` | string array | 条件付きで必要 | マッピングする [SHA-256 ハッシュし、Base64 エンコード](../getting-started/gs-normalization-encoding.md#email-address-normalization) した [正規化](../getting-started/gs-normalization-encoding.md#email-address-hash-encoding) 済みメールアドレスのリストです。 |
-| `phone` | string array | 条件付きで必要 | マッピングする [正規化](../getting-started/gs-normalization-encoding.md#phone-number-normalization) 済み電話番号のリストです。 |
-| `phone_hash` | string array | 条件付きで必要 | マッピングする [SHA-256 ハッシュし、Base64 エンコード](../getting-started/gs-normalization-encoding.md#phone-number-hash-encoding) した [正規化](../getting-started/gs-normalization-encoding.md#phone-number-normalization) 済み電話番号のリストです。 |
+| Body Parameter | Data Type    | Attribute      | Description                                                                                                                                                                                                                                                     |
+| :------------- | :----------- | :------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `email`        | string array | 条件付きで必須 | マッピングするメールアドレスのリストです。                                                                                                                                                                                                                      |
+| `email_hash`   | string array | 条件付きで必須 | マッピングする [SHA-256 ハッシュし、Base64 エンコード](../getting-started/gs-normalization-encoding.md#email-address-normalization) した [正規化](../getting-started/gs-normalization-encoding.md#email-address-hash-encoding) 済みメールアドレスのリストです。 |
+| `phone`        | string array | 条件付きで必須 | マッピングする [正規化](../getting-started/gs-normalization-encoding.md#phone-number-normalization) 済み電話番号のリストです。                                                                                                                                  |
+| `phone_hash`   | string array | 条件付きで必須 | マッピングする [SHA-256 ハッシュし、Base64 エンコード](../getting-started/gs-normalization-encoding.md#phone-number-hash-encoding) した [正規化](../getting-started/gs-normalization-encoding.md#phone-number-normalization) 済み電話番号のリストです。         |
 
 ### Request Examples
 
@@ -80,24 +80,24 @@ UID2 のオプトアウトワークフローとユーザーがオプトアウト
 ```json
 {
   "email_hash": [
-        "tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ=",
-        "KzsrnOhCq4tqbGFMsflgS7ig1QLRr0nFJrcrEIlOlbU="
+      "tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ=",
+      "KzsrnOhCq4tqbGFMsflgS7ig1QLRr0nFJrcrEIlOlbU="
   ]
 }
 ```
 ```json
 {
   "phone": [
-        "+12345678901",
-        "+441234567890"
+      "+12345678901",
+      "+441234567890"
   ]
 }
 ```
 ```json
 {
   "phone_hash": [
-        "EObwtHBUqDNZR33LNSMdtt5cafsYFuGmuY4ZLenlue4=",
-        "Rx8SW4ZyKqbPypXmswDNuq0SPxStFXBTG/yvPns/2NQ="
+      "EObwtHBUqDNZR33LNSMdtt5cafsYFuGmuY4ZLenlue4=",
+      "Rx8SW4ZyKqbPypXmswDNuq0SPxStFXBTG/yvPns/2NQ="
   ]
 }
 ```
@@ -138,7 +138,7 @@ echo '{"phone": ["+12345678901", "+441234567890"]}' | python3 uid2_request.py ht
 }
 ```
 
-一部の識別子が無効と判断された場合、それらの識別子は "unmapped" リストとしてレスポンスに含まれる。この場合でも、レスポンスステータスは "success" となります。すべての識別子がマッピングされた場合、"unmapped"リストはレスポンスに含まれません。
+一部の識別子が無効と判断された場合、それらの識別子は "unmapped" リストとしてレスポンスに含まれます。この場合でも、レスポンスステータスは "success" となります。すべての識別子がマッピングされた場合、"unmapped" リストはレスポンスに含まれません。
 
 ```json
 {
@@ -188,20 +188,20 @@ echo '{"phone": ["+12345678901", "+441234567890"]}' | python3 uid2_request.py ht
 
 レスポンスボディには、次の表に示すプロパティが含まれます。
 
-| Property | Data Type | Description |
-| :--- | :--- | :--- |
-| `identifier` | string | リクエストボディで指定されたメールアドレス、電話番号、またはそれぞれのハッシュです。 |
-| `advertising_id` | string | 対応する Advertising ID (raw UID2) です。 |
-| `bucket_id` | string | raw UID2 の生成に使用したソルトバケットの ID です。 |
+| Property         | Data Type | Description                                                                          |
+| :--------------- | :-------- | :----------------------------------------------------------------------------------- |
+| `identifier`     | string    | リクエストボディで指定されたメールアドレス、電話番号、またはそれぞれのハッシュです。 |
+| `advertising_id` | string    | 対応する Advertising ID (raw UID2) です。                                            |
+| `bucket_id`      | string    | raw UID2 の生成に使用したソルトバケットの ID です。                                  |
 
 ### Response Status Codes
 
 次の表は、`status` プロパティの値と、それに対応する HTTP ステータスコードの一覧です。
 
-| Status | HTTP Status Code | Description |
-| :--- | :--- | :--- |
-| `success` | 200 | リクエストは成功しました。レスポンスは暗号化されています。 |
-| `client_error` | 400 | リクエストに不足している、または無効なパラメータがありました。 |
-| `unauthorized` | 401 | リクエストにベアラートークンが含まれていない、無効なベアラートークンが含まれている、またはリクエストされた操作を実行するのに許可されていないベアラートークンが含まれていました。 |
+| Status         | HTTP Status Code | Description                                                                                                                                                                      |
+| :------------- | :--------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `success`      | 200              | リクエストは成功しました。レスポンスは暗号化されています。                                                                                                                       |
+| `client_error` | 400              | リクエストに不足している、または無効なパラメータがありました。                                                                                                                   |
+| `unauthorized` | 401              | リクエストにベアラートークンが含まれていない、無効なベアラートークンが含まれている、またはリクエストされた操作を実行するのに許可されていないベアラートークンが含まれていました。 |
 
 `status` の値が `success` 以外であれば、`message` フィールドにその問題に関する追加情報が表示されます。
