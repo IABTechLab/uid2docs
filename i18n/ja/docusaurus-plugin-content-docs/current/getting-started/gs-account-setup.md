@@ -14,26 +14,26 @@ import Link from '@docusaurus/Link';
 
 ## Contact Info
 
-UID2 フレームワークにアクセスするには、以下の The Trade Desk の担当チームにご連絡ください。
+UID2 フレームワークにアクセスするには、以下の The Trade Desk の担当チームに連絡してください。
 
-The Trade Desk (現在の UID2 管理者) とすでに取引関係がある場合は、直接連絡を取り、UID2 を開始してください。
+The Trade Desk (現在の UID2 Administrator) とすでに取引関係がある場合は、直接連絡を取り、UID2 を開始してください。
 
 :::note
-The Trade Desk のアクセス依頼は一時的なものです。システムが独立したガバナンスに移行された時には、運営組織がアクセスリクエストを管理します。
+アクセスのために The Trade Desk に連絡するのは一時的な措置です。システムが独立したガバナンスに移行された時には、運営組織がアクセスリクエストを管理します。
 :::
 
-| Your Role | Contact Email |
+| 役割 | 連絡先メールアドレス |
 | :--- | :--- |
-| アプリ開発者<br/>パブリッシャー                                  | UID2publishers@thetradedesk.com |
-| 代理店<br/>ブランド<br/>Customer Data Platform (CDP)<br/>データプロバイダー<br/>DSP<br/>SSP | UID2partners@thetradedesk.com   |
+| アプリ開発者<br/>パブリッシャー | UID2publishers@thetradedesk.com |
+| 代理店<br/>ブランド<br/>Customer Data Platform (CDP)<br/>データプロバイダー<br/>DSP<br/>SSP | UID2partners@thetradedesk.com |
 
 ## Account Setup Details
 
-UID2 に関心を示すと、詳細を調整するために担当者が連絡から連絡があります。
+UID2 に関心を示すと、詳細を調整するために担当者から連絡があります。
 
 アカウント設定の一環として、以下の情報を提供してください:
 
-* 会社名: UID2 契約で使用される法的会社名。
+* 会社名: UID2 契約で使用される正式な会社名。
 
 * 主な連絡先。この個人はアカウントの主な管理者になります。以下の値を含めます:
   * 氏名
@@ -42,7 +42,7 @@ UID2 に関心を示すと、詳細を調整するために担当者が連絡か
 
 ### Client-Side Web Integrations
 
-UID2 Token を [mobile](../overviews/overview-publishers.md#mobile-integrations) アプリではなく [web](../overviews/overview-publishers.md#web-integrations) の Client Side でリクエストする場合、サイトのドメイン名のリストも提供する必要があります。これは、Client-Side 実装のみのセキュリティ対策です。
+UID2 Token を [モバイル](../overviews/overview-publishers.md#mobile-integrations) アプリではなく [ウェブ](../overviews/overview-publishers.md#web-integrations) の Client-Side でリクエストする場合、サイトのドメイン名のリストも提供する必要があります。これは、Client-Side 実装のみのセキュリティ対策です。
 
 :::tip
 アカウント設定に必要なのは、ルートレベルのドメインだけです。たとえば、example.com、shop.example.com、example.org の Client-Side でトークンを生成するために UID2 を実装する場合、ドメイン名 example.com と example.org だけを提供します。
@@ -50,14 +50,14 @@ UID2 Token を [mobile](../overviews/overview-publishers.md#mobile-integrations)
 
 ### Client-Side Mobile Integrations
 
-[mobile apps](../overviews/overview-publishers.md#mobile-integrations) で Client Side から UID2 Token をリクエストする場合、すべてのモバイルアプリ ID の完全なリストを提供する必要があります:
+[モバイルアプリ](../guides/integration-mobile-client-side.md) で Client-Side から UID2 Token をリクエストする場合、すべてのモバイルアプリ ID の完全なリストを提供する必要があります:
 
 - Android App ID: 該当するものをすべて。
 - iOS/tvOS Bundle ID and corresponding iOS App Store ID: 該当するものをすべて。
 
 ## Credentials
 
-UID2 に参加するための契約に署名した後、[UID2 credentials](gs-credentials.md) と UID2 の運用開始にに必要な追加情報を提供します。
+UID2 に参加するための契約に署名した後、[UID2 credentials](gs-credentials.md) と UID2 の運用開始に必要な追加情報を提供します。
 
 ## API Version
 
