@@ -22,10 +22,10 @@ The Trade Desk (現在の UID2 Administrator) とすでに取引関係がある�
 アクセスのために The Trade Desk に連絡するのは一時的な措置です。システムが独立したガバナンスに移行された時には、運営組織がアクセスリクエストを管理します。
 :::
 
-| 役割 | 連絡先メールアドレス |
+| Your Role | Contact Email |
 | :--- | :--- |
-| アプリ開発者<br/>パブリッシャー | UID2publishers@thetradedesk.com |
-| 代理店<br/>ブランド<br/>Customer Data Platform (CDP)<br/>データプロバイダー<br/>DSP<br/>SSP | UID2partners@thetradedesk.com |
+| パブリッシャー、アプリ開発者 | [UID2publishers@thetradedesk.com](mailto:UID2publishers@thetradedesk.com) |
+| 代理店、ブランド、DSP、SSP、Customer Data Platform (CDP)、データプロバイダー | [UID2partners@thetradedesk.com](mailto:UID2partners@thetradedesk.com) |
 
 ## Account Setup Details
 
@@ -53,7 +53,7 @@ UID2 Token を [モバイル](../overviews/overview-publishers.md#mobile-integra
 [モバイルアプリ](../guides/integration-mobile-client-side.md) で Client-Side から UID2 Token をリクエストする場合、すべてのモバイルアプリ ID の完全なリストを提供する必要があります:
 
 - Android App ID: 該当するものをすべて。
-- iOS/tvOS Bundle ID and corresponding iOS App Store ID: 該当するものをすべて。
+- iOS/tvOS Bundle ID とそれに対応する iOS App Store ID: 該当するものをすべて。
 
 ## Credentials
 
