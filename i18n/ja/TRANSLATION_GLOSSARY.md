@@ -25,7 +25,6 @@ This glossary defines standard Japanese translations for technical terms used in
 | Opt-Out Service | Opt-Out Service | |
 | Operator Service | Operator Service | |
 | Webhook | Webhook | |
-
 | UID2 Portal | UID2 Portal | |
 | Transparency and Control Portal | Transparency and Control Portal | |
 | Enclave | エンクレーブ | |
@@ -37,7 +36,8 @@ This glossary defines standard Japanese translations for technical terms used in
 | Omnichannel | オムニチャネル | |
 | Inventory | インベントリ | 広告在庫。 |
 | Audience | オーディエンス | |
-| Frequency | フリケンシー | Frequency management -> フリケンシー管理。 |
+| Frequency | フリークエンシー | 長音ありを推奨。 |
+| Frequency Capping | フリークエンシーキャッピング | |
 | Monetize / Monetization | 収益化 | |
 | Measurement | 計測 / 測定 | Measurement provider -> 計測プロバイダー など。 |
 | Attribution | アトリビューション / 広告効果測定 | |
@@ -46,8 +46,6 @@ This glossary defines standard Japanese translations for technical terms used in
 | Identity Graph | IDグラフ (Identity Graph) | |
 | CMP (Consent Management Platform) | CMP | コンセントマネジメントプラットフォーム。 |
 | CDP (Customer Data Platform) | CDP | カスタマーデータプラットフォーム。 |
-
-
 | **Technical Terms** | | |
 | Token | Token / トークン | 複合語 (UID2 Token) では英語、単独では「トークン」のケースあり。原則英語推奨。 |
 | UID2 Token | UID2 Token | Advertising Token とも呼ばれる。 |
@@ -64,15 +62,15 @@ This glossary defines standard Japanese translations for technical terms used in
 | Case-sensitive | ケースセンシティブ / 大文字小文字を区別する | 大文字と小文字を区別すること。UID2 では重要な特性。 |
 | Authorization header | Authorization ヘッダー | Authorization ヘッダー。`Authorization` と日本語の間は半角スペース。ベアラートークン提示に使用。 |
 | Encryption | 暗号化 | |
+| Encryption Key | 暗号化キー | Decryption Key -> 復号化キー との対、あるいは Encryption -> 暗号化 に合わせるが、"Key" は "キー" で統一推奨。 |
 | Encrypted | 暗号化された | Encrypted request など。 |
 | Unencrypted | 暗号化されていない | Unencrypted JSON Body Parameters など。 |
 | Decryption | 復号化 | |
+| Decryption Key | 復号キー | Encryption Key -> 暗号化キー との対、あるいは Decryption -> 復号化 に合わせるが、"Key" は "キー" で統一推奨。 |
 | Decrypted | 復号化された | Decrypted JSON Response Format など。 |
 | Deterministic | 決定論的 | deterministic ID、deterministic identity など。 |
 | DII (Directly Identifying Information) | DII | メールアドレスや電話番号などの生のデータ。文脈により「個人の識別情報」等と補足するが、原則 DII と表記する。 |
 | Durable | 耐久性のある | durable identifier など。 |
-
-
 | Key | キー / 鍵 | 一般的な鍵の意味。Encryption Key -> 暗号化キー。認証関連の鍵については Authentication & Authorization Terms セクション参照。 |
 | Secret | シークレット | 一般的な秘密の値。認証関連については Authentication & Authorization Terms セクション参照。 |
 | Addressability | アドレサビリティ | ターゲティングの精度・到達性。 |
