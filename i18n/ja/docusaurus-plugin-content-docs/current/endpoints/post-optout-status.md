@@ -39,9 +39,9 @@ Used by: このエンドポイントは、主に広告主、データプロバ�
 
 ### Path Parameters
 
-| Path Parameter  | Data Type | Attribute | Description                                                                                                                                                                                                                               |
-| :-------------- | :-------- | :-------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `{environment}` | string    | 必須      | テスト (インテグレーション) 環境: `https://operator-integ.uidapi.com`<br/>本番環境: `https://prod.uidapi.com`<br/>リージョンごとのオペレーターを含む全リストは [Environments](../getting-started/gs-environments.md) を参照してください。 |
+| Path Parameter | Data Type | Attribute | Description |
+| :--- | :--- | :--- | :--- |
+| `{environment}` | string | 必須 | テスト (インテグレーション) 環境: `https://operator-integ.uidapi.com`<br/>本番環境: `https://prod.uidapi.com`<br/>リージョンごとのオペレーターを含む全リストは [Environments](../getting-started/gs-environments.md) を参照してください。 |
 
 :::note
 インテグレーション環境と本番環境では、異なる <Link href="../ref-info/glossary-uid#gl-api-key">API Key</Link> が必要です。各環境の認証情報を取得する方法は、[Getting Your Credentials](../getting-started/gs-credentials.md#getting-your-credentials) を参照してください。
@@ -51,9 +51,9 @@ Used by: このエンドポイントは、主に広告主、データプロバ�
 
 ボディパラメータは 1 つだけです。
 
-| Body Parameter    | Data Type    | Attribute | Description                                                                                                       |
-| :---------------- | :----------- | :-------- | :---------------------------------------------------------------------------------------------------------------- |
-| `advertising_ids` | string array | 必須      | オプトアウトのステータスをチェックしたい raw UID2 のリスト。<br/>1 回の API 呼び出しで最大 5,000 件のエントリー。 |
+| Body Parameter | Data Type | Attribute | Description |
+| :--- | :--- | :--- | :--- |
+| `advertising_ids` | string array | 必須 | オプトアウトのステータスをチェックしたい raw UID2 のリスト。<br/>1 回の API 呼び出しで最大 5,000 件のエントリー。 |
 
 ### Request Example
 
@@ -107,19 +107,19 @@ echo '{"advertising_ids": ["ufv1uGRovNiJNbJqiE/xzM+aKE7jP69MgspOZoEQ3xc="]}' | p
 
 レスポンスボディには、次のプロパティが含まれます。
 
-| Property          | Format | Description                                                                                                                      |
-| :---------------- | :----- | :------------------------------------------------------------------------------------------------------------------------------- |
-| `advertising_id`  | string | <Link href="../ref-info/glossary-uid#gl-advertising-id">Advertising ID</Link> (raw UID2).                                        |
+| Property | Format | Description |
+| :--- | :--- | :--- |
+| `advertising_id`  | string | <Link href="../ref-info/glossary-uid#gl-advertising-id">Advertising ID</Link> (raw UID2). |
 | `opted_out_since` | number | raw UID2 がいつオプトアウトされたかを示す <a href="../ref-info/glossary-uid#gl-unix-time">Unix</a> タイムスタンプ (ミリ秒単位)。 |
 
 ### Response Status Codes
 
 ステータスプロパティの値と、HTTP ステータスコードに対応する値は次の表の通りです。
 
-| Status         | HTTP Status Code | Description                                                                                                                                                                      |
-| :------------- | :--------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `success`      | 200              | リクエストは成功しました。レスポンスは暗号化されます。                                                                                                                           |
-| `client_error` | 400              | リクエストに不足している、または無効なパラメータがありました。                                                                                                                   |
-| `unauthorized` | 401              | リクエストにベアラートークンが含まれていない、無効なベアラートークンが含まれている、またはリクエストされた操作を実行するのに許可されていないベアラートークンが含まれていました。 |
+| Status | HTTP Status Code | Description |
+| :--- | :--- | :--- |
+| `success` | 200 | リクエストは成功しました。レスポンスは暗号化されます。 |
+| `client_error` | 400 | リクエストに不足している、または無効なパラメータがありました。 |
+| `unauthorized` | 401 | リクエストにベアラートークンが含まれていない、無効なベアラートークンが含まれている、またはリクエストされた操作を実行するのに許可されていないベアラートークンが含まれていました。 |
 
 ステータスの値が `success` 以外の場合、メッセージフィールドにその問題に関する追加情報が表示されます。

@@ -39,9 +39,9 @@ Used by: このエンドポイントは、主にパブリッシャーが使用�
 
 ### Path Parameters
 
-| Path Parameter  | Data Type | Attribute | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| :-------------- | :-------- | :-------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `{environment}` | string    | 必須      | インテグレーション環境: `https://operator-integ.uidapi.com`<br/>本番環境: `https://prod.uidapi.com`<br/>リージョンごとのオペレーターを含む全リストは [Environments](../getting-started/gs-environments.md) を参照してください。<br/>Notes:<ul><li>`integ` 環境と `prod` 環境では、異なる <Link href="../ref-info/glossary-uid#gl-api-key">API Key</Link> が必要です。</li><li>トークンの有効期限は変更される可能性がありますが、`integ` 環境では常に `prod` 環境よりも大幅に短くなります。</li></ul> |
+| Path Parameter | Data Type | Attribute | Description |
+| :--- | :--- | :--- | :--- |
+| `{environment}` | string | 必須 | インテグレーション環境: `https://operator-integ.uidapi.com`<br/>本番環境: `https://prod.uidapi.com`<br/>リージョンごとのオペレーターを含む全リストは [Environments](../getting-started/gs-environments.md) を参照してください。<br/>Notes:<ul><li>`integ` 環境と `prod` 環境では、異なる <Link href="../ref-info/glossary-uid#gl-api-key">API Key</Link> が必要です。</li><li>トークンの有効期限は変更される可能性がありますが、`integ` 環境では常に `prod` 環境よりも大幅に短くなります。</li></ul> |
 
 ### Unencrypted JSON Body Parameters
 
@@ -49,13 +49,13 @@ Used by: このエンドポイントは、主にパブリッシャーが使用�
 リクエストを暗号化するときには、以下の 4 つの条件付きパラメータのうち **1 つ** と、必須パラメータである `optout_check` の値 `1` のみを、JSON ボディのキーと値のペアとして含める必要があります。
 :::
 
-| Body Parameter | Data Type | Attribute      | Description                                                                                                                                                                                                                              |
-| :------------- | :-------- | :------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `email`        | string    | 条件付きで必須 | トークンを生成するメールアドレスです。                                                                                                                                                                                                   |
-| `email_hash`   | string    | 条件付きで必須 | [SHA-256 ハッシュし、Base64 エンコード](../getting-started/gs-normalization-encoding.md#email-address-hash-encoding) した [正規化](../getting-started/gs-normalization-encoding.md#email-address-normalization) 済みメールアドレスです。 |
-| `phone`        | string    | 条件付きで必須 | トークンを生成する [正規化](../getting-started/gs-normalization-encoding.md#phone-number-normalization) 済み電話番号です。                                                                                                               |
-| `phone_hash`   | string    | 条件付きで必須 | [SHA-256 ハッシュし、Base64 エンコード](../getting-started/gs-normalization-encoding.md#phone-number-hash-encoding) した、[正規化](../getting-started/gs-normalization-encoding.md#phone-number-normalization) 済み電話番号です。        |
-| `optout_check` | number    | 必須           | ユーザーがオプトアウトしたかどうかをチェックします。このパラメータは `1` とします。                                                                                                                                                      |
+| Body Parameter | Data Type | Attribute | Description | 
+| :--- | :--- | :--- | :--- |
+| `email` | string | 条件付きで必須 | トークンを生成するメールアドレスです。 |
+| `email_hash` | string | 条件付きで必須 | [SHA-256 ハッシュし、Base64 エンコード](../getting-started/gs-normalization-encoding.md#email-address-hash-encoding) した [正規化](../getting-started/gs-normalization-encoding.md#email-address-normalization) 済みメールアドレスです。 |
+| `phone` | string | 条件付きで必須 | トークンを生成する [正規化](../getting-started/gs-normalization-encoding.md#phone-number-normalization) 済み電話番号です。 |
+| `phone_hash` | string | 条件付きで必須 | [SHA-256 ハッシュし、Base64 エンコード](../getting-started/gs-normalization-encoding.md#phone-number-hash-encoding) した、[正規化](../getting-started/gs-normalization-encoding.md#phone-number-normalization) 済み電話番号です。 |
+| `optout_check` | number | 必須 | ユーザーがオプトアウトしたかどうかをチェックします。このパラメータは `1` とします。 |
 
 ### Request Examples
 
@@ -128,25 +128,25 @@ echo '{"email_hash": "tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ=","optout_chec
 
 レスポンスボディには、次の表に示すプロパティが含まれます。
 
-| Property               | Data Type | Description                                                                                                                                                                                                                                                                                                 |
-| :--------------------- | :-------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `advertising_token`    | string    | ユーザーの暗号化された Advertising Token (UID2) です。                                                                                                                                                                                                                                                      |
-| `refresh_token`        | string    | UID2 Service と最新の identity トークンのセットを交換できる暗号化されたトークンです。                                                                                                                                                                                                                       |
-| `identity_expires`     | number    | Advertising Token の有効期限を示す <a href="../ref-info/glossary-uid#gl-unix-time">Unix</a> タイムスタンプ (ミリ秒単位) です。                                                                                                                                                                              |
-| `refresh_from`         | number    | SDK for JavaScript ([SDK for JavaScript Reference Guide](../sdks/sdk-ref-javascript.md) を参照) が UID2 Token のリフレッシュを開始するタイミングを示す Unix タイムスタンプ (ミリ秒単位)。<br/>TIP: SDK を使用していない場合は、このタイムスタンプから UID2 Token もリフレッシュすることを検討してください。 |
-| `refresh_expires`      | number    | Refresh Token の有効期限を示す Unix タイムスタンプ (ミリ秒単位) です。                                                                                                                                                                                                                                      |
-| `refresh_response_key` | string    | [POST&nbsp;/token/refresh](post-token-refresh.md) リクエストでレスポンス復号化のために使用される鍵です。                                                                                                                                                                                                    |
+| Property | Data Type | Description |
+| :--- | :--- | :--- |
+| `advertising_token` | string | ユーザーの暗号化された Advertising Token (UID2) です。 |
+| `refresh_token` | string | UID2 Service と最新の identity トークンのセットを交換できる暗号化されたトークンです。 |
+| `identity_expires` | number | Advertising Token の有効期限を示す <a href="../ref-info/glossary-uid#gl-unix-time">Unix</a> タイムスタンプ (ミリ秒単位) です。 |
+| `refresh_from` | number | SDK for JavaScript ([SDK for JavaScript Reference Guide](../sdks/sdk-ref-javascript.md) を参照) が UID2 Token のリフレッシュを開始するタイミングを示す Unix タイムスタンプ (ミリ秒単位)。<br/>TIP: SDK を使用していない場合は、このタイムスタンプから UID2 Token もリフレッシュすることを検討してください。 |
+| `refresh_expires` | number | Refresh Token の有効期限を示す Unix タイムスタンプ (ミリ秒単位) です。 |
+| `refresh_response_key` | string | [POST&nbsp;/token/refresh](post-token-refresh.md) リクエストでレスポンス復号化のために使用される鍵です。 |
 
 ### Response Status Codes
 
 次の表は、`status` プロパティの値と、それに対応する HTTP ステータスコードの一覧です。
 
-| Status         | HTTP Status Code | Description                                                                                                                                                                      |
-| :------------- | :--------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `success`      | 200              | リクエストは成功しました。レスポンスは暗号化されています。                                                                                                                       |
-| `optout`       | 200              | リクエストは成功しました。ユーザーがオプトアウトしたため、トークンを生成できませんでした。                                                                                       |
-| `client_error` | 400              | リクエストに不足している、または無効なパラメータがありました。                                                                                                                   |
-| `unauthorized` | 401              | リクエストにベアラートークンが含まれていない、無効なベアラートークンが含まれている、またはリクエストされた操作を実行するのに許可されていないベアラートークンが含まれていました。 |
+| Status | HTTP Status Code | Description |
+| :--- | :--- | :--- |
+| `success` | 200 | リクエストは成功しました。レスポンスは暗号化されています。 |
+| `optout` | 200 | リクエストは成功しました。ユーザーがオプトアウトしたため、トークンを生成できませんでした。　|
+| `client_error` | 400 | リクエストに不足している、または無効なパラメータがありました。 |
+| `unauthorized` | 401  | リクエストにベアラートークンが含まれていない、無効なベアラートークンが含まれている、またはリクエストされた操作を実行するのに許可されていないベアラートークンが含まれていました。 |
 
 `status` の値が `success` 以外であれば、`message` フィールドにその問題に関する追加情報が表示されます。
 
