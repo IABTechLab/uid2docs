@@ -36,9 +36,9 @@ Used by: このエンドポイントは、主にパブリッシャーが使用�
 
 ### Path Parameters
 
-| Path Parameter  | Data Type | Attribute | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| :-------------- | :-------- | :-------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `{environment}` | string    | 必須      | テスト (インテグレーション) 環境: `https://operator-integ.uidapi.com`<br/>本番環境: `https://prod.uidapi.com`<br/>リージョンごとのオペレーターを含む全リストは、[Environments](../getting-started/gs-environments.md) を参照してください。<br/>Notes:<ul><li>`integ` 環境と `prod` 環境は異なる <Link href="../ref-info/glossary-uid#gl-api-key">API Key</Link> を必要とします。</li><li>トークンの有効期限は変更される可能性がありますが、`integ` 環境では常に `prod` 環境よりも大幅に短くなります。</li></ul> |
+| Path Parameter | Data Type | Attribute | Description |
+| :--- | :--- | :--- | :--- |
+| `{environment}` | string | 必須 | テスト (インテグレーション) 環境: `https://operator-integ.uidapi.com`<br/>本番環境: `https://prod.uidapi.com`<br/>リージョンごとのオペレーターを含む全リストは、[Environments](../getting-started/gs-environments.md) を参照してください。<br/>Notes:<ul><li>`integ` 環境と `prod` 環境は異なる <Link href="../ref-info/glossary-uid#gl-api-key">API Key</Link> を必要とします。</li><li>トークンの有効期限は変更される可能性がありますが、`integ` 環境では常に `prod` 環境よりも大幅に短くなります。</li></ul> |
 
 #### Testing Notes
 
@@ -96,26 +96,26 @@ Used by: このエンドポイントは、主にパブリッシャーが使用�
 
 レスポンスボディには、次の表に示すプロパティが含まれます。
 
-| Property               | Data Type | Description                                                                                                                                                                                                                                                                                                        |
-| :--------------------- | :-------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `advertising_token`    | string    | ユーザーの <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 Token</Link> (Advertising Token とも呼ばれます) です。                                                                                                                                                                                         |
-| `refresh_token`        | string    | UID2 Service と最新の ID トークンのセットを交換できる暗号化されたトークンです。                                                                                                                                                                                                                                    |
-| `identity_expires`     | number    | UID2 Token の有効期限を示す <a href="../ref-info/glossary-uid#gl-unix-time">Unix</a> タイムスタンプ (ミリ秒単位) です。                                                                                                                                                                                            |
-| `refresh_from`         | number    | SDK for JavaScript ([SDK for JavaScript Reference Guide](../sdks/sdk-ref-javascript.md) を参照) が UID2 Token のリフレッシュを開始するタイミングを示す Unix タイムスタンプ (ミリ秒単位)。<br/>TIP: SDK を使用していない場合は、このタイムスタンプから Advertising Token もリフレッシュすることを検討してください。 |
-| `refresh_expires`      | number    | Refresh Token の有効期限を示す Unix タイムスタンプ (ミリ秒単位)。                                                                                                                                                                                                                                                  |
-| `refresh_response_key` | string    | [POST&nbsp;/token/refresh](post-token-refresh.md) リクエストでレスポンス復号化のために使用される鍵です。                                                                                                                                                                                                           |
+| Property | Data Type | Description |
+| :--- | :--- | :--- |
+| `advertising_token` | string | ユーザーの <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 Token</Link> (Advertising Token とも呼ばれます) です。 |
+| `refresh_token` | string | UID2 Service と最新の ID トークンのセットを交換できる暗号化されたトークンです。 |
+| `identity_expires` | number | UID2 Token の有効期限を示す <a href="../ref-info/glossary-uid#gl-unix-time">Unix</a> タイムスタンプ (ミリ秒単位) です。 |
+| `refresh_from` | number | SDK for JavaScript ([SDK for JavaScript Reference Guide](../sdks/sdk-ref-javascript.md) を参照) が UID2 Token のリフレッシュを開始するタイミングを示す Unix タイムスタンプ (ミリ秒単位)。<br/>TIP: SDK を使用していない場合は、このタイムスタンプから Advertising Token もリフレッシュすることを検討してください。 |
+| `refresh_expires` | number | Refresh Token の有効期限を示す Unix タイムスタンプ (ミリ秒単位)。  |
+| `refresh_response_key` | string | [POST&nbsp;/token/refresh](post-token-refresh.md) リクエストでレスポンス復号化のために使用される鍵です。|
 
 ### Response Status Codes
 
 次の表は、`status` プロパティの値と、それに対応する HTTP ステータスコードの一覧です。
 
-| Status          | HTTP Status Code | Description                                                                                                                                                                      |
-| :-------------- | :--------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `success`       | 200              | リクエストは成功し、新しい UID2 Token と関連する値がレスポンスとして返されます。レスポンスは暗号化されています。                                                                 |
-| `optout`        | 200              | ユーザーがオプトアウトした。このステータスは許可されたリクエストに対してのみ返されます。レスポンスは暗号化されます。                                                             |
-| `client_error`  | 400              | リクエストに不足している、または無効なパラメータがありました。                                                                                                                   |
-| `invalid_token` | 400              | リクエストで指定された `refresh_token` の値が無効です。このステータスは許可されたリクエストに対してのみ返されます。                                                              |
-| `expired_token` | 400              | リクエストで指定された `refresh_token` 値は期限切れのトークンです。                                                                                                              |
-| `unauthorized`  | 401              | リクエストにベアラートークンが含まれていない、無効なベアラートークンが含まれている、またはリクエストされた操作を実行するのに許可されていないベアラートークンが含まれていました。 |
+| Status | HTTP Status Code | Description |
+| :--- | :--- | :--- |
+| `success` | 200 | リクエストは成功し、新しい UID2 Token と関連する値がレスポンスとして返されます。レスポンスは暗号化されています。 |
+| `optout` | 200 | ユーザーがオプトアウトした。このステータスは許可されたリクエストに対してのみ返されます。レスポンスは暗号化されます。 |
+| `client_error` | 400 | リクエストに不足している、または無効なパラメータがありました。 |
+| `invalid_token` | 400 | リクエストで指定された `refresh_token` の値が無効です。このステータスは許可されたリクエストに対してのみ返されます。 |
+| `expired_token` | 400 | リクエストで指定された `refresh_token` 値は期限切れのトークンです。 |
+| `unauthorized`  | 401 | リクエストにベアラートークンが含まれていない、無効なベアラートークンが含まれている、またはリクエストされた操作を実行するのに許可されていないベアラートークンが含まれていました。 |
 
 `status` の値が `success` または `optout` 以外であれば、`message` フィールドにその問題に関する追加情報が表示されます。

@@ -44,9 +44,9 @@ UID2 のオプトアウト手順とユーザーがオプトアウトする方法
 
 ### Path Parameters
 
-| Path Parameter  | Data Type | Attribute | Description                                                                                                                                                                                                                                                                        |
-| :-------------- | :-------- | :-------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `{environment}` | string    | 必須      | テスト（インテグレーション）環境: `https://operator-integ.uidapi.com`<br/>本番環境: 最適な選択は、ユーザーの所在地によって異なります。ユースケースに適した URL の選択方法や、有効なベース URL の一覧は、[Environments](../getting-started/gs-environments.md) を参照してください。 |
+| Path Parameter | Data Type | Attribute | Description |
+| :--- | :--- | :--- | :--- |
+| `{environment}` | string | 必須 | テスト（インテグレーション）環境: `https://operator-integ.uidapi.com`<br/>本番環境: 最適な選択は、ユーザーの所在地によって異なります。ユースケースに適した URL の選択方法や、有効なベース URL の一覧は、[Environments](../getting-started/gs-environments.md) を参照してください。 |
 
 :::note
 インテグレーション環境と本番環境では、異なる <Link href="../ref-info/glossary-uid#gl-api-key">API Key</Link> が必要です。各環境の認証情報の取得方法は、[Getting Your Credentials](../getting-started/gs-credentials.md#getting-your-credentials) を参照してください。
@@ -58,12 +58,12 @@ UID2 のオプトアウト手順とユーザーがオプトアウトする方法
 暗号化を行う際には、リクエストの JSON 本文に次の 4 つのパラメータのうち、**いずれか 1 つ** をキーと値のペアとして含めてください。
 :::
 
-| Body Parameter | Data Type    | Attribute      | Description                                                                                                                                                                                                                                                 |
-| :------------- | :----------- | :------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Body Parameter | Data Type                   | Attribute              | Description |
+|:---------------|:----------------------------|:-----------------------| :--- |
 | `email`        | string array | 条件付きで必須 | マッピングするメールアドレスのリスト。                                                                                                                                                                                                                      |
 | `email_hash`   | string array | 条件付きで必須 | マッピングする [正規化済み](../getting-started/gs-normalization-encoding.md#email-address-normalization) メールアドレスの [Base64 エンコードされた SHA-256](../getting-started/gs-normalization-encoding.md#email-address-hash-encoding) ハッシュのリスト。 |
-| `phone`        | string array | 条件付きで必須 | マッピングする [正規化済み](../getting-started/gs-normalization-encoding.md#phone-number-normalization) 電話番号のリスト。                                                                                                                                  |
-| `phone_hash`   | string array | 条件付きで必須 | マッピングする [正規化済み](../getting-started/gs-normalization-encoding.md#phone-number-normalization) 電話番号の [Base64 エンコードされた SHA-256](../getting-started/gs-normalization-encoding.md#phone-number-hash-encoding) ハッシュのリスト。         |
+| `phone`        | string array | 条件付きで必須 | マッピングする [正規化済み](../getting-started/gs-normalization-encoding.md#phone-number-normalization) 電話番号のリスト。 |
+| `phone_hash`   | string array | 条件付きで必須 | マッピングする [正規化済み](../getting-started/gs-normalization-encoding.md#phone-number-normalization) 電話番号の [Base64 エンコードされた SHA-256](../getting-started/gs-normalization-encoding.md#phone-number-hash-encoding) ハッシュのリスト。 |
 
 
 ### Request Examples
@@ -192,11 +192,11 @@ raw UID2 はリフレッシュタイムスタンプの前では変化しませ�
 
 以下の表は、`status` プロパティの値とその HTTP ステータスコードの対応を示しています。
 
-| Status         | HTTP Status Code | Description                                                                                                                                                            |
-| :------------- | :--------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `success`      | 200              | リクエストは成功しました。レスポンスは暗号化されます。                                                                                                                 |
-| `client_error` | 400              | リクエストに欠落または無効なパラメーターが含まれていました。                                                                                                           |
-| `unauthorized` | 401              | リクエストにベアラートークンが含まれていない、無効なベアラートークンが含まれている、またはリクエストされた操作を実行する権限のないベアラートークンが含まれていました。 |
+| Status | HTTP Status Code | Description |
+| :--- | :--- | :--- |
+| `success` | 200 | リクエストは成功しました。レスポンスは暗号化されます。 |
+| `client_error` | 400 | リクエストに欠落または無効なパラメーターが含まれていました。 |
+| `unauthorized` | 401  | リクエストにベアラートークンが含まれていない、無効なベアラートークンが含まれている、またはリクエストされた操作を実行する権限のないベアラートークンが含まれていました。 |
 
 `status` プロパティの値が `success` 以外の場合、`message` フィールドには問題に関する追加情報が提供されます。
 
