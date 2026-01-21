@@ -48,14 +48,14 @@ EUID インフラのすべての連携パートナー (SSP、サードパーテ�
 #### When I send DII to UID2, does UID2 store the information?
 UID2 に DII を送信すると、UID2 はその情報を保存しますか？
 
-いいえ。<Link href="../ref-info/glossary-uid#gl-uid2-service">UID2 service</Link> のコンポーネントは、DII を保存しません。
+いいえ。<Link href="../ref-info/glossary-uid#gl-uid2-service">UID2 Service</Link> のコンポーネントは、DII を保存しません。
 
-さらに、ほとんどの場合、UID2 は、[POST&nbsp;/token/generate](../endpoints/post-token-generate.md)、[POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md)、または [POST&nbsp;/identity/map (v2)](../endpoints/post-identity-map-v2.md) の呼び出しが完了すると、値を全く保存しません。必要な例外は、ユーザーがオプトアウトした場合です。この場合、UID2 は、オプトアウトしたユーザーを示すハッシュ化された不透明な値を保存します。保存された値は、DII から生成された同じ UID2 に関する将来のリクエストを識別するために使用され、そのため拒否されます。
+さらに、ほとんどの場合、UID2 は、[POST&nbsp;/token/generate](../endpoints/post-token-generate.md)、[POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md)、または [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) の呼び出しが完了すると、値を全く保存しません。ただし、例外として、ユーザーがオプトアウトした場合です。この場合、UID2 は、オプトアウトしたユーザーを示すハッシュ化された不透明な値を保存します。保存された値は、DII から生成された同じ UID2 に関する将来のリクエストを識別するために使用され、そのため拒否されます。
 
 #### Does UID2 allow the processing of HIPAA-regulated data?
 UID2 は HIPAA で規制されているデータの処理を許可しますか？
 
-いいえ。UID2 の参加者は、HIPAA (Health Insurance Portability and Accountability Act of 1996;医療保険の携行性と責任に関する法律) で定義されている、保護対象保険情報 (PHI: Protected Health Information) から UID2 を生成してはなりません。
+いいえ。UID2 の参加者は、HIPAA (Health Insurance Portability and Accountability Act of 1996;医療保健の携行性と責任に関する法律) で定義されている、保護対象保険情報 (PHI: Protected Health Information) から UID2 を生成してはなりません。
 
 #### Should I use a Public Operator or a Private Operator?
 パブリックオペレーターとプライベートオペレーターのどちらを使用すべきですか？
@@ -199,6 +199,7 @@ UID2 フレームワークを使用する広告主やデータプロバイダー
 - [ユーザーのオプトアウトはどのように処理すればよいですか？](#how-should-i-handle-user-opt-outs)
 - [同じ DII は常に同じ raw UID2 になりますか？](#does-the-same-dii-always-result-in-the-same-raw-uid2)
 - [2 つの Operator が同じ DII を処理した場合、結果は同じになりますか？](#if-two-operators-process-the-same-dii-are-the-results-the-same)
+- [ソルトバケットのローテーションによって UID2 をリフレッシュするタイミングを知るには？](#how-do-i-know-when-to-refresh-the-uid2-due-to-salt-bucket-rotation)
 - [更新されたメールアドレスは、以前関連付けられていたバケットと同じバケットに割り当てられますか？](#do-refreshed-emails-get-assigned-to-the-same-bucket-that-they-were-previously-associated-with)
 
 #### How do I know when to refresh a raw UID2?
@@ -243,7 +244,7 @@ raw UID2 は、リフレッシュタイムスタンプの前では変化しま�
 #### How should I handle user opt-outs?
 ユーザーのオプトアウトはどのように処理すればよいですか？
 
-ユーザーが [Transparency and Control Portal](https://www.transparentadvertising.com/) を通じて UID2 ベースのターゲティング広告をオプトアウトすると、オプトアウト信号が DSP とパブリッシャーに送信され、DSP とパブリッシャーが入札時にオプトアウトを処理します。広告主やデータプロバイダーは、[POST&nbsp;/identity/map (v2)](../endpoints/post-identity-map-v2.md) エンドポイントを通じて、ユーザーがオプトアウトしたかどうかを定期的に確認することを推奨します。
+ユーザーが [Transparency and Control Portal](https://www.transparentadvertising.com/) を通じて UID2 ベースのターゲティング広告をオプトアウトすると、オプトアウト信号が DSP とパブリッシャーに送信され、DSP とパブリッシャーが入札時にオプトアウトを処理します。広告主やデータプロバイダーは、[POST&nbsp;/identity/map](../endpoints/post-identity-map.md) エンドポイントを通じて、ユーザーがオプトアウトしたかどうかを定期的に確認することを推奨します。
 
 広告主やデータプロバイダーは、raw UID2 に対するオプトアウトステータスを確認するために、[POST&nbsp;/optout/status](../endpoints/post-optout-status.md) エンドポイントを使用することもできます。
 
@@ -252,7 +253,7 @@ raw UID2 は、リフレッシュタイムスタンプの前では変化しま�
 #### Does the same DII always result in the same raw UID2?
 同じ DII は常に同じ raw UID2 になりますか？
 
-一般的にその通りです。DII から raw UID2 を生成するプロセスは同じであり、誰がリクエストを送信したかに関係なく、結果は同じ値になります。 2 人の UID2 参加者が同じメールアドレスを [POST&nbsp;/identity/map (v2)](../endpoints/post-identity-map-v2.md) エンドポイントに同時に送信した場合、レスポンスとして両方とも同じ raw UID2 を取得します。 
+一般的にその通りです。DII から raw UID2 を生成するプロセスは同じであり、誰がリクエストを送信したかに関係なく、結果は同じ値になります。2 人の UID2 参加者が同じメールアドレスを [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) エンドポイントに同時に送信した場合、レスポンスとして両方とも同じ raw UID2 を取得します。 
 
 ただし、raw UID2 の生成に使用される秘密の [ソルト](../ref-info/glossary-uid.md#gl-salt) 値という可変要素があります。ソルト値は定期的にローテーションされます(詳細は [How often should raw UID2s be refreshed for incremental updates?](#how-often-should-raw-uid2s-be-refreshed-for-incremental-updates)) を参照)。あるリクエストと別のリクエストの間でソルト値が変化する場合、DII が同じであっても、これら 2 つのリクエストは 2 つの異なる raw UID2 になります。
 
@@ -261,7 +262,7 @@ raw UID2 は、リフレッシュタイムスタンプの前では変化しま�
 #### If two operators process the same DII, are the results the same?
 2 つの Operator が同じ DII を処理した場合、結果は同じになりますか？
 
-はい、リクエストが <Link href="../ref-info/glossary-uid#gl-raw-uid2">raw UID2</Link> に対するものである場合は、同じです。前の FAQ で説明したように、[同じ DII は常に同じ raw UID2 になりますか？](#does-the-same-dii-always-result-in-the-same-raw-uid2)、広告主やデータプロバイダーが同時に同じ DII を UID2 Operator に送信する場合、SDK または [POST&nbsp;/identity/map (v2)](../endpoints/post-identity-map-v2.md) エンドポイントを使用して、同じ raw UID2 が生成されます。
+はい、リクエストが <Link href="../ref-info/glossary-uid#gl-raw-uid2">raw UID2</Link> に対するものである場合は、同じです。前の FAQ で説明したように、[同じ DII は常に同じ raw UID2 になりますか？](#does-the-same-dii-always-result-in-the-same-raw-uid2)、広告主やデータプロバイダーが同時に同じ DII を UID2 Operator に送信する場合、SDK または [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) エンドポイントを使用して、同じ raw UID2 が生成されます。
 
 <Link href="../ref-info/glossary-uid#gl-operator">Operator</Link> に関係なく、また、Private Operator と Public Operator のどちらであっても、結果は同じです。
 
@@ -293,14 +294,15 @@ demand-side platform (DSP) に関するよくある質問を紹介します。
 
 - [UID2 に適用する復号キーを知るには？](#how-do-i-know-which-decryption-key-to-apply-to-a-uid2)
 - [復号キーはどこで入手できますか？](#where-do-i-get-the-decryption-keys)
-- [メモリ上に存在する復号鍵の数は？](#how-many-decryption-keys-may-be-present-in-memory-at-any-point)
+- [メモリ上に存在する複号キーの数は？](#how-many-decryption-keys-may-be-present-in-memory-at-any-point)
 - [マップされた raw UID2 を更新するタイミングを知るには？](#how-do-i-know-when-to-refresh-mapped-raw-uid2s)
 - [raw UID2 がローテーションしたか、またローテーション時期を確認するには？](#how-do-i-know-ifwhen-the-raw-uid2-has-rotated)
 - [DSP はレイテンシーを気にすべきでしょうか？](#should-the-dsp-be-concerned-with-latency)
-- [UID2 で DSP はどのように適切なフリクエンシーキャッピングを維持すべきでしょうか？](#how-should-the-dsp-maintain-proper-frequency-capping-with-uid2)
+- [UID2 で DSP はどのように適切なフリークエンシーキャッピングを維持すべきでしょうか？](#how-should-the-dsp-maintain-proper-frequency-capping-with-uid2)
 - [ユーザーのオプトアウトトラフィックはすべて DSP に送られますか？](#will-all-user-opt-out-traffic-be-sent-to-the-dsp)
 - [DSP は、すでに保存している UID2 についてのみオプトアウトシグナルを処理することを期待されているのか？](#is-the-dsp-expected-to-handle-opt-out-signals-only-for-the-uid2s-that-they-already-store)
 - [DSP はオプトアウトリストをどれくらいの期間保管すべきですか？](#how-long-should-the-dsp-keep-the-opt-out-list)
+- [オプトアウトされたユーザーの UID2 は、暗号化された形式でオプトアウトエンドポイントに送信されますか？](#is-the-uid2-of-an-opted-out-user-sent-to-the-opt-out-endpoint-in-an-encrypted-form)
 - [オプトアウトされたユーザーの UID2 は、どのような形式で Webhook に送信されますか？](#in-what-format-is-the-uid2-of-an-opted-out-user-sent-to-the-webhook)
 - [オプトアウトはどのリクエストタイプを使いますか？](#what-request-type-do-opt-outs-use)
 - [オプトアウトに応じるための条件はどの程度厳しいのですか？](#how-strict-are-the-requirements-for-honoring-opt-outs)
@@ -308,19 +310,19 @@ demand-side platform (DSP) に関するよくある質問を紹介します。
 - [SDK のエラーは DSP の入札対応能力にどのような影響を与えますか？](#how-do-sdk-errors-impact-the-dsps-ability-to-respond-to-a-bid)
 
 #### How do I know which decryption key to apply to a UID2?
-UID2 に適用する復号鍵を知るには？
+UID2 に適用する復号キーを知るには？
 
-各 Server-Side SDK ([SDKs: Summary](../sdks/summary-sdks.md) を参照) は、復号鍵を自動的に更新します。UID2 Token と共に提供されるメタデータは、使用する復号鍵の ID を示します。
+各 Server-Side SDK ([SDKs: Summary](../sdks/summary-sdks.md) を参照) は、復号キーを自動的に更新します。UID2 Token と共に提供されるメタデータは、使用する復号キーの ID を示します。
 
 #### Where do I get the decryption keys?
-復号鍵はどこで入手できますか？
+復号キーはどこで入手できますか？
 
-Server-Side SDK のいずれか([SDK](../sdks/summary-sdks.md) を参照) を使用して UID2 Service と通信し、最新の鍵を取得することができます。鍵を確実に最新に保つため、1 時間に 1 回など、定期的に鍵を取得することを推奨します。
+Server-Side SDK のいずれか([SDK](../sdks/summary-sdks.md) を参照) を使用して UID2 Service と通信し、最新のキーを取得することができます。キーを確実に最新に保つため、1 時間に 1 回など、定期的にキーを取得することを推奨します。
 
 #### How many decryption keys may be present in memory at any point?
-メモリ上に存在する復号鍵の数は？
+メモリ上に存在する復号キーの数は？
 
-システムには、ある時点で何千もの復号鍵が存在する可能性があります。
+システムには、ある時点で何千もの復号キーが存在する可能性があります。
 
 #### How do I know when to refresh mapped raw UID2s?
 マップされた raw UID2 を更新するタイミングを知るには？
@@ -338,7 +340,7 @@ DSP はレイテンシーを気にすべきでしょうか？
 UID2 Service は、入札プロセスに遅延を生じさせることはありません。発生した遅延は、UID2 Service ではなく、ネットワークに起因すると考えられます。
 
 #### How should the DSP maintain proper frequency capping with UID2?
-UID2 で DSP はどのように適切なフリクエンシーキャッピングを維持すべきでしょうか？
+UID2 で DSP はどのように適切なフリークエンシーキャッピングを維持すべきでしょうか？
 
 UID2 は、クッキーと同じように古くなる可能性があります。したがって、DSP は、クッキーまたは Device ID ベースのフリークエンシーキャッピングに現在使用されているものと同じインフラを UID2 に適応させることができます。詳細は [How do I know when to refresh the UID2 due to salt bucket rotation?](#how-do-i-know-when-to-refresh-the-uid2-due-to-salt-bucket-rotation) を参照してください。
 
