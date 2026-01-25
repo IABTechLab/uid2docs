@@ -13,7 +13,7 @@ import Link from '@docusaurus/Link';
 
 このガイドは、<Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link>で UID2 の取引を行う DSP を対象としています。
 
-DSP はビッドリクエストで UID2 Token を受け取り、この機能をサポートする Server-Side SDK のいずれかを使用して [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token) を復号化し、入札に使用できる [raw UID2s](../ref-info/glossary-uid.md#gl-raw-uid2) を取得します。
+DSP はビッドリクエストで UID2 Token を受け取り、この機能をサポートする Server-Side SDK のいずれかを使用して [UID2 Tokens](../ref-info/glossary-uid.md#gl-uid2-token) を復号化し、入札に使用できる [raw UID2s](../ref-info/glossary-uid.md#gl-raw-uid2) を取得します。
 
 利用可能な Server-Side SDK の概要は、[SDKs: Summary](../sdks/summary-sdks.md) を参照してください。
 
@@ -25,7 +25,7 @@ DSP はビッドリクエストで UID2 Token を受け取り、この機能を�
 
 以下は、RTB で UID2 をサポートするための DSP のインテグレーションワークフローで、大きく 2 つのステップで構成されています:
 1. [Honor user opt-outs](#honor-user-opt-outs)
-2. [Decrypt UID2 tokens for RTB use](#decrypt-uid2-tokens-for-rtb-use)
+2. [Decrypt UID2 Tokens for RTB use](#decrypt-uid2-tokens-for-rtb-use)
 
 ![DSP Flow](images/dsp-guide-flow-mermaid.png)
 
@@ -68,13 +68,13 @@ DSP は、[POST&nbsp;/optout/status](../endpoints/post-optout-status.md) エン�
 
 入札時 (2-b)に以下のロジックを使用し、ユーザーのオプトアウトを受け入れます。
 
-Server-Side SDK のいずれか ([SDKs: Summary](../sdks/summary-sdks.md) を参照) を利用して、受信した UID2 Token を raw UID2 に復号します。decrypt関数へのレスポンスには、raw UID2 が含まれます。
+Server-Side SDK のいずれか ([SDKs: Summary](../sdks/summary-sdks.md) を参照) を利用して、受信した UID2 Token を raw UID2 に復号します。decrypt 関数へのレスポンスには、raw UID2 が含まれます。
 
 オプトアウトのロジックを次の図に示します。
 
 ![](images/dsp-guide-optout-check-mermaid.png)
 
-ユーザーがオプトアウトして他場合、UID2 は RTB に使用されるべきではありません。このような場合、DSP は入札のために代替 ID を送信するか、入札しないことを選択できます。
+ユーザーがオプトアウトした場合、UID2 は RTB に使用されるべきではありません。このような場合、DSP は入札のために代替 ID を送信するか、入札しないことを選択できます。
 
 ### Decrypt UID2 Tokens for RTB Use
 
