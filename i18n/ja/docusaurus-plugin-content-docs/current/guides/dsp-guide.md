@@ -39,7 +39,7 @@ DSP はビッドリクエストで UID2 Token を受け取り、この機能を�
 - [POST /optout/status Endpoint](#post-optoutstatus-endpoint)
 - [Bidding Opt-Out Logic](#bidding-opt-out-logic)
 
-UID2 の Opt-out ワークフローとユーザーがどのように Opt-out できるかの詳細は、[ユーザーオプトアウト](../getting-started/gs-opt-out.md) を参照してください。
+UID2 のオプトアウトワークフローとユーザーがどのようにオプトアウトできるかの詳細は、[User Opt-Out](../getting-started/gs-opt-out.md) を参照してください。
 
 #### Opt-Out Webhook
 
@@ -82,8 +82,8 @@ Server-Side SDK のいずれか ([SDKs: Summary](../sdks/summary-sdks.md) を参
 
 | Step | SDK | Description |
 | :--- | :--- | :--- |
-| 2-a  | Server-side SDK ([SDKs: Summary](../sdks/summary-sdks.md) を参照) | 提供されている SDK を活用して、入力された UID2 Token を復号化します。レスポンスには `UID2` と UID2 の作成時刻が含まれます。 |
-| 2-b  | | DSP は UID2 のオプトアウトプロトコルを受け入れることが要求されます。ユーザーオプトアウトの設定と入札時の受け入れは、[ユーザーオプトアウトの受け入れ](#honor-user-opt-outs) を参照してください。 |
+| 2-a  | Server-Side SDK ([SDKs: Summary](../sdks/summary-sdks.md) を参照) | 提供されている SDK を活用して、入力された UID2 Token を復号化します。レスポンスには `UID2` と UID2 の作成時刻が含まれます。 |
+| 2-b  | | DSP は UID2 のオプトアウトプロトコルを受け入れることが要求されます。ユーザーオプトアウトの設定と入札時の受け入れは、[Honor User Opt-Outs](#honor-user-opt-outs) を参照してください。 |
 
 ## Recommendations for Managing Latency
 

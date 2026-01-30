@@ -29,7 +29,7 @@ import SnptErrorResponseStates from '../snippets/_snpt-mobile-docs-error-respons
 
 UID2 は、[Android](../sdks/sdk-ref-android.md) および [iOS](../sdks/sdk-ref-ios.md) 向けのモバイル SDK を提供しています。各 SDK には以下の機能があります:
 
-- UID2 <Link href="../ref-info/glossary-uid#gl-identity">identity</Link> (UID2 Token と関連する値) を生成し、ローカルファイルストレージに保存します。
+- UID2 <Link href="../ref-info/glossary-uid#gl-identity">Identity</Link> (UID2 Token と関連する値) を生成し、ローカルファイルストレージに保存します。
 - UID2 Token を自動的にリフレッシュします。
 
 :::note
@@ -99,7 +99,7 @@ Android または iOS 向けの適用可能な手順に従ってください:
 </TabItem>
 </Tabs>
 
-アプリの背後で、開発アプリは次の UID2 SDK API コールを行います。このコールは、メール/電話番号入力に対して UID2 Service に <Link href="../ref-info/glossary-uid#gl-identity">identity</Link> (UID2 Token と関連する値) を生成するリクエストを送信します:
+アプリの背後で、開発アプリは次の UID2 SDK API コールを行います。このコールは、メール/電話番号入力に対して UID2 Service に <Link href="../ref-info/glossary-uid#gl-identity">Identity</Link> (UID2 Token と関連する値) を生成するリクエストを送信します:
 
 <Tabs groupId="language-selection">
 <TabItem value='android' label='Android'>
@@ -128,9 +128,9 @@ UID2Manager.shared.generateIdentity(
 </TabItem>
 </Tabs>
 
-API コールが成功すると、アプリは生成された identity を表示し、`UID2Manager` クラス内に永続化します。
-
-identity には、`getAdvertisingToken()` メソッドコールで取得できる UID2 Advertising Token が含まれます:
+API コールが成功すると、アプリは生成された Identity を表示し、`UID2Manager` クラス内に永続化します。
+ 
+Identity には、`getAdvertisingToken()` メソッドコールで取得できる UID2 Advertising Token が含まれます:
 
 <Tabs groupId="language-selection">
 <TabItem value='android' label='Android'>
@@ -305,7 +305,7 @@ UID2Settings.shared.uid2Environment = .sydney
 
 ## Configure the UID2 Mobile SDK
 
-UID2 は、以下の値を提供します。これらは、UID2 Token を Client-Side クライアで生成する際に必要です:
+UID2 は、以下の値を提供します。これらは、UID2 Token を Client-Side で生成する際に必要です:
 
 - Subscription ID
 - Public key
@@ -343,7 +343,7 @@ UID2Manager.shared.generateIdentity(
 
 設定が完了すると、UID2 mobile SDK は以下の操作を行います:
 
-- ユーザーの UID2 identity (トークンを含む) を生成します。
+- ユーザーの UID2 Identity (トークンを含む) を生成します。
 - トークンをユーザーのデバイスにローカルに保存します。
 - アプリが開いている間、必要に応じてトークンを自動的にリフレッシュします。
 
@@ -571,7 +571,7 @@ Task<Void, Never> {
 
 ## Token Storage and Refresh
 
-[Format Examples for DII](#format-examples-for-dii) に記載されている適用可能なメソッドを呼び出した後、identity が生成され、ローカルファイルストレージに保存されます。UID2 mobile SDK は定期的に UID2 Token をリフレッシュします。
+[Format Examples for DII](#format-examples-for-dii) に記載されている適用可能なメソッドを呼び出した後、Identity が生成され、ローカルファイルストレージに保存されます。UID2 mobile SDK は定期的に UID2 Token をリフレッシュします。
 
 :::warning
 ローカルファイルストレージに保存されているファイルの形式、またはファイル名自体が予告なく変更される可能性があります。ファイルを直接読み取ったり更新したりしないようにしてください。
@@ -579,7 +579,7 @@ Task<Void, Never> {
  
 ## Pass Generated Token for Bidstream Use
 
-モバイルアプリで `generateIdentity` メソッドが成功すると、identity が返されます。次のステップは、次のように `getAdvertisingToken()` メソッドを呼び出すことです:
+モバイルアプリで `generateIdentity` メソッドが成功すると、Identity が返されます。次のステップは、次のように `getAdvertisingToken()` メソッドを呼び出すことです:
 
 <Tabs groupId="language-selection">
 <TabItem value='android' label='Android'>
@@ -604,20 +604,20 @@ UID2Manager.shared.getAdvertisingToken()
 
 このトークンを使用して、ビッドストリームに送信するためにダウンストリームに渡すことができます。
 
- `getAdvertisingToken()` メソッドコールが `null` を返す場合、identity または有効なトークンが生成されていません。
+ `getAdvertisingToken()`　メソッドが `null` を返す場合、Identity または有効なトークンが生成されていません。
 
 その原因として考えられることと、トラブルシューティングに役立ついくつかの方法は次のとおりです:
 
 - Identity が無効です。この場合、いくつかのオプションがあります:
   - 前の `generateIdentity` メソッドコールからエラーがあるかどうかを確認します。
-  - 次のいずれかを使用して identity のステータスを確認します:
+  - 以下のいずれかを使用して Identity のステータスを確認します:
     - **Android Java**: `UID2Manager.getInstance().getCurrentIdentityStatus()`
     - **Android Kotlin**: `UID2Manager.getInstance().currentIdentityStatus()`
     - **iOS**: `UID2Manager.shared.identityStatus`
 
     UID2 から DII がオプトアウトされている可能性があります: 詳細は [When to Pass DII into the SDK](#when-to-pass-dii-into-the-sdk) を参照してください。
 - ロギングを有効 (`isLoggingEnabled` を `true` に設定する) にして詳細情報を取得できます: [Enable Logging](#enable-logging) を参照してください。
-- UID2 identity 内の Advertising Token の有効期限が切れていて、Refresh Token も有効期限が切れているため、SDK がトークンをリフレッシュできません。
+- UID2 Identity 内の Advertising Token の有効期限が切れていて、Refresh Token も有効期限が切れているため、SDK がトークンをリフレッシュできません。
 
 Identity が無い場合は、`generateIdentity` メソッドを再度呼び出す必要があります: 詳細は [Configure the UID2 Mobile SDK](#configure-the-uid2-mobile-sdk) を参照してください。
 
@@ -625,7 +625,7 @@ Identity が無い場合は、`generateIdentity` メソッドを再度呼び出�
 
 ## When to Pass DII into the SDK
 
-新しいユーザーがアプリを初めて開いた場合、UID2 identity は存在しません。トークン生成を開始するには、`generateIdentity` メソッドを DII と共に呼び出す必要があります:
+新しいユーザーがアプリを初めて開いた場合、UID2 Identity は存在しません。トークン生成を開始するには、`generateIdentity` メソッドを DII と共に呼び出す必要があります:
 
 <Tabs groupId="language-selection">
 <TabItem value='android' label='Android'>
@@ -656,7 +656,7 @@ UID2Manager.shared.generateIdentity(
 
 メソッドコールが成功すると、Advertising Token (UID2 Token) が生成され、ビッドストリームに送信するために使用できます。
 
-ローカルファイルストレージに保存されている UID2 identity が期限切れで、リフレッシュできない場合は、新しい identity を生成するために `generateIdentity` メソッドを再度呼び出す必要があります。ただし、次の Android メソッド/iOS オブジェクトのレスポンスが示すように、DII が UID2 からオプトアウトされている場合は、UID2 Token は生成されません:
+ローカルファイルストレージに保存されている UID2 Identity が期限切れで、リフレッシュできない場合は、新しい Identity を生成するために `generateIdentity` メソッドを再度呼び出す必要があります。ただし、次の Android メソッド/iOS オブジェクトのレスポンスが示すように、DII が UID2 からオプトアウトされている場合は、UID2 Token は生成されません:
 
 <Tabs groupId="language-selection">
 <TabItem value='android' label='Android'>

@@ -12,7 +12,7 @@ import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emai
 
 # Advertiser/Data Provider Integration Overview
 
-このガイドは、ユーザーデータを収集し、他の UID2 参加者に送信する組織向けのインテグレーションオプションの概要を提供します。データ収集者には、広告主、データオンボーダー、測定プロバイダー、ID グラフプロバイダー、サードパーティデータプロバイダー、およびその他のデータを他の参加者に送信する組織が含まれます。
+このガイドは、ユーザーデータを収集し、他の UID2 参加者に送信する組織向けのインテグレーションオプションの概要を提供します。データ収集者には、広告主、データオンボーダー、計測プロバイダー、ID グラフプロバイダー、サードパーティデータプロバイダー、およびその他のデータを他の参加者に送信する組織が含まれます。
 
 ## Advertiser/Data Provider Routes to Use UID2
 
