@@ -30,9 +30,9 @@ Used by: このエンドポイントは、主にパブリッシャーが使用�
 
 ### Path Parameters
 
-| Path Parameter  | Data Type | Attribute | Description                                                                                                                                                                                                                               |
-| :-------------- | :-------- | :-------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `{environment}` | string    | 必須      | テスト (インテグレーション) 環境: `https://operator-integ.uidapi.com`<br/>本番環境: `https://prod.uidapi.com`<br/>リージョンごとのオペレーターを含む全リストは [Environments](../getting-started/gs-environments.md) を参照してください。 |
+| Path Parameter | Data Type | Attribute | Description |
+| :--- | :--- | :--- | :--- |
+| `{environment}` | string | 必須 | テスト (インテグレーション) 環境: `https://operator-integ.uidapi.com`<br/>本番環境: `https://prod.uidapi.com`<br/>リージョンごとのオペレーターを含む全リストは [Environments](../getting-started/gs-environments.md) を参照してください。 |
 
 :::note
 インテグレーション環境と本番環境では、異なる <Link href="../ref-info/glossary-uid#gl-api-key">API Key</Link> が必要です。各環境の認証情報を取得する方法は、[Getting Your Credentials](../getting-started/gs-credentials.md#getting-your-credentials) を参照してください。
@@ -45,13 +45,13 @@ Used by: このエンドポイントは、主にパブリッシャーが使用�
 - 次の 4 つの有効なオプションのいずれかを、Body Parameter テーブルに記載されているように、1 つだけ含めます: `email`、`email_hash`、`phone`、または `phone_hash`。
 - 暗号化する際に、必要なボディパラメータをリクエストの JSON ボディ内のキーと値のペアとして含めます。
 
-| Body Parameter | Data Type | Attribute      | Description                                                                                                                                                                                                                              |
-| :------------- | :-------- | :------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `token`        | string    | 必須           | [POST&nbsp;/token/generate](post-token-generate.md) レスポンスによって返された Advertising Token です。<br/>自身の認証情報で生成された Advertising Token のみを検証できます。                                                            |
-| `email`        | string    | 条件付きで必須 | トークン検証用のメールアドレスです。正規化されているかどうかに関わらず、有効なメールアドレス値を使用できます。                                                                                                                           |
-| `email_hash`   | string    | 条件付きで必須 | 有効な [正規化された](../getting-started/gs-normalization-encoding.md#email-address-normalization) メールアドレスの [Base64-encoded SHA-256](../getting-started/gs-normalization-encoding.md#email-address-hash-encoding) ハッシュです。 |
-| `phone`        | string    | 条件付きで必須 | トークン検証用の電話番号です。有効な電話番号値を使用できますが、[正規化](../getting-started/gs-normalization-encoding.md#phone-number-normalization)されている必要があります。                                                           |
-| `phone_hash`   | string    | 条件付きで必須 | 有効な [正規化された](../getting-started/gs-normalization-encoding.md#phone-number-normalization) 電話番号の [Base64-encoded SHA-256](../getting-started/gs-normalization-encoding.md#phone-number-hash-encoding) ハッシュです。         |
+| Body Parameter | Data Type | Attribute | Description |
+| :--- | :--- | :--- | :--- |
+| `token`　| string | 必須 | [POST&nbsp;/token/generate](post-token-generate.md) レスポンスによって返された Advertising Token です。<br/>自身の認証情報で生成された Advertising Token のみを検証できます。 |
+| `email` | string | 条件付きで必須 | トークン検証用のメールアドレスです。正規化されているかどうかに関わらず、有効なメールアドレス値を使用できます。　|
+| `email_hash` | string | 条件付きで必須 | 有効な [正規化された](../getting-started/gs-normalization-encoding.md#email-address-normalization) メールアドレスの [Base64-encoded SHA-256](../getting-started/gs-normalization-encoding.md#email-address-hash-encoding) ハッシュです。 |
+| `phone` | string | 条件付きで必須 | トークン検証用の電話番号です。有効な電話番号値を使用できますが、[正規化](../getting-started/gs-normalization-encoding.md#phone-number-normalization)されている必要があります。 |
+| `phone_hash` | string | 条件付きで必須 | 有効な [正規化された](../getting-started/gs-normalization-encoding.md#phone-number-normalization) 電話番号の [Base64-encoded SHA-256](../getting-started/gs-normalization-encoding.md#phone-number-hash-encoding) ハッシュです。 |
 
 ### Request Examples
 
@@ -113,19 +113,19 @@ echo '{"token": "AdvertisingTokenmZ4dZgeuXXl6DhoXqbRXQbHlHhA96leN94U1uavZVspwKXl
 
 以下の表は、レスポンスボディに関する情報を提供します。
 
-| Property | Data Type | Description                                                                                                                                                                                                                                                                                                                                            |
-| :------- | :-------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `body`   | boolean   | `true` の値は、リクエストで指定されたメールアドレス、電話番号、またはそれぞれのハッシュが、Advertising Token を生成するために使用されたものと同じであることを示します。<br/>`false` の値は、リクエストで指定されたメールアドレス、電話番号、またはそれぞれのハッシュが、Advertising Token を生成するために使用されたものと同じではないことを示します。 |
+| Property | Data Type | Description |
+| :--- | :--- | :--- |
+| `body` | boolean | `true` の値は、リクエストで指定されたメールアドレス、電話番号、またはそれぞれのハッシュが、Advertising Token を生成するために使用されたものと同じであることを示します。<br/>`false` の値は、リクエストで指定されたメールアドレス、電話番号、またはそれぞれのハッシュが、Advertising Token を生成するために使用されたものと同じではないことを示します。 |
 
 ### Response Status Codes
 
 次の表は、`status` プロパティの値と、それに対応する HTTP ステータスコードの一覧です。
 
-| Status         | HTTP Status Code | Description                                                                                                                                                                      |
-| :------------- | :--------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `success`      | 200              | リクエストは成功しました。レスポンスは暗号化されています。                                                                                                                       |
-| `client_error` | 400              | リクエストに不足している、または無効なパラメータがありました。                                                                                                                   |
-| `unauthorized` | 401              | リクエストにベアラートークンが含まれていない、無効なベアラートークンが含まれている、またはリクエストされた操作を実行するのに許可されていないベアラートークンが含まれていました。 |
+| Status | HTTP Status Code | Description |
+| :--- | :--- | :--- |
+| `success` | 200 | リクエストは成功しました。レスポンスは暗号化されています。 |
+| `client_error` | 400 | リクエストに不足している、または無効なパラメータがありました。 |
+| `unauthorized` | 401 | リクエストにベアラートークンが含まれていない、無効なベアラートークンが含まれている、またはリクエストされた操作を実行するのに許可されていないベアラートークンが含まれていました。 |
 
 `status` の値が `success` 以外であれば、`message` フィールドにその問題に関する追加情報が表示されます。
 
