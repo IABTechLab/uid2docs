@@ -218,6 +218,11 @@ export const partnersData: PartnersDataType = [
     type: ["Data"],
   },
   {
+    name: "CH7HD",
+    logo: "7HD-logo.png",
+    type: ["Publishers"],
+  },
+  {
     name: "Cinema Café",
     logo: "cinema-cafe-logo-580x250.png",
     type: ["Publishers"],
@@ -243,6 +248,11 @@ export const partnersData: PartnersDataType = [
     name: "Cross Target",
     logo: "CrossTarget.png",
     type: ["DSP"],
+  },
+  {
+    name: "Databricks",
+    logo: "databricks-logo.png",
+    type: ["CDP"],
   },
   {
     name: "Deadline",
@@ -332,7 +342,7 @@ export const partnersData: PartnersDataType = [
   },
   {
     name: "FPT Play",
-    logo: "VN_FPT Play.png",
+    logo: "fpt-play-logo.png",
     type: ["Publishers"],
   },
   {
@@ -402,7 +412,7 @@ export const partnersData: PartnersDataType = [
   },
   {
     name: "Hightouch",
-    logo: "hightouch-logo.jpg",
+    logo: "Hightouch-logo_black.png",
     type: ["CDP"],
   },
   {
@@ -899,6 +909,11 @@ export const partnersData: PartnersDataType = [
     name: "SpotX",
     logo: "PartnerLogo_SpotX_580x250.png",
     type: ["DSP"],
+  },
+  {
+    name: "SSMAS",
+    logo: "ssmas-logo.png",
+    type: ["Publishers"],
   },
   {
     name: "Summit Media",
