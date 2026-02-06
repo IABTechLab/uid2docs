@@ -14,7 +14,7 @@ import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emai
 
 # UID2 Integration Overview for JavaScript
 
-このガイドは、UID2 とインテグレーションし、SDK for JavaScript を使って<Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 token</Link>(Advertising Token) を生成したいパブリッシャー向けのインテグレーションオプションの概要です。
+このガイドは、UID2 とインテグレーションし、SDK for JavaScript を使って<Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 Token</Link> (Advertising Token) を生成したいパブリッシャー向けのインテグレーションオプションの概要です。
 
 Prebid.js と追加 SDK オプションを含むすべてのウェブオプションの概要は、[Publisher Web Integration Overview](integration-options-publisher-web.md) を参照してください。
 
@@ -42,8 +42,8 @@ SDK for JavaScript を使って UID2 とインテグレーションするため�
 
 | Scenario | Option | Integration Guide |
 | :--- | :--- | :--- |
-| Client-Side で DII にアクセスでき、フロントエンド開発のみを行いたい。 | Client-side integration | [Client-Side Integration Guide for JavaScript](integration-javascript-client-side.md) |
-| Client-Server で DII にアクセスでき、Server-Side の開発が可能であるか、<Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link> を使用している。 | Client-server integration | [Client-Server Integration Guide for JavaScript](integration-javascript-client-server.md) |
+| Client-Side で DII にアクセスでき、フロントエンド開発のみを行いたい。 | Client-Side integration | [Client-Side Integration Guide for JavaScript](integration-javascript-client-side.md) |
+| Client-Server で DII にアクセスでき、Server-Side の開発が可能であるか、<Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link> を使用している。 | Client-Server integration | [Client-Server Integration Guide for JavaScript](integration-javascript-client-server.md) |
 
 ## Complete UID2 Account Setup and Configure Account
 
@@ -61,7 +61,7 @@ UID2 Portal で行う手順は、実装が Client-Side、Client-Server、また�
 
 ## Refreshing the UID2 Token
 
-SDK for JavaScript には、自動の <a href="../ref-info/glossary-uid#gl-token-refresh">Token Refresh</a> 機能があります。
+SDK for JavaScript には、自動の <a href="../ref-info/glossary-uid#gl-token-refresh">トークンリフレッシュ</a> 機能があります。
 
 ## Storing the UID2 Token in the Browser
 <!-- GWH check corresponding (not identical) section in integration-prebid.md, integration-prebid-client-side.md, integration-prebid-client-side.md, for consistency -->

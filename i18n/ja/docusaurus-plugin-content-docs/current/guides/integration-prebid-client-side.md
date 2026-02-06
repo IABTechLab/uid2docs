@@ -48,7 +48,7 @@ Prebid.js を使用して UID2 とインテグレーションするには、サ�
 
 UID2 とインテグレーションするには、UID2 アカウントが必要です。アカウントをまだ作成していない場合は、まず [Account Setup](../getting-started/gs-account-setup.md) ページの手順に従ってください。
 
-アカウントの初期設定が完了すると、[UID2 Portal](../portal/portal-overview.md) にアクセスするための手順とリンクが送られます。そこで本番 [環境](../getting-started/gs-environments.md) 用の [credentials](../getting-started/gs-credentials.md) を作成し、提供が必要な追加の値を設定できます。詳細は [Getting Started with the UID2 Portal](../portal/portal-getting-started.md) を参照してください。
+アカウントの初期設定が完了すると、[UID2 Portal](../portal/portal-overview.md) にアクセスするための手順とリンクが送信されます。そこで本番 [環境](../getting-started/gs-environments.md) 用の [credentials](../getting-started/gs-credentials.md) を作成し、提供が必要な追加の値を設定できます。詳細は [Getting Started with the UID2 Portal](../portal/portal-getting-started.md) を参照してください。
 
 Client-Side インテグレーションの場合、UID2 Portal の [Client-Side Integration](../portal/client-side-integration.md) ページで以下の値を設定する必要があります:
 
