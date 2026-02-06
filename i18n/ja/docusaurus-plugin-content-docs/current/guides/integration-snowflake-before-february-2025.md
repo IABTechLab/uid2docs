@@ -12,7 +12,7 @@ import Link from '@docusaurus/Link';
 
 # Snowflake Integration Guide (Pre-Feb 2025)
 
-[Snowflake](https://www.snowflake.com/) は、クラウドデータウェアハウジングソリューションで、パートナーとしてデータを保存し、UID2 フレームワークとインテグレーションすることができます。Snowflake を使用することで、UID2 は、機密性の高い<Link href="../ref-info/glossary-uid#gl-dii">直接識別情報 (DII)</Link>を公開せずに、消費者識別子データを安全に共有できます。消費者識別子データを直接問い合わせる Operator Web Services があるにもかかわらず、Snowflake UID2 インテグレーションはよりシームレスなエクスペリエンスを提供します。
+[Snowflake](https://www.snowflake.com/) は、クラウドデータウェアハウジングソリューションで、パートナーとしてデータを保存し、UID2 フレームワークとインテグレーションすることができます。Snowflake を使用することで、UID2 は、機密性の高い<Link href="../ref-info/glossary-uid#gl-dii">直接識別情報 (DII)</Link>を公開せずに、消費者識別子データを安全に共有できます。消費者識別子データを直接問い合わせる Operator Web Service があるにもかかわらず、Snowflake UID2 インテグレーションはよりシームレスなエクスペリエンスを提供します。
 
 :::important
 このドキュメントは、2025年2月以前に公開された広告主とデータプロバイダー向けの別々の Snowflake marketplace を使用しているユーザー向けです。2025年2月に公開された新しいインテグレーションに関するドキュメントは、[Snowflake Integration Guide (Pre-July 2025)](integration-snowflake-previous) を参照してください。以前の実装を使用している場合は、更新と強化を活用するために新しいバージョンに移行することを勧めます。移行情報は、[Migration Guide](integration-snowflake.md#migration-guide) を参照してください。
@@ -48,8 +48,8 @@ Snowflake の UID2 インテグレーションの実装は、広告主とデー�
 
 | Partner Snowflake Account | UID2 Snowflake Account | UID2 Core Opt-Out Cloud Setup |
 | :--- | :--- | :--- |
-| パートナーとして、Snowflake アカウントを設定してデータをホストし、UID2 Share を通じて関数やビューを使うことで、UID2 インテグレーションに関与できます。 | Snowflake アカウントでホストされている UID2 インテグレーションでは、プライベートテーブルからデータを引き出す許可をされた関数とビューへのアクセスが許可されます。プライベートテーブルにはアクセスできません。UID2 Share では、UID2 関連のタスクを実行するために必要な重要なデータのみが公開されます。 | ETL (抽出・変換・ロード) ジョブは、UID2 Core/Optout Snowflake ストレージを常に更新し、UID2 Operator Web Services を動かす内部データを提供します。Operator Web Services で使用されるデータは、UID2 Share からも入手できます。 |
-| Shared 関数とビューを使用する場合、Snowflake にトランザクションのコストを支払います。 | UID2 Snowflake アカウントで保護されたこれらのプライベートテーブルは、UID2 関連のタスクを完了するために使用される内部データを保持する UID2 Core/Optout Snowflake ストレージと自動的に同期されます。 |  |
+| パートナーとして、Snowflake アカウントを設定してデータをホストし、UID2 Share を通じて関数やビューを使うことで、UID2 インテグレーションに関与できます。 | Snowflake アカウントでホストされている UID2 インテグレーションでは、プライベートテーブルからデータを引き出す許可をされた関数とビューへのアクセスが許可されます。プライベートテーブルにはアクセスできません。UID2 Share では、UID2 関連のタスクを実行するために必要な重要なデータのみが公開されます。 | ETL (抽出・変換・ロード) ジョブは、UID2 Core/Optout Snowflake ストレージを常に更新し、UID2 Operator Web Service を動かす内部データを提供します。Operator Web Service で使用されるデータは、UID2 Share からも入手できます。 |
+| 共有関数とビューを使用する場合、Snowflake にトランザクションのコストを支払います。 | UID2 Snowflake アカウントで保護されたこれらのプライベートテーブルは、UID2 関連のタスクを完了するために使用される内部データを保持する UID2 Core/Optout Snowflake ストレージと自動的に同期されます。 |  |
 
 ## Access the UID2 Shares
 
@@ -81,7 +81,7 @@ UID2 Share へのアクセスを要求するには、次の手順を実行しま
 
 - `FN_T_UID2_IDENTITY_MAP` ([Map DII](#map-dii) を参照)
 
-以下の関数は非推奨となり、`FN_T_UID2_IDENTITY_MAP` が優先されます。これらの関数はまだ使用できますが、  `FN_T_UID2_IDENTITY_MAP` の方が優れています。すでにこれらの関数を使用している場合は、できるだけ早くアップグレードすることを勧めます。
+以下の関数は非推奨となり、`FN_T_UID2_IDENTITY_MAP` が優先されます。これらの関数はまだ使用できますが、  `FN_T_UID2_IDENTITY_MAP` の方が優れています。すでにこれらの関数を使用している場合は、更新することをお勧めします。
 
 - `FN_T_UID2_IDENTITY_MAP_EMAIL` (非推奨)
 - `FN_T_UID2_IDENTITY_MAP_EMAIL_HASH` (非推奨)
@@ -127,15 +127,15 @@ DII が電話番号の場合、UID2 [電話番号正規化](../getting-started/g
 
 | Argument     | Data Type    | Description                                                         |
 | :----------- | :----------- | :------------------------------------------------------------------ |
-| `INPUT`      | varchar(256) | UID2とセカンドレベルレベルのバケット ID にマッピングするDII。 |
-| `INPUT_TYPE` | varchar(256) | マッピングするDIIのタイプ。指定できる値: `email`, `email_hash`, `phone`, `phone_hash` |
+| `INPUT`      | varchar(256) | UID2 とセカンドレベルのバケット ID にマッピングする DII。 |
+| `INPUT_TYPE` | varchar(256) | マッピングする DII のタイプ。指定できる値: `email`, `email_hash`, `phone`, `phone_hash` |
 
 クエリに成功すると、指定された DII について以下の情報が返されます。
 
 |Column Name|Data Type|Description|
 | :--- | :--- | :--- |
 | `UID2`      | TEXT | DII は正常にマッピングされました: <br/>DII は正常にマップされませんでした: `NULL`。 |
-| `BUCKET_ID` | TEXT | DIIは正常にマップされました: UID2 の生成に使われたセカンドレベルのソルトバケットの ID。この ID は `UID2_SALT_BUCKETS` ビューのバケットIDに対応します。<br/>DIIは正常にマップされませんでした: `NULL`。 |
+| `BUCKET_ID` | TEXT | DII は正常にマップされました: UID2 の生成に使われたセカンドレベルのソルトバケットの ID。この ID は `UID2_SALT_BUCKETS` ビューのバケット ID に対応します。<br/>DII は正常にマップされませんでした: `NULL`。 |
 | `UNMAPPED`  | TEXT | DII は正常にマッピングされました: `NULL`<br/>DII は正常にマップされませんでした: `NULL`:  DII は正常にマップされませんでした: 識別子がマップされなかった理由: `OPTOUT`、`INVALID IDENTIFIER`、`INVALID INPUT TYPE` のいずれか。詳細は [Values for the UNMAPPED Column](#values-for-the-unmapped-column) を参照してください。 |
 
 #### Values for the UNMAPPED Column
@@ -288,7 +288,7 @@ The following table identifies each item in the response, including `NULL` value
 |  1 | +12345678901 | 2ODl112/VS3x2vL+kG1439nPb7XNngLvOWiZGaMhdcU= | ad1ANEmVZ  | NULL               |
 |  2 | +61491570006 | IbW4n6LIvtDj/8fCESlU0QG9K/fH63UdcTkJpAG8fIQ= | a30od4mNRd | NULL               |
 |  3 | 1234         | NULL                                         | NULL       | INVALID IDENTIFIER |
-|  4 | NULL         | NULL                                         | NULL       | INVALID IDENTIFIER |
+|  4 | NULL         | NULL       | NULL       | INVALID IDENTIFIER |
 +----+--------------+----------------------------------------------+------------+--------------------+
 ```
 
@@ -427,7 +427,7 @@ select a.ID, a.PHONE_HASH, m.UID2, m.BUCKET_ID, m.UNMAPPED from AUDIENCE a LEFT 
 
 #### Targeted Input Table
 
-このシナリオ例では、広告主/データプロバイダーは UID2 を `AUDIENCE_WITH_UID2` という名前のテーブルに格納しています。最後の列 `LAST_UID2_UPDATE_UTC` は、UID2 が生成された時刻を記録するために使用されます。UID2 が生成されていない場合、3番目の例に示すように値は `NULL` となります。広告主/データプロバイダーはこのタイムスタンプ値を使って、どのUID2 を再生成する必要があるかを判断できます。
+このシナリオ例では、広告主/データプロバイダーは UID2 を `AUDIENCE_WITH_UID2` という名前のテーブルに格納しています。最後の列 `LAST_UID2_UPDATE_UTC` は、UID2 が生成された時刻を記録するために使用されます。UID2 が生成されていない場合、3 番目の例に示すように値は `NULL` となります。広告主/データプロバイダーはこのタイムスタンプ値を使って、どの UID2 を再生成する必要があるかを判断できます。
 
 ```
 select * from AUDIENCE_WITH_UID2;
@@ -537,7 +537,7 @@ UID2 <Link href="../ref-info/glossary-uid#gl-sharing-participant">共有参加�
 このプロセスで生成される UID2 Token は共有専用です&#8212;ビッドストリームでは使用できません。ビッドストリーム用のトークン生成には別のワークフローがあります: [Tokenized Sharing in the Bidstream](../sharing/sharing-tokenized-from-data-bid-stream.md) を参照してください。
 :::
 
-Snowflake 内でピクセルまたはビッドストリームでデータを送信しない場合、[Security Requirements for UID2 Sharing](../sharing/sharing-security.md) に記載されている要件に従う限り、生のUID2共有に参加することもできます。
+Snowflake 内でピクセルまたはビッドストリームでデータを送信しない場合、[Security Requirements for UID2 Sharing](../sharing/sharing-security.md) に記載されている要件に従う限り、生の UID2 共有に参加することもできます。
 
 以下のアクティビティは Tokenized Sharing に対応しています:
 
@@ -642,11 +642,11 @@ UID2 Token を raw UID2 に復号するには、関数 `FN_T_UID2_DECRYPT` を�
 
 クエリーに成功すると、指定された UID2 Token について以下の情報が返されます。
 
-|Column Name|Data Type|Description|
+| Column Name | Data Type | Description |
 | :--- | :--- | :--- |
 | `UID2` | TEXT | 値は次のいずれかです:<ul><li>復号化成功: UID2 Token に対応する raw UID2。</li><li>復号化失敗: `NULL`.</li></ul> |
 | `SITE_ID` | INT | 値は次のいずれかです:<ul><li>復号化成功: トークンを暗号化した UID2 参加者の識別子。</li><li>復号化失敗: `NULL`.</li></ul> |
-| `DECRYPTION_STATUS` | TEXT | 値は次のいずれかです:<ul><li>復号化成功: `NULL`.</li><li>暗号化失敗: UID2 Token が復号化されなかった理由。例えば、`EXPIRED_TOKEN` です。<br/>詳細は [Values for the DECRYPTION_STATUS Column](#values-for-the-decryption_status-column) を参照してください。</li></ul> |
+| `DECRYPTION_STATUS` | TEXT | 値は次のいずれかです:<ul><li>復号化成功: `NULL`.</li><li>復号化失敗: UID2 Token が復号化されなかった理由。例えば、`EXPIRED_TOKEN` です。<br/>詳細は [Values for the DECRYPTION_STATUS Column](#values-for-the-decryption_status-column) を参照してください。</li></ul> |
 
 :::note
 UID2 Token がうまく復号化できない場合、この関数は行を返しません。
