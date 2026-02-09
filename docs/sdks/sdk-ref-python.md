@@ -163,11 +163,9 @@ Decryption response codes, and their meanings, are shown in the following table.
 
     <!-- :::important
     Be sure to call this function only when you have a legal basis to convert the user’s <Link href="../ref-info/glossary-uid#gl-dii">directly identifying information (DII)</Link> to UID2 tokens for targeted advertising.
-    :::
+    ::: -->
 
 <!-- uid2_euid_diff re legal basis for admonition above (not in UID2) -->
-
- `do_not_generate_tokens_for_opted_out()` applies `optout_check=1` in the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) call. Without this, `optout_check` is omitted to maintain backwards compatibility.
 
 ### Client-Server Integration
 

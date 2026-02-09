@@ -150,9 +150,9 @@ If you're using the SDK's HTTP implementation, follow these steps.
    TokenGenerateResponse tokenGenerateResponse = publisherUid2Client.generateTokenResponse(TokenGenerateInput.fromEmail("user@example.com"));
    ```
 
-   :::important
-   <!-- - Be sure to call the POST&nbsp;/token/generate endpoint only when you have a legal basis to convert the user’s <Link href="../ref-info/glossary-uid#gl-dii">directly identifying information (DII)</Link> to UID2 tokens for targeted advertising.
-   :::
+   <!-- :::important
+    - Be sure to call the POST&nbsp;/token/generate endpoint only when you have a legal basis to convert the user’s <Link href="../ref-info/glossary-uid#gl-dii">directly identifying information (DII)</Link> to UID2 tokens for targeted advertising.
+   ::: -->
 
 <!-- uid2_euid_diff re legal basis for admonition above (first bullet not in UID2) -->
 
@@ -230,8 +230,10 @@ If you're using server-side integration (see [Publisher Integration Guide, Serve
       `.putHeader("Authorization", "Bearer " + UID2_API_KEY)`  
       `.putHeader("X-UID2-Client-Version", PublisherUid2Helper.getVersionHttpHeader())`
    2. Body: `envelope.getEnvelope()`
-   :::important
-   <!-- - Be sure to call the POST&nbsp;/token/generate endpoint only when you have a legal basis to convert the user’s <Link href="../ref-info/glossary-uid#gl-dii">directly identifying information (DII)</Link> to UID2 tokens for targeted advertising.
+
+   <!-- :::important
+    - Be sure to call the POST&nbsp;/token/generate endpoint only when you have a legal basis to convert the user’s <Link href="../ref-info/glossary-uid#gl-dii">directly identifying information (DII)</Link> to UID2 tokens for targeted advertising.
+   ::: -->
 
    <!-- uid2_euid_diff re legal basis for admonition above (first bullet not in UID2) -->
 
