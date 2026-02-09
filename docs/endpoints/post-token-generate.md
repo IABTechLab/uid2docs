@@ -15,9 +15,6 @@ Requests a UID2 token generated from a user's <Link href="../ref-info/glossary-u
 
 Used by: This endpoint is used mainly by publishers.
 
-:::important
-The `optout_check` parameter, required with a value of `1`, checks whether the user has opted out.
-:::
 
 <!-- uid2_euid_diff re legal basis for admonition above -->
 
@@ -46,7 +43,7 @@ Here's what you need to know about sending requests to this endpoint:
 ### Unencrypted JSON Body Parameters
 
 :::important
-You must include only **one** of the following four conditional parameters, plus the required `optout_check` parameter with a value of `1`, as key-value pairs in the JSON body of the request when encrypting it.
+You must include only **one** of the following four conditional parameters as key-value pairs in the JSON body of the request when encrypting it.
 :::
 
 | Body Parameter | Data Type | Attribute | Description | 
@@ -55,7 +52,6 @@ You must include only **one** of the following four conditional parameters, plus
 | `email_hash` | string | Conditionally Required | The [Base64-encoded SHA-256](../getting-started/gs-normalization-encoding.md#email-address-hash-encoding) hash of a [normalized](../getting-started/gs-normalization-encoding.md#email-address-normalization) email address. |
 | `phone` | string | Conditionally Required | The [normalized](../getting-started/gs-normalization-encoding.md#phone-number-normalization) phone number for which to generate tokens. |
 | `phone_hash` | string | Conditionally Required | The [Base64-encoded SHA-256](../getting-started/gs-normalization-encoding.md#phone-number-hash-encoding) hash of a [normalized](../getting-started/gs-normalization-encoding.md#phone-number-normalization) phone number. |
-| `optout_check` | number | Required | Checks whether the user has opted out. Include this parameter with a value of `1`.|
 
 ### Request Examples
 
@@ -67,33 +63,29 @@ The following are unencrypted JSON request body examples for each parameter, one
 
 ```json
 {
-    "email": "username@example.com",
-    "optout_check": 1
+    "email": "username@example.com"
 }
 ```
 ```json
 {
-    "email_hash": "tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ=",
-    "optout_check": 1
+    "email_hash": "tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ="
 }
 ```
 ```json
 {
-    "phone": "+12345678901",
-    "optout_check": 1
+    "phone": "+12345678901"
 }
 ```
 ```json
 {
-    "phone_hash": "wdN1alhrbw1Bmz49GzKGdPvGxLhCNn7n3teAOQ/FSK4=",
-    "optout_check": 1
+    "phone_hash": "wdN1alhrbw1Bmz49GzKGdPvGxLhCNn7n3teAOQ/FSK4="
 }
 ```
 
 Here's an encrypted token generation request example for an email hash:
 
 ```sh
-echo '{"email_hash": "tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ=","optout_check":1}' | python3 uid2_request.py https://prod.uidapi.com/v2/token/generate [Your-Client-API-Key] [Your-Client-Secret] 
+echo '{"email_hash": "tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ="}' | python3 uid2_request.py https://prod.uidapi.com/v2/token/generate [Your-Client-API-Key] [Your-Client-Secret]
 ```
 For details, and code examples in different programming languages, see [Encrypting Requests and Decrypting Responses](../getting-started/gs-encryption-decryption.md).
 
