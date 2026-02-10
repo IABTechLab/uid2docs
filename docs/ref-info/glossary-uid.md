@@ -402,7 +402,7 @@ import MdxJumpAnchor from '@site/src/components/MdxJumpAnchor';
 <dd>For details, see <a href="uid-identifier-types">UID2 Identifier Types</a>.</dd>
 
 <dt><MdxJumpAnchor id="gl-refresh-timestamp"><a href="#gl-refresh-timestamp">Refresh timestamp</a></MdxJumpAnchor></dt>
-<dd>In the context of mapping <a href="#gl-dii">DII</a> to raw UID2s, a refresh timestamp is a Unix timestamp (in seconds) returned in the <code>r</code> field of the <a href="../endpoints/post-identity-map">POST&nbsp;/identity/map</a> endpoint response. The raw UID2 is guaranteed to be valid until this timestamp. It is refreshed at some point after this time.</dd>
+<dd>In the context of mapping <a href="#gl-dii">DII</a> to raw UID2s, a refresh timestamp is a Unix timestamp (in seconds) returned in the <code>r</code> field of the <a href="../endpoints/post-identity-map">POST&nbsp;/identity/map</a> endpoint response. The raw UID2 is valid until this timestamp. It is refreshed at some point after this time.</dd>
 <dd>Use the refresh timestamp to determine when to regenerate raw UID2s for your stored data. We recommend checking for refresh opportunities daily by comparing the current time with the stored refresh timestamps.</dd>
 
 <dt><MdxJumpAnchor id="gl-refresh-token"><a href="#gl-refresh-token">Refresh token</a></MdxJumpAnchor></dt>
