@@ -10,7 +10,7 @@ This document outlines the rules for style, tone, and terminology unification fo
 *   **英数字**: 半角英数字を使用します。
 *   **スペース**: 日本語と半角英数字の間には、半角スペースを入れます。
     *   例: `UID2 は...`
-    *   例外: 句読点の直前・直後にはスペースを入れない（例: `...UID2。」`）。
+    *   例外: 句読点の直前・直後にはスペースを入れない（例: `...UID2。`）。
 *   **括弧**: 原則として全角括弧 `（）` を使用しますが、英単語の補足などで半角スペースを伴う場合は半角 `()` を使用することもあります（既存の文書に合わせて調整）。
 
 ## 2. ヘッダー (見出し)
@@ -23,7 +23,7 @@ This document outlines the rules for style, tone, and terminology unification fo
 
 ## 3. 固有名詞・専門用語の扱い
 
-多くの専門用語は英語のまま、あるいはカタカナ語として定着しているものを使用します。
+多くの専門用語は英語のまま、あるいはカタカナ語として定着しているものを使用します。各用語の翻訳形式は `TRANSLATION_GLOSSARY.md` に定義されています。
 
 *   **英語のまま維持するもの (主な例)**:
     *   UID2, Unified ID 2.0, EUID
@@ -37,6 +37,7 @@ This document outlines the rules for style, tone, and terminology unification fo
     *   First-party data, Third-party data (文脈により「ファーストパーティデータ」「サードパーティデータ」とカタカナ表記も可だが、複合語では英語が多用される)
     *   Single Sign-On (SSO)
     *   DII (Directly Identifying Information)
+    *   API Key, Client Key
 
 *   **カタカナ表記するもの**:
     *   Publisher -> パブリッシャー
@@ -45,6 +46,7 @@ This document outlines the rules for style, tone, and terminology unification fo
     *   Salt -> ソルト
     *   Hash -> ハッシュ
     *   Enclave -> エンクレーブ
+    *   Client Secret -> クライアントシークレット
 
 *   **日本語（漢字・ひらがな）に翻訳するもの**:
     *   Advertiser -> 広告主
@@ -57,9 +59,21 @@ This document outlines the rules for style, tone, and terminology unification fo
 
 ## 4. リンクテキスト
 
-*   リンク先の用語が英語で定義されている場合（Glossaryへのリンクなど）、リンクテキスト自体も英語のままにすることが多いです。
-    *   例: `<Link href="...">bidstream</Link>` -> `<Link href="...">bidstream</Link>` (日本語文中でカタカナ「ビッドストリーム」とする場合もあるため、文脈によるが、用語定義へのリンクは英語表記が目立つ)
-    *   ※ただし、既存ドキュメントでは「<Link ...>ビッドストリーム</Link>」となっている箇所もあるため、自然な日本語の一部として機能させる場合はカタカナにします。Glossary等で定義を参照させる文脈（初出時など）では英語表記が見られます。
+リンクテキストの翻訳は、**「リンクだから英語のまま」という一律ルールではなく、用語集 (TRANSLATION_GLOSSARY.md) の定義に従います**。リンクテキストも本文の一部であり、各用語に定義された表記形式を適用します。
+
+*   **基本ルール**: リンクテキストには、用語集で定義された日本語表記（カタカナまたは漢字）を使用します。
+    *   例: `<Link href="...">bidstream</Link>` → `<Link href="...">ビッドストリーム</Link>`
+    *   例: `<Link href="...">Client Secret</Link>` → `<Link href="...">クライアントシークレット</Link>`
+
+*   **用語集で英語表記が推奨されている用語**: そのまま英語を使用します。
+    *   例: `<Link href="...">API Key</Link>` → `<Link href="...">API Key</Link>` (用語集で「英語表記を推奨」)
+    *   例: `<Link href="...">DII</Link>` → `<Link href="...">DII</Link>` (用語集で「原則 DII と表記」)
+
+*   **略語の展開形**: 略語の展開形は、略語自体の言語に合わせます。
+    *   例: `DII (Directly Identifying Information)` — DII は英語略語のため、展開形も英語。
+    *   例: `DSP (デマンドサイドプラットフォーム)` — 用語集の定義に従いカッコ内は日本語。
+
+*   **結果として**: 同じページ内でリンクテキストが英語のものと日本語のものが混在することがあります。これは不整合ではなく、各用語が用語集の定義に従った結果です。
 
 ## 5. 箇条書き
 
@@ -81,7 +95,7 @@ This document outlines the rules for style, tone, and terminology unification fo
 
 ## 7. 行構成と同期
 
-*   翻訳にあたり、行数が変化しないようにするすなわち、日英のファイルにおいて同じヘッダーは同じ行に配置するようにする。ただし、FAQなどヘッダーを日本語として翻訳する必要があるものについては、この限りではない。
+*   翻訳にあたり、行数が変化しないようにする。すなわち、日英のファイルにおいて同じヘッダーは同じ行に配置するようにする。ただし、FAQなどヘッダーを日本語として翻訳する必要があるものについては、この限りではない。
 
 ## 8. リンクのパス指定
 
