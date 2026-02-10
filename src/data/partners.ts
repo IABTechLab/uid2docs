@@ -472,7 +472,7 @@ export const partnersData: PartnersDataType = [
   },
   {
     name: "iQiyi",
-    logo: "iQiyi.png",
+    logo: "iqiyi-logo.png",
     type: ["Publishers"],
   },
   {
