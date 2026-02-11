@@ -150,12 +150,6 @@ If you're using the SDK's HTTP implementation, follow these steps.
    TokenGenerateResponse tokenGenerateResponse = publisherUid2Client.generateTokenResponse(TokenGenerateInput.fromEmail("user@example.com"));
    ```
 
-   <!-- :::important
-    - Be sure to call the POST&nbsp;/token/generate endpoint only when you have a legal basis to convert the user’s <Link href="../ref-info/glossary-uid#gl-dii">directly identifying information (DII)</Link> to UID2 tokens for targeted advertising.
-   ::: -->
-
-<!-- uid2_euid_diff re legal basis for admonition above (first bullet not in UID2) -->
-
 #### Basic Usage, Client-Server Integration
 
 If you're using client-server integration (see [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md)), follow this step:

@@ -161,12 +161,6 @@ Decryption response codes, and their meanings, are shown in the following table.
    token_generate_response = client.generate_token(TokenGenerateInput.from_email("user@example.com"))
    ```
 
-    <!-- :::important
-    Be sure to call this function only when you have a legal basis to convert the user’s <Link href="../ref-info/glossary-uid#gl-dii">directly identifying information (DII)</Link> to UID2 tokens for targeted advertising.
-    ::: -->
-
-<!-- uid2_euid_diff re legal basis for admonition above (not in UID2) -->
-
 ### Client-Server Integration
 
 If you're using client-server integration (see [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md)), follow this step:
