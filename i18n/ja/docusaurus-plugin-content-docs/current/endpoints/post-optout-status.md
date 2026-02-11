@@ -1,6 +1,6 @@
 ---
 title: POST /optout/status
-description: Raw UID2 のオプトアウトステータスをチェック。
+description: raw UID2 のオプトアウトステータスをチェック。
 hide_table_of_contents: false
 sidebar_position: 03
 displayed_sidebar: docs
@@ -12,7 +12,7 @@ import Link from '@docusaurus/Link';
 
 <Link href="../ref-info/glossary-uid#gl-raw-uid2">raw UID2</Link> のオプトアウトステータスを確認します。指定された raw UID2 のリストを使用して、このエンドポイントはオプトアウトした raw UID2 とそのオプトアウトが行われた時刻を返します。詳細は [User Opt-Out](../getting-started/gs-opt-out.md) を参照してください。
 
-Used by: このエンドポイントは、主に広告主、データプロバイダー、DSP、共有者によって使用されます。一般的には、元のメールアドレスや電話番号にアクセスできないが、オプトアウトステータスを知りたい参加者向けです。
+Used by: このエンドポイントは、主に広告主、データプロバイダー、DSP、Sharer（共有参加者）によって使用されます。一般的には、元のメールアドレスや電話番号にアクセスできないが、オプトアウトステータスを知りたい参加者向けです。
 
 詳細は、役割に応じて以下のドキュメントを参照してください:
 
@@ -53,7 +53,7 @@ Used by: このエンドポイントは、主に広告主、データプロバ�
 
 | Body Parameter | Data Type | Attribute | Description |
 | :--- | :--- | :--- | :--- |
-| `advertising_ids` |	string array |	必須 | オプトアウトのステータスをチェックしたい raw UID2 のリスト。<br/>１回の API 呼び出しで最大 5,000 件のエントリー。 |
+| `advertising_ids` | string array | 必須 | オプトアウトのステータスをチェックしたい raw UID2 のリスト。<br/>1 回の API 呼び出しで最大 5,000 件のエントリー。 |
 
 ### Request Example
 
@@ -71,7 +71,7 @@ Used by: このエンドポイントは、主に広告主、データプロバ�
 
 以下は、暗号化されたオプトアウトリクエストの例です:
 
-```json
+```sh
 echo '{"advertising_ids": ["ufv1uGRovNiJNbJqiE/xzM+aKE7jP69MgspOZoEQ3xc="]}' | python3 uid2_request.py https://prod.uidapi.com/v2/optout/status [Your-Client-API-Key] [Your-Client-Secret]
 ```
 
@@ -109,7 +109,7 @@ echo '{"advertising_ids": ["ufv1uGRovNiJNbJqiE/xzM+aKE7jP69MgspOZoEQ3xc="]}' | p
 
 | Property | Format | Description |
 | :--- | :--- | :--- |
-| `advertising_id` | string | <Link href="../ref-info/glossary-uid#gl-advertising-id">Advertising ID</Link> (raw UID2). |
+| `advertising_id`  | string | <Link href="../ref-info/glossary-uid#gl-advertising-id">Advertising ID</Link> (raw UID2). |
 | `opted_out_since` | number | raw UID2 がいつオプトアウトされたかを示す <a href="../ref-info/glossary-uid#gl-unix-time">Unix</a> タイムスタンプ (ミリ秒単位)。 |
 
 ### Response Status Codes
@@ -119,7 +119,7 @@ echo '{"advertising_ids": ["ufv1uGRovNiJNbJqiE/xzM+aKE7jP69MgspOZoEQ3xc="]}' | p
 | Status | HTTP Status Code | Description |
 | :--- | :--- | :--- |
 | `success` | 200 | リクエストは成功しました。レスポンスは暗号化されます。 |
-| `client_error` | 400 | リクエストにパラメータがないか無効でした。 |
-| `unauthorized` | 401 | リクエストにベアラートークンが含まれていないか、無効なベアラートークンが含まれているか、またはリクエストされた操作を実行するのに許可されていないベアラートークンが含まれています。 |
+| `client_error` | 400 | リクエストに不足している、または無効なパラメータがありました。 |
+| `unauthorized` | 401 | リクエストにベアラートークンが含まれていない、無効なベアラートークンが含まれている、またはリクエストされた操作を実行するのに許可されていないベアラートークンが含まれていました。 |
 
 ステータスの値が `success` 以外の場合、メッセージフィールドにその問題に関する追加情報が表示されます。

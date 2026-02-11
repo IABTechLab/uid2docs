@@ -2,7 +2,7 @@
 title: UID2 Private Operator for GCP Integration Guide
 sidebar_label: GCP Confidential Space
 pagination_label: UID2 Private Operator for GCP Integration Guide
-description: GCP の Orivate Operator のインテグレーション情報。
+description: GCP の Private Operator のインテグレーション情報。
 hide_table_of_contents: false
 sidebar_position: 18
 displayed_sidebar: docs
@@ -24,7 +24,7 @@ UID2 Operator は、UID2 エコシステムの API サーバーです。詳細�
 UID2 Private Operator for GCP は、次の地域ではサポートされていません: ヨーロッパ、中国。
 :::
 
-Operator Service は、Confidential Space の　"workload" で実行されます。&#8212;コンテナ化された Dockert イメージは、Confidential Space イメージ上のセキュアなクラウドベースのエンクレーブで実行されます。
+Operator Service は、Confidential Space の "workload" で実行されます。&#8212;コンテナ化された Docker イメージは、Confidential Space イメージ上のセキュアなクラウドベースのエンクレーブで実行されます。
 
 UID2 Operator Confidential Space 用の Docker コンテナが起動すると、UID2 Core Service が Operator Service と Operator Service が実行されているエンクレーブ環境の正当性を検証するための認証プロセスが完了します。
 
@@ -36,7 +36,7 @@ UID2 Operator Confidential Space 用の Docker コンテナが起動すると、
 
 | Version Name | Version&nbsp;#/Release&nbsp;Notes | GCP Download |  Date | Deprecation Date |
 | ------- | ------ | ------ | ------ | ------ |
-| Q2 2025 | [v5.55.9](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.55.9-r1) | [gcp-oidc-deployment-files-5.55.9-r1.zip](https://github.com/IABTechLab/uid2-operator/releases/download/v5.55.9-r1/gcp-oidc-deployment-files-5.55.9-r1.zip) | July 1, 2025 | July 1, 2026 | 
+| Q4 2025 | [v5.62.24](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.62.24-r2) | [gcp-oidc-deployment-files-5.62.24-r2.zip](https://github.com/IABTechLab/uid2-operator/releases/download/v5.62.24-r2/gcp-oidc-deployment-files-5.62.24-r2.zip) | January 15, 2026 | January 15, 2027 | 
 
 :::note
 For information about supported versions and deprecation dates, see [Private Operator Versions](../ref-info/deprecation-schedule.md#private-operator-versions).
@@ -274,7 +274,7 @@ Terraform テンプレートからの出力値は次の表の通りです。
 
 | Name | Description |
 | :--- | :--- |
-| `load_balancer_ip` | ロードバランサーのパブリックIPアドレス。<br/>この値は、[perform the health check](#health-checkterraform-template) や DNS の設定に使用できます。 |
+| `load_balancer_ip` | ロードバランサーのパブリック IP アドレス。<br/>この値は、[perform the health check](#health-checkterraform-template) や DNS の設定に使用できます。 |
 
 ### Deploy&#8212;gcloud CLI
 
@@ -364,7 +364,7 @@ gcloud CLI を使用して、UID2 Operator Service を実行するためのサ�
       --target-service-accounts={SERVICE_ACCOUNT_NAME}@{PROJECT_ID}.iam.gserviceaccount.com
     ```
 :::warning
-`source-ranges` は、クライアントが Private Operator を呼び出すために使用する IP アドレスの範囲を指定します。CIDR 表記であり、複数の範囲を提供するためにカンマ区切りの値を使用できます。例: `--source-ranges="。範囲が正確であり、自分のものである IP アドレスのみが含まれていることを確認してください。
+`source-ranges` は、クライアントが Private Operator を呼び出すために使用する IP アドレスの範囲を指定します。CIDR 表記であり、複数の範囲を提供するためにカンマ区切りの値を使用できます。例: `--source-ranges="1.1.1.1/32,192.168.1.0/24"`。範囲が正確であり、自分のものである IP アドレスのみが含まれていることを確認してください。
 :::
 
 #### Create Secret for the Operator Key in Secret Manager
@@ -420,7 +420,7 @@ UID2 Operator には、Operator Key が必要です。UID2 アカウントの設
 | `{ZONE}` | VM インスタンスがデプロイされる Google Cloud ゾーン。 |
 | `{IMAGE_FAMILY}` | `confidential-space` はインテグレーションと本番で使用し、`confidential-space-debug` はインテグレーションでのみデバッグ用に使用します。`confidential-space-debug` は本番では動作しないことに注意してください。 |
 | `{SERVICE_ACCOUNT}` | アカウント作成時に作成したサービスアカウントのメールアドレス: `{SERVICE_ACCOUNT_NAME}@{PROJECT_ID}.iam.gserviceaccount.com`.<br/>詳細は [Set Up Service Account Rules and Permissions](#set-up-service-account-rules-and-permissions) (Step 4) を参照してください。|
-| `{OPERATOR_IMAGE}` | コンフィギュレーションで使用するUID2 Private Operator for GCPのDockerイメージURL。<br/>これは、GCPダウンロードファイルの`terraform.tfvars`ファイルにあります。([Operator Version](#operator-version) を参照) |
+| `{OPERATOR_IMAGE}` | コンフィギュレーションで使用する UID2 Private Operator for GCP の Docker イメージ URL。<br/>これは、GCP ダウンロードファイルの `terraform.tfvars` ファイルにあります。([Operator Version](#operator-version) を参照) |
 | `{OPERATOR_KEY_SECRET_FULL_NAME}` | Operator Key secret に指定したフルネーム ([Create Secret for the Operator Key in Secret Manager](#create-secret-for-the-operator-key-in-secret-manager) を参照)。パスを含め `projects/<project_id>/secrets/<secret_id>/versions/<version>` の形式でしています。たとえば: `projects/111111111111/secrets/uid2-operator-operator-key-secret-integ/versions/1` |
 
 ##### Sample Deployment Script&#8212;Integ

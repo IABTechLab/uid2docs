@@ -30,9 +30,9 @@ LiveRamp の設定では、RideAlong が有効になっていることを確認�
 
 有効な UID2 Token を ATS エンベロープに追加するには、パブリッシャーは平文のメールアドレスを提供し、SHA-256 ハッシング方法論を示すか、メールアドレスの SHA-256 ハッシュバージョンを直接 LiveRamp ライブラリに提供する必要があります。
 
-UID2 と LiveRamp の両方でサポートされている SHA-256 ハッシング方法論を使用する必要があります。他のハッシング方法論を使用したり、ステップを逃したりすると、ATS エンベロープに UID2 Token が追加されないか、無効なトークンが追加されます。
-
-For details, see [Normalization and Encoding](../getting-started/gs-normalization-encoding.md).
+UID2 と LiveRamp の両方でサポートされている SHA-256 ハッシュ化方法論を使用する必要があります。他のハッシュ化方法論を使用したり、ステップを逃したりすると、ATS エンベロープに UID2 Token が追加されないか、無効なトークンが追加されます。
+ 
+詳細は、[Normalization and Encoding](../getting-started/gs-normalization-encoding.md) を参照してください。
 
 ## Set Envelope Refresh to 1800 Seconds
 

@@ -2,11 +2,12 @@
 name = "uid2-docs-python-tests"
 version = "0.1.0"
 description = "Python tests for UID2 documentation code samples"
-requires-python = ">=3.8"
+requires-python = ">=3.9"
 dependencies = [
     "uid2-client>=3.0.0a1",
     "pytest>=7.0.0",
     "python-dotenv>=1.0.0",
+    "urllib3>=2.6.3",
 ]
 
 [project.optional-dependencies]

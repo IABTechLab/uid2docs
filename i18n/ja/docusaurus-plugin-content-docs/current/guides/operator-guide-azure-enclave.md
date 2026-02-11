@@ -18,11 +18,11 @@ import SnptRotatingTheKeys from '../snippets/_snpt-private-operator-rotating-the
 
 UID2 Operator は、UID2 エコシステム内の API サーバーです。詳細は、[UID2 Operator](../ref-info/ref-operators-public-private.md) を参照してください。
 
-このガイドでは、Microsoft Azureの機密コンピューティングオプションである [Confidential Containers](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-containers) のインスタンスで、<Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link> として UID2 Operator Service をセットアップするための情報を提供します。Confidential Containers インスタンスは、データ整合性、データ機密性、およびコード整合性などの本質的な機能を提供する、ハードウェアでバックアップされた信頼できる実行環境（Trusted Execution Environment：TEE）で実行されます。
+このガイドでは、Microsoft Azureの機密コンピューティングオプションである [Confidential Containers](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-containers) のインスタンスで、<Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link> として UID2 Operator Service をセットアップするための情報を提供します。Confidential Containers インスタンスは、データ整合性、データ機密性、およびコード整合性などの本質的な機能を提供する、ハードウェアでバックアップされた信頼できる実行環境（Trusted Execution Environment: TEE）で実行されます。
 
 UID2 Operator Confidential Containers インスタンスの Docker コンテナが起動すると、UID2 Core Service が Operator Service と Operator Service が実行されているエンクレーブ環境の真正性を検証できるように、アテステーション プロセスが完了します。
 
-認証外成功すると、UID2 Core Service は、UID2 Operator を安全な UID2 Operator Confidential Containers インスタンスでブートストラップするためのソルトやキーなどのシード情報を提供します。
+認証が成功すると、UID2 Core Service は、UID2 Operator を安全な UID2 Operator Confidential Containers インスタンスでブートストラップするためのソルトやキーなどのシード情報を提供します。
 
 :::caution
 UID2 Private Operator for Azure は、次の地域ではサポートされていません: ヨーロッパ、中国。
@@ -34,7 +34,7 @@ UID2 Private Operator for Azure は、次の地域ではサポートされてい
 
 | Version Name | Version Number  | Release Notes | Azure Download |  Date | Deprecation Date |
 | ------- | ------ | ------ | ------ | ------ | ------ |
-| Q2 2025 | v5.55.9 | [v5.55.9](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.55.9-r1) | [azure-cc-deployment-files-5.55.9-r1.zip](https://github.com/IABTechLab/uid2-operator/releases/download/v5.55.9-r1/azure-cc-deployment-files-5.55.9-r1.zip) | July 1, 2025 | July 1, 2026 |
+| Q4 2025 | v5.62.24 | [v5.62.24](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.62.24-r2) | [azure-cc-deployment-files-5.62.24-r2.zip](https://github.com/IABTechLab/uid2-operator/releases/download/v5.62.24-r2/azure-cc-deployment-files-5.62.24-r2.zip) | January 15, 2026 | January 15, 2027 |
 
 :::note
 For information about supported versions and deprecation dates, see [Private Operator Versions](../ref-info/deprecation-schedule.md#private-operator-versions).
@@ -91,7 +91,7 @@ Azure CLI をインストールします。詳細は、Azure ドキュメント�
 | Environment | Details |
 | :--- | :--- |
 | Integration (`integ`) | テスト専用。デバッグモードはインテグレーション環境で使用できます。 |
-| Production (`prod`) | 本番のトラフックの管理。 |
+| Production (`prod`) | 本番のトラフィックの管理。 |
 
 ## Deployment
 

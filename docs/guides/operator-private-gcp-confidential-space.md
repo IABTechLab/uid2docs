@@ -13,6 +13,7 @@ import SnptUpgradePolicy from '../snippets/_snpt-private-operator-upgrade-policy
 import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emails-and-phone-numbers.mdx';
 import SnptAttestFailure from '../snippets/_snpt-private-operator-attest-failure.mdx';
 import SnptRotatingTheKeys from '../snippets/_snpt-private-operator-rotating-the-keys.mdx';
+import SnptRuntimeErrors from '../snippets/_snpt-private-operator-runtime-errors.mdx';
 
 # UID2 Private Operator for GCP Integration Guide
 
@@ -36,7 +37,7 @@ The latest ZIP file is linked in the GCP Download column in the following table.
 
 | Version Name | Version&nbsp;#/Release&nbsp;Notes | GCP Download |  Date | Deprecation Date |
 | ------- | ------ | ------ | ------ | ------ |
-| Q2 2025 | [v5.55.9](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.55.9-r1) | [gcp-oidc-deployment-files-5.55.9-r1.zip](https://github.com/IABTechLab/uid2-operator/releases/download/v5.55.9-r1/gcp-oidc-deployment-files-5.55.9-r1.zip) | July 1, 2025 | July 1, 2026 | 
+| Q4 2025 | [v5.62.24](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.62.24-r2) | [gcp-oidc-deployment-files-5.62.24-r2.zip](https://github.com/IABTechLab/uid2-operator/releases/download/v5.62.24-r2/gcp-oidc-deployment-files-5.62.24-r2.zip) | January 15, 2026 | January 15, 2027 | 
 
 :::note
 For information about supported versions and deprecation dates, see [Private Operator Versions](../ref-info/deprecation-schedule.md#private-operator-versions).
@@ -545,11 +546,15 @@ The Private Operator for GCP exposes [Prometheus-formatted metrics](https://prom
 
 ## UID2 Operator Error Codes
 
-The following table lists errors that might occur during a Private Operator's startup sequence.
+The following sections list error codes that might occur during a Private Operator's startup or runtime.
 
 :::note
-Error codes for Private Operator startup issues are applicable only to release v5.49.7 and later.
+Error codes for Private Operator issues are applicable only to release v5.49.7 and later.
 :::
+
+### Startup Errors
+
+The following errors might occur during operator startup:
 
 | Error Code | Issue | Steps to Resolve |
 | :--- | :--- | :--- |
@@ -559,3 +564,9 @@ Error codes for Private Operator startup issues are applicable only to release v
 | E05 | OperatorKeyValidationError | Ensure the operator key is correct for the environment and matches the one provided to you. |
 | E06 | UID2ServicesUnreachableError | Allow UID2 core and opt-out service IP addresses in the egress firewall. For IP addresses and DNS details, refer to the logs.  |
 | E08 | OperatorKeyPermissionError |  Attach a service account to the Compute Engine instance template. The UID2 Operator needs these permissions to access the operator key from the GCP Secret Manager. |
+
+### Runtime Errors
+
+The following errors might occur during operator runtime:
+
+<SnptRuntimeErrors />

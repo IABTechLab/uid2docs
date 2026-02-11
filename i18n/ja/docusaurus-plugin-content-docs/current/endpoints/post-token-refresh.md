@@ -11,11 +11,11 @@ import SnptIdentityGenerateResponse from '../snippets/_snpt-example-identity-gen
 
 # POST /token/refresh
 
-[POST&nbsp;/token/generate](post-token-generate.md) エンドポイントで返された有効期限内の Refresh Token を送信して、新しい <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 token</Link> を生成します。
+[POST&nbsp;/token/generate](post-token-generate.md) エンドポイントで返された有効期限内の Refresh Token を送信して、新しい <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 Token</Link> を生成します。
 
 Used by: このエンドポイントは、主にパブリッシャーが使用します。
 
-このエンドポイントは、Client-Side (たとえば、ブラウザやモバイルアプリ) から呼び出すことができます。それは、<Link href="../ref-info/glossary-uid#gl-api-key">API key</Link> を使用する必要がないためです。
+このエンドポイントは、<Link href="../ref-info/glossary-uid#gl-api-key">API key</Link> を使用する必要がないため、ブラウザやモバイルアプリなどの Client-Side から呼び出せます。
 
 :::note
 このエンドポイントを直接呼び出す代わりに、UID2 SDK のいずれかを使用して管理することができます。オプションの概要は、[SDKs: Summary](../sdks/summary-sdks.md) を参照してください。
@@ -98,12 +98,12 @@ Used by: このエンドポイントは、主にパブリッシャーが使用�
 
 | Property | Data Type | Description |
 | :--- | :--- | :--- |
-| `advertising_token` | string | ユーザーの <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 token</Link> (Advertising Token とも呼ばれます) です。 |
+| `advertising_token` | string | ユーザーの <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 Token</Link> (Advertising Token とも呼ばれます) です。 |
 | `refresh_token` | string | UID2 Service と最新の ID トークンのセットを交換できる暗号化されたトークンです。 |
 | `identity_expires` | number | UID2 Token の有効期限を示す <a href="../ref-info/glossary-uid#gl-unix-time">Unix</a> タイムスタンプ (ミリ秒単位) です。 |
-| `refresh_from` | number | SDK for JavaScript ([SDK for JavaScript Reference Guide](../sdks/sdk-ref-javascript.md) を参照) が UID2 Token のリフレッシュを開始するタイミングを示す Unix タイムスタンプ(ミリ秒単位)。<br/>TIP: SDK を使用していない場合は、このタイムスタンプから Advertising Token もリフレッシュすることを検討してください。|
-| `refresh_expires` | number | Refresh Token の有効期限を示す Unix タイムスタンプ(ミリ秒単位)。 |
-| `refresh_response_key` | string | [POST&nbsp;/token/refresh](post-token-refresh.md) リクエストでレスポンス復号化のために使用される鍵です。 |
+| `refresh_from` | number | SDK for JavaScript ([SDK for JavaScript Reference Guide](../sdks/sdk-ref-javascript.md) を参照) が UID2 Token のリフレッシュを開始するタイミングを示す Unix タイムスタンプ (ミリ秒単位)。<br/>TIP: SDK を使用していない場合は、このタイムスタンプから Advertising Token もリフレッシュすることを検討してください。 |
+| `refresh_expires` | number | Refresh Token の有効期限を示す Unix タイムスタンプ (ミリ秒単位)。  |
+| `refresh_response_key` | string | [POST&nbsp;/token/refresh](post-token-refresh.md) リクエストでレスポンス復号化のために使用される鍵です。|
 
 ### Response Status Codes
 
@@ -116,6 +116,6 @@ Used by: このエンドポイントは、主にパブリッシャーが使用�
 | `client_error` | 400 | リクエストに不足している、または無効なパラメータがありました。 |
 | `invalid_token` | 400 | リクエストで指定された `refresh_token` の値が無効です。このステータスは許可されたリクエストに対してのみ返されます。 |
 | `expired_token` | 400 | リクエストで指定された `refresh_token` 値は期限切れのトークンです。 |
-| `unauthorized` | 401 | リクエストにベアラートークンが含まれていない、無効なベアラートークンが含まれている、またはリクエストされた操作を実行するのに許可されていないベアラートークンが含まれていました。 |
+| `unauthorized`  | 401 | リクエストにベアラートークンが含まれていない、無効なベアラートークンが含まれている、またはリクエストされた操作を実行するのに許可されていないベアラートークンが含まれていました。 |
 
 `status` の値が `success` または `optout` 以外であれば、`message` フィールドにその問題に関する追加情報が表示されます。

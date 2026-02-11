@@ -1,6 +1,6 @@
 ---
 title: POST /token/validate
-description: Advertising Token を検証(テスト目的)。
+description: Advertising Token を検証 (テスト目的)。
 hide_table_of_contents: false
 sidebar_position: 03
 displayed_sidebar: docs
@@ -47,11 +47,11 @@ Used by: このエンドポイントは、主にパブリッシャーが使用�
 
 | Body Parameter | Data Type | Attribute | Description |
 | :--- | :--- | :--- | :--- |
-| `token` | string | Required | [POST&nbsp;/token/generate](post-token-generate.md) レスポンスによって返された Advertising Token です。<br/>自身の資格情報で生成された Advertising Token のみを検証できます。|
-| `email` | string | Conditionally Required | トークン検証用のメールアドレスです。正規化されているかどうかに関わらず、有効なメールアドレス値を使用できます。 |
-| `email_hash` | string | Conditionally Required | 有効な [正規化された](../getting-started/gs-normalization-encoding.md#email-address-normalization) メールアドレスの [Base64-encoded SHA-256](../getting-started/gs-normalization-encoding.md#email-address-hash-encoding) ハッシュです。 |
-| `phone` | string | Conditionally Required | トークン検証用の電話番号です。有効な電話番号値を使用できますが、[正規化](../getting-started/gs-normalization-encoding.md#phone-number-normalization)されている必要があります。 |
-| `phone_hash` | string | Conditionally Required | 有効な [正規化された](../getting-started/gs-normalization-encoding.md#phone-number-normalization) 電話番号の [Base64-encoded SHA-256](../getting-started/gs-normalization-encoding.md#phone-number-hash-encoding) ハッシュです。 |
+| `token`　| string | 必須 | [POST&nbsp;/token/generate](post-token-generate.md) レスポンスによって返された Advertising Token です。<br/>自身の認証情報で生成された Advertising Token のみを検証できます。 |
+| `email` | string | 条件付きで必須 | トークン検証用のメールアドレスです。正規化されているかどうかに関わらず、有効なメールアドレス値を使用できます。　|
+| `email_hash` | string | 条件付きで必須 | 有効な [正規化された](../getting-started/gs-normalization-encoding.md#email-address-normalization) メールアドレスの [Base64-encoded SHA-256](../getting-started/gs-normalization-encoding.md#email-address-hash-encoding) ハッシュです。 |
+| `phone` | string | 条件付きで必須 | トークン検証用の電話番号です。有効な電話番号値を使用できますが、[正規化](../getting-started/gs-normalization-encoding.md#phone-number-normalization)されている必要があります。 |
+| `phone_hash` | string | 条件付きで必須 | 有効な [正規化された](../getting-started/gs-normalization-encoding.md#phone-number-normalization) 電話番号の [Base64-encoded SHA-256](../getting-started/gs-normalization-encoding.md#phone-number-hash-encoding) ハッシュです。 |
 
 ### Request Examples
 
@@ -123,7 +123,7 @@ echo '{"token": "AdvertisingTokenmZ4dZgeuXXl6DhoXqbRXQbHlHhA96leN94U1uavZVspwKXl
 
 | Status | HTTP Status Code | Description |
 | :--- | :--- | :--- |
-| `success`      | 200 | リクエストは成功しました。レスポンスは暗号化されています。 |
+| `success` | 200 | リクエストは成功しました。レスポンスは暗号化されています。 |
 | `client_error` | 400 | リクエストに不足している、または無効なパラメータがありました。 |
 | `unauthorized` | 401 | リクエストにベアラートークンが含まれていない、無効なベアラートークンが含まれている、またはリクエストされた操作を実行するのに許可されていないベアラートークンが含まれていました。 |
 

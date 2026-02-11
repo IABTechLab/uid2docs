@@ -48,7 +48,7 @@ v2 バージョンを使用している場合は、改善点を活用するた�
 
 | Body Parameter | Data Type | Attribute | Description | Format |
 | :--- | :--- | :--- | :--- | :--- |
-| `since_timestamp` | date-time or integer | 必須      | バケットの最終更新 UTC タイムスタンプを比較する日時を指定します。 | ISO 8601 形式:<br/>`YYYY-MM-DDThh:mm:ss` |
+| `since_timestamp` | date-time or integer | 必須 | バケットの最終更新 UTC タイムスタンプを比較する日時を指定します。 | ISO 8601 形式:<br/>`YYYY-MM-DDThh:mm:ss` |
 
 ### Request Examples
 
@@ -101,7 +101,7 @@ echo '{"since_timestamp": "2023-04-19T13:00:00"}' | python3 uid2_request.py http
 | Property | Format | Description |
 | :--- | :--- | :--- |
 | `bucket_id` | string | ソルトバケット ID です。 |
-| `last_updated` | date-time | バケットソルトが最後にローテーションされた UTC タイムスタンプです。 |
+| `last_updated` | date-time | ソルトバケットが最後にローテーションされた UTC タイムスタンプです。 |
 
 ### Response Status Codes
 
@@ -110,7 +110,7 @@ echo '{"since_timestamp": "2023-04-19T13:00:00"}' | python3 uid2_request.py http
 | Status | HTTP Status Code | Description |
 | :--- | :--- | :--- |
 | `success` | 200 | リクエストは成功しました。レスポンスは暗号化されています。 |
-| `client_error` | 400 | リクエストに不足している、または無効なパラメータがありました。|
+| `client_error` | 400 | リクエストに不足している、または無効なパラメータがありました。 |
 | `unauthorized` | 401 | リクエストにベアラートークンが含まれていない、無効なベアラートークンが含まれている、またはリクエストされた操作を実行するのに許可されていないベアラートークンが含まれていました。 |
 
 `status` の値が `success` 以外であれば、`message` フィールドにその問題に関する追加情報が表示されます。

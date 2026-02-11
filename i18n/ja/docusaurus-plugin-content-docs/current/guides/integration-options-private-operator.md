@@ -30,7 +30,7 @@ Private Operator に参加するメリットは次のとおりです。
 - 顧客のデータを暗号化し、選択したパートナー間でアクティブ化するためのプライバシーに配慮したワークフローを維持できます。
 - 自社のファーストパーティ <Link href="../ref-info/glossary-uid#gl-dii">directly identifying information (DII)</Link> を共有することなく、UID2 に参加できます。
 
-  Private Operator ソリューションないでは、DII が自社のインフラストラクチャを離れることはありません。
+  Private Operator ソリューション内では、DII が自社のインフラストラクチャを離れることはありません。
 - UID2 のためのリソース、パフォーマンス、およびレイテンシを完全に制御できます。たとえば:
   - 制限なしで、より高い可用性を提供できます。
   - Public Operator のインスタンスが近くにない場合、レイテンシの理由から Private Operator ソリューションをホストすることがあります。
@@ -46,7 +46,7 @@ Private Operator に参加するメリットは次のとおりです。
 Private Operator インスタンスをホストするためには、契約を結ぶ必要があります。契約は、[Account Setup](../getting-started/gs-account-setup.md) を参照してください。
 
 :::note
-Privaet Operator は、Public Operator または他の Private Operator によって処理された raw UID2 または UID2 Token の内容を見ることはできません。各 Private Operator は他のすべての Operator から隔離されています。
+Private Operator は、Public Operator または他の Private Operator によって処理された raw UID2 または UID2 Token の内容を見ることはできません。各 Private Operator は他のすべての Operator から隔離されています。
 :::
 
 ## Hosting Options for Private Operators
@@ -55,7 +55,7 @@ Private Operator を選択する場合、いくつかの実装オプションが
 - [Nitro Enclave](https://aws.amazon.com/ec2/nitro/) AWS から
 - [Confidential Space](https://cloud.google.com/confidential-computing#confidential-space), [Google Cloud](https://cloud.google.com/docs/overview/) Platform の機密コンピューティング オプション
 - [Confidential Containers](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-containers), Microsoft Azure の機密コンピューティング オプション
-- [Azure Kubernetes Service (AKS)](https://learn.microsoft.com/en-us/azure/aks/what-is-aks), Microsoft Azure コンテナインスタンス条の仮装ノードで実行され、Kubernetes を使用している機密コンピューティングソリューション
+- [Azure Kubernetes Service (AKS)](https://learn.microsoft.com/en-us/azure/aks/what-is-aks), Microsoft Azure コンテナインスタンス上の仮想ノードで実行され、Kubernetes を使用している機密コンピューティングソリューション
 
 ## Private Operator Workflow
 

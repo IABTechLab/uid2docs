@@ -17,7 +17,7 @@ import Link from '@docusaurus/Link';
 
 ## Overview
 
-DSP が、ターゲティング広告や入札の目的で復号化されたトークンを使用使用できるようにするには、UID2 Token を raw UID2 に復号化し、トークンの有効性を検証できる必要があります。これを行うために、DSP は以下を行う必要があります:
+DSP が、ターゲティング広告や入札の目的で復号化されたトークンを使用できるようにするには、UID2 Token を raw UID2 に復号化し、トークンの有効性を検証できる必要があります。これを行うために、DSP は以下を行う必要があります:
 
 - [Retrieve a set of encryption keys](#retrieverefresh-encryption-keys)
 - [Decrypt UID2 tokens into raw UID2s](#decrypt-uid2-tokens-into-raw-uid2s)

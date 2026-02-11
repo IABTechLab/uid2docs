@@ -11,7 +11,7 @@ import SnptPOSTIdentityMapImprovements from '../snippets/_snpt-post-identity-map
 
 # POST /identity/map
 
-複数のメールアドレス、電話番号、またはそれぞれのハッシュを、raw UID2 にマッピングします。このエンドポイントを使用して、オプトアウト情報の更新をチェックしたり、raw UID2 の更新が可能な時期を確認したり、現在の raw UID2 が 発行されてから 90 日未満の場合に前の UID2 を表示することもできます。
+複数のメールアドレス、電話番号、またはそれぞれのハッシュを、raw UID2 にマッピングします。このエンドポイントを使用して、オプトアウト情報の更新をチェックしたり、raw UID2 の更新が可能な時期を確認したり、現在の raw UID2 が発行されてから 90 日未満の場合に前の UID2 を表示することもできます。
 
 Used by: このエンドポイントは、主に広告主とデータプロバイダーによって使用されます。詳細は、[Advertiser/Data Provider Integration Overview](../guides/integration-advertiser-dataprovider-overview.md) を参照してください。
 
@@ -29,7 +29,7 @@ UID2 のオプトアウト手順とユーザーがオプトアウトする方法
 
 - 最大リクエストサイズは 1MB です。
 - 大量のメールアドレス、電話番号、またはそれぞれのハッシュをマッピングする場合は、1 バッチあたり最大 5,000 アイテムの *順次* バッチで送信します。
-- <Link href="../ref-info/glossary-uid#gl-private-operator">プライベートオペレーター</Link>を使用していない限り、バッチを並行して送信しないでください。つまり、単一の HTTP 接続を使用し、ハッシュ化またはハッシュされていない <Link href="../ref-info/glossary-uid#gl-dii">Directly Identifying Information (DII)</Link> 値のバッチを連続して送信し、複数の並行接続を作成しないでください。
+- <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link> を使用していない限り、バッチを並行して送信しないでください。つまり、単一の HTTP 接続を使用し、ハッシュ化またはハッシュされていない <Link href="../ref-info/glossary-uid#gl-dii">Directly Identifying Information (DII)</Link> 値のバッチを連続して送信し、複数の並行接続を作成しないでください。
 - メールアドレス、電話番号、またはそれぞれのハッシュのマッピングを必ず保存してください。<br/>マッピングを保存しないと、数百万のメールアドレスや電話番号をマッピングする際に処理時間が大幅に増加する可能性があります。ただし、実際に更新が必要なマッピングのみを再計算すると、UID2 の約 1/365 が毎日更新されるため、総処理時間が短縮されます。詳細は、[Advertiser/Data Provider Integration Overview](../guides/integration-advertiser-dataprovider-overview.md) と [FAQs for Advertisers and Data Providers](../getting-started/gs-faqs.md#faqs-for-advertisers-and-data-providers) を参照してください。
 
 ## Request Format
@@ -46,7 +46,7 @@ UID2 のオプトアウト手順とユーザーがオプトアウトする方法
 
 | Path Parameter | Data Type | Attribute | Description |
 | :--- | :--- | :--- | :--- |
-| `{environment}` | string | Required | テスト（インテグレーション）環境: `https://operator-integ.uidapi.com`<br/>本番環境: 最適な選択は、ユーザーの所在地によって異なります。ユースケースに適したURLの選択方法や、有効なベース URL の一覧は、[Environments](../getting-started/gs-environments.md) を参照してください。 |
+| `{environment}` | string | 必須 | テスト（インテグレーション）環境: `https://operator-integ.uidapi.com`<br/>本番環境: 最適な選択は、ユーザーの所在地によって異なります。ユースケースに適した URL の選択方法や、有効なベース URL の一覧は、[Environments](../getting-started/gs-environments.md) を参照してください。 |
 
 :::note
 インテグレーション環境と本番環境では、異なる <Link href="../ref-info/glossary-uid#gl-api-key">API Key</Link> が必要です。各環境の認証情報の取得方法は、[Getting Your Credentials](../getting-started/gs-credentials.md#getting-your-credentials) を参照してください。
@@ -55,15 +55,15 @@ UID2 のオプトアウト手順とユーザーがオプトアウトする方法
 ### Unencrypted JSON Body Parameters
 
 :::important
-暗号化を行う際には、リクエストの JSON 本文に次の 4 つのパラメーターのいずれかをキーと値のペアとして含めてください。
+暗号化を行う際には、リクエストの JSON 本文に次の 4 つのパラメータのうち、**いずれか 1 つ** をキーと値のペアとして含めてください。
 :::
 
-| Body Parameter | Data Type | Attribute | Description |
-| :--- | :--- | :--- | :--- |
-| `email` | string array | 条件付きで必須 | マッピングするメールアドレスのリスト。 |
-| `email_hash` | string array | 条件付きで必須 | マッピングする[正規化済み](../getting-started/gs-normalization-encoding.md#email-address-normalization)メールアドレスの[ Base64 エンコードされた SHA-256](../getting-started/gs-normalization-encoding.md#email-address-hash-encoding)ハッシュのリスト。 |
-| `phone` | string array | 条件付きで必須 | マッピングする[正規化済み](../getting-started/gs-normalization-encoding.md#phone-number-normalization)電話番号のリスト。 |
-| `phone_hash` | string array | 条件付きで必須 | マッピングする[正規化済み](../getting-started/gs-normalization-encoding.md#phone-number-normalization)電話番号の[ Base64 エンコードされた SHA-256](../getting-started/gs-normalization-encoding.md#phone-number-hash-encoding)ハッシュのリスト。 |
+| Body Parameter | Data Type                   | Attribute              | Description |
+|:---------------|:----------------------------|:-----------------------| :--- |
+| `email`        | string array | 条件付きで必須 | マッピングするメールアドレスのリスト。                                                                                                                                                                                                                      |
+| `email_hash`   | string array | 条件付きで必須 | マッピングする [正規化済み](../getting-started/gs-normalization-encoding.md#email-address-normalization) メールアドレスの [Base64 エンコードされた SHA-256](../getting-started/gs-normalization-encoding.md#email-address-hash-encoding) ハッシュのリスト。 |
+| `phone`        | string array | 条件付きで必須 | マッピングする [正規化済み](../getting-started/gs-normalization-encoding.md#phone-number-normalization) 電話番号のリスト。 |
+| `phone_hash`   | string array | 条件付きで必須 | マッピングする [正規化済み](../getting-started/gs-normalization-encoding.md#phone-number-normalization) 電話番号の [Base64 エンコードされた SHA-256](../getting-started/gs-normalization-encoding.md#phone-number-hash-encoding) ハッシュのリスト。 |
 
 
 ### Request Examples
@@ -107,7 +107,7 @@ echo '{"phone": ["+12345678901", "+441234567890"]}' | python3 uid2_request.py ht
 ## Decrypted JSON Response Format
 
 :::note
-HTTPステータスコードが 200 の場合、レスポンスは暗号化されます。それ以外の場合、レスポンスは暗号化されません。
+HTTP ステータスコードが 200 の場合、レスポンスは暗号化されます。それ以外の場合、レスポンスは暗号化されません。
 :::
 
 復号化に成功したレスポンスは、指定されたメールアドレス、電話番号、またはそれぞれのハッシュに対する現在の raw UID2、以前の raw UID2、および更新タイムスタンプを返します。
@@ -162,21 +162,21 @@ Response:
 
 レスポンス本文には、以下の表に示すプロパティのいずれかが含まれます。
 
-| Body Parameter | Data Type | Description |
-| :--- | :--- | :--- |
-| `email`        | マッピングされた DII オブジェクトの配列 | リクエスト内のメールアドレスのリストに対応するマッピングされた DII オブジェクトのリスト。 |
+| Body Parameter | Data Type                               | Description                                                                                       |
+| :------------- | :-------------------------------------- | :------------------------------------------------------------------------------------------------ |
+| `email`        | マッピングされた DII オブジェクトの配列 | リクエスト内のメールアドレスのリストに対応するマッピングされた DII オブジェクトのリスト。         |
 | `email_hash`   | マッピングされた DII オブジェクトの配列 | リクエスト内のメールアドレスハッシュのリストに対応するマッピングされた DII オブジェクトのリスト。 |
-| `phone`        | マッピングされた DII オブジェクトの配列 | リクエスト内の電話番号のリストに対応するマッピングされた DII オブジェクトのリスト。 |
-| `phone_hash`   | マッピングされた DII オブジェクトの配列 | リクエスト内の電話番号ハッシュのリストに対応するマッピングされた DII オブジェクトのリスト。 |
+| `phone`        | マッピングされた DII オブジェクトの配列 | リクエスト内の電話番号のリストに対応するマッピングされた DII オブジェクトのリスト。               |
+| `phone_hash`   | マッピングされた DII オブジェクトの配列 | リクエスト内の電話番号ハッシュのリストに対応するマッピングされた DII オブジェクトのリスト。       |
 
 
 DII が正常にマッピングされた場合、マッピングされたオブジェクトには以下の表に示すプロパティが含まれます。
 
-| Property | Data Type | Description |
-| :--- | :--- | :--- |
-| `u` | string | リクエストで提供されたメールアドレスまたは電話番号に対応する raw UID2。 |
-| `p` | string | 以下のいずれか:<ul><li>現在の raw UID2 が過去 90 日以内にローテーションされた場合: 以前の raw UID2。</li><li>それ以外の場合: `null`。</li></ul> |
-| `r` | number | Unix タイムスタンプ（ミリ秒単位）で、raw UID2 がリフレッシュされる可能性のある時刻を示します。このタイムスタンプまで、raw UID2 は有効であることが保証されています。 |
+| Property | Data Type | Description                                                                                                                                                         |
+| :------- | :-------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `u`      | string    | リクエストで提供されたメールアドレスまたは電話番号に対応する raw UID2。                                                                                             |
+| `p`      | string    | 以下のいずれか:<ul><li>現在の raw UID2 が過去 90 日以内にローテーションされた場合: 以前の raw UID2。</li><li>それ以外の場合: `null`。</li></ul>                     |
+| `r`      | number    | Unix タイムスタンプ（ミリ秒単位）で、raw UID2 がリフレッシュされる可能性のある時刻を示します。このタイムスタンプまで、raw UID2 は有効であることが保証されています。 |
 
 :::note
 raw UID2 はリフレッシュタイムスタンプの前では変化しません。リフレッシュタイムスタンプの後、DII を再マッピングすると新しいリフレッシュタイムスタンプが返されますが、raw UID2 は変化する場合もあれば変化しない場合もあります。raw UID2 が複数のリフレッシュ間隔にわたって変化しない可能性もあります。
@@ -184,9 +184,9 @@ raw UID2 はリフレッシュタイムスタンプの前では変化しませ�
 
 マッピングできなかった入力値に対しては、マッピングされたオブジェクトに以下の表に示すプロパティが含まれます。
 
-| Property | Data Type | Description|
-| :--- | :--- | :--- |
-| `e`| string | マッピングできなかった理由。次のいずれかの値:<ul><li>`optout`</li><li>`invalid identifier`</li></ul> |  
+| Property | Data Type | Description                                                                                          |
+| :------- | :-------- | :--------------------------------------------------------------------------------------------------- |
+| `e`      | string    | マッピングできなかった理由。次のいずれかの値:<ul><li>`optout`</li><li>`invalid identifier`</li></ul> |
 
 ### Response Status Codes
 
@@ -196,7 +196,7 @@ raw UID2 はリフレッシュタイムスタンプの前では変化しませ�
 | :--- | :--- | :--- |
 | `success` | 200 | リクエストは成功しました。レスポンスは暗号化されます。 |
 | `client_error` | 400 | リクエストに欠落または無効なパラメーターが含まれていました。 |
-| `unauthorized` | 401 | リクエストにベアラートークンが含まれていない、無効なベアラートークンが含まれている、またはリクエストされた操作を実行する権限のないベアラートークンが含まれていました。 |
+| `unauthorized` | 401  | リクエストにベアラートークンが含まれていない、無効なベアラートークンが含まれている、またはリクエストされた操作を実行する権限のないベアラートークンが含まれていました。 |
 
 `status` プロパティの値が `success` 以外の場合、`message` フィールドには問題に関する追加情報が提供されます。
 
@@ -217,12 +217,12 @@ raw UID2 はリフレッシュタイムスタンプの前では変化しませ�
 
 以下の表は、バージョン間の主な違いを示しています。
 
-| Feature | v2 Implementation | v3 Implementation |
-| :--- | :--- | :--- |
-| 必要なエンドポイント | `/v2/identity/map` + `/v2/identity/buckets` | `/v3/identity/map` のみ |
-| リクエストごとのアイデンティティタイプ | 単一のアイデンティティタイプのみ | 複数のアイデンティティタイプ |
-| リフレッシュ管理 | `/identity/buckets` エンドポイントを介してソルトバケットのローテーションをモニター | `refresh_from` タイムスタンプを過ぎたときに再マッピング |
-| 前の UID2 アクセス | 利用不可 | 90 日間利用可能 |
+| Feature                                | v2 Implementation                                                                  | v3 Implementation                                       |
+| :------------------------------------- | :--------------------------------------------------------------------------------- | :------------------------------------------------------ |
+| 必要なエンドポイント                   | `/v2/identity/map` + `/v2/identity/buckets`                                        | `/v3/identity/map` のみ                                 |
+| リクエストごとのアイデンティティタイプ | 単一のアイデンティティタイプのみ                                                   | 複数のアイデンティティタイプ                            |
+| リフレッシュ管理                       | `/identity/buckets` エンドポイントを介してソルトバケットのローテーションをモニター | `refresh_from` タイムスタンプを過ぎたときに再マッピング |
+| 前の UID2 アクセス                     | 利用不可                                                                           | 90 日間利用可能                                         |
 
 ### Required Changes
 
@@ -277,7 +277,7 @@ for index, item in enumerate(response['body']['email']):
 
 #### 3. Replace Salt Bucket Monitoring with Refresh Timestamp Logic
 
-Salt Bucketのモニタリングを更新して、`refresh_from` タイムスタンプをチェックし、raw UID2 の更新が必要なものを判断するコードに置き換えます。
+ソルトバケットのモニタリングを更新して、`refresh_from` タイムスタンプをチェックし、raw UID2 の更新が必要なものを判断するコードに置き換えます。
 
 以下の例は、リフレッシュタイムスタンプをチェックするための v3 アプローチの実装を示しています:
 
@@ -295,10 +295,10 @@ remap_identities(to_remap)
 
 ### Additional Resources
 
-Identity mapping の一般的な情報については、[Advertiser/Data Provider Integration Overview](../guides/integration-advertiser-dataprovider-overview.md) を参照してください。
+アイデンティティマッピングの一般的な情報については、[Advertiser/Data Provider Integration Overview](../guides/integration-advertiser-dataprovider-overview.md) を参照してください。
 
 特定の SDK の移行ガイダンスについては、以下を参照してください:
-- SDK for Python Reference Guide, [Usage for Advertisers/Data Providers](../sdks/sdk-ref-python.md#usage-for-advertisersdata-providers) section
-- SDK for Java Reference Guide, [Usage for Advertisers/Data Providers](../sdks/sdk-ref-java.md#usage-for-advertisersdata-providers) section
+- SDK for Python Reference Guide, [Usage for Advertisers/Data Providers](../sdks/sdk-ref-python.md#usage-for-advertisersdata-providers) セクション
+- SDK for Java Reference Guide, [Usage for Advertisers/Data Providers](../sdks/sdk-ref-java.md#usage-for-advertisersdata-providers) セクション
 
 Snowflake に関する情報は、[Snowflake Integration Guide](../guides/integration-snowflake.md) を参照してください。

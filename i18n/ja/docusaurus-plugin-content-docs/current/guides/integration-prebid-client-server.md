@@ -16,14 +16,14 @@ import SnptStoreUID2TokenInBrowser from '../snippets/_snpt-prebid-storing-uid2-t
 
 # UID2 Client-Server Integration Guide for Prebid.js
 
-このガイドは、Server-Side で <Link href="../ref-info/glossary-uid#gl-dii">DII</Link>(メールアドレスまたは電話番号) にアクセスでき、UID2 とインテグレーションして、RTB <Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link>で Prebid.js によって渡される <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 token</Link>(Advertising Token) を生成したいパブリッシャー向けのものです。
+このガイドは、Server-Side で <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> (メールアドレスまたは電話番号) にアクセスでき、UID2 とインテグレーションして、RTB <Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link>で Prebid.js によって渡される <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 Token</Link> (Advertising Token) を生成したいパブリッシャー向けのものです。
 
 これは Client-Server インテグレーションと呼ばれ、一部のインテグレーションステップが Client-Side で行われ、一部が Server-Side で行われます。
 
 Prebid.js を使って UID2 とインテグレーションするには、以下が必要です:
 
 - サイトの HTML と JavaScript に変更を加えます。
-- トークン生成のためにサーバーサイドを変更します(オプションで <a href="../ref-info/glossary-uid#gl-token-refresh">Token Refresh</a>)。 
+- トークン生成のために Server-Side を変更します(オプションで <a href="../ref-info/glossary-uid#gl-token-refresh">トークンリフレッシュ</a>)。 
 
 ## Prebid.js Version
 
@@ -61,8 +61,8 @@ Prebid.js を使用して UID2 とインテグレーションするには、UID2
 
 Client-Server インテグレーションの場合、UID2 Portal の [API Keys](../portal/api-keys.md) ページで以下の値を設定する必要があります:
 
-- <Link href="../ref-info/glossary-uid#gl-api-key">API key</Link>、Client Key とも呼ばれます。
-- <Link href="../ref-info/glossary-uid#gl-client-secret">Client secret</Link>、参加者と UID2 Service のみが知る値。
+- <Link href="../ref-info/glossary-uid#gl-api-key">API Key</Link>、Client Key とも呼ばれます。
+- <Link href="../ref-info/glossary-uid#gl-client-secret">クライアントシークレット</Link>、参加者と UID2 Service のみが知る値。
 
 :::important
 これらの値を安全に保管することが非常に重要です。詳細は、[Security of API Key and Client Secret](../getting-started/gs-credentials.md#security-of-api-key-and-client-secret) を参照してください。
@@ -94,7 +94,7 @@ Prebid の Client-Server インテグレーションの場合、最初のステ�
 トークンを生成するには、いずれかの SDK または [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) エンドポイントを呼び出します。トークンを示す API レスポンスの例は、[Sample Token Response Object](#sample-token-response-object) を参照してください。`Identity` レスポンスを Prebid に渡す必要があります。
 
 :::warning
-セキュリティ上の理由から、トークン生成に使用される API キーとシークレットはサーバーサイドで呼び出す必要があります。これらの値は Prebid の実装の一部として保存しないでください。
+セキュリティ上の理由から、トークン生成に使用される API Key とクライアントシークレットは Server-Side で呼び出す必要があります。これらの値は Prebid の実装の一部として保存しないでください。
 :::
 
 ### Refreshing a UID2 Token
@@ -130,7 +130,7 @@ Client Refresh Mode を使用するようにモジュールを構成する場合
 | Option | Details | Use Case | 
 | --- | --- | --- |
 | `params.uid2Cookie` に、JSON 文字列としてレスポンスボディを含むクッキーの名前を設定します。 |  [Client Refresh Mode Cookie Example](#client-refresh-mode-cookie-example) を参照してください。 | レスポンスボディを保存するのに十分なスペースがクッキーに残っていることが確実な場合のみ、このオプションを使用してください。確信が持てない場合や、クッキーの保存の必要性が異なる可能性がある場合は、他のオプションを選択してください。 |
-| `params.uid2Token`をJavaScriptオブジェクトとしてレスポンスボディに設定します。 | [Client Refresh Mode uid2Token Example](#client-refresh-mode-uid2token-example) を参照してください。 | `params.uid2Token` を介してレスポンスボディを提供することもできます:<ul><li>すでに多くのデータをクッキーに保存していて、レスポンスボディを追加するとクッキーのサイズ制限を超える可能性がある場合。</li><li>Prebid module にトークン値を保存させたい場合。</li></ul> |
+| `params.uid2Token` を JavaScript オブジェクトとしてレスポンスボディに設定します。 | [Client Refresh Mode uid2Token Example](#client-refresh-mode-uid2token-example) を参照してください。 | `params.uid2Token` を介してレスポンスボディを提供することもできます:<ul><li>すでに多くのデータをクッキーに保存していて、レスポンスボディを追加するとクッキーのサイズ制限を超える可能性がある場合。</li><li>Prebid module にトークン値を保存させたい場合。</li></ul> |
 
 #### Client Refresh Mode Cookie Example
 

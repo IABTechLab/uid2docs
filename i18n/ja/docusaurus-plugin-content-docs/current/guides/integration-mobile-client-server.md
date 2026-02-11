@@ -31,7 +31,7 @@ Client-Side のみの変更で UID2 とインテグレーションしたい場�
 
 UID2 は、[Android](../sdks/sdk-ref-android.md) および [iOS](../sdks/sdk-ref-ios.md) 向けのモバイル SDK を提供しています。各 SDK には、次の機能があります:
 
-- UID2 <Link href="../ref-info/glossary-uid#gl-identity">identity</Link> (UID2 Token と関連する値) を生成し、モバイルアプリに渡すためのメソッドを提供します。
+- UID2 <Link href="../ref-info/glossary-uid#gl-identity">Identity</Link> (UID2 Token と関連する値) を生成し、モバイルアプリに渡すためのメソッドを提供します。
 - UID2 Token を自動的にリフレッシュします。
 
 :::note
@@ -74,8 +74,8 @@ UID2 とインテグレーションするには、UID2 アカウントが必要�
 
 Client-Server インテグレーションには、UID2 Portal の [API Keys](../portal/api-keys.md) ページでこれらの値を設定する必要があります:
 
-- <Link href="../ref-info/glossary-uid#gl-api-key">API key</Link>、Client key とも呼ばれます
-- <Link href="../ref-info/glossary-uid#gl-client-secret">Client secret</Link>、参加者と UID2 Service のみが知っている値
+- <Link href="../ref-info/glossary-uid#gl-api-key">API Key</Link>、Client Key とも呼ばれます
+- <Link href="../ref-info/glossary-uid#gl-client-secret">クライアントシークレット</Link>、参加者と UID2 Service のみが知っている値
 
 :::important
 これらの値を安全に保管することが非常に重要です。詳細は、[Security of API Key and Client Secret](../getting-started/gs-credentials.md#security-of-api-key-and-client-secret) を参照してください。
@@ -100,12 +100,12 @@ Client-Server インテグレーションには、UID2 Portal の [API Keys](../
 `Identity` レスポンスをモバイルアプリに渡す必要があります: [Configure the UID2 Mobile SDK](#configure-the-uid2-mobile-sdk) を参照してください。
 
 :::warning
-セキュリティ上の理由から、トークン生成に使用される API キーとシークレットはサーバーサイドで呼び出す必要があります。これらの値をモバイルアプリ内に保存しないでください。
+セキュリティ上の理由から、トークン生成に使用される API Key とクライアントシークレットは Server-Side で呼び出す必要があります。これらの値をモバイルアプリ内に保存しないでください。
 :::
 
 ## Server-Side Token Refresh
 
-UID2 mobile SDK では <a href="../ref-info/glossary-uid#gl-token-refresh">Token Refresh</a> が自動的に有効になっています。Server-Side で明示的に管理する必要はありません。
+UID2 mobile SDK では <a href="../ref-info/glossary-uid#gl-token-refresh">トークンリフレッシュ</a> が自動的に有効になっています。Server-Side で明示的に管理する必要はありません。
 
 モバイルアプリでの変更をできるだけシンプルにしたい場合は、Server-Side で Token Refresh を行うこともできます。
 
@@ -201,7 +201,7 @@ UID2Settings.shared.uid2Environment = .custom(
 
 ## Configure the UID2 Mobile SDK
 
-モバイルアプリで `UID2Manager` を正しくインスタンス化した後、Server-Side で生成された UID2 <Link href="../ref-info/glossary-uid#gl-identity">identity</Link> を渡し ([Implement server-side token generation](#implement-server-side-token-generation) を参照)、以下のようにモバイルアプリに渡してください:
+モバイルアプリで `UID2Manager` を正しくインスタンス化した後、Server-Side で生成された UID2 <Link href="../ref-info/glossary-uid#gl-identity">Identity</Link> を渡し ([Implement server-side token generation](#implement-server-side-token-generation) を参照)、以下のようにモバイルアプリに渡してください:
 
 <Tabs groupId="language-selection">
 <TabItem value='android' label='Android'>
@@ -222,7 +222,7 @@ UID2Manager.shared.setIdentity()
 
 ## Token Storage
 
-`setIdentity` メソッドを呼び出すと、UID2 identity がローカルファイルストレージに永続化されます。
+`setIdentity` メソッドを呼び出すと、UID2 Identity がローカルファイルストレージに永続化されます。
 
 :::warning
 ローカルファイルストレージに保存されたファイルの形式、またはファイル名自体が予告なく変更される可能性があります。ファイルを直接読み取ったり更新したりしないことを推奨します。
@@ -253,24 +253,24 @@ UID2Manager への ID の追加が成功した場合、このメソッドは次�
 
 <SnptExampleAdvertisingToken />
 
-この identity をダウンストリームに渡して RTB ビッドストリームに送信できます。
+この Identity をダウンストリームに渡して RTB ビッドストリームに送信できます。
 
-`getAdvertisingToken()`　メソッドが `null` を返す場合、identity または有効なトークンが生成されていません。これにはいくつかの理由が考えられ、トラブルシューティングするためにできることは次のとおりです:
+`getAdvertisingToken()`　メソッドが `null` を返す場合、Identity または有効なトークンが生成されていません。これにはいくつかの理由が考えられ、トラブルシューティングするためにできることは次のとおりです:
 
 - Identity が無効です。この場合、いくつかのオプションがあります:
   - 前の `setIdentity()` 呼び出しでエラーがあるかどうかを確認します。
-  - 以下のいずれかを使用して、identity のステータスを確認します:
+  - 以下のいずれかを使用して、Identity のステータスを確認します:
     - **Android Java**: `UID2Manager.getInstance().getCurrentIdentityStatus()` 
     - **Android Kotlin**: `UID2Manager.getInstance().currentIdentityStatus()` 
     - **iOS**: `UID2Manager.shared.identityStatus`
 - ロギングを有効 (`isLoggingEnabled` を `true` に設定する) にして詳細情報を取得します: [Enable Logging](#enable-logging) を参照してください。
-- UID2 identity 内の Advertising Token の有効期限が切れていて、Refresh Token も有効期限が切れているため、SDK がトークンをリフレッシュできません。
+- UID2 Identity 内の Advertising Token の有効期限が切れていて、Refresh Token も有効期限が切れているため、SDK がトークンをリフレッシュできません。
 
-ID が無効の場合、[Implement Server-Side Token Generation](#implement-server-side-token-generation) に従って新しい identity を生成し、その結果をモバイルアプリの UID2Manager に再度渡してください。
+Identity が無効の場合、[Implement Server-Side Token Generation](#implement-server-side-token-generation) に従って新しい Identity を生成し、その結果をモバイルアプリの UID2Manager に再度渡してください。
 
 ## When to Pass a new UID2 Identity/Token into the SDK
 
-UID2 SDK が新しい UID2 identity を再度必要とするかどうかを判断するための最良の方法は、すべてのケースで `getAdvertisingToken()` メソッドを呼び出すことです:
+UID2 SDK が新しい UID2 Identity を再度必要とするかどうかを判断するための最良の方法は、すべてのケースで `getAdvertisingToken()` メソッドを呼び出すことです:
 
 <Tabs groupId="language-selection">
 <TabItem value='android' label='Android'>
@@ -289,7 +289,7 @@ UID2Manager.shared.getAdvertisingToken()
 </TabItem>
 </Tabs>
 
-アプリの起動/再開時に、`getAdvertisingToken()` が `null` を返す場合、[Implement Server-Side Token Generation](#implement-server-side-token-generation) の手順に従ってサーバーで、新しい identity を生成してください。その後、モバイルアプリの UID2Manager に結果を再度渡してください: [Configure the UID2 Mobile SDK](#configure-the-uid2-mobile-sdk) を参照してください。
+アプリの起動/再開時に、`getAdvertisingToken()` が `null` を返す場合、[Implement Server-Side Token Generation](#implement-server-side-token-generation) の手順に従ってサーバーで、新しい Identity を生成してください。その後、モバイルアプリの UID2Manager に結果を再度渡してください: [Configure the UID2 Mobile SDK](#configure-the-uid2-mobile-sdk) を参照してください。
 
 ## Enable Logging
 

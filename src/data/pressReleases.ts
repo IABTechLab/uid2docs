@@ -163,6 +163,24 @@ export const articleList: ArticleItem[] = [
     date: "September 3, 2025",
     locale: "en",
   },
+  {
+    title: "Hightouch",
+    url: "https://hightouch.com/blog/id-express-the-trade-desk-uid2",
+    date: "October 22, 2025",
+    locale: "en",
+  },
+  {
+    title: "Hightouch",
+    url: "https://www.adexchanger.com/platforms/cdp-hightouch-has-a-shortcut-to-making-uids/",
+    date: "October 23, 2025",
+    locale: "en",
+  },
+  {
+    title: "Databricks",
+    url: "https://www.databricks.com/blog/accelerating-secure-interoperable-identity-collaboration-trade-desk-and-databricks-partnership",
+    date: "November 13, 2025",
+    locale: "en",
+  },
   //JA Articles
   {
     title: "Criteo",

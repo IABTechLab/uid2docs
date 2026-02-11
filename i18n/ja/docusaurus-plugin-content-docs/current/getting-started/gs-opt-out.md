@@ -42,15 +42,15 @@ UID2 エコシステムには、2 種類のオプトアウトがあります:
 
 以下の手順は、メールアドレスまたは電話番号から UID2 が作成されたユーザーを対象としたオプトアウトワークフローの概要です。
 
-1. ユーザーは [Transparency and Control Portal](https://www.transparentadvertising.com/) にアクセスし、UID2 のオプトアウトをグローバルに行うことができます。
+1. ユーザーは [Transparency and Control Portal](https://www.transparentadvertising.com/) にアクセスし、UID2 全体からオプトアウトすることができます。
 2. Transparency and Control Portalは、オプトアウト要求を UID2 <Link href="../ref-info/glossary-uid#gl-operator-service">Operator Service</Link> に送信します。
 3. ユーザーがオプトアウトした場合、UID2 Operator Service はオプトアウト情報を UID2 参加者に以下のように配布します:
 
    | Participant | Distribution Method |
    | :--- | :--- | 
-   | Publishers | [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) を必須パラメータ `optout_check` を `1` に設定して呼び出したパブリッシャー、または [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) を呼び出したパブリッシャーは、UID2 Token の代わりにオプトアウトレスポンスを受け取ります。|
-   | DSPs | UID2 Operator Service は、DSP に対して、その目的のために提供された Webhook を介して、オプトアウトしたすべてのユーザーの情報を配布します。詳細は [Honor User Opt-Outs](../guides/dsp-guide#honor-user-opt-outs) を参照してください。<br/>DSP は、[POST&nbsp;/optout/status](../endpoints/post-optout-status.md) エンドポイントを使用して、raw UID2 のオプトアウトステータスを確認することもできます。 |
-   | 広告主とデータプロバイダー | UID2 Operator Service は、[POST&nbsp;/identity/map (v2)](../endpoints/post-identity-map-v2.md) エンドポイントを介して、広告主とデータプロバイダーにオプトアウト情報を配布します。別のオプションとして、[POST&nbsp;/optout/status](../endpoints/post-optout-status.md) エンドポイントを使用して、raw UID2 のオプトアウトステータスを確認することもできます。 |
+   | パブリッシャー | [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) を必須パラメータ `optout_check` を `1` に設定して呼び出したパブリッシャー、または [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) を呼び出したパブリッシャーは、UID2 Token の代わりにオプトアウトレスポンスを受け取ります。|
+   | DSP | UID2 Operator Service は、DSP に対して、その目的のために提供された Webhook を介して、オプトアウトしたすべてのユーザーの情報を配布します。詳細は [Honor User Opt-Outs](../guides/dsp-guide#honor-user-opt-outs) を参照してください。<br/>DSP は、[POST&nbsp;/optout/status](../endpoints/post-optout-status.md) エンドポイントを使用して、raw UID2 のオプトアウトステータスを確認することもできます。 |
+   | 広告主とデータプロバイダー | UID2 Operator Service は、[POST&nbsp;/identity/map](../endpoints/post-identity-map.md) エンドポイントを介して、広告主とデータプロバイダーにオプトアウト情報を配布します。別のオプションとして、[POST&nbsp;/optout/status](../endpoints/post-optout-status.md) エンドポイントを使用して、raw UID2 のオプトアウトステータスを確認することもできます。 |
    | Sharers | UID2 Sharer は、[POST&nbsp;/optout/status](../endpoints/post-optout-status.md) エンドポイントを使用して、raw UID2 のオプトアウトステータスを確認することができます。 |
 
 このワークフローにより、ユーザーは Transparency and Control Portal を通じて、UID2 に基づくパーソナライズ広告をオプトアウトすることができます。

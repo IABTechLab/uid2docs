@@ -13,6 +13,7 @@ import SnptUpgradePolicy from '../snippets/_snpt-private-operator-upgrade-policy
 import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emails-and-phone-numbers.mdx';
 import SnptAttestFailure from '../snippets/_snpt-private-operator-attest-failure.mdx';
 import SnptRotatingTheKeys from '../snippets/_snpt-private-operator-rotating-the-keys.mdx';
+import SnptRuntimeErrors from '../snippets/_snpt-private-operator-runtime-errors.mdx';
 
 # UID2 Private Operator for AWS Integration Guide
 
@@ -37,7 +38,7 @@ The latest ZIP file is linked in the Release Notes column in the following table
 
 | Version Name | Version&nbsp;#/Release&nbsp;Notes | AWS Version |  Date |
 | ------- | ------ | ------ | ------ | 
-| Q2 2025 | [v5.55.9](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.55.9-r1) | v5.55.9-r1 | July 1, 2025 |
+| Q4 2025 | [v5.62.24](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.62.24-r2) | v5.62.24-r2 | January 15, 2026 |
 
 :::note
 For information about supported versions and deprecation dates, see [Private Operator Versions](../ref-info/deprecation-schedule.md#private-operator-versions).
@@ -371,11 +372,15 @@ The following table includes some additional commands that might help you manage
 
 ## UID2 Operator Error Codes
 
-The following table lists errors that might occur during a Private Operator's startup sequence.
+The following sections list error codes that might occur during a Private Operator's startup or runtime.
 
 :::note
-Error codes for Private Operator startup issues are applicable only to release v5.49.7 and later.
+Error codes for Private Operator issues are applicable only to release v5.49.7 and later.
 :::
+
+### Startup Errors
+
+The following errors might occur during operator startup:
 
 | Error Code | Issue | Steps to Resolve |
 | :--- | :--- | :--- |
@@ -385,6 +390,12 @@ Error codes for Private Operator startup issues are applicable only to release v
 | E04 | ConfigurationValueError | A configuration value is invalid. Verify that the configuration values in the AWS Secrets Manager align with the required format and environment. Note: `debug_mode = true` is allowed only in the `integ` environment. Check the logs for more details. |
 | E05 | OperatorKeyValidationError | Ensure the operator key is correct for the environment and matches the one provided to you. |
 | E06 | UID2ServicesUnreachableError | Allow UID2 core and opt-out service IP addresses in the egress firewall. For IP addresses and DNS details, refer to the logs.  |
+
+### Runtime Errors
+
+The following errors might occur during operator runtime:
+
+<SnptRuntimeErrors />
 
 ## Technical Support
 
