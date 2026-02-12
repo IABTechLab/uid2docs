@@ -61,7 +61,7 @@ version:
 
 ## Installation
 
-SDK をインストールするには、[Pip](https://packaging.python.org/en/latest/guides/tool-recommendations/#installing-packages) パッケージマネージャを使用します。
+SDK をインストールするには、[Pip](https://packaging.python.org/en/latest/guides/tool-recommendations#installing-packages) パッケージマネージャを使用します。
 
 ```
 pip install uid2-client
