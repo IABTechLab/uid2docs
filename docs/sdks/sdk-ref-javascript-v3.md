@@ -54,11 +54,7 @@ This SDK simplifies development for publishers who want to build their own custo
 
 ## Sample Implementation
 
-For sample implementations with associated documentation, see:
-  - The UID2 Google Secure Signals with SDK v3 example:
-    - Running site: [Client-Side UID2 SDK Integration Example](https://secure-signals-client-server-integ.uidapi.com/)
-    - [Code and docs](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/google-secure-signals-integration/with_sdk_v3)
-  - The example of JavaScript client-side integration: [Code](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/cstg) and running site ([Client-Side Integration Example, UID2 JavaScript SDK](https://cstg-integ.uidapi.com/)).
+For sample implementations, see [Integration Samples and Tools](../ref-info/integration-sample-sites.md).
 
 ## UID2 Account Setup
 
