@@ -61,7 +61,7 @@ For detailed information about changes, bug fixes, and new features in each rele
 
 ## Installation
 
-You can use the [Pip](https://packaging.python.org/en/latest/guides/tool-recommendations/#installing-packages) package manager to install the SDK.
+You can use the [Pip](https://packaging.python.org/en/latest/guides/tool-recommendations#installing-packages) package manager to install the SDK.
 
 ```
 pip install uid2-client

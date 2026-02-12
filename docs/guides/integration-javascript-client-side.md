@@ -173,7 +173,7 @@ To configure the SDK, call one of the following methods, with an object containi
 *  `__uid2.setIdentityFromPhoneHash`
 
 :::important
-For `__uid2.setIdentityFromEmailHash` or `__uid2.setIdentityFromPhoneHash`, the `emailHash` or `PhoneHash` argument must be the Base64-encoded value. For details, see [Email Address Hash Encoding](../getting-started/gs-normalization-encoding.md/#email-address-hash-encoding) and [Phone Number Hash Encoding](../getting-started/gs-normalization-encoding.md#phone-number-hash-encoding).
+For `__uid2.setIdentityFromEmailHash` or `__uid2.setIdentityFromPhoneHash`, the `emailHash` or `PhoneHash` argument must be the Base64-encoded value. For details, see [Email Address Hash Encoding](../getting-started/gs-normalization-encoding.md#email-address-hash-encoding) and [Phone Number Hash Encoding](../getting-started/gs-normalization-encoding.md#phone-number-hash-encoding).
 :::
 
 The following sections include coding examples for each scenario.
