@@ -52,10 +52,6 @@ This SDK simplifies development for publishers who want to build their own custo
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | &#8212; | &#8212; | &#9989; | &#9989; | &#8212; | &#8212; |
 
-## Sample Implementation
-
-For sample implementations, see [Integration Samples and Tools](../ref-info/integration-sample-sites.md).
-
 ## UID2 Account Setup
 
 To integrate with UID2, you'll need to have a UID2 account. If you haven't yet created an account, first follow the steps described on the [Account Setup](../getting-started/gs-account-setup.md) page.
