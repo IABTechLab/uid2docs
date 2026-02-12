@@ -1,6 +1,6 @@
 ---
 title: Client-Side Integration
-description: Client-Side インテグレーションに必要な情報を設定と管理。
+description: Client-Side インテグレーションに必要な情報の設定と管理。
 hide_table_of_contents: false
 sidebar_position: 09
 displayed_sidebar: docs
@@ -18,12 +18,12 @@ UID2 Portal では、Client-Side でトークンを生成する実装オプシ�
 
 | Value | Implementation Type | Details | Documentation Link |
 | :--- | :--- | :---| :---|
-| Key pair | すべて (Web または Mobile) | 少なくとも1つ。実装では、公開鍵を共有します。 | [Subscription ID and Public Key](../getting-started/gs-credentials.md#subscription-id-and-public-key) |
-| Domain | Web | 少なくとも1つ。提供する必要があるのは、ルートレベルドメインの完全なリストです。 | [Client-Side Web Integrations](../getting-started/gs-account-setup.md#client-side-web-integrations) |
-| Mobile App ID | Mobile | Android App ID、iOS/tvOS Bundle ID、iOS App Store IDなど、モバイルアプリに適用されるID。 | [Client-Side Mobile Integrations](../getting-started/gs-account-setup.md#client-side-mobile-integrations) |
+| Key pair | すべて (Web または Mobile) | 少なくとも 1 つ。実装では、公開鍵を共有します。 | [Subscription ID と公開鍵](../getting-started/gs-credentials.md#subscription-id-and-public-key) |
+| Domain | Web | 少なくとも 1 つ。提供する必要があるのは、ルートレベルドメインの完全なリストです。 | [Client-Side Web Integrations](../getting-started/gs-account-setup.md#client-side-web-integrations) |
+| Mobile App ID | Mobile | Android App ID、iOS/tvOS Bundle ID、iOS App Store ID など、モバイルアプリに適用される ID。 | [Client-Side Mobile Integrations](../getting-started/gs-account-setup.md#client-side-mobile-integrations) |
 
 :::important
-サイトのルートレベルドメインの完全なリストを提供することが重要です。これは、Client-Side の実装にのみ関連するセキュリティ対策です。UID2 Portal で定義されていないドメインの場合、そのドメインからの UID2 Token リクエストは失敗します。
+サイトのルートレベルドメインとモバイルアプリ ID の完全なリストを提供することが重要です。これは Client-Side の実装にのみ関連するセキュリティ対策です。UID2 Portal で定義されていないドメインやアプリからの UID2 Token リクエストは失敗します。
 :::
 
 Client-Side インテグレーションページでは、これらの値を設定および管理するためのすべてのアクティビティを実行できます。次の内容が含まれます:
@@ -37,13 +37,13 @@ Client-Side インテグレーションページに移動すると、少なく�
 
 ## Client-Side Implementation Options
 
-Client-Side の実装オプションは、次の表に示すとおりです。利用可能なオプションは、あなたの役割によって異なります。
+Client-Side の実装オプションは、次の表に示すとおりです。利用可能なオプションは、役割によって異なります。
 
 | Client-Side Implementation Option | Available For (Role) | Documentation Link |
 | :--- | :--- | :--- |
-| UID2 JavaScript SDK | Publishers, Advertisers | [Client-Side Integration Guide for JavaScript](../guides/integration-javascript-client-side.md) |
-| Prebid.js client-side integration | Publishers only |[UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md) |
-| UID2 Mobile SDK | Publishers only |[UID2 Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side.md) |
+| UID2 JavaScript SDK | パブリッシャー、広告主 | [Client-Side Integration Guide for JavaScript](../guides/integration-javascript-client-side.md) |
+| Prebid.js client-side integration | パブリッシャーのみ |[UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md) |
+| UID2 Mobile SDK | パブリッシャーのみ |[UID2 Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side.md) |
 
 ## Adding and Managing Key Pairs
 
@@ -70,7 +70,7 @@ Client-Side インテグレーションページでは、キーペアを設定�
 1. **Client-Side Integration** ページに移動し、Key Pair セクションにある **Add Key Pair** をクリックします。
 1. **Add Key Pair** オーバーレイで名前を入力し、**Add Key Pair** をクリックします。
 
-   キーペアは自動的に生成されます。**Client-Side Integration** ページで、新しいキーペアが名前、Subscription ID、public key、作成日付とともに表示されます。次の例を参照してください。
+   キーペアは自動的に生成されます。**Client-Side Integration** ページで、新しいキーペアが名前、Subscription ID、Public Key、作成日付とともに表示されます。次の例を参照してください。
 
    ![Client-Side Integration page, Key Pairs](images/portal-client-side-integration-key-pairs.png)
 
@@ -78,7 +78,7 @@ Client-Side インテグレーションページでは、キーペアを設定�
 
 Client-Side インテグレーションページでキーペアを作成すると、公開鍵を共有できます。UID2 Service は、メッセージを認証するために、対応する秘密鍵と他の値を使用します。
 
-Public key を表示またはコピーするには、次の手順を実行します:
+Public Key を表示またはコピーするには、次の手順を実行します:
 
 1. UID2 Portal で、**Client-Side Integration** ページに移動します。
 1. リストでキーペアを見つけ、次のいずれかを実行します:
@@ -127,14 +127,14 @@ Client-Side インテグレーションページでは、次のアクティビ�
 ルートレベルドメインのみがアカウント設定に必要です。たとえば、example.com、shop.example.com、example.org の Client-Side でトークンを生成するために UID2 を実装する場合、ドメイン名 example.com と example.org だけを提供します。
 :::
 
-1 つ以上のトップレベル（ルートレベル）ドメインを追加するには、次の手順を実行します:
+1 つ以上のルートレベルドメインを追加するには、次の手順を実行します:
 
 1. UID2 Portal アカウントにログインします。
 1. **Client-Side Integration** ページに移動し、**Add Domains** をクリックします。
-1. **Add Domains** オーバーレイで、ドメインのリストを入力または貼り付けます。注:
+1. **Add Domains** オーバーレイで、ドメインのリストを入力または貼り付けます。Note:
 
    - リストの区切り文字として、次のものが有効です: カンマ、セミコロン、スペース、タブ、または改行。
-   - 追加するドメインはデフォルトでリストに追加されます。既存のリストを置き換える場合は、**Replace all existing domains with the new ones** をチェックします。
+   - ドメインはデフォルトで既存のリストに追加されます。既存のリストを置き換える場合は、**Replace all existing domains with the new ones** をチェックします。
 
 1. **Add Domains** をクリックします。
    
@@ -145,7 +145,7 @@ Client-Side インテグレーションページでは、次のアクティビ�
 リスト上のドメイン名を更新するには、次の手順を実行します:
 
 1. UID2 Portal で、**Client-Side Integration** ページに移動します。
-1. ドメインを更新する必要がある場合は、**Root-Level Domains** セクションに移動します。必要に応じて、リスト内のドメインを検索します。
+1. **Root-Level Domains** セクションで、更新するドメインを見つけます。必要に応じて、検索ツールを使用してリスト内を検索します。
 1. Actions 列で ![the Edit icon](images/icon-pencil-solid.png) (Edit アイコン) をクリックします。
 1. 名前を更新し、**Save Domain** をクリックします。
 
@@ -154,7 +154,7 @@ Client-Side インテグレーションページでは、次のアクティビ�
 ドメインをドメインリストから削除するには、次の手順を実行します:
 
 1. UID2 Portal で、**Client-Side Integration** ページに移動します。
-1. リストでドメインを見つけます。
+1. **Root-Level Domains** セクションで、削除するドメインを見つけます。必要に応じて、検索ツールを使用してリスト内を検索します。
 1. **Actions** 列で ![the Delete icon](images/icon-trash-can-solid.png) (Delete アイコン) をクリックします。
 1. 確認メッセージで、**Delete Domain** をクリックします。
 
@@ -172,7 +172,7 @@ Client-Side インテグレーションページでは、次のアクティビ�
 1. UID2 Portal で、**Client-Side Integration** ページに移動します。
 1. ページの **Root-Level Domains** セクションで、見出しの下にあるチェックボックスを選択します。
 
-   削除アイコンが表示され、すべてのドメインが削除されます。
+   削除アイコンが表示され、すべてのドメインが削除対象として選択されます。
 
    ![Domains Multi-Select Checkbox](images/portal-client-side-integration-domains-multiselect.png)
 
@@ -195,7 +195,7 @@ Client-Side インテグレーションページでは、モバイルアプリ I
 
 ### Adding Mobile App IDs
 
-すべてのモバイルアプリIDの完全なリストを提供することが重要です。これには、以下が含まれます。
+すべてのモバイルアプリ ID の完全なリストを提供することが重要です。これには、以下が含まれます。
 - Android App ID: 該当するもの。
 - iOS/tvOS Bundle ID and corresponding iOS App Store ID: 該当するもの。
 
@@ -248,7 +248,7 @@ UID2 Token リクエストは、UID2 Portal に該当する ID が追加され�
 1. UID2 Portal で、**Client-Side Integration** ページに移動します。
 1. **Mobile App IDs** セクションで、見出しの下にあるチェックボックスを選択します。
 
-   削除アイコンが表示され、すべてのモバイルアプリ ID が削除されます。
+   削除アイコンが表示され、すべてのモバイルアプリ ID が削除対象として選択されます。
 
    ![Multi-Select Checkbox](images/portal-client-side-integration-multiselect.png)
 

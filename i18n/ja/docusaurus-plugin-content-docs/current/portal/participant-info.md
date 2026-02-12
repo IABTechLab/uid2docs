@@ -1,6 +1,6 @@
 ---
 title: Participant Information
-description: UID2 sharing 参加者プロファイルの設定。
+description: UID2 Sharing 参加者プロファイルの設定。
 hide_table_of_contents: false
 sidebar_position: 06
 displayed_sidebar: docs
@@ -10,7 +10,7 @@ import Link from '@docusaurus/Link';
 
 # Participant Information
 
-UID2 Portal アカウントを申請するには、氏名や業種など、あなた自身とあなたの会社に関する情報を提供する必要があります。
+UID2 Portal アカウントの申請にあたり、氏名や業種など、あなた自身とあなたの会社に関する情報を提供する必要があります。
 
 UID2 Portal では、この情報の一部が表示されます。アクセス権がある場合は、情報が正しいか確認してください。
 

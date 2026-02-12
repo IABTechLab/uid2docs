@@ -20,7 +20,7 @@ UID2 Portal の **Team Members** ページでは、Admin 権限を持つユー�
 
 ## Accessing the Team Members Page
 
-Team Member ページにアクセスするには、UID2 Portal ユーザーインターフェースの右上にある名前が表示されている場所に移動し、下矢印をクリックして **Manage Team Members** を選択します。
+Team Members ページにアクセスするには、UID2 Portal ユーザーインターフェースの右上にある名前が表示されている場所に移動し、下矢印をクリックして **Manage Team Members** を選択します。
 
 各 Team Member について、次の情報が表示されます:
 - Name
@@ -30,7 +30,7 @@ Team Member ページにアクセスするには、UID2 Portal ユーザーイ�
 - Job Function
 - Role
 - Actions: 
-  - すべての人が利用可能: ![the Edit icon](images/icon-pencil-solid.png) (Edit) と ![the Delete icon](images/icon-trash-can-solid.png) (Delete)。
+  - すべての人が利用可能: ![the Edit icon](images/icon-pencil-solid.png) (Edit アイコン) と ![the Delete icon](images/icon-trash-can-solid.png) (Delete アイコン)。
   - ユーザーが招待されたがまだ承認されていない場合、**Resend Invitation** リンクも利用可能です。
 
 Team Member のうち、主要な連絡先であるメンバーには、名前の後にタグが表示されます。
@@ -43,8 +43,8 @@ Team Member のうち、主要な連絡先であるメンバーには、名前�
 
 | Role | Actions |
 | :--- | :--- |
-| Admin | Admin 権限を持つユーザーは、[UID2 Portal Overview](portal-overview.md) に記載されているように、現在の参加組織に関連する UID2 参加に関連するすべてのアクティビティを実行できます。 |
-| Operations | Operation 権限を持つユーザーは、Admin ユーザーとほぼ同じアクションを実行できます。ただし、いくつかの制限があります:<ul><li>Team Member を追加、変更、削除することはできません。代わりに、[Team Members](team-members.md) ページには読み取り専用アクセスがあります。</li><li>[Audit Trail](audit-trail.md) ページを表示できません。</li></ul> |
+| Admin | Admin 権限を持つユーザーは、[UID2 Portal Overview](portal-overview.md) に記載されているように、現在の参加者に関連するすべての UID2 アクティビティを実行できます。 |
+| Operations | Operations 権限を持つユーザーは、Admin ユーザーとほぼ同じアクションを実行できます。ただし、いくつかの制限があります:<ul><li>Team Member を追加、変更、削除することはできません。代わりに、[Team Members](team-members.md) ページには読み取り専用アクセスがあります。</li><li>[Audit Trail](audit-trail.md) ページを表示できません。</li></ul> |
 
 ユーザー権限は、Admin 権限を持つユーザーのみが変更できます。詳細は、[Edit Information for a Team Member](#edit-information-for-a-team-member) を参照してください。
 
@@ -52,14 +52,14 @@ Team Member のうち、主要な連絡先であるメンバーには、名前�
 
 Team Member を追加するには、次の手順を実行します:
 
-1. UID2 Portal アカウントでログインします。
+1. UID2 Portal アカウントにログインします。
 1. 右上にある下矢印をクリックし、**Manage Team Members** を選択します。
 1. **Add Team Member** をクリックします。
 1. 姓、名、メールアドレス、職務、役割を入力します。役割の詳細については、[User Roles](#user-roles) を参照してください。
 1. オプション: このユーザーを主要な連絡先として設定するには、**Set as primary contact** ボックスをチェックします。主要な連絡先には Admin 権限が必要です。詳細は、[Set the Primary Contact](#set-the-primary-contact) を参照してください。
 1. **Save Team Member** をクリックします。
 
-   Team Member がリストに追加され、保留中のステータスで、招待メールが招待された人に送信されます。
+   Team Member が Pending ステータスでリストに追加され、招待された人に招待メールが送信されます。
 
 :::note
 同じチームメンバーを複数の参加者に追加できます。複数の参加者に属するチームメンバーは、[UID2 Portal Structure](portal-overview.md#uid2-portal-structure) に示されているように、参加者間を切り替えることができます。
@@ -78,7 +78,7 @@ Team Member を追加するには、次の手順を実行します:
 
 主要な連絡先を設定するには、次の手順を実行します:
 
-1. UID2 Portal アカウントでログインします。
+1. UID2 Portal アカウントにログインします。
 1. 右上にある下矢印をクリックし、**Manage Team Members** を選択します。
 1. 次のいずれかの操作を行います:
 
@@ -87,7 +87,7 @@ Team Member を追加するには、次の手順を実行します:
 
 ## Resend an Invitation to a Team Member
 
-Team Member を追加した場合、招待状を再送する必要がある場合があります。たとえば、Team Member が招待状を受け取っていないか、誤って削除したか、招待状の有効期限が切れている場合などです。
+Team Member を追加した後に、招待状の再送が必要になることがあります。たとえば、Team Member が招待状を受け取っていない、誤って削除した、または招待状の有効期限が切れている場合などです。
 
 ユーザーが招待されたがまだ承認されていない場合、Team Members リストには、次の図に示すような追加情報が表示されます:
 
@@ -98,7 +98,7 @@ Team Member を追加した場合、招待状を再送する必要がある場�
 
 Team Member 宛に招待状を再送信するには、次の手順を実行します:
 
-1. UID2 Portal アカウントでログインします。
+1. UID2 Portal アカウントにログインします。
 1. 右上にある下矢印をクリックし、**Manage Team Members** を選択します。
 1. リストから Team Member を見つけ、Actions 列で **Resend Invitation** をクリックします。
 
@@ -112,13 +112,13 @@ Team Member 宛に招待状を再送信するには、次の手順を実行し�
 
 役割に関する注意事項:
 - Admin 権限を持つユーザーは、参加組織内の任意の Team Member について、これらの値を更新できます。
-- Operation 権限を持つユーザーは、Team Members ページを表示できますが、情報を変更することはできません。
+- Operations 権限を持つユーザーは、Team Members ページを表示できますが、情報を変更することはできません。
 
 Team Member の情報を編集するには、次の手順を実行します:
 
-1. UID2 Portal アカウントでログインします。
+1. UID2 Portal アカウントにログインします。
 1. 右上にある下矢印をクリックし、**Manage Team Members** を選択します。
-1. リストから Team Member を見つけ、Actions 列で ![the Edit icon](images/icon-pencil-solid.png) (Edit) をクリックします。
+1. リストから Team Member を見つけ、Actions 列で ![the Edit icon](images/icon-pencil-solid.png) (Edit アイコン) をクリックします。
 1. 以下の値を更新します:
    - 名
    - 姓
@@ -130,20 +130,20 @@ Team Member の情報を編集するには、次の手順を実行します:
 
 ## Remove a Team Member
 
-チームから誰かを削除するには、次の手順に従います:
+チームから誰かを削除するには、次の手順を実行します:
 
-1. UID2 Portal アカウントでログインします。
+1. UID2 Portal アカウントにログインします。
 1. 右上にある下矢印をクリックし、**Manage Team Members** を選択します。
-1. リストから Team Member を見つけ、Actions 列で ![the Delete icon](images/icon-trash-can-solid.png) (Delete) をクリックします。
+1. リストから Team Member を見つけ、Actions 列で ![the Delete icon](images/icon-trash-can-solid.png) (Delete アイコン) をクリックします。
 1. 確認メッセージで **Remove Team Member** をクリックします。
 
    Team Member がチームから削除されます。
 
 ## Log In for the First Time as a Team Member
 
-誰かがあなたを新しい Team Member として追加した場合、確認メールを送信します。メールアドレスを確認するために、次の手順に従ってください:
+誰かがあなたを新しい Team Member として追加すると、メールアドレスを確認するための確認メールが送信されます。次の手順を実行します:
 
 1. メールのリンクをクリックして招待を受け入れます。
-1. 最初のデフォルトからパスワードを更新するためにクリックします。
+1. クリックして、初期パスワードから新しいパスワードに更新します。
 1. 新しいパスワードを使用して UID2 Portal にログインします。これにより、アカウントが確認されます。
 1. 最初のログイン時に、UID2 Sharing Portal の利用規約を確認して承認します。

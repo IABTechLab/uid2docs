@@ -10,7 +10,7 @@ import Link from '@docusaurus/Link';
 
 # Audit Trail
 
-UID2 Portal では、Admin 権限を持つユーザー（[User Roles](team-members.md#user-roles) を参照）は、**Audit Trail** ページにアクセスして、現在の <Link href="../ref-info/glossary-uid#gl-sharing-participant">参加者</Link> によって実行された過去のすべてのアクションの詳細なログを表示できます。
+UID2 Portal では、Admin 権限を持つユーザー（[User Roles](team-members.md#user-roles) を参照）は、**Audit Trail** ページにアクセスして、現在の <Link href="../ref-info/glossary-uid#gl-sharing-participant">参加者</Link> によって、またはその代理で実行された過去のすべてのアクションの詳細なログを表示できます。
 
 Audit Trail ログには、以下の表にまとめられた情報が表示されます。
 
@@ -18,7 +18,7 @@ Audit Trail ログには、以下の表にまとめられた情報が表示さ�
 | :--- | :--- | 
 | Date | アクションが発生した日時。 |
 | User | アクションを実行したユーザー。 |
-| Event | 実行したアクションの詳細。 有効な値の概要は、[Audit Trail Event Types](#audit-trail-event-types) を参照してください。 |
+| Event | 実行したアクションの詳細。可能な値の概要は、[Audit Trail Event Types](#audit-trail-event-types) を参照してください。 |
 | Event Data | アクションの詳細。 |
 | Succeeded | アクションが成功したかどうか。 |
 

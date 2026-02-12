@@ -10,24 +10,24 @@ import Link from '@docusaurus/Link';
 
 # Getting Started with the UID2 Portal
 
-UID2 Portal アカウントをリクエストする際には、自分自身と会社に関する情報を UID2 連絡先に提供する必要があります。
+UID2 Portal アカウントをリクエストする際には、自分自身と会社に関する情報を UID2 の担当者に提供する必要があります。
 
-リクエストを処理した後、UID2 Portal にログインしてアカウントの詳細を確認し、参加者とチームを設定し、UID2 共有権限の設定を構成できる確認メールが送信されます。
+リクエストの処理が完了すると、UID2 Portal にログインしてアカウントの詳細を確認し、参加者とチームを設定し、UID2 共有権限を構成するための確認メールが送信されます。
 
-最初のステップでは、次の手順に従います。
+最初に、次の手順を実行します:
 
 - [Request an Account](#request-an-account)
 - [Log In for the First Time](#log-in-for-the-first-time)
 - [Change Your Password](#change-your-password)
 
-オンボーディング プロセスが必要な場合は、UID2 連絡先にお問い合わせください。
+オンボーディングプロセスでサポートが必要な場合は、UID2 の担当者にお問い合わせください。
 
 ## Request an Account
 
-UID2 の連絡先にアカウントのリクエストを行う際には、情報を提供いただく必要があります。次の表に示す詳細情報を含めてください。
+UID2 の担当者にアカウントのリクエストを行う際には、情報を提供する必要があります。次の表に示す詳細情報を含めてください。
 
 :::note
-UID2 の連絡先がまだない場合は、[Request Access to UID2](/request-access) ページに移動し、フォームに記入してください。
+UID2 の担当者がまだいない場合は、[UID2 へのアクセスリクエスト](../request-access) ページに移動し、フォームに記入してください。
 :::
 
 | Item | Details |
@@ -37,7 +37,7 @@ UID2 の連絡先がまだない場合は、[Request Access to UID2](/request-ac
 
 ## Account Approval
 
-アクセスをリクエストした後、UID2 連絡先がリクエストを処理します。承認プロセスが完了し、アカウントが作成されると、UID2 Portal にログインするためのリンクが記載された確認メールが送信されます。
+アクセスをリクエストした後、UID2 の担当者がリクエストを処理します。承認プロセスが完了し、アカウントが作成されると、UID2 Portal にログインするためのリンクが記載された確認メールが送信されます。
 
 ## Prepare Setup Information
 
@@ -46,7 +46,7 @@ UID2 の連絡先がまだない場合は、[Request Access to UID2](/request-ac
 - [Determine Integration Path](#determine-integration-path)
 
   :::tip
-  Client-Side 実装の場合、ルートレベル ドメインの完全なリストが必要です。
+  Client-Side 実装の場合、ルートレベルドメインの完全なリストが必要です。
   :::
 - [Set Up Team Members and Email Contacts](#set-up-team-members-and-email-contacts)
 
@@ -58,14 +58,14 @@ UID2 Service を使用するには、キーのセットが必要です。Client-
 
 | Integration | Examples | Instructions |
 | :--- | :--- | :--- |
-| Client-Side インテグレーション | **広告主** はトラッキングピクセル用に Client-Side で UID2 Token を生成します。<br/>**パブリッシャー** は <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link> 用に Client-Side で UID2 Token を生成します。| **Client-Side Integration** ページに移動し、キーペアとルートレベルドメインを設定します。<br/>詳細は [Client-Side Integration](client-side-integration.md) を参照してください。 |
-| Server-Side インテグレーション | **広告主** はオーディエンスターゲティングのために配信される raw UID2 を生成します。<br/>**パブリッシャー** は<Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link>ように Server-Side で UID2 Token を生成します。| **API Keys** ページに移動し、少なくとも1組の認証情報を生成します。API Key を追加すると、シークレットとキーの2つの値が割り当てられます。<br/>詳細は [API Keys](api-keys.md) を参照してください。 |
+| Client-Side インテグレーション | **広告主** はトラッキングピクセル用に Client-Side で UID2 Token を生成します。<br/>**パブリッシャー** は<Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link>用に Client-Side で UID2 Token を生成します。| **Client-Side Integration** ページに移動し、キーペアとルートレベルドメインを設定します。<br/>詳細は [Client-Side Integration](client-side-integration.md) を参照してください。 |
+| Server-Side インテグレーション | **広告主** はオーディエンスターゲティングのために配信される raw UID2 を生成します。<br/>**パブリッシャー** は<Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link>のために Server-Side で UID2 Token を生成します。| **API Keys** ページに移動し、少なくとも 1 組の認証情報を生成します。API Key を追加すると、シークレットとキーの 2 つの値が割り当てられます。<br/>詳細は [API Keys](api-keys.md) を参照してください。 |
 
-参加者の中には、Client-Side と Server-Side の両方のインテグレーションを使用するかもしれません。たとえば、広告主はピクセルのために Client-Side で UID2 Token を生成 ([Client-Side Integration](client-side-integration.md)) し、raw UID2 の生成は、Server-Side でインテグレーションします ([API Keys](api-keys.md))。
+Client-Side と Server-Side の両方のインテグレーションを使用する参加者もいます。たとえば、広告主はピクセルのために Client-Side で UID2 Token を生成 ([Client-Side Integration](client-side-integration.md)) し、raw UID2 の生成は Server-Side でインテグレーションします ([API Keys](api-keys.md))。
 
 ## Log In for the First Time
 
-確認メールが届いたら、メールに記載されている **Accept Invitation** リンクをクリックして開始し、その後、クリックして以下のタスクを完了してください:
+確認メールが届いたら、メールに記載されている **Accept Invitation** リンクをクリックし、続けて以下のタスクを完了してください:
 - [Change your password](#change-your-password)
 - [Log In](#log-in)
 - [Configure unique account values](#configure-unique-account-values)
@@ -77,12 +77,12 @@ UID2 Service を使用するには、キーのセットが必要です。Client-
 **Accept Invitation** リンクをクリックすると、**Set Password** ページに移動します。
 
 :::tip
- アカウントが漏洩した可能性があるためにパスワードを変更する場合は、**Sign out from other devices** チェックボックスがチェックされていることを確認してください。
+ アカウントが漏洩した可能性があるためパスワードを変更する場合は、**Sign out from other devices** チェックボックスがチェックされていることを確認してください。
 :::
 
 新しいパスワードを入力し、確認してから **Save Password** をクリックします。
 
-アカウントが承認されたことを通知する通知が表示され、**Log In** ボタンが表示されます。
+アカウントが承認されたことを知らせるメッセージが表示され、**Log In** ボタンが表示されます。
 
 ## Log In
 
@@ -100,16 +100,16 @@ UID2 Service を使用するには、キーのセットが必要です。Client-
 
 ## Configure Unique Account Values
 
-アカウントの設定手順は、シナリオによって異なります。以下は、推奨されるシーケンスです。
+アカウントの設定手順は、シナリオによって異なります。以下は、推奨される順序です。
 
-1. インテグレーション パスを決定します。[Determine Integration Path](#determine-integration-path) を参照してください。
+1. 重要な最初のステップとして、インテグレーションパスを決定します。[Determine Integration Path](#determine-integration-path) を参照してください。
 
-1. アカウントに固有の値を設定します。適用可能なページで値を構成できます。&#8212;以下のいずれかのページです:
+1. アカウントに固有の値を設定します。適用可能なページで値を構成できます&#8212;以下のいずれかです:
 
     - [Client-Side Integration](client-side-integration.md)
     - [API Keys](api-keys.md)
 
-1. アカウントに固有の値を設定すると、[sharing permissions](sharing-permissions.md) を設定できます。
+1. アカウントに固有の値を設定すると、[共有権限](sharing-permissions.md) を設定できます。
 
 1. チームメンバーを追加すると、チーム全体での作業負荷が分散されるため、効果的です。[Team Members](team-members.md) を参照してください。
 

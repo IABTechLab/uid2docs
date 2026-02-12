@@ -18,7 +18,7 @@ UID2 Portal は、UID2 アカウントを設定・構成するためのワンス
 | プロフィールを確認します。 | [Participant Information](participant-info.md) |
 | Server-Side または Client-Server インテグレーション: API Key の管理、キーの追加、変更、削除などを行います。 | [API Keys](api-keys.md) |
 | Client-Side インテグレーションのみ: Client-Side で UID2 Token を生成するために必要な値を設定し、管理します。 | [Client-Side Integration](client-side-integration.md) |
-| 個々の共有参加者または共有参加者のグループの権限を構成します。<br/>NOTE: 共有の使用には API Key ([API Keys](api-keys.md) を参照) または Client-Side キーペア ([Client-Side Integration](client-side-integration.md) を参照) が必要です。共有権限を設定する前にこれらの値を構成してください。 | [Sharing Permissions](sharing-permissions.md) |
+| 個々の<Link href="../ref-info/glossary-uid#gl-sharing-participant">共有参加者</Link>または共有参加者のグループの権限を構成します。<br/>NOTE: 共有の使用には API Key ([API Keys](api-keys.md) を参照) または Client-Side キーペア ([Client-Side Integration](client-side-integration.md) を参照) が必要です。共有権限を設定する前にこれらの値を構成してください。 | [Sharing Permissions](sharing-permissions.md) |
 | アカウントを管理する権限を持つチームメンバーを追加します。 | [Team Members](team-members.md) |
 | ニュースやアップデートを通知する指定メール連絡先を設定します。 | [Email Contacts](email-contacts.md) |
 | 現在の参加者、またはその代理人によって実行された過去のすべてのアクションの詳細なログを表示します。 | [Audit Trail](audit-trail.md) |
@@ -30,7 +30,7 @@ Portal にアクセスするには、UID2 の担当者にアカウントを作�
 
 担当者は、開始するためのリンクを送信します。
 
-UID2 Portalの URL: [https://portal.unifiedid.com/](https://portal.unifiedid.com/)
+UID2 Portal の URL: [https://portal.unifiedid.com/](https://portal.unifiedid.com/)
 
 ### UID2 Portal Structure
 
@@ -40,10 +40,10 @@ UID2 Portal はナビゲーションが簡単になるように構造化され�
 
 ![UID2 Portal Structure](images/portal-uid2-overview.png)
 
-左サイドバーの上部に、現在の参加者の名前が表示されます。アカウントが複数の参加者にアクセスできる場合、アクセスできる参加者のドロップダウンリストが表示されます。これを使用して、参加者間を切り替えることができます。
+左サイドバーの上部に、現在の参加者の名前が表示されます。アカウントで複数の参加者にアクセスできる場合、アクセスできる参加者のドロップダウンリストが表示されます。これを使用して、参加者間を切り替えることができます。
 
 :::important
-UID2 Portal で実行する操作（チームメンバーの追加、ドメイン、API キーの追加など）は、左側に表示されている現在の参加者のコンテキストで行われます。複数の参加者にアクセスできる場合は、正しいコンテキストで操作を実行してください。詳細は、[Participant Switcher](#participant-switcher) を参照してください。
+UID2 Portal で実行する操作（チームメンバーの追加、ドメイン、API Key の追加など）は、左側に表示されている現在の参加者のコンテキストで行われます。複数の参加者にアクセスできる場合は、正しいコンテキストで操作を実行してください。詳細は、[Participant Switcher](#participant-switcher) を参照してください。
 :::
 
 左サイドバーをスクロールすると、アカウントの構成に関連する以下のページにアクセスできます:
@@ -53,7 +53,7 @@ UID2 Portal で実行する操作（チームメンバーの追加、ドメイ�
 - [API Keys](api-keys.md)
 - [Client-Side Integration](client-side-integration.md)
 
-左のサイドバーの上部に名前が表示されます。
+右上のリンクに自分の名前が表示されます。
 
 ここから、個人のアカウント設定と日常のアクティビティに関連する以下のページにアクセスできます:
 
@@ -61,7 +61,7 @@ UID2 Portal で実行する操作（チームメンバーの追加、ドメイ�
 - [Manage Team Members](team-members.md)
 - [Email Contacts](email-contacts.md)
 - [Audit Trail](audit-trail.md) (Admin ユーザーのみ)
-- Dark Mode: Dark モードをオンまたはオフに切り替えます。Dark モードの設定は、次回のセッションに適用されます。
+- Dark Mode: Dark Mode をオンまたはオフに切り替えます。Dark Mode の設定は、次回以降のセッションに適用されます。
 - [Log Out](portal-getting-started.md#log-out)
 
 ## Set Up Your Account
