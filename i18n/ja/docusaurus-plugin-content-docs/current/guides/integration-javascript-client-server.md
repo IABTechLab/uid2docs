@@ -15,7 +15,7 @@ import SnptExampleClientServerSendUid2ToSdk from '../snippets/_snpt-example-clie
 
 # Client-Server Integration Guide for JavaScript
 
-このガイドは、Web アセットを持つパブリッシャー向けに、RTB <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link> で UID2 を使用して ID トークンを生成し、サーバーサイドで UID2 Tokenを生成してパブリッシャーの Web ページに渡し、JavaScript の UID2 SDK を使用してクライアントサイドでトークンをリフレッシュする方法を説明します。
+このガイドは、Web アセットを持つパブリッシャー向けに、RTB <Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link> で UID2 を使用して ID トークンを生成し、Server-Side で UID2 Token を生成してパブリッシャーの Web ページに渡し、JavaScript の UID2 SDK を使用して Client-Side でトークンをリフレッシュする方法を説明します。
 
 これは、JavaScript インテグレーションステップが Client-Side であり、その他のステップが Server-Side であるため、Client-Server インテグレーションと呼ばれます。
 
@@ -29,12 +29,12 @@ SDK の技術的な詳細は [SDK for JavaScript Reference Guide](../sdks/sdk-re
 
 ワークフロー図は、[Integration Steps](#integration-steps) を参照してください。また、[FAQ](#faqs) も参照してください。
 
-UID2 の Opt-out ワークフローとユーザーが Opt-out する方法の詳細は、[User Opt-Out](../getting-started/gs-opt-out.md) を参照してください。
+UID2 のオプトアウトワークフローとユーザーがオプトアウトする方法の詳細は、[User Opt-Out](../getting-started/gs-opt-out.md) を参照してください。
 
 UID2 を使用してクライアントの ID を確立し、Advertising Token を取得するプロセスを容易にするために、このガイドで提供する Web インテグレーション手順は、JavaScript 用の UID2 SDK に依存しています。このガイドに記載されているインテグレーションステップと SDK の使用方法を示す実装例については、[Sample Implementation](#sample-implementation) を参照してください。
 
 :::tip
-ファーストパーティ Cookie とローカルストレージの実装の詳細は 将来変更される可能性があります。潜在的な問題を回避するため、ID 管理には [SDK for JavaScript API Reference](../sdks/sdk-ref-javascript.md#api-reference) に記載されている機能を使用してください。
+ファーストパーティクッキーとローカルストレージの実装の詳細は 将来変更される可能性があります。潜在的な問題を回避するため、ID 管理には [SDK for JavaScript API Reference](../sdks/sdk-ref-javascript.md#api-reference) に記載されている機能を使用してください。
 :::
 
 SDK for JavaScript を使用しないパブリッシャーのインテグレーションシナリオは、[Publisher Integration Guide, Server-Side](integration-publisher-server-side.md) を参照してください。
@@ -59,8 +59,8 @@ UID2 とインテグレーションするには、UID2 アカウントが必要�
 
 Client-Server インテグレーションを行う場合は、UID2 Portal の [API Keys](../portal/api-keys.md) ページで以下の値を設定する必要があります:
 
-  - <Link href="../ref-info/glossary-uid#gl-api-key">API key</Link>、Client Key とも呼ばれます。
-  - <Link href="../ref-info/glossary-uid#gl-client-secret">Client secret</Link>、参加者と UID2 Servivce のみが知る値です。
+  - <Link href="../ref-info/glossary-uid#gl-api-key">API Key</Link>、Client Key とも呼ばれます。
+  - <Link href="../ref-info/glossary-uid#gl-client-secret">クライアントシークレット</Link>、参加者と UID2 Service のみが知る値です。
 
 :::important
 これらの値を安全に保管することは非常に重要です。詳細は、[Security of API Key and Client Secret](../getting-started/gs-credentials.md#security-of-api-key-and-client-secret) を参照してください。
@@ -89,7 +89,7 @@ Step 1-c でパブリッシャーがユーザーのメールアドレスまた�
 | :--- | :--- | :--- |
 | 1-d | [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) | [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) エンドポイントを使用して、ユーザーから提供されたメールアドレスまたは電話番号を使用して UID2 Token を生成します。正規化されていることを確認してください。 |
 | 1-e | [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) | ユーザーのメールアドレス、電話番号、またはそれぞれのハッシュから生成された UID2 Token を返します。 |
-| 1-f | SDK for JavaScript | Step 1-e で返された UID2 Token を、SDK の [init()関数](../sdks/sdk-ref-javascript.md#initopts-object-void) の `identity` プロパティで SDK に送信し、以下に示すように [コールバック関数](../sdks/sdk-ref-javascript.md#callback-function) を指定します。このメカニズムにより、ユーザーがログアウトするまで、UID2 Token がターゲティング広告に利用できるようになります。|
+| 1-f | SDK for JavaScript | Step 1-e で返された UID2 Token を、SDK の [init() 関数](../sdks/sdk-ref-javascript.md#initopts-object-void) の `identity` プロパティで SDK に送信し、以下に示すように [コールバック関数](../sdks/sdk-ref-javascript.md#callback-function) を指定します。このメカニズムにより、ユーザーがログアウトするまで、UID2 Token がターゲティング広告に利用できるようになります。|
 | 1-g | SDK for JavaScript | SDK から ID 更新を受け取り、ターゲティング広告を開始するために使用するコールバック関数を SDK に提供します。 |
 
 #### Generating a UID2 Token on the Server
@@ -101,7 +101,7 @@ Step 1-c でパブリッシャーがユーザーのメールアドレスまた�
 `Identity` レスポンスを SDK に渡す必要があります。[Sending the UID2 Token to the SDK](#sending-the-uid2-token-to-the-sdk) を参照してください。
 
 :::warning
-セキュリティ上の理由から、トークン生成に使用される API キーとシークレットはサーバーサイドで呼び出す必要があります。これらの値をクライアントサイドに保存しないでください。詳細は [Security of API Key and Client Secret](../getting-started/gs-credentials.md#security-of-api-key-and-client-secret) を参照してください。
+セキュリティ上の理由から、トークン生成に使用される API Key とクライアントシークレットは Server-Side で呼び出す必要があります。これらの値を Client-Side に保存しないでください。詳細は [Security of API Key and Client Secret](../getting-started/gs-credentials.md#security-of-api-key-and-client-secret) を参照してください。
 :::
 
 #### Sending the UID2 Token to the SDK
@@ -110,7 +110,7 @@ Step 1-c でパブリッシャーがユーザーのメールアドレスまた�
 
 <SnptExampleClientServerSendUid2ToSdk />
 
-SDKは、指定された [callback function](../sdks/sdk-ref-javascript.md#callback-function) (ID の可用性を示します) を呼び出し、確立された ID をClient-Side で入札可能な状態にします。
+SDK は、指定された [callback function](../sdks/sdk-ref-javascript.md#callback-function) (ID の可用性を示します) を呼び出し、確立された ID を Client-Side で入札可能な状態にします。
 
 :::tip
 コードの構造によっては、Step 1-f と 1-g のコールバックを 1 つのコールバック関数にまとめると便利かもしれません。
@@ -141,7 +141,7 @@ UID2 Token が SSP から DSP に送信されるとき、ビッドストリー�
 ```
 
 :::info
-返された Advertising Token をどのように SSP に渡すかを検討する必要があります。`Prebid.js`([UID2 Integration Overview for Prebid](integration-prebid.md) を参照) や Google Ad Manager Secure Signals([Google Ad Manager Secure Signals Integration Guide](integration-google-ss.md) を参照) を使用するなど、Client-Side で UID2 を実装する他のいくつかのアプローチでは、実装に、返された Advertising Token の受け渡しを管理する関数が含まれています。SDK for JavaScriptを使用している場合は、これを自分で管理する必要があります。
+返された Advertising Token をどのように SSP に渡すかを検討する必要があります。`Prebid.js` ([UID2 Integration Overview for Prebid](integration-prebid.md) を参照) や Google Ad Manager Secure Signals ([Google Ad Manager Secure Signals Integration Guide](integration-google-ss.md) を参照) を使用するなど、Client-Side で UID2 を実装する他のいくつかのアプローチでは、実装に、返された Advertising Token の受け渡しを管理する関数が含まれています。SDK for JavaScript を使用している場合は、これを自分で管理する必要があります。
 :::
 
 :::tip
@@ -160,12 +160,12 @@ UID2 Token が SSP から DSP に送信されるとき、ビッドストリー�
 
 ### Clear Identity: User Logout
 
-クライアントのライフサイクルは、ユーザーがパブリッシャーのサイト (UID2 ではなく) からログアウトすることを決定したときに完了します。これにより、クライアントの ID セッションが終了し、ファーストパーティ Cookie 情報がクリアされます。
+クライアントのライフサイクルは、ユーザーがパブリッシャーのサイト (UID2 ではなく) からログアウトすることを決定したときに完了します。これにより、クライアントの ID セッションが終了し、ファーストパーティクッキー情報がクリアされます。
 
 | Step | Endpoint/SDK | Description |
 | :--- | :--- | :--- |
 | 4-a | N/A | ユーザーはパブリッシャーのアセットからログアウトします。 |
-| 4-b | [SDK for JavaScript](../sdks/sdk-ref-javascript.md) | SDKは、以下に示すように、[disconnect() function](../sdks/sdk-ref-javascript.md#disconnect-void) を使用して、ファーストパーティ Cookie から UID2 ID をクリアし、クライアントのライフサイクルを切断します。|
+| 4-b | [SDK for JavaScript](../sdks/sdk-ref-javascript.md) | SDKは、以下に示すように、[disconnect() 関数](../sdks/sdk-ref-javascript.md#disconnect-void) を使用して、ファーストパーティクッキーから UID2 ID をクリアし、クライアントのライフサイクルを切断します。|
 
 
 ```html

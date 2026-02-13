@@ -22,7 +22,7 @@ UID2 Operator は UID2 エコシステムの API サーバーです。詳細は�
 AKS の Private Operator をセットアップしたい場合は、UID2 の連絡先にお問い合わせください。詳細は、[Contact Info](../getting-started/gs-account-setup.md#contact-info) を参照してください。
 :::
 
-このガイドでは、Azure Kubernetes Service （<Link href="../ref-info/glossary-uid#gl-aks">AKS</Link>） クラスター上で Azure Container Instances（ACI） の仮想ノード上で実行される UID2 Operator Service を <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link> として設定する方法について説明します。[Azure Container Instances 上の仮想ノード](https://learn.microsoft.com/ja-jp/azure/container-instances/container-instances-virtual-nodes)を使用することで、ハードウェアでバックアップされた Trusted Execution Environment （TEE） で実行される機密コンテナの機能を活用できます。この TEE は、データ整合性、データ機密性、コード整合性などの内在的な機能を提供します。
+このガイドでは、Azure Kubernetes Service（<Link href="../ref-info/glossary-uid#gl-aks">AKS</Link>） クラスター上で Azure Container Instances（ACI） の仮想ノード上で実行される UID2 Operator Service を <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link> として設定する方法について説明します。[Azure Container Instances 上の仮想ノード](https://learn.microsoft.com/ja-jp/azure/container-instances/container-instances-virtual-nodes)を使用することで、ハードウェアでバックアップされた Trusted Execution Environment （TEE） で実行される機密コンテナの機能を活用できます。この TEE は、データ整合性、データ機密性、コード整合性などの内在的な機能を提供します。
 
 UID2 Operator の機密 Azure Container インスタンス用の Docker コンテナーが起動すると、UID2 Core Service が Operator Service の真正性と、Operator Service が実行されているエンクレーブ環境の真正性を検証できるようにする認証プロセスが完了します。
 
@@ -262,7 +262,7 @@ az network vnet subnet update \
 
 #### Get the AKS Subnet ID
 
-AKS サブネット ID を作成するには、次のコマンドを実行します:
+AKS サブネット ID を取得するには、次のコマンドを実行します:
 
 ```
 export AKS_SUBNET_ID=$(az network vnet subnet show \
@@ -463,7 +463,7 @@ Private Operator のセットアップを完了するには、次の手順に従
 
 ## Upgrading
 
-ASK 用の UID2 Private Operator の新しいバージョンがリリースされると、独自の Private Operator をホストしている参加者は、更新のメール通知を受け取り、新しいリリースリンクまたはインストールファイルを取得するための手順が記載されます。アップグレードのための期間があり、その後、古いバージョンは非アクティブになり、サポートされなくなります。
+AKS 用の UID2 Private Operator の新しいバージョンがリリースされると、独自の Private Operator をホストしている参加者は、更新のメール通知を受け取り、新しいリリースリンクまたはインストールファイルを取得するための手順が記載されます。アップグレードのための期間があり、その後、古いバージョンは非アクティブになり、サポートされなくなります。
 
 アップグレードするには、次の手順を完了します:
 

@@ -11,7 +11,7 @@ import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emai
 
 # Publisher Web Integration Overview
 
-パブリッシャーとして、UID2 とインテグレーションしてア ID トークンを生成し、ウェブページのコンテキストで RTB <Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link>に渡す方法はたくさんあります。
+パブリッシャーとして、UID2 とインテグレーションして ID トークンを生成し、ウェブページのコンテキストで RTB <Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link>に渡す方法はたくさんあります。
 
 このページでは、インテグレーションステップとインテグレーションオプションの概要と、各オプションの追加情報へのリンクを紹介します。
 

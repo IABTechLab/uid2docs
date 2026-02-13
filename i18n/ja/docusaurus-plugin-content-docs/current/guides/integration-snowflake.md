@@ -13,7 +13,7 @@ import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emai
 
 # Snowflake Integration Guide
 
-[Snowflake](https://www.snowflake.com/) は、パートナーがデータを保存し、UID2 フレームワークとインテグレーションできるクラウドデータウェアハウジングソリューションです。Snowflake を使用することで、UID2 は、機密性の高い <Link href="../ref-info/glossary-uid#gl-dii">直接識別情報 (DII)</Link> を公開することなく、消費者識別子データを安全に共有できます。オペレーター Web サービスを直接クエリして消費者識別子データを取得するオプションもありますが、Snowflake UID2 インテグレーションはよりシームレスなエクスペリエンスを提供します。
+[Snowflake](https://www.snowflake.com/) は、パートナーがデータを保存し、UID2 フレームワークとインテグレーションできるクラウドデータウェアハウジングソリューションです。Snowflake を使用することで、UID2 は、機密性の高い <Link href="../ref-info/glossary-uid#gl-dii">直接識別情報 (DII)</Link> を公開することなく、消費者識別子データを安全に共有できます。Operator Web Service を直接クエリして消費者識別子データを取得するオプションもありますが、Snowflake UID2 インテグレーションはよりシームレスなエクスペリエンスを提供します。
 
 :::important
 このドキュメントは、最新の [Snowflake Marketplace listing](#snowflake-marketplace-listing) を使用している方を対象としています。以前のバージョンを使用している場合は、[Snowflake Integration Guide (Pre-July 2025)](integration-snowflake-previous.md) を参照してください。以前の実装を使用している場合は、更新と強化を利用するために新しいバージョンへの移行を推奨します。詳細は、[Changes from Previous Version](#changes-from-previous-version) を参照してください。移行情報は、[Migration Guide](#migration-guide) を参照してください。
@@ -50,7 +50,7 @@ import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emai
 これらの変更は、コードインテグレーションが 2025 年 7 月以前に公開された Snowflake 関数のバージョンを使用していることを前提としています: [Snowflake Integration Guide (Pre-July 2025)](integration-snowflake-previous.md) を参照してください。このバージョンへの移行の詳細は、[Migration Guide](#migration-guide) を参照してください。
 :::
 
-The following table shows the differences between the old and new identity mapping functions.
+以下の表は、旧バージョンと新バージョンの ID マッピング関数の違いを示しています。
 
 | Function | Version | Return Fields | Key Differences | Comments |
 | :-- | :-- | :-- | :-- | :-- |
@@ -72,7 +72,7 @@ The following table shows the differences between the old and new identity mappi
 
 | Partner Snowflake Account | UID2 Snowflake Account | UID2 Core Opt-Out Cloud Setup |
 | :--- | :--- | :--- |
-| パートナーとして、データをホストし、UID2 インテグレーションに参加するための Snowflake アカウントをセットアップします。UID2 Share を通じて関数とビューを消費します。 | UID2 インテグレーションは、Snowflake アカウントでホストされ、UID2 関連のタスクを実行するために必要なデータのみを引き出す認可された関数とビューへのアクセスを提供します。プライベートテーブルにはアクセスできません。UID2 Share は、UID2 関連のタスクを実行するために必要な基本的なデータのみを公開します。<br/>**Note**: <Link href="../ref-info/glossary-uid#gl-salt">ソルト</Link> と暗号化キーはプライベートテーブルに保存されています。<Link href="../ref-info/glossary-uid#gl-dii">DII</Link> はどの時点でも保存されません。 | ETL (Extract Transform Load) ジョブは、UID2 Core/Optout Snowflake ストレージを常に更新し、UID2 Operator Web サービスを動かす内部データを提供します。Operator Web サービスで使用されるデータは、UID2 Share を通じても利用可能です。 |
+| パートナーとして、データをホストし、UID2 インテグレーションに参加するための Snowflake アカウントをセットアップします。UID2 Share を通じて関数とビューを消費します。 | UID2 インテグレーションは、Snowflake アカウントでホストされ、UID2 関連のタスクを実行するために必要なデータのみを引き出す認可された関数とビューへのアクセスを提供します。プライベートテーブルにはアクセスできません。UID2 Share は、UID2 関連のタスクを実行するために必要な基本的なデータのみを公開します。<br/>**Note**: <Link href="../ref-info/glossary-uid#gl-salt">ソルト</Link> と暗号化キーはプライベートテーブルに保存されています。<Link href="../ref-info/glossary-uid#gl-dii">DII</Link> はどの時点でも保存されません。 | ETL (Extract Transform Load) ジョブは、UID2 Core/Optout Snowflake ストレージを常に更新し、UID2 Operator Web Service を動かす内部データを提供します。Operator Web Service で使用されるデータは、UID2 Share を通じても利用可能です。 |
 | 共有関数とビューを使用すると、トランザクションコンピューティングコストを Snowflake に支払います。 | これらのプライベートテーブルは、UID2 Snowflake アカウントで保護され、UID2 関連のタスクを完了するために使用される内部データを保持する UID2 Core/Optout Snowflake ストレージと自動的に同期します。 | |
 
 ## Preparing DII for Processing
@@ -111,7 +111,7 @@ UID2 POC に署名する前に mapping share をテストしたい場合は、UI
 
 このシナリオでは、以下の手順が実行されます:
 
-1. UID2 担当者がSnowflakeプライベートマーケットプレイスにシェアリスティングをプロビジョニングし、このステップが完了したら知らせます。
+1. UID2 担当者が Snowflake プライベートマーケットプレイスにシェアリスティングをプロビジョニングし、このステップが完了したら知らせます。
 
 2. その後、プライベートマーケットプレイスのリスティングを表示し、integ シェアへのアクセスをリクエストできます。
 

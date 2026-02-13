@@ -298,7 +298,7 @@ Operator インスタンスがデプロイされると、デフォルトのロ�
 
 #### Log Rotation Default Settings
 
-以下はデフォルトの logrotete の設定です。`/etc/logrotate.d/operator-logrotate.conf` に定義されています:
+以下はデフォルトの logrotate の設定です。`/etc/logrotate.d/operator-logrotate.conf` に定義されています:
 
 ```
 /var/log/operator.log*
@@ -379,7 +379,7 @@ Private Operator 起動時のエラーコードは、リリース v5.49.7 以降
 
 | Error Code | Issue | Steps to Resolve |
 | :--- | :--- | :--- |
-| E01 | InstanceProfileMissingError | EC2 インスタンスに、必要な権限が付与されたIAMインスタンスプロファイルをアタッチします。UID2 Operator は、AWS Secrets Manager から設定にアクセスするためにこれらの権限が必要です。 |
+| E01 | InstanceProfileMissingError | EC2 インスタンスに、必要な権限が付与された IAM インスタンスプロファイルをアタッチします。UID2 Operator は、AWS Secrets Manager から設定にアクセスするためにこれらの権限が必要です。 |
 | E02 | OperatorKeyNotFoundError | Private Operator が参照するシークレットが、オペレーターと同じリージョンにある AWS Secrets Manager に存在することを確認し、IAM インスタンス プロファイルがシークレットにアクセスする権限を持っていることを確認してください。必要に応じて、特定のシークレット名とリージョンに関するログを確認できます。 |
 | E03 | ConfigurationMissingError | 構成に必須の属性が不足しています。詳細はログを確認し、Secrets Manager で不足している属性を更新してください。 |
 | E04 | ConfigurationValueError | 構成値が無効です。AWS Secrets Manager内の構成値が、必要な形式と環境と一致していることを確認してください。Note： `debug_mode = true` は `integ` 環境でのみ許可されています。詳細はログを確認してください。 |

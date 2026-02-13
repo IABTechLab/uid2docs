@@ -135,7 +135,7 @@ Here's what you need to know about phone number normalization rules:
  Examples:
    - US: `1 (234) 567-8901` is normalized to `+12345678901`.
    - Singapore: `65 1243 5678` is normalized to `+6512345678`.
-   - Sydney, Australia: `(02) 1234 5678` is normalized to drop the leading zero for the city plus include the country code: `+61212345678`.
+   - Australia: mobile phone number `0491 570 006` is normalized to add the country code and drop the leading zero: `+61491570006`.
 
 :::warning
 Make sure that the normalized phone number is UTF-8, not another encoding system such as UTF-16.
@@ -194,7 +194,7 @@ You can use this tool to verify that your internal processes are set up to corre
 
 ## Troubleshooting
 
-In all scenarios, follow the steps on your side to prepare your DII for processing, and then check your resulting values by using the [UID2 Hashing Tool](#uid2-hashing-tool). If the results don't match, check each step to find the error.
+In all scenarios, follow the steps on your side to prepare your DII for processing, and then check your resulting values by using the [UID2 hashing tool](https://hashing-tool.samples.uidapi.com/). If the results don't match, check each step to find the error.
 
 If you're having trouble or getting errors, or if you just want to be sure you're following the steps correctly, here are some things you can check:
 
@@ -202,8 +202,8 @@ If you're having trouble or getting errors, or if you just want to be sure you'r
 
   The service normalizes emails, but it can't normalize phone numbers. For example, it can't determine the value for a missing country code. Use these resources:
   - Instructions:  [Phone Number Normalization](#phone-number-normalization).
-  - Tool for cross-checking: [UID2 Hashing Tool](#uid2-hashing-tool).
+  - Tool for cross-checking: [UID2 hashing tool](https://hashing-tool.samples.uidapi.com/).
 
 - **Use the Base64-encoded value**: The process includes normalizing, then hashing, then Base64-encoding the bytes of the hash value. When generating UID2s, the input is the Base64-encoded value. Make sure you're using this 44-character string value.
 
-- You might see the following error message: "The hashing value must be 44 characters." In this scenario, there is an error with the hashing function you're using. Use the hex to Base64 encoding of the SHA-256 hash. For details, see [Email Address Hash Encoding](#email-address-hash-encoding) or [Phone Number Hash Encoding](#phone-number-hash-encoding). To cross-check, test using the [UID2 Hashing Tool](#uid2-hashing-tool).
+- You might see the following error message: "The hashing value must be 44 characters." In this scenario, there is an error with the hashing function you're using. Use the hex to Base64 encoding of the SHA-256 hash. For details, see [Email Address Hash Encoding](#email-address-hash-encoding) or [Phone Number Hash Encoding](#phone-number-hash-encoding). To cross-check, test using the [UID2 hashing tool](https://hashing-tool.samples.uidapi.com/).

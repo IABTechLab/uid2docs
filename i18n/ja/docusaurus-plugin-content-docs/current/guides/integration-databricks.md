@@ -2,7 +2,7 @@
 title: Databricks Integration
 sidebar_label: Databricks
 pagination_label: Databricks Integration
-description: Databricks を使用した UID2 とのインテグレーション（連携）に関する情報。
+description: Databricks を使用した UID2 とのインテグレーションに関する情報。
 hide_table_of_contents: false
 sidebar_position: 04
 displayed_sidebar: docs
@@ -17,7 +17,7 @@ import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emai
 
 ## Integration Overview
 
-このソリューションでは、[Databricks Clean Rooms](https://docs.databricks.com/aws/en/clean-rooms/) 機能のインスタンスでデータを処理することにより、<Link href="../ref-info/glossary-uid#gl-dii">DII (直接識別情報)</Link> を公開することなく、コンシューマー識別データを安全に共有できます。この機能は、機密データを扱うための、安全でプライバシーが保護された環境を提供します。
+このソリューションでは、[Databricks Clean Rooms](https://docs.databricks.com/aws/en/clean-rooms/) 機能のインスタンスでデータを処理することにより、<Link href="../ref-info/glossary-uid#gl-dii">DII (Directly Identifying Information)</Link> を公開することなく、コンシューマー識別データを安全に共有できます。この機能は、機密データを扱うための、安全でプライバシーが保護された環境を提供します。
 
 Databricks Clean Rooms 環境をセットアップしたら、UID2 サービスとの信頼関係を確立し、クリーンルームで共有したデータを raw UID2 に変換することを許可します。
 

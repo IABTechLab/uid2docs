@@ -14,7 +14,7 @@ import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emai
 
 # Publisher Integration Guide, Server-Side
 
-このガイドは、<Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 Token</Link> (Advertising Token) を RTB <Link href="../ref-info/glossary-uid#gl-bidstream"><Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link></Link> 用に生成するために、UID2 と直接インテグレーションを行いながら、UID2 対応シングルサインオンや ID プロバイダーではなく、すべてのインテグレーションをサーバーサイドで行うパブリッシャー向けのガイドです。
+このガイドは、<Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 Token</Link> (Advertising Token) を RTB <Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link> 用に生成するために、UID2 と直接インテグレーションを行いながら、UID2 対応シングルサインオンや ID プロバイダーではなく、すべてのインテグレーションをサーバーサイドで行うパブリッシャー向けのガイドです。
 
 パブリッシャーが UID2 と Server-Side でインテグレーションするには、以下のオプションが利用可能です:
 
@@ -54,12 +54,12 @@ UID2 と UID2 Token を使用してクライアントのアイデンティティ
 
 UID2 とインテグレーションするには、UID2 アカウントが必要です。アカウントをまだ作成していない場合は、まず [Account Setup](../getting-started/gs-account-setup.md) ページの手順に従ってください。
 
-アカウントの初期設定が完了すると、UID2 Portalにアクセスするための手順とリンクが送信されます。UID2 Portalでは、本番環境のための [credentials](../getting-started/gs-credentials.md) を作成し、提供する必要がある追加の値を設定できます。詳細は、[Getting Started with the UID2 Portal](../portal/portal-getting-started.md) を参照してください。
+アカウントの初期設定が完了すると、UID2 Portal にアクセスするための手順とリンクが送信されます。UID2 Portal では、本番環境のための [credentials](../getting-started/gs-credentials.md) を作成し、提供する必要がある追加の値を設定できます。詳細は、[Getting Started with the UID2 Portal](../portal/portal-getting-started.md) を参照してください。
 
-Server-Side インテグレーションの場合、UID2 Portalの [API Keys](../portal/api-keys.md) ページで以下の値を設定する必要があります:
+Server-Side インテグレーションの場合、UID2 Portal の [API Keys](../portal/api-keys.md) ページで以下の値を設定する必要があります:
 
-- <Link href="../ref-info/glossary-uid#gl-api-key">API key</Link>、Client Key とも呼ばれます、
-- <Link href="../ref-info/glossary-uid#gl-client-secret">Client secret</Link>、参加者と UID2 Service のみが知る値。
+- <Link href="../ref-info/glossary-uid#gl-api-key">API Key</Link>、Client Key とも呼ばれます。
+- <Link href="../ref-info/glossary-uid#gl-client-secret">クライアントシークレット</Link>、参加者と UID2 Service のみが知る値。
 
 :::important
 これらの値を安全に保管することが非常に重要です。詳細は、[Security of API Key and Client Secret](../getting-started/gs-credentials.md#security-of-api-key-and-client-secret) を参照してください。
@@ -84,7 +84,7 @@ Server-Side SDK を使用している場合、SDK はエンドポイントに関
 
 ### Establish Identity: Capture User Data
 
-Step 1-c で認証が行われい、パブリッシャーがユーザーのメールアドレスや電話番号を検証した後、パブリッシャーは Server-Side で UID2 Token を生成するリクエストを送信することができます。次の表は、トークン生成ステップの詳細です。
+Step 1-c で認証が行われ、パブリッシャーがユーザーのメールアドレスや電話番号を検証した後、パブリッシャーは Server-Side で UID2 Token を生成するリクエストを送信することができます。次の表は、トークン生成ステップの詳細です。
 
 :::tip
 このエンドポイントを直接呼び出す代わりに、SDK のいずれかを使用して管理することもできます。オプションの概要は、[SDKs: Summary](../sdks/summary-sdks.md) を参照してください。
@@ -94,7 +94,7 @@ Step 1-c で認証が行われい、パブリッシャーがユーザーのメ�
 | :--- | :--- | :--- |
 | 1-d  | [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) | パブリッシャーが UID2 を使用してアイデンティティを確立するには、2 つの方法があります:<br/>- UID2 対応のシングルサインオンプロバイダーとインテグレーションします。<br/>- [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) エンドポイントを使って、ユーザーの正規化したメールアドレスまたは電話番号から UID2 Token を生成します。 |
 | 1-e  | [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) | ユーザーのメールアドレス、電話番号、またはそれぞれのハッシュからと、Refresh Token などの関連値から生成された UID2 Token を返します。 |
-| 1-f  | N/A                                                         | 返された `advertising_token` と `refresh_token` は、ユーザーに紐づくストレージに保存します。ファーストパーティクッキーのようなClient-Side のストレージや、Server-Sideのストレージを検討するとよいでしょう。|
+| 1-f  | N/A                                                         | 返された `advertising_token` と `refresh_token` は、ユーザーに紐づくストレージに保存します。ファーストパーティクッキーのような Client-Side のストレージや、Server-Side のストレージを検討するとよいでしょう。|
 
 ### Bid Using a UID2 Token
 
@@ -119,7 +119,7 @@ UID2 の Opt-out ワークフローとユーザーが Opt-out する方法の詳
 | 3-a  | N/A | ユーザーがアセットに戻り、再びアクティブになったとき、UID2 Token をリフレッシュしてから、SSP に送信します。 |
 | 3-b  | [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) | Step [1-e](#establish-identity-capture-user-data) で取得した `refresh_token` をクエリパラメータとして送信します。 |
 | 3-c  | [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) | UID2 Service は、オプトアウトしていないユーザーに対して新しい ID トークンを発行します。 |
-| 3-d  | N/A | `POST /token/refresh` エンドポイントから返される値、`advertising_token` と `refresh_token` を、ユーザーにリンクされるように配置します。ファーストパーティのクッキーのようなClient-Side のストレージか、サーバサイドのストレージを検討するとよいでしょう。 |
+| 3-d  | N/A | `POST /token/refresh` エンドポイントから返される値、`advertising_token` と `refresh_token` を、ユーザーにリンクされるように配置します。ファーストパーティのクッキーのような Client-Side のストレージか、サーバサイドのストレージを検討するとよいでしょう。 |
 
 :::tip
 [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) または [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) エンドポイントによって返された ID の `refresh_from` タイムスタンプからトークンのリフレッシュを始めてください。
