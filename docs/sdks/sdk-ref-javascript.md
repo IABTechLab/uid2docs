@@ -51,7 +51,7 @@ This SDK simplifies development for publishers who want to build their own custo
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | &#8212; | &#8212; | &#9989; | &#9989; | &#8212; | &#8212; |
 
-## Sample Implementation
+## Sample Implementations
 
 For sample implementations with associated documentation, see:
   - Client-Side Integration Using UID2 SDK v4 for JavaScript:
