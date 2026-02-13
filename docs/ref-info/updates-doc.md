@@ -24,7 +24,7 @@ Use the Tags toolbar to view a subset of documentation updates.
 
 The following documents were released in the first quarter of 2026.
 
-<CustomTagsContainer tags="Endpoints, SDKs">
+<CustomTagsContainer tags="Endpoints, SDKs, Opt-Out">
 
 ### Removal of optout_check Parameter
 
