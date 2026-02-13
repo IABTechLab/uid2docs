@@ -150,6 +150,8 @@ If you're using the SDK's HTTP implementation, follow these steps.
    TokenGenerateResponse tokenGenerateResponse = publisherUid2Client.generateTokenResponse(TokenGenerateInput.fromEmail("user@example.com"));
    ```
 
+<!-- uid2_euid_diff: admonition re legal basis (in EUID not in UID2)-->
+
 #### Basic Usage, Client-Server Integration
 
 If you're using client-server integration (see [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md)), follow this step:
@@ -224,6 +226,8 @@ If you're using server-side integration (see [Publisher Integration Guide, Serve
       `.putHeader("Authorization", "Bearer " + UID2_API_KEY)`  
       `.putHeader("X-UID2-Client-Version", PublisherUid2Helper.getVersionHttpHeader())`
    2. Body: `envelope.getEnvelope()`
+
+<!-- uid2_euid_diff: admonition re legal basis (in EUID not in UID2)-->
 
 4. If the HTTP response status code is _not_ 200, see [Response Status Codes](../endpoints/post-token-generate.md#response-status-codes) to determine next steps. Otherwise, convert the UID2 identity response content into a `TokenGenerateResponse` object:
 
