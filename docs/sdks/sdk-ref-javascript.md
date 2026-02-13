@@ -54,10 +54,10 @@ This SDK simplifies development for publishers who want to build their own custo
 ## Sample Implementations
 
 For sample implementations with associated documentation, see:
-  - Client-Side Integration Using UID2 SDK v4 for JavaScript:
+  - Client-Side Integration Using UID2 SDK for JavaScript:
     - [Code](https://github.com/IABTechLab/uid2-examples/tree/main/web-integrations/javascript-sdk/client-side)
     - Running site: [Client-Side UID2 Integration Example](https://js-client-side.samples.uidapi.com/)
-  - Client-Server Integration Using UID2 SDK v4 for JavaScript:
+  - Client-Server Integration Using UID2 SDK for JavaScript:
     - [Code](https://github.com/IABTechLab/uid2-examples/tree/main/web-integrations/javascript-sdk/client-server)
     - Running site: [Client-Server UID2 Integration Example](https://js-client-server.samples.uidapi.com/)
 
