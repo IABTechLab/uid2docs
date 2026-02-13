@@ -62,7 +62,7 @@ SDK が UID2 Service で認証するために必要な値を提供する必要�
 | :--- | :--- |
 | `endpoint` | UID2 Service のエンドポイント。[Environments](../getting-started/gs-environments) を参照してください。 |
 | `authKey` | API Key。[UID2 Credentials](../getting-started/gs-credentials) を参照してください |
-| `secretKey` | クライアントシークレット。[UID2 Credentials](../getting-started/gs-credentials) を参照してください。 |
+| `secretKey` | Client Secret 。[UID2 Credentials](../getting-started/gs-credentials) を参照してください。 |
 
 ## Interface
 

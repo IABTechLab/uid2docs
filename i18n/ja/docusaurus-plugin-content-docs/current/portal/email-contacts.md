@@ -36,12 +36,12 @@ Email Contacts ページでは、UID2 の更新について通知を受ける個
 
 ## Add an Email Contact
 
-メール連絡先を追加するには、以下のステップを完了させます:
+メール連絡先を追加するには、次の手順を実行します:
 
 1. UID2 Portal アカウントにログインします。
 1. 右上の下矢印をクリックし、**Email Contacts** を選択します。
 1. **Add Email Contact** をクリックします。
-2. Add Email Contact ウィンドウで、メールアドレス連絡先の以下の情報を入力します:
+2. Add Email Contact ウィンドウで、メール連絡先の以下の情報を入力します:
    - Email Group Name: 以下のいずれかを入力します:
    
      - 個人の場合: メールアドレスに関連付けられた名前または役割。
@@ -50,7 +50,7 @@ Email Contacts ページでは、UID2 の更新について通知を受ける個
    
      - 個人の場合: メールアドレス。
      - グループの場合: グループに有効なメールアドレス。たとえば、`engineering@example.com`。
-   - Contact Type: コンタクトタイプのドロップダウンリストから選択します。たとえば、`Business` または `Technical` を選択します。
+   - Contact Type: 連絡先タイプのドロップダウンリストから選択します。たとえば、`Business` または `Technical` を選択します。
 3. **Save Email Contact** をクリックします。エントリーがリストに追加されます。
 
 :::note
@@ -61,18 +61,18 @@ Email Contacts では、確認のメールは送信されません。
 
 値を変更できます: Email Group Name、Email Alias、Contact Type
 
-メール連絡先の情報を編集するには、以下の手順を完了します:
+メール連絡先の情報を編集するには、次の手順を実行します:
 
 1. UID2 Portal アカウントにログインします。
 1. 右上の下矢印をクリックし、**Email Contacts** を選択します。
-1. リストで連絡先を見つけ、Actions 列で ![the Edit icon](images/icon-pencil-solid.png) (編集アイコン) をクリックします。
+1. リストで連絡先を見つけ、Actions 列で ![the Edit icon](images/icon-pencil-solid.png) (Edit アイコン) をクリックします。
 1. 情報を更新し、変更を保存します。
 
 ## Remove an Email Contact
 
-メールコンタクトを削除するには、以下の手順に従ってください:
+メール連絡先を削除するには、次の手順を実行します:
 
 1. UID2 Portal アカウントにログインします。
 1. 右上の下矢印をクリックし、**Email Contacts** を選択します。
-1. リストで連絡先を見つけ、Actions 列で Delete (trashcan) アイコンをクリックします。
+1. リストで連絡先を見つけ、Actions 列で ![the Delete icon](images/icon-trash-can-solid.png) (Delete アイコン) をクリックします。
 1. 確認メッセージが表示されたら、削除を確定します。

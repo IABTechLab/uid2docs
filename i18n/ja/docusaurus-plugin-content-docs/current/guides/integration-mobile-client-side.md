@@ -262,7 +262,7 @@ UID2Settings.shared.uid2Environment = .custom(
 :::note
 次のような環境間の違いに注意してください:
 - UID2 インテグレーション環境のトークンは、<Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link>に渡しても有効ではありません。
-- 各環境（インテグレーションおよび本番）には異なる API Key とクライアントシークレット値があります。各環境で正しい値を使用してください。
+- 各環境（インテグレーションおよび本番）には異なる API Key と Client Secret の値があります。各環境で正しい値を使用してください。
 :::
 
 ### Optional: Specifying the API Base URL to Reduce Latency

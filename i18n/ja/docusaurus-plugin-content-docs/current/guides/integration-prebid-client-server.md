@@ -62,7 +62,7 @@ Prebid.js を使用して UID2 とインテグレーションするには、UID2
 Client-Server インテグレーションの場合、UID2 Portal の [API Keys](../portal/api-keys.md) ページで以下の値を設定する必要があります:
 
 - <Link href="../ref-info/glossary-uid#gl-api-key">API Key</Link>、Client Key とも呼ばれます。
-- <Link href="../ref-info/glossary-uid#gl-client-secret">クライアントシークレット</Link>、参加者と UID2 Service のみが知る値。
+- <Link href="../ref-info/glossary-uid#gl-client-secret">Client Secret</Link>、参加者と UID2 Service のみが知る値。
 
 :::important
 これらの値を安全に保管することが非常に重要です。詳細は、[Security of API Key and Client Secret](../getting-started/gs-credentials.md#security-of-api-key-and-client-secret) を参照してください。
@@ -94,7 +94,7 @@ Prebid の Client-Server インテグレーションの場合、最初のステ�
 トークンを生成するには、いずれかの SDK または [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) エンドポイントを呼び出します。トークンを示す API レスポンスの例は、[Sample Token Response Object](#sample-token-response-object) を参照してください。`Identity` レスポンスを Prebid に渡す必要があります。
 
 :::warning
-セキュリティ上の理由から、トークン生成に使用される API Key とクライアントシークレットは Server-Side で呼び出す必要があります。これらの値は Prebid の実装の一部として保存しないでください。
+セキュリティ上の理由から、トークン生成に使用される API Key と Client Secret は Server-Side で呼び出す必要があります。これらの値は Prebid の実装の一部として保存しないでください。
 :::
 
 ### Refreshing a UID2 Token

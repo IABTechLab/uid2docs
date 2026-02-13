@@ -59,7 +59,7 @@ UID2 とインテグレーションするには、UID2 アカウントが必要�
 Server-Side インテグレーションの場合、UID2 Portal の [API Keys](../portal/api-keys.md) ページで以下の値を設定する必要があります:
 
 - <Link href="../ref-info/glossary-uid#gl-api-key">API Key</Link>、Client Key とも呼ばれます。
-- <Link href="../ref-info/glossary-uid#gl-client-secret">クライアントシークレット</Link>、参加者と UID2 Service のみが知る値。
+- <Link href="../ref-info/glossary-uid#gl-client-secret">Client Secret</Link>、参加者と UID2 Service のみが知る値。
 
 :::important
 これらの値を安全に保管することが非常に重要です。詳細は、[Security of API Key and Client Secret](../getting-started/gs-credentials.md#security-of-api-key-and-client-secret) を参照してください。
