@@ -59,13 +59,17 @@ This document outlines the rules for style, tone, and terminology unification fo
 
 ## 4. リンクテキスト
 
-*   **用語集への準拠**: リンクテキストは、原則として `TRANSLATION_GLOSSARY.md` の定義に従います。
-    *   用語集でカタカナと定義されている場合 (例: Publisher -> パブリッシャー): リンクテキストもカタカナを使用します。
-        *   例: `<Link href="...">パブリッシャー</Link>`
-    *   用語集で英語と定義されている場合 (例: UID2 Token -> UID2 Token): リンクテキストも英語を使用します。
-        *   例: `<Link href="...">UID2 Token</Link>`
-*   **文章・節のリンク**: リンクテキストが文章や節の場合は、文脈に合わせて日本語に翻訳します。ただし、リンクに含まれる固有名詞やドキュメントタイトルは、英語のまま（または用語集に従った表記）とします。
-    *   例: `See [Getting Started](...)` -> `[Getting Started](...) を参照してください`
+リンクテキストの表記は、用語集 (TRANSLATION_GLOSSARY.md) の定義に従います。以下のルールを適用してください。
+
+*   **ルール 1: 用語集で英語表記が指定されている複合語は、リンクテキスト内でも英語のまま**にします。
+    *   対象例: `Client Secret`, `Client Key`, `UID2 Token`, `Refresh Token`, `raw UID2`, `API Key`, `DII (Directly Identifying Information)` など
+    *   例: `<Link href="...">Client Secret</Link>` (「クライアントシークレット」としない)
+    *   例: `<Link href="...">API Key</Link>`
+*   **ルール 2: 用語集でカタカナ訳が定義されている用語は、リンクテキスト内でもカタカナ可**です。ただし、同一ドキュメント内では表記を統一してください。
+    *   対象例: `ビッドストリーム` (Bidstream), `エンクレーブ` (Enclave), `ソルト` (Salt) など
+    *   例: `<Link href="...">ビッドストリーム</Link>` または `<Link href="...">bidstream</Link>` (どちらも可。ただし同一文書内で混在させない)
+*   **ルール 3: Markdown リンクテキスト** (`[テキスト](URL)` 形式) も同じルールに従います。
+    *   例: `[API Key と Client Secret](../getting-started/gs-credentials.md#api-key-and-client-secret)`tting Started](...)` -> `[Getting Started](...) を参照してください`
 
 ## 5. 箇条書き
 

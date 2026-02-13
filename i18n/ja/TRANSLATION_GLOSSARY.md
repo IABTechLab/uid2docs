@@ -71,10 +71,10 @@ This glossary defines standard Japanese translations for technical terms used in
 | Deterministic | 決定論的 | deterministic ID、deterministic identity など。 |
 | DII (Directly Identifying Information) | DII | メールアドレスや電話番号などの生のデータ。文脈により「個人の識別情報」等と補足するが、原則 DII と表記する。 |
 | Durable | 耐久性のある | durable identifier など。 |
-| Key | キー / 鍵 | 一般的な鍵の意味。Encryption Key -> 暗号化キー。認証関連の鍵については Authentication & Authorization Terms セクション参照。 |
-| Secret | シークレット | 一般的な秘密の値。認証関連については Authentication & Authorization Terms セクション参照。 |
+| Key | キー / 鍵 | Encryption Key -> 暗号化キー。Public Key -> 公開鍵 (または Public Key)。Client Key -> Client Key。複合語で英語指定のものはリンクテキスト内でも英語のまま。 |
+| Secret | シークレット | Client Secret -> Client Secret。リンクテキスト内でも英語のまま。 |
+| Bidstream | ビッドストリーム | リンクテキスト内ではカタカナ (ビッドストリーム) も英語 (bidstream) も可。同一文書内で統一すること。 |
 | Addressability | アドレサビリティ | ターゲティングの精度・到達性。 |
-| Bidstream | ビッドストリーム | |
 | Bid Request | ビッドリクエスト | |
 | Bid Response | ビッドレスポンス | 「入札レスポンス」ではなく「ビッドレスポンス」で統一。 |
 | Request | リクエスト | |
