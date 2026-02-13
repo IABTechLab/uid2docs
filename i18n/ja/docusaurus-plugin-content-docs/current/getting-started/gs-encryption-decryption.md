@@ -23,7 +23,7 @@ import SnptIdentityGenerateResponse from '../snippets/_snpt-example-identity-gen
 
 UID2 API リクエストの暗号化と各レスポンスの復号化について知っておく必要があるのは、以下のとおりです:
 
-- API を使用するには、クライアントの API Key に加えて、クライアントシークレットが必要です。
+- API を使用するには、クライアントの API Key に加えて、 Client Secret が必要です。
 - 独自のコードを書くことも、提供されているコード例の一つを使うこともできます: [Encryption and Decryption Code Examples](#encryption-and-decryption-code-examples) を参照してください。
 - リクエストとレスポンスには、96 ビットの初期化ベクトルと 128 ビットの認証タグを持つ AES/GCM/NoPadding 暗号化アルゴリズムが使用されます。
 - リクエストの暗号化されていない JSON ボディは、バイナリの [暗号化前リクエストデータエンベローブ](#unencrypted-request-data-envelope) にラップされ、その後 [暗号化リクエストエンベローブ](#encrypted-request-envelope) に従って暗号化とフォーマットが行われます。

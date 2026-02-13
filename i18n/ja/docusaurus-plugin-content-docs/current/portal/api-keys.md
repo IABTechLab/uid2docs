@@ -23,10 +23,10 @@ UID2 Portal の **API Keys** ページでは、UID2 アカウントの API Key �
 
 ## Overview
 
-API Key とクライアントシークレットを使用すると、UID2 <Link href="../ref-info/glossary-uid#gl-operator-service">Operator Service</Link> に接続して、直接または UID2 SDK を介して API エンドポイントを呼び出すことができます。これらの値は、サービスに対してあなたを識別します。
+API Key と Client Secret を使用すると、UID2 <Link href="../ref-info/glossary-uid#gl-operator-service">Operator Service</Link> に接続して、直接または UID2 SDK を介して API エンドポイントを呼び出すことができます。これらの値は、サービスに対してあなたを識別します。
 
 :::important
-UID2 Portal で API Key を追加するときは、キーとそれに対応するシークレットを安全に保存し、これらの値が漏洩しないようにするために必要な措置をすべて講じる必要があります。詳細は、[API Key とクライアントシークレット](../getting-started/gs-credentials.md#api-key-and-client-secret) を参照してください。
+UID2 Portal で API Key を追加するときは、キーとそれに対応するシークレットを安全に保存し、これらの値が漏洩しないようにするために必要な措置をすべて講じる必要があります。詳細は、[API Key と Client Secret](../getting-started/gs-credentials.md#api-key-and-client-secret) を参照してください。
 :::
 
 各 API Key は、1 年ごとにローテーションすることを推奨します。
@@ -115,7 +115,7 @@ API Key をローテーションすることを推奨します。API Key をロ�
 
 セキュリティのベストプラクティスとして、異なる役割に対して異なるキーを持つことが推奨されます。
 
-追加のセキュリティに関する推奨事項は、[API Key とクライアントシークレットのセキュリティ](../getting-started/gs-credentials.md#security-of-api-key-and-client-secret) を参照してください。
+追加のセキュリティに関する推奨事項は、[API Key と Client Secret のセキュリティ](../getting-started/gs-credentials.md#security-of-api-key-and-client-secret) を参照してください。
 
 <!-- In some instances, you might create API keys for one permission/role and then want to add a role to your account. For example, you might be an advertiser, but also want to operate as an inventory provider.
 

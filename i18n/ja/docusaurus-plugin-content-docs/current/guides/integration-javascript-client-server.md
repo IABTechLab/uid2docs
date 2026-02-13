@@ -60,7 +60,7 @@ UID2 とインテグレーションするには、UID2 アカウントが必要�
 Client-Server インテグレーションを行う場合は、UID2 Portal の [API Keys](../portal/api-keys.md) ページで以下の値を設定する必要があります:
 
   - <Link href="../ref-info/glossary-uid#gl-api-key">API Key</Link>、Client Key とも呼ばれます。
-  - <Link href="../ref-info/glossary-uid#gl-client-secret">クライアントシークレット</Link>、参加者と UID2 Service のみが知る値です。
+  - <Link href="../ref-info/glossary-uid#gl-client-secret">Client Secret</Link>、参加者と UID2 Service のみが知る値です。
 
 :::important
 これらの値を安全に保管することは非常に重要です。詳細は、[Security of API Key and Client Secret](../getting-started/gs-credentials.md#security-of-api-key-and-client-secret) を参照してください。
@@ -101,7 +101,7 @@ Step 1-c でパブリッシャーがユーザーのメールアドレスまた�
 `Identity` レスポンスを SDK に渡す必要があります。[Sending the UID2 Token to the SDK](#sending-the-uid2-token-to-the-sdk) を参照してください。
 
 :::warning
-セキュリティ上の理由から、トークン生成に使用される API Key とクライアントシークレットは Server-Side で呼び出す必要があります。これらの値を Client-Side に保存しないでください。詳細は [Security of API Key and Client Secret](../getting-started/gs-credentials.md#security-of-api-key-and-client-secret) を参照してください。
+セキュリティ上の理由から、トークン生成に使用される API Key と Client Secret は Server-Side で呼び出す必要があります。これらの値を Client-Side に保存しないでください。詳細は [Security of API Key and Client Secret](../getting-started/gs-credentials.md#security-of-api-key-and-client-secret) を参照してください。
 :::
 
 #### Sending the UID2 Token to the SDK

@@ -139,7 +139,7 @@ import MdxJumpAnchor from '@site/src/components/MdxJumpAnchor';
 <!-- <dd>**new**</dd> -->
 
 <dt><MdxJumpAnchor id="gl-api-key">API key</MdxJumpAnchor></dt>
-<dd>UID2 <a href="../overviews/participants-overview">参加者</a> はそれぞれ、API Key (Client Key) と、そのキーに関連付けられた <a href="#gl-client-secret">Client Secret</a> (APIシークレット) と呼ばれる秘密の値を持っています。Client Secretは、参加者と UID Service だけが知っています。</dd>
+<dd>UID2 <a href="../overviews/participants-overview">参加者</a> はそれぞれ、API Key (Client Key) と、そのキーに関連付けられた <a href="#gl-client-secret">Client Secret</a> (APIシークレット) と呼ばれる秘密の値を持っています。 Client Secret は、参加者と UID Service だけが知っています。</dd>
 <dd>詳細は <a href="../getting-started/gs-credentials">UID2 Credentials</a> を参照してください。</dd>
 
 <dt><MdxJumpAnchor id="gl-api-secret">API secret</MdxJumpAnchor></dt>

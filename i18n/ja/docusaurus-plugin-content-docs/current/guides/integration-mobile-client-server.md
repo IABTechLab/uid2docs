@@ -75,7 +75,7 @@ UID2 とインテグレーションするには、UID2 アカウントが必要�
 Client-Server インテグレーションには、UID2 Portal の [API Keys](../portal/api-keys.md) ページでこれらの値を設定する必要があります:
 
 - <Link href="../ref-info/glossary-uid#gl-api-key">API Key</Link>、Client Key とも呼ばれます
-- <Link href="../ref-info/glossary-uid#gl-client-secret">クライアントシークレット</Link>、参加者と UID2 Service のみが知っている値
+- <Link href="../ref-info/glossary-uid#gl-client-secret">Client Secret</Link>、参加者と UID2 Service のみが知っている値
 
 :::important
 これらの値を安全に保管することが非常に重要です。詳細は、[Security of API Key and Client Secret](../getting-started/gs-credentials.md#security-of-api-key-and-client-secret) を参照してください。
@@ -100,7 +100,7 @@ Client-Server インテグレーションには、UID2 Portal の [API Keys](../
 `Identity` レスポンスをモバイルアプリに渡す必要があります: [Configure the UID2 Mobile SDK](#configure-the-uid2-mobile-sdk) を参照してください。
 
 :::warning
-セキュリティ上の理由から、トークン生成に使用される API Key とクライアントシークレットは Server-Side で呼び出す必要があります。これらの値をモバイルアプリ内に保存しないでください。
+セキュリティ上の理由から、トークン生成に使用される API Key と Client Secret は Server-Side で呼び出す必要があります。これらの値をモバイルアプリ内に保存しないでください。
 :::
 
 ## Server-Side Token Refresh
@@ -159,7 +159,7 @@ UID2Settings.shared.uid2Environment = .custom(
 :::note
 次のような環境間の違いに注意してください:
 - UID2 インテグレーション環境のトークンは、ビッドストリームに渡しても有効ではありません。
-- 各環境（インテグレーションおよび本番）には異なる API Key とクライアントシークレット値があります。各環境で正しい値を使用してください。
+- 各環境（インテグレーションおよび本番）には異なる API Key と Client Secret の値があります。各環境で正しい値を使用してください。
 :::
 
 ### Optional: Specifying the API Base URL to Reduce Latency
