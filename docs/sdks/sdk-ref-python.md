@@ -160,7 +160,7 @@ Decryption response codes, and their meanings, are shown in the following table.
    ```py
    token_generate_response = client.generate_token(TokenGenerateInput.from_email("user@example.com"))
    ```
-
+<!-- uid2_euid_diff: admonition re legal basis (in EUID not in UID2)-->
 ### Client-Server Integration
 
 If you're using client-server integration (see [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md)), follow this step:
