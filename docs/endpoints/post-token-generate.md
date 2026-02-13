@@ -15,9 +15,6 @@ Requests a UID2 token generated from a user's <Link href="../ref-info/glossary-u
 
 Used by: This endpoint is used mainly by publishers.
 
-
-<!-- uid2_euid_diff re legal basis for admonition above -->
-
 Rather than calling this endpoint directly, you could use one of the SDKs to manage it for you. For a summary of options, see [SDKs: Summary](../sdks/summary-sdks.md).
 
 :::important

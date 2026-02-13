@@ -225,12 +225,6 @@ If you're using server-side integration (see [Publisher Integration Guide, Serve
       `.putHeader("X-UID2-Client-Version", PublisherUid2Helper.getVersionHttpHeader())`
    2. Body: `envelope.getEnvelope()`
 
-   <!-- :::important
-    - Be sure to call the POST&nbsp;/token/generate endpoint only when you have a legal basis to convert the user’s <Link href="../ref-info/glossary-uid#gl-dii">directly identifying information (DII)</Link> to UID2 tokens for targeted advertising.
-   ::: -->
-
-   <!-- uid2_euid_diff re legal basis for admonition above (first bullet not in UID2) -->
-
 4. If the HTTP response status code is _not_ 200, see [Response Status Codes](../endpoints/post-token-generate.md#response-status-codes) to determine next steps. Otherwise, convert the UID2 identity response content into a `TokenGenerateResponse` object:
 
    ```java
