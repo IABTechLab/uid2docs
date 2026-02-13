@@ -14,7 +14,7 @@ import SnptIdentityGenerateResponse from '../snippets/_snpt-example-identity-gen
 Requests a UID2 token generated from a user's <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> (email address or phone number). If the DII is valid, and the user has not opted out of UID2, this operation returns a UID2 token and associated values.
 
 Used by: This endpoint is used mainly by publishers.
-
+<!-- uid2_euid_diff: admonition re legal basis (in EUID not in UID2)-->
 Rather than calling this endpoint directly, you could use one of the SDKs to manage it for you. For a summary of options, see [SDKs: Summary](../sdks/summary-sdks.md).
 
 :::important
