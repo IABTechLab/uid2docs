@@ -170,6 +170,14 @@ The response for a user that has opted out can be seen below:
 }
 ```
 
+The decoded UID2 userId object will look like:
+
+```json
+uid2: {
+  optout: true
+}
+```
+
 ## Checking the Integration
 
 To check that the UID2 module has successfully generated a UID2 token, call `pbjs.getUserIds().uid2`. If a value is returned, a valid UID2 token exists in the UID2 module.
