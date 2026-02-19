@@ -1,6 +1,6 @@
 ---
 title: Deprecation Schedule
-description: UID2 APIおよびサービスのバージョンに関する廃止スケジュール
+description: UID2 API およびサービスのバージョンに関する廃止スケジュール
 hide_table_of_contents: false
 sidebar_position: 06
 displayed_sidebar: docs
@@ -46,7 +46,7 @@ import SnptUpgradePolicy from '../snippets/_snpt-private-operator-upgrade-policy
 
 ### Private Operator for GCP
 
-最新の ZIP ファイルは、以下の表のリンクされたリリースノートの Assets セクションで入手できます。
+最新の ZIP ファイルは、以下の表の GCP Download 列にリンクされています。
 
 | Version Name | Version&nbsp;#/Release&nbsp;Notes | GCP Download | Date | Deprecation Date |
 | ------- | ------ | ------ | ------ | ------ |
@@ -61,7 +61,7 @@ import SnptUpgradePolicy from '../snippets/_snpt-private-operator-upgrade-policy
 
 ### Private Operator for Azure
 
-最新の ZIP ファイルは、以下の表のリンクされたリリースノートの Assets セクションで入手できます。
+最新の ZIP ファイルは、以下の表の Azure Download 列にリンクされています。
 
 | Version Name | Version&nbsp;#/Release&nbsp;Notes | Azure Download | Date | Deprecation Date |
 | ------- | ------ | ------ | ------ | ------ |

@@ -11,7 +11,7 @@ import Link from '@docusaurus/Link';
 # How the UID2 Token Is Created
 
 :::note
-この記事では、パブリッシャーがビッドストリームで送信する UID2 Token の作成方法について説明します。広告主がコンバージョンピクセルのために UID2 Token を作成する場合も同じプロセスが適用されます。UID2 Token を他の共有参加者に送信する前に、raw UID2 が UID2 Token に暗号化される <Link href="../ref-info/glossary-uid#gl-tokenized-sharing">Tokenized Sharing</Link>には適用されません。
+この記事では、パブリッシャーがビッドストリームで送信する UID2 Token の作成方法について説明します。広告主がコンバージョンピクセルのために UID2 Token を作成する場合も同じプロセスが適用されます。UID2 Token を他の共有参加者に送信する前に、raw UID2 が UID2 Token に暗号化される <Link href="../ref-info/glossary-uid#gl-tokenized-sharing">Tokenized Sharing</Link> には適用されません。
 :::
 
 パブリッシャーがユーザーの <Link href="../ref-info/glossary-uid#gl-dii">DII</Link>（ハッシュ化されたまたはハッシュされていないメールアドレスまたは電話番号）を UID2 <Link href="../ref-info/glossary-uid#gl-operator">Operator</Link> に送信し、ターゲティング広告に使用するための UID2 Token を受け取ると、その過程で特定の処理手順が実行されます。
@@ -72,7 +72,7 @@ import Link from '@docusaurus/Link';
     </tr>
      <tr>
       <td>6</td>
-      <td>raw UID2 を暗号化して UID2 token を作成</td>
+      <td>raw UID2 を暗号化して UID2 Token を作成</td>
       <td>UID2 Operator</td>
       <td>該当なし: UID2 Operator が実行します</td>
     </tr>

@@ -20,7 +20,7 @@ import TabItem from '@theme/TabItem';
 - API エンドポイントへのダイレクトインテグレーション
 
 :::warning
-セキュリティ上の理由により、トークン生成に使用される API キーとシークレットは Server-Side で呼び出す必要があります。これらの値を Web ページ、モバイルアプリ、または Prebid に保存しないでください。詳細は、[Security of API Key and Client Secret](../getting-started/gs-credentials.md#security-of-api-key-and-client-secret) を参照してください。
+セキュリティ上の理由により、トークン生成に使用される API Key と Client Secret は Server-Side で呼び出す必要があります。これらの値を Client-Side（Web ページ、モバイルアプリ、Prebid）に保存しないでください。詳細は、[Security of API Key and Client Secret](../getting-started/gs-credentials.md#security-of-api-key-and-client-secret) を参照してください。
 :::
 
 オプションは次の表にまとめられています。
@@ -59,9 +59,9 @@ import TabItem from '@theme/TabItem';
    </TabItem>
    </Tabs>
 
-- **API**: [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) エンドポイントを呼び出します。
+- **API**: [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) エンドポイントを呼び出します。
 
-  このガイドの残りの部分で必要な `Identity` レスポンスは、成功したエンドポイントのレスポンスの body セクション内のコンテンツです。例は、[Successful Response](../endpoints/post-token-generate.md#successful-response) を参照してください。
+  このガイドの残りの部分で必要な Identity の出力は、成功したエンドポイントのレスポンスの body セクション内のコンテンツです。例は、[Successful Response](../endpoints/post-token-generate.md#successful-response) を参照してください。
   
 :::important
 トークンを生成する DII が UID2 からオプトアウトされている場合、エンドポイントと SDK API はオプトアウトステータスを返します。この場合、情報を保存し、同じ DII に対してトークン生成エンドポイントを呼び出さないでください。

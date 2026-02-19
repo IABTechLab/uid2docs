@@ -10,7 +10,7 @@ import Link from '@docusaurus/Link';
 
 # Integration Approaches
 
-パブリッシャーがワークフローに UID2 をインテグレーションする場合、または広告主が UID2 サポートをインテグレーションする場合、3 つの広範なインテグレーションアプローチがあります。UID2 インテグレーションは、Client-Side で完全に実装される場合、Server-Side で完全に実装される場合、または Client-Side と Server-Side 側の両方で部分的に実装される場合 (Client-Server) があります。
+パブリッシャーがワークフローに UID2 をインテグレーションする場合、または広告主が UID2 サポートをインテグレーションする場合、3 つの広範なインテグレーションアプローチがあります。UID2 インテグレーションは、Client-Side で完全に実装される場合、Server-Side で完全に実装される場合、または Client-Side と Server-Side の両方で部分的に実装される場合 (Client-Server) があります。
 
 詳細は、以下を参照してください:
 
@@ -39,7 +39,7 @@ Client-Side でインテグレーションする広告主は、JavaScript SDK �
 
 ### Client-Side Integration: Security Values
 
-Client-Side インテグレーションを選択する場合、UID2 サーバーに対してあなたを識別する 2 つの値からなるClient Key ペアが提供されます: **Subscription ID** と **Public Key**。
+Client-Side インテグレーションを選択する場合、UID2 サーバーに対してあなたを識別する 2 つの値からなる Client Key ペアが提供されます: **Subscription ID** と **Public Key**。
 
 詳細は[Subscription ID and Public Key](../getting-started/gs-credentials.md#subscription-id-and-public-key)を参照してください。
 
@@ -65,7 +65,7 @@ Client-Server インテグレーションでは、一部のインテグレーシ
 Client-Server インテグレーションを選択する場合、**API key** と **client secret** が必要です。これらの値は安全に保管する必要があります。
 
 :::important
-承認情報を Web ページ、モバイルアプリソースコード、または他の情報が漏洩する可能性のある場所に埋め込まないでください。セキュリティ上の理由から、サーバーに安全に保存してください。
+認証情報を Web ページ、モバイルアプリソースコード、または他の情報が漏洩する可能性のある場所に埋め込まないでください。セキュリティ上の理由から、サーバーに安全に保存してください。
 :::
 
 詳細は [API Key and Client Secret](../getting-started/gs-credentials.md#api-key-and-client-secret) を参照してください。
@@ -88,7 +88,7 @@ Server-Side インテグレーションでは、Server-Side で raw UID2 また�
 Server-Side インテグレーションを選択する場合、**API key** と **client secret** が必要です。これらの値は安全に保管する必要があります。
 
 :::important
-承認情報を Web ページ、モバイルアプリソースコード、または他の情報が漏洩する可能性のある場所に埋め込まないでください。セキュリティ上の理由から、サーバーに安全に保存してください。
+認証情報を Web ページ、モバイルアプリソースコード、または他の情報が漏洩する可能性のある場所に埋め込まないでください。セキュリティ上の理由から、サーバーに安全に保存してください。
 :::
 
 詳細は [API Key and Client Secret](../getting-started/gs-credentials.md#api-key-and-client-secret) を参照してください。

@@ -13,16 +13,16 @@ import Link from '@docusaurus/Link';
 すべてのサンプルサイトは [https://samples.uidapi.com/](https://samples.uidapi.com/) で利用できます。
 
 :::note
-このページに掲載されているサンプル実装はメールベースのインテグレーションを行なっていますが、電話番号も同様にサポートされており、別の SDK メソッドを使用し追加の正規化ステップを必要とするものの、同じインテグレーションパターンに従います。電話番号統合の例については、[UID2 Hashing Tool](#uid2-hashing-tool)を参照してください。
+このページに掲載されているサンプル実装はメールベースのインテグレーションを行っていますが、電話番号も同様にサポートされており、別の SDK メソッドを使用し追加の正規化ステップを必要とするものの、同じインテグレーションパターンに従います。電話番号インテグレーションの例については、[UID2 Hashing Tool](#uid2-hashing-tool)を参照してください。
 :::
 
 ## JavaScript SDK Integrations
 
-このセクションでは、Prebid.js や Google Secure Signals を使用せずに UID2 SDK for JavaScript を直接使用したサンプル統合をまとめています。
+このセクションでは、Prebid.js や Google Secure Signals を使用せずに UID2 SDK for JavaScript を直接使用したサンプルインテグレーションをまとめています。参加者タイプ別のインテグレーションオプションについては、[Publisher Web Integration Overview](../guides/integration-options-publisher-web) または [Advertiser/Data Provider Integration Overview](../guides/integration-advertiser-dataprovider-overview) を参照してください。
 
 ### Client-Side Integration Using UID2 SDK for JavaScript
 
-このサンプルは、[SDK for JavaScript Reference Guide](../sdks/sdk-ref-javascript) を使用してブラウザ内で直接トークンを生成および管理する完全なクライアントサイド統合を好むパブリッシャー向けです。このアプローチは、最小限のバックエンド要件で迅速なプロトタイピングに最適です。
+このサンプルは、[SDK for JavaScript Reference Guide](../sdks/sdk-ref-javascript) を使用してブラウザ内で直接トークンを生成および管理する完全なClient-Side インテグレーションを好むパブリッシャー向けです。このアプローチは、最小限のバックエンド要件で迅速なプロトタイピングに最適です。
 
 - Site: [Client-Side UID2 Integration Example using JavaScript SDK](https://js-client-side.samples.uidapi.com/)
 - Code: [uid2-examples/web-integrations/javascript-sdk/client-side](https://github.com/IABTechLab/uid2-examples/tree/main/web-integrations/javascript-sdk/client-side)
@@ -38,7 +38,7 @@ import Link from '@docusaurus/Link';
 
 ### React Client-Side Integration Using UID2 SDK for JavaScript
 
-このサンプルは、React アプリを持つパブリッシャー向けで、SDK for JavaScript を使用して UID2 をコンポーネントベースのアーキテクチャに直接統合したい場合のものです。
+このサンプルは、React アプリを持つパブリッシャー向けで、SDK for JavaScript を使用して UID2 をコンポーネントベースのアーキテクチャに直接インテグレーションしたい場合のものです。
 
 - Site: [React Client-Side UID2 Integration Example using JavaScript SDK](https://js-react.samples.uidapi.com/)
 - Code: [uid2-examples/web-integrations/javascript-sdk/react-client-side](https://github.com/IABTechLab/uid2-examples/tree/main/web-integrations/javascript-sdk/react-client-side)
@@ -66,7 +66,7 @@ import Link from '@docusaurus/Link';
 
 ### Client-Server Integration with Prebid.js
 
-このサンプルは、サーバー側で DII にアクセスでき、サーバー側開発を行えるパブリッシャー向けです。サーバーが初期 UID2 トークンを生成し、Prebid.js がストレージと自動更新を含むトークンライフサイクルを引き続き管理します。
+このサンプルは、サーバー側で DII にアクセスでき、サーバー側開発を行えるパブリッシャー向けです。サーバーが初期 UID2 Token を生成し、Prebid.js がストレージと自動更新を含むトークンライフサイクルを引き続き管理します。
 
 - Site: [Client-Server UID2 Integration with Prebid.js](https://prebid-client-server.samples.uidapi.com/)
 - Code: [uid2-examples/web-integrations/prebid-integrations/client-server](https://github.com/IABTechLab/uid2-examples/tree/main/web-integrations/prebid-integrations/client-server)
@@ -82,7 +82,7 @@ import Link from '@docusaurus/Link';
 
 ### Prebid.js with Secure Signals
 
-このサンプルは、UID2 と Google Secure Signals の両方で Prebid.js を設定し、ヘッダービディングと Google Ad Manager 間の統合を可能にする方法を示しています。
+このサンプルは、UID2 と Google Secure Signals の両方で Prebid.js を設定し、ヘッダービディングと Google Ad Manager 間のインテグレーションを可能にする方法を示しています。
 
 - Site: [Client-Side UID2 Integration with Prebid.js (with Google Secure Signals)](https://prebid-secure-signals.samples.uidapi.com/)
 - Code: [uid2-examples/web-integrations/prebid-secure-signals](https://github.com/IABTechLab/uid2-examples/tree/main/web-integrations/prebid-secure-signals)
@@ -94,7 +94,7 @@ import Link from '@docusaurus/Link';
 
 ### Client-Side Secure Signals
 
-このサンプルは、GAM Secure Signals との純粋なクライアントサイド統合を望むパブリッシャー向けです。UID2 SDK for JavaScript がトークンを生成および管理し、Secure Signals スクリプトがトークンを Google Ad Manager と自動的に共有します。
+このサンプルは、GAM Secure Signals との Client-Side インテグレーションを望むパブリッシャー向けです。UID2 SDK for JavaScript がトークンを生成および管理し、Secure Signals スクリプトがトークンを Google Ad Manager と自動的に共有します。
 
 - Site: [Client-Side UID2 Integration with Google Secure Signals](https://secure-signals-client-side.samples.uidapi.com/)
 - Code: [uid2-examples/web-integrations/google-secure-signals/client-side](https://github.com/IABTechLab/uid2-examples/tree/main/web-integrations/google-secure-signals/client-side)
@@ -102,7 +102,7 @@ import Link from '@docusaurus/Link';
 
 ### Client-Server Secure Signals
 
-このサンプルは、サーバー側で UID2 トークンを生成し、クライアント側で SDK for JavaScript を使用してトークンを管理したいパブリッシャー向けです。Secure Signals スクリプトがトークンを Google Ad Manager と自動的に共有します。
+このサンプルは、サーバー側で UID2 Tokenを生成し、クライアント側で SDK for JavaScript を使用してトークンを管理したいパブリッシャー向けです。Secure Signals スクリプトがトークンを Google Ad Manager と自動的に共有します。
 
 - Site: [Client-Server UID2 SDK Integration Example with Google Secure Signals](https://secure-signals-client-server.samples.uidapi.com/)
 - Code: [uid2-examples/web-integrations/google-secure-signals/client-server](https://github.com/IABTechLab/uid2-examples/tree/main/web-integrations/google-secure-signals/client-server)
@@ -110,7 +110,7 @@ import Link from '@docusaurus/Link';
 
 ### Server-Side Secure Signals
 
-このサンプルは、すべての UID2 トークンロジックをサーバー側で処理したいパブリッシャー向けです。Secure Signals スクリプトがトークンを読み取り、Google Ad Manager と自動的に共有します。
+このサンプルは、すべての UID2 Tokenロジックをサーバー側で処理したいパブリッシャー向けです。Secure Signals スクリプトがトークンを読み取り、Google Ad Manager と自動的に共有します。
 
 - Site: [Server-Side UID2 Integration with Google Secure Signals](https://secure-signals-server-side.samples.uidapi.com/)
 - Code: [uid2-examples/web-integrations/google-secure-signals/server-side](https://github.com/IABTechLab/uid2-examples/tree/main/web-integrations/google-secure-signals/server-side)
@@ -118,7 +118,7 @@ import Link from '@docusaurus/Link';
 
 ### React Client-Side Secure Signals
 
-このサンプルは、React アプリを持つパブリッシャー向けで、UID2 と Secure Signals をコンポーネントベースのアーキテクチャに直接統合したい場合のものです。
+このサンプルは、React アプリを持つパブリッシャー向けで、UID2 と Secure Signals をコンポーネントベースのアーキテクチャに直接インテグレーションしたい場合のものです。
 
 - Site: [React Client-Side UID2 Integration with Google Secure Signals](https://secure-signals-react.samples.uidapi.com/)
 - Code: [uid2-examples/web-integrations/google-secure-signals/react-client-side](https://github.com/IABTechLab/uid2-examples/tree/main/web-integrations/google-secure-signals/react-client-side)
