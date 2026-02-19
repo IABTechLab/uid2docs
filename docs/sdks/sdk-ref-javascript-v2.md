@@ -20,8 +20,6 @@ Use this SDK to facilitate the process of establishing client identity using UID
 
 For integration steps for content publishers, see [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md).
 
-For an [example application](https://example-jssdk-integ.uidapi.com/), with associated documentation, see the [UID2 SDK Integration Example](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/js-sdk).
-
 ## Functionality
 
 This SDK simplifies integration with UID2 for any publishers who want to support UID2. The following table shows the functions it supports.

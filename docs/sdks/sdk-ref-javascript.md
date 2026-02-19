@@ -51,13 +51,15 @@ This SDK simplifies development for publishers who want to build their own custo
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | &#8212; | &#8212; | &#9989; | &#9989; | &#8212; | &#8212; |
 
-## Sample Implementation
+## Sample Implementations
 
 For sample implementations with associated documentation, see:
-  - The UID2 Google Secure Signals with SDK v3 example:
-    - [Code and docs](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/google-secure-signals-integration/with_sdk_v3)
-    - Running site: [Client-Side UID2 SDK Integration Example](https://secure-signals-client-server-integ.uidapi.com/)
-  - The example of JavaScript client-side integration: [Code](https://github.com/IABTechLab/uid2-web-integrations/tree/main/examples/cstg) and running site ([Client-Side Integration Example, UID2 JavaScript SDK](https://cstg-integ.uidapi.com/)).
+  - Client-Side Integration Using UID2 SDK for JavaScript:
+    - [Code](https://github.com/IABTechLab/uid2-examples/tree/main/web-integrations/javascript-sdk/client-side)
+    - Running site: [Client-Side UID2 Integration Example](https://js-client-side.samples.uidapi.com/)
+  - Client-Server Integration Using UID2 SDK for JavaScript:
+    - [Code](https://github.com/IABTechLab/uid2-examples/tree/main/web-integrations/javascript-sdk/client-server)
+    - Running site: [Client-Server UID2 Integration Example](https://js-client-server.samples.uidapi.com/)
 
 ## UID2 Account Setup
 
