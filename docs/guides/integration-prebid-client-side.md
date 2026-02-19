@@ -161,7 +161,7 @@ pbjs.setConfig({
 
 It is possible that the user has opted out of UID2 previously. In this case, the UID2 module respects the user's optout and no UID2 token is generated and collected by Prebid.js.
 
-The response for a user that has opted out can be seen below:
+The following example shows the response for a user that has opted out:
 
 ```json
 {
@@ -170,7 +170,7 @@ The response for a user that has opted out can be seen below:
 }
 ```
 
-The decoded UID2 userId object will look like:
+The following example shows the decoded UID2 userId object:
 
 ```json
 uid2: {
