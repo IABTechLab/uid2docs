@@ -74,7 +74,7 @@ This glossary defines standard Japanese translations for technical terms used in
 | Key | キー / 鍵 | 一般的な鍵の意味。Encryption Key -> 暗号化キー。認証関連の鍵については Authentication & Authorization Terms セクション参照。 |
 | Secret | シークレット | 一般的な秘密の値。認証関連については Authentication & Authorization Terms セクション参照。 |
 | Addressability | アドレサビリティ | ターゲティングの精度・到達性。 |
-| Bidstream | ビッドストリーム | |
+| Bidstream | ビッドストリーム | リンクテキスト内ではカタカナ（ビッドストリーム）も英語（bidstream）も可。同一文書内で統一すること。 |
 | Bid Request | ビッドリクエスト | |
 | Bid Response | ビッドレスポンス | 「入札レスポンス」ではなく「ビッドレスポンス」で統一。 |
 | Request | リクエスト | |
@@ -102,7 +102,7 @@ This glossary defines standard Japanese translations for technical terms used in
 | API Key | API Key / API キー | Server-Side 実装における認証キー。Client Key とも呼ばれる。基本的に英語表記を推奨。 |
 | Bearer Token | ベアラートークン | クライアントを識別する特別なトークン。Authorization ヘッダーで使用。 |
 | Client Key | Client Key | API Key の別名。基本的に英語表記を推奨。 |
-| Client Secret | クライアントシークレット | API 認証に使用される秘密鍵。API Secret とも呼ばれる。 |
+| Client Secret | Client Secret / クライアントシークレット | API 認証に使用される秘密鍵。API Secret とも呼ばれる。基本的に英語表記を推奨（リンクテキスト含む）。 |
 | Public Key | 公開鍵 / Public Key | 暗号化や認証に使用される公開鍵。技術文書では「公開鍵」が一般的だが、UID2 固有の文脈では "Public Key" と英語表記も使用。 |
 | Subscription ID | Subscription ID | Client-Side 統合で使用される識別子。英語表記。 |
 | Unauthorized | 許可されていない / 権限がない | "unauthorized to perform" の文脈では「許可されていない」、"unauthorized access" では「権限がない」。統一推奨: 「許可されていない」。 |

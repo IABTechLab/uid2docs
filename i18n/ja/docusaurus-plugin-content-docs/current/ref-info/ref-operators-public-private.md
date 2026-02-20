@@ -10,7 +10,7 @@ import Link from '@docusaurus/Link';
 
 # The UID2 Operator
 
-UID2 Operator Service により、UID2 Core Service からの <a href="../ref-info/glossary-uid#gl-encryption-key">暗号化キー</a> と [Salt(ソルト)](../ref-info/glossary-uid.md#gl-salt) の管理と保存、ユーザーの個人に関するデータ (<Link href="../ref-info/glossary-uid#gl-dii">DII</Link>) のハッシュ化、[raw UID2](../ref-info/glossary-uid.md#gl-raw-uid2) の暗号化、<Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 Token</Link> の復号化が可能になります。
+UID2 Operator Service により、UID2 Core Service からの <a href="../ref-info/glossary-uid#gl-encryption-key">暗号化キー</a> と [ソルト](../ref-info/glossary-uid.md#gl-salt) の管理と保存、ユーザーの個人に関するデータ (<Link href="../ref-info/glossary-uid#gl-dii">DII</Link>) のハッシュ化、[raw UID2](../ref-info/glossary-uid.md#gl-raw-uid2) の暗号化、<Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 Token</Link> の復号化が可能になります。
 
 Operator Service のすべてのインスタンスは、誰がサービスを運営するかにかかわらず、重要な UID2 データを安全に保ち、相互運用できるよう、厳格な保護が施されて設計されています。
 
@@ -18,7 +18,7 @@ Operator Service のすべてのインスタンスは、誰がサービスを運
 
 複数の参加者によって運営される、複数の Operator Service のインスタンスが存在する可能性があります。これらの参加者はそれぞれ、UID2 Operator と呼ばれます。
 
-UID2 Operator は、Operator Service を実行する組織です。オペレーターは、定期的に以下の複数のタスクを実行します:
+UID2 Operator は、Operator Service を実行する組織です。Operator は、定期的に以下の複数のタスクを実行します:
 
 - UID2 Core Service から最新の暗号化キーとソルトを受け取り、保存します。
 - raw UID2 を返すため <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> をソルト化およびハッシュ化します。
@@ -44,11 +44,11 @@ Public Operator は、UID2 administration が所有し管理します。たと�
 
 ## Public Operator: Benefits
 
-Public Operator を使用する場合、Operator をホスト、構成、維持、または更新するための追加作業は必要ありません。必要なのは、SDK を使用するか、UID2 endpoint を呼び出すようにインテグレーションするだけです。
+Public Operator を使用する場合、Operator をホスト、構成、維持、または更新するための追加作業は必要ありません。必要なのは、SDK を使用するか、UID2 エンドポイントを呼び出すようにインテグレーションするだけです。
 
 Public Operator を利用するための費用は、参加者には一切かかりません。
 
-参加者は、契約に署名し ([Account setup](../getting-started/gs-account-setup.md) を参照)、Public Operator でホストされている UID2 API を使用するために該当する認証情報 ([API key and client secret](../getting-started/gs-credentials.md#api-key-and-client-secret)) を取得する必要があります。
+参加者は、契約に署名し ([Account setup](../getting-started/gs-account-setup.md) を参照)、Public Operator でホストされている UID2 API を使用するために該当する認証情報 ([UID2 Credentials](../getting-started/gs-credentials.md)) を取得する必要があります。
 
 :::note
 Public Operator の場合、データは参加者のインフラを離れ、オペレーターに送られます。Public Operator 内のデータを保護するために、厳格なセキュリティ対策が実施されています。

@@ -63,11 +63,13 @@ This document outlines the rules for style, tone, and terminology unification fo
 
 *   **基本ルール**: リンクテキストには、用語集で定義された日本語表記（カタカナまたは漢字）を使用します。
     *   例: `<Link href="...">bidstream</Link>` → `<Link href="...">ビッドストリーム</Link>`
-    *   例: `<Link href="...">Client Secret</Link>` → `<Link href="...">クライアントシークレット</Link>`
 
 *   **用語集で英語表記が推奨されている用語**: そのまま英語を使用します。
     *   例: `<Link href="...">API Key</Link>` → `<Link href="...">API Key</Link>` (用語集で「英語表記を推奨」)
+    *   例: `<Link href="...">Client Secret</Link>` → `<Link href="...">Client Secret</Link>` (用語集で「英語表記を推奨」)
     *   例: `<Link href="...">DII</Link>` → `<Link href="...">DII</Link>` (用語集で「原則 DII と表記」)
+
+*   **複数表記が許容される用語**: カタカナと英語の両方が可の用語（例: Bidstream）は、同一ドキュメント内でどちらかに統一します。用語集の注釈に従って選択してください。
 
 *   **略語の展開形**: 略語の展開形は、略語自体の言語に合わせます。
     *   例: `DII (Directly Identifying Information)` — DII は英語略語のため、展開形も英語。

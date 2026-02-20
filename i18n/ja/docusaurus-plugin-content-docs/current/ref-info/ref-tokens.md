@@ -19,7 +19,7 @@ import TabItem from '@theme/TabItem';
 UID2 Token に関する主なポイントは次のとおりです:
 
 - UID2 Token は一意の値です: 2 つの UID2 Token が同じであることはありません。
-- UID2 Token　は大文字と小文字が区別されます。
+- UID2 Token は大文字と小文字が区別されます。
 - パブリッシャーは、UID2 Token をビッドストリームに送信します。
 - トークンの値は、<a href="glossary-uid#gl-opaque">opaque (不透明)</a>な文字列です: 文字列の形式や長さについての仮定をしないでください。
 - ブラウザ、CTV、電話、タブレットなどの電子デバイスでのユーザーのアクティビティの異なるインスタンスを表す UID2 Token は、依然として同じ raw UID2 に一致させることができます。
@@ -34,7 +34,7 @@ UID2 Token に関する主なポイントは次のとおりです:
 
 Refresh Token に関する主なポイントは次のとおりです:
 
-- Refresh Token は、<a href="glossary-uid#gl-uid2-token">UID2 token</a> と一緒に発行される文字列です。
+- Refresh Token は、<a href="glossary-uid#gl-uid2-token">UID2 Token</a> と一緒に発行される文字列です。
 - Refresh Token は大文字と小文字が区別されます。
 - 値は、<a href="glossary-uid#gl-opaque">opaque (不透明)</a>な文字列です: 文字列の形式や長さについての仮定をしないでください。
 - Refresh Token は、UID2 Token が有効期限切れになる前に、新しい UID2 Token と新しい Refresh Token を生成するために使用できます。
@@ -43,16 +43,16 @@ Refresh Token に関する主なポイントは次のとおりです:
   - UID2 SDK ([SDK Functionality](../sdks/summary-sdks.md#sdk-functionality) を参照) を使用して。
   - [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) エンドポイントを呼び出して。
   - UID2 Prebid.js モジュール ([UID2 Integration Overview for Prebid](../guides/integration-prebid.md) を参照) を使用して。
-- 新しい UID2 Token が生成され、リフレッシュトークンに対するレスポンスとして返されると、新しい Refresh Token も返されます。
-- ほとんどの場合、サーバーサイドで生成されたトークンでも、Client-Side でトークンをリフレッシュできます。各 SDK のリフレッシュ機能についての詳細は、[SDK Functionality](../sdks/summary-sdks.md#sdk-functionality) (*Refresh UID2 Token* 列) を参照してください。
-- UID2 <Link href="../ref-info/glossary-uid#gl-operator-service">Operator Service</Link> が、新しい UID2 Token をリクエエストする際に Refresh Token を受け取ると、ユーザーのオプトアウトを確認します。ユーザーが UID2 からオプトアウトしている場合、新しい UID2 Token は生成されません。詳細は、[User Opt-Out](../getting-started/gs-opt-out.md) を参照してください。
+- 新しい UID2 Token が生成され、Refresh Token に対するレスポンスとして返されると、新しい Refresh Token も返されます。
+- ほとんどの場合、Server-Side で生成されたトークンでも、Client-Side でトークンをリフレッシュできます。各 SDK のリフレッシュ機能についての詳細は、[SDK Functionality](../sdks/summary-sdks.md#sdk-functionality) (*Refresh UID2 Token* 列) を参照してください。
+- UID2 <Link href="../ref-info/glossary-uid#gl-operator-service">Operator Service</Link> が、新しい UID2 Token をリクエストする際に Refresh Token を受け取ると、ユーザーのオプトアウトを確認します。ユーザーが UID2 からオプトアウトしている場合、新しい UID2 Token は生成されません。詳細は、[User Opt-Out](../getting-started/gs-opt-out.md) を参照してください。
 
 ### Keeping the Token Current
 
-UID2 Token を有効期限内に保つことが非常に重要です。トークンが有効な場合のみ、UID 2の利点を享受できます。
+UID2 Token を有効期限内に保つことが非常に重要です。トークンが有効な場合のみ、UID2 の利点を享受できます。
 
 UID2 Token を最新の状態に保つには、次の2つの方法があります：
-- [POST /token/refresh](../endpoints/post-token-refresh.md) エンドポイントまたは多くの UID2 SDK のトークン更新機能を使用して、頻繁に更新してください。詳細は[推奨されるトークン更新頻度](#recommended-token-refresh-frequency)を参照してください。
+- [POST /token/refresh](../endpoints/post-token-refresh.md) エンドポイントまたは多くの UID2 SDK のトークン更新機能を使用して、頻繁に更新してください。詳細は [Recommended Token Refresh Frequency](#recommended-token-refresh-frequency) を参照してください。
 - 既存トークンの更新に代わる方法として、[POST&nbsp;/token/generate](../endpoints/post-token-generate.md) エンドポイントまたは多くの UID2 SDK のトークン生成機能を使用して、毎回新しいトークンを生成してください。
 
 ### Recommended Token Refresh Frequency

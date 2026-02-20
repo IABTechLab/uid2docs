@@ -14,7 +14,7 @@ import CustomTagsContainer from '@site/src/components/CustomTags/CustomTagsConta
 
 <CustomTagsFilters />
 
-UID2 ドキュメンテーションリソースの最新アップデートを確認してください。
+UID2 ドキュメントリソースの最新アップデートを確認してください。
 
 :::tip
 タグツールバーを使用して、ドキュメントの更新の一部を表示できます。
@@ -602,7 +602,7 @@ December 20, 2023
 
 December 14, 2023
 
-UID2 リクエストの暗号化とレスポンスの復号化について、追加のプログラミング言語での説明とコード例を追加しました。既存の Pythonの 例に、Java と C# を追加しました。
+UID2 リクエストの暗号化とレスポンスの復号化について、追加のプログラミング言語での説明とコード例を追加しました。既存の Python の例に、Java と C# を追加しました。
 
 詳細は [Encryption and Decryption Code Examples](../getting-started/gs-encryption-decryption.md#encryption-and-decryption-code-examples) を参照してください。
 
@@ -687,7 +687,7 @@ UID2 Client-Side Integration Guide for Prebid.js は、既存の URL にまっ�
 
 October 31, 2023
 
-新しい "getting started" トピックでは、ユーザーのオプトアウトの概要を説明します。
+ユーザーのオプトアウトの概要を説明するリファレンストピックです。
 
 詳細は [User Opt-Out](../getting-started/gs-opt-out.md) を参照してください。
 
@@ -745,7 +745,7 @@ September 30, 2023
 
 September 7, 2023
 
-[directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) を正規化してエンコードし、raw UID2 または UID2 Token を作成する手順を明確にした。
+[directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) を正規化してエンコードし、raw UID2 または UID2 Token を作成する手順を明確にしました。
 
 詳細は:
 
@@ -772,7 +772,7 @@ Android 向け UID2 Interactive Media Ads(IMA)Plugin に関する情報を提供
 
 August 8, 2023
 
-iOS 向け UID2 Interactive Media Ads(IMA)Plugin に関する情報を提供する、パブリッシャー向けの新しいガイドです。このプラグインを使用すると、Google IMA SDK for Android を使用するパブリッシャーが、iOS アプリからの広告リクエストで <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 token</Link> を secure signals として送信できるようになります。
+iOS 向け UID2 Interactive Media Ads(IMA)Plugin に関する情報を提供する、パブリッシャー向けの新しいガイドです。このプラグインを使用すると、Google IMA SDK for iOS を使用するパブリッシャーが、iOS アプリからの広告リクエストで <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 token</Link> を secure signals として送信できるようになります。
 
 詳細は [UID2 IMA Plugin for iOS Integration Guide](../guides/mobile-plugin-ima-ios.md) を参照してください。
 
