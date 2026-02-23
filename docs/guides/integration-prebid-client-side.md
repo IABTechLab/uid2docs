@@ -165,16 +165,18 @@ The following example shows the response for a user that has opted out:
 
 ```json
 {
-  identity: 'optout',
-  status: 'optout'
+  "identity": "optout",
+  "status": "optout"
 }
 ```
 
 The following example shows the decoded UID2 userId object:
 
 ```json
-uid2: {
-  optout: true
+{
+  "uid2": {
+    "optout": true
+  }
 }
 ```
 
