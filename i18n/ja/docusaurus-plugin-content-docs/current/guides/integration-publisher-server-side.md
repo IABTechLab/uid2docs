@@ -14,7 +14,7 @@ import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emai
 
 # Publisher Integration Guide, Server-Side
 
-このガイドは、<Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 Token</Link> (Advertising Token) を RTB <Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link> 用に生成するために、UID2 と直接インテグレーションを行いながら、UID2 対応シングルサインオンや ID プロバイダーではなく、すべてのインテグレーションをサーバーサイドで行うパブリッシャー向けのガイドです。
+このガイドは、<Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 Token</Link> (Advertising Token) を RTB <Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link> 用に生成するために、UID2 と直接インテグレーションを行いながら、UID2 対応シングルサインオンや ID プロバイダーではなく、すべてのインテグレーションを Server-Side で行うパブリッシャー向けのガイドです。
 
 パブリッシャーが UID2 と Server-Side でインテグレーションするには、以下のオプションが利用可能です:
 
@@ -98,7 +98,7 @@ Step 1-c で認証が行われ、パブリッシャーがユーザーのメー�
 
 ### Bid Using a UID2 Token
 
-UID2 ID 情報をどのように管理し、ターゲティング広告に使用したいかを検討する必要があります。たとえば、返された UID2 token を SSP に渡す等。
+UID2 ID 情報をどのように管理し、ターゲティング広告に使用したいかを検討する必要があります。たとえば、返された UID2 Token を SSP に渡す等。
 
 | Step | Endpoint | Description |
 | :--- | :--- | :--- |
@@ -112,14 +112,14 @@ UID2 Token が SSP から DSP に送信されるとき、ビッドストリー�
 
 `POST /token/refresh` エンドポイントを使用して、常に有効で最新の UID2 Token を持つようにします。UID2 ローテーションと同期させるには、UID2 Token をリフレッシュする必要があります。さらに、トークンリフレッシュプロセスではユーザーのオプトアウトステータスをチェックし、ユーザーがオプトアウトしている場合は新しいトークンを送信しません。これによりトークンリフレッシュチェーンが終了します。その UID2 Token を二度と使用してはなりません。
 
-UID2 の Opt-out ワークフローとユーザーが Opt-out する方法の詳細は、[User Opt-Out](../getting-started/gs-opt-out.md) を参照してください。
+UID2 のオプトアウトワークフローとユーザーがオプトアウトする方法の詳細は、[User Opt-Out](../getting-started/gs-opt-out.md) を参照してください。
 
 | Step | Endpoint | Description |
 | :--- | :--- | :--- |
 | 3-a  | N/A | ユーザーがアセットに戻り、再びアクティブになったとき、UID2 Token をリフレッシュしてから、SSP に送信します。 |
 | 3-b  | [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) | Step [1-e](#establish-identity-capture-user-data) で取得した `refresh_token` をクエリパラメータとして送信します。 |
 | 3-c  | [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) | UID2 Service は、オプトアウトしていないユーザーに対して新しい ID トークンを発行します。 |
-| 3-d  | N/A | `POST /token/refresh` エンドポイントから返される値、`advertising_token` と `refresh_token` を、ユーザーにリンクされるように配置します。ファーストパーティのクッキーのような Client-Side のストレージか、サーバサイドのストレージを検討するとよいでしょう。 |
+| 3-d  | N/A | `POST /token/refresh` エンドポイントから返される値、`advertising_token` と `refresh_token` を、ユーザーにリンクされるように配置します。ファーストパーティのクッキーのような Client-Side のストレージか、Server-Side のストレージを検討するとよいでしょう。 |
 
 :::tip
 [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) または [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) エンドポイントによって返された ID の `refresh_from` タイムスタンプからトークンのリフレッシュを始めてください。
@@ -136,7 +136,7 @@ UID2 の Opt-out ワークフローとユーザーが Opt-out する方法の詳
 
 ## Sample Implementation
 
-Server-only のインテグレーションのためのサンプルアプリケーションをがあります。以下を参照してください:
+Server-only のインテグレーションのためのサンプルアプリケーションがあります。以下を参照してください:
 
 - [Server-Only UID2 Integration Example](https://example-srvonly-integ.uidapi.com/login)
 - [Server-Only UID2 Integration Example (readme)](https://github.com/IABTechLab/uid2-examples/blob/main/publisher/server_only/README.md)
