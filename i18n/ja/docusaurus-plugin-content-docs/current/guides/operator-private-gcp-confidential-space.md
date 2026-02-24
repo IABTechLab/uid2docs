@@ -53,7 +53,7 @@ For information about supported versions and deprecation dates, see [Private Ope
 1. Confidential Space and UID2 Operator のアカウントを作成し、設定し、構成とデプロイに必要なさまざまな値を取得または作成します: [Prerequisites](#prerequisites) を参照してください。
 1. [Deployment environments](#deployment-environments) に関する情報を確認します。
 
-   ペストプラクティスは、まずインテグレーション環境にデプロイし、次に本番環境にデプロイすることです。
+   ベストプラクティスは、まずインテグレーション環境にデプロイし、次に本番環境にデプロイすることです。
 1. 利用可能な[deployment options](#deployment-options) に関する情報を確認し、それぞれの利点を比較して、使用するオプションを決定します。
    
       Terraform テンプレートオプションを推奨します。
@@ -116,7 +116,7 @@ UID2 アカウント登録が完了し、gcloud CLI をインストールした�
 
 以下の環境が利用可能で、[deployment options](#deployment-options) の両方が両方の環境をサポートしています。
 
-ベストプラクティスは、本番環境にデプロイする前に、インテグレーション環境で実装をテストして検証することをです。
+ベストプラクティスは、本番環境にデプロイする前に、インテグレーション環境で実装をテストして検証することです。
 
 :::note
 各環境ごとに個別の `{OPERATOR_KEY}` 値を受け取ります。正しいものを使用してください。`{OPERATOR_IMAGE}` 値は、両方の環境で同じです。
@@ -225,7 +225,7 @@ Terraform がインストールされていない場合は、[terraform.io](http
    | :--- | :--- | :--- | :--- | :--- |
    | `ssl` | `bool`  | `false`| no | ロードバランサが HTTPS を使うように設定するには、このフラグを `true` に設定します。<br/>HTTPSを使う場合は `certificate` と `private_key` パラメータにも値を指定する必要があります。 |
    | `certificate` | `string`  | n/a | no | HTTPS 証明書の内容。証明書は PEM 形式でなければなりません。<br/>たとえば: `file('path/to/certificate.pem')`.<br/>`ssl` が `true` に設定されている場合は必須です。<br/>詳細は Terraform ドキュメントの [google_compute_ssl_certificate](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_ssl_certificate#certificate) を参照してください。 |
-   | `private_key` | `string`  | n/a | no | HTTPS 証明書の秘密鍵の内容。秘密鍵は PEM 形式でなければならなりません<br/>たとえば: `file('path/to/private_key.pem')`. <br/>`ssl` が `true` に設定されている場合は必須です。<br/>詳細は Terraform ドキュメントの [google_compute_ssl_certificate](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_ssl_certificate#private_key) を参照してください。 |
+   | `private_key` | `string`  | n/a | no | HTTPS 証明書の秘密鍵の内容。秘密鍵は PEM 形式でなければなりません。<br/>たとえば: `file('path/to/private_key.pem')`. <br/>`ssl` が `true` に設定されている場合は必須です。<br/>詳細は Terraform ドキュメントの [google_compute_ssl_certificate](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_ssl_certificate#private_key) を参照してください。 |
 
 3. (オプション) 次の表に示す追加の入力パラメータの名前と値を提供します。これらのパラメータは常にオプションですが、デフォルト値を変更して、より適切な要件に合わせることができます。
 
@@ -528,7 +528,7 @@ UID2 Google Cloud Platform Confidential Space の新しいバージョンがリ�
 
 ### Upgrading&#8212;Terraform Template
 
-Terrafom テンプレートを使用してデプロイした場合、アップグレードするには、新しい `{OPERATOR_IMAGE}` を使用してデプロイメントを更新するだけです。
+Terraform テンプレートを使用してデプロイした場合、アップグレードするには、新しい `{OPERATOR_IMAGE}` を使用してデプロイメントを更新するだけです。
 
 ### Upgrading&#8212;gcloud CLI
 
@@ -557,5 +557,5 @@ Private Operator 起動時のエラーコードは、リリース v5.49.7 以降
 | E03 | ConfigurationMissingError | 構成に必要な属性が不足しています。詳細はログを参照し、GCP オペレーターを実行する前に不足している属性を更新してください。 |
 | E04 | ConfigurationValueError | 設定値が無効です。設定値が必要な形式と環境に一致していることを確認してください。注意: `debug_mode = true` は `integ` 環境でのみ許可されます。詳細はログを確認してください。 |
 | E05 | OperatorKeyValidationError | Operator Key が環境に対して正しいことを確認し、提供されたものと一致していることを確認してください。 |
-| E06 | UID2ServicesUnreachableError | UID2 core および opt-out サービスの IP アドレスをアウトバウンドファイアウォールで許可します。IP アドレスと DNS の詳細は、ログを参照してください。 |
+| E06 | UID2ServicesUnreachableError | UID2 Core Service および Opt-Out Service の IP アドレスをアウトバウンドファイアウォールで許可します。IP アドレスと DNS の詳細は、ログを参照してください。 |
 | E08 | OperatorKeyPermissionError | Compute Engine インスタンステンプレートにサービスアカウントをアタッチします。UID2 Operator は、GCP Secret Manager から Operator Key にアクセスするためにこれらの権限が必要です。 |
