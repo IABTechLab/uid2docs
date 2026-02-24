@@ -13,12 +13,13 @@ import SnptUpgradePolicy from '../snippets/_snpt-private-operator-upgrade-policy
 import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emails-and-phone-numbers.mdx';
 import SnptAttestFailure from '../snippets/_snpt-private-operator-attest-failure.mdx';
 import SnptRotatingTheKeys from '../snippets/_snpt-private-operator-rotating-the-keys.mdx';
+import SnptRuntimeErrors from '../snippets/_snpt-private-operator-runtime-errors.mdx';
 
 # UID2 Private Operator for Azure Integration Guide
 
 UID2 Operator は、UID2 エコシステム内の API サーバーです。詳細は、[UID2 Operator](../ref-info/ref-operators-public-private.md) を参照してください。
 
-このガイドでは、Microsoft Azureの機密コンピューティングオプションである [Confidential Containers](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-containers) のインスタンスで、<Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link> として UID2 Operator Service をセットアップするための情報を提供します。Confidential Containers インスタンスは、データ整合性、データ機密性、およびコード整合性などの本質的な機能を提供する、ハードウェアでバックアップされた信頼できる実行環境（Trusted Execution Environment: TEE）で実行されます。
+このガイドでは、Microsoft Azure の機密コンピューティングオプションである [Confidential Containers](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-containers) のインスタンスで、<Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link> として UID2 Operator Service をセットアップするための情報を提供します。Confidential Containers インスタンスは、データ整合性、データ機密性、およびコード整合性などの本質的な機能を提供する、ハードウェアでバックアップされた信頼できる実行環境（Trusted Execution Environment: TEE）で実行されます。
 
 UID2 Operator Confidential Containers インスタンスの Docker コンテナが起動すると、UID2 Core Service が Operator Service と Operator Service が実行されているエンクレーブ環境の真正性を検証できるように、アテステーション プロセスが完了します。
 
@@ -37,7 +38,7 @@ UID2 Private Operator for Azure は、次の地域ではサポートされてい
 | Q4 2025 | v5.62.24 | [v5.62.24](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.62.24-r2) | [azure-cc-deployment-files-5.62.24-r2.zip](https://github.com/IABTechLab/uid2-operator/releases/download/v5.62.24-r2/azure-cc-deployment-files-5.62.24-r2.zip) | January 15, 2026 | January 15, 2027 |
 
 :::note
-For information about supported versions and deprecation dates, see [Private Operator Versions](../ref-info/deprecation-schedule.md#private-operator-versions).
+サポートされているバージョンと非推奨日については、[Private Operator Versions](../ref-info/deprecation-schedule.md#private-operator-versions) を参照してください。
 :::
 
 ## Private Operator Upgrade Policy
@@ -50,7 +51,7 @@ Azure に UID2 Private Operator をデプロイする前に、次の前提条件
 
 - [Set Up UID2 Operator Account](#set-up-uid2-operator-account)
 - [Install Azure CLI](#install-azure-cli)
-- [Get the Required Azure Permissions](#install-azure-cli)
+- [Get the Required Azure Permissions](#get-the-required-azure-permissions)
 
 ### Set Up UID2 Operator Account
 
@@ -106,7 +107,7 @@ Azure CLI をインストールします。詳細は、Azure ドキュメント�
 
 ### Download ZIP File and Extract Files
 
-最初に、デプロイメントに必要なデプロイメントファイルを取得します:
+最初に、デプロイメントに必要なファイルを取得します:
 
 1. 次の表の Azure Download 列にあるリンクをクリックして、最新バージョンの ZIP ファイルをダウンロードします。
 
@@ -132,7 +133,7 @@ az group create --name {RESOURCE_GROUP_NAME} --location {LOCATION}
 ロケーションには、いくつかの制限があります:
 - UID2 Private Operator for Azure は、次の地域ではサポートされていません: Europe、China。
 
-- Azure 仮想ネットワーク展開の可用性は、Azure ドキュメントの[Linux container groups](https://learn.microsoft.com/en-us/azure/container-instances/container-instances-resource-and-quota-limits#confidential-container-resources-preview) を確認し、Confidential Containers の地域サポートの可用性を確認してください。
+- Azure 仮想ネットワーク展開の可用性は、Azure ドキュメントの [Linux container groups](https://learn.microsoft.com/en-us/azure/container-instances/container-instances-resource-and-quota-limits#confidential-container-resources-preview) を確認し、Confidential Containers の地域サポートの可用性を確認してください。
 
 - 場所のエイリアスを取得するには、次のコマンドを実行します。
 
@@ -154,8 +155,8 @@ Key Vault を作成したら、[managed identity](https://learn.microsoft.com/en
 
    | Parameter | Description |
    | :--- | :--- |
-   | `vaultName` | Operator Key シークレットをホストするためのキー vault の名前。選択する名前はグローバルに一意である必要があります。 |
-   | `operatorKeyValue` | アカウント設定の一環として UID チームから受け取った `OPERATOR_KEY` シークレット値。この値はあなたに固有であり、パスワードとして機能します。安全で秘密に保つ必要があります。 |
+   | `vaultName` | Operator Key シークレットをホストするための Key Vault の名前。選択する名前はグローバルに一意である必要があります。 |
+   | `operatorKeyValue` | アカウント設定の一環として UID チームから受け取った `OPERATOR_KEY` シークレット値 ([Set Up UID2 Operator Account](#set-up-uid2-operator-account) を参照)。この値はあなたに固有であり、パスワードとして機能します。安全で秘密に保つ必要があります。 |
 
 2. (オプション) デフォルトを受け入れたくない場合は、`vault.parameters.json` ファイルを次の値で更新します。これらのパラメータはデフォルト値を受け入れたくない場合にのみ更新する必要があります。
 
@@ -207,7 +208,7 @@ Microsoft Azure で UID2 Private Operator をホストする Virtual Private Clo
 
    | Parameter | Description |
    | :--- | :--- |
-   | `vaultName` | Operator Key シークレットをホストするためのキー vault の名前。選択する名前はグローバルに一意である必要があります。 |
+   | `vaultName` | Operator Key シークレットをホストするための Key Vault の名前。[Complete Key Vault and Managed Identity Setup](#complete-key-vault-and-managed-identity-setup) で作成した名前と一致している必要があります。 |
    | `deploymentEnvironment` | デプロイ先の環境を示します: `integ` または `prod`。詳細は [Deployment Environments](#deployment-environments) を参照してください。 |
 
 2. (オプション) デフォルトを受け入れたくない場合は、`operator.parameters.json` ファイルを次の値で更新します。これらのパラメータはデフォルト値を受け入れたくない場合にのみ更新する必要があります。
@@ -313,9 +314,9 @@ Microsoft Azure で UID2 Private Operator をホストする Virtual Private Clo
 <SnptAttestFailure />
 
 ### Scraping Metrics
-Azure の Private Operator は、ポート 9080 で `/metrics` エンドポイントを介して [Prometheus-formatted metric](https://prometheus.io/docs/concepts/data_model/) を公開します。これらのメトリクスを収集して集計するために、Prometheus 互換のスクレイパーを使用できます。
+Azure の Private Operator は、ポート 9080 で `/metrics` エンドポイントを介して [Prometheus 形式のメトリクス](https://prometheus.io/docs/concepts/data_model/) を公開します。これらのメトリクスを収集して集計するには、Prometheus 互換のスクレイパーを使用できます。
 
-スクレイパーは、Private Operator が実行されている VNet にアクセスできる必要があります。ロードバランサーに `/metrics` エンドポイントへのアクセスを許可することは勧めません。
+スクレイパーは、Private Operator が実行されている VNet にアクセスできる必要があります。ロードバランサーに `/metrics` エンドポイントへのアクセスを許可することは推奨しません。
 
 ## Upgrading
 
@@ -335,7 +336,7 @@ UID2 Azure Confidential Containers の新しいバージョンがリリースさ
    az network application-gateway show-backend-health --resource-group {RESOURCE_GROUP_NAME} --name uid-operator-gateway
    ```
 
-5. Gateway Load Balancer から古い ACI を削除します:　 [Set Up the Gateway Load Balancer](#set-up-the-gateway-load-balancer)　の手順に従って、古い ACI をバックエンドプールから削除します。
+5. Gateway Load Balancer から古い ACI を削除します。[Set Up the Gateway Load Balancer](#set-up-the-gateway-load-balancer) の手順に従って、古い ACI をバックエンドプールから削除します。
 
 6. 以下のコマンドを実行して、古い ACI をシャットダウンします:
 
@@ -349,11 +350,15 @@ UID2 Azure Confidential Containers の新しいバージョンがリリースさ
 
 ## UID2 Operator Error Codes
 
-以下の表は、Private Operator 起動シーケンス中に発生する可能性のあるエラーを一覧表示しています。
+以下のセクションでは、Private Operator の起動時またはランタイム中に発生する可能性のあるエラーコードを一覧表示しています。
 
 :::note
 Private Operator 起動時のエラーコードは、リリース v5.49.7 以降のバージョンに適用されます。
 :::
+
+### Startup Errors
+
+起動時に発生する可能性のあるエラーを次に示します:
 
 | Error Code | Issue | Steps to Resolve |
 | :--- | :--- | :--- |
@@ -362,4 +367,10 @@ Private Operator 起動時のエラーコードは、リリース v5.49.7 以降
 | E04 | ConfigurationValueError | 構成値が無効です。構成値が必要な形式と環境に一致していることを確認してください。Note: `debug_mode = true` は `integ` 環境でのみ許可されます。詳細はログを確認してください。 |
 | E05 | OperatorKeyValidationError | Operator Key が環境に適しており、提供されたものと一致していることを確認してください。 |
 | E06 | UID2ServicesUnreachableError | UID2 Core Service および Opt-Out Service の IP アドレスをアウトバウンドファイアウォールで許可します。IP アドレスと DNS の詳細は、ログを参照してください。 |
-| E08 | OperatorKeyPermissionError | コンテナを起動するマネージド ID (operatorIdentifier パラメータで指定) は、 Operator Key が格納されているキーボールトへのアクセス権を持っている必要があります。`operatorIdentifier` の値は、すべての構成 JSON ファイルで同じである必要があります。 |
+| E08 | OperatorKeyPermissionError | コンテナを起動するマネージド ID (operatorIdentifier パラメータで指定) は、 Operator Key が格納されている Key Vault へのアクセス権を持っている必要があります。`operatorIdentifier` の値は、すべての構成 JSON ファイルで同じである必要があります。 |
+
+### Runtime Errors
+
+ランタイム中に発生する可能性のあるエラーを次に示します:
+
+<SnptRuntimeErrors />

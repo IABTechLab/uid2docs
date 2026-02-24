@@ -13,18 +13,19 @@ import SnptUpgradePolicy from '../snippets/_snpt-private-operator-upgrade-policy
 import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emails-and-phone-numbers.mdx';
 import SnptAttestFailure from '../snippets/_snpt-private-operator-attest-failure.mdx';
 import SnptRotatingTheKeys from '../snippets/_snpt-private-operator-rotating-the-keys.mdx';
+import SnptRuntimeErrors from '../snippets/_snpt-private-operator-runtime-errors.mdx';
 
 # UID2 Private Operator for GCP Integration Guide
 
 UID2 Operator は、UID2 エコシステムの API サーバーです。詳細は、[UID2 Operator](../ref-info/ref-operators-public-private.md) を参照してください。
 
-このガイドでは、Google Cloud Platform（GCP）の機密コンピューティングオプションである [Confidential Space](https://cloud.google.com/confidential-computing#confidential-space) で　<Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link>　として UID2 Operator Service を設定する情報を提供します。Confidential Spaceは、Trusted Execution Environment（TEE）として知られるセキュアなクラウドベースのエンクレーブ環境で実行される、安全なクラウドベースのエンクレーブ環境です。
+このガイドでは、Google Cloud Platform (GCP) の機密コンピューティングオプションである [Confidential Space](https://cloud.google.com/confidential-computing#confidential-space) で <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link> として UID2 Operator Service を設定する情報を提供します。Confidential Space は、Trusted Execution Environment (TEE) として知られるセキュアなクラウドベースのエンクレーブ環境を提供します。
 
 :::note
 UID2 Private Operator for GCP は、次の地域ではサポートされていません: ヨーロッパ、中国。
 :::
 
-Operator Service は、Confidential Space の "workload" で実行されます。&#8212;コンテナ化された Docker イメージは、Confidential Space イメージ上のセキュアなクラウドベースのエンクレーブで実行されます。
+Operator Service は Confidential Space の "workload" で実行されます。これは、Confidential Space イメージ上のセキュアなクラウドベースのエンクレーブで実行されるコンテナ化された Docker イメージです。
 
 UID2 Operator Confidential Space 用の Docker コンテナが起動すると、UID2 Core Service が Operator Service と Operator Service が実行されているエンクレーブ環境の正当性を検証するための認証プロセスが完了します。
 
@@ -39,7 +40,7 @@ UID2 Operator Confidential Space 用の Docker コンテナが起動すると、
 | Q4 2025 | [v5.62.24](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.62.24-r2) | [gcp-oidc-deployment-files-5.62.24-r2.zip](https://github.com/IABTechLab/uid2-operator/releases/download/v5.62.24-r2/gcp-oidc-deployment-files-5.62.24-r2.zip) | January 15, 2026 | January 15, 2027 | 
 
 :::note
-For information about supported versions and deprecation dates, see [Private Operator Versions](../ref-info/deprecation-schedule.md#private-operator-versions).
+サポートされているバージョンと非推奨日については、[Private Operator Versions](../ref-info/deprecation-schedule.md#private-operator-versions) を参照してください。
 :::
 
 ## Private Operator Upgrade Policy
@@ -101,7 +102,7 @@ UID2 の連絡先に、あなたの組織を UID2 Operator として登録する
 
 | Item | Description |
 | :--- | :--- |
-| `{OPERATOR_KEY}` | UID2 Service であなたを Private Operator として識別する、あなた専用の Operator Key。設定時に `OPERATOR_KEY` の値として使用します。この値は、あなた固有の識別子であると同時にパスワードでもあります。Operator Keyは、オペレーターのバージョンに固有のものではありません。<br/>NOTE: 配備環境ごとに個別の Operator Keyを受け取ります。 |
+| `{OPERATOR_KEY}` | UID2 Service であなたを Private Operator として識別する、あなた専用の Operator Key。設定時に `OPERATOR_KEY` の値として使用します。この値は、あなた固有の識別子であると同時にパスワードでもあります。Operator Key は、オペレーターのバージョンに固有のものではありません。<br/>注意: 配備環境ごとに個別の Operator Key を受け取ります。 |
 | Instructions | VM のセットアップ手順や当該情報へのリンクなど、追加情報の詳細。 |
 
 UID2 アカウント登録が完了し、gcloud CLI をインストールしたら、次のステップに進みます:
@@ -214,16 +215,16 @@ Terraform がインストールされていない場合は、[terraform.io](http
    | `project_id` | `string` | `uid2-test` | yes | UID2 Operator を実行する GCP プロジェクトの ID。たとえば、`UID2-Operator-Production`。 |
    | `service_account_name` | `string` | `tf-test` | yes | GCP Confidential Space の UID2 Operator インスタンスに使用するサービスアカウントの名前。 |
    | `uid_operator_image` | `string` | `us-docker.pkg.dev/uid2-prod-project/iabtechlab/uid2-operator:{version_number}` | yes | コンフィギュレーションで使用する UID2 Private Operator for GCP の Docker イメージ URL。バージョン番号は、デプロイされるバージョンによって変わります。 |
-   | `uid_operator_key` | `string` | n/a | yes | UID2 Operator Keyは、[UID2 Operator Account Setup](#uid2-operator-account-setup) で受け取ったものです。 |
+   | `uid_operator_key` | `string` | n/a | yes | UID2 Operator Key は、[UID2 Operator Account Setup](#uid2-operator-account-setup) で受け取ったものです。 |
    | `uid_operator_key_secret_name` | `string` | `secret-operator-key` | yes | Secret Manager で作成するキーの名前。 |
    | `uid_deployment_env` | `string` | `integ` | yes | 有効な値: `integ` はインテグレーション環境、`prod` は本番環境。<br/>マシンタイプはデプロイ環境によって決まります。`integ` は `n2d-standard-2` を使用し、`prod` は `n2d-standard-16` を使用します。 |
    | `debug_mode` | `bool` | `true` | yes | より多くの診断情報を有効にするには `true` に設定します。本番環境では `false` に設定しなければなりません。 |
 
-2. (オプション、強く推奨します) ロードバランサーを HTTPS に設定します。次の表に示すパラメータお値を設定します:
+2. (オプション、強く推奨します) ロードバランサーを HTTPS に設定します。次の表に示すパラメータの値を設定します:
 
    | Name | Type | Default | Required | Description |
    | :--- | :--- | :--- | :--- | :--- |
-   | `ssl` | `bool`  | `false`| no | ロードバランサが HTTPS を使うように設定するには、このフラグを `true` に設定します。<br/>HTTPSを使う場合は `certificate` と `private_key` パラメータにも値を指定する必要があります。 |
+   | `ssl` | `bool`  | `false`| no | ロードバランサーが HTTPS を使うように設定するには、このフラグを `true` に設定します。<br/>HTTPS を使う場合は `certificate` と `private_key` パラメータにも値を指定する必要があります。 |
    | `certificate` | `string`  | n/a | no | HTTPS 証明書の内容。証明書は PEM 形式でなければなりません。<br/>たとえば: `file('path/to/certificate.pem')`.<br/>`ssl` が `true` に設定されている場合は必須です。<br/>詳細は Terraform ドキュメントの [google_compute_ssl_certificate](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_ssl_certificate#certificate) を参照してください。 |
    | `private_key` | `string`  | n/a | no | HTTPS 証明書の秘密鍵の内容。秘密鍵は PEM 形式でなければなりません。<br/>たとえば: `file('path/to/private_key.pem')`. <br/>`ssl` が `true` に設定されている場合は必須です。<br/>詳細は Terraform ドキュメントの [google_compute_ssl_certificate](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_ssl_certificate#private_key) を参照してください。 |
 
@@ -231,7 +232,7 @@ Terraform がインストールされていない場合は、[terraform.io](http
 
    | Name | Type | Default | Required | Description |
    | :--- | :--- | :--- | :--- | :--- |
-   | `region` | `string` | `us-east1` | no | デプロイ先のリージョン。有効なリージョンの一覧は、Google Cloud ドキュメントの [Available regions and zones](https://cloud.google.com/compute/docs/regions-zones#available) を参照してください。<br/>NOTE: GCP Confidential Space 用の UID2 Private Operator の実装は、次の地域ではサポートされていません: ヨーロッパ、中国。 |
+   | `region` | `string` | `us-east1` | no | デプロイ先のリージョン。有効なリージョンの一覧は、Google Cloud ドキュメントの [Available regions and zones](https://cloud.google.com/compute/docs/regions-zones#available) を参照してください。<br/>注意: GCP Confidential Space 用の UID2 Private Operator の実装は、次の地域ではサポートされていません: ヨーロッパ、中国。 |
    | `network_name` | `string` | `uid-operator` | no | VPC リソース名（ルール/インスタンスタグにも使用されます）。 |
    | `min_replicas` | `number` | `1` | no | デプロイする最小レプリカ数を示します。 |
    | `max_replicas` | `number` | `5` | no | デプロイする最大レプリカ数を示します。 |
@@ -274,7 +275,7 @@ Terraform テンプレートからの出力値は次の表の通りです。
 
 | Name | Description |
 | :--- | :--- |
-| `load_balancer_ip` | ロードバランサーのパブリック IP アドレス。<br/>この値は、[perform the health check](#health-checkterraform-template) や DNS の設定に使用できます。 |
+| `load_balancer_ip` | ロードバランサーのパブリック IP アドレス。<br/>この値は、[ヘルスチェックの実行](#health-checkterraform-template) や DNS の設定に使用できます。 |
 
 ### Deploy&#8212;gcloud CLI
 
@@ -360,11 +361,11 @@ gcloud CLI を使用して、UID2 Operator Service を実行するためのサ�
     $ gcloud compute firewall-rules create operator-tcp \
       --direction=INGRESS --priority=1000 --network=default --action=ALLOW \
       --rules=tcp:8080 \
-      --source-ranges=0.0.0.0/0 \
+      --source-ranges=10.0.0.0/8 \
       --target-service-accounts={SERVICE_ACCOUNT_NAME}@{PROJECT_ID}.iam.gserviceaccount.com
     ```
 :::warning
-`source-ranges` は、クライアントが Private Operator を呼び出すために使用する IP アドレスの範囲を指定します。CIDR 表記であり、複数の範囲を提供するためにカンマ区切りの値を使用できます。例: `--source-ranges="1.1.1.1/32,192.168.1.0/24"`。範囲が正確であり、自分のものである IP アドレスのみが含まれていることを確認してください。
+`source-ranges` は、クライアントが Private Operator を呼び出すために使用する IP アドレスの範囲を指定します。CIDR 表記であり、複数の範囲を提供するためにカンマ区切りの値を使用できます。例: `--source-ranges="10.0.0.0/8,10.10.0.0/16"`。範囲が正確であり、自分のものである IP アドレスのみが含まれていることを確認してください。
 :::
 
 #### Create Secret for the Operator Key in Secret Manager
@@ -537,7 +538,7 @@ gcloud CLI を使用してデプロイした場合、アップグレードする
 手動でロードバランサーを設定した場合、ロードバランサーのマッピングも更新する必要があります。
 
 ## Scraping Metrics
-GCP の Private Operator は、`/metrics` エンドポイントで [Prometheus-formatted metrics](https://prometheus.io/docs/concepts/data_model/) ポート 9080 で公開します。Prometheus 互換のスクレイパーを使用して、これらのメトリクスを収集して集計することができます。
+GCP の Private Operator は、ポート 9080 の `/metrics` エンドポイントで [Prometheus 形式のメトリクス](https://prometheus.io/docs/concepts/data_model/) を公開します。Prometheus 互換のスクレイパーを使用して、これらのメトリクスを収集して集計できます。
 
 ## Keeping the Operator Key Secure
 
