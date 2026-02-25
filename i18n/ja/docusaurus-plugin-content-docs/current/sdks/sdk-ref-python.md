@@ -158,16 +158,10 @@ Decryption response codes, and their meanings, are shown in the following table.
 2. ユーザーのメールアドレスまたは電話番号を入力として受け取り、`TokenGenerateResponse` オブジェクトを生成する関数を呼び出します。次の例では、メールアドレスを使用しています:
 
    ```py
-   token_generate_response = client.generate_token(TokenGenerateInput.from_email("user@example.com").do_not_generate_tokens_for_opted_out())
+   token_generate_response = client.generate_token(TokenGenerateInput.from_email("user@example.com"))
    ```
 
-    <!-- :::important
-    Be sure to call this function only when you have a legal basis to convert the user’s <Link href="../ref-info/glossary-uid#gl-dii">directly identifying information (DII)</Link> to UID2 tokens for targeted advertising.
-    :::
-
-<!-- uid2_euid_diff re legal basis for admonition above (not in UID2) -->
-
- `do_not_generate_tokens_for_opted_out()`　は、[POST&nbsp;/token/generate](../endpoints/post-token-generate.md) の呼び出しに `optout_check=1` を適用します。これを行わないと、後方互換性が維持を維持するために `optout_check` が省略されます。
+<!-- uid2_euid_diff: admonition re legal basis (in EUID not in UID2)-->
 
 ### Client-Server Integration
 

@@ -147,16 +147,10 @@ SDK の HTTP 実装を使用している場合は、以下の手順に従って�
 
 2. ユーザーのメールアドレスまたは電話番号を入力として受け取り、`TokenGenerateResponse` オブジェクトを生成する関数を呼び出します。以下の例では、メールアドレスを使用しています:
    ```java
-   TokenGenerateResponse tokenGenerateResponse = publisherUid2Client.generateTokenResponse(TokenGenerateInput.fromEmail("user@example.com").doNotGenerateTokensForOptedOut());
+   TokenGenerateResponse tokenGenerateResponse = publisherUid2Client.generateTokenResponse(TokenGenerateInput.fromEmail("user@example.com"));
    ```
 
-   :::important
-   <!-- - Be sure to call the POST&nbsp;/token/generate endpoint only when you have a legal basis to convert the user’s <Link href="../ref-info/glossary-uid#gl-dii">directly identifying information (DII)</Link> to UID2 tokens for targeted advertising.
-
-   - --> 常に `doNotGenerateTokensForOptedOut()` を適用します。これは POST&nbsp;/token/generate エンドポイントの呼び出しで `optout_check=1` を設定するのと同様のパラメータを適用します([Unencrypted JSON Body Parameters](../endpoints/post-token-generate.md#unencrypted-json-body-parameters)) を参照してください。
-   :::
-
- <!-- uid2_euid_diff re legal basis for admonition above (first bullet not in UID2) -->
+<!-- uid2_euid_diff: admonition re legal basis (in EUID not in UID2)-->
 
 #### Basic Usage, Client-Server Integration
 
@@ -224,21 +218,16 @@ Server-Side Integration ([Publisher Integration Guide, Server-Side](../guides/in
 2. ユーザーのメールアドレスまたは電話番号を入力として受け取り、安全なリクエストデータエンベロープを作成する関数を呼び出します。[Encrypting requests](../getting-started/gs-encryption-decryption.md#encrypting-requests) を参照してください。以下の例ではメールアドレスを使用しています:
 
     ```java
-    EnvelopeV2 envelope = publisherUid2Helper.createEnvelopeForTokenGenerateRequest(TokenGenerateInput.fromEmail("user@example.com").doNotGenerateTokensForOptedOut());
+    EnvelopeV2 envelope = publisherUid2Helper.createEnvelopeForTokenGenerateRequest(TokenGenerateInput.fromEmail("user@example.com"));
     ```
 3. 選択した HTTP クライアントライブラリを使用して、ヘッダーとボディを含むこのエンベロープを [POST&nbsp;token/generate](../endpoints/post-token-generate.md) エンドポイントにポストします:
-   1. Headers: HTTP ライブラリによっては、以下のようになります:  
+   1. Headers: HTTP ライブラリによっては、以下のようになります:
 
-      `.putHeader("Authorization", "Bearer " + UID2_API_KEY)`  
+      `.putHeader("Authorization", "Bearer " + UID2_API_KEY)`
       `.putHeader("X-UID2-Client-Version", PublisherUid2Helper.getVersionHttpHeader())`
    2. Body: `envelope.getEnvelope()`
-   :::important
-   <!-- - Be sure to call the POST&nbsp;/token/generate endpoint only when you have a legal basis to convert the user’s <Link href="../ref-info/glossary-uid#gl-dii">directly identifying information (DII)</Link> to UID2 tokens for targeted advertising.
 
-   - -->常に `doNotGenerateTokensForOptedOut()` を適用してください。これは POST&nbsp;/token/generate エンドポイントの呼び出しで `optout_check=1` を設定するのと同様のパラメータを適用します ([Unencrypted JSON Body Parameters](../endpoints/post-token-generate.md#unencrypted-json-body-parameters) を参照)。
-   :::
-
-   <!-- uid2_euid_diff re legal basis for admonition above (first bullet not in UID2) -->
+<!-- uid2_euid_diff: admonition re legal basis (in EUID not in UID2)-->
 
 4. HTTP レスポンスステータスコードが 200 でない場合は、[Response Status Codes](../endpoints/post-token-generate.md#response-status-codes) を参照して次のステップを決定します。そうでない場合は、UID2 ID レスポンスの内容を `TokenGenerateResponse` オブジェクトに変換します:
 
