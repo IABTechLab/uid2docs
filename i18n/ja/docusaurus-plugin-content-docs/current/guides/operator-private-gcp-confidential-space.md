@@ -552,6 +552,10 @@ GCP の Private Operator は、ポート 9080 の `/metrics` エンドポイン�
 Private Operator 起動時のエラーコードは、リリース v5.49.7 以降のバージョンに適用されます。
 :::
 
+### Startup Errors
+
+オペレータの起動時に以下のエラーが発生する可能性があります：
+
 | Error Code | Issue | Steps to Resolve |
 | :--- | :--- | :--- |
 | E02 | OperatorKeyNotFoundError | オペレータと同じプロジェクトの GCP Secret Manager に指定されたシークレット名が存在し、サービスアカウントがシークレットにアクセスする権限を持っていることを確認してください。`tee-env-API_TOKEN_SECRET_NAME` に設定されていることを確認してください。必要に応じて、特定のシークレット名はログを確認できます。 |
@@ -560,3 +564,9 @@ Private Operator 起動時のエラーコードは、リリース v5.49.7 以降
 | E05 | OperatorKeyValidationError | Operator Key が環境に対して正しいことを確認し、提供されたものと一致していることを確認してください。 |
 | E06 | UID2ServicesUnreachableError | UID2 Core Service および Opt-Out Service の IP アドレスをアウトバウンドファイアウォールで許可します。IP アドレスと DNS の詳細は、ログを参照してください。 |
 | E08 | OperatorKeyPermissionError | Compute Engine インスタンステンプレートにサービスアカウントをアタッチします。UID2 Operator は、GCP Secret Manager から Operator Key にアクセスするためにこれらの権限が必要です。 |
+
+### Runtime Errors
+
+オペレータの実行中に以下のエラーが発生する可能性があります:
+
+<SnptRuntimeErrors />
