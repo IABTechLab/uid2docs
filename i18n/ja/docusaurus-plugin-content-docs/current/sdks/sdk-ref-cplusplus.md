@@ -69,7 +69,7 @@ Release tags は以下の GitHub で入手できますが、バイナリーは�
 SDK を使用する際に、復号鍵を保存したり管理したりする必要はありません。
 :::
 
-DSP の場合は、入札のために UID2 Advertising Token を復号化して UID2 を返すインターフェースを呼び出します。ユーザーのオプトアウトを処理する入札ロジックの詳細は [DSPインテグレーションガイド](../guides/dsp-guide.md) を参照してください。
+DSP の場合は、入札のために UID2 Advertising Token を復号化して UID2 を返すインターフェースを呼び出します。ユーザーのオプトアウトを処理する入札ロジックの詳細は [DSP Integration Guide](../guides/dsp-guide.md) を参照してください。
 
 以下は、C++ での decrypt メソッド呼び出しです:
 

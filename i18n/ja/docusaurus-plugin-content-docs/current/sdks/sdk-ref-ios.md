@@ -20,7 +20,7 @@ iOS SDK を使用すると、UID2 を使用したクライアント ID の生成
 | Google Interactive Media Ads SDK for iOS を使用して iOS/tvOS アプリから広告リクエストで [secure signals](https://support.google.com/admob/answer/11556288) として <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 Token</Link> を送信する | [UID2 IMA Plugin for iOS Integration Guide](../guides/mobile-plugin-ima-ios.md) |
 
 ## tvOS Support
-Although this page refers to SDK for iOS, this SDK also supports tvOS. For the required tvOS version, see [Minimum Requirements](#minimum-requirements).
+このページは iOS 用 SDK について説明していますが、この SDK は tvOS もサポートしています。必要な tvOS バージョンについては、[Minimum Requirements](#minimum-requirements) を参照してください。
 
 ## Functionality
 
@@ -70,7 +70,7 @@ UID2 Portal で実行する手順は、実装が Client-Side、Client-Server、S
 - Xcode バージョン: 15.0+
 - iOS	最低対象バージョン: 13.0+
   - すべての機能を使用するには: 13.0+
-  - 一部の機能を使用するには: 12.0+。SDK を統インテグレーションしたアプリはすべてのデバイスにインストールできますが、iOS バージョンが 13.0 未満のデバイスでは、Client-Side で UID2 Token を生成または取得することはできません。
+  - 一部の機能を使用するには: 12.0+。SDK をインテグレーションしたアプリはすべてのデバイスにインストールできますが、iOS バージョンが 13.0 未満のデバイスでは、Client-Side で UID2 Token を生成または取得することはできません。
 - tvOS 最低対象バージョン: 13.0+
 - Swift バージョン: 5.0+
 
