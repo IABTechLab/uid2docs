@@ -161,6 +161,25 @@ pbjs.setConfig({
 
 ユーザーが以前に UID2 をオプトアウトしている可能性があります。この場合、UID2 モジュールはユーザーのオプトアウトを尊重し、Prebid.js によって UID2 Token が生成および収集されることはありません。
 
+以下の例は、オプトアウトしたユーザーに対するレスポンスを示しています：
+
+```json
+{
+  "identity": "optout",
+  "status": "optout"
+}
+```
+
+以下の例は、デコードされた UID2 userId オブジェクトを示しています:
+
+```json
+{
+  "uid2": {
+    "optout": true
+  }
+}
+```
+
 ## Checking the Integration
 
 UID2 モジュールが正常に UID2 Token を生成したことを確認するには、`pbjs.getUserIds().uid2` を呼び出します。値が返された場合、有効な UID2 Token が UID2 モジュールに存在します。
