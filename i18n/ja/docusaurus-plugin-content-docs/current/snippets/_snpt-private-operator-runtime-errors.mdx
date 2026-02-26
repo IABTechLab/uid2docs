@@ -1,0 +1,3 @@
+| Error Code | Issue | How to Identify in Logs | Steps to Resolve |
+| :--- | :--- | :--- | :--- |
+| E12 | Data Download Failure | `E12: Data Download Failure` を含むログメッセージ、または `RotatingStoreVerticle` からの `Failed to load` エラーを確認してください。これらのメッセージには、HTTP ステータスコード（例：`HTTP response code 403`）や例外の種類（例：`exception: IOException`）が含まれます。 | エラーメッセージ内の HTTP ステータスコードまたは例外を確認し、それに応じて対処してください:<br/>**404 エラー**: Operator Key が環境に対して有効であることを確認してください。<br/>**403 エラー**: Operator Key および認証情報が正しいことを確認してください。<br/>**タイムアウトエラー**: ネットワーク接続を確認し、ファイアウォール／セキュリティグループの設定で HTTPS（ポート 443）へのアウトバウンド通信が許可されていることを確認し、UID2 Service のエンドポイントにアクセス可能であることを確認してください。<br/>**500/503 エラー**: このコードは一時的な UID2 Service の問題を示します。再試行し、エラーが継続する場合は UID2 サポートへ連絡してください。 |

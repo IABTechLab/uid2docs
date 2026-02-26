@@ -402,7 +402,7 @@ import MdxJumpAnchor from '@site/src/components/MdxJumpAnchor';
 <dd>詳細は <a href="uid-identifier-types">UID2 Identifier Types</a> を参照してください。</dd>
 
 <dt><MdxJumpAnchor id="gl-refresh-timestamp"><a href="#gl-refresh-timestamp">Refresh timestamp</a></MdxJumpAnchor></dt>
-<dd><a href="#gl-dii">DII</a> を raw UID2 にマッピングする場合、リフレッシュタイムスタンプは、<a href="../endpoints/post-identity-map">POST&nbsp;/identity/map</a> エンドポイントのレスポンスの <code>r</code> フィールドで返される Unix タイムスタンプ (秒単位) です。raw UID2 は、このタイムスタンプまで有効であり、その後にリフレッシュされます。</dd>
+<dd><a href="#gl-dii">DII</a> を raw UID2 にマッピングする場合、リフレッシュタイムスタンプは、<a href="../endpoints/post-identity-map">POST&nbsp;/identity/map</a> エンドポイントのレスポンスの <code>r</code> フィールドで返される Unix タイムスタンプ (秒単位) です。raw UID2 は、このタイムスタンプまで有効です。この時刻以降のいずれかの時点で更新されます。</dd>
 <dd>リフレッシュタイムスタンプを使用して、保存されたデータの raw UID2 をいつ再生成するかを判断します。現在の時刻と保存されたリフレッシュタイムスタンプを比較して、毎日リフレッシュの機会を確認することを推奨します。</dd>
 
 <dt><MdxJumpAnchor id="gl-refresh-token">Refresh Token</MdxJumpAnchor></dt>

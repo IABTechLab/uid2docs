@@ -135,7 +135,7 @@ UID2 Operator Service へのリクエストで電話番号を送信する前に�
   例:
    - US: `1 (234) 567-8901` は `+12345678901` に正規化されます。
    - Singapore: `65 1243 5678` は `+6512345678` に正規化されます。
-   - Sydney, Australia: `(02) 1234 5678` は、先頭のゼロを削除し、国コードを含めるように正規化されます: `+61212345678`。
+   - Australia: 携帯電話番号 `0491 570 006` は、国番号を追加し、先頭のゼロを削除して正規化されます：`+61491570006`。
 
 :::warning
 正規化された電話番号が UTF-8 であることを確認してください。他のエンコーディングシステム（例: UTF-16）ではありません。
@@ -194,7 +194,7 @@ Email または Phone Number を選択し、値を入力または貼り付けて
 
 ## Troubleshooting
 
-いずれの場合も、自身で DII を処理準備するための手順を実行し、その後 [UID2 Hashing Tool](#uid2-hashing-tool) を使用して結果値を確認してください。結果が一致しない場合は、各手順を確認してエラー箇所を特定してください。
+いずれの場合も、自身で DII を処理準備するための手順を実行し、その後 [UID2 hashing tool](https://hashing-tool.samples.uidapi.com/) を使用して結果値を確認してください。結果が一致しない場合は、各手順を確認してエラー箇所を特定してください。
 
 問題が発生したりエラーが出たりする場合、あるいは手順を正しく実行できているか確認したい場合にも、以下の点をチェックしてみてください。
 
@@ -202,8 +202,8 @@ Email または Phone Number を選択し、値を入力または貼り付けて
 
   このサービスはメールアドレスを正規化しますが、電話番号の正規化はできません。例えば、国コードが欠落している場合の値を判断できません。以下のリソースを利用してください。
   - 正規化手順:  [Phone Number Normalization](#phone-number-normalization).
-  - 照合ツール: [UID2 Hashing Tool](#uid2-hashing-tool).
+  - 照合ツール: [UID2 hashing tool](https://hashing-tool.samples.uidapi.com/).
 
 - **Use the Base64-encoded value**: このプロセスには、ハッシュ値のバイト列を正規化、ハッシュ化、Base64エンコードする手順が含まれます。UID2 を生成する際の入力は、このBase64エンコードされた値です。必ずこの44文字の文字列値を使用してください。
 
-- 以下のエラーメッセージが表示される場合があります：「The hashing value must be 44 characters. (ハッシュ値は44文字でなければなりません）」。この場合、使用しているハッシュ関数に問題があります。SHA-256ハッシュの16進数からBase64へのエンコードを使用してください。詳細は[Email Address Hash Encoding](#email-address-hash-encoding)または[Phone Number Hash Encoding](#phone-number-hash-encoding)を参照してください。確認のため、[UID2 Hashing Tool](#uid2-hashing-tool)でテストしてください。
+- 以下のエラーメッセージが表示される場合があります：「The hashing value must be 44 characters. (ハッシュ値は44文字でなければなりません）」。この場合、使用しているハッシュ関数に問題があります。SHA-256ハッシュの16進数からBase64へのエンコードを使用してください。詳細は[Email Address Hash Encoding](#email-address-hash-encoding)または[Phone Number Hash Encoding](#phone-number-hash-encoding)を参照してください。確認のため、[UID2 hashing tool](https://hashing-tool.samples.uidapi.com/) でテストしてください。

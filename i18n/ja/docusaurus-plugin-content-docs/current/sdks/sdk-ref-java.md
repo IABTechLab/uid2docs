@@ -147,16 +147,10 @@ SDK の HTTP 実装を使用している場合は、以下の手順に従って�
 
 2. ユーザーのメールアドレスまたは電話番号を入力として受け取り、`TokenGenerateResponse` オブジェクトを生成する関数を呼び出します。以下の例では、メールアドレスを使用しています:
    ```java
-   TokenGenerateResponse tokenGenerateResponse = publisherUid2Client.generateTokenResponse(TokenGenerateInput.fromEmail("user@example.com").doNotGenerateTokensForOptedOut());
+   TokenGenerateResponse tokenGenerateResponse = publisherUid2Client.generateTokenResponse(TokenGenerateInput.fromEmail("user@example.com"));
    ```
 
-   :::important
-   <!-- - Be sure to call the POST&nbsp;/token/generate endpoint only when you have a legal basis to convert the user’s <Link href="../ref-info/glossary-uid#gl-dii">directly identifying information (DII)</Link> to UID2 tokens for targeted advertising.
-
-   - --> 常に `doNotGenerateTokensForOptedOut()` を適用します。これは POST&nbsp;/token/generate エンドポイントの呼び出しで `optout_check=1` を設定するのと同様のパラメータを適用します([Unencrypted JSON Body Parameters](../endpoints/post-token-generate.md#unencrypted-json-body-parameters)) を参照してください。
-   :::
-
- <!-- uid2_euid_diff re legal basis for admonition above (first bullet not in UID2) -->
+<!-- uid2_euid_diff: admonition re legal basis (in EUID not in UID2)-->
 
 #### Basic Usage, Client-Server Integration
 
@@ -224,21 +218,16 @@ Server-Side Integration ([Publisher Integration Guide, Server-Side](../guides/in
 2. ユーザーのメールアドレスまたは電話番号を入力として受け取り、安全なリクエストデータエンベロープを作成する関数を呼び出します。[Encrypting requests](../getting-started/gs-encryption-decryption.md#encrypting-requests) を参照してください。以下の例ではメールアドレスを使用しています:
 
     ```java
-    EnvelopeV2 envelope = publisherUid2Helper.createEnvelopeForTokenGenerateRequest(TokenGenerateInput.fromEmail("user@example.com").doNotGenerateTokensForOptedOut());
+    EnvelopeV2 envelope = publisherUid2Helper.createEnvelopeForTokenGenerateRequest(TokenGenerateInput.fromEmail("user@example.com"));
     ```
 3. 選択した HTTP クライアントライブラリを使用して、ヘッダーとボディを含むこのエンベロープを [POST&nbsp;token/generate](../endpoints/post-token-generate.md) エンドポイントにポストします:
-   1. Headers: HTTP ライブラリによっては、以下のようになります:  
+   1. Headers: HTTP ライブラリによっては、以下のようになります:
 
-      `.putHeader("Authorization", "Bearer " + UID2_API_KEY)`  
+      `.putHeader("Authorization", "Bearer " + UID2_API_KEY)`
       `.putHeader("X-UID2-Client-Version", PublisherUid2Helper.getVersionHttpHeader())`
    2. Body: `envelope.getEnvelope()`
-   :::important
-   <!-- - Be sure to call the POST&nbsp;/token/generate endpoint only when you have a legal basis to convert the user’s <Link href="../ref-info/glossary-uid#gl-dii">directly identifying information (DII)</Link> to UID2 tokens for targeted advertising.
 
-   - -->常に `doNotGenerateTokensForOptedOut()` を適用してください。これは POST&nbsp;/token/generate エンドポイントの呼び出しで `optout_check=1` を設定するのと同様のパラメータを適用します ([Unencrypted JSON Body Parameters](../endpoints/post-token-generate.md#unencrypted-json-body-parameters) を参照)。
-   :::
-
-   <!-- uid2_euid_diff re legal basis for admonition above (first bullet not in UID2) -->
+<!-- uid2_euid_diff: admonition re legal basis (in EUID not in UID2)-->
 
 4. HTTP レスポンスステータスコードが 200 でない場合は、[Response Status Codes](../endpoints/post-token-generate.md#response-status-codes) を参照して次のステップを決定します。そうでない場合は、UID2 ID レスポンスの内容を `TokenGenerateResponse` オブジェクトに変換します:
 
@@ -275,7 +264,7 @@ Server-Side Integration ([Publisher Integration Guide, Server-Side](../guides/in
    ```
 
 3. ユーザーが別のページにアクセスしたときや、タイマーで、更新が必要かどうかを判断します:
-   1. ユーザーのセッションから ID JSON 文字列を取得し、`IDentityTokens` オブジェクトを生成する以下の関数を呼び出します:
+   1. ユーザーのセッションから ID JSON 文字列を取得し、`IdentityTokens` オブジェクトを生成する以下の関数を呼び出します:
    
        ```java
        IdentityTokens identity = IdentityTokens.fromJsonString(identityJsonString);
@@ -309,7 +298,7 @@ Server-Side Integration ([Publisher Integration Guide, Server-Side](../guides/in
 
 ## Usage for Advertisers/Data Providers
 
-以下のの手順は、最新バージョンの `POST /identity/map` エンドポイントを使用して DII を raw UID2 にマップする方法の例です。
+以下の手順は、最新バージョンの `POST /identity/map` エンドポイントを使用して DII を raw UID2 にマップする方法の例です。
 
 以前のバージョンを使用する場合は、[Previous SDK Version (using POST /identity/map v2)](#previous-sdk-version-using-post-identitymap-v2) を参照してください。最新バージョンへの移行手順については、[Migration From Version Using v2 Identity Map](#migration-from-version-using-v2-identity-map) を参照してください。
 
@@ -574,9 +563,9 @@ else
 
 ## Usage for UID2 Sharers
 
-UID2 <Link href="../ref-info/glossary-uid#gl-sharing">共有参加者</Link>は、送信者または受信者として共有に参加し、他の参加者と UID2 を共有する企業です。
+UID2 <Link href="../ref-info/glossary-uid#gl-sharing-participant">共有参加者</Link>は、送信者または受信者として共有に参加し、他の参加者と UID2 を共有する企業です。
 
-広告主およびデータプロバイダーは、この SDK を使用して、他の承認された UID2 共有参加者と UID2 を共有できます (<Link href="../ref-info/glossary-uid#gl-tokenized-sharing">トークン化された共有</Link>)。彼らは [raw UID2](../ref-info/glossary-uid#gl-raw-uid2) を <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 Token</Link> に暗号化し、それを共有のために別の参加者に送信できます (ピクセルでの [Tokenized Sharing in Pixels](../sharing/sharing-tokenized-from-data-pixel.md)を参照)。ピクセルでデータを送信しない場合は、[Security Requirements for UID2 Sharing](../sharing/sharing-security.md)に記載されている要件に従う限り、UID2 共有に参加できます。
+広告主およびデータプロバイダーは、この SDK を使用して、他の承認された UID2 共有参加者と UID2 を共有できます (<Link href="../ref-info/glossary-uid#gl-tokenized-sharing">Tokenized Sharing</Link>)。彼らは [raw UID2](../ref-info/glossary-uid#gl-raw-uid2) を <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 Token</Link> に暗号化し、それを共有のために別の参加者に送信できます (詳細は [Tokenized Sharing in Pixels](../sharing/sharing-tokenized-from-data-pixel.md) を参照)。ピクセルでデータを送信しない場合は、[Security Requirements for UID2 Sharing](../sharing/sharing-security.md)に記載されている要件に従う限り、UID2 共有に参加できます。
 
 :::important
 このプロセスで生成される UID2 Token は共有専用であり、ビッドストリームでは使用できません。ビッドストリーム用のトークンを生成するための別のワークフローがあります: [Tokenized Sharing in the Bidstream](../sharing/sharing-tokenized-from-data-bid-stream.md)を参照してください。

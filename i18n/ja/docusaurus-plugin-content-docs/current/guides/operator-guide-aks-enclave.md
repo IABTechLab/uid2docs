@@ -104,7 +104,7 @@ Kubernetesの `kubectl` コマンドラインインターフェイスをイン�
 
 | Environment | Details |
 | :--- | :--- |
-| Integration (`integ`) | テスト専用です。デバックモードはテスト環境で利用可能です。 |
+| Integration (`integ`) | テスト専用です。デバッグモードはテスト環境で利用可能です。 |
 | Production (`prod`) | 本番トラフィックを管理するためのものです。 |
 
 ## Deployment
@@ -124,7 +124,7 @@ AKS の新しい UID2 Private Operator をデプロイするには、次の主�
 
 1. UID2 の連絡先に、デプロイメントファイルを含む ZIP ファイルを依頼してください。
 
-1. ダウンロードし、解答します。
+1. ダウンロードし、解凍します。
 
 <!-- Download the ZIP file linked in the following table, AKS Download column, for the latest version. 
 
@@ -180,7 +180,7 @@ az group create --name "${RESOURCE_GROUP}" --location "${LOCATION}"
 ロケーションに関していくつかの制限があります:
 - UID2 Private Operator for AKS は、次の地域ではサポートされていません: ヨーロッパ、中国。
 
-- Azure 仮装ネットワークのデプロイメントの可用性は、[Resource availability & quota limits for ACI](https://learn.microsoft.com/ja-jp/azure/container-instances/container-instances-resource-and-quota-limits#confidential-container-resources-preview) を確認してください。
+- Azure 仮想ネットワークのデプロイメントの可用性は、[Resource availability & quota limits for ACI](https://learn.microsoft.com/ja-jp/azure/container-instances/container-instances-resource-and-quota-limits#confidential-container-resources-preview) を確認してください。
 
 - ロケーションのエイリアスを取得するには、次のコマンドを実行します:
 
@@ -190,7 +190,7 @@ az group create --name "${RESOURCE_GROUP}" --location "${LOCATION}"
 
 #### Create Virtual Network
 
-仮装ネットワークを作成するには、次のコマンドを実行します:
+仮想ネットワークを作成するには、次のコマンドを実行します:
 
 ```
 az network vnet create \
