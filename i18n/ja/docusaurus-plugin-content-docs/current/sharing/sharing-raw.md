@@ -10,7 +10,7 @@ import Link from '@docusaurus/Link';
 
 # Raw UID2 Sharing
 
-[raw UID2](../ref-info/glossary-uid.md#gl-raw-uid2) を他の認可された共有参加者と共有したい [Sharing participants](ref-info/glossary-uid.md#gl-sharing-participant) は、[Security Requirements for UID2 Sharing](sharing-security.md) で規定されているように、認証、認可、アカウンティング、安全なトランスポートの責任を守らなければならなりません。すべての点が厳密に守られていることを確認してください。
+[raw UID2](../ref-info/glossary-uid.md#gl-raw-uid2) を他の認可された共有参加者と共有したい [共有参加者](ref-info/glossary-uid.md#gl-sharing-participant) は、[Security Requirements for UID2 Sharing](sharing-security.md) で規定されているように、認証、認可、アカウンティング、安全なトランスポートの責任を守らなければなりません。すべての点が厳密に守られていることを確認してください。
 
 :::note
 ユーザーのオプトアウトを受け入れることは重要です。raw UID2 を他の承認された共有参加者と共有する前に、[POST&nbsp;/optout/status](../endpoints/post-optout-status.md) エンドポイントを使用して、raw UID2 のオプトアウトステータスを確認してください。オプトアウトされた raw UID2 を共有しないでください。
