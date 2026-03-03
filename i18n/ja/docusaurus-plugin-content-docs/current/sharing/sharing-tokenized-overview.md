@@ -10,7 +10,7 @@ import Link from '@docusaurus/Link';
 
 # Tokenized Sharing Overview
 
-UID2 では、Tokenized Sharing は、<Link href="../ref-info/glossary-uid#gl-dii">DII</Link> または <Link href="../ref-info/glossary-uid#gl-raw-uid2">raw UID2s</Link> を <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> に暗号化し、トークンを承認した [sharing participants](ref-info/glossary-uid.md#gl-sharing-participant) と共有することを意味します。UID2 Token を使用することで、データの送信者と受信者の間でエンドツーエンドで raw UID2 を保護することができます。Tokenized sharing は、<Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link>またはピクセル経由での共有に必要ですが、どのような共有ユースケースでも使用できます。
+UID2 では、Tokenized Sharing は、<Link href="../ref-info/glossary-uid#gl-dii">DII</Link> または <Link href="../ref-info/glossary-uid#gl-raw-uid2">raw UID2s</Link> を <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> に暗号化し、トークンを承認された [共有参加者](ref-info/glossary-uid.md#gl-sharing-participant) と共有することを意味します。UID2 Token を使用することで、データが未認可の関係者を通過する場合も含め、データの送信者と受信者の間でエンドツーエンドで raw UID2 を保護することができます。Tokenized sharing は、<Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link>またはピクセル経由での共有に必要ですが、どのような共有ユースケースでも使用できます。
 
 トークンは、次のいずれかの方法で生成されます:
 - raw UID2 を UID2 Token に暗号化する: [Tokenized Sharing: Starting with a Raw UID2](#tokenized-sharing-starting-with-a-raw-uid2) を参照してください。
@@ -24,7 +24,7 @@ UID2 では、Tokenized Sharing は、<Link href="../ref-info/glossary-uid#gl-di
 | :--- | :--- | :--- | :--- |
 | ビッドストリームで UID2 を送信する | パブリッシャー | DSP | [Tokenized Sharing in the Bidstream](sharing-tokenized-from-data-bid-stream.md) を参照してください |
 | トラッキングピクセルで UID2 を送信する | どの共有参加者でも | どの共有参加者でも | [Tokenized Sharing in Pixels](sharing-tokenized-from-data-pixel.md) を参照してください |
-| 他の共有参加者に UID2 Token を送信する | どの共有参加者でも、[UID2 Sharing のセキュリティ要件](sharing-security.md) が満たされない場合、またはその他の理由がある場合 | どの共有参加者でも | [Tokenized Sharing from Raw UID2s](sharing-tokenized-from-raw.md) を参照してください |
+| 他の共有参加者に UID2 Token を送信する | どの共有参加者でも、[Security Requirements for UID2 Sharing](sharing-security.md) が満たされない場合、またはその他の理由がある場合 | どの共有参加者でも | [Tokenized Sharing from Raw UID2s](sharing-tokenized-from-raw.md) を参照してください |
 
 その他の例は、[Sharing UID2s: Use Cases](sharing-use-cases.md) を参照してください。
 
@@ -44,10 +44,10 @@ UID2 では、Tokenized Sharing は、<Link href="../ref-info/glossary-uid#gl-di
 
 ## Receiving UID2 Tokens from Another Sharing Participant
 
-承認された共有シナリオでは、受信者が取る手順はすべての共有シナリオで同じです。受信者が UID2 Token を復号化して raw UID2 に変換するには、受信者は UID2 Portal アカウントを持っている必要があり、送信者は UID2 Portal で受信者と共有関係を作成して、受信者が送信者の復号化キーにアクセスできるようにする必要があります。
+承認された共有シナリオでは、受信者が取る手順はすべての共有シナリオで同じです。受信者が UID2 Token を復号化して raw UID2 に変換するには、受信者は UID2 Portal アカウントを持っている必要があり、送信者は UID2 Portal で受信者と共有関係を作成して、受信者が送信者の復号キーにアクセスできるようにする必要があります。
 
 :::tip
-トークンの失効を避けるため、トークンを受け取ったらできるだけ早く復号化すること進めます。詳細は [Best Practices for Managing Raw UID2s and UID2 Tokens](sharing-best-practices.md#best-practices-for-managing-raw-uid2s-and-uid2-tokens) を参照してください。
+トークンの失効を避けるため、トークンを受け取ったらできるだけ早く復号化することを推奨します。詳細は [Best Practices for Managing Raw UID2s and UID2 Tokens](sharing-best-practices.md#best-practices-for-managing-raw-uid2s-and-uid2-tokens) を参照してください。
 :::
 
 受信者が UID2 Token を復号化するための実装オプションは次のとおりです。
@@ -184,7 +184,7 @@ raw UID2 から始める場合は、次の手順に従ってください:
 
 UID2 Token は、もととなる raw UID2 が同じであっても、UID2 Token が生成されるたびにトークンの値が異なるように設計されています。つまり、UID2 Token は誰でも見ることができますが、復号鍵にアクセスできる UID2 参加者のみが使用できます。
 
-たとえば、UID2 Token は、パブリッシャーから DSP へビットストリームを通じて定期的に渡されます。UID2 Token は、パブリッシャーから SSP など複数の関係者を経由することがありますが、UID2 Token は、許可された UID2 参加者によってのみ復号化できます。ビットストリームを通じて UID2 Token が複数の中間者を通過する場合でも、UID2 Token は安全に渡されます。
+たとえば、UID2 Token は、パブリッシャーから DSP へビッドストリームを通じて定期的に渡されます。UID2 Token は、パブリッシャーから SSP など複数の関係者を経由することがありますが、UID2 Token は、承認された UID2 参加者によってのみ復号化できます。ビッドストリームを通じて UID2 Token が複数の中間者を通過する場合でも、UID2 Token は安全に渡されます。
 
 UID2 共有参加者間の Tokenized sharing でも同じことが言えます。UID2 Token は、非 UID2 参加者を経由して渡すことができます。
 

@@ -1,6 +1,6 @@
 ---
 title: Security Requirements for UID2 Sharing
-description: 証、認可、アカウンティング、セキュアトランスポートなど、UID2セキュリティに関する情報。
+description: 認証、認可、アカウンティング、セキュアトランスポートなど、UID2 セキュリティに関する情報。
 hide_table_of_contents: false
 sidebar_position: 03
 displayed_sidebar: docs
@@ -10,7 +10,7 @@ import Link from '@docusaurus/Link';
 
 # Security Requirements for UID2 Sharing
 
-すべての UID2 参加者は、UID2 エコシステムの安全を確保する中核的な責任を負っています。以下は、すべての UID2 参加者のための標準的なセキュリティ慣行です。認証された [sharing participants](../ref-info/glossary-uid.md#gl-sharing-participant) 間で raw UID2 を共有する場合、これらは必須であり、すべて一貫して満たす必要があります。
+すべての UID2 参加者は、UID2 エコシステムの安全を確保する中核的な責任を負っています。以下は、すべての UID2 参加者のための標準的なセキュリティ慣行です。承認された [共有参加者](../ref-info/glossary-uid.md#gl-sharing-participant) 間で raw UID2 を共有する場合、これらは必須であり、すべて一貫して満たす必要があります。UID2 Token を共有する場合は推奨されます。
 
 セキュリティ要件は以下の通りです:
 
@@ -57,7 +57,7 @@ Accounting とは、取引の記録があり、必要に応じてその活動を
 | Authorization details | 関連する許可または承認を含め、転送を承認した者に関する情報。 |
 | Checksum or hash value | チェックサムまたはハッシュ値で、転送後のデータの完全性を検証します。これは、転送中にデータが改ざんされていないことを確認するのに役立ちます。 |
 
-ネットワークログ、アプリケーションログ、クラウド監査ログなどの追加ログも、送信元と送信先のIPアドレスやクラウドプラットフォームのアカウント ID などの追加情報を提供することで役立つ。
+ネットワークログ、アプリケーションログ、クラウド監査ログなどの追加ログも、送信元と送信先の IP アドレスやクラウドプラットフォームのアカウント ID などの追加情報を提供することで役立ちます。
 
 ## Secure Transport
 
@@ -67,7 +67,7 @@ Accounting とは、取引の記録があり、必要に応じてその活動を
 - Message-based encryption
 
 ## Example Workflow
-以下は、オンラインAAA(Authentication, Authorization, and Accounting)フローのワークフロー例です。
+以下は、契約検証のための人による確認ステップを含む、オンライン AAA (Authentication, Authorization, and Accounting) フローのワークフロー例です。
 
 1. Pre-Authentication:
    - 共有参加者は、意図した受信者(共有受信者)の身元を確認し、ユーザー名やパスワード、API Key などの認証情報のセットを受信者に発行します。
