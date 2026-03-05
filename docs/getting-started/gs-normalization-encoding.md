@@ -192,6 +192,10 @@ If the input data doesn't have a valid email or phone number format, or if the p
 
 You can use this tool to verify that your internal processes are set up to correctly create normalized, hashed, and encoded values for UID2.
 
+## UID2 Token Validator
+
+To validate the full token generation pipeline end-to-end, confirming that tokens generated from your normalized and encoded values are correct, see [UID2 Token Validator](../ref-info/ref-token-validator.md).
+
 ## Troubleshooting
 
 In all scenarios, follow the steps on your side to prepare your DII for processing, and then check your resulting values by using the [UID2 hashing tool](https://hashing-tool.samples.uidapi.com/). If the results don't match, check each step to find the error.

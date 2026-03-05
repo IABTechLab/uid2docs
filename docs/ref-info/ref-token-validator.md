@@ -29,12 +29,7 @@ If you do not have these, see [API Keys](../portal/api-keys.md) for instructions
 
 Enter your **Client Key** (API Key) and **Secret Key** in the fields at the top of the Token Validation section.
 
-Select the **Operator** (environment) you want to validate against:
-
-- **UID2 Integration (Testing)**: Use this environment when testing your integration.
-- **UID2 Production**: Use this for production token validation.
-
-For information about UID2 environments, see [Environments](../getting-started/gs-environments.md).
+Select the **Operator** (environment) you want to validate against. For information about UID2 environments, see [Environments](../getting-started/gs-environments.md).
 
 ### Validate a Single Token
 
