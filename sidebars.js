@@ -382,6 +382,7 @@ const fullSidebar = [
         'getting-started/gs-encryption-decryption',
         'getting-started/gs-normalization-encoding',
         'ref-info/ref-preparing-emails-and-phone-numbers-for-processing',
+        'ref-info/ref-token-validator',
         'getting-started/gs-opt-out',
         'ref-info/ref-operators-public-private',
         'ref-info/ref-integration-approaches',
