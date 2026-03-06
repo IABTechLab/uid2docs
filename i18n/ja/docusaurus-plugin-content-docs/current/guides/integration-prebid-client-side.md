@@ -90,7 +90,7 @@ UID2 モジュールを設定するには、アカウント設定中に受け取
   1. 次に、ハッシュ値の結果のバイトを Base64 エンコーディングを使用してエンコードします。
   
   詳細については、[Normalization and Encoding](../getting-started/gs-normalization-encoding.md) を参照してください。例については、[Configuring the UID2 Module: Code Example](#configuring-the-uid2-module-code-example) を参照してください。
-- UID2 モジュールは、UID2 サービスに送信する前に、ハッシュ化された DII を暗号化します。
+- UID2 モジュールは、UID2 Service に送信する前に、ハッシュ化された DII を暗号化します。
 - モジュールが複数回設定された場合は、最新の設定値が使用されます。
 
 #### Configuring the UID2 Module: Code Example
@@ -160,6 +160,25 @@ pbjs.setConfig({
 ```
 
 ユーザーが以前に UID2 をオプトアウトしている可能性があります。この場合、UID2 モジュールはユーザーのオプトアウトを尊重し、Prebid.js によって UID2 Token が生成および収集されることはありません。
+
+以下の例は、オプトアウトしたユーザーに対するレスポンスを示しています：
+
+```json
+{
+  "identity": "optout",
+  "status": "optout"
+}
+```
+
+以下の例は、デコードされた UID2 userId オブジェクトを示しています:
+
+```json
+{
+  "uid2": {
+    "optout": true
+  }
+}
+```
 
 ## Checking the Integration
 

@@ -20,6 +20,28 @@ UID2 ドキュメントリソースの最新アップデートを確認してく
 タグツールバーを使用して、ドキュメントの更新の一部を表示できます。
 :::
 
+## Q1 2026
+
+2026 年第 1 四半期にリリースされたドキュメントは以下の通りです。
+
+<CustomTagsContainer tags="Endpoints, SDKs, Opt-Out">
+
+### Removal of optout_check Parameter
+
+February 10, 2026
+
+`optout_check` パラメータが [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) エンドポイントから削除されました。オプトアウトの確認は自動的に処理されるようになったため、パブリッシャーはリクエストにこのパラメータを含める必要はなくなりました。
+
+関連する SDK 関数も非推奨となり、ドキュメントから削除されました:
+- Java SDK: `doNotGenerateTokensForOptedOut()`
+- Python SDK: `do_not_generate_tokens_for_opted_out()`
+
+すべてのコード例とインテグレーションガイドは、これらの変更を反映するように更新されました。
+
+<!-- UID2-6511 -->
+
+</CustomTagsContainer>
+
 ## Q4 2025
 
 当四半期にリリースされたドキュメントは以下の通りです。

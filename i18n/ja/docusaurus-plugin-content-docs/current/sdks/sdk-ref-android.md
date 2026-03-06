@@ -72,7 +72,7 @@ UID2 Portal で実行する手順は、実装が Client-Side、Client-Server、S
 
 ## Minimum Requirements
 
-To consume the binary package of this SDK in your app:
+この SDK のバイナリパッケージをアプリで使用するには:
 
 - 最低限のターゲット Android バージョン: 4.4+ / API 19+ (SDK) 5.0+
 
@@ -117,7 +117,7 @@ Maven を使用してインストールするには、`pom.xml` ファイルに�
 
 **UID2Manager** シングルトンは、SDK for Android の主要な開発者 API です。UID2 Token を含む UID2 Identity の保存、リフレッシュ、取得を行います。
 
-UDI2Manager シングルトンは使用前に初期化する必要があります。なぜなら:
+UID2Manager シングルトンは使用前に初期化する必要があります。なぜなら:
 
 -   後でのアクセスが容易になるからです。
 -   消費アプリケーションがリクエストを行うためのネットワークインスタンスを提供できる可能性があるからです。
@@ -168,7 +168,7 @@ UID2Manager.getInstance().getAdvertisingToken()
 
 ## UID2Manager API
 
-このセクションには、UID2Manager APIの一部である関数と変数が含まれています。
+このセクションには、UID2Manager API の一部である関数と変数が含まれています。
 
 ### Functions
 
@@ -182,7 +182,7 @@ UID2Manager API の一部として利用可能な関数は次のとおりです:
 
 #### generateIdentity()
 
-<Link href="../ref-info/glossary-uid#gl-dii">D直接識別情報 (DII)</Link> を使用して UID2 Identity を生成します。手順は、*Client-Side Integration Guide for Mobile* の [Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side.md#configure-the-uid2-mobile-sdk) を参照してください。
+<Link href="../ref-info/glossary-uid#gl-dii">直接識別情報 (DII)</Link> を使用して UID2 Identity を生成します。手順は、*Client-Side Integration Guide for Mobile* の [Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side.md#configure-the-uid2-mobile-sdk) を参照してください。
 
 #### setIdentity()
 

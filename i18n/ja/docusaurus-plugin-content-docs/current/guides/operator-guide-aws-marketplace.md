@@ -13,6 +13,7 @@ import SnptUpgradePolicy from '../snippets/_snpt-private-operator-upgrade-policy
 import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emails-and-phone-numbers.mdx';
 import SnptAttestFailure from '../snippets/_snpt-private-operator-attest-failure.mdx';
 import SnptRotatingTheKeys from '../snippets/_snpt-private-operator-rotating-the-keys.mdx';
+import SnptRuntimeErrors from '../snippets/_snpt-private-operator-runtime-errors.mdx';
 
 # UID2 Private Operator for AWS Integration Guide
 
@@ -128,7 +129,7 @@ AWS で 1 つまたは複数の UID2 Operator をサブスクライブしてデ�
 | `KMSKey` | `AWS::KMS::Key` | AWS Secrets Managerで秘密暗号化に使う Custom KMS key です。 |
 | `SSMKeyAlias` | `AWS::KMS::Alias` | [KMS](https://aws.amazon.com/kms/)キーに簡単にアクセスする方法を提供するエイリアスです。 |
 | `TokenSecret` | `AWS::SecretsManager::Secret` | Operator Key を保存するための Secrets Manager のシークレットです。 |
-| `WorkerRole` | `AWS::IAM::Role` | UID2 Operator が実行する IAM ロールです。このローづで AWS Secrets manager にアクセスして Operator Key を取得できます。 |
+| `WorkerRole` | `AWS::IAM::Role` | UID2 Operator が実行する IAM ロールです。このロールで AWS Secrets Manager にアクセスして Operator Key を取得できます。 |
 | `WorkerInstanceProfile` | `AWS::IAM::InstanceProfile` | Operator EC2 インスタンスにアタッチする Worker Role を持つインスタンスプロファイルです。 |
 | `SecurityGroup` | `AWS::EC2::SecurityGroup` | オペレーターインスタンスに対するルールを提供するセキュリティグループポリシーです。[Security Group Policy](#security-group-policy) を参照してください。|
 | `LaunchTemplate` | `AWS::EC2::LaunchTemplate` | すべての設定が配置された起動テンプレートです。このテンプレートから新しい UID2 Operator インスタンスを起動できます。|
@@ -199,7 +200,7 @@ UID2 Operator を AWS Marketplace にデプロイするには、以下の手順�
 | :--- |:--- |
 | Stack name | 好きな名前をつけてください。 |
 | OPERATOR_KEY  | UID2 Admin チームから受け取った Operator Key です。 |
-| UID2 Environment | 本番環境なら `prod`、インテグレーションインテグレーション環境なら `integ` を選択します。 |
+| UID2 Environment | 本番環境なら `prod`、インテグレーション環境なら `integ` を選択します。 |
 | Instance Type | `m5.2xlarge` を推奨します。 |
 | Instance root volume size  | 15GB 以上を推奨します。 |
 | Key Name for SSH | デプロイされた EC2 インスタンスに SSH アクセスするための EC2 キーペアです。 |
@@ -331,7 +332,7 @@ fi
 exit 0
 ```
 
-The following script in `/etc/cron.d` ensures that the logrotate check is run every minute:
+`/etc/cron.d` の以下のスクリプトは、logrotate のチェックが毎分実行されることを保証します:
 
 ```
 # Run the minutely jobs
@@ -377,6 +378,10 @@ logrotate のドキュメントに従って指示に従ってください: [logr
 Private Operator 起動時のエラーコードは、リリース v5.49.7 以降のバージョンに適用されます。
 :::
 
+### Startup Errors
+
+Operator 起動時に以下のエラーが発生する可能性があります:
+
 | Error Code | Issue | Steps to Resolve |
 | :--- | :--- | :--- |
 | E01 | InstanceProfileMissingError | EC2 インスタンスに、必要な権限が付与された IAM インスタンスプロファイルをアタッチします。UID2 Operator は、AWS Secrets Manager から設定にアクセスするためにこれらの権限が必要です。 |
@@ -384,7 +389,13 @@ Private Operator 起動時のエラーコードは、リリース v5.49.7 以降
 | E03 | ConfigurationMissingError | 構成に必須の属性が不足しています。詳細はログを確認し、Secrets Manager で不足している属性を更新してください。 |
 | E04 | ConfigurationValueError | 構成値が無効です。AWS Secrets Manager内の構成値が、必要な形式と環境と一致していることを確認してください。Note： `debug_mode = true` は `integ` 環境でのみ許可されています。詳細はログを確認してください。 |
 | E05 | OperatorKeyValidationError | Operator Key が環境に適しており、提供されたものと一致していることを確認してください。 |
-| E06 | UID2ServicesUnreachableError | UID2 Core および Opt-out Service の IP アドレスをアウトバウンドファイアウォールで許可します。IP アドレスおよび DNS の詳細は、ログを参照してください。 |
+| E06 | UID2ServicesUnreachableError | UID2 Core Service および Opt-Out Service の IP アドレスをアウトバウンドファイアウォールで許可します。IP アドレスおよび DNS の詳細は、ログを参照してください。 |
+
+### Runtime Errors
+
+Operator の実行中に以下のエラーが発生する可能性があります:
+
+<SnptRuntimeErrors />
 
 ## Technical Support
 

@@ -40,7 +40,7 @@ UID2 を使用してクライアントの ID を確立し、Advertising Token �
 SDK for JavaScript を使用しないパブリッシャーのインテグレーションシナリオは、[Publisher Integration Guide, Server-Side](integration-publisher-server-side.md) を参照してください。
 
 :::note
-Google Ad Managerを使用していて、セキュアシグナル機能を使用したい場合は、まずこのガイドの手順に従った後、[Google Ad Manager Secure Signals Integration Guide](integration-google-ss.md) の追加手順に従ってください。
+Google Ad Manager を使用していて、セキュアシグナル機能を使用したい場合は、まずこのガイドの手順に従った後、[Google Ad Manager Secure Signals Integration Guide](integration-google-ss.md) の追加手順に従ってください。
 :::
 
 ## Integrating with Single Sign-On (SSO)

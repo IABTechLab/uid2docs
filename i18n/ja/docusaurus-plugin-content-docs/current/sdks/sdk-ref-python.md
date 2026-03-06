@@ -86,7 +86,7 @@ SDK が　UID2 Service と通信するために必要な値を提供する必要
 | :--- | :--- |
 | `base_url`   | UID2 Service のエンドポイント。[Environments](../getting-started/gs-environments) を参照してください。 |
 | `auth_key`   | API Key。[UID2 Credentials](../getting-started/gs-credentials) を参照してください。 |
-| `secret_key` | Cient　Secret。[UID2 Credentials](../getting-started/gs-credentials) を参照してください。 |
+| `secret_key` | Client Secret。[UID2 Credentials](../getting-started/gs-credentials) を参照してください。 |
 
 ## Interface 
 
@@ -127,7 +127,7 @@ SDK を使用すると、復号化キーを保存または管理する必要が�
 
 `BidstreamClient` または `SharingClient` を使用して復号化すると、SDK が次の表に示す情報を返します。
 
-| Property　| Description |
+| Property | Description |
 | :--- | :--- |
 | `status` | 復号結果のステータス。取り得る値のリストと定義につては、[Decryption Response Statuses](#decryption-response-statuses) を参照してください。 |
 | `uid` | UID2 Token に対応する raw UID2。 |
@@ -135,7 +135,7 @@ SDK を使用すると、復号化キーを保存または管理する必要が�
 
 ### Decryption Response Statuses
 
-Decryption response codes, and their meanings, are shown in the following table.
+復号化のレスポンスコードとその意味を次の表に示します。
 
 | Value | Description |
 | :--- | :--- |
@@ -158,16 +158,10 @@ Decryption response codes, and their meanings, are shown in the following table.
 2. ユーザーのメールアドレスまたは電話番号を入力として受け取り、`TokenGenerateResponse` オブジェクトを生成する関数を呼び出します。次の例では、メールアドレスを使用しています:
 
    ```py
-   token_generate_response = client.generate_token(TokenGenerateInput.from_email("user@example.com").do_not_generate_tokens_for_opted_out())
+   token_generate_response = client.generate_token(TokenGenerateInput.from_email("user@example.com"))
    ```
 
-    <!-- :::important
-    Be sure to call this function only when you have a legal basis to convert the user’s <Link href="../ref-info/glossary-uid#gl-dii">directly identifying information (DII)</Link> to UID2 tokens for targeted advertising.
-    :::
-
-<!-- uid2_euid_diff re legal basis for admonition above (not in UID2) -->
-
- `do_not_generate_tokens_for_opted_out()`　は、[POST&nbsp;/token/generate](../endpoints/post-token-generate.md) の呼び出しに `optout_check=1` を適用します。これを行わないと、後方互換性が維持を維持するために `optout_check` が省略されます。
+<!-- uid2_euid_diff: admonition re legal basis (in EUID not in UID2)-->
 
 ### Client-Server Integration
 
@@ -246,7 +240,7 @@ DII を raw UID2s にマッピングするには、次の手順に従います:
    ```py
    input = IdentityMapV3Input.from_emails(["user@example.com", "user2@example.com"])
    ```
-   Or combine multiple identity types:
+   または、複数のアイデンティティタイプを組み合わせることもできます:
       ```py
       input = IdentityMapV3Input()
           .with_email("user@example.com")
