@@ -194,7 +194,7 @@ You can use this tool to verify that your internal processes are set up to corre
 
 ## UID2 Token Validator
 
-To validate the full token generation pipeline end-to-end, confirming that tokens generated from your normalized and encoded values are correct, see [UID2 Token Validator](../ref-info/ref-token-validator.md).
+To validate the full token generation pipeline end-to-end, confirming that tokens generated from your normalized, hashed and encoded values are correct, use the [UID2 Token Validator](../ref-info/ref-token-validator.md).
 
 ## Troubleshooting
 

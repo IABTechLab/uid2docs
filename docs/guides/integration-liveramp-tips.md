@@ -32,7 +32,7 @@ To add a valid UID2 token to the ATS envelope, a publisher must provide plain te
 
 You must use the SHA-256 hashing methodology, which is supported by both UID2 and LiveRamp. Using any other hashing methodology, or missing any step, results in either no UID2 token added to the ATS envelope or an invalid token added.
 
-For details, see [Normalization and Encoding](../getting-started/gs-normalization-encoding.md). To verify that your normalization and hashing steps are producing the correct output, use the [UID2 Token Validator](../ref-info/ref-token-validator.md).
+For details, see [Normalization and Encoding](../getting-started/gs-normalization-encoding.md).
 
 ## Set Envelope Refresh to 1800 Seconds
 
