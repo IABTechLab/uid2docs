@@ -195,10 +195,10 @@ You can use this tool to verify that your internal processes are set up to corre
 ## UID2 Token Validator
 
 :::note
-This section is for publishers only. Publishers are the only participants who should generate [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token) using directly identifying information (DII).
+This section is for publishers only. Publishers are the only participants who generate [UID2 tokens](../ref-info/glossary-uid.md#gl-uid2-token) using directly identifying information (DII).
 :::
 
-To validate the full token generation pipeline end-to-end, confirming that <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> generated from your normalized, hashed and encoded values are correct, use the [UID2 Token Validator](../ref-info/ref-token-validator.md).
+To validate the full token generation pipeline end to end, confirming that <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> generated from your normalized, hashed, and encoded values are correct, use the [UID2 Token Validator](../ref-info/ref-token-validator.md).
 
 ## Troubleshooting
 
