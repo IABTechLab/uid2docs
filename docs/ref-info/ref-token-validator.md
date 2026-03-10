@@ -14,7 +14,7 @@ The [UID2 Token Validator](https://token-validator.uidapi.com/) is a web-based t
 
 ## Overview
 
-Publishers who generate UID2 tokens by providing DII sometimes receive tokens that appear valid but are unusable in the UID2 ecosystem. This happens when the normalization or hashing steps are not performed correctly. Because UID2 uses the normalized and hashed form of DII to derive the token, an error in either step produces a <Link href="../ref-info/glossary-uid#gl-raw-uid2">Raw UID2</Link> that is unique to that publisher. This mismatched Raw UID2 will not correspond to the one used by other participants for the same DII, meaning the publisher's tokens will not match up with those from other publishers, data providers, or advertisers' CRM uploads.
+Publishers who generate UID2 tokens by providing DII sometimes receive tokens that appear valid but are unusable in the UID2 ecosystem. This happens when the normalization or hashing steps are not performed correctly. Because UID2 uses the normalized and hashed form of DII to derive the token, an error in either step produces a <Link href="../ref-info/glossary-uid#gl-raw-uid2">raw UID2</Link> that is unique to that publisher. This mismatched raw UID2 will not correspond to the one used by other participants for the same DII, meaning the publisher's tokens will not match up with those from other publishers, data providers, or advertisers' CRM uploads.
 
 ## Prerequisites
 
@@ -39,7 +39,7 @@ Select the **Operator** (environment) you want to validate against. For informat
    - A raw phone number
    - A Base64-encoded email hash
    - A Base64-encoded phone hash
-3. Select the **Identifier Type** that matches your input.
+3. Select the identifier type that matches your input.
 4. In the **Token** field, paste the UID2 token you want to validate.
 5. Click **Validate Tokens**.
 
@@ -49,15 +49,15 @@ To validate a batch of token-identifier pairs:
 
 1. Under **Input Mode**, select **CSV**.
 2. Prepare a CSV file with the following columns: 
-   - `identifier`: The DII (raw email, raw phone, email hash, or phone hash)
-   - `identifier_type`: Either `email`, `phone`, `email_hash` or `phone_hash`
+   - `identifier`: The DII (raw email, raw phone, email hash, or phone hash).
+   - `identifier_type`: Either `email`, `phone`, `email_hash` or `phone_hash`.
    - `token`: The UID2 token to validate.
 3. Upload the CSV file.
 4. Click **Validate Tokens**.
 
-## Interpreting Validation Results
+## Interpret Validation Results
 
-After clicking **Validate Tokens**, the **Validation Results** table displays a row for each token-identifier pair:
+When you click **Validate Tokens**, the **Validation Results** table displays a row for each token-identifier pair, in the format shown in the following table.
 
 | Column | Description |
 |---|---|
@@ -77,5 +77,5 @@ The **Validation** column reflects the response from the [POST&nbsp;/token/valid
 | `Failed: {"status":"unauthorized"}` | The API credentials provided are invalid or unauthorized. |
 
 :::tip
-If the result is **Failed: Token does not match identifier**, compare the **Normalized Hash** shown in the results with what your own implementation produced for the same DII. If they differ, the issue is in your normalization or hashing steps. See [Normalization and Encoding](../getting-started/gs-normalization-encoding.md) and [Preparing Emails and Phone Numbers for Processing](ref-preparing-emails-and-phone-numbers-for-processing.md).
+If the result is **Failed: Token does not match identifier**, compare the **Normalized Hash** shown in the results with what your own implementation produced for the same DII. If they differ, the issue is in your normalization or hashing steps. For details, see [Normalization and Encoding](../getting-started/gs-normalization-encoding.md) and [Preparing Emails and Phone Numbers for Processing](ref-preparing-emails-and-phone-numbers-for-processing.md).
 :::
