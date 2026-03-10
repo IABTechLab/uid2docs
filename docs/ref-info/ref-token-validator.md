@@ -14,7 +14,7 @@ The [UID2 Token Validator](https://token-validator.uidapi.com/) is a web-based t
 
 ## Overview
 
-Publishers who generate UID2 tokens by providing DII sometimes receive tokens that appear valid but are unusable in the UID2 ecosystem. This happens when the normalization or hashing steps are not performed correctly. Because UID2 uses the normalized and hashed form of DII to derive the token, an error in either step produces a raw UID2 that is unique to that publisher. This mismatched raw UID2 will not correspond to the one used by other participants for the same DII, meaning the publisher's tokens will not match up with those from other publishers, data providers, or advertisers' CRM uploads.
+Publishers who generate UID2 tokens by providing DII sometimes receive tokens that appear valid but are unusable in the UID2 ecosystem. This happens when the normalization or hashing steps are not performed correctly. Because UID2 uses the normalized and hashed form of DII to derive the token, an error in either step produces a <Link href="../ref-info/glossary-uid#gl-raw-uid2">Raw UID2</Link> that is unique to that publisher. This mismatched Raw UID2 will not correspond to the one used by other participants for the same DII, meaning the publisher's tokens will not match up with those from other publishers, data providers, or advertisers' CRM uploads.
 
 ## Prerequisites
 
