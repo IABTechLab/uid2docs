@@ -90,7 +90,7 @@ When account setup is complete, you'll receive a client keypair consisting of tw
 
 ## Add SDK for JavaScript to Your Site
 
-以下のコードスニペットは、ウェブサイトに追加する必要があるコードの概要です。また、SDKがトリガーする可能性のあるさまざまなイベントも示しています。
+以下のコードスニペットは、ウェブサイトに追加する必要があるコードの概要です。また、SDK がトリガーする可能性のあるさまざまなイベントも示しています。
 
 より詳細なコードスニペットについては、[Example Integration Code and When to Pass DII to the UID2 SDK](#example-integration-code-and-when-to-pass-dii-to-the-uid2-sdk) を参照してください。
 
@@ -127,7 +127,7 @@ window.__uid2.callbacks.push((eventType, payload) => {
 </script>
 ```
 
-SDKの詳細については、[SDK for JavaScript Reference Guide](../sdks/sdk-ref-javascript.md) を参照してください。
+SDK の詳細については、[SDK for JavaScript Reference Guide](../sdks/sdk-ref-javascript.md) を参照してください。
 
 ### Using the UID2 Integration Environment
 
@@ -198,7 +198,7 @@ SDK は、ハッシュ化された DII を UID2 Service に送信する前に暗
 - 電話番号、未ハッシュ
 - 電話番号、正規化およびハッシュ化済み
 
-SDKが複数回設定された場合、最新の設定値が使用されます。
+SDK が複数回設定された場合、最新の設定値が使用されます。
 
 JavaScript でメールアドレスと電話番号のハッシュを生成する方法の例については、[Example Code: Hashing and Base-64 Encoding](#example-code-hashing-and-base-64-encoding) を参照してください。
 
@@ -239,7 +239,7 @@ await __uid2.setIdentityFromEmailHash(
 
 このシナリオでは:
 - **パブリッシャーはメールアドレスの正規化とハッシュ化を行う責任があります**。詳細は [Normalization and Encoding](../getting-started/gs-normalization-encoding.md) を参照してください。
-- UID2 SDKは、UID2 Serviceに送信する前にハッシュを暗号化します。
+- UID2 SDK は、UID2 Service に送信する前にハッシュを暗号化します。
 
 </TabItem>
 <TabItem value='example_phone_unhashed' label='Phone Number, Unhashed'>
@@ -277,7 +277,7 @@ await __uid2.setIdentityFromPhoneHash(
 
 このシナリオでは:
 - **パブリッシャーは電話番号の正規化、ハッシュ化、および Base64 エンコードを行う責任があります**。詳細は [Normalization and Encoding](../getting-started/gs-normalization-encoding.md) を参照してください。
-- UID2 SDKは、UID2 Serviceに送信する前にハッシュを暗号化します。
+- UID2 SDK は、UID2 Service に送信する前にハッシュを暗号化します。
 
 </TabItem>
 </Tabs>

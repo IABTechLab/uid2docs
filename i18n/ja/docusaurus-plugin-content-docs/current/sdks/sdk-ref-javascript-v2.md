@@ -20,8 +20,6 @@ import SnptExampleJavaScriptV2Init from '../snippets/_snpt-example-javascript-v2
 
 コンテンツパブリッシャー向けのインテグレーション手順は、[Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md) を参照してください。
 
-サンプルアプリケーションについては、[Client-Server UID2 Integration Example using JavaScript SDK](https://js-client-server.samples.uidapi.com/) と [uid2-examples/web-integrations/javascript-sdk/client-server](https://github.com/IABTechLab/uid2-examples/tree/main/web-integrations/javascript-sdk/client-server) を参照してください。
-
 ## Functionality
 
 この SDK は、UID2 をサポートしたいすべてのパブリッシャーに対して、UID2 とのインテグレーションを簡素化します。次の表は、SDK がサポートする機能を示しています。
@@ -207,13 +205,13 @@ SDK を初期化し、ターゲティング広告用のユーザー ID を確立
 [callback function](#callback-function) は `UID2.IdentityStatus` enum から `status` フィールドの値を数値として返します。`UID2.IdentityStatus[state.status]` を呼び出すことで、対応する文字列に変換することができます。次の表に `status` enum の文字列を示します。
 
 :::important
-以下の値は、ID の可溶性を通知することのみを目的としています。条件文などでは使用しないでください。
+以下の値は、ID の可用性を通知することのみを目的としています。条件文などでは使用しないでください。
 :::
 
 | Status | Advertising Token Availability | Description |
 | :--- | :--- | :--- |
 | `ESTABLISHED` | Available | ID は有効で、渡された値またはファーストパーティクッキーから設定され、ターゲティング広告に利用できるようになりました。 |
-| `REFRESHED` | Available | ID は UID2 オペレータへの呼び出しによってい正常に更新され、ターゲティング広告に使用できる様になりました。 |
+| `REFRESHED` | Available | ID は UID2 オペレータへの呼び出しによって正常に更新され、ターゲティング広告に使用できるようになりました。 |
 | `EXPIRED` | Not available | SDK がトークンのリフレッシュに失敗したため、ターゲティング広告に使用できる ID がありません。まだ有効な Refesh Token があるため、自動リフレッシュの試行は継続されます |
 | `REFRESH_EXPIRED` | Not available | ファーストパーティクッキーの Refresh Token または渡された ID の有効期限が切れているため、ターゲティング広告に利用できる ID がありません。 |
 | `NO_IDENTITY` | Not available | ファーストパーティクッキーが設定されておらず、`init()` 関数に ID が渡されていないため、ターゲティング広告に利用できる ID がありません。 |

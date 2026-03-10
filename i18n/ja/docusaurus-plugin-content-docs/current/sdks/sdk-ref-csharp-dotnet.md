@@ -68,7 +68,7 @@ SDK が UID2 Service で認証するために必要な値を提供する必要�
 
 `BidstreamClient` クラスを使用すると、UID2 Token を raw UID2 に復号することができます。
 
-ユーザーのオプトアウトを処理する入札ロジックの詳細は [DDSP Integration Guide](../guides/dsp-guide.md) を参照してください。
+ユーザーのオプトアウトを処理する入札ロジックの詳細は [DSP Integration Guide](../guides/dsp-guide.md) を参照してください。
 
 `SharingClient` クラスを使うと、raw UID2 を暗号化して UID2 Token に変換したり、UID2 Token を復号してraw UID2 に変換したりすることができます。
 
@@ -210,4 +210,4 @@ else
 }
 ```
 
-For a full example, see the `ExampleSharingClient` method in [SampleApp/Program.cs](https://github.com/IABTechLab/uid2-client-net/blob/main/src/SampleApp/Program.cs).
+完全な例は、[SampleApp/Program.cs](https://github.com/IABTechLab/uid2-client-net/blob/main/src/SampleApp/Program.cs) の `ExampleSharingClient` メソッドを参照してください。

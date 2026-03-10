@@ -52,14 +52,6 @@ UID2 Identify Module、または UID2 サポートのある他の製品と Prebi
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | &#8212; | &#8212; | &#9989; | &#9989; | &#8212; | &#8212; |
 
-## Sample Implementation
-
-サンプルアプリケーションと関連するドキュメントは以下を参照してください:
-  - JavaScript SDK を使用した Client-Side インテグレーション:
-    - Site: [Client-Side UID2 Integration Example using JavaScript SDK](https://js-client-side.samples.uidapi.com/)
-    - Code: [uid2-examples/web-integrations/javascript-sdk/client-side](https://github.com/IABTechLab/uid2-examples/tree/main/web-integrations/javascript-sdk/client-side)
-  - JavaScript SDK を使用した Client-Server インテグレーション: Code: [uid2-examples/web-integrations/javascript-sdk/client-server](https://github.com/IABTechLab/uid2-examples/tree/main/web-integrations/javascript-sdk/client-server) および動作サイト ([Client-Server UID2 Integration Example using JavaScript SDK](https://js-client-server.samples.uidapi.com/))
-
 ## UID2 Account Setup
 
 UID2 とインテグレーションするには、UID2 アカウントが必要です。アカウントをまだ作成していない場合は、まず [Account Setup](../getting-started/gs-account-setup.md) ページに記載されている手順に従ってください。
@@ -268,7 +260,7 @@ SDK がローカルストレージまたはクッキーから以前に保存さ�
 
 #### Provide an Identity by Calling `setIdentity`
 
-`init` が完了したら、いつでも [`setIdentity`](#setidentityidentity-identity-void) を呼び出して、SDK に新しい ID を渡すことができあす。
+`init` が完了したら、いつでも [`setIdentity`](#setidentityidentity-identity-void) を呼び出して、SDK に新しい ID を渡すことができます。
 
 ## API Reference
 
@@ -388,7 +380,7 @@ SDK を初期化し、ターゲティング広告用のユーザー ID を確立
 </script>
 ```
 
-`getAdvertisingToken()` 関数を使うと、初期化完了時のコールバックだけでなく、どこからでも Advertising Token にアクセスすることができます。この関数は以下の条件のいずれかに該当する場合に `undefined` をします:
+`getAdvertisingToken()` 関数を使うと、初期化完了時のコールバックだけでなく、どこからでも Advertising Token にアクセスすることができます。
 
 この関数は、以下の条件のいずれかに該当する場合、`undefined` を返します:
 
