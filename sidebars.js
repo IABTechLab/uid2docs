@@ -382,6 +382,7 @@ const fullSidebar = [
         'getting-started/gs-encryption-decryption',
         'getting-started/gs-normalization-encoding',
         'ref-info/ref-preparing-emails-and-phone-numbers-for-processing',
+        'ref-info/ref-token-validator',
         'getting-started/gs-opt-out',
         'ref-info/ref-operators-public-private',
         'ref-info/ref-integration-approaches',
@@ -501,8 +502,9 @@ const sidebars = {
     'guides/integration-databricks',
     'guides/integration-aws-entity-resolution',
     'guides/advertiser-dataprovider-endpoints',
-    'sharing/sharing-bid-stream'
-    ),
+    'sharing/sharing-bid-stream',
+    'ref-info/ref-token-validator'
+  ),
 
   sidebarDataProviders: removeItems(fullSidebar, 
     'overviews/overview-publishers',
@@ -541,7 +543,8 @@ const sidebars = {
     'endpoints/post-token-generate',
     'endpoints/post-token-validate',
     'endpoints/post-token-refresh',
-    'sharing/sharing-bid-stream'
+    'sharing/sharing-bid-stream',
+    'ref-info/ref-token-validator'
   ),
 
 };
