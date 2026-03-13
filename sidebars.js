@@ -204,48 +204,34 @@ const fullSidebar = [
         ],
       },
 
-
-{
-  type: 'category',
-  label: 'Advertiser/Data Provider Integrations',
-  link: {
-    type: 'generated-index',
-  },
-  collapsed: true,
-
-  items: [
-    {
-      type: 'category',
-      label: 'Integration Overview',
-      link: {
-        type: 'doc',
-        id: 'guides/integration-advertiser-dataprovider-overview',
-      },
-      collapsed: true,
-      items: [
         {
           type: 'category',
-          label: 'Snowflake',
+          label: 'Advertiser/Data Provider Integrations',
           link: {
-            type: 'doc',
-            id: 'guides/integration-snowflake',
+            type: 'generated-index',
           },
           collapsed: true,
+
           items: [
-            'guides/integration-snowflake-previous',
-          ],
-        },
-
-      'guides/integration-databricks',
-        'guides/integration-aws-entity-resolution',
-      'guides/integration-advertiser-dataprovider-endpoints',
-    ],
-  },
-
-  'guides/integration-javascript-client-side',
-
-],
-},
+          'guides/integration-advertiser-dataprovider-overview',
+              {
+                type: 'category',
+                label: 'Snowflake',
+                link: {
+                  type: 'doc',
+                  id: 'guides/integration-snowflake',
+                },
+                collapsed: true,
+                items: [
+                  'guides/integration-snowflake-previous',
+                ],
+              },
+          'guides/integration-databricks',
+          'guides/integration-aws-entity-resolution',
+          'guides/integration-advertiser-dataprovider-endpoints',
+          'guides/integration-javascript-client-side',
+        ],
+      },
 
         {
           type: 'category',
