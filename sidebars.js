@@ -204,7 +204,6 @@ const fullSidebar = [
         ],
       },
 
-
 {
   type: 'category',
   label: 'Advertiser/Data Provider Integrations',
@@ -237,13 +236,11 @@ const fullSidebar = [
         },
 
       'guides/integration-databricks',
-        'guides/integration-aws-entity-resolution',
+      'guides/integration-aws-entity-resolution',
       'guides/integration-advertiser-dataprovider-endpoints',
     ],
   },
-
   'guides/integration-javascript-client-side',
-
 ],
 },
 
