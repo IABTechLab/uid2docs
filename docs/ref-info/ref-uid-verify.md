@@ -70,9 +70,8 @@ The **Config** tab provides a snapshot of the integration's current state, inclu
 
 **Prebid.js integrations:**
 
-- Whether Prebid.js is detected and the UID2/EUID module is active
-- The user ID configuration from `pbjs.getUserIds()`
-- Token validity status
+- The current UID2 token from `window.pbjs.getUserIds().uid2`
+- The Prebid.js configuration parameters from `window.pbjs.getConfig().userSync.userIds` (for example, `uid2ApiBase`, `subscriptionId`, `serverPublicKey`)
 
 **Google Secure Signals integrations:**
 
