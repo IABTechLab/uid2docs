@@ -84,18 +84,17 @@ The **Config** tab provides a snapshot of the integration's current state, inclu
 
 The **Storage** tab shows the raw identity data stored in the browser for the current integration.
 
-**For SDK integrations:**
+**For SDK and Prebid.js integrations:**
 
 | Field | Description |
 |---|---|
 | Storage Type | Whether the identity is stored in a cookie or `localStorage`. |
-| Storage Key | The name of the cookie or `localStorage` key (`__uid_2`, `__euid`, `UID2-sdk-identity`, or `EUID-sdk-identity`). |
-| Stored Value | The raw identity JSON with syntax highlighting. |
-| Validity | Whether the stored identity is currently valid or opted out. |
+| Storage Key | The name of the cookie or `localStorage` key. For SDK integrations: `__uid_2`, `__euid`, `uid2-sdk-identity`, or `euid-sdk-identity`. For Prebid.js integrations: `__uid2_advertising_token` or `__euid_advertising_token`. |
+| Stored Value | The raw identity JSON, including `advertising_token`, `refresh_token`, `identity_expires`, `refresh_expires`, `refresh_from`, and `refresh_response_key`. |
+| Valid Identity | Whether the stored identity is currently valid. |
+| Optout Identity | Whether the identity reflects an opted-out user. |
 
-**For Prebid.js integrations**, the tab shows the Prebid token storage location and current value.
-
-**For Google Secure Signals integrations**, the tab shows the cached Secure Signals value (stored under `_GESPSK-uidapi.com` for UID2 or `_GESPSK-euid.eu` for EUID) and whether the signal was sent via the SDK or Prebid.
+**For Google Secure Signals integrations**, the tab shows the status of the secure signal and the current UID2 advertising token. If no signal has been generated yet, it indicates that neither a cached signal nor an SDK advertising token is available. Once the token is available, it confirms that Prebid will include it in bid requests to Google Ad Manager via `encryptedSignalSources`.
 
 ### Callbacks Tab
 
