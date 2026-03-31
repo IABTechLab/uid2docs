@@ -10,9 +10,9 @@ import Link from '@docusaurus/Link';
 
 # UID Verify Chrome Extension
 
-UID Verify is a browser extension for debugging UID2 and EUID integrations. It inspects the UID2 or EUID implementation on the current page in real time, surfacing SDK configuration, identity storage, event history, and errors — without requiring any code changes to the page.
+UID Verify is a browser extension for debugging UID2 and EUID integrations. It inspects the UID2 or EUID implementation on the current page in real time, surfacing SDK configuration, identity storage, event history, and errors.
 
-The extension supports integrations using the <Link href="../sdks/sdk-ref-javascript">UID2 JavaScript SDK</Link>, <Link href="https://docs.prebid.org/dev-docs/modules/userId.html">Prebid.js</Link>, and <Link href="../guides/integration-google-ss">Google Secure Signals</Link>.
+The extension supports integrations using the <Link href="../sdks/sdk-ref-javascript">UID2 JavaScript SDK</Link>, <Link href="../guides/integration-prebid">Prebid.js</Link>, and <Link href="../guides/integration-google-ss">Google Secure Signals</Link>.
 
 ## Overview
 
@@ -27,7 +27,7 @@ UID Verify requires:
 - **Google Chrome** or **Microsoft Edge** browser
 - A web page that has a UID2 or EUID integration — one of the following must be present on the page:
   - The <Link href="../sdks/sdk-ref-javascript">UID2 JavaScript SDK</Link> (`window.__uid2`) or EUID JavaScript SDK (`window.__euid`)
-  - <Link href="https://docs.prebid.org/dev-docs/modules/userId.html">Prebid.js</Link> with a UID2 or EUID user ID module configured
+  - <Link href="../guides/integration-prebid">Prebid.js</Link> with a UID2 or EUID user ID module configured
   - <Link href="https://developers.google.com/publisher-tag/guides/secure-signals">Google Publisher Tags (GPT)</Link> with a UID2 or EUID Secure Signals provider registered
 
 If more than one integration type is detected, you can switch between them using the integration type tabs at the top of the popup. If neither a UID2/EUID SDK, Prebid.js, nor Google Secure Signals integration is detected, the popup displays a message indicating that no supported integration was found.
