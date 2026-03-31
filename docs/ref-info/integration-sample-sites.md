@@ -140,6 +140,7 @@ UID Verify is a Chrome browser extension for debugging UID2 and EUID integration
 
 - Site: [UID Verify on Chrome Web Store](https://chromewebstore.google.com/detail/uid-detective/cfpjjmdagnkmmolcddnoagffeoekkmle)
 - Code: [uid2-detective](https://github.com/IABTechLab/uid2-detective)
+- Doc: [UID Verify Chrome Extension](https://unifiedid.com/docs/ref-info/ref-uid-verify)
 
 :::note
 The sample sites on this page highlight some common integrations, but do not represent all available UID2 integration options. For a summary of all the integration options available, see [UID2 Integration Guides: Summary](https://unifiedid.com/docs/guides/summary-guides).

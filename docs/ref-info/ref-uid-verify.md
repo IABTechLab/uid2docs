@@ -55,9 +55,9 @@ If both a UID2 and an EUID integration are detected on the same page, the extens
 
 ### Config Tab
 
-The **Config** tab provides a snapshot of the integration's current state.
+The **Config** tab provides a snapshot of the integration's current state, including status banners for successful token generation, errors, opt-out identities, and other configuration states. The information displayed depends on the integration type:
 
-**For SDK integrations, this includes:**
+**SDK integrations:**
 
 - SDK version
 - SDK initialization options
@@ -67,21 +67,19 @@ The **Config** tab provides a snapshot of the integration's current state.
   - Token and refresh expiration timestamps
 - The result of `getAdvertisingToken()`
 - The result of `isLoginRequired()`
-- Status banners highlighting any issues (for example, outdated SDK version, opted-out identity, or missing configuration)
 
-**For Prebid.js integrations, this includes:**
+**Prebid.js integrations:**
 
 - Whether Prebid.js is detected and the UID2/EUID module is active
 - The user ID configuration from `pbjs.getUserIds()`
 - Token validity status
 
-**For Google Secure Signals integrations, this includes:**
+**Google Secure Signals integrations:**
 
 - Whether Google Publisher Tags is detected
 - Whether the UID2 or EUID provider ID is registered
 - Whether `getAdvertisingTokenAsync` is available
 - The registered collector function code
-- A status banner indicating whether the Secure Signals configuration is complete
 
 ### Storage Tab
 
