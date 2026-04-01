@@ -36,7 +36,7 @@ If more than one integration type is detected, you can switch between them using
 
 Install UID Verify from the Chrome Web Store:
 
-1. Go to the [UID Verify listing](https://chromewebstore.google.com/detail/uid-detective/cfpjjmdagnkmmolcddnoagffeoekkmle) in the Chrome Web Store.
+1. Go to the [UID Verify listing](https://chromewebstore.google.com/detail/uid-verify/cfpjjmdagnkmmolcddnoagffeoekkmle) in the Chrome Web Store.
 2. Click **Add to Chrome**.
 3. When prompted, click **Add extension**.
 4. Pin the extension to your toolbar for easy access: click the Extensions icon in your browser, then click the pin icon next to UID Verify.
