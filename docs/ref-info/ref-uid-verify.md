@@ -1,6 +1,6 @@
 ---
 title: UID Verify Chrome Extension
-description: How to use the UID Verify Chrome extension to debug and inspect UID2 or EUID integrations on any web page.
+description: How to use the UID Verify Chrome extension to debug and inspect UID2 integrations on any web page.
 hide_table_of_contents: false
 sidebar_position: 03
 displayed_sidebar: docs
@@ -10,27 +10,27 @@ import Link from '@docusaurus/Link';
 
 # UID Verify Chrome Extension
 
-UID Verify is a browser extension for debugging UID2 and EUID integrations. It inspects the UID2 or EUID implementation on the current page in real time, surfacing SDK configuration, identity storage, event history, and errors.
+UID Verify is a browser extension for debugging UID2 integrations. It inspects the UID2 implementation on the current page in real time, surfacing UID2 SDK configuration, identity storage, event history, and errors.
 
 The extension supports integrations using the <Link href="../sdks/sdk-ref-javascript">UID2 JavaScript SDK</Link>, <Link href="../guides/integration-prebid">Prebid.js</Link>, and <Link href="../guides/integration-google-ss">Google Secure Signals</Link>.
 
 ## Overview
 
-When integrating UID2 or EUID, it can be difficult to tell whether the SDK is initializing correctly, whether tokens are valid, or where in the lifecycle an error is occurring. UID Verify solves this by reading the SDK state, storage, and event stream directly from the page and presenting it in a structured, searchable interface.
+When integrating UID2, it can be difficult to tell whether the SDK is initializing correctly, whether tokens are valid, or where in the lifecycle an error is occurring. UID Verify solves this by reading the SDK state, storage, and event stream directly from the page and presenting it in a structured, searchable interface.
 
-The extension detects whether a page uses the UID2 SDK directly, Prebid.js, or Google Secure Signals (or a combination), and adjusts the displayed information accordingly. It supports both UID2 and EUID deployments.
+The extension detects whether a page uses the UID2 SDK directly, Prebid.js, or Google Secure Signals (or a combination), and adjusts the displayed information accordingly.
 
 ## Prerequisites
 
 UID Verify requires:
 
 - **Google Chrome** or **Microsoft Edge** browser
-- A web page that has a UID2 or EUID integration — one of the following must be present on the page:
-  - The <Link href="../sdks/sdk-ref-javascript">UID2 JavaScript SDK</Link> (`window.__uid2`) or EUID JavaScript SDK (`window.__euid`)
-  - <Link href="../guides/integration-prebid">Prebid.js</Link> with a UID2 or EUID user ID module configured
-  - <Link href="https://developers.google.com/publisher-tag/guides/secure-signals">Google Publisher Tags (GPT)</Link> with a UID2 or EUID Secure Signals provider registered
+- A web page that has a UID2 integration — one of the following must be present on the page:
+  - The <Link href="../sdks/sdk-ref-javascript">UID2 JavaScript SDK</Link> (`window.__uid2`)
+  - <Link href="../guides/integration-prebid">Prebid.js</Link> with a UID2 user ID module configured
+  - <Link href="https://developers.google.com/publisher-tag/guides/secure-signals">Google Publisher Tags (GPT)</Link> with a UID2 Secure Signals provider registered
 
-If more than one integration type is detected, you can switch between them using the integration type tabs at the top of the popup. If neither a UID2/EUID SDK, Prebid.js, nor Google Secure Signals integration is detected, the popup displays a message indicating that no supported integration was found.
+If more than one integration type is detected, you can switch between them using the integration type tabs at the top of the popup. If no supported integration is detected, the popup displays a message indicating that no supported integration was found.
 
 ## Installing the Extension
 
@@ -43,12 +43,12 @@ Install UID Verify from the Chrome Web Store:
 
 ## Using UID Verify
 
-1. Navigate to a web page that has a UID2 or EUID integration.
+1. Navigate to a web page that has a UID2 integration.
 2. Click the **UID Verify** icon in your browser toolbar to open the extension popup.
 3. The extension detects the integration type on the page and displays the appropriate tabs.
 
 :::note
-If both a UID2 and an EUID integration are detected on the same page, the extension displays an error. A page should use either UID2 (for North America and parts of Asia) or EUID (for Europe and other GDPR-applicable regions), not both.
+UID Verify supports both UID2 and EUID. A page should use either UID2 (for North America and parts of Asia) or EUID (for Europe and other GDPR-applicable regions), not both. If both are detected on the same page, the extension displays an error.
 :::
 
 ## Interpreting Results
@@ -76,7 +76,7 @@ The **Config** tab provides a snapshot of the integration's current state, inclu
 **Google Secure Signals integrations:**
 
 - Whether Google Publisher Tags is detected
-- Whether the UID2 or EUID provider ID is registered
+- Whether the UID2 provider ID is registered
 - Whether `getAdvertisingTokenAsync` is available
 - The registered collector function code
 
@@ -89,7 +89,7 @@ The **Storage** tab shows the raw identity data stored in the browser for the cu
 | Field | Description |
 |---|---|
 | Storage Type | Whether the identity is stored in a cookie or `localStorage`. |
-| Storage Key | The name of the cookie or `localStorage` key. For SDK integrations: `__uid_2`, `__euid`, `uid2-sdk-identity`, or `euid-sdk-identity`. For Prebid.js integrations: `__uid2_advertising_token` or `__euid_advertising_token`. |
+| Storage Key | The name of the cookie or `localStorage` key. For SDK integrations: `__uid_2` or `uid2-sdk-identity`. For Prebid.js integrations: `__uid2_advertising_token`. |
 | Stored Value | The raw identity JSON, including `advertising_token`, `refresh_token`, `identity_expires`, `refresh_expires`, `refresh_from`, and `refresh_response_key`. |
 | Valid Identity | Whether the stored identity is currently valid. |
 | Optout Identity | Whether the identity reflects an opted-out user. |
