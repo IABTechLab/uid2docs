@@ -12,25 +12,29 @@ import Link from '@docusaurus/Link';
 
 UID Verify is a browser extension for debugging UID2 integrations. It inspects the UID2 implementation on the current page in real time, surfacing UID2 SDK configuration, identity storage, event history, and errors.
 
-The extension supports integrations using the <Link href="../sdks/sdk-ref-javascript">UID2 JavaScript SDK</Link>, <Link href="../guides/integration-prebid">Prebid.js</Link>, and <Link href="../guides/integration-google-ss">Google Secure Signals</Link>.
+The extension supports integrations using the <Link href="../sdks/sdk-ref-javascript">SDK for JavaScript</Link>, <Link href="../guides/integration-prebid">Prebid.js</Link>, and <Link href="../guides/integration-google-ss">Google Secure Signals</Link>.
 
 ## Overview
 
-When integrating UID2, it can be difficult to tell whether the SDK is initializing correctly, whether tokens are valid, or where in the lifecycle an error is occurring. UID Verify solves this by reading the SDK state, storage, and event stream directly from the page and presenting it in a structured, searchable interface.
+When integrating UID2, it can be difficult to tell whether the UID2 SDK is initializing correctly, whether tokens are valid, or where in the lifecycle an error is occurring. UID Verify helps debug this by reading the UID2 SDK configuration, identity data, and event stream directly from the page and presenting it in a structured, searchable interface.
 
-The extension detects whether a page uses the UID2 SDK directly, Prebid.js, or Google Secure Signals (or a combination), and adjusts the displayed information accordingly.
+The extension detects whether a page uses the UID2 SDK directly, Prebid.js, or Google Secure Signals (or a combination), and displays the relevant information for each integration type.
 
 ## Prerequisites
 
 UID Verify requires:
 
-- **Google Chrome** or **Microsoft Edge** browser
+- **Google Chrome** browser
 - A web page that has a UID2 integration — one of the following must be present on the page:
-  - The <Link href="../sdks/sdk-ref-javascript">UID2 JavaScript SDK</Link> (`window.__uid2`)
+  - The <Link href="../sdks/sdk-ref-javascript">SDK for JavaScript</Link> is loaded on the page (accessible via `window.__uid2`)
   - <Link href="../guides/integration-prebid">Prebid.js</Link> with a UID2 user ID module configured
   - <Link href="https://developers.google.com/publisher-tag/guides/secure-signals">Google Publisher Tags (GPT)</Link> with a UID2 Secure Signals provider registered
 
-If more than one integration type is detected, you can switch between them using the integration type tabs at the top of the popup. If no supported integration is detected, the popup displays a message indicating that no supported integration was found.
+If more than one integration type is detected, you can switch between them using the integration type tabs at the top of the popup.
+
+:::note
+Server-side integrations are not currently supported. UID Verify works by reading client-side signals such as browser storage and UID2 SDK globals, which are not present in a server-side integration.
+:::
 
 ## Installing the Extension
 
@@ -57,10 +61,10 @@ UID Verify supports both UID2 and EUID. A page should use either UID2 (for North
 
 The **Config** tab provides a snapshot of the integration's current state, including status banners for successful token generation, errors, opt-out identities, and other configuration states. The information displayed depends on the integration type:
 
-**SDK integrations:**
+**UID2 SDK integrations:**
 
-- SDK version
-- SDK initialization options
+- UID2 SDK version
+- UID2 SDK initialization options
 - The current identity object, including:
   - Advertising token
   - Refresh token
@@ -84,25 +88,25 @@ The **Config** tab provides a snapshot of the integration's current state, inclu
 
 The **Storage** tab shows the raw identity data stored in the browser for the current integration.
 
-**For SDK and Prebid.js integrations:**
+**For UID2 SDK and Prebid.js integrations:**
 
 | Field | Description |
 |---|---|
 | Storage Type | Whether the identity is stored in a cookie or `localStorage`. |
-| Storage Key | The name of the cookie or `localStorage` key. For SDK integrations: `__uid_2` or `uid2-sdk-identity`. For Prebid.js integrations: `__uid2_advertising_token`. |
+| Storage Key | The name of the cookie or `localStorage` key. For UID2 SDK integrations: `__uid_2` or `UID2-sdk-identity`. For Prebid.js integrations: `__uid2_advertising_token`. |
 | Stored Value | The raw identity JSON, including `advertising_token`, `refresh_token`, `identity_expires`, `refresh_expires`, `refresh_from`, and `refresh_response_key`. |
-| Valid Identity | Whether the stored identity is currently valid. |
+| Valid Identity | Whether the stored identity is currently valid — that is, the advertising token has not expired and the user has not opted out. |
 | Optout Identity | Whether the identity reflects an opted-out user. |
 
-**For Google Secure Signals integrations**, the tab shows the status of the secure signal and the current UID2 advertising token. If no signal has been generated yet, it indicates that neither a cached signal nor an SDK advertising token is available. Once the token is available, it confirms that Prebid will include it in bid requests to Google Ad Manager via `encryptedSignalSources`.
+**For Google Secure Signals integrations**, the tab shows the status of the secure signal and the current UID2 advertising token. If no signal has been generated yet, it indicates that neither a cached signal nor a UID2 SDK advertising token is available. Once the token is available, it confirms that it will be included in bid requests to Google Ad Manager.
 
 ### Callbacks Tab
 
-The **Callbacks** tab is available for SDK integrations only. It displays the source code of all callback functions registered with the SDK, with syntax highlighting. This is useful for confirming that the correct callbacks are wired up and identifying where events are being handled in the page code.
+The **Callbacks** tab is available for UID2 SDK integrations only. It displays the source code of all callback functions registered with the UID2 SDK, with syntax highlighting. This is useful for confirming that the correct callbacks are wired up and identifying where events are being handled in the page code.
 
 ### Event History Tab
 
-The **Event History** tab shows a searchable, real-time log of SDK events as they occur on the page. Each row in the table includes:
+The **Event History** tab shows a searchable, real-time log of UID2 SDK events as they occur on the page. Each row in the table includes:
 
 | Column | Description |
 |---|---|
@@ -113,6 +117,6 @@ The **Event History** tab shows a searchable, real-time log of SDK events as the
 
 Use the search bar to filter by event type or token value.
 
-This tab also includes an **Error Log** when errors are detected. The extension captures several categories of errors: failed network requests to the UID2 operator, failed resource loads (such as the SDK script), `console.error` calls from SDK code, and errors thrown by SDK methods.
+This tab also includes an **Error Log** when errors are detected. The extension captures several categories of errors: failed network requests to the UID2 operator, failed resource loads (such as the UID2 SDK script), `console.error` calls from UID2 SDK code, and errors thrown by UID2 SDK methods.
 
 For known error patterns, the extension displays contextual troubleshooting guidance alongside the error.

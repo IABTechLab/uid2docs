@@ -136,7 +136,7 @@ This tool is for developers or clients validating data preparation, such as hash
 
 ### UID Verify Chrome Extension
 
-UID Verify is a Google Chrome browser extension for debugging UID2 integrations. It inspects UID2 SDK information on websites, tracks events and event history, and monitors storage (cookies and local storage). The extension supports integrations using Prebid.js and Google Secure Signals.
+UID Verify is a Google Chrome browser extension for debugging UID2 integrations. It inspects UID2 SDK information on websites, tracks events and event history, and monitors storage (cookies and local storage). It also supports Prebid.js and Google Secure Signals integrations.
 
 - Site: [UID Verify on Chrome Web Store](https://chromewebstore.google.com/detail/uid-verify/cfpjjmdagnkmmolcddnoagffeoekkmle)
 - Doc: [UID Verify Chrome Extension](https://unifiedid.com/docs/ref-info/ref-uid-verify)
