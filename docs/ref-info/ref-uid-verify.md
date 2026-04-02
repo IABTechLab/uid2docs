@@ -82,7 +82,7 @@ The **Config** tab provides a snapshot of the integration's current state, inclu
 - Whether Google Publisher Tags is detected
 - Whether the UID2 provider ID is registered
 - Whether `getAdvertisingTokenAsync` is available
-- The registered collector function code
+- Whether a collector function is registered (the function that passes the UID2 token as an encrypted signal to Google Ad Manager)
 
 ### Storage Tab
 
