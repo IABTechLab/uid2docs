@@ -192,6 +192,14 @@ Email または Phone Number を選択し、値を入力または貼り付けて
 
 このツールを使用して、内部プロセスが UID2 の正規化、ハッシュ化、およびエンコードされた値を正しく作成するように設定されていることを確認できます。
 
+## UID2 Token Validator
+
+:::note
+このセクションはパブリッシャー向けです。パブリッシャーは、直接識別可能な情報（DII）を使用して [UID2 Token](../ref-info/glossary-uid.md#gl-uid2-token) を生成する唯一の参加者です。
+:::
+
+エンドツーエンドで完全なトークン生成パイプラインを検証し、正規化、ハッシュ化、およびエンコードされた値から生成された <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 Token</Link> が正しいことを確認するには、[UID2 Token Validator](../ref-info/ref-token-validator.md) を使用してください。
+
 ## Troubleshooting
 
 いずれの場合も、自身で DII を処理準備するための手順を実行し、その後 [UID2 hashing tool](https://hashing-tool.samples.uidapi.com/) を使用して結果値を確認してください。結果が一致しない場合は、各手順を確認してエラー箇所を特定してください。

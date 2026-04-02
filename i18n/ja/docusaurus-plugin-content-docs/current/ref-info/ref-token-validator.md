@@ -1,6 +1,6 @@
 ---
 title: UID2 Token Validator
-description: How to use the UID2 Token Validator to validate UID2 tokens against source DII and confirm that your token generation workflow is correct.
+description: UID2 Token Validator を使用して、UID2 Token をソースの DII に対して検証し、Token 生成ワークフローが正しいことを確認する方法。
 hide_table_of_contents: false
 sidebar_position: 02
 displayed_sidebar: docs
@@ -10,72 +10,72 @@ import Link from '@docusaurus/Link';
 
 # UID2 Token Validator
 
-The [UID2 Token Validator](https://token-validator.uidapi.com/) is a web-based tool that validates <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> against their source <Link href="../ref-info/glossary-uid#gl-dii">directly identifying information (DII)</Link> to confirm that your token generation process is correct.
+[UID2 Token Validator](https://token-validator.uidapi.com/) は、<Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 Token</Link> をその元となる <Link href="../ref-info/glossary-uid#gl-dii">DII (directly identifying information)</Link> と照合し、トークン生成プロセスが正しいかどうかを確認するためのウェブベースのツールです。
 
 ## Overview
 
-Publishers who generate UID2 tokens by providing DII sometimes receive tokens that appear valid but are unusable in the UID2 ecosystem. This happens when the normalization or hashing steps are not performed correctly. Because UID2 uses the normalized and hashed form of DII to derive the token, an error in either step produces a <Link href="../ref-info/glossary-uid#gl-raw-uid2">raw UID2</Link> that is unique to that publisher. This mismatched raw UID2 will not correspond to the one used by other participants for the same DII, meaning the publisher's tokens will not match up with those from other publishers, data providers, or advertisers' CRM uploads.
+DII を提供することで UID2 Token を生成するパブリッシャーは、有効に見えるにもかかわらず UID2 エコシステムで使用できないトークンを受け取ることがあります。これは、正規化またはハッシュ化のステップが正しく実行されなかった場合に発生します。UID2 はトークンの導出に DII の正規化・ハッシュ化された形式を使用するため、いずれかのステップでエラーが発生すると、そのパブリッシャー固有の <Link href="../ref-info/glossary-uid#gl-raw-uid2">raw UID2</Link> が生成されます。この不一致な raw UID2 は、他の参加者が同じ DII に対して使用するものと一致しないため、そのパブリッシャーのトークンは、他のパブリッシャー、データプロバイダー、または広告主の CRM アップロードによるトークンと一致しません。
 
 ## Prerequisites
 
-To use the UID2 Token Validator, you need:
+UID2 Token Validator を使用するには、以下が必要です:
 
-- A **UID2 API Key** (Client Key)
-- A **UID2 Client Secret**
+- **UID2 API Key** (Client Key)
+- **UID2 Client Secret**
 
-If you do not have these, see [API Keys](../portal/api-keys.md) for instructions on creating them in the UID2 Portal.
+これらをお持ちでない場合は、UID2 Portal での作成手順について [API Keys](../portal/api-keys.md) を参照してください。
 
 ## Using the Token Validator
 
-Enter your **API Key** (Client Key) and **Client Secret** in the fields at the top of the Token Validation section.
+Token Validation セクションの上部にあるフィールドに **API Key** (Client Key) と **Client Secret** を入力します。
 
-Select the **Operator** (environment) you want to validate against. For information about UID2 environments, see [Environments](../getting-started/gs-environments.md).
+検証対象の **Operator**（環境）を選択します。UID2 の環境については、[Environments](../getting-started/gs-environments.md) を参照してください。
 
 ### Validate a Single Token
 
-1. Under **Input Mode**, select **Single Validation**.
-2. In the **Identifier** field, enter the DII you used to generate the token. This can be:
-   - A raw email address
-   - A raw phone number
-   - A Base64-encoded email hash
-   - A Base64-encoded phone hash
-3. Select the identifier type that matches your input.
-4. In the **Token** field, paste the UID2 token you want to validate.
-5. Click **Validate Tokens**.
+1. **Input Mode** で **Single Validation** を選択します。
+2. **Identifier** フィールドに、トークンの生成に使用した DII を入力します。以下のいずれかを入力できます:
+   - 生のメールアドレス
+   - 生の電話番号
+   - Base64 エンコードされたメールアドレスハッシュ
+   - Base64 エンコードされた電話番号ハッシュ
+3. 入力内容に一致する識別子タイプを選択します。
+4. **Token** フィールドに、検証する UID2 Token を貼り付けます。
+5. **Validate Tokens** をクリックします。
 
 ### Validate Multiple Tokens (CSV)
 
-To validate a batch of token-identifier pairs:
+トークンと識別子のペアを一括検証するには:
 
-1. Under **Input Mode**, select **CSV**.
-2. Prepare a CSV file with the following columns: 
-   - `identifier`: The DII (raw email, raw phone, email hash, or phone hash).
-   - `identifier_type`: Either `email`, `phone`, `email_hash` or `phone_hash`.
-   - `token`: The UID2 token to validate.
-3. Upload the CSV file.
-4. Click **Validate Tokens**.
+1. **Input Mode** で **CSV** を選択します。
+2. 次の列を持つ CSV ファイルを用意します: 
+   - `identifier`: DII（生のメールアドレス、生の電話番号、メールアドレスハッシュ、または電話番号ハッシュ）。
+   - `identifier_type`: `email`、`phone`、`email_hash`、または `phone_hash` のいずれか。
+   - `token`: 検証する UID2 Token。
+3. CSV ファイルをアップロードします。
+4. **Validate Tokens** をクリックします。
 
 ## Interpret Validation Results
 
-When you click **Validate Tokens**, the **Validation Results** table displays a row for each token-identifier pair, in the format shown in the following table.
+**Validate Tokens** をクリックすると、**Validation Results** テーブルにトークンと識別子の各ペアの行が、以下の表に示す形式で表示されます。
 
 | Column | Description |
 |---|---|
-| Identifier | The DII you entered. |
-| Identifier Type | `email`, `phone`, `email_hash` or `phone_hash`. |
-| Normalized Hash | The Base64-encoded SHA-256 hash of the normalized DII. |
-| Token | The token you submitted. |
-| Validation | The result of the validation. For details, see the following table. |
+| Identifier | 入力した DII。 |
+| Identifier Type | `email`、`phone`、`email_hash`、または `phone_hash`。 |
+| Normalized Hash | 正規化された DII の Base64 エンコードされた SHA-256 ハッシュ。 |
+| Token | 送信したトークン。 |
+| Validation | 検証の結果。詳細については、以下の表を参照してください。 |
 
-The **Validation** column reflects the response from the [POST&nbsp;/token/validate](../endpoints/post-token-validate.md) endpoint.
+**Validation** 列には [POST&nbsp;/token/validate](../endpoints/post-token-validate.md) エンドポイントからのレスポンスが反映されます。
 
 | Validation Result | Meaning |
 |---|---|
-| `Token matches identifier` | The token matches the provided DII. This means that the token was generated from the correct normalized hash. |
-| `Failed: Token does not match identifier` | The token does not match the provided DII. The most likely cause is incorrect normalization or hashing. |
-| `Failed: Invalid token` | The token is malformed and cannot be parsed. |
-| `Failed: {"status":"unauthorized"}` | The API credentials provided are invalid or unauthorized. |
+| `Token matches identifier` | トークンが提供された DII と一致しています。これは、トークンが正しい正規化ハッシュから生成されたことを意味します。 |
+| `Failed: Token does not match identifier` | トークンが提供された DII と一致しません。最も可能性の高い原因は、正規化またはハッシュ化の誤りです。 |
+| `Failed: Invalid token` | トークンの形式が不正で、解析できません。 |
+| `Failed: {"status":"unauthorized"}` | 提供された API 認証情報が無効または許可されていません。 |
 
 :::tip
-If the result is **Failed: Token does not match identifier**, compare the **Normalized Hash** shown in the results with the value your own implementation produced for the same DII. If they differ, the issue is in your normalization or hashing steps. For details, see [Normalization and Encoding](../getting-started/gs-normalization-encoding.md) and [Preparing Emails and Phone Numbers for Processing](ref-preparing-emails-and-phone-numbers-for-processing.md).
+結果が **Failed: Token does not match identifier** の場合、結果に表示される **Normalized Hash** と、同じ DII に対して自身の実装で生成した値を比較してください。異なる場合は、正規化またはハッシュ化のステップに問題があります。詳細については、[Normalization and Encoding](../getting-started/gs-normalization-encoding.md) および [Preparing Emails and Phone Numbers for Processing](ref-preparing-emails-and-phone-numbers-for-processing.md) を参照してください。
 :::
