@@ -108,7 +108,7 @@ For Google Secure Signals integrations, the tab shows the status of the secure s
 
 ### Callbacks Tab
 
-The **Callbacks** tab is available for UID2 SDK integrations only. It displays the source code of all callback functions registered with the UID2 SDK, with syntax highlighting. This is useful for confirming that the correct callbacks are wired up and identifying where events are being handled in the page code.
+The **Callbacks** tab is available for UID2 SDK integrations only. It displays the source code of all callback functions registered with the UID2 SDK, with syntax highlighting. This is useful for confirming that the correct callbacks are registered and identifying where events are being handled in the page code.
 
 ### Event History Tab
 
