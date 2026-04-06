@@ -38,7 +38,7 @@ Server-side integrations are not currently supported. UID Verify works by readin
 
 ## Installing the Extension
 
-Install UID Verify from the Chrome Web Store:
+To install UID Verify from the Chrome Web Store, follow these steps:
 
 1. Go to the [UID Verify listing](https://chromewebstore.google.com/detail/uid-verify/cfpjjmdagnkmmolcddnoagffeoekkmle) in the Chrome Web Store.
 2. Click **Add to Chrome**.
