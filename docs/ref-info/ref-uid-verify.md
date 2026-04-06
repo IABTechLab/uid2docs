@@ -59,7 +59,7 @@ UID Verify supports both UID2 and EUID. A page should use either UID2 (for North
 
 ## Interpreting Results
 
-The following sections describe the information available in each tab of the UID Verify popup.
+The following sections describe the information available in each tab of the UID Verify popup. The content of each tab varies depending on the integration type detected.
 
 ### Config Tab
 
@@ -104,7 +104,7 @@ SDK and Prebid.js integrations include the fields shown in the following table.
 | Valid Identity | Indicates whether the stored identity is currently valid — that is, the advertising token has not expired and the user has not opted out. |
 | Optout Identity | Indicates whether the identity reflects an opted-out user. |
 
-**For Google Secure Signals integrations**, the tab shows the status of the secure signal and the current UID2 advertising token. If no signal has been generated yet, it indicates that neither a cached signal nor a UID2 SDK advertising token is available. Once the token is available, it confirms that it will be included in bid requests to Google Ad Manager.
+For Google Secure Signals integrations, the tab shows the status of the secure signal and the current UID2 advertising token. If no signal has been generated yet, it indicates that neither a cached signal nor a UID2 SDK advertising token is available. When the collector function has run successfully, the extension displays a "Secure signal is cached" status message and shows the cached value stored under `_GESPSK-uidapi.com`. The cached signal is in the format `[providerId, advertisingToken, expiryTimestamp]`. The current UID2 advertising token is also displayed separately.
 
 ### Callbacks Tab
 
