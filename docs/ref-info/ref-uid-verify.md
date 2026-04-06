@@ -89,7 +89,9 @@ The **Config** tab provides a snapshot of the integration's current state, inclu
 
 The **Storage** tab shows the raw identity data stored in the browser for the current integration.
 
-**For UID2 SDK and Prebid.js integrations:**
+**UID2 SDK and Prebid.js integrations**
+
+SDK and Prebid.js integrations include the fields shown in the following table.
 
 | Field | Description |
 |---|---|
