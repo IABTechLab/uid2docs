@@ -60,7 +60,7 @@ UID Verify supports both UID2 and EUID. A page should use either UID2 (for North
 
 ### Config Tab
 
-The **Config** tab provides a snapshot of the integration's current state, including status banners for successful token generation, errors, opt-out identities, and other configuration states. The information displayed depends on the integration type:
+The **Config** tab provides a snapshot of the integration's current state, including status banners for successful token generation, errors, opt-out identities, and other configuration states. The information displayed depends on the integration type, as shown in the following sections.
 
 **UID2 SDK integrations:**
 
