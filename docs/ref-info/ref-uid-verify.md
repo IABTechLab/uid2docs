@@ -99,7 +99,7 @@ SDK and Prebid.js integrations include the fields shown in the following table.
 | Storage Key | The name of the cookie or `localStorage` key. For UID2 SDK integrations: `__uid_2` or `UID2-sdk-identity`. For Prebid.js integrations: `__uid2_advertising_token`. |
 | Stored Value | The raw identity JSON, including `advertising_token`, `refresh_token`, `identity_expires`, `refresh_expires`, `refresh_from`, and `refresh_response_key`. |
 | Valid Identity | Indicates whether the stored identity is currently valid — that is, the advertising token has not expired and the user has not opted out. |
-| Optout Identity | Whether the identity reflects an opted-out user. |
+| Optout Identity | Indicates whether the identity reflects an opted-out user. |
 
 **For Google Secure Signals integrations**, the tab shows the status of the secure signal and the current UID2 advertising token. If no signal has been generated yet, it indicates that neither a cached signal nor a UID2 SDK advertising token is available. Once the token is available, it confirms that it will be included in bid requests to Google Ad Manager.
 
