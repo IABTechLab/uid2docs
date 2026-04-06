@@ -109,7 +109,7 @@ The **Callbacks** tab is available for UID2 SDK integrations only. It displays t
 
 ### Event History Tab
 
-The **Event History** tab shows a searchable, real-time log of UID2 SDK events as they occur on the page. Each row in the table includes:
+The **Event History** tab shows a searchable, real-time log of UID2 SDK events as they occur on the page. It includes the columns shown in the following table.
 
 | Column | Description |
 |---|---|
