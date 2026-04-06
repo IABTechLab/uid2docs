@@ -47,16 +47,19 @@ To install UID Verify from the Chrome Web Store, follow these steps:
 
 ## Using UID Verify
 
+Once installed, follow these steps to inspect a UID2 integration:
+
 1. Navigate to a web page that has a UID2 integration.
 2. Click the **UID Verify** icon in your browser toolbar to open the extension popup.
-2. Click the **UID Verify** icon in your browser toolbar to open the extension popup.
-   The extension detects the integration type on the page and displays the appropriate tabs.
+3. The extension detects the integration type on the page and displays the appropriate tabs.
 
 :::note
 UID Verify supports both UID2 and EUID. A page should use either UID2 (for North America and parts of Asia) or EUID (for Europe and other GDPR-applicable regions), not both. If both are detected on the same page, the extension displays an error.
 :::
 
 ## Interpreting Results
+
+The following sections describe the information available in each tab of the UID Verify popup.
 
 ### Config Tab
 
