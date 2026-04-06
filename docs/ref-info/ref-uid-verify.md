@@ -123,7 +123,7 @@ The **Event History** tab shows a searchable, real-time log of UID2 SDK events a
 
 Use the search bar to filter by event type or token value.
 
-This tab also includes an **Error Log** when errors are detected. The extension captures several categories of errors:
+This tab also includes an **Error Log** when errors are detected. The extension captures errors from several sources, including:
 
 - Failed network requests to the UID2 operator
 - Failed resource loads (such as the UID2 SDK script)
