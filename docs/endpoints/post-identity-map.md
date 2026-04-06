@@ -204,7 +204,11 @@ The following table lists the `status` property values and their HTTP status cod
 | `unauthorized` | 401 | The request did not include a bearer token, included an invalid bearer token, or included a bearer token unauthorized to perform the requested operation. |
 | N/A | 429 | Too many requests to this endpoint. Wait and retry using exponential backoff. |
 
-If the `status` value is anything other than `success`, the `message` field provides additional information about the issue. Note: 429 responses do not include a JSON response body.
+If the `status` value is anything other than `success`, the `message` field provides additional information about the issue.
+
+:::note
+429 responses do not include a JSON response body.
+:::
 
 ## Migration from v2 Identity Map
 
