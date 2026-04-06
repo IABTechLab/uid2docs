@@ -219,10 +219,6 @@ The system should follow the [email normalization rules](gs-normalization-encodi
 
 Yes. Not storing mappings might increase processing time drastically when you have to map millions of email addresses or phone numbers. Recalculating only those mappings that actually need to be updated, however, reduces the total processing time because only about 1/365th of raw UID2s need to be updated daily.
 
-:::important
-Unless you are using a <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link>, you must map email addresses, phone numbers, or hashes consecutively, using a single HTTP connection, with a maximum batch size of 5,000 items per batch. In other words, do your mapping without creating multiple parallel connections.
-:::
-
 #### How should I handle user opt-outs?
 
 When a user opts out of UID2-based targeted advertising through the [Transparency and Control Portal](https://www.transparentadvertising.com/), the opt-out signal is sent to DSPs and publishers, who handle opt-outs at bid time. We recommend that advertisers and data providers regularly check whether a user has opted out, via the [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) endpoint.

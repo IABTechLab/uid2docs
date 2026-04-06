@@ -23,14 +23,19 @@ This documentation is for version 2 of this endpoint, which is not the latest ve
 If you're using an earlier version, we recommend that you upgrade as soon as possible, to take advantage of improvements. For migration guidance, see [Migration from v2 Identity Map](post-identity-map.md#migration-from-v2-identity-map). For deprecation information, see [Deprecation Schedule: Endpoint Versions](../ref-info/deprecation-schedule.md#endpoint-versions).
 :::
 
-## Batch Size and Request Parallelization Requirements
+## Batch Size Requirements
 
 Here's what you need to know:
 
 - The maximum request size is 1MB.
-- To map a large number of email addresses, phone numbers, or their respective hashes, send them in *sequential* batches with a maximum batch size of 5,000 items per batch.
-- Unless you are using a <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link>, do not send batches in parallel. In other words, use a single HTTP connection and send batches of hashed or unhashed <Link href="../ref-info/glossary-uid#gl-dii">directly identifying information (DII)</Link> values consecutively, without creating multiple parallel connections.
+- To map a large number of email addresses, phone numbers, or their respective hashes, send them in batches with a maximum of 5,000 items per batch.
 - Be sure to store mappings of email addresses, phone numbers, or their respective hashes.<br/>Not storing mappings could increase processing time drastically when you have to map millions of email addresses or phone numbers. Recalculating only those mappings that actually need to be updated, however, reduces the total processing time because only about 1/365th of raw UID2s need to be updated daily. See also [Advertiser/Data Provider Integration Overview](../guides/integration-advertiser-dataprovider-overview.md) and [FAQs for Advertisers and Data Providers](../getting-started/gs-faqs.md#faqs-for-advertisers-and-data-providers).
+
+## Rate Limiting
+
+To ensure fair usage and platform stability, the `POST /identity/map` endpoint enforces rate limits to safeguard against bursts of incoming traffic. If you send many requests in quick succession, you might receive `429` error responses.
+
+To handle rate limit errors gracefully, we recommend implementing [exponential backoff](https://en.wikipedia.org/wiki/Exponential_backoff) with random jitter when retrying requests. To maximize throughput within the limit, use the maximum batch size of 5,000 items per request rather than sending many small requests.
 
 ## Request Format
 
@@ -203,5 +208,6 @@ The following table lists the `status` property values and their HTTP status cod
 | `success` | 200 | The request was successful. The response will be encrypted. |
 | `client_error` | 400 | The request had missing or invalid parameters.|
 | `unauthorized` | 401 | The request did not include a bearer token, included an invalid bearer token, or included a bearer token unauthorized to perform the requested operation. |
+| N/A | 429 | Too many requests to this endpoint. Wait and retry using exponential backoff. |
 
-If the `status` value is anything other than `success`, the `message` field provides additional information about the issue.
+If the `status` value is anything other than `success`, the `message` field provides additional information about the issue. Note: 429 responses do not include a JSON response body.

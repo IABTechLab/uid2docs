@@ -24,6 +24,23 @@ Use the Tags toolbar to view a subset of documentation updates.
 
 The following documents were released in the first quarter of 2026.
 
+<CustomTagsContainer tags="Endpoints">
+
+### Rate Limiting and Parallel Request Updates for POST /identity/map
+
+April 1, 2026
+
+The [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) endpoint documentation has been updated with the following changes:
+
+- Added a new [Rate Limiting](../endpoints/post-identity-map.md#rate-limiting) section documenting that the endpoint enforces rate limits to safeguard against bursts of incoming traffic.
+- Removed the previous recommendation to send batches sequentially over a single HTTP connection.
+
+These changes apply to both [v2](../endpoints/post-identity-map-v2.md) and [v3](../endpoints/post-identity-map.md) endpoints.
+
+<!-- UID2-6642 -->
+
+</CustomTagsContainer>
+
 <CustomTagsContainer tags="Endpoints, SDKs, Opt-Out">
 
 ### Removal of optout_check Parameter
