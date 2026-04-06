@@ -26,7 +26,7 @@ The following documents were released in the first quarter of 2026.
 
 <CustomTagsContainer tags="Endpoints">
 
-### Rate Limiting and Parallel Request Updates for /identity/map
+### Rate Limiting and Parallel Request Updates for POST /identity/map
 
 April 1, 2026
 
