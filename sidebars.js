@@ -373,6 +373,7 @@ const fullSidebar = [
         'ref-info/ref-operators-public-private',
         'ref-info/ref-integration-approaches',
         'ref-info/integration-sample-sites',
+        'ref-info/ref-uid-verify',
         'ref-info/ref-tokens',
         'ref-info/ref-how-uid-is-created',
         'ref-info/ref-server-side-token-generation',
