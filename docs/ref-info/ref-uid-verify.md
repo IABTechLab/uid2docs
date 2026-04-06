@@ -95,7 +95,7 @@ SDK and Prebid.js integrations include the fields shown in the following table.
 
 | Field | Description |
 |---|---|
-| Storage Type | Whether the identity is stored in a cookie or `localStorage`. |
+| Storage Type | Indicates whether the identity is stored in a cookie or `localStorage`. |
 | Storage Key | The name of the cookie or `localStorage` key. For UID2 SDK integrations: `__uid_2` or `UID2-sdk-identity`. For Prebid.js integrations: `__uid2_advertising_token`. |
 | Stored Value | The raw identity JSON, including `advertising_token`, `refresh_token`, `identity_expires`, `refresh_expires`, `refresh_from`, and `refresh_response_key`. |
 | Valid Identity | Whether the stored identity is currently valid — that is, the advertising token has not expired and the user has not opted out. |
