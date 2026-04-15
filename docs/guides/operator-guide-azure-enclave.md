@@ -179,7 +179,7 @@ To avoid passing certificates associated with your domain into the enclave, only
 The following table provides information about supported protocols.
 | Port Number | Direction | Protocol | Description |
 | ----------- | --------- | -------- | ------ |
-| 80 | Inbound | HTTP | Serves all UID2 APIs, including the healthcheck endpoint `/ops/healthcheck`.<br/>When everything is up and running, the endpoint returns HTTP 200 with a response body of `OK`. For details, see [Running the Health Check](#running-the-health-check). |
+| 80 | Inbound | HTTP | Serves all UID2 APIs, including the health check endpoint `/ops/healthcheck`.<br/>When everything is up and running, the endpoint returns HTTP 200 with a response body of `OK`. For details, see [Running the Health Check](#running-the-health-check). |
 | 9080 | Inbound | HTTP | Serves Prometheus metrics (`/metrics`). For details, see [Scraping Metrics](#scraping-metrics). |
 | 443 | Outbound | HTTPS | Calls the UID2 Core Service and Azure Blob Storage, to download files for opt-out data and key store. |
 
