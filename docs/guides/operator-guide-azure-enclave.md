@@ -182,7 +182,7 @@ The following diagram illustrates the virtual private cloud that hosts a UID2 Pr
 #### Network Security Group Policy
 
 :::note
-To avoid passing certificates associated with your domain into the enclave, inbound HTTP is allowed instead of HTTPS. This also avoids the cost of a secure layer, if used in a private network that is internal to your organization.
+To avoid passing certificates associated with your domain into the enclave, only inbound HTTP is allowed. Inbound HTTPS is not allowed. This also avoids the extra cost of another secure layer in a network that's already private and internal to your organization.
 :::
 The following table provides information about supported protocols.
 | Port Number | Direction | Protocol | Description |
