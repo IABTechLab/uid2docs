@@ -184,7 +184,7 @@ The following diagram illustrates the virtual private cloud that hosts a UID2 Pr
 :::note
 To avoid passing certificates associated with your domain into the enclave, inbound HTTP is allowed instead of HTTPS. This also avoids the cost of a secure layer, if used in a private network that is internal to your organization.
 :::
-
+The following table provides information about supported protocols.
 | Port Number | Direction | Protocol | Description |
 | ----------- | --------- | -------- | ------ |
 | 80 | Inbound | HTTP | Serves all UID2 APIs, including the healthcheck endpoint `/ops/healthcheck`.<br/>When everything is up and running, the endpoint returns HTTP 200 with a response body of `OK`. For details, see [Running the Health Check](#running-the-health-check). |
