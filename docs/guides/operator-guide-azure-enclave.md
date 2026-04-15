@@ -179,6 +179,18 @@ The following diagram illustrates the virtual private cloud that hosts a UID2 Pr
 
 ![VPC Network](images/operator-azure-drawio.png)
 
+#### Network Security Group Policy
+
+:::note
+To avoid passing certificates associated with your domain into the enclave, inbound HTTP is allowed instead of HTTPS. This also avoids the cost of a secure layer, if used in a private network that is internal to your organization.
+:::
+
+| Port Number | Direction | Protocol | Description |
+| ----------- | --------- | -------- | ------ |
+| 80 | Inbound | HTTP | Serves all UID2 APIs, including the healthcheck endpoint `/ops/healthcheck`.<br/>When everything is up and running, the endpoint returns HTTP 200 with a response body of `OK`. For details, see [Running the Health Check](#running-the-health-check). |
+| 9080 | Inbound | HTTP | Serves Prometheus metrics (`/metrics`). For details, see [Scraping Metrics](#scraping-metrics). |
+| 443 | Outbound | HTTPS | Calls the UID2 Core Service and Azure Blob Storage, to download files for opt-out data and key store. |
+
 Follow these steps:
 
 1. (Optional) If you don't want to accept the defaults, update the `vnet.parameters.json` file with the following values. These parameters have default values and in most cases you won't need to make any updates.
