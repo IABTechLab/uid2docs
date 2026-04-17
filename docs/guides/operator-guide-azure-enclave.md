@@ -318,6 +318,20 @@ The Private Operator for Azure exposes [Prometheus-formatted metrics](https://pr
 
 The scraper must have access to the VNet that the Private Operator is running in. We do not recommend giving the load balancer access to the `/metrics` endpoint.
 
+## Network Security Group Policy
+
+:::note
+To avoid passing certificates associated with your domain into the enclave, only inbound HTTP is allowed. Inbound HTTPS is not allowed. This also avoids the extra cost of another secure layer in a network that's already private and internal to your organization.
+:::
+
+The following table provides information about supported protocols.
+
+| Port Number | Direction | Protocol | Description |
+| ----------- | --------- | -------- | ------ |
+| 80 | Inbound | HTTP | Serves all UID2 APIs, including the health check endpoint `/ops/healthcheck`.<br/>When everything is up and running, the endpoint returns HTTP 200 with a response body of `OK`. For details, see [Running the Health Check](#running-the-health-check). |
+| 9080 | Inbound | HTTP | Serves Prometheus metrics (`/metrics`). For details, see [Scraping Metrics](#scraping-metrics). |
+| 443 | Outbound | HTTPS | Calls the UID2 Core Service and Azure Blob Storage, to download files for opt-out data and key store. |
+
 ## Upgrading
 
 When a new version of UID2 Azure Confidential Containers is released, private operators receive an email notification of the update, with a new release link. There is a window of time for upgrade, after which the older version is deactivated and is no longer supported.
