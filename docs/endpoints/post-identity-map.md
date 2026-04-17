@@ -145,12 +145,12 @@ Response:
             {
                 "u": "AdvIvSiaum0P5s3X/7X8h8sz+OhF2IG8DNbEnkWSbYM=",
                 "p": "EObwtHBUqDNZR33LNSMdtt5cafsYFuGmuY4ZLenlue4=",
-                "r": 1735689600000
+                "r": 1735689600
             },
             {
                 "u": "IbW4n6LIvtDj/8fCESlU0QG9K/fH63UdcTkJpAG8fIQ=",
                 "p": null,
-                "r": 1735862400000
+                "r": 1735862400
             },
             { "e": "invalid identifier" },
             { "e": "optout" }
@@ -181,7 +181,7 @@ For successfully mapped DII, the mapped object includes the properties shown in 
 |:---------|:-----------|:--------------------------------------------------------------------------------------------------------------------------------------|
 | `u`      | string     | The raw UID2 corresponding to the email or phone number provided in the request.                                                                     |
 | `p`      | string     | One of the following:<ul><li>If the current raw UID2 was rotated in the last 90 days: the previous raw UID2.</li><li>Otherwise: `null`.</li></ul> |
-| `r`      | number     | The Unix timestamp (in milliseconds) that indicates when the raw UID2 might be refreshed. The raw UID2 is valid until this timestamp. |
+| `r`      | number     | The Unix timestamp (in seconds) that indicates when the raw UID2 might be refreshed. The raw UID2 is valid until this timestamp. |
 
 :::note
 The raw UID2 does not change before the refresh timestamp. After the refresh timestamp, remapping the DII returns a new refresh timestamp, but the raw UID2 might or might not change. It is possible for the raw UID2 to remain unchanged for multiple refresh intervals.
@@ -295,7 +295,7 @@ The following example shows an implementation of the v3 approach for checking re
 import time
 
 def is_refresh_needed(mapping):
-    now = int(time.time() * 1000)  # Convert to milliseconds
+    now = int(time.time())  # Current time in seconds
     return now >= mapping['refresh_from']
 
 # Check individual mappings for refresh needs
