@@ -171,18 +171,6 @@ Follow these steps:
    az deployment group create --name vault --resource-group {RESOURCE_GROUP_NAME} --parameters vault.parameters.json  --template-file vault.json
    ```
 
-### Network Security Group Policy
-
-:::note
-To avoid passing certificates associated with your domain into the enclave, only inbound HTTP is allowed. Inbound HTTPS is not allowed. This also avoids the extra cost of another secure layer in a network that's already private and internal to your organization.
-:::
-The following table provides information about supported protocols.
-| Port Number | Direction | Protocol | Description |
-| ----------- | --------- | -------- | ------ |
-| 80 | Inbound | HTTP | Serves all UID2 APIs, including the health check endpoint `/ops/healthcheck`.<br/>When everything is up and running, the endpoint returns HTTP 200 with a response body of `OK`. For details, see [Running the Health Check](#running-the-health-check). |
-| 9080 | Inbound | HTTP | Serves Prometheus metrics (`/metrics`). For details, see [Scraping Metrics](#scraping-metrics). |
-| 443 | Outbound | HTTPS | Calls the UID2 Core Service and Azure Blob Storage, to download files for opt-out data and key store. |
-
 ### Set Up the VPC Network
 
 The next step is to set up the VPC network.
@@ -329,6 +317,20 @@ Follow these steps:
 The Private Operator for Azure exposes [Prometheus-formatted metrics](https://prometheus.io/docs/concepts/data_model/) on port 9080 through the `/metrics` endpoint. You can use a Prometheus-compatible scraper to collect and aggregate these metrics for your own needs. 
 
 The scraper must have access to the VNet that the Private Operator is running in. We do not recommend giving the load balancer access to the `/metrics` endpoint.
+
+## Network Security Group Policy
+
+:::note
+To avoid passing certificates associated with your domain into the enclave, only inbound HTTP is allowed. Inbound HTTPS is not allowed. This also avoids the extra cost of another secure layer in a network that's already private and internal to your organization.
+:::
+
+The following table provides information about supported protocols.
+
+| Port Number | Direction | Protocol | Description |
+| ----------- | --------- | -------- | ------ |
+| 80 | Inbound | HTTP | Serves all UID2 APIs, including the health check endpoint `/ops/healthcheck`.<br/>When everything is up and running, the endpoint returns HTTP 200 with a response body of `OK`. For details, see [Running the Health Check](#running-the-health-check). |
+| 9080 | Inbound | HTTP | Serves Prometheus metrics (`/metrics`). For details, see [Scraping Metrics](#scraping-metrics). |
+| 443 | Outbound | HTTPS | Calls the UID2 Core Service and Azure Blob Storage, to download files for opt-out data and key store. |
 
 ## Upgrading
 
