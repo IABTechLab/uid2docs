@@ -26,22 +26,6 @@ The following documents were released in the second quarter of 2026.
 
 <CustomTagsContainer tags="Endpoints">
 
-### Request Parallelization Updates for POST /identity/map
-
-April 17, 2026
-
-The [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) endpoint documentation has been updated with the following changes:
-
-- Added a recommendation to send up to 20 /identity/map batches in parallel.
-
-These changes apply to both [v2](../endpoints/post-identity-map-v2.md) and [v3](../endpoints/post-identity-map.md) endpoints.
-
-<!-- UID2-6917 -->
-
-</CustomTagsContainer>
-
-<CustomTagsContainer tags="Endpoints">
-
 ### Rate Limiting and Parallel Request Updates for POST /identity/map
 
 April 1, 2026
