@@ -28,7 +28,7 @@ If you're using an earlier version, we recommend that you upgrade as soon as pos
 Here's what you need to know:
 
 - The maximum request size is 1MB.
-- To map a large number of email addresses, phone numbers, or their respective hashes, send them in batches with a maximum of 5,000 items per batch. You may send up to 20 batches in parallel.
+- To map a large number of email addresses, phone numbers, or their respective hashes, send them in batches with a maximum of 5,000 items per batch. We recommend sending no more than 20 batches in parallel.
 - Be sure to store mappings of email addresses, phone numbers, or their respective hashes.<br/>Not storing mappings could increase processing time drastically when you have to map millions of email addresses or phone numbers. Recalculating only those mappings that actually need to be updated, however, reduces the total processing time because only about 1/365th of raw UID2s need to be updated daily. See also [Advertiser/Data Provider Integration Overview](../guides/integration-advertiser-dataprovider-overview.md) and [FAQs for Advertisers and Data Providers](../getting-started/gs-faqs.md#faqs-for-advertisers-and-data-providers).
 
 ## Rate Limiting
