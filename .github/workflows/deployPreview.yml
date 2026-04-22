@@ -27,7 +27,7 @@ jobs:
       - name: Clone to preview folder (excluding actions)
         run: rsync -arv --delete --delete-excluded --exclude=".github" --exclude="preview-output" --exclude="preview-output" --exclude=".git" ./ preview-output/
       - name: Push to staging repository
-        uses: cpina/github-action-push-to-another-repository@main
+        uses: cpina/github-action-push-to-another-repository@55306faa4ed53b815ae49e564af8cfb359d32ae2 # main
         env:
             SSH_DEPLOY_KEY: ${{ secrets.SSH_DEPLOY_KEY }}
         with:
