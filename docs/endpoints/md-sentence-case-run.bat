@@ -1,1 +1,0 @@
-node md-sentence-case.js
