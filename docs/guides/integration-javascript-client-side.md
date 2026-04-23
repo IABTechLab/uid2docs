@@ -200,7 +200,7 @@ The following examples demonstrate the different ways that you can configure the
 
 If the SDK is configured multiples times, it uses the most recent configuration values.
 
-For an example of how to generate email and phone hashes in JavaScript, see [Example Code: Hashing and Base-64 Encoding](#example-code-hashing-and-base-64-encoding).
+For an example of how to generate email and phone hashes in JavaScript, see [Example Code: Hashing and Base64 Encoding](#example-code-hashing-and-base64-encoding).
 
 <Tabs>
 <TabItem value='example_email_unhashed' label='Email, Unhashed'>
@@ -314,7 +314,7 @@ const clientSideConfig = {
   serverPublicKey: "...",
 };
   
-// Example of a base-64 encoded SHA-256 hash of an email address.
+// Example of a base64-encoded SHA-256 hash of an email address.
 const emailHash = "tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ=";
 
 // When the UID2 SDK is executed, it looks for these callbacks and invokes them.
@@ -386,7 +386,7 @@ If there was a problem generating the token, find the request in the **Network**
 
 ![Publisher Workflow](images/NetworkTraffic.png)
 
-## Example Code: Hashing and Base-64 Encoding
+## Example Code: Hashing and Base64 Encoding
 
 The following code example demonstrates how to generate email and phone hashes in JavaScript.
 

@@ -200,7 +200,7 @@ SDK は、ハッシュ化された DII を UID2 Service に送信する前に暗
 
 SDK が複数回設定された場合、最新の設定値が使用されます。
 
-JavaScript でメールアドレスと電話番号のハッシュを生成する方法の例については、[Example Code: Hashing and Base-64 Encoding](#example-code-hashing-and-base-64-encoding) を参照してください。
+JavaScript でメールアドレスと電話番号のハッシュを生成する方法の例については、[Example Code: Hashing and Base64 Encoding](#example-code-hashing-and-base64-encoding) を参照してください。
 
 <Tabs>
 <TabItem value='example_email_unhashed' label='Email, Unhashed'>
@@ -314,7 +314,7 @@ const clientSideConfig = {
   serverPublicKey: "...",
 };
   
-// Example of a base-64 encoded SHA-256 hash of an email address.
+// Example of a base64-encoded SHA-256 hash of an email address.
 const emailHash = "tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ=";
 
 // When the UID2 SDK is executed, it looks for these callbacks and invokes them.
@@ -386,7 +386,7 @@ window.__uid2.callbacks.push(async (eventType, payload) => {
 
 ![Publisher Workflow](images/NetworkTraffic.png)
 
-## Example Code: Hashing and Base-64 Encoding
+## Example Code: Hashing and Base64 Encoding
 
 以下のコード例は、JavaScript でメールアドレスと電話番号のハッシュを生成する方法を示しています。
 
