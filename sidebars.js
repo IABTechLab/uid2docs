@@ -446,10 +446,10 @@ const sidebars = {
     'endpoints/post-token-generate',
     'endpoints/post-token-validate',
     'endpoints/post-token-refresh',
-    'sharing/sharing-bid-stream'
-    ),
+    'ref-info/ref-token-validator'
+  ),
 
-  sidebarDSPs: removeItems(fullSidebar, 
+  sidebarDSPs: removeItems(fullSidebar,
     'overviews/overview-publishers',
     'overviews/overview-advertisers',
     'overviews/overview-data-providers',
@@ -489,11 +489,10 @@ const sidebars = {
     'guides/integration-databricks',
     'guides/integration-aws-entity-resolution',
     'guides/advertiser-dataprovider-endpoints',
-    'sharing/sharing-bid-stream',
     'ref-info/ref-token-validator'
   ),
 
-  sidebarDataProviders: removeItems(fullSidebar, 
+  sidebarDataProviders: removeItems(fullSidebar,
     'overviews/overview-publishers',
     'overviews/overview-advertisers',
     'overviews/overview-dsps',
@@ -530,7 +529,6 @@ const sidebars = {
     'endpoints/post-token-generate',
     'endpoints/post-token-validate',
     'endpoints/post-token-refresh',
-    'sharing/sharing-bid-stream',
     'ref-info/ref-token-validator'
   ),
 
