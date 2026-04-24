@@ -446,6 +446,7 @@ const sidebars = {
     'endpoints/post-token-generate',
     'endpoints/post-token-validate',
     'endpoints/post-token-refresh',
+    'sharing/sharing-bid-stream',
     'ref-info/ref-token-validator'
   ),
 
@@ -489,6 +490,7 @@ const sidebars = {
     'guides/integration-databricks',
     'guides/integration-aws-entity-resolution',
     'guides/advertiser-dataprovider-endpoints',
+    'sharing/sharing-bid-stream',
     'ref-info/ref-token-validator'
   ),
 
@@ -529,6 +531,7 @@ const sidebars = {
     'endpoints/post-token-generate',
     'endpoints/post-token-validate',
     'endpoints/post-token-refresh',
+    'sharing/sharing-bid-stream',
     'ref-info/ref-token-validator'
   ),
 
