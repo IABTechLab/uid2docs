@@ -24,6 +24,20 @@ Use the Tags toolbar to view a subset of documentation updates.
 
 The following documents were released in the second quarter of 2026.
 
+<CustomTagsContainer tags="Reference">
+
+### UID2 Token Validator
+
+April 24, 2026
+
+We've added a new reference page for the [UID2 Token Validator](ref-token-validator.md), a web-based tool that validates UID2 tokens against their source DII so you can confirm that your token generation process is correct.
+
+For details, see [UID2 Token Validator](ref-token-validator.md).
+
+<!-- UID2-6592 -->
+
+</CustomTagsContainer>
+
 <CustomTagsContainer tags="Endpoints">
 
 ### Rate Limiting and Parallel Request Updates for POST /identity/map
