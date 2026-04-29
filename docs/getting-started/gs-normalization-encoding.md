@@ -60,7 +60,7 @@ An email hash is a Base64-encoded <Link href="../ref-info/glossary-uid#gl-sha-25
 
 The following table shows an example of a simple input email address, and the result as each step is applied to arrive at a secure, opaque value.
 
-The final value, the hex to Base64 encoded representation of the SHA-256 hash, is the value to provide to the UID2 Operator endpoint.
+The final value, the hex to Base64-encoded representation of the SHA-256 hash, is the value to provide to the UID2 Operator endpoint.
 
 :::warning
 When applying Base64 encoding, be sure to Base64-encode the raw bytes of the hash or use a Base64 encoder that takes a hex-encoded value as input. If you use a function that takes text as input, the result is a longer string which is invalid for the purposes of UID2.
@@ -147,7 +147,7 @@ A phone number hash is a Base64-encoded SHA-256 hash of a normalized phone numbe
 
 The following table shows an example of a simple input phone number, and the result as each step is applied to arrive at a secure, opaque value.
 
-The final value, the hex to Base64 encoded representation of the SHA-256 hash, is the value to provide to the UID2 Operator endpoint.
+The final value, the hex to Base64-encoded representation of the SHA-256 hash, is the value to provide to the UID2 Operator endpoint.
 
 :::warning
 When applying Base64 encoding, be sure to use a function that takes a hex value as input. If you use a function that takes text as input, the result is a longer string which is invalid for the purposes of UID2.
@@ -162,7 +162,7 @@ When applying Base64 encoding, be sure to use a function that takes a hex value 
 
 ## Example Code
 
-For an example of how to generate email and phone hashes in JavaScript, see [Example Code: Hashing and Base-64 Encoding](../guides/integration-javascript-client-side#example-code-hashing-and-base-64-encoding).
+For an example of how to generate email and phone hashes in JavaScript, see [Example Code: Hashing and Base64 Encoding](../guides/integration-javascript-client-side#example-code-hashing-and-base64-encoding).
 
 ## UID2 Hashing Tool
 
