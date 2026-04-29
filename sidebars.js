@@ -445,10 +445,11 @@ const sidebars = {
     'endpoints/post-token-generate',
     'endpoints/post-token-validate',
     'endpoints/post-token-refresh',
-    'sharing/sharing-bid-stream'
-    ),
+    'sharing/sharing-bid-stream',
+    'ref-info/ref-token-validator'
+  ),
 
-  sidebarDSPs: removeItems(fullSidebar, 
+  sidebarDSPs: removeItems(fullSidebar,
     'overviews/overview-publishers',
     'overviews/overview-advertisers',
     'overviews/overview-data-providers',
@@ -492,7 +493,7 @@ const sidebars = {
     'ref-info/ref-token-validator'
   ),
 
-  sidebarDataProviders: removeItems(fullSidebar, 
+  sidebarDataProviders: removeItems(fullSidebar,
     'overviews/overview-publishers',
     'overviews/overview-advertisers',
     'overviews/overview-dsps',
