@@ -54,7 +54,7 @@ const fullSidebar = [
 
     {
       type: 'category',
-      label: 'Getting Started',
+      label: 'Getting started',
       link: {
         type: 'generated-index',
       },
@@ -90,7 +90,7 @@ const fullSidebar = [
 
     {
       type: 'category',
-      label: 'Integration Guides',
+      label: 'Integration guides',
       link: {
         type: 'doc',
         id: 'guides/summary-guides',
@@ -100,7 +100,7 @@ const fullSidebar = [
       items: [
         {
           type: 'category',
-          label: 'Publisher Integrations',
+          label: 'Publisher integrations',
           link: {
           type: 'doc',
           id: 'guides/integration-options-publisher-all',
@@ -206,7 +206,7 @@ const fullSidebar = [
 
         {
           type: 'category',
-          label: 'Advertiser/Data Provider Integrations',
+          label: 'Advertiser/data provider integrations',
           link: {
             type: 'generated-index',
           },
@@ -235,7 +235,7 @@ const fullSidebar = [
 
         {
           type: 'category',
-          label: 'DSP Integrations',
+          label: 'DSP integrations',
           link: {
             type: 'generated-index',
           },
@@ -248,7 +248,7 @@ const fullSidebar = [
 
         {
           type: 'category',
-          label: 'Private Operator Integrations',
+          label: 'Private Operator integrations',
           link: {
             type: 'doc',
             id: 'guides/integration-options-private-operator',
@@ -338,7 +338,7 @@ const fullSidebar = [
         'sharing/sharing-use-cases',
         {
           type: 'category',
-          label: 'Tokenized Sharing',
+          label: 'Tokenized sharing',
           link: {
             type: 'generated-index',
           },
@@ -357,7 +357,7 @@ const fullSidebar = [
 
     {
       type: 'category',
-      label: 'Reference Information',
+      label: 'Reference information',
       link: {
         type: 'generated-index',
       },
@@ -386,7 +386,6 @@ const fullSidebar = [
     'ref-info/updates-doc',
   ];
 
-
 const sidebars = {
   docs: fullSidebar,
 
@@ -394,14 +393,14 @@ const sidebars = {
     'overviews/overview-advertisers',
     'overviews/overview-dsps',
     'overviews/overview-data-providers',
-    'Advertiser/Data Provider Integrations',
+    'Advertiser/data provider integrations',
     'guides/integration-advertiser-dataprovider-overview',
     'guides/integration-snowflake',
     'guides/integration-snowflake-previous',
     'guides/integration-databricks',
     'guides/integration-aws-entity-resolution',
     'guides/advertiser-dataprovider-endpoints',
-    'DSP Integrations',
+    'DSP integrations',
     'guides/dsp-guide',
     'endpoints/post-identity-buckets',
     'endpoints/post-identity-map',
@@ -413,7 +412,7 @@ const sidebars = {
     'overviews/overview-publishers',
     'overviews/overview-dsps',
     'overviews/overview-data-providers',
-    'Publisher Integrations',
+    'Publisher integrations',
     'Web',
     'guides/integration-options-publisher-all',
     'guides/integration-options-publisher-web',
@@ -424,7 +423,7 @@ const sidebars = {
     'JavaScript',
     'guides/integration-javascript',
     'guides/integration-javascript-client-server',
-    'Server-Only',
+    'Server-only',
     'guides/integration-publisher-server-side',
     'GAM Secure Signals',
     'guides/integration-google-ss',
@@ -441,20 +440,19 @@ const sidebars = {
     'guides/mobile-plugin-gma-ios',
     'guides/mobile-plugin-ima-android',
     'guides/mobile-plugin-ima-ios',
-    'DSP Integrations',
+    'DSP integrations',
     'guides/dsp-guide',
     'endpoints/post-token-generate',
     'endpoints/post-token-validate',
     'endpoints/post-token-refresh',
-    'sharing/sharing-bid-stream',
-    'ref-info/ref-token-validator'
-  ),
+    'sharing/sharing-bid-stream'
+    ),
 
-  sidebarDSPs: removeItems(fullSidebar,
+  sidebarDSPs: removeItems(fullSidebar, 
     'overviews/overview-publishers',
     'overviews/overview-advertisers',
     'overviews/overview-data-providers',
-    'Publisher Integrations',
+    'Publisher integrations',
     'Web',
     'guides/integration-options-publisher-all',
     'guides/integration-options-publisher-web',
@@ -466,7 +464,7 @@ const sidebars = {
     'guides/integration-javascript',
     'guides/integration-javascript-client-side',
     'guides/integration-javascript-client-server',
-    'Server-Only',
+    'Server-only',
     'guides/integration-publisher-server-side',
     'GAM Secure Signals',
     'guides/integration-google-ss',
@@ -483,7 +481,7 @@ const sidebars = {
     'guides/mobile-plugin-gma-ios',
     'guides/mobile-plugin-ima-android',
     'guides/mobile-plugin-ima-ios',
-    'Advertiser/Data Provider Integrations',
+    'Advertiser/data provider integrations',
     'guides/integration-advertiser-dataprovider-overview',
     'guides/integration-snowflake',
     'guides/integration-snowflake-previous',
@@ -494,11 +492,11 @@ const sidebars = {
     'ref-info/ref-token-validator'
   ),
 
-  sidebarDataProviders: removeItems(fullSidebar,
+  sidebarDataProviders: removeItems(fullSidebar, 
     'overviews/overview-publishers',
     'overviews/overview-advertisers',
     'overviews/overview-dsps',
-    'Publisher Integrations',
+    'Publisher integrations',
     'Web',
     'guides/integration-options-publisher-all',
     'guides/integration-options-publisher-web',
@@ -509,7 +507,7 @@ const sidebars = {
     'JavaScript',
     'guides/integration-javascript',
     'guides/integration-javascript-client-server',
-    'Server-Only',
+    'Server-only',
     'guides/integration-publisher-server-side',
     'GAM Secure Signals',
     'guides/integration-google-ss',
@@ -526,7 +524,7 @@ const sidebars = {
     'guides/mobile-plugin-gma-ios',
     'guides/mobile-plugin-ima-android',
     'guides/mobile-plugin-ima-ios',
-    'DSP Integrations',
+    'DSP integrations',
     'guides/dsp-guide',  
     'endpoints/post-token-generate',
     'endpoints/post-token-validate',
