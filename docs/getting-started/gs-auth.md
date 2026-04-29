@@ -8,14 +8,14 @@ displayed_sidebar: docs
 
 import Link from '@docusaurus/Link';
 
-# Authentication and Authorization
+# Authentication and authorization
 
 To authenticate to the UID2 endpoints in a server-side implementation, you need the following:
 
 - A client [API key](gs-credentials.md#api-key-and-client-secret). The API key is included as a bearer token in the request's Authorization header. For example:<br/>
   `Authorization: Bearer YourTokenBV3tua4BXNw+HVUFpxLlGy8nWN6mtgMlIk=`
-- A client secret for encrypting API requests and decrypting API responses. This is needed for all endpoints except [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md). <br/>For details, and encryption/decryption examples in several different programming languages, see [Encrypting Requests and Decrypting Responses](gs-encryption-decryption.md).
+- A client secret for encrypting API requests and decrypting API responses. This is needed for all endpoints except [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md). <br/>For details, and encryption/decryption examples in several different programming languages, see [Encrypting requests and decrypting responses](gs-encryption-decryption.md).
 
 :::note
-If you're a publisher and are implementing UID2 on the client side, the authentication and authorization is managed automatically by your implementation, such as Prebid.js (see [UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md)) or the JavaScript SDK (see [Client-Side Integration Guide for JavaScript](../guides/integration-javascript-client-side.md)).
+If you're a publisher and are implementing UID2 on the client side, the authentication and authorization is managed automatically by your implementation, such as Prebid.js (see [UID2 client-side integration guide for Prebid.js](../guides/integration-prebid-client-side.md)) or the JavaScript SDK (see [Client-side integration guide for JavaScript](../guides/integration-javascript-client-side.md)).
 :::

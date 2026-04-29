@@ -10,15 +10,15 @@ import Link from '@docusaurus/Link';
 import SnptExampleUid2Cookie from '../snippets/_snpt-example-uid2-cookie.mdx';
 import SnptExampleJavaScriptV2Init from '../snippets/_snpt-example-javascript-v2-init.mdx';
 
-# SDK for JavaScript Reference Guide (v2.x and earlier)
+# SDK for JavaScript reference guide (v2.x and earlier)
 
 :::important
-This documentation is for earlier versions of the SDK for JavaScript. If you're using an earlier version, we recommend upgrading. See [SDK for JavaScript Reference Guide](sdk-ref-javascript.md), which includes a migration guide to upgrade to the current version, v4.
+This documentation is for earlier versions of the SDK for JavaScript. If you're using an earlier version, we recommend upgrading. See [SDK for JavaScript reference guide](sdk-ref-javascript.md), which includes a migration guide to upgrade to the current version, v4.
 :::
 
 Use this SDK to facilitate the process of establishing client identity using UID2 and retrieving advertising tokens. The following sections describe the high-level [workflow](#workflow-overview) for establishing UID2 identity, provide the SDK [API reference](#api-reference), and explain the [UID2 cookie format](#uid2-cookie-format). 
 
-For integration steps for content publishers, see [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md).
+For integration steps for content publishers, see [Client-server integration guide for JavaScript](../guides/integration-javascript-client-server.md).
 
 ## Functionality
 
@@ -28,19 +28,19 @@ This SDK simplifies integration with UID2 for any publishers who want to support
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | &#8212; | &#8212; | &#8212; | &#9989; | &#8212; | &#8212; |
 
-## API Permissions
+## API permissions
 
-To use this SDK, you'll need to complete the UID2 account setup by following the steps described on the [Account Setup](../getting-started/gs-account-setup.md) page.
+To use this SDK, you'll need to complete the UID2 account setup by following the steps described on the [Account setup](../getting-started/gs-account-setup.md) page.
 
 You'll be granted permission to use specific functions offered by the SDK, and given credentials for that access.
 
-For details, see [API Permissions](../getting-started/gs-permissions.md).
+For details, see [API permissions](../getting-started/gs-permissions.md).
 
-## SDK Version
+## SDK version
 
 This documentation is for version 2 of the SDK for JavaScript.
 
-## GitHub Repository
+## Github repository
 
 This SDK is in the following open-source GitHub repository:
 
@@ -52,7 +52,7 @@ In this document, the following terms apply:
 - **Identity** refers to a package of values, returned by the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) or [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) endpoint, that includes the UID2 token, the refresh token, and associated values such as timestamps.
 - **Advertising token** refers to the UID2 token.
 
-## Include the SDK Script
+## Include the SDK script
 
 On every page where you want to use UID2 for targeted advertising, include the following SDK script:
 
@@ -60,7 +60,7 @@ On every page where you want to use UID2 for targeted advertising, include the f
 <script src="https://prod.uidapi.com/static/js/uid2-sdk-2.0.0.js" type="text/javascript"></script> 
 ```
 
-## Workflow Overview
+## Workflow overview
 
 The high-level client-side workflow for establishing UID2 identity using the SDK consists of the following steps:
 
@@ -70,14 +70,14 @@ The high-level client-side workflow for establishing UID2 identity using the SDK
 	- If the identity is unavailable, the reason for its unavailability is specified in the object passed to the callback function.
 3. SDK: Based on the identity [state](#workflow-states-and-transitions), the SDK does the following:
 	- If a valid identity is available, the SDK ensures that the identity is available in a [first-party cookie](#uid2-cookie-format).
-	- If the identity is unavailable, the SDK takes the appropriate action based on whether the identity is refreshable or not. For details, see [Workflow States and Transitions](#workflow-states-and-transitions).
+	- If the identity is unavailable, the SDK takes the appropriate action based on whether the identity is refreshable or not. For details, see [Workflow states and transitions](#workflow-states-and-transitions).
 4. Publisher: Handle the identity based on its state:
 	- If the advertising token is available, use it to initiate requests for targeted advertising.
 	- If the advertising token is not available, either use untargeted advertising or redirect the user to the data capture with the consent form.
 
-For web integration steps, see [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md).
+For web integration steps, see [Client-server integration guide for JavaScript](../guides/integration-javascript-client-server.md).
 
-### Workflow States and Transitions
+### Workflow states and transitions
 
 The following table outlines the four main states that the SDK can be in, based on the combination of values returned by two main functions, [getAdvertisingToken()](#getadvertisingtoken-string) and [isLoginRequired()](#isloginrequired-boolean), and indicates the appropriate action that you, as a developer, can take in each state. 
 
@@ -90,9 +90,9 @@ The following table outlines the four main states that the SDK can be in, based 
 
 The following diagram illustrates the four states, including the corresponding identity [status values](#identity-status-values) and possible transitions between them. The SDK invokes the [callback function](#callback-function) on each transition.
 
-![Client-Side JavaScript SDK Workflow](images/uid2-js-sdk-workflow.png)
+![Client-side JavaScript SDK workflow](images/uid2-js-sdk-workflow.png)
 
-### Background Token Auto-Refresh
+### Background token auto-refresh
 
 As part of the SDK [initialization](#initopts-object-void), a token auto-refresh for the identity is set up, which is triggered in the background by the timestamps on the identity or by failed refresh attempts due to intermittent errors.
 
@@ -106,7 +106,7 @@ Here's what you need to know about the token auto-refresh:
 	- When identity has become invalid&#8212;for example, because the user has opted out.<br/>NOTE: The callback is *not* invoked when identify is temporarily unavailable and the auto-refresh keeps failing. In this case, the SDK continues using the existing advertising token.
 - A [disconnect()](#disconnect-void) call cancels the active timer. 
 
-## API Reference
+## API reference
 
 All interactions with the Client-Side JavaScript SDK are done through the global `__uid2` object, which is a member of the `UID2` class. All of the following JavaScript functions are members of the `UID2` class:
 
@@ -169,7 +169,7 @@ The `opts` object supports the following properties.
 
 | Property | Data Type | Attribute | Description | Default Value |
 | :--- | :--- | :--- | :--- | :--- |
-| `callback` | `function(object): void` | Required | The function that the SDK should invoke after validating the passed identity. For details, see [Callback Function](#callback-function).| N/A |
+| `callback` | `function(object): void` | Required | The function that the SDK should invoke after validating the passed identity. For details, see [Callback function](#callback-function).| N/A |
 | `identity` | object | Optional | The `body` property value from a successful [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) or [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) call that has been run on the server to generate an identity.<br/>To use the identity from a [first-party cookie](#uid2-cookie-format), leave this property empty. | N/A |
 | `baseUrl` | string | Optional | The custom base URL of the UID2 operator to use when invoking the [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) endpoint.<br/>For example: `https://my.operator.com`.  | `https://prod.uidapi.com`. |
 | `refreshRetryPeriod` | number | Optional | The number of seconds after which to retry refreshing tokens if intermittent errors occur. | 5 |
@@ -186,21 +186,21 @@ The `init()` function can throw the following errors.
 | `TypeError` | One of the following issues has occurred:<br/>- The function has already been called.<br/>- The `opts` value is not an object.<br/>- There is no callback function specified.<br/>-  The `callback` value is not a function. |
 | `RangeError` | The refresh retry period is less than 1. |
 
-#### Callback Function
+#### Callback function
 
 The `function(object): void` callback function indicates that the initialization is complete. From that point onwards, the SDK invokes the callback when it successfully refreshes the established identity.
 
-For details on when the callback function is called, see [Background Token Auto-Refresh](#background-token-auto-refresh).
+For details on when the callback function is called, see [Background token auto-refresh](#background-token-auto-refresh).
 
 The `object` parameter includes the following properties.
 
 | Property | Data Type | Description |
 | :--- | :--- | :--- |
 | `advertisingToken` | string | The token to be passed to SSPs for targeted advertising. If the token/identity is invalid or unavailable, the value is `undefined`. |
-| `status` | `UID2.IdentityStatus` enum | The numeric value that indicates the status of the identity. For details, see [Identity Status Values](#identity-status-values). |
+| `status` | `UID2.IdentityStatus` enum | The numeric value that indicates the status of the identity. For details, see [Identity status values](#identity-status-values). |
 | `statusText` | string | Additional information about the identity status. |
 
-#### Identity Status Values
+#### Identity status values
 
 The [callback function](#callback-function) returns the `status` field values as numbers from the `UID2.IdentityStatus` enum, which can be turned into the corresponding strings by calling `UID2.IdentityStatus[state.status]`. The following table lists the string values for the `status` enum.
 
@@ -269,7 +269,7 @@ You can use this function to be notified of the completion of the Client-Side Ja
 
 Specifies whether a UID2 [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) call is required. 
 
-This function can also provide additional context for handling missing identities, as shown in [Workflow States and Transitions](#workflow-states-and-transitions).
+This function can also provide additional context for handling missing identities, as shown in [Workflow states and transitions](#workflow-states-and-transitions).
 
 ```html
 <script>
@@ -277,7 +277,7 @@ This function can also provide additional context for handling missing identitie
 </script>
 ```
 
-#### Return Values
+#### Return values
 
 | Value | Description |
 | :--- | :--- |
@@ -306,7 +306,7 @@ Terminates any background timers or requests. The UID2 object remains in an unsp
 
 This function is intended for use in advanced scenarios where you might want to replace the existing UID2 object with a new instance. For example, a single-page application could use this to clear the current UID2 object and construct or initialize a new one after receiving a new identity from the server in the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) response.
 
-## UID2 Cookie Format
+## UID2 cookie format
 
 The SDK uses a first-party cookie to store the user's identity.
 
@@ -321,7 +321,7 @@ The following table lists the cookie properties.
 | `Path` | `/` | If you want to use a different value, you can set it during SDK initialization using the `cookiePath` [init() parameter](#parameters).  |
 | `Domain` | `undefined` | If you want to use a different value, you can set it during SDK initialization using the `cookieDomain` [init() parameter](#parameters). |
 
-### Contents Structure
+### Contents structure
 
 The UID2 cookie contents are a URI-encoded string representation of a JSON object with the structure identical to that of the `body` property in a [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) or [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) response, with the exception of the `private` object. 
 

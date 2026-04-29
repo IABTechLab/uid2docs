@@ -10,20 +10,20 @@ displayed_sidebar: docs
 
 import Link from '@docusaurus/Link';
 
-# Snowflake Integration Guide (Pre-Feb 2025)
+# Snowflake integration guide (pre-Feb 2025)
 
 [Snowflake](https://www.snowflake.com/) is a cloud data warehousing solution, where you as a partner can store your data and integrate with the UID2 framework. Using Snowflake, UID2 enables you to securely share consumer identifier data without exposing sensitive <Link href="../ref-info/glossary-uid#gl-dii">directly identifying information (DII)</Link>. Even though you have the option to query the Operator Web Services directly for the consumer identifier data, the Snowflake UID2 integration offers a more seamless experience.
 
 :::important
-This document is for anyone using the separate advertiser and data provider Snowflake marketplace listings published prior to February 2025. For documentation on the latest version, see [Snowflake Integration Guide](integration-snowflake.md). If you're using any earlier implementation, we recommend that you migrate to the latest version to take advantage of the updates and enhancements. For migration information, see [Migration Guide](integration-snowflake.md#migration-guide).
+This document is for anyone using the separate advertiser and data provider Snowflake marketplace listings published prior to February 2025. For documentation on the latest version, see [Snowflake integration guide](integration-snowflake.md). If you're using any earlier implementation, we recommend that you migrate to the latest version to take advantage of the updates and enhancements. For migration information, see [Migration guide](integration-snowflake.md#migration-guide).
 :::
 
 The Snowflake marketplace listings for this implementation were separate for advertisers and for data providers. Those listings were removed following the publication of the updated version in February 2025.
 
-If you have a working implementation, you can use this documentation to maintain it; however, we recommend upgrading to the latest version. See [Snowflake Integration Guide](integration-snowflake.md).
+If you have a working implementation, you can use this documentation to maintain it; however, we recommend upgrading to the latest version. See [Snowflake integration guide](integration-snowflake.md).
 
 :::tip
-For a summary of all integration options and steps for advertisers and data providers, see [Advertiser/Data Provider Integration Overview](integration-advertiser-dataprovider-overview.md).
+For a summary of all integration options and steps for advertisers and data providers, see [Advertiser/data provider integration overview](integration-advertiser-dataprovider-overview.md).
 :::
 
 ## Functionality
@@ -37,21 +37,21 @@ The following table summarizes the functionality available with the UID2 Snowfla
 *You cannot use Snowflake to generate a UID2 token directly from DII. However, you can convert DII to a raw UID2, and then encrypt the raw UID2 into a UID2 token.
 
 :::note
-If you are a publisher who is sharing UID2 tokens in the <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link>, see [Tokenized Sharing in the Bidstream](../sharing/sharing-tokenized-from-data-bid-stream.md).
+If you are a publisher who is sharing UID2 tokens in the <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link>, see [Tokenized sharing in the bidstream](../sharing/sharing-tokenized-from-data-bid-stream.md).
 :::
 
-## Workflow Diagram
+## Workflow diagram
 
 The following diagram and table illustrate the different parts of the UID2 integration process in Snowflake, and the workflow.
 
-![Snowflake Integration Architecture](images/uid2-snowflake-integration-architecture-drawio.png)
+![Snowflake integration architecture](images/uid2-snowflake-integration-architecture-drawio.png)
 
 |Partner Snowflake Account|UID2 Snowflake Account|UID2 Core Opt-Out Cloud Setup|
 | :--- | :--- | :--- |
 |As a partner, you set up a Snowflake account to host your data and engage in UID2 integration by consuming functions and views through the UID2 Share. | UID2 integration, hosted in a Snowflake account, grants you access to authorized functions and views that draw data from private tables. You can’t access the private tables. The UID2 Share reveals only essential data needed for you to perform UID2-related tasks.<br/>**NOTE**: We store <Link href="../ref-info/glossary-uid#gl-salt">salts</Link> and encryption keys in the private tables. No <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> is stored at any point. |ETL (Extract Transform Load) jobs constantly update the UID2 Core/Optout Snowflake storage with internal data that powers the UID2 Operator Web Services. The data used by the Operator Web Services is also available through the UID2 Share. |
 |When you use shared functions and views, you pay Snowflake for transactional computation costs.  |These private tables, secured in the UID2 Snowflake account, automatically synchronize with the UID2 Core/Optout Snowflake storage that holds internal data used to complete UID2-related tasks.  | |
 
-## Access the UID2 Shares
+## Access the UID2 shares
 
 Access to the UID2 Share is available through the [Snowflake Data Marketplace](https://www.snowflake.com/data-marketplace/), where you can request specific data sets based on the UID2 personalized listing you select.
 
@@ -75,7 +75,7 @@ To request access to a UID2 Share, complete the following steps:
 
 After your request is received, a UID2 administrator will contact you with the appropriate access instructions. For details about managing data requests in Snowflake, see the [Snowflake documentation](https://docs.snowflake.com/en/user-guide/data-marketplace-consumer.html).
 
-## Shared Objects
+## Shared objects
 
 Regardless of the UID2 solution you choose, you can map DII to UID2s by using the following function:
 
@@ -87,18 +87,18 @@ The following functions are deprecated in favor of `FN_T_UID2_IDENTITY_MAP`. You
 - `FN_T_UID2_IDENTITY_MAP_EMAIL_HASH` (deprecated)
 
 :::note
-If you are using the deprecated functions, and need help migrating to the newer function, see [Migration Guide](#migration-guide).
+If you are using the deprecated functions, and need help migrating to the newer function, see [Migration guide](#migration-guide).
 :::
 
-To identify the UID2s that you must regenerate, use the `UID2_SALT_BUCKETS` view from the UID2 Share. For details, see [Monitor for Salt Bucket Rotation and Regenerate Raw UID2s](#monitor-for-salt-bucket-rotation-and-regenerate-raw-uid2s).
+To identify the UID2s that you must regenerate, use the `UID2_SALT_BUCKETS` view from the UID2 Share. For details, see [Monitor for salt bucket rotation and regenerate raw UID2s](#monitor-for-salt-bucket-rotation-and-regenerate-raw-uid2s).
 
 The following functions are also available, for UID2 sharing participants:
-- `FN_T_UID2_ENCRYPT` (See [Encrypt Tokens](#encrypt-tokens))
-- `FN_T_UID2_DECRYPT` (See [Decrypt Tokens](#decrypt-tokens))
+- `FN_T_UID2_ENCRYPT` (See [Encrypt tokens](#encrypt-tokens))
+- `FN_T_UID2_DECRYPT` (See [Decrypt tokens](#decrypt-tokens))
 
-For details, see [Usage for UID2 Sharers](#usage-for-uid2-sharers).
+For details, see [Usage for UID2 sharers](#usage-for-uid2-sharers).
 
-### Database and Schema Names
+### Database and schema names
 
 The following sections include query examples for each solution, which are identical except for the database and schema name variables:
 
@@ -121,9 +121,9 @@ All query examples use the following default values for each name variable:
 
 To map all types of <Link href="../ref-info/glossary-uid#gl-dii">DII</Link>, use the `FN_T_UID2_IDENTITY_MAP` function.
 
-If the DII is an email address, the service normalizes the data using the UID2 [Email Address Normalization](../getting-started/gs-normalization-encoding.md#email-address-normalization) rules.
+If the DII is an email address, the service normalizes the data using the UID2 [Email address normalization](../getting-started/gs-normalization-encoding.md#email-address-normalization) rules.
 
-If the DII is a phone number, you must normalize it before sending it to the service, using the UID2 [Phone Number Normalization](../getting-started/gs-normalization-encoding.md#phone-number-normalization) rules.
+If the DII is a phone number, you must normalize it before sending it to the service, using the UID2 [Phone number normalization](../getting-started/gs-normalization-encoding.md#phone-number-normalization) rules.
 
 |Argument|Data Type|Description|
 | :--- | :--- | :--- |
@@ -136,9 +136,9 @@ A successful query returns the following information for the specified DII.
 | :--- | :--- | :--- |
 | `UID2` | TEXT | The value is one of the following:<ul><li>DII was successfully mapped: The UID2 associated with the DII.</li><li>DII was not successfully mapped: `NULL`.</li></ul> |
 | `BUCKET_ID` | TEXT | The value is one of the following:<ul><li>DII was successfully mapped: The ID of the salt bucket used to generate the UID2. This ID maps to the bucket ID in the `UID2_SALT_BUCKETS` view.</li><li>DII was not successfully mapped: `NULL`.</li></ul> |
-| `UNMAPPED` | TEXT | The value is one of the following:<ul><li>DII was successfully mapped: `NULL`.</li><li>DII was not successfully mapped:  The reason why the identifier was not mapped: `OPTOUT`, `INVALID IDENTIFIER`, or `INVALID INPUT TYPE`.<br/>For details, see [Values for the UNMAPPED Column](#values-for-the-unmapped-column).</li></ul> |
+| `UNMAPPED` | TEXT | The value is one of the following:<ul><li>DII was successfully mapped: `NULL`.</li><li>DII was not successfully mapped:  The reason why the identifier was not mapped: `OPTOUT`, `INVALID IDENTIFIER`, or `INVALID INPUT TYPE`.<br/>For details, see [Values for the unmapped column](#values-for-the-unmapped-column).</li></ul> |
 
-#### Values for the UNMAPPED Column
+#### Values for the unmapped column
 
 The following table shows possible values for the `UNMAPPED` column.
 
@@ -153,20 +153,20 @@ The following table shows possible values for the `UNMAPPED` column.
 
 Mapping request examples in this section:
 
-- [Single Unhashed Email](#mapping-request-example---single-unhashed-email)
-- [Multiple Unhashed Emails](#mapping-request-example---multiple-unhashed-emails)
-- [Single Unhashed Phone Number](#mapping-request-example---single-unhashed-phone-number)
-- [Multiple Unhashed Phone Numbers](#mapping-request-example---multiple-unhashed-phone-numbers)
-- [Single Hashed Email](#mapping-request-example---single-hashed-email)
-- [Multiple Hashed Emails](#mapping-request-example---multiple-hashed-emails)
-- [Single Hashed Phone Number](#mapping-request-example---single-hashed-phone-number)
-- [Multiple Hashed Phone Numbers](#mapping-request-example---multiple-hashed-phone-numbers)
+- [Single unhashed email](#mapping-request-example---single-unhashed-email)
+- [Multiple unhashed emails](#mapping-request-example---multiple-unhashed-emails)
+- [Single unhashed phone number](#mapping-request-example---single-unhashed-phone-number)
+- [Multiple unhashed phone numbers](#mapping-request-example---multiple-unhashed-phone-numbers)
+- [Single hashed email](#mapping-request-example---single-hashed-email)
+- [Multiple hashed emails](#mapping-request-example---multiple-hashed-emails)
+- [Single hashed phone number](#mapping-request-example---single-hashed-phone-number)
+- [Multiple hashed phone numbers](#mapping-request-example---multiple-hashed-phone-numbers)
 
 :::note
 The input and output data in these examples is fictitious, for illustrative purposes only. The values provided are not real values.
 :::
 
-#### Mapping Request Example - Single Unhashed Email
+#### Mapping request example - single unhashed email
 
 The following queries illustrate how to map a single email address, using the [default database and schema names](#database-and-schema-names).
 
@@ -192,7 +192,7 @@ Query results for a single email:
 +----------------------------------------------+------------+----------+
 ```
 
-#### Mapping Request Example - Multiple Unhashed Emails
+#### Mapping request example - multiple unhashed emails
 
 The following queries illustrate how to map multiple email addresses, using the [default database and schema names](#database-and-schema-names).
 
@@ -227,11 +227,11 @@ The following table identifies each item in the response, including `NULL` value
 +----+----------------------+----------------------------------------------+------------+--------------------+
 ```
 
-#### Mapping Request Example - Single Unhashed Phone Number
+#### Mapping request example - single unhashed phone number
 
 The following queries illustrate how to map a phone number, using the [default database and schema names](#database-and-schema-names).
 
-You must normalize phone numbers using the UID2 [Phone Number Normalization](../getting-started/gs-normalization-encoding.md#phone-number-normalization) rules.
+You must normalize phone numbers using the UID2 [Phone number normalization](../getting-started/gs-normalization-encoding.md#phone-number-normalization) rules.
 
 Advertiser solution query for a single phone number:
 
@@ -255,11 +255,11 @@ Query results for a single phone number:
 +----------------------------------------------+------------+----------+
 ```
 
-#### Mapping Request Example - Multiple Unhashed Phone Numbers
+#### Mapping request example - multiple unhashed phone numbers
 
 The following queries illustrate how to map multiple phone numbers, using the [default database and schema names](#database-and-schema-names).
 
-You must normalize phone numbers using the UID2 [Phone Number Normalization](../getting-started/gs-normalization-encoding.md#phone-number-normalization) rules.
+You must normalize phone numbers using the UID2 [Phone number normalization](../getting-started/gs-normalization-encoding.md#phone-number-normalization) rules.
 
 Advertiser solution query for multiple phone numbers:
 
@@ -292,7 +292,7 @@ The following table identifies each item in the response, including `NULL` value
 +----+--------------+----------------------------------------------+------------+--------------------+
 ```
 
-#### Mapping Request Example - Single Hashed Email
+#### Mapping request example - single hashed email
 
 The following queries illustrate how to map a single email address hash, using the [default database and schema names](#database-and-schema-names).
 
@@ -318,7 +318,7 @@ Query results for a single hashed email:
 +----------------------------------------------+------------+----------+
 ```
 
-#### Mapping Request Example - Multiple Hashed Emails
+#### Mapping request example - multiple hashed emails
 
 The following queries illustrate how to map multiple email address hashes, using the [default database and schema names](#database-and-schema-names).
 
@@ -352,7 +352,7 @@ The following table identifies each item in the response, including `NULL` value
 +----+----------------------------------------------+----------------------------------------------+------------+--------------------+
 ```
 
-#### Mapping Request Example - Single Hashed Phone Number
+#### Mapping request example - single hashed phone number
 
 The following queries illustrate how to map a single phone number hash, using the [default database and schema names](#database-and-schema-names).
 
@@ -378,7 +378,7 @@ Query results for a single hashed phone number:
 +----------------------------------------------+------------+----------+
 ```
 
-#### Mapping Request Example - Multiple Hashed Phone Numbers
+#### Mapping request example - multiple hashed phone numbers
 
 The following queries illustrate how to map multiple phone number hashes, using the [default database and schema names](#database-and-schema-names).
 
@@ -412,7 +412,7 @@ The following table identifies each item in the response, including `NULL` value
 +----+----------------------------------------------+----------------------------------------------+------------+--------------------+
 ```
 
-### Monitor for Salt Bucket Rotation and Regenerate Raw UID2s
+### Monitor for salt bucket rotation and regenerate raw UID2s
 
 The `UID2_SALT_BUCKETS` view query returns the date and time when the salt buckets were last updated. Salt is used when generating UID2s. When the salt in the bucket is updated, the previously generated UID2 becomes outdated and doesn’t match the UID2 generated by other parties for the same user.
 
@@ -425,7 +425,7 @@ To determine which UID2s need regeneration, compare the timestamps of when they 
 
 The following example shows an input table and the query used to find the UID2s in the table that must be regenerated because the salt was updated.
 
-#### Targeted Input Table
+#### Targeted input table
 
 In this example scenario, the advertiser/data provider has stored the UID2s in a table named `AUDIENCE_WITH_UID2`. The last column, `LAST_UID2_UPDATE_UTC`, is used to record the time at which a UID2 was generated. If no UID2 has been generated, the value is `NULL`, as shown in the third example. The advertiser/data provider can use this timestamp value to determine which UID2s need to be regenerated.
 
@@ -475,7 +475,7 @@ The following table identifies each item in the response. The result includes an
 +----+----------------------+----------------------------------------------+------------+-------------------------+-------------------------+
 ```
 
-## Migration Guide
+## Migration guide
 
 If you are using the `FN_T_UID2_IDENTITY_MAP_EMAIL` and `FN_T_UID2_IDENTITY_MAP_EMAIL_HASH` functions, it's best to migrate to the `FN_T_UID2_IDENTITY_MAP` function as soon as possible. This function does everything that the other two functions do, and has other built-in improvements.
 
@@ -483,14 +483,14 @@ Advantages of the `FN_T_UID2_IDENTITY_MAP` function:
 
 - It supports mapping both phone numbers and hashed phone numbers.
 - It supports user opt-out.
-- It adds a new column, `UNMAPPED`. In any scenario where the DII cannot be mapped to a UID2 for any reason, this column includes information about the reason.<br/>For details, see [Values for the UNMAPPED Column](#values-for-the-unmapped-column)
+- It adds a new column, `UNMAPPED`. In any scenario where the DII cannot be mapped to a UID2 for any reason, this column includes information about the reason.<br/>For details, see [Values for the unmapped column](#values-for-the-unmapped-column)
 
 This section includes the following information to help you upgrade to the new function:
 
-- [Changing Existing Code](#changing-existing-code) 
-- [Using the Values for the UNMAPPED Column](#using-the-values-for-the-unmapped-column) 
+- [Changing existing code](#changing-existing-code) 
+- [Using the values for the unmapped column](#using-the-values-for-the-unmapped-column) 
 
-### Changing Existing Code
+### Changing existing code
 
 The code snippets in this section are before/after examples of how the earlier functions might be implemented, and how you could update to use the new function.
 
@@ -522,29 +522,29 @@ After:
 FN_T_UID2_IDENTITY_MAP(EMAIL_HASH, 'email_hash')
 ```
 
-### Using the Values for the UNMAPPED Column
+### Using the values for the unmapped column
 When you have the new function implemented, you can check the `UNMAPPED` column returned by the `FN_T_UID2_IDENTITY_MAP`. If any DII could not be mapped to a UID2, this column gives the reason.
 
-For details about the values and their explanations, see [Values for the UNMAPPED Column](#values-for-the-unmapped-column).
+For details about the values and their explanations, see [Values for the unmapped column](#values-for-the-unmapped-column).
 
-## Usage for UID2 Sharers
+## Usage for UID2 sharers
 
 A UID2 <Link href="../ref-info/glossary-uid#gl-sharing-participant">sharing participant</Link> is a company that takes part in sharing, either as a sender or a receiver, to share UID2s with another participant.
 
-Advertisers and data providers can share UID2s with other authorized UID2 sharing participants via Snowflake (<Link href="../ref-info/glossary-uid#gl-tokenized-sharing">tokenized sharing</Link>). They can encrypt [raw UID2s](../ref-info/glossary-uid#gl-raw-uid2) into <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> and then send them to another participant for sharing in pixels (see [Tokenized Sharing in Pixels](../sharing/sharing-tokenized-from-data-pixel.md)). If you are not sending data in pixels within Snowflake, you can take part in UID2 sharing as long as you follow the requirements laid out in [Security Requirements for UID2 Sharing](../sharing/sharing-security.md).
+Advertisers and data providers can share UID2s with other authorized UID2 sharing participants via Snowflake (<Link href="../ref-info/glossary-uid#gl-tokenized-sharing">tokenized sharing</Link>). They can encrypt [raw UID2s](../ref-info/glossary-uid#gl-raw-uid2) into <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> and then send them to another participant for sharing in pixels (see [Tokenized sharing in pixels](../sharing/sharing-tokenized-from-data-pixel.md)). If you are not sending data in pixels within Snowflake, you can take part in UID2 sharing as long as you follow the requirements laid out in [Security requirements for UID2 sharing](../sharing/sharing-security.md).
 
 :::caution
-The UID2 token generated during this process is for sharing only&#8212;you cannot use it in the bidstream. There is a different workflow for generating tokens for the bidstream: see [Tokenized Sharing in the Bidstream](../sharing/sharing-tokenized-from-data-bid-stream.md).
+The UID2 token generated during this process is for sharing only&#8212;you cannot use it in the bidstream. There is a different workflow for generating tokens for the bidstream: see [Tokenized sharing in the bidstream](../sharing/sharing-tokenized-from-data-bid-stream.md).
 :::
 
-If you are not sending data in pixels or in the bidstream within Snowflake, you can also take part in raw UID2 sharing as long as you follow the requirements laid out in [Security Requirements for UID2 Sharing](../sharing/sharing-security.md).
+If you are not sending data in pixels or in the bidstream within Snowflake, you can also take part in raw UID2 sharing as long as you follow the requirements laid out in [Security requirements for UID2 sharing](../sharing/sharing-security.md).
 
 The following activities support tokenized sharing:
 
-- [Encrypt Tokens](#encrypt-tokens)
-- [Decrypt Tokens](#decrypt-tokens)
+- [Encrypt tokens](#encrypt-tokens)
+- [Decrypt tokens](#decrypt-tokens)
 
-### Encrypt Tokens
+### Encrypt tokens
 
 To encrypt raw UID2s to UID2 tokens, use the `FN_T_UID2_ENCRYPT` function. Use the applicable prefix to indicate your role:
 - For advertisers: `ADV.FN_T_UID2_ENCRYPT`
@@ -559,9 +559,9 @@ A successful query returns the following information for the specified raw UID2.
 |Column Name|Data Type|Description|
 | :--- | :--- | :--- |
 | `UID2_TOKEN` | TEXT | The value is one of the following:<ul><li>Encryption successful: The UID2 token containing the raw UID2.</li><li>Encryption not successful: `NULL`.</li></ul> |
-| `ENCRYPTION_STATUS` | TEXT | The value is one of the following:<ul><li>Encryption successful: `NULL`.</li><li>Encryption not successful: The reason why the raw UID2 was not encrypted. For example: `INVALID_RAW_UID2` or `INVALID NOT_AUTHORIZED_FOR_MASTER_KEY`.<br/>For details, see [Values for the ENCRYPTION_STATUS Column](#values-for-the-encryption_status-column).</li></ul> |
+| `ENCRYPTION_STATUS` | TEXT | The value is one of the following:<ul><li>Encryption successful: `NULL`.</li><li>Encryption not successful: The reason why the raw UID2 was not encrypted. For example: `INVALID_RAW_UID2` or `INVALID NOT_AUTHORIZED_FOR_MASTER_KEY`.<br/>For details, see [Values for the encryption_status column](#values-for-the-encryption_status-column).</li></ul> |
 
-#### Values for the ENCRYPTION_STATUS Column
+#### Values for the encryption_status column
 
 The following table shows possible values for the `ENCRYPTION_STATUS` column.
 
@@ -574,7 +574,7 @@ The following table shows possible values for the `ENCRYPTION_STATUS` column.
 | `NOT_AUTHORIZED_FOR_MASTER_KEY` | The caller does not have access to the required <a href="../ref-info/glossary-uid#gl-encryption-key">encryption keys</a>. Contact the UID2 administrator. |
 | `NOT_AUTHORIZED_FOR_SITE_KEY` | The caller does not have access to the required encryption keys. Contact the UID2 administrator. |
 
-#### Encrypt Token Request Example - Single Raw UID2
+#### Encrypt token request example - single raw UID2
 
 The following queries illustrate how to encrypt a single raw UID2 to a UID2 token, using the [default database and schema names](#database-and-schema-names).
 
@@ -600,7 +600,7 @@ Query results for a single raw UID2:
 +--------------------------------------------+
 ```
 
-#### Encrypt Token Request Example - Multiple Raw UID2s
+#### Encrypt token request example - multiple raw UID2s
 
 The following queries illustrate how to encrypt multiple raw UID2s, using the [default database and schema names](#database-and-schema-names).
 
@@ -630,7 +630,7 @@ The following table identifies each item in the response, including `NULL` value
 +----+----------------------------------------------+-----------------------+-----------------------------+
 ```
 
-### Decrypt Tokens
+### Decrypt tokens
 
 To decrypt UID2 tokens to raw UID2s, use the `FN_T_UID2_DECRYPT` function. Use the applicable prefix to indicate your role:
 - For advertisers: `ADV.FN_T_UID2_DECRYPT`
@@ -646,13 +646,13 @@ A successful query returns the following information for the specified UID2 toke
 | :--- | :--- | :--- |
 | `UID2` | TEXT | The value is one of the following:<ul><li>Decryption successful: The raw UID2 corresponding to the UID2 token.</li><li>Decryption not successful: `NULL`.</li></ul> |
 | `SITE_ID` | INT | The value is one of the following:<ul><li>Decryption successful: The identifier of the UID2 participant that encrypted the token.</li><li>Decryption not successful: `NULL`.</li></ul> |
-| `DECRYPTION_STATUS` | TEXT | The value is one of the following:<ul><li>Decryption successful: `NULL`.</li><li>Decryption not successful:  The reason why the UID2 token was not decrypted; for example, `EXPIRED_TOKEN`.<br/>For details, see [Values for the DECRYPTION_STATUS Column](#values-for-the-decryption_status-column).</li></ul> |
+| `DECRYPTION_STATUS` | TEXT | The value is one of the following:<ul><li>Decryption successful: `NULL`.</li><li>Decryption not successful:  The reason why the UID2 token was not decrypted; for example, `EXPIRED_TOKEN`.<br/>For details, see [Values for the decryption_status column](#values-for-the-decryption_status-column).</li></ul> |
 
 :::note
 In most circumstances where UID2 token cannot be successfully decrypted, the function will not return any rows at all.
 :::
 
-#### Values for the DECRYPTION_STATUS Column
+#### Values for the decryption_status column
 
 Possible values for `DECRYPTION_STATUS` are:
 
@@ -661,7 +661,7 @@ Possible values for `DECRYPTION_STATUS` are:
 | `NULL` | The UID2 token was successfully decrypted. |
 | `EXPIRED_TOKEN` | The UID2 token is beyond its designated lifetime&#8212;the token has expired. |
 
-#### Decrypt Token Request Example&#8212;Single UID2 Token
+#### Decrypt token request example&#8212;single UID2 token
 
 The following queries illustrate how to decrypt a single UID2 token to a raw UID2, using the [default database and schema names](#database-and-schema-names).
 
@@ -687,7 +687,7 @@ Query results for a single UID2 token:
 +----------------------------------------------+-------------------+
 ```
 
-#### Decrypt Token Request Example&#8212;Multiple UID2 Tokens
+#### Decrypt token request example&#8212;multiple UID2 tokens
 
 The following queries illustrate how to decrypt multiple UID2 tokens, using the [default database and schema names](#database-and-schema-names).
 
@@ -725,12 +725,12 @@ The following table identifies each item in the response, including `NULL` value
 +----+----------------------------------------------+----------+-------------------+
 ```
 
-### UID2 Sharing Example
+### UID2 sharing example
 
 The following instructions provide an example of how sharing works for a sender and a receiver both using Snowflake. In this example scenario an advertiser (the sender) has an audience table with raw UID2s
 (`AUDIENCE_WITH_UID2`) and wants to make data in the table available to a data provider (the receiver) using the [Snowflake Secure Data Sharing](https://docs.snowflake.com/en/user-guide/data-sharing-intro) feature.
 
-#### Sender Instructions
+#### Sender instructions
 
  1. Create a new table named `AUDIENCE_WITH_UID2_TOKENS`.
  2. Encrypt the raw UID2s in the `AUDIENCE_WITH_UID2S` table and store the result in the `AUDIENCE_WITH_UID2_TOKENS` table. For example, the following query could help achieve this task:
@@ -744,7 +744,7 @@ The following instructions provide an example of how sharing works for a sender 
 To help prevent UID2 tokens from expiring during sharing, send the newly encrypted UID2 tokens to the receiver as soon as possible.
 :::
 
-#### Receiver Instructions
+#### Receiver instructions
 
  1. Create a database from the secure share that the sender provided access to.
  2. Create a new table named `RECEIVED_AUDIENCE_WITH_UID2`.

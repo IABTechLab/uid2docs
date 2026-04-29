@@ -8,7 +8,7 @@ displayed_sidebar: docs
 
 import Link from '@docusaurus/Link';
 
-# SDK for Android Reference Guide
+# SDK for Android reference guide
 
 You can use the SDK for Android to facilitate the process of generating or establishing client identity using UID2, retrieving advertising tokens for <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link> use, and automatically refreshing UID2 tokens.
 
@@ -16,12 +16,12 @@ The following Android-related plugins, and associated documentation, are also av
 
 | Purpose | Product/Documentation |
 | :--- | :--- |
-| To use the Google Mobile Ads (GMA) SDK to send <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> as [secure signals](https://support.google.com/admob/answer/11556288) in ad requests from Android apps | [UID2 GMA Plugin for Android Integration Guide](../guides/mobile-plugin-gma-android.md) |
-| To use the Google Interactive Media Ads (IMA) SDK for Android to send <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> as [secure signals](https://support.google.com/admob/answer/11556288) in ad requests from Android apps | [UID2 IMA Plugin for Android Integration Guide](../guides/mobile-plugin-ima-android.md) |
+| To use the Google Mobile Ads (GMA) SDK to send <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> as [secure signals](https://support.google.com/admob/answer/11556288) in ad requests from Android apps | [UID2 GMA plugin for Android integration guide](../guides/mobile-plugin-gma-android.md) |
+| To use the Google Interactive Media Ads (IMA) SDK for Android to send <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> as [secure signals](https://support.google.com/admob/answer/11556288) in ad requests from Android apps | [UID2 IMA plugin for Android integration guide](../guides/mobile-plugin-ima-android.md) |
 
-For FAQs relating to mobile publisher integrations, see [FAQs for Mobile Integrations](../guides/integration-mobile-overview.md#faqs-for-mobile-integrations).
+For FAQs relating to mobile publisher integrations, see [FAQs for mobile integrations](../guides/integration-mobile-overview.md#faqs-for-mobile-integrations).
 
-## Non-Mobile Android Device Support
+## Non-mobile Android device support
 
 This SDK for Android can be used for non-mobile devices for Android platforms as well.
 
@@ -37,22 +37,22 @@ The SDK for Android is designed to generate and/or manage UID2 identity on behal
 
 By default, the SDK automatically refreshes UID2 identity based on expiration dates. However, you can disable this to allow implementing apps to manage the UID2 identity lifecycle manually.
 
-## UID2 Account Setup
+## UID2 account setup
 
-To integrate with UID2, you'll need to have a UID2 account. If you haven't yet created an account, first follow the steps described on the [Account Setup](../getting-started/gs-account-setup.md) page.
+To integrate with UID2, you'll need to have a UID2 account. If you haven't yet created an account, first follow the steps described on the [Account setup](../getting-started/gs-account-setup.md) page.
 
-## API Permissions
+## API permissions
 
-When initial account setup is complete, you'll receive instructions and a link to access the [UID2 Portal](../portal/portal-overview.md), where you can:
+When initial account setup is complete, you'll receive instructions and a link to access the [UID2 portal](../portal/portal-overview.md), where you can:
 - Generate [credentials](../getting-started/gs-credentials.md) for your account.
 - Optional: For a client-side implementation, set up configuration values such as domain names or mobile app IDs.
 - Optionally, configure other values, such as setting up information about team members.
 
-The steps you'll take in the UID2 Portal are different depending on whether your implementation will be client-side, client-server, or server-side. For a summary of mobile integration options, see [Client-Side, Client-Server, or Server-Side Integration?](../guides/integration-mobile-overview#client-side-client-server-or-server-side-integration)
+The steps you'll take in the UID2 Portal are different depending on whether your implementation will be client-side, client-server, or server-side. For a summary of mobile integration options, see [Client-side, client-server, or server-side integration?](../guides/integration-mobile-overview#client-side-client-server-or-server-side-integration)
 
 <!-- You'll be granted permission to use specific functions offered by the SDK, and given credentials for that access. -->
 
-## SDK Version
+## SDK version
 
 <!-- As of 2025-08-07 -->
 
@@ -60,7 +60,7 @@ This documentation is for the SDK for Android version 2.0.0 and later.
 
 For current and past release notes information, see [https://github.com/IABTechLab/uid2-android-sdk/releases](https://github.com/IABTechLab/uid2-android-sdk/releases).
 
-## GitHub Repository/Binary
+## Github repository/binary
 
 This SDK is in the following open-source GitHub repository:
 
@@ -70,14 +70,14 @@ The binary is published on Sonatype:
 
 - [https://central.sonatype.com/artifact/com.uid2/uid2-android-sdk](https://central.sonatype.com/artifact/com.uid2/uid2-android-sdk)
 
-## Minimum Requirements
+## Minimum requirements
 
 To consume the binary package of this SDK in your app:
 
 - Minimum target Android version: 4.4+ / API 19+ (SDK) 5.0+
 
 
-To run the development app (see [Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side#client-side-integration-example) or to build binary from source code, the minimum requirements are as follows:
+To run the development app (see [Client-side integration guide for mobile](../guides/integration-mobile-client-side#client-side-integration-example) or to build binary from source code, the minimum requirements are as follows:
 
 - Android Studio version: Check the Android Gradle Plugin (AGP) version required by the UID2 SDK specified in the [code repository](https://github.com/IABTechLab/uid2-android-sdk/blob/main/gradle/libs.versions.toml) (see the stated `agp` version), and check [the Android Gradle Plugin release notes](https://developer.android.com/build/releases/gradle-plugin) for the corresponding Android Studio version required.
 - Minimum target Android version: 4.4+ / API 19+ (SDK) 5.0+ / API 21+ (Dev-App)
@@ -113,7 +113,7 @@ To install with Maven, add the SDK as a dependency in the `pom.xml` file:
 </dependency> 
 ```
 
-## Usage Guidelines
+## Usage guidelines
 
 The **UID2Manager** singleton is the primary developer API for the SDK for Android. It is responsible for storing, refreshing, and retrieving the UID2 Identity including the UID2 token.
 
@@ -135,17 +135,17 @@ class MyApplication : Application() {
 
 There are two ways to establish an initial UID2 Identity:
 
-1. Generate the UID2 identity using DII&#8212;email (hashed or unhashed) or phone number (hashed or unhashed). For integration instructions, see [Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side.md).
+1. Generate the UID2 identity using DII&#8212;email (hashed or unhashed) or phone number (hashed or unhashed). For integration instructions, see [Client-side integration guide for mobile](../guides/integration-mobile-client-side.md).
 
-2. Create a UID2 identity server-side and then pass it into the UID2 SDK. For integration instructions, see [Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server.md).
+2. Create a UID2 identity server-side and then pass it into the UID2 SDK. For integration instructions, see [Client-server integration guide for mobile](../guides/integration-mobile-client-server.md).
 
 The UID2 Mobile SDKs can perform refreshes of UID2 identities, after an Identity is established. This is because the refresh functionality relies on the refresh tokens that are part of the UID2 Identity.
 
-## Code Samples
+## Code samples
 
 The following code samples provide examples of performing specific activities relating to managing UID2 with the SDK for Android.
 
-Generate an initial UID2 Identity (see [Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side#configure-the-uid2-mobile-sdk)):
+Generate an initial UID2 Identity (see [Client-side integration guide for mobile](../guides/integration-mobile-client-side#configure-the-uid2-mobile-sdk)):
 ``` javascript
 UID2Manager.getInstance().generateIdentity(
     identityRequest: IdentityRequest,
@@ -154,7 +154,7 @@ UID2Manager.getInstance().generateIdentity(
     onResult: (GenerateIdentityResult) -> Unit
 )
 ```
-Set the UID2 Identity (see [Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server#configure-the-uid2-mobile-sdk)):
+Set the UID2 Identity (see [Client-server integration guide for mobile](../guides/integration-mobile-client-server#configure-the-uid2-mobile-sdk)):
 
 ```js
 UID2Manager.getInstance().setIdentity(identity: UID2Identity)
@@ -166,7 +166,7 @@ Get the UID2 token (advertising token) to pass to the Advertising SDK (for ad re
 UID2Manager.getInstance().getAdvertisingToken()
 ```
 
-## UID2Manager API
+## Uid2manager API
 
 This section includes the functions and variables that are part of the UID2Manager API.
 

@@ -8,7 +8,7 @@ displayed_sidebar: docs
 
 import Link from '@docusaurus/Link';
 
-# UID Verify Chrome Extension
+# UID Verify Chrome extension
 
 UID Verify is a browser extension for debugging UID2 integrations. It inspects the UID2 implementation on the current page in real time, surfacing UID2 SDK configuration, identity storage, event history, and errors.
 
@@ -36,7 +36,7 @@ If more than one integration type is detected, you can switch between them using
 Server-side integrations are not currently supported. UID Verify works by reading client-side signals such as browser storage and UID2 SDK globals, which are not present in a server-side integration.
 :::
 
-## Installing the Extension
+## Installing the extension
 
 To install UID Verify from the Chrome Web Store, follow these steps:
 
@@ -57,11 +57,11 @@ Once installed, follow these steps to inspect a UID2 integration:
 UID Verify supports both UID2 and EUID. A page should use either UID2 (for North America and parts of Asia) or EUID (for Europe and other GDPR-applicable regions), not both. If both are detected on the same page, the extension displays an error.
 :::
 
-## Interpreting Results
+## Interpreting results
 
 The following sections describe the information available in each tab of the UID Verify popup. The content of each tab varies depending on the integration type detected.
 
-### Config Tab
+### Config tab
 
 The **Config** tab provides a snapshot of the integration's current state, including status banners for successful token generation, errors, opt-out identities, and other configuration states. The information displayed depends on the integration type, as shown in the following sections.
 
@@ -88,7 +88,7 @@ The **Config** tab provides a snapshot of the integration's current state, inclu
 - Whether `getAdvertisingTokenAsync` is available
 - Whether a collector function is registered (the function that passes the UID2 token as an encrypted signal to Google Ad Manager)
 
-### Storage Tab
+### Storage tab
 
 The **Storage** tab shows the raw identity data stored in the browser for the current integration.
 
@@ -106,11 +106,11 @@ SDK and Prebid.js integrations include the fields shown in the following table.
 
 For Google Secure Signals integrations, the tab shows the status of the secure signal and the current UID2 advertising token. If no signal has been generated yet, it indicates that neither a cached signal nor a UID2 SDK advertising token is available. When the collector function has run successfully, the extension displays a "Secure signal is cached" status message and shows the cached value stored under `_GESPSK-uidapi.com`. The cached signal is in the format `[providerId, advertisingToken, expiryTimestamp]`. The current UID2 advertising token is also displayed separately.
 
-### Callbacks Tab
+### Callbacks tab
 
 The **Callbacks** tab is available for UID2 SDK integrations only. It displays the source code of all callback functions registered with the UID2 SDK, with syntax highlighting. This is useful for confirming that the correct callbacks are registered and identifying where events are being handled in the page code.
 
-### Event History Tab
+### Event history tab
 
 The **Event History** tab shows a searchable, real-time log of UID2 SDK events as they occur on the page. It includes the columns shown in the following table.
 

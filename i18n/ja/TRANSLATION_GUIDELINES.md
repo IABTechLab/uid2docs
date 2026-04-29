@@ -1,4 +1,4 @@
-# 翻訳ガイドライン (Translation Guidelines)
+# 翻訳ガイドライン (translation guidelines)
 
 This document outlines the rules for style, tone, and terminology unification for translating UID2 documentation into Japanese.
 このドキュメントは、UID2 ドキュメントの日本語翻訳における、スタイル、トーン、用語の統一ルールをまとめたものです。
@@ -103,6 +103,6 @@ This document outlines the rules for style, tone, and terminology unification fo
 
 *   **相対パスの使用**: サイト内の別ドキュメントへのリンクは、可能な限り相対パスを使用してください。
     *   絶対パス (例: `/docs/intro`) を使用すると、言語を切り替えた際（日本語版閲覧時など）に、常にデフォルト言語（英語）のページに遷移してしまう問題が発生するためです。
-    *   例: `[Getting Started](getting-started/gs-account-setup.md)`
+    *   例: `[Getting started](getting-started/gs-account-setup.md)`
 
 詳細は、別途 `TRANSLATION_GLOSSARY.md` を参照してください。

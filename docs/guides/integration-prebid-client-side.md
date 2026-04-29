@@ -14,29 +14,29 @@ import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emai
 import SnptAddPrebidjsToYourSite from '../snippets/_snpt-prebid-add-prebidjs-to-your-site.mdx';
 import SnptStoreUID2TokenInBrowser from '../snippets/_snpt-prebid-storing-uid2-token-in-browser.mdx';
 
-# UID2 Client-Side Integration Guide for Prebid.js
+# UID2 client-side integration guide for Prebid.js
 
 This guide is for publishers who have access to <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> (email address or phone number) on the client side and want to integrate with UID2 and generate <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> (advertising tokens) to be passed by Prebid.js in the RTB <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link>.
 
 To integrate with UID2 using Prebid.js, you'll need to make changes to the HTML and JavaScript on your site. No server-side work is required if you follow this guide.
 
-## Prebid.js Version
+## Prebid.js version
 
 This implementation requires Prebid.js version 8.21.0 or later. For version information, see [https://github.com/prebid/Prebid.js/releases](https://github.com/prebid/Prebid.js/releases).
 
 <!-- Diff in Prebid.js supported version for UID2/EUID is fine: verif SS 11/19/24 -->
 
-If you need to use an earlier version of Prebid.js, use the implementation solution presented in the [UID2 Client-Server Integration Guide for Prebid.js](integration-prebid-client-server.md) instead.
+If you need to use an earlier version of Prebid.js, use the implementation solution presented in the [UID2 client-server integration guide for Prebid.js](integration-prebid-client-server.md) instead.
 
-## Integrating with Single Sign-On (SSO)
+## Integrating with single sign-on (SSO)
 
 <SnptIntegratingWithSSO />
 
-## Preparing DII for Processing
+## Preparing DII for processing
 
 <SnptPreparingEmailsAndPhoneNumbers />
 
-## Integration Overview: High-Level Steps
+## Integration overview: High-level steps
 
 You'll need to complete the following steps:
 
@@ -44,31 +44,31 @@ You'll need to complete the following steps:
 2. [Add Prebid.js to your site](#add-prebidjs-to-your-site)
 3. [Configure the UID2 module](#configure-the-uid2-module)
 
-### Complete UID2 Account Setup and Configure Account
+### Complete UID2 account setup and configure account
 
-To integrate with UID2, you'll need to have a UID2 account. If you haven't yet created an account, first follow the steps described on the [Account Setup](../getting-started/gs-account-setup.md) page.
+To integrate with UID2, you'll need to have a UID2 account. If you haven't yet created an account, first follow the steps described on the [Account setup](../getting-started/gs-account-setup.md) page.
 
-When initial account setup is complete, you'll receive instructions and a link to access the [UID2 Portal](../portal/portal-overview.md), where you can create your [credentials](../getting-started/gs-credentials.md) for the production [environment](../getting-started/gs-environments.md) and configure additional values that you'll need to provide. For details, see [Getting Started with the UID2 Portal](../portal/portal-getting-started.md).
+When initial account setup is complete, you'll receive instructions and a link to access the [UID2 portal](../portal/portal-overview.md), where you can create your [credentials](../getting-started/gs-credentials.md) for the production [environment](../getting-started/gs-environments.md) and configure additional values that you'll need to provide. For details, see [Getting started with the UID2 portal](../portal/portal-getting-started.md).
 
-For a client-side integration you'll need to set up these values, in the UID2 Portal on the [Client-Side Integration](../portal/client-side-integration.md) page:
+For a client-side integration you'll need to set up these values, in the UID2 Portal on the [Client-side integration](../portal/client-side-integration.md) page:
 
-- Subscription ID and Public Key: See [Adding and Managing Key Pairs](../portal/client-side-integration.md#adding-and-managing-key-pairs)
+- Subscription ID and Public Key: See [Adding and managing key pairs](../portal/client-side-integration.md#adding-and-managing-key-pairs)
 
-- A list of **domain names** for the sites on which you'll be using Prebid.js: See [Adding and Managing Root-Level Domains](../portal/client-side-integration.md#adding-and-managing-root-level-domains)
+- A list of **domain names** for the sites on which you'll be using Prebid.js: See [Adding and managing root-level domains](../portal/client-side-integration.md#adding-and-managing-root-level-domains)
 
 <!-- (earlier instructions, no-portal, for EUID)
-When account setup is complete, you'll receive a client keypair consisting of two values that identify you to the UID2 servers: Subscription ID and public key. These values are unique to you, and you'll use them to configure the UID2 module. For details, see [Subscription ID and Public Key](../getting-started/gs-credentials.md#subscription-id-and-public-key). 
+When account setup is complete, you'll receive a client keypair consisting of two values that identify you to the UID2 servers: Subscription ID and public key. These values are unique to you, and you'll use them to configure the UID2 module. For details, see [Subscription ID and public key](../getting-started/gs-credentials.md#subscription-id-and-public-key). 
 -->
 
 :::tip
 Only root-level domains are required for account setup. For example, if you're going to use UID2 with Prebid.js on example.com, shop.example.com, and example.org, you only need to provide the domain names example.com and example.org.
 :::
 
-### Add Prebid.js to Your Site
+### Add Prebid.js to your site
 
 <SnptAddPrebidjsToYourSite />
 
-### Configure the UID2 Module
+### Configure the UID2 module
 
 To configure the UID2 module, call `pbjs.setConfig` with an object containing the **public key** and **Subscription ID** that you received during account setup, as well as the user's hashed or unhashed email address or phone number.
 
@@ -89,11 +89,11 @@ Notes:
   1. Then hash the result using the SHA-256 hashing algorithm.
   1. Then encode the resulting bytes of the hash value using Base64 encoding.
   
-  For details, see [Normalization and Encoding](../getting-started/gs-normalization-encoding.md). For an example, see [Configuring the UID2 Module: Code Example](#configuring-the-uid2-module-code-example).
+  For details, see [Normalization and encoding](../getting-started/gs-normalization-encoding.md). For an example, see [Configuring the UID2 module: Code example](#configuring-the-uid2-module-code-example).
 - The UID2 module encrypts the hashed DII before sending it to the UID2 service.
 - If the module is configured multiple times, it uses the most recent configuration values.
 
-#### Configuring the UID2 Module: Code Example
+#### Configuring the UID2 module: Code example
 
 The following code snippet demonstrates the different ways that you can configure the UID2 module.
 
@@ -117,14 +117,14 @@ const baseConfig = {
 ```
 
 :::note
-This example assumes that you're using the UID2 production environment. During integration testing, use the UID2 integration environment  by setting `params.uid2ApiBase` to `'https://operator-integ.uidapi.com'`. Tokens from the UID2 integration environment are not valid for passing to the bidstream. For the integration environment, you will need to request separate **Subscription ID** and **public key** values; you cannot create those in the UID2 Portal. For details, see [Getting Your Credentials](../getting-started/gs-credentials.md#getting-your-credentials).
+This example assumes that you're using the UID2 production environment. During integration testing, use the UID2 integration environment  by setting `params.uid2ApiBase` to `'https://operator-integ.uidapi.com'`. Tokens from the UID2 integration environment are not valid for passing to the bidstream. For the integration environment, you will need to request separate **Subscription ID** and **public key** values; you cannot create those in the UID2 Portal. For details, see [Getting your credentials](../getting-started/gs-credentials.md#getting-your-credentials).
 :::
 
-## Storing the UID2 Token in the Browser
+## Storing the UID2 token in the browser
 
 <SnptStoreUID2TokenInBrowser />
 
-## When to Pass DII to the UID2 Module
+## When to pass DII to the UID2 module
 
 When the UID2 module is configured, it checks for an existing UID2 token in the user's browser. If there is a token that was generated from the same DII, and either it's still valid or it can be refreshed, the module uses it, and refreshes if needed.
 
@@ -180,7 +180,7 @@ The following example shows the decoded UID2 userId object:
 }
 ```
 
-## Checking the Integration
+## Checking the integration
 
 To check that the UID2 module has successfully generated a UID2 token, call `pbjs.getUserIds().uid2`. If a value is returned, a valid UID2 token exists in the UID2 module.
 
@@ -189,7 +189,7 @@ If there are problems with the integration, here are some steps you can take:
 - Check the browser console logs.
 - Check the values for **Subscription ID** (**subscriptionId** value) and **public key** (**serverPublicKey** value):
   - Make sure they are exactly the same values that you received from the UID2 team.
-  - Check that you have the correct values for the environment you're using. You'll have different **Subscription ID** and **public key** values for each environment: see [Getting Your Credentials](../getting-started/gs-credentials.md#getting-your-credentials).
+  - Check that you have the correct values for the environment you're using. You'll have different **Subscription ID** and **public key** values for each environment: see [Getting your credentials](../getting-started/gs-credentials.md#getting-your-credentials).
 - Check that you provided the domain name of the site to the UID2 team during account setup. If needed, to confirm, ask your UID2 contact.
 - Use the browser developer tools to inspect the API calls to the UID2 service.
 
@@ -200,7 +200,7 @@ An example of a tool for validating and debugging Prebid.js configuration is Pro
 - Chrome web store download location: [Professor Prebid](https://chromewebstore.google.com/detail/professor-prebid/kdnllijdimhbledmfdbljampcdphcbdc)
 - Documentation on prebid.org: [Professor Prebid User Guide](https://docs.prebid.org/tools/professor-prebid.html)
 
-## Optional: Specifying the API Base URL to Reduce Latency
+## Optional: Specifying the API base URL to reduce latency
 
 By default, the UID2 module makes calls to a UID2 production environment server in the USA.
 
@@ -222,7 +222,7 @@ pbjs.setConfig({
 }); 
 ```
 
-## Optional: Deferred Client-Side UID2 Configuration with mergeConfig
+## Optional: Deferred client-side UID2 configuration with mergeconfig
 
 If you already have Prebid.js configured but didn't include UID2 in the initial setup, you can still add the UID2 module using two functions provided by Prebid.js:
 
@@ -260,18 +260,18 @@ Once you add UID2 to your configuration, Prebid does not provide functionality t
 If you are managing the UID2 SDK separately, use `window.__uid2.disconnect()` which handles all logout functionality&#8212;clearing both memory and storage&#8212;without requiring a page refresh.
 :::
 
-A sample implementation for deferred configuration is also available. For details, see [Sample Implementations](#sample-implementations).
+A sample implementation for deferred configuration is also available. For details, see [Sample implementations](#sample-implementations).
 
-## Optional: Prebid.js Integration with Google Secure Signals
+## Optional: Prebid.js integration with Google Secure Signals
 
 if you're using Prebid.js, and you're planning to pass UID2 tokens to Google using Google Secure Signals, there are a couple of additional configuration steps:
 
-- In your Google Ad Manager account, make sure that encrypted signals are properly shared with third-party bidders: see [Allow Secure Signals Sharing](integration-google-ss.md#allow-secure-signals-sharing).
+- In your Google Ad Manager account, make sure that encrypted signals are properly shared with third-party bidders: see [Allow Secure Signals sharing](integration-google-ss.md#allow-secure-signals-sharing).
 - Update your Prebid.js configuration: see [Optional: Enable Secure Signals in Prebid.js](integration-google-ss.md#optional-enable-secure-signals-in-prebidjs).
 
-A sample implementation for Prebid.js with Secure Signals is also available. For details, see [Sample Implementations](#sample-implementations).
+A sample implementation for Prebid.js with Secure Signals is also available. For details, see [Sample implementations](#sample-implementations).
 
-## Sample Implementations
+## Sample implementations
 
 The following sample implementations are available to illustrate how to integrate UID2 with Prebid.js on the client side:
 

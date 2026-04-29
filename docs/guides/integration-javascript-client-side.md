@@ -14,7 +14,7 @@ import TabItem from '@theme/TabItem';
 import SnptIntegratingWithSSO from '../snippets/_snpt-integrating-with-sso.mdx';
 import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emails-and-phone-numbers.mdx';
 
-# Client-Side Integration Guide for JavaScript
+# Client-side integration guide for JavaScript
 
 <!-- The below segment is for UID2 only: not applicable for advertisers since EUID doesn't support sharing. -->
 This guide is for all participants who want to integrate with UID2 and generate <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> (advertising tokens) using only JavaScript client-side changes on their website with minimum effort.
@@ -22,16 +22,16 @@ This guide is for all participants who want to integrate with UID2 and generate 
 This approach is used by the following participant types:
 
 - **Publishers**: Most notably, this workflow is for publishers wanting to send UID2 tokens into the bidstream.
-- **Advertisers** and **Data Providers**: In addition, advertisers and data providers would use this for adding a UID2 token to their tracking pixels (see [Tokenized Sharing in Pixels](sharing/sharing-tokenized-from-data-pixel.md)).
+- **Advertisers** and **Data Providers**: In addition, advertisers and data providers would use this for adding a UID2 token to their tracking pixels (see [Tokenized sharing in pixels](sharing/sharing-tokenized-from-data-pixel.md)).
 
 <!-- End of UID2-only section. -->
 <!-- Begin EUID-only section. -->
 <!-- This guide is for publishers who want to integrate with UID2 and generate EUID tokens (advertising tokens) using only JavaScript client-side changes on their website with minimum effort. -->
 <!-- End of EUID-only section. -->
 
-This guide does not apply to publishers who want to use a <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link>, or who want to generate tokens server-side. Those publishers should follow the [Client-Server Integration Guide for JavaScript](integration-javascript-client-server.md).
+This guide does not apply to publishers who want to use a <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link>, or who want to generate tokens server-side. Those publishers should follow the [Client-server integration guide for JavaScript](integration-javascript-client-server.md).
 
-UID2 provides an SDK for JavaScript (see [SDK for JavaScript Reference Guide](../sdks/sdk-ref-javascript.md)) with the following features:
+UID2 provides an SDK for JavaScript (see [SDK for JavaScript reference guide](../sdks/sdk-ref-javascript.md)) with the following features:
 
 - UID2 token generation
 - Automatic refreshing of UID2 tokens
@@ -44,7 +44,7 @@ To implement, you'll need to complete the following steps:
 3. [Configure the SDK for JavaScript](#configure-the-sdk-for-javascript)
 4. [Check that the token was successfully generated](#check-that-the-token-was-successfully-generated)
 
-## SDK for JavaScript Version
+## SDK for JavaScript version
 
 Support for client-side token generation is available in version 3.4.5 and above of the SDK. 
 
@@ -58,43 +58,43 @@ If you want to use a debug build of the SDK, use the following URL instead:
 
 - [https://cdn.integ.uidapi.com/uid2-sdk-4.0.1.js](https://cdn.integ.uidapi.com/uid2-sdk-4.0.1.js)
 
-## Integrating with Single Sign-On (SSO)
+## Integrating with single sign-on (SSO)
 
 <SnptIntegratingWithSSO />
 
-## Preparing DII for Processing
+## Preparing DII for processing
 
 <SnptPreparingEmailsAndPhoneNumbers />
 
-## Complete UID2 Account Setup and Configure Account
+## Complete UID2 account setup and configure account
 
-To integrate with UID2, you'll need to have a UID2 account. If you haven't yet created an account, first follow the steps described on the [Account Setup](../getting-started/gs-account-setup.md) page.
+To integrate with UID2, you'll need to have a UID2 account. If you haven't yet created an account, first follow the steps described on the [Account setup](../getting-started/gs-account-setup.md) page.
 
-When initial account setup is complete, you'll receive instructions and a link to access the [UID2 Portal](../portal/portal-overview.md), where you can create your [credentials](../getting-started/gs-credentials.md) for the production environment and configure additional values that you'll need to provide. For details, see [Getting Started with the UID2 Portal](../portal/portal-getting-started.md).
+When initial account setup is complete, you'll receive instructions and a link to access the [UID2 portal](../portal/portal-overview.md), where you can create your [credentials](../getting-started/gs-credentials.md) for the production environment and configure additional values that you'll need to provide. For details, see [Getting started with the UID2 portal](../portal/portal-getting-started.md).
 
-For a client-side integration you'll need to set up these values, in the UID2 Portal on the [Client-Side Integration](../portal/client-side-integration.md) page:
+For a client-side integration you'll need to set up these values, in the UID2 Portal on the [Client-side integration](../portal/client-side-integration.md) page:
 
-- Subscription ID and Public Key: See [Adding and Managing Key Pairs](../portal/client-side-integration.md#adding-and-managing-key-pairs)
+- Subscription ID and Public Key: See [Adding and managing key pairs](../portal/client-side-integration.md#adding-and-managing-key-pairs)
 
-- A list of **domain names** for the sites on which you'll be using this SDK: See [Adding and Managing Root-Level Domains](../portal/client-side-integration.md#adding-and-managing-root-level-domains)
+- A list of **domain names** for the sites on which you'll be using this SDK: See [Adding and managing root-level domains](../portal/client-side-integration.md#adding-and-managing-root-level-domains)
 
-- Mobile App IDs (any that apply): See [Adding and Managing Mobile App IDs](../portal/client-side-integration.md#adding-and-managing-mobile-app-ids)
+- Mobile App IDs (any that apply): See [Adding and managing mobile app ids](../portal/client-side-integration.md#adding-and-managing-mobile-app-ids)
 
 <!-- (earlier instructions, no-portal, for EUID)
-When account setup is complete, you'll receive a client keypair consisting of two values that identify you to the UID2 servers: Subscription ID and public key. These values are unique to you, and you'll use them to configure the UID2 module. For details, see [Subscription ID and Public Key](../getting-started/gs-credentials.md#subscription-id-and-public-key). 
+When account setup is complete, you'll receive a client keypair consisting of two values that identify you to the UID2 servers: Subscription ID and public key. These values are unique to you, and you'll use them to configure the UID2 module. For details, see [Subscription ID and public key](../getting-started/gs-credentials.md#subscription-id-and-public-key). 
 -->
 
 :::tip
 Only root-level domains are required for account setup. For example, if you're going to use SDK for JavaScript on example.com, shop.example.com, and example.org, you only need to provide the domain names example.com and example.org.
 :::
 
-## Add SDK for JavaScript to Your Site
+## Add SDK for JavaScript to your site
 
 The following code snippet provides an overview of the code you will need to add to your website. It also illustrates the different events that the SDK can trigger.
 
-For a more detailed code snippet, see [Example Integration Code and When to Pass DII to the UID2 SDK](#example-integration-code-and-when-to-pass-dii-to-the-uid2-sdk).
+For a more detailed code snippet, see [Example integration code and when to pass DII to the UID2 SDK](#example-integration-code-and-when-to-pass-dii-to-the-uid2-sdk).
 
-For the `UID2_JS_SDK_URL` value, see [SDK for JavaScript Version](#sdk-for-javascript-version).
+For the `UID2_JS_SDK_URL` value, see [SDK for JavaScript version](#sdk-for-javascript-version).
 
 ```js
 <script async src="{{ UID2_JS_SDK_URL }}"></script>
@@ -127,11 +127,11 @@ window.__uid2.callbacks.push((eventType, payload) => {
 </script>
 ```
 
-For more information about the SDK, see [SDK for JavaScript Reference Guide](../sdks/sdk-ref-javascript.md).
+For more information about the SDK, see [SDK for JavaScript reference guide](../sdks/sdk-ref-javascript.md).
 
-### Using the UID2 Integration Environment
+### Using the UID2 integration environment
 
-By default, the SDK is configured to work with the UID2 production environment `https://prod.uidapi.com`. If you want to use the UID2 integration environment instead (for credentials, see [Getting Your Credentials](../getting-started/gs-credentials.md#getting-your-credentials)), provide the following URL in your call to `init`:
+By default, the SDK is configured to work with the UID2 production environment `https://prod.uidapi.com`. If you want to use the UID2 integration environment instead (for credentials, see [Getting your credentials](../getting-started/gs-credentials.md#getting-your-credentials)), provide the following URL in your call to `init`:
 
 ```js
 __uid2.init({
@@ -139,10 +139,10 @@ __uid2.init({
 });
 ```
 :::note
-Tokens from the UID2 integration environment are not valid for passing to the <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link>. For the integration environment, you will have different **Subscription ID** and **public key** values. For information about getting credentials for each environment, see [Getting Your Credentials](../getting-started/gs-credentials.md#getting-your-credentials).
+Tokens from the UID2 integration environment are not valid for passing to the <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link>. For the integration environment, you will have different **Subscription ID** and **public key** values. For information about getting credentials for each environment, see [Getting your credentials](../getting-started/gs-credentials.md#getting-your-credentials).
 :::
 
-### Optional: Specifying the API Base URL to Reduce Latency
+### Optional: Specifying the API base URL to reduce latency
 
 By default, this SDK makes calls to a UID2 production environment server in the USA.
 
@@ -173,7 +173,7 @@ To configure the SDK, call one of the following methods, with an object containi
 *  `__uid2.setIdentityFromPhoneHash`
 
 :::important
-For `__uid2.setIdentityFromEmailHash` or `__uid2.setIdentityFromPhoneHash`, the `emailHash` or `PhoneHash` argument must be the Base64-encoded value. For details, see [Email Address Hash Encoding](../getting-started/gs-normalization-encoding.md#email-address-hash-encoding) and [Phone Number Hash Encoding](../getting-started/gs-normalization-encoding.md#phone-number-hash-encoding).
+For `__uid2.setIdentityFromEmailHash` or `__uid2.setIdentityFromPhoneHash`, the `emailHash` or `PhoneHash` argument must be the Base64-encoded value. For details, see [Email address hash encoding](../getting-started/gs-normalization-encoding.md#email-address-hash-encoding) and [Phone number hash encoding](../getting-started/gs-normalization-encoding.md#phone-number-hash-encoding).
 :::
 
 The following sections include coding examples for each scenario.
@@ -183,9 +183,9 @@ Once it's configured, the UID2 SDK takes care of the following:
 - Stores the token in the user's browser.
 - Automatically refreshes the token as required while your site is open in the user's browser.
 
-You can pass the user's DII to the UID2 SDK either hashed or unhashed. If you pass the DII unhashed, the UID2 SDK hashes it for you. If you want to pass the DII to the SDK already hashed, you must normalize it before hashing. For details, see [Normalization and Encoding](../getting-started/gs-normalization-encoding.md). 
+You can pass the user's DII to the UID2 SDK either hashed or unhashed. If you pass the DII unhashed, the UID2 SDK hashes it for you. If you want to pass the DII to the SDK already hashed, you must normalize it before hashing. For details, see [Normalization and encoding](../getting-started/gs-normalization-encoding.md). 
 
-## Format Examples for DII
+## Format examples for DII
 
 The SDK encrypts the hashed DII before sending it to the UID2 service.
 
@@ -200,7 +200,7 @@ The following examples demonstrate the different ways that you can configure the
 
 If the SDK is configured multiples times, it uses the most recent configuration values.
 
-For an example of how to generate email and phone hashes in JavaScript, see [Example Code: Hashing and Base64 Encoding](#example-code-hashing-and-base64-encoding).
+For an example of how to generate email and phone hashes in JavaScript, see [Example code: Hashing and Base64 encoding](#example-code-hashing-and-base64-encoding).
 
 <Tabs>
 <TabItem value='example_email_unhashed' label='Email, Unhashed'>
@@ -238,7 +238,7 @@ await __uid2.setIdentityFromEmailHash(
 ```
 
 In this scenario:
-- **The publisher is responsible for normalizing and hashing the email address**. For details, see [Normalization and Encoding](../getting-started/gs-normalization-encoding.md).
+- **The publisher is responsible for normalizing and hashing the email address**. For details, see [Normalization and encoding](../getting-started/gs-normalization-encoding.md).
 - The UID2 SDK encrypts the hash before sending it to the UID2 service.
 
 </TabItem>
@@ -257,7 +257,7 @@ await __uid2.setIdentityFromPhone(
 ```
 In this scenario:
 
-- **The publisher is responsible for normalizing the phone number**. For details, see [Phone Number Normalization](../getting-started/gs-normalization-encoding.md#phone-number-normalization).
+- **The publisher is responsible for normalizing the phone number**. For details, see [Phone number normalization](../getting-started/gs-normalization-encoding.md#phone-number-normalization).
 - The UID2 SDK hashes the phone number before sending the encrypted hash to the UID2 service.
 
 </TabItem>
@@ -276,13 +276,13 @@ await __uid2.setIdentityFromPhoneHash(
 ```
 
 In this scenario:
-- **The publisher is responsible for normalizing, hashing, and Base64-encoding the phone number**. For details, see [Normalization and Encoding](../getting-started/gs-normalization-encoding.md).
+- **The publisher is responsible for normalizing, hashing, and Base64-encoding the phone number**. For details, see [Normalization and encoding](../getting-started/gs-normalization-encoding.md).
 - The UID2 SDK encrypts the hash before sending it to the UID2 service.
 
 </TabItem>
 </Tabs>
 
-## Token Storage and Refresh
+## Token storage and refresh
 
 After calling one of the methods listed in [Configure the SDK for JavaScript](#configure-the-sdk-for-javascript) successfully, an <Link href="../ref-info/glossary-uid#gl-identity">identity</Link> is generated and stored in local storage, under the key `UID2-sdk-identity`. The SDK refreshes the UID2 token periodically.
 
@@ -290,16 +290,16 @@ After calling one of the methods listed in [Configure the SDK for JavaScript](#c
 The format of the object stored in local storage could change without notice. We recommend that you do **not** read or update the object in local storage directly.
 :::
 
-## Example Integration Code and When to Pass DII to the UID2 SDK
+## Example integration code and when to pass DII to the UID2 SDK
 
 If you're a publisher and this is the first page load with no <Link href="../ref-info/glossary-uid#gl-identity">identity</Link>, to start the token generation call you'll need to call one of the `setIdentity` methods with DII. Once an identity is generated, the advertising token (<Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 token</Link>) that you would send to the bidstream will be available by waiting for the `IdentityUpdated` event from the SDK. For an example, see how the value for `advertising_token_to_use` is set in the following code snippet.
 
 In some cases, the user's DII is not available on page load, and getting the DII has some associated cost. For example, an API call might be required to fetch the DII, or the user has to be prompted to provide it.
 
 You can potentially avoid that cost by checking for an existing token that you can use or refresh. To do this, call
-[__uid2.isLoginRequired](../sdks/sdk-ref-javascript#isloginrequired-boolean) which returns a Boolean value. If it returns `true`, this means that the UID2 SDK cannot create a new advertising token with the existing resource and DII is required to generate a brand new UID2 token.
+[__UID2.isloginrequired](../sdks/sdk-ref-javascript#isloginrequired-boolean) which returns a Boolean value. If it returns `true`, this means that the UID2 SDK cannot create a new advertising token with the existing resource and DII is required to generate a brand new UID2 token.
 
-It is possible that when you provide DII, [__uid2.isLoginRequired](../sdks/sdk-ref-javascript#isloginrequired-boolean) still returns a `false` value. This happens if the user has opted out of UID2. The UID2 SDK for JavaScript respects the user's optout and does not generate UID2 tokens, even if you call any of the `setIdentity` method calls with the same DII again. Optionally, you might want to avoid making such calls repeatedly.
+It is possible that when you provide DII, [__UID2.isloginrequired](../sdks/sdk-ref-javascript#isloginrequired-boolean) still returns a `false` value. This happens if the user has opted out of UID2. The UID2 SDK for JavaScript respects the user's optout and does not generate UID2 tokens, even if you call any of the `setIdentity` method calls with the same DII again. Optionally, you might want to avoid making such calls repeatedly.
 
 The following code snippet demonstrates how you might integrate with the UID2 SDK for JavaScript for these two scenarios&#8212;starting with no token, or reusing/refreshing an existing UID2 token.
 
@@ -376,17 +376,17 @@ window.__uid2.callbacks.push(async (eventType, payload) => {
 </script>
 ```
 
-## Check that the Token Was Successfully Generated
+## Check that the token was successfully generated
 
 To check that the token was successfully generated, use the browser's developer tools to look for the token in local storage.
 
-![Publisher Workflow](images/TokenDebugger-uid2.png)
+![Publisher workflow](images/TokenDebugger-uid2.png)
 
 If there was a problem generating the token, find the request in the **Network** tab. You can find the request by filtering for the string `client-generate`. Information about why the request failed should be available in the response.
 
-![Publisher Workflow](images/NetworkTraffic.png)
+![Publisher workflow](images/NetworkTraffic.png)
 
-## Example Code: Hashing and Base64 Encoding
+## Example code: Hashing and Base64 encoding
 
 The following code example demonstrates how to generate email and phone hashes in JavaScript.
 
@@ -405,7 +405,7 @@ function bytesToBase64(bytes) {
 }
 ```
 
-## Sample Implementation
+## Sample implementation
 
 A sample implementation is available for client-side integration using the UID2 SDK for JavaScript:
 

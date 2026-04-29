@@ -10,7 +10,7 @@ displayed_sidebar: docs
 
 import Link from '@docusaurus/Link';
 
-# UID2 Server-Side Integration Guide for Mobile
+# UID2 server-side integration guide for mobile
 
 このガイドは、UID2 Token を Server-Side で完全に管理したいモバイルアプリのパブリッシャー向けです:
 
@@ -21,9 +21,9 @@ import Link from '@docusaurus/Link';
 
 このアプローチのメリットの一つは、複数のプラットフォーム（Web / CTV / mobile）を扱う場合、すべてを Server-Side で行うことで、プラットフォーム固有の作業を減らすことができることです。
 
-このアプローチを実装するには、[Publisher Integration Guide, Server-Side](integration-publisher-server-side.md) の手順に従ってください。
+このアプローチを実装するには、[Publisher integration guide, server-side](integration-publisher-server-side.md) の手順に従ってください。
 
 Server-Side のコードが Java または Python の場合、UID2 SDK のいずれかを使用して、UID2 への HTTP リクエストを行うことができます。独自のソースコードを書く代わりに、次の SDK ガイドのいずれかを参照してください:
 
-- [SDK for Java Reference Guide: Usage for Publishers](../sdks/sdk-ref-java.md#usage-for-publishers)
-- [SDK for Python Reference Guide: Usage for Publishers](../sdks/sdk-ref-python.md#usage-for-publishers)
+- [SDK for Java reference guide: Usage for publishers](../sdks/sdk-ref-java.md#usage-for-publishers)
+- [SDK for Python reference guide: Usage for publishers](../sdks/sdk-ref-python.md#usage-for-publishers)

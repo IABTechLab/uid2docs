@@ -9,7 +9,7 @@ displayed_sidebar: docs
 import Link from '@docusaurus/Link';
 import SnptPOSTIdentityMapImprovements from '../snippets/_snpt-post-identity-map-improvements-v3.mdx';
 
-# SDK for Java Reference Guide
+# SDK for Java reference guide
 
 You can use the SDK for Java on the server side to facilitate the process of generating or establishing client identity using UID2, retrieving advertising tokens for <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link> use, and automatically refreshing UID2 tokens. If you have the applicable permissions, you can also encrypt and decrypt for sharing and map DII to raw UID2s.
 
@@ -21,17 +21,17 @@ This SDK simplifies integration with UID2 for any publishers, DSPs, advertisers,
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | &#9989; | &#9989; | &#9989; | &#9989; | &#9989; | &#8212; |
 
-## UID2 Account Setup
+## UID2 account setup
 
-To integrate with UID2, you'll need to have a UID2 account. If you haven't yet created an account, first follow the steps described on the [Account Setup](../getting-started/gs-account-setup.md) page.
+To integrate with UID2, you'll need to have a UID2 account. If you haven't yet created an account, first follow the steps described on the [Account setup](../getting-started/gs-account-setup.md) page.
 
-## API Permissions
+## API permissions
 
-When initial account setup is complete, if you're a publisher, advertiser, or data provider, you'll receive instructions and a link to access the [UID2 Portal](../portal/portal-overview.md), where you can:
+When initial account setup is complete, if you're a publisher, advertiser, or data provider, you'll receive instructions and a link to access the [UID2 portal](../portal/portal-overview.md), where you can:
 - Generate [credentials](../getting-started/gs-credentials.md) for your account.
 - Optionally, configure other values, such as setting up information about team members.
 
-You'll be granted permission to use specific functions offered by the SDK, and given credentials for that access. Bear in mind that there might be functions in the SDK that you don't have permission to use. For example, publishers get a specific API permission to generate and refresh tokens, but the SDK might support other activities that require a different API permission. For details, see [API Permissions](../getting-started/gs-permissions.md).
+You'll be granted permission to use specific functions offered by the SDK, and given credentials for that access. Bear in mind that there might be functions in the SDK that you don't have permission to use. For example, publishers get a specific API permission to generate and refresh tokens, but the SDK might support other activities that require a different API permission. For details, see [API permissions](../getting-started/gs-permissions.md).
 
 If you're a DSP, we'll send credentials to you.
 
@@ -39,7 +39,7 @@ If you're a DSP, we'll send credentials to you.
 
 The SDK requires Java version 1.8 or later.
 
-## GitHub Repository/Binary
+## Github repository/binary
 
 This SDK is in the following open-source GitHub repository:
 
@@ -55,24 +55,24 @@ The initialization step depends on the role, as shown in the following table.
 
 | Role                     | Create Instance of Class | Link to Instructions                                                         |
 |:-------------------------| :--- |:-----------------------------------------------------------------------------|
-| Publisher                | `PublisherUid2Client` | [Usage for Publishers](#usage-for-publishers)                                |
-| Advertiser/Data Provider | `IdentityMapV3Client` | [Usage for Advertisers/Data Providers](#usage-for-advertisersdata-providers) |
+| Publisher                | `PublisherUid2Client` | [Usage for publishers](#usage-for-publishers)                                |
+| Advertiser/Data Provider | `IdentityMapV3Client` | [Usage for advertisers/data providers](#usage-for-advertisersdata-providers) |
 | DSP                      | `BidstreamClient` | [Usage for DSPs](#usage-for-dsps)                                            |
-| Sharer                   | `SharingClient` | [Usage for UID2 Sharers](#usage-for-uid2-sharers)                            |
+| Sharer                   | `SharingClient` | [Usage for UID2 sharers](#usage-for-uid2-sharers)                            |
 
 You will need to provide the values necessary for the SDK to authenticate with the UID2 service.
 
 | Parameter | Description                                                                                | 
 | :--- |:-------------------------------------------------------------------------------------------|
 | `baseUrl/uid2BaseUrl` | The endpoint for the UID2 service. See [Environments](../getting-started/gs-environments). | 
-| `clientApiKey` | The API key. See [UID2 Credentials](../getting-started/gs-credentials).                    | 
-| `base64SecretKey` | The client secret. See [UID2 Credentials](../getting-started/gs-credentials).              | 
+| `clientApiKey` | The API key. See [UID2 credentials](../getting-started/gs-credentials).                    | 
+| `base64SecretKey` | The client secret. See [UID2 credentials](../getting-started/gs-credentials).              | 
 
 ### Interface 
 
 The `BidstreamClient` class allows you to decrypt UID2 tokens into raw UID2s.
 
-For details on the bidding logic for handling user opt-outs, see [DSP Integration Guide](../guides/dsp-guide.md).
+For details on the bidding logic for handling user opt-outs, see [DSP integration guide](../guides/dsp-guide.md).
 
 The `SharingClient` class allows you to encrypt raw UID2s into UID2 tokens and decrypt UID2 tokens into raw UID2s.
 
@@ -80,16 +80,16 @@ The `SharingClient` class allows you to encrypt raw UID2s into UID2 tokens and d
 When you use an SDK, you do not need to store or manage decryption keys.
 :::
 
-### Encryption Response Content
+### Encryption response content
 
 When encrypting with the `SharingClient` class, the SDK returns the information shown in the following table.
 
 | Method               | Description                                                                                                                                     |
 |:---------------------|:------------------------------------------------------------------------------------------------------------------------------------------------|
-| `getStatus()`        | The encryption result status. For a list of possible values and definitions, see [Encryption Response Statuses](#encryption-response-statuses). |
+| `getStatus()`        | The encryption result status. For a list of possible values and definitions, see [Encryption response statuses](#encryption-response-statuses). |
 | `getEncryptedData()` | The encrypted UID2 token.                                                                                                                       |
 
-### Encryption Response Statuses
+### Encryption response statuses
 
 Encryption response codes, and their meanings, are shown in the following table.
 
@@ -102,17 +102,17 @@ Encryption response codes, and their meanings, are shown in the following table.
 | `KEYS_NOT_SYNCED`               | The client has failed to synchronize keys from the UID2 service.       |
 | `ENCRYPTION_FAILURE`            | A generic encryption failure occurred.                                 |
 
-### Decryption Response Content
+### Decryption response content
 
 Whether decrypting with the `BidstreamClient` class or the `SharingClient` class, the SDK returns the information shown in the following table.
 
 | Methods            | Description                                                                                                                                     |
 |:-------------------|:------------------------------------------------------------------------------------------------------------------------------------------------|
-| `getStatus()`      | The decryption result status. For a list of possible values and definitions, see [Decryption Response Statuses](#decryption-response-statuses). |
+| `getStatus()`      | The decryption result status. For a list of possible values and definitions, see [Decryption response statuses](#decryption-response-statuses). |
 | `getUid()`         | The raw UID2 for the corresponding UID2 token.                                                                                                  |
 | `getEstablished()` | The timestamp indicating when a user first established the UID2 with the publisher.                                                             |
 
-### Decryption Response Statuses
+### Decryption response statuses
 
 Decryption response codes, and their meanings, are shown in the following table.
 
@@ -127,15 +127,15 @@ Decryption response codes, and their meanings, are shown in the following table.
 | `VERSION_NOT_SUPPORTED`    | The client library does not support the version of the encrypted token. |
 | `INVALID_TOKEN_LIFETIME`   | The token has an invalid timestamp.                                     |
 
-## Usage for Publishers
+## Usage for publishers
 
 As a publisher, there are two ways to use the SDK for Java: 
-1. [**Basic Usage**](#basic-usage) is for publishers who want to use this SDK's HTTP implementation (synchronous [OkHttp](https://square.github.io/okhttp/)).
-2. [**Advanced Usage**](#advanced-usage) is for publishers who prefer to use their own HTTP library. 
+1. [**basic usage**](#basic-usage) is for publishers who want to use this SDK's HTTP implementation (synchronous [OkHttp](https://square.github.io/okhttp/)).
+2. [**advanced usage**](#advanced-usage) is for publishers who prefer to use their own HTTP library. 
 
 For an example application that demonstrates both Basic and Advanced usage, see [Java UID2 Integration Example](https://github.com/UnifiedID2/uid2-examples/tree/main/publisher/uid2-java-test-site#readme).
 
-### Basic Usage
+### Basic usage
 
 If you're using the SDK's HTTP implementation, follow these steps.
 
@@ -152,9 +152,9 @@ If you're using the SDK's HTTP implementation, follow these steps.
 
 <!-- uid2_euid_diff: admonition re legal basis (in EUID not in UID2)-->
 
-#### Basic Usage, Client-Server Integration
+#### Basic usage, client-server integration
 
-If you're using client-server integration (see [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md)), follow this step:
+If you're using client-server integration (see [Client-server integration guide for JavaScript](../guides/integration-javascript-client-server.md)), follow this step:
 
 * Send this identity as a JSON string back to the client (to use in the [identity field](../sdks/sdk-ref-javascript.md#initopts-object-void)), using the following:
 
@@ -166,9 +166,9 @@ If you're using client-server integration (see [Client-Server Integration Guide 
    If the user has opted out, this method returns `null`, so be sure to handle that case.
    :::
 
-#### Basic Usage, Server-Side Integration
+#### Basic usage, server-side integration
 
-If you're using server-side integration (see [Publisher Integration Guide, Server-Side](../guides/integration-publisher-server-side.md)), follow these steps:
+If you're using server-side integration (see [Publisher integration guide, server-side](../guides/integration-publisher-server-side.md)), follow these steps:
 
 1. Store this identity as a JSON string in the user's session, using the `tokenGenerateResponse.getIdentityJsonString()` function.
 
@@ -208,7 +208,7 @@ If you're using server-side integration (see [Publisher Integration Guide, Serve
 
    If the user has opted out, this method returns `null`, indicating that the user's identity should be removed from the session. To confirm optout, you can use the `tokenRefreshResponse.isOptout()` function.
 
-### Advanced Usage
+### Advanced usage
 
 1. Create an instance of `PublisherUid2Helper` as an instance variable:
 
@@ -229,15 +229,15 @@ If you're using server-side integration (see [Publisher Integration Guide, Serve
 
 <!-- uid2_euid_diff: admonition re legal basis (in EUID not in UID2)-->
 
-4. If the HTTP response status code is _not_ 200, see [Response Status Codes](../endpoints/post-token-generate.md#response-status-codes) to determine next steps. Otherwise, convert the UID2 identity response content into a `TokenGenerateResponse` object:
+4. If the HTTP response status code is _not_ 200, see [Response status codes](../endpoints/post-token-generate.md#response-status-codes) to determine next steps. Otherwise, convert the UID2 identity response content into a `TokenGenerateResponse` object:
 
    ```java
    TokenGenerateResponse tokenGenerateResponse = publisherUid2Helper.createTokenGenerateResponse({response body}, envelope);
    ```
 
-#### Advanced Usage, Client-Server Integration
+#### Advanced usage, client-server integration
 
-If you're using client-server integration (see [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md)), follow this step:
+If you're using client-server integration (see [Client-server integration guide for JavaScript](../guides/integration-javascript-client-server.md)), follow this step:
 
 * Send this identity as a JSON string back to the client (to use in the [identity field](../sdks/sdk-ref-javascript.md#initopts-object-void)) using the following:
 
@@ -249,9 +249,9 @@ If you're using client-server integration (see [Client-Server Integration Guide 
     This method returns null if the user has opted out, so be sure to handle that case.
     :::
 
-#### Advanced Usage, Server-Side Integration
+#### Advanced usage, server-side integration
 
-If you're using server-side integration (see [Publisher Integration Guide, Server-Side](../guides/integration-publisher-server-side.md)):
+If you're using server-side integration (see [Publisher integration guide, server-side](../guides/integration-publisher-server-side.md)):
 
 1. Store this identity as a JSON string in the user's session, using: `tokenGenerateResponse.getIdentityJsonString()`.
 
@@ -296,11 +296,11 @@ If you're using server-side integration (see [Publisher Integration Guide, Serve
 
    If the user has opted out, this method returns null, indicating that the user's identity should be removed from the session. To confirm optout, you can use the `tokenRefreshResponse.isOptout()` function.
 
-## Usage for Advertisers/Data Providers
+## Usage for advertisers/data providers
 
 The following instructions provide an example of how to map DII to raw UID2s using the latest version of the `POST /identity/map` endpoint.
 
-For the earlier version, see [Previous SDK Version (using POST /identity/map v2)](#previous-sdk-version-using-post-identitymap-v2). For migration steps to the latest version, see [Migration From Version Using v2 Identity Map](#migration-from-version-using-v2-identity-map).
+For the earlier version, see [Previous SDK version (using POST /identity/map v2)](#previous-sdk-version-using-post-identitymap-v2). For migration steps to the latest version, see [Migration from version using v2 identity map](#migration-from-version-using-v2-identity-map).
 
 1. Create an IdentityMapV3Client as an instance variable:
    ```java
@@ -353,7 +353,7 @@ For the earlier version, see [Previous SDK Version (using POST /identity/map v2)
    The raw UID2 does not change before the refresh timestamp. After the refresh timestamp, remapping the DII returns a new refresh timestamp, but the raw UID2 might or might not change. It is possible for the raw UID2 to remain unchanged for multiple refresh intervals.
    :::
 
-### Usage Example
+### Usage example
 
 ```java
 IdentityMapV3Client client = new IdentityMapV3Client(UID2_BASE_URL, UID2_API_KEY, UID2_SECRET_KEY);
@@ -386,19 +386,19 @@ IdentityMapV3Input mixedInput = new IdentityMapV3Input()
 IdentityMapV3Response mixedResponse = client.generateIdentityMap(mixedInput);
 ```
 
-## Migration From Version Using v2 Identity Map
+## Migration from version using v2 identity map
 
 The following sections provide general information and guidance for migrating to the latest version of this SDK, which references `POST /identity/map` version 3, including:
 
-- [Version 3 Improvements](#version-3-improvements)
-- [Required Changes](#required-changes)
-- [Recommended Changes](#recommended-changes)
+- [Version 3 improvements](#version-3-improvements)
+- [Required changes](#required-changes)
+- [Recommended changes](#recommended-changes)
 
-### Version 3 Improvements
+### Version 3 improvements
 
 <SnptPOSTIdentityMapImprovements />
 
-### Required Changes
+### Required changes
 
 To upgrade, follow these steps:
 
@@ -406,7 +406,7 @@ To upgrade, follow these steps:
 2. [Change client class](#2-change-client-class)
 3. [Update import statements](#3-update-import-statements)
 
-#### 1. Update dependency version
+#### 1. update dependency version
 
 Update the dependency version referenced in your code, as shown in the following example.
 
@@ -418,7 +418,7 @@ Update the dependency version referenced in your code, as shown in the following
 </dependency>
 ```
 
-#### 2. Change client class
+#### 2. change client class
 
 Update the client class referenced in your code, as shown in the following example.
 
@@ -430,7 +430,7 @@ IdentityMapClient identityMapClient = new IdentityMapClient(UID2_BASE_URL, UID2_
 IdentityMapV3Client identityMapClient = new IdentityMapV3Client(UID2_BASE_URL, UID2_API_KEY, UID2_SECRET_KEY);
 ```
 
-#### 3. Update import statements
+#### 3. update import statements
 
 Update import statements, as shown in the following example.
 
@@ -441,7 +441,7 @@ import com.uid2.client.IdentityMapV3Response;
 import com.uid2.client.UnmappedIdentityReason;
 ```
 
-### Recommended Changes
+### Recommended changes
 
 The following changes are **optional** but allow you to take advantage of new v3 features. The [required changes](#required-changes) are sufficient for basic functionality, but these recommended changes enable improved capabilities.
 
@@ -487,11 +487,11 @@ The following changes are **optional** but allow you to take advantage of new v3
    String rawReason = unmapped.getRawReason();
    ```
 
-## Previous SDK Version (using POST /identity/map v2)
+## Previous SDK version (using POST /identity/map v2)
 
 :::note
 An earlier version of the SDK for Java, which references the `POST /identity/map` v2 endpoint is also available, for backwards compatibility. Migrate to the current SDK for improved performance, multi-identity type support, and better UID rotation management. New integrations should not use this version. 
-For details, see [Migration From Version Using v2 Identity Map](#migration-from-version-using-v2-identity-map).
+For details, see [Migration from version using v2 identity map](#migration-from-version-using-v2-identity-map).
 :::
 
 To use the earlier version, follow these instructions.
@@ -561,14 +561,14 @@ else
 
 For a full example, see the `ExampleBidStreamClient` method in [test/IntegrationExamples.java](https://github.com/IABTechLab/uid2-client-java/blob/main/src/test/java/com/uid2/client/test/IntegrationExamples.java).
 
-## Usage for UID2 Sharers
+## Usage for UID2 sharers
 
 A UID2 <Link href="../ref-info/glossary-uid#gl-sharing-participant">sharing participant</Link> is a company that takes part in sharing, either as a sender or a receiver, to share UID2s with another participant.
 
-Advertisers and data providers can use this SDK to share UID2s with other authorized UID2 sharing participants (<Link href="../ref-info/glossary-uid#gl-tokenized-sharing">tokenized sharing</Link>). They can encrypt [raw UID2s](../ref-info/glossary-uid#gl-raw-uid2) into <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> and then send them to another participant for sharing in pixels (see [Tokenized Sharing in Pixels](../sharing/sharing-tokenized-from-data-pixel.md)). If you are not sending data in pixels, you can take part in UID2 sharing as long as you follow the requirements laid out in [Security Requirements for UID2 Sharing](../sharing/sharing-security.md).
+Advertisers and data providers can use this SDK to share UID2s with other authorized UID2 sharing participants (<Link href="../ref-info/glossary-uid#gl-tokenized-sharing">tokenized sharing</Link>). They can encrypt [raw UID2s](../ref-info/glossary-uid#gl-raw-uid2) into <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> and then send them to another participant for sharing in pixels (see [Tokenized sharing in pixels](../sharing/sharing-tokenized-from-data-pixel.md)). If you are not sending data in pixels, you can take part in UID2 sharing as long as you follow the requirements laid out in [Security requirements for UID2 sharing](../sharing/sharing-security.md).
 
 :::important
-The UID2 token generated during this process is for sharing only&#8212;you cannot use it in the bidstream. There is a different workflow for generating tokens for the bidstream: see [Tokenized Sharing in the Bidstream](../sharing/sharing-tokenized-from-data-bid-stream.md).
+The UID2 token generated during this process is for sharing only&#8212;you cannot use it in the bidstream. There is a different workflow for generating tokens for the bidstream: see [Tokenized sharing in the bidstream](../sharing/sharing-tokenized-from-data-bid-stream.md).
 :::
 
 The following instructions provide an example of how you can implement sharing using the SDK for Java, either as a sender or a receiver.
@@ -578,7 +578,7 @@ The following instructions provide an example of how you can implement sharing u
 SharingClient client = new SharingClient(UID2_BASE_URL, UID2_API_KEY, UID2_SECRET_KEY);
 ```
 
-2. Refresh once at startup, and then periodically. Recommended refresh interval is hourly: for details, see [Decryption Key Refresh Cadence for Sharing](../sharing/sharing-best-practices.md#decryption-key-refresh-cadence-for-sharing).
+2. Refresh once at startup, and then periodically. Recommended refresh interval is hourly: for details, see [Decryption key refresh cadence for sharing](../sharing/sharing-best-practices.md#decryption-key-refresh-cadence-for-sharing).
 ```java
 client.refresh();
 ```

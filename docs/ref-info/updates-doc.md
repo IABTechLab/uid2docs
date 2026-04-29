@@ -10,7 +10,7 @@ import Link from '@docusaurus/Link';
 import CustomTagsFilters from '@site/src/components/CustomTags/CustomTagsFilters';
 import CustomTagsContainer from '@site/src/components/CustomTags/CustomTagsContainer';
 
-# Documentation Updates
+# Documentation updates
 
 <CustomTagsFilters />
 
@@ -40,13 +40,13 @@ For details, see [UID2 Token Validator](ref-token-validator.md).
 
 <CustomTagsContainer tags="Endpoints">
 
-### Rate Limiting and Parallel Request Updates for POST /identity/map
+### Rate limiting and parallel request updates for POST /identity/map
 
 April 1, 2026
 
 The [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) endpoint documentation has been updated with the following changes:
 
-- Added a new [Rate Limiting](../endpoints/post-identity-map.md#rate-limiting) section documenting that the endpoint enforces rate limits to safeguard against bursts of incoming traffic.
+- Added a new [Rate limiting](../endpoints/post-identity-map.md#rate-limiting) section documenting that the endpoint enforces rate limits to safeguard against bursts of incoming traffic.
 - Removed the previous recommendation to send batches sequentially over a single HTTP connection.
 
 These changes apply to both [v2](../endpoints/post-identity-map-v2.md) and [v3](../endpoints/post-identity-map.md) endpoints.
@@ -61,7 +61,7 @@ The following documents were released in the first quarter of 2026.
 
 <CustomTagsContainer tags="Endpoints, SDKs, Opt-Out">
 
-### Removal of optout_check Parameter
+### Removal of optout_check parameter
 
 February 10, 2026
 
@@ -83,13 +83,13 @@ The following documents were released in this quarter.
 
 <CustomTagsContainer tags="Guides">
 
-### Databricks Integration Guide
+### Databricks integration guide
 
 December 2, 2025
 
 We've added an integration guide for the UID2 Databricks integration.
 
-For details, see [Databricks Clean Rooms Integration Guide](../guides/integration-databricks.md).
+For details, see [Databricks clean rooms integration guide](../guides/integration-databricks.md).
 
 <!-- APIDOCS-2552 -->
 
@@ -101,7 +101,7 @@ The following documents were released in this quarter.
 
 <CustomTagsContainer tags="Endpoints, Guides, SDKs">
 
-### Identity Map v3 (Python SDK, Snowflake)
+### Identity map v3 (Python SDK, Snowflake)
 
 July 31, 2025
 
@@ -109,8 +109,8 @@ We've released updated versions of two additional docs to reflect adoption of th
 
 We updated the following additional implementations and corresponding documentation:
 
-- Python SDK: see [SDK for Python Reference Guide](../sdks/sdk-ref-python.md)
-- Snowflake: see [Snowflake Integration Guide](../guides/integration-snowflake.md)
+- Python SDK: see [SDK for Python reference guide](../sdks/sdk-ref-python.md)
+- Snowflake: see [Snowflake integration guide](../guides/integration-snowflake.md)
 
 <!-- APIDOCS-3320 -->
 
@@ -118,11 +118,11 @@ We updated the following additional implementations and corresponding documentat
 
 <CustomTagsContainer tags="Endpoints, Guides, SDKs">
 
-### Identity Map v3 (Endpoint Doc)
+### Identity map v3 (endpoint doc)
 
 July 11, 2025
 
-We've released a new version of the Identity Map API (v3) that provides significant improvements for advertisers and data providers. This update includes documentation for the [POST /identity/map](../endpoints/post-identity-map.md) endpoint, the [SDK for Java Reference Guide](../sdks/sdk-ref-java.md#usage-for-advertisersdata-providers), and the [Advertiser/Data Provider Integration Overview](../guides/integration-advertiser-dataprovider-overview.md).
+We've released a new version of the Identity Map API (v3) that provides significant improvements for advertisers and data providers. This update includes documentation for the [POST /identity/map](../endpoints/post-identity-map.md) endpoint, the [SDK for Java reference guide](../sdks/sdk-ref-java.md#usage-for-advertisersdata-providers), and the [Advertiser/data provider integration overview](../guides/integration-advertiser-dataprovider-overview.md).
 
 <!-- UID2-5558, UID2-5560, UID2-5559, APIDOCS-3070 -->
 
@@ -134,13 +134,13 @@ The following documents were released in the first quarter of 2025.
 
 <CustomTagsContainer tags="Guides, Private Operator">
 
-### Private Operator for AKS Integration Guide
+### Private Operator for AKS integration guide
 
 March 19, 2025
 
 A UID2 <a href="../intro#participants">participant</a> who wants to be a <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link> can now set up the UID2 Operator Service as a Private Operator in an Azure Kubernetes Service (<Link href="../ref-info/glossary-uid#gl-aks">AKS</Link>) cluster, running on [virtual nodes on Azure Container Instances](https://learn.microsoft.com/en-us/azure/container-instances/container-instances-virtual-nodes) (ACI).
 
-For details, see [UID2 Private Operator for AKS Integration Guide](../guides/operator-guide-aks-enclave.md).
+For details, see [UID2 Private Operator for AKS integration guide](../guides/operator-guide-aks-enclave.md).
 
 <!-- APIDOCS-3030 -->
 
@@ -148,13 +148,13 @@ For details, see [UID2 Private Operator for AKS Integration Guide](../guides/ope
 
 <CustomTagsContainer tags="Guides, Mobile">
 
-### Server-Side Integration Guide for Mobile
+### Server-side integration guide for mobile
 
 March 18, 2025
 
 We've added a guide for mobile app publishers who want to manage the UID2 token entirely on the server side.
 
-For details, see [UID2 Server-Side Integration Guide for Mobile](../guides/integration-mobile-server-side.md).
+For details, see [UID2 server-side integration guide for mobile](../guides/integration-mobile-server-side.md).
 
 <!-- APIDOCS-2931 -->
 
@@ -162,13 +162,13 @@ For details, see [UID2 Server-Side Integration Guide for Mobile](../guides/integ
 
 <CustomTagsContainer tags="Portal, Sharing">
 
-### Portal, Sharing Permissions Page
+### Portal, sharing permissions page
 
 March 11, 2025
 
 We've significantly expanded and clarified the documentation for configuring sharing permissions in the UID2 Portal.
 
-For details, see [Sharing Permissions](../portal/sharing-permissions.md).
+For details, see [Sharing permissions](../portal/sharing-permissions.md).
 
 <!-- APIDOCS-2795 -->
 
@@ -176,13 +176,13 @@ For details, see [Sharing Permissions](../portal/sharing-permissions.md).
 
 <CustomTagsContainer tags="SDKs">
 
-### JavaScript SDK Version 4
+### JavaScript SDK version 4
 
 March 7, 2025
 
 We've added documentation for the recently released update of the UID2 SDK for JavaScript, version 4.
 
-For details, see [SDK for JavaScript Reference Guide](../sdks/sdk-ref-javascript.md).
+For details, see [SDK for JavaScript reference guide](../sdks/sdk-ref-javascript.md).
 
 <!-- APIDOCS-2923 -->
 
@@ -190,13 +190,13 @@ For details, see [SDK for JavaScript Reference Guide](../sdks/sdk-ref-javascript
 
 <CustomTagsContainer tags="Reference">
 
-### How the UID2 Token Is Created
+### How the UID2 token is created
 
 March 7, 2025
 
 We've added a page with high-level information about the steps for creating a UID2 token, including steps, roles, and a diagram.
 
-For details, see [How the UID2 Token Is Created](../ref-info/ref-how-uid-is-created.md).
+For details, see [How the UID2 token is created](../ref-info/ref-how-uid-is-created.md).
 
 <!-- APIDOCS-2855 -->
 
@@ -204,13 +204,13 @@ For details, see [How the UID2 Token Is Created](../ref-info/ref-how-uid-is-crea
 
 <CustomTagsContainer tags="Guides">
 
-### Snowflake Integration Guide
+### Snowflake integration guide
 
 February 12, 2025
 
 We've significantly updated the UID2 Snowflake integration, and updated the documentation to match.
 
-For details, see [Snowflake Integration Guide](../guides/integration-snowflake.md).
+For details, see [Snowflake integration guide](../guides/integration-snowflake.md).
 
 <!-- APIDOCS-2918 -->
 
@@ -218,13 +218,13 @@ For details, see [Snowflake Integration Guide](../guides/integration-snowflake.m
 
 <CustomTagsContainer tags="Portal, Reference">
 
-### Instructions for Using the UID2 Portal
+### Instructions for using the UID2 portal
 
 February 10, 2025
 
 We've updated the instructions in the UID2 integration guides, SDK docs, and endpoint docs to include information about account setup in the UID2 Portal.
 
-For details, see any implementation guide: for example, [Client-Side Integration Guide for JavaScript](../guides/integration-javascript-client-side.md#complete-uid2-account-setup-and-configure-account) or [SDK for Android Reference Guide](../sdks/sdk-ref-android.md#api-permissions). 
+For details, see any implementation guide: for example, [Client-side integration guide for JavaScript](../guides/integration-javascript-client-side.md#complete-uid2-account-setup-and-configure-account) or [SDK for Android reference guide](../sdks/sdk-ref-android.md#api-permissions). 
 
 These changes also clarify the different procedures for getting credentials depending on the environment: see expanded information on the [Credentials](../getting-started/gs-credentials.md) and [Environments](../getting-started/gs-environments.md) pages.
 
@@ -234,13 +234,13 @@ These changes also clarify the different procedures for getting credentials depe
 
 <CustomTagsContainer tags="Guides">
 
-### Advertiser/Data Provider Doc
+### Advertiser/data provider doc
 
 January 10, 2025
 
 We've significantly expanded and restructured the Advertiser/Data Provider documentation. We now have one significantly updated overview doc, and separate docs for the three main integration options that come into play: Snowflake, AWS Entity Resolution, and HTTP endpoints.
 
-For details, including a summary of all integration options for advertisers and data providers, see [Advertiser/Data Provider Integration Overview](../guides/integration-advertiser-dataprovider-overview.md).
+For details, including a summary of all integration options for advertisers and data providers, see [Advertiser/data provider integration overview](../guides/integration-advertiser-dataprovider-overview.md).
 
 <!-- APIDOCS-1662 -->
 
@@ -248,13 +248,13 @@ For details, including a summary of all integration options for advertisers and 
 
 <CustomTagsContainer tags="Reference">
 
-### Publisher SSO Integration Page
+### Publisher SSO integration page
 
 January 8, 2025
 
 We've added a reference page for publishers who integrate with one or more SSO providers to offer SSO login, and want to retrieve the logged-in user's email address from the SSO provider to generate UID2 tokens.
 
-For details, see [Publisher Integration with SSO Providers](ref-integration-sso-providers.md).
+For details, see [Publisher integration with SSO providers](ref-integration-sso-providers.md).
 
 <!-- APIDOCS-2486 -->
 
@@ -274,7 +274,7 @@ The following documents were released in the fourth quarter of 2024.
 
 <CustomTagsContainer tags="Infrastructure">
 
-### Zoom-In Tool for Images
+### Zoom-in tool for images
 
 December 15, 2024
 
@@ -288,13 +288,13 @@ Just hover over the image and the tool appears as a magnifying glass, then click
 
 <CustomTagsContainer tags="Portal">
 
-### Portal Audit Trail Page
+### Portal audit trail page
 
 November 15, 2024
 
-We've added the following page to the UID2 Portal documentation: [Audit Trail](../portal/audit-trail.md).
+We've added the following page to the UID2 Portal documentation: [Audit trail](../portal/audit-trail.md).
 
-The **Audit Trail** page in the UID2 Portal allows users who have the Admin role (see [User Roles](../portal/team-members.md#user-roles)) to view a detailed log of all past actions performed by or on behalf of the current <Link href="../ref-info/glossary-uid#gl-sharing-participant">participant</Link>.
+The **Audit Trail** page in the UID2 Portal allows users who have the Admin role (see [User roles](../portal/team-members.md#user-roles)) to view a detailed log of all past actions performed by or on behalf of the current <Link href="../ref-info/glossary-uid#gl-sharing-participant">participant</Link>.
 
 <!-- APIDOCSS-2700 -->
 
@@ -302,13 +302,13 @@ The **Audit Trail** page in the UID2 Portal allows users who have the Admin role
 
 <CustomTagsContainer tags="Guides">
 
-### LiveRamp Integration Tips
+### LiveRamp integration tips
 
 November 14, 2024
 
 We've added a reference page with tips for publishers who are using LiveRamp's Authenticated Traffic Solution (ATS) to generate UID2 tokens to be passed in the bid request.
 
-For details, see [LiveRamp Integration Tips](../guides/integration-liveramp-tips.md).
+For details, see [LiveRamp integration tips](../guides/integration-liveramp-tips.md).
 
 <!-- APIDOCS-2699 -->
 
@@ -320,13 +320,13 @@ The following documents were released in the third quarter of 2024.
 
 <CustomTagsContainer tags="Reference">
 
-### Tokens Page
+### Tokens page
 
 September 10, 2024
 
 We've added a reference page with information about tokens.
 
-For details, see [UID2 Tokens and Refresh Tokens](../ref-info/ref-tokens.md).
+For details, see [UID2 tokens and refresh tokens](../ref-info/ref-tokens.md).
 
 <!-- APIDOCS-2533 -->
 
@@ -334,13 +334,13 @@ For details, see [UID2 Tokens and Refresh Tokens](../ref-info/ref-tokens.md).
 
 <CustomTagsContainer tags="Guides, Private Operator">
 
-### Private Operator Integration Overview
+### Private Operator integration overview
 
 August 28, 2024
 
 We've added a page with information about Private Operator integrations.
 
-For details, see [UID2 Private Operator Integration Overview](../guides/integration-options-private-operator).
+For details, see [UID2 Private Operator integration overview](../guides/integration-options-private-operator).
 
 <!-- APIDOCS-2164 -->
 
@@ -348,13 +348,13 @@ For details, see [UID2 Private Operator Integration Overview](../guides/integrat
 
 <CustomTagsContainer tags="Guides">
 
-### DSP Direct Integration Instructions
+### DSP direct integration instructions
 
 August 22, 2024
 
 We've added a guide for DSPs who are not using UID2 SDKs.
 
-For details, see [DSP Direct Integration Instructions](../guides/integration-dsp-no-sdk.md).
+For details, see [DSP direct integration instructions](../guides/integration-dsp-no-sdk.md).
 
 <!-- APIDOCS-2394 -->
 
@@ -372,13 +372,13 @@ For details, see [UID2 Tokens and Refresh Tokens]. -->
 
 <CustomTagsContainer tags="Reference">
 
-### Integration Approaches Page
+### Integration approaches page
 
 July 23, 2024
 
 We've added a page with information about the different integration approaches: client-side, client-server, and server-side.
 
-For details, see [Integration Approaches](ref-integration-approaches.md).
+For details, see [Integration approaches](ref-integration-approaches.md).
 
 <!-- APIDOCS-2132 -->
 
@@ -386,13 +386,13 @@ For details, see [Integration Approaches](ref-integration-approaches.md).
 
 <CustomTagsContainer tags="Reference">
 
-### Server-Side Token Generation Page
+### Server-side token generation page
 
 July 3, 2024
 
 We've added a reference page with information for publishers generating the UID2 token on the server side.
 
-For details, see [Server-Side Token Generation](ref-server-side-token-generation.md).
+For details, see [Server-side token generation](ref-server-side-token-generation.md).
 
 <!-- APIDOCS-2255 -->
 
@@ -406,8 +406,8 @@ July 2, 2024
 
 We've added a section to the two mobile integration guides with instructions for mobile integration using Prebid, currently for Android only:
 
-- [UID2 Client-Side Integration Guide for Mobile: Prebid Integration](../guides/integration-mobile-client-side#optional-uid2-integration-with-prebid-mobile-sdk)
-- [UID2 Client-Server Integration Guide for Mobile: Prebid Integration](../guides/integration-mobile-client-server#optional-uid2-integration-with-prebid-mobile-sdk)
+- [UID2 client-side integration guide for mobile: Prebid integration](../guides/integration-mobile-client-side#optional-uid2-integration-with-prebid-mobile-sdk)
+- [UID2 client-server integration guide for mobile: Prebid integration](../guides/integration-mobile-client-server#optional-uid2-integration-with-prebid-mobile-sdk)
 
 <!-- APIDOCS-2269 -->
 
@@ -419,13 +419,13 @@ The following documents were released in the second quarter of 2024.
 
 <CustomTagsContainer tags="CTV, Guides">
 
-### CTV Integration Guide
+### CTV integration guide
 
 June 21, 2024
 
 We've just added a guide for CTV publishers who want to integrate with UID2.
 
-For details, see [CTV Integration Guide](../guides/integration-ctv-guide.md).
+For details, see [CTV integration guide](../guides/integration-ctv-guide.md).
 
 <!-- APIDOCS-2264 -->
 
@@ -433,7 +433,7 @@ For details, see [CTV Integration Guide](../guides/integration-ctv-guide.md).
 
 <CustomTagsContainer tags="Opt-Out">
 
-### Opt-Out API
+### Opt-out API
 
 May 24, 2024
 
@@ -449,15 +449,15 @@ For details, see [POST&nbsp;/optout/status](../endpoints/post-optout-status.md).
 
 <CustomTagsContainer tags="Guides, Mobile, SDKs">
 
-### Client-Side and Server-Side Guides for Mobile
+### Client-side and server-side guides for mobile
 
 May 17, 2024
 
 We've added the following integration guides to support publishers who want to implement UID2 for their Android or iOS mobile apps:
 
-- [UID2 Mobile Integration Overview for Android and iOS](../guides/integration-mobile-overview)
-- [UID2 Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side)
-- [UID2 Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server)
+- [UID2 mobile integration overview for Android and iOS](../guides/integration-mobile-overview)
+- [UID2 client-side integration guide for mobile](../guides/integration-mobile-client-side)
+- [UID2 client-server integration guide for mobile](../guides/integration-mobile-client-server)
 
 <!-- APIDOCS-1903-->
 
@@ -465,11 +465,11 @@ We've added the following integration guides to support publishers who want to i
 
 <CustomTagsContainer tags="Portal">
 
-### Portal Client-Side Integration Page
+### Portal client-side integration page
 
 May 6, 2024
 
-We've added the following page to the UID2 Portal documentation: [Client-Side Integration](../portal/client-side-integration.md).
+We've added the following page to the UID2 Portal documentation: [Client-side integration](../portal/client-side-integration.md).
 
 The **Client-Side Integration** page in the UID2 Portal allows you to set up and manage the values that are needed if you are generating UID2 tokens on the client side, such as specifying your domains.
 
@@ -479,11 +479,11 @@ The **Client-Side Integration** page in the UID2 Portal allows you to set up and
 
 <CustomTagsContainer tags="Portal">
 
-### Portal API Keys Page
+### Portal API keys page
 
 April 25, 2024
 
-The UID2 Portal documentation now includes a new page, [API Keys](../portal/api-keys.md).
+The UID2 Portal documentation now includes a new page, [API keys](../portal/api-keys.md).
 
 The API Keys page in the UID2 Portal allows you to perform all activities relating to managing API keys, and their associated secret values and permission settings, for your UID2 account.
 
@@ -493,7 +493,7 @@ The API Keys page in the UID2 Portal allows you to perform all activities relati
 
 <CustomTagsContainer tags="Sharing">
 
-### Documentation for UID2 Sharing
+### Documentation for UID2 sharing
 
 April 22, 2024
 
@@ -501,7 +501,7 @@ We've completely reworked and significantly expanded the sharing documentation t
 
 The documentation now supports additional sharing scenarios, including the ability to share raw UID2s when senders and receivers follow the applicable legal, security, and technical requirements.
 
-For details, see [UID2 Sharing: Overview](../sharing/sharing-overview.md).
+For details, see [UID2 sharing: Overview](../sharing/sharing-overview.md).
 
 <!-- APIDOCS-2134 -->
 
@@ -513,13 +513,13 @@ The following documents were released in the first quarter of 2024.
 
 <CustomTagsContainer tags="Reference">
 
-### UID2 Hashing Tool
+### UID2 hashing tool
 
 March 4, 2024
 
 We've added a UID2 hashing tool so that you can check that you're normalizing and encoding correctly.
 
-For details, see [UID2 Hashing Tool](../getting-started/gs-normalization-encoding#uid2-hashing-tool) in the *Normalization and Encoding* documentation.
+For details, see [UID2 hashing tool](../getting-started/gs-normalization-encoding#uid2-hashing-tool) in the *Normalization and Encoding* documentation.
 
 <!-- APIDOCS-1974 -->
 
@@ -527,13 +527,13 @@ For details, see [UID2 Hashing Tool](../getting-started/gs-normalization-encodin
 
 <CustomTagsContainer tags="Guides, SDKs">
 
-### Java SDK Support, Advertiser/Data Provider
+### Java SDK support, advertiser/data provider
 
 February 28, 2024
 
 The Java SDK now supports Advertisers and Data Providers wanting to use the [POST&nbsp;/identity/map (v2)](../endpoints/post-identity-map-v2.md) endpoint.
 
-For details, see the updated documentation in the *SDK for Java Reference Guide*: [Usage for Advertisers and Data Providers](../sdks/sdk-ref-java.md#usage-for-advertisersdata-providers).
+For details, see the updated documentation in the *SDK for Java Reference Guide*: [Usage for advertisers and data providers](../sdks/sdk-ref-java.md#usage-for-advertisersdata-providers).
 
 <!-- UID2-2759 -->
 
@@ -541,7 +541,7 @@ For details, see the updated documentation in the *SDK for Java Reference Guide*
 
 <CustomTagsContainer tags="Infrastructure">
 
-### Audience-Specific Sidebars
+### Audience-specific sidebars
 
 February 9, 2024
 
@@ -551,7 +551,7 @@ Anyone wanting to see the full set of docs for all audiences can just click thro
 
 Note that many docs are applicable to multiple audiences, and there are many interlinks between docs, so the sidebar view might change on your journey through the site. You can always get back to your specific view by clicking the link at the top: these links appear on all pages.
 
-To view the custom sidebars, go to [https://unifiedid.com](https://unifiedid.com/) and click on one of the audience links at the top: [Publishers](../overviews/overview-publishers.md). [Advertisers](../overviews/overview-advertisers.md), [DSPs](../overviews/overview-dsps.md), or [Data Providers](../overviews/overview-data-providers.md).
+To view the custom sidebars, go to [https://unifiedid.com](https://unifiedid.com/) and click on one of the audience links at the top: [Publishers](../overviews/overview-publishers.md). [Advertisers](../overviews/overview-advertisers.md), [DSPs](../overviews/overview-dsps.md), or [Data providers](../overviews/overview-data-providers.md).
 
 <!-- APIDOCS-1681 -->
 
@@ -559,7 +559,7 @@ To view the custom sidebars, go to [https://unifiedid.com](https://unifiedid.com
 
 <CustomTagsContainer tags="Guides, SDKs">
 
-### Integration Overview for JavaScript
+### Integration overview for JavaScript
 
 January 26, 2024
 
@@ -567,9 +567,9 @@ We've added an overview guide summarizing the options for publishers using the S
 
 For details, see:
 
-- [UID2 Integration Overview for JavaScript](../guides/integration-javascript)
-- [Client-Side Integration Guide for JavaScript](../guides/integration-javascript-client-side.md)
-- [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md)
+- [UID2 integration overview for JavaScript](../guides/integration-javascript)
+- [Client-side integration guide for JavaScript](../guides/integration-javascript-client-side.md)
+- [Client-server integration guide for JavaScript](../guides/integration-javascript-client-server.md)
 
 <!-- APIDOCS-1924 -->
 
@@ -577,13 +577,13 @@ For details, see:
 
 <CustomTagsContainer tags="Guides, SDKs">
 
-### SDK for Java, Publisher Sections
+### SDK for Java, publisher sections
 
 January 22, 2024
 
 We've added sections in the SDK for Java documentation to help publishers implementing the SDK.
 
-For details, see [Usage for Publishers](../sdks/sdk-ref-java.md#usage-for-publishers) in the SDK for Java Reference Guide.
+For details, see [Usage for publishers](../sdks/sdk-ref-java.md#usage-for-publishers) in the SDK for Java Reference Guide.
 
 <!-- APIDOCS-1705 -->
 
@@ -591,13 +591,13 @@ For details, see [Usage for Publishers](../sdks/sdk-ref-java.md#usage-for-publis
 
 <CustomTagsContainer tags="Reference">
 
-### Normalization and Encoding Examples
+### Normalization and encoding examples
 
 January 19, 2024
 
 We've expanded and clarified the existing Normalization and Encoding doc, and added an examples section to help you make sure that you're following the process correctly.
 
-For details, see [Normalization and Encoding](../getting-started/gs-normalization-encoding.md).
+For details, see [Normalization and encoding](../getting-started/gs-normalization-encoding.md).
 
 <!-- APIDOCS-1183, APIDOCS-1880 -->
 
@@ -605,13 +605,13 @@ For details, see [Normalization and Encoding](../getting-started/gs-normalizatio
 
 <CustomTagsContainer tags="Guides">
 
-### Web Integration Overview for Publishers
+### Web integration overview for publishers
 
 January 16, 2024
 
 We've added a page summarizing the web integration options available to publishers integrating with UID2.
 
-For details, see [Publisher Web Integration Overview](../guides/integration-options-publisher-web.md).
+For details, see [Publisher web integration overview](../guides/integration-options-publisher-web.md).
 
 <!-- APIDOCS-1846 -->
 
@@ -619,7 +619,7 @@ For details, see [Publisher Web Integration Overview](../guides/integration-opti
 
 <CustomTagsContainer tags="Private Operator, Reference">
 
-### UID2 Operator Page
+### UID2 Operator page
 
 January 3, 2024
 
@@ -637,7 +637,7 @@ The following documents were released in the fourth quarter of 2023.
 
 <CustomTagsContainer tags="Guides, Prebid.js">
 
-### Integration Overview for Prebid
+### Integration overview for Prebid
 
 December 20, 2023
 
@@ -647,81 +647,81 @@ In addition, the existing guides have been restructured and simplified.
 
 For details, see:
 
-- [UID2 Integration Overview for Prebid](../guides/integration-prebid.md)
-- [UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md)
-- [UID2 Client-Server Integration Guide for Prebid.js](../guides/integration-prebid-client-server.md)
+- [UID2 integration overview for Prebid](../guides/integration-prebid.md)
+- [UID2 client-side integration guide for Prebid.js](../guides/integration-prebid-client-side.md)
+- [UID2 client-server integration guide for Prebid.js](../guides/integration-prebid-client-server.md)
 
 </CustomTagsContainer>
 
 <CustomTagsContainer tags="Reference">
 
-### Encrypt/Decrypt Examples, Java and C#
+### Encrypt/decrypt examples, Java and C#
 
 December 14, 2023
 
 We've added instructions and code examples for encrypting UID2 requests and decrypting responses in additional programming languages. To the existing Python example, we've added Java and C#.
 
-For details, see [Encryption and Decryption Code Examples](../getting-started/gs-encryption-decryption.md#encryption-and-decryption-code-examples).
+For details, see [Encryption and decryption code examples](../getting-started/gs-encryption-decryption.md#encryption-and-decryption-code-examples).
 
 </CustomTagsContainer>
 
 <CustomTagsContainer tags="Guides, Private Operator">
 
-### Private Operator for Azure Integration Guide
+### Private Operator for Azure integration guide
 
 November 30, 2023
 
 A UID2 <a href="../overviews/participants-overview">participant</a> who wants to be a [Private Operator](../ref-info/glossary-uid.md#gl-private-operator) can now set up the UID2 Operator Service in an instance of [Confidential Containers](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-containers), a confidential computing option from Microsoft Azure.
 
-For details, see [UID2 Private Operator for Azure Integration Guide](../guides/operator-guide-azure-enclave.md).
+For details, see [UID2 Private Operator for Azure integration guide](../guides/operator-guide-azure-enclave.md).
 
 </CustomTagsContainer>
 
 <CustomTagsContainer tags="Reference">
 
-### API Permissions
+### API permissions
 
 November 22, 2023
 
 We've added an article in the Getting Started section of the UID2 website that provides information about the key UID2 permissions, the types of participants that commonly use them, and the key associated activities.
 
-For details, see [API Permissions](../getting-started/gs-permissions.md).
+For details, see [API permissions](../getting-started/gs-permissions.md).
 
 </CustomTagsContainer>
 
 <CustomTagsContainer tags="Reference">
 
-### UID2 Credentials Page
+### UID2 credentials page
 
 November 21, 2023
 
 We've replaced the previous **API Keys** page with a page that includes information about the credentials for those following a server-side implementation strategy.
 
-For details, see [UID2 Credentials](../getting-started/gs-credentials.md).
+For details, see [UID2 credentials](../getting-started/gs-credentials.md).
 
 </CustomTagsContainer>
 
 <CustomTagsContainer tags="Guides, SDKs">
 
-### Client-Side Integration Guide for JS
+### Client-side integration guide for js
 
 November 21, 2023
 
 The Client-Side Integration Guide for JavaScript is a completely new document at the existing URL, covering a way of using the SDK for JavaScript for a client-side publisher implementation.
 
-For details, see [Client-Side Integration Guide for JavaScript](../guides/integration-javascript-client-side.md).
+For details, see [Client-side integration guide for JavaScript](../guides/integration-javascript-client-side.md).
 
 The content that was in the previous *SDK for JavaScript Integration Guide*  is now in a supplementary document for publishers who want to implement the JavaScript SDK on the server side.
 
 :::note
-This document was updated in January 2024 to [Client-Side Integration Guide for JavaScript](../guides/integration-javascript-client-side.md), and the JavaScript Standard Integration Guide is now the [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md).
+This document was updated in January 2024 to [Client-side integration guide for JavaScript](../guides/integration-javascript-client-side.md), and the JavaScript Standard Integration Guide is now the [Client-server integration guide for JavaScript](../guides/integration-javascript-client-server.md).
 :::
 
 </CustomTagsContainer>
 
 <CustomTagsContainer tags="Guides, Prebid.js">
 
-### Client-Side Integration Guide for Prebid.js
+### Client-side integration guide for Prebid.js
 
 November 2, 2023
 
@@ -731,28 +731,28 @@ The content that was in the previous version of the Prebid document is now in a 
 
 :::note
 These documents were further updated in later revisions. Updated links are as follows:
-- [UID2 Integration Overview for Prebid](../guides/integration-prebid.md)
-- [UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md)
-- [UID2 Client-Server Integration Guide for Prebid.js](../guides/integration-prebid-client-server.md)
+- [UID2 integration overview for Prebid](../guides/integration-prebid.md)
+- [UID2 client-side integration guide for Prebid.js](../guides/integration-prebid-client-side.md)
+- [UID2 client-server integration guide for Prebid.js](../guides/integration-prebid-client-server.md)
 :::
 
 </CustomTagsContainer>
 
 <CustomTagsContainer tags="Opt-Out, Reference">
 
-### Opt-Out Page
+### Opt-out page
 
 October 31, 2023
 
 This reference topic provides an overview of user opt-out.
 
-For details, see [User Opt-Out](../getting-started/gs-opt-out.md).
+For details, see [User opt-out](../getting-started/gs-opt-out.md).
 
 </CustomTagsContainer>
 
 <CustomTagsContainer tags="Guides">
 
-### AWS Entity Resolution Integration Guide
+### AWS Entity Resolution integration guide
 
 October 19, 2023
 
@@ -760,21 +760,21 @@ This guide provides information for using [AWS Entity Resolution](https://aws.am
 
 This service allows you to map DII (email addresses or phone numbers) to raw UID2s swiftly and securely.
 
-For details, see [AWS Entity Resolution Integration Guide](../guides/integration-aws-entity-resolution.md).
+For details, see [AWS Entity Resolution integration guide](../guides/integration-aws-entity-resolution.md).
 
 </CustomTagsContainer>
 
 <CustomTagsContainer tags="Guides, SDKs">
 
-### SDK for JavaScript Version 3 
+### SDK for JavaScript version 3 
 
 October 10, 2023
 
 Significant documentation updates reflect the enhanced functionality of Version 3 of the SDK for JavaScript. The new documentation includes a [migration guide](../sdks/sdk-ref-javascript#migration-guide) for those upgrading from an earlier version of the SDK.
 
 For details, see:
--  [SDK for JavaScript Reference Guide](../sdks/sdk-ref-javascript.md)
--  [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md)
+-  [SDK for JavaScript reference guide](../sdks/sdk-ref-javascript.md)
+-  [Client-server integration guide for JavaScript](../guides/integration-javascript-client-server.md)
 
 </CustomTagsContainer>
 
@@ -784,13 +784,13 @@ The following documents were released in the third quarter of 2023.
 
 <CustomTagsContainer tags="Guides, Private Operator">
 
-### Private Operator Guide for Google Confidential Space 
+### Private Operator guide for Google confidential space 
 
 September 30, 2023
 
 This guide provides information for setting up the UID2 Operator Service in [Confidential Space](https://cloud.google.com/confidential-computing#confidential-space), a confidential computing option from the Google Cloud Platform.
 
-For details, see [UID2 Private Operator for GCP Integration Guide](../guides/operator-private-gcp-confidential-space.md).
+For details, see [UID2 Private Operator for GCP integration guide](../guides/operator-private-gcp-confidential-space.md).
 
 <!-- APIDOCS-1655 -->
 
@@ -798,7 +798,7 @@ For details, see [UID2 Private Operator for GCP Integration Guide](../guides/ope
 
 <CustomTagsContainer tags="Reference">
 
-### Normalization and Encoding Rules
+### Normalization and encoding rules
 
 September 7, 2023
 
@@ -806,62 +806,62 @@ We clarified the instructions for normalizing and encoding <Link href="../ref-in
 
 For details, see:
 
-- [Email Address Hash Encoding](../getting-started/gs-normalization-encoding#email-address-hash-encoding)
-- [Phone Number Hash Encoding](../getting-started/gs-normalization-encoding#phone-number-hash-encoding)
+- [Email address hash encoding](../getting-started/gs-normalization-encoding#email-address-hash-encoding)
+- [Phone number hash encoding](../getting-started/gs-normalization-encoding#phone-number-hash-encoding)
 
 </CustomTagsContainer>
 
 <CustomTagsContainer tags="Guides, Mobile, SDKs">
 
-### IMA Mobile Plugin for Android
+### IMA mobile plugin for Android
 
 August 8, 2023
 
 A guide for publishers that provides information about the UID2 Interactive Media Ads (IMA) Plugin for Android. This plugin enables publishers who use the Google IMA SDK for Android to send <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> as secure signals in ad requests from Android apps.
 
-For details, see [UID2 IMA Plugin for Android Integration Guide](../guides/mobile-plugin-ima-android.md).
+For details, see [UID2 IMA plugin for Android integration guide](../guides/mobile-plugin-ima-android.md).
 
 </CustomTagsContainer>
 
 <CustomTagsContainer tags="Guides, Mobile, SDKs">
 
-### IMA Mobile Plugin for iOS
+### IMA mobile plugin for iOS
 
 August 8, 2023
 
 A guide for publishers that provides information about the UID2 Interactive Media Ads (IMA) Plugin for iOS. This plugin enables publishers who use the Google IMA SDK for iOS to send <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> as secure signals in ad requests from iOS apps.
 
-For details, see [UID2 IMA Plugin for iOS Integration Guide](../guides/mobile-plugin-ima-ios.md).
+For details, see [UID2 IMA plugin for iOS integration guide](../guides/mobile-plugin-ima-ios.md).
 
 </CustomTagsContainer>
 
 <CustomTagsContainer tags="Guides, Mobile, SDKs">
 
-### GMA Mobile Plugin for Android
+### GMA mobile plugin for Android
 
 August 4, 2023
 
 A guide for publishers that provides information about the UID2 Google Mobile Ads (GMA) Plugin for Android. This plugin enables publishers who use the Google GMA SDK to send <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> as secure signals in ad requests from Android apps.
 
-For details, see [UID2 GMA Plugin for Android Integration Guide](../guides/mobile-plugin-gma-android.md).
+For details, see [UID2 GMA plugin for Android integration guide](../guides/mobile-plugin-gma-android.md).
 
 </CustomTagsContainer>
 
 <CustomTagsContainer tags="Guides, Mobile, SDKs">
 
-### GMA Mobile Plugin for iOS
+### GMA mobile plugin for iOS
 
 August 4, 2023
 
 A guide for publishers that provides information about the UID2 Google Mobile Ads (GMA) Plugin for iOS. This plugin enables publishers who use the Google GMA SDK to send <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> as secure signals in ad requests from iOS apps.
 
-For details, see [UID2 GMA Plugin for iOS Integration Guide](../guides/mobile-plugin-gma-ios.md).
+For details, see [UID2 GMA plugin for iOS integration guide](../guides/mobile-plugin-gma-ios.md).
 
 </CustomTagsContainer>
 
 <CustomTagsContainer tags="Infrastructure">
 
-### UID2 Website in Japanese
+### UID2 website in japanese
 
 August 3, 2023
 
@@ -873,45 +873,45 @@ For details, use the language drop-down at the top of any site page, or go strai
 
 <CustomTagsContainer tags="Portal">
 
-### Portal Documentation
+### Portal documentation
 
 August 3, 2023
 
 We published several documentation pages to help users navigating the UID2 Portal user interface, where you can manage your UID2 account.
 
-For details, see [UID2 Portal: Overview](../portal/portal-overview.md).
+For details, see [UID2 portal: Overview](../portal/portal-overview.md).
 
 </CustomTagsContainer>
 
 <CustomTagsContainer tags="Guides, Sharing, SDKs">
 
-### Documentation for UID2 Sharing
+### Documentation for UID2 sharing
 
 August 3, 2023
 
 We published the following new and updated documents to support use of the UID2 Sharing feature:
 
-- A set of pages providing information relating to UID2 sharing, including an overview, use cases, implementation instructions, best practices, and more. See [UID2 Sharing: Overview](../sharing/sharing-overview.md).
+- A set of pages providing information relating to UID2 sharing, including an overview, use cases, implementation instructions, best practices, and more. See [UID2 sharing: Overview](../sharing/sharing-overview.md).
 - Updates to the four server-side SDKs to support UID2 sharing:
 
-  - [SDK for C# / .NET: Usage for UID2 Sharers](../sdks/sdk-ref-csharp-dotnet.md#usage-for-uid2-sharers)
-  - [SDK for C++: Usage for UID2 Sharers](../sdks/sdk-ref-cplusplus.md#usage-for-uid2-sharers)
-  - [SDK for Java: Usage for UID2 Sharers](../sdks/sdk-ref-java.md#usage-for-uid2-sharers)
-  - [SDK for Python: Usage for UID2 Sharers](../sdks/sdk-ref-python.md#usage-for-uid2-sharers)
+  - [SDK for C# / .NET: Usage for UID2 sharers](../sdks/sdk-ref-csharp-dotnet.md#usage-for-uid2-sharers)
+  - [SDK for C++: Usage for UID2 sharers](../sdks/sdk-ref-cplusplus.md#usage-for-uid2-sharers)
+  - [SDK for Java: Usage for UID2 sharers](../sdks/sdk-ref-java.md#usage-for-uid2-sharers)
+  - [SDK for Python: Usage for UID2 sharers](../sdks/sdk-ref-python.md#usage-for-uid2-sharers)
 
-- Updates to the Snowflake feature to support UID2 sharing. See [Snowflake Integration Guide: Usage for UID2 Sharers](../guides/integration-snowflake.md#usage-for-uid2-sharers).
+- Updates to the Snowflake feature to support UID2 sharing. See [Snowflake integration guide: Usage for UID2 sharers](../guides/integration-snowflake.md#usage-for-uid2-sharers).
 
 </CustomTagsContainer>
 
 <CustomTagsContainer tags="Guides, Mobile, SDKs">
 
-### Android SDK Guide
+### Android SDK guide
 
 August 3, 2023
 
 A guide for publishers that provides information about the SDK for Android, an SDK that facilitates the process of establishing client identity using UID2 and retrieving UID2 tokens for publishers who need to support Android apps.
 
-For details, see [SDK for Android Reference Guide](../sdks/sdk-ref-android.md).
+For details, see [SDK for Android reference guide](../sdks/sdk-ref-android.md).
 
 </CustomTagsContainer>
 
@@ -923,7 +923,7 @@ August 3, 2023
 
 A guide for publishers that provides information about the SDK for iOS, an SDK that facilitates the process of establishing client identity using UID2 and retrieving UID2 tokens for publishers who need to support iOS apps.
 
-For details, see [SDK for iOS Reference Guide](../sdks/sdk-ref-ios.md).
+For details, see [SDK for iOS reference guide](../sdks/sdk-ref-ios.md).
 
 </CustomTagsContainer>
 

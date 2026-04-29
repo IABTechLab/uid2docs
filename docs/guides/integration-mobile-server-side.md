@@ -10,7 +10,7 @@ displayed_sidebar: docs
 
 import Link from '@docusaurus/Link';
 
-# UID2 Server-Side Integration Guide for Mobile
+# UID2 server-side integration guide for mobile
 
 This guide is for mobile app publishers who want to manage the UID2 token entirely on the server side:
 
@@ -21,9 +21,9 @@ This setup requires that most of the code changes are done on the server side, w
 
 One advantage of this approach is that if you're dealing with multiple platforms (Web / CTV / mobile), doing everything on the server side can reduce platform-specific efforts.
 
-To implement using this approach, follow the instructions in [Publisher Integration Guide, Server-Side](integration-publisher-server-side.md).
+To implement using this approach, follow the instructions in [Publisher integration guide, server-side](integration-publisher-server-side.md).
 
 If your server-side code is in Java or Python, you can use one of the UID2 SDKs to make the HTTP requests to UID2, instead of writing your own source code. For details, refer to one of the following SDK guides:
 
-- [SDK for Java Reference Guide: Usage for Publishers](../sdks/sdk-ref-java.md#usage-for-publishers)
-- [SDK for Python Reference Guide: Usage for Publishers](../sdks/sdk-ref-python.md#usage-for-publishers)
+- [SDK for Java reference guide: Usage for publishers](../sdks/sdk-ref-java.md#usage-for-publishers)
+- [SDK for Python reference guide: Usage for publishers](../sdks/sdk-ref-python.md#usage-for-publishers)

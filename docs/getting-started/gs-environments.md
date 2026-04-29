@@ -12,7 +12,7 @@ import Link from '@docusaurus/Link';
 
 Learn about the different environments available, and tips to reduce latency by choosing the best base URL for your integration.
 
-## UID2 Integration and Production Environments
+## UID2 integration and production environments
 
 The following table lists all current integration (also known as testing) and production environments for UID2.
 
@@ -31,17 +31,17 @@ For example, `https://operator-integ.uidapi.com/v2/token/generate`.
 Notes:
 
 - All UID2 endpoints use the same base URL.
-- The integration environment and the production environment require different <Link href="../ref-info/glossary-uid#gl-api-key">API keys</Link>. For information about getting credentials for each environment, see [Getting Your Credentials](../getting-started/gs-credentials.md#getting-your-credentials).
+- The integration environment and the production environment require different <Link href="../ref-info/glossary-uid#gl-api-key">API keys</Link>. For information about getting credentials for each environment, see [Getting your credentials](../getting-started/gs-credentials.md#getting-your-credentials).
 - The expiration time of the <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 token</Link> returned by the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) or [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) endpoints is subject to change, but is always significantly shorter in the integration environment than it is in the production environment.
 - The integration environment and the production environments produce different UID2 values. You cannot use them interchangeably. Use the integration environment only for testing. When you're ready to go live, generate UID2s for bidstream use.
 
-## Getting Credentials for Each Environment
+## Getting credentials for each environment
 
 If you're using the integration environment as well as the production environment, you'll need to get a separate set of credentials for each environment.
 
-For details about getting the values you need to access each environment, see [Getting Your Credentials](gs-credentials.md#getting-your-credentials).
+For details about getting the values you need to access each environment, see [Getting your credentials](gs-credentials.md#getting-your-credentials).
 
-## Specifying the Base URL to Reduce Latency
+## Specifying the base URL to reduce latency
 
 The latency of API calls depends on the proximity of the client to the UID2 servers. To reduce the latency, especially when making API calls from consumer devices, you might consider choosing a server closer to your users.
 

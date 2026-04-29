@@ -8,7 +8,7 @@ displayed_sidebar: docs
 
 import Link from '@docusaurus/Link';
 
-# Unified ID 2.0 Overview
+# Unified ID 2.0 overview
 
 UID2 is a framework that enables deterministic identity for advertising opportunities on the open internet for many [participants](overviews/participants-overview.md#uid2-external-participants) across the advertising ecosystem. The UID2 framework enables publisher websites, mobile apps, and Connected TV (CTV) apps to monetize through programmatic workflows. Built as an open-source, standalone solution with its own unique namespace, the framework offers privacy controls designed to help participants meet local market requirements. 
 
@@ -16,7 +16,7 @@ UID2 is a framework that enables deterministic identity for advertising opportun
 The term "UID2" can refer to either the framework or an actual identifier. Unless otherwise indicated, this page provides an overview of the UID2 framework.
 :::
 
-## Guiding Principles
+## Guiding principles
 
 The UID2 framework has the following principles as its foundation:
 
@@ -24,7 +24,7 @@ The UID2 framework has the following principles as its foundation:
 
 - **Non-proprietary (universal) standard**: All [participants](overviews/participants-overview.md#uid2-external-participants) in the advertising ecosystem who execute an appropriate participation agreement can access UID2.
 
-- **Open source**: The source code for the [UID2 Component Services](overviews/participants-overview.md#uid2-component-services) is publicly available.
+- **Open source**: The source code for the [UID2 component services](overviews/participants-overview.md#uid2-component-services) is publicly available.
 
 - **Interoperable**: The framework allows other identity solutions (commercial and proprietary) to integrate and provide UID2 tokens with their offerings.
 
@@ -32,7 +32,7 @@ The UID2 framework has the following principles as its foundation:
 
 - **Consumer control**: Consumers can opt out of UID2 at any time through the [Transparency and Control Portal](https://www.transparentadvertising.com/).
 
-## Technical Design Principles
+## Technical design principles
 
 The UID2 framework is built on the following technical principles:
 
@@ -46,18 +46,18 @@ The UID2 framework is built on the following technical principles:
 
 - **Self-reliant**: UID2 does not rely on external services for the processing of real-time bidding (RTB) data.
 
-## Elements of the UID2 Infrastructure
+## Elements of the UID2 infrastructure
 
 For information about key elements of the UID2 infrastructure, and other aspects of UID2, refer to the following pages:
 
-- [UID2 Identifier Types](ref-info/uid-identifier-types.md)
-- [UID2 Components](ref-info/uid-components.md)
-- [UID2 Participants](overviews/participants-overview.md)
+- [UID2 identifier types](ref-info/uid-identifier-types.md)
+- [UID2 components](ref-info/uid-components.md)
+- [UID2 participants](overviews/participants-overview.md)
 - [Workflows](ref-info/uid-workflows.md)
 
 ## FAQs
 
-See [Frequently Asked Questions](getting-started/gs-faqs.md).
+See [Frequently asked questions](getting-started/gs-faqs.md).
 
 ## License
 All work and artifacts are licensed under the [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0.txt).

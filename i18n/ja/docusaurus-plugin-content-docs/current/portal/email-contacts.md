@@ -8,7 +8,7 @@ displayed_sidebar: docs
 
 import Link from '@docusaurus/Link';
 
-# Email Contacts
+# Email contacts
 
 UID2 Portal では、UID2 の最新アップデートやリリースに関する情報を通知する組織内の担当者を指定できます。個別のメールアドレスを設定することも、組織内の複数の人に通知するために組織内に設定したメールグループを参照することもできます。
 
@@ -20,13 +20,13 @@ UID2 Portal では、UID2 の最新アップデートやリリースに関する
 メール連絡先は UID2 Portal にログインしたり、アカウントを変更したりすることはできません。メール連絡先は情報通知のみを受け取ります。メール連絡先を削除するには、チームメンバーがその操作を行う必要があります。
 :::
 
-## Accessing the Email Contacts Page
+## Accessing the email contacts page
 
 メール連絡先ページにアクセスするには、UID2 Portal ユーザーインターフェースの右上にある名前が表示されている場所に移動します。下矢印をクリックし、**Email Contacts** を選択します。
 
-例は [UID2 Portal Structure](portal-overview.md#uid2-portal-structure) を参照してください。
+例は [UID2 portal structure](portal-overview.md#uid2-portal-structure) を参照してください。
 
-## Configuring Email Contacts
+## Configuring email contacts
 
 Email Contacts ページでは、UID2 の更新について通知を受ける個人を設定するための、以下のような操作を実行できます:
 
@@ -34,7 +34,7 @@ Email Contacts ページでは、UID2 の更新について通知を受ける個
 - [Edit information for an email contact](#edit-information-for-an-email-contact)
 - [Remove an email contact](#remove-an-email-contact)
 
-## Add an Email Contact
+## Add an email contact
 
 メール連絡先を追加するには、次の手順を実行します:
 
@@ -57,7 +57,7 @@ Email Contacts ページでは、UID2 の更新について通知を受ける個
 Email Contacts では、確認のメールは送信されません。
 :::
 
-## Edit Information for an Email Contact
+## Edit information for an email contact
 
 値を変更できます: Email Group Name、Email Alias、Contact Type
 
@@ -68,7 +68,7 @@ Email Contacts では、確認のメールは送信されません。
 1. リストで連絡先を見つけ、Actions 列で ![the Edit icon](images/icon-pencil-solid.png) (Edit アイコン) をクリックします。
 1. 情報を更新し、変更を保存します。
 
-## Remove an Email Contact
+## Remove an email contact
 
 メール連絡先を削除するには、次の手順を実行します:
 

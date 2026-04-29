@@ -8,7 +8,7 @@ displayed_sidebar: docs
 
 import Link from '@docusaurus/Link';
 
-# UID2 IMA Plugin for Android Integration Guide
+# UID2 IMA plugin for Android integration guide
 
 The UID2 Interactive Media Ads (IMA) Plugin for Android enables publishers that use the [Google IMA SDK for Android](https://developers.google.com/interactive-media-ads/docs/sdks/android/client-side) to send <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> as [secure signals](https://support.google.com/admob/answer/11556288) in ad requests from Android apps. This is done automatically, with no direct coding needed from the app developer.
 
@@ -22,19 +22,19 @@ This plugin simplifies integration with Google Interactive Media Ads (IMA) for a
 
 This documentation is for the UID2 IMA Plugin for Android version 2.0.0 and later.
 
-## GitHub Repository
+## Github repository
 
 This plugin is in the following open-source GitHub repository:
 
 - [https://github.com/IABTechLab/uid2-android-sdk/tree/main/securesignals-ima](https://github.com/IABTechLab/uid2-android-sdk/tree/main/securesignals-ima)
 
-## Complete UID2 Account Setup and Configure Account
+## Complete UID2 account setup and configure account
 
-To integrate with UID2, you'll need to have a UID2 account. If you haven't yet created an account, first follow the steps described on the [Account Setup](../getting-started/gs-account-setup.md) page.
+To integrate with UID2, you'll need to have a UID2 account. If you haven't yet created an account, first follow the steps described on the [Account setup](../getting-started/gs-account-setup.md) page.
 
-When initial account setup is complete, you'll receive instructions and a link to access the [UID2 Portal](../portal/portal-overview.md), where you can create your [credentials](../getting-started/gs-credentials.md) for the production environment and configure additional values, if needed. For details, see [Getting Started with the UID2 Portal](../portal/portal-getting-started.md).
+When initial account setup is complete, you'll receive instructions and a link to access the [UID2 portal](../portal/portal-overview.md), where you can create your [credentials](../getting-started/gs-credentials.md) for the production environment and configure additional values, if needed. For details, see [Getting started with the UID2 portal](../portal/portal-getting-started.md).
 
-The steps you'll take in the UID2 Portal are different depending on whether your implementation will be client-side, client-server, or server-side. Specific instructions are in each implementation guide. For a summary, see [Client-Side, Client-Server, or Server-Side Integration?](integration-mobile-overview#client-side-client-server-or-server-side-integration)
+The steps you'll take in the UID2 Portal are different depending on whether your implementation will be client-side, client-server, or server-side. Specific instructions are in each implementation guide. For a summary, see [Client-side, client-server, or server-side integration?](integration-mobile-overview#client-side-client-server-or-server-side-integration)
 
 ## Requirements 
 
@@ -45,9 +45,9 @@ To run this plugin, install the following:
    - [Release history](https://developers.google.com/interactive-media-ads/docs/sdks/android/client-side/history)
 1. SDK for Android v2.0.0 or later:
    - [SDK](https://central.sonatype.com/artifact/com.uid2/uid2-android-sdk)
-   - [SDK for Android Reference Guide](../sdks/sdk-ref-android.md)
+   - [SDK for Android reference guide](../sdks/sdk-ref-android.md)
 1. [UID2 IMA Plugin for Android v2.0.0](https://central.sonatype.com/artifact/com.uid2/uid2-android-sdk-ima)
-1. If you are using R8 or Proguard, add the applicable option specified in [Notes for Using R8 or ProGuard](#notes-for-using-r8-or-proguard)
+1. If you are using R8 or Proguard, add the applicable option specified in [Notes for using r8 or ProGuard](#notes-for-using-r8-or-proguard)
 
 ## Installation
 
@@ -78,7 +78,7 @@ To install with Maven, add the SDK as a dependency in the `pom.xml` file:
 </dependency>
 ```
 
-## Notes for Using R8 or ProGuard
+## Notes for using r8 or ProGuard
 
 If you are using R8, the shrinking and obfuscation rules are included automatically.
 
