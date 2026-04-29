@@ -8,20 +8,20 @@ displayed_sidebar: docs
 
 import Link from '@docusaurus/Link';
 
-# UID2 Sharing: Best Practices
+# UID2 sharing: Best practices
 
 The ability to securely share raw UID2s or UID2 tokens with other authorized UID2 users opens the door to using UID2 in many additional ways in your business.
 
 However, every UID2 participant has a responsibility to maintain the security of the UID2 ecosystem. Here are some best practices to help ensure that UID2 sharing runs smoothly and securely.
 
-## Best Practices for Managing Raw UID2s and UID2 Tokens
+## Best practices for managing raw UID2s and UID2 tokens
 
 Follow these guidelines:
 - For any UID2s that are in your platform, use and store them as raw UID2s, not as UID2 tokens. When you receive UID2 tokens, decrypt them as soon as possible.
 
   This is important because a UID2 token is short-lived. When the key that was used to create a UID2 token expires, you can no longer decrypt the token.
 
-- A raw UID2 **must not** be passed through non-participants. For more information, see [UID2 Token Pass-Through](sharing-tokenized-overview.md#uid2-token-pass-through).
+- A raw UID2 **must not** be passed through non-participants. For more information, see [UID2 token pass-through](sharing-tokenized-overview.md#uid2-token-pass-through).
 
 - In your code, for future extensibility, allow for the following:
 
@@ -31,7 +31,7 @@ Follow these guidelines:
 
 - Before sharing raw UID2s with another authorized sharing participant, check the opt-out status of the raw UID2s, using the [POST&nbsp;/optout/status](../endpoints/post-optout-status.md) endpoint. Do not share raw UID2s that have been opted out.
 
-## Decryption Key Refresh Cadence for Sharing
+## Decryption key refresh cadence for sharing
 
 If you're using an SDK, defining the schedule for refreshing the sharing keys is part of setup.
 

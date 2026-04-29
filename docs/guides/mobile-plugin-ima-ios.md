@@ -8,7 +8,7 @@ displayed_sidebar: docs
 
 import Link from '@docusaurus/Link';
 
-# UID2 IMA Plugin for iOS Integration Guide
+# UID2 IMA plugin for iOS integration guide
 
 The UID2 Interactive Media Ads (IMA) Plugin for iOS enables publishers that use the [Google IMA SDK for iOS](https://developers.google.com/interactive-media-ads/docs/sdks/ios/client-side) to send <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> as [secure signals](https://support.google.com/admob/answer/11556288) in ad requests from iOS apps. This is done automatically, with no direct coding needed from the app developer.
 
@@ -22,19 +22,19 @@ This plugin simplifies integration with Google Interactive Media Ads (IMA) for a
 
 This documentation is for the UID2 IMA Plugin for iOS version 1.0.0 or later.
 
-## GitHub Repository
+## Github repository
 
 This plugin is in the following open-source GitHub repository:
 
 - [https://github.com/IABTechLab/uid2-ios-plugin-google-ima](https://github.com/IABTechLab/uid2-ios-plugin-google-ima)
 
-## Complete UID2 Account Setup and Configure Account
+## Complete UID2 account setup and configure account
 
-To integrate with UID2, you'll need to have a UID2 account. If you haven't yet created an account, first follow the steps described on the [Account Setup](../getting-started/gs-account-setup.md) page.
+To integrate with UID2, you'll need to have a UID2 account. If you haven't yet created an account, first follow the steps described on the [Account setup](../getting-started/gs-account-setup.md) page.
 
-When initial account setup is complete, you'll receive instructions and a link to access the [UID2 Portal](../portal/portal-overview.md), where you can create your [credentials](../getting-started/gs-credentials.md) for the production environment and configure additional values, if needed. For details, see [Getting Started with the UID2 Portal](../portal/portal-getting-started.md).
+When initial account setup is complete, you'll receive instructions and a link to access the [UID2 portal](../portal/portal-overview.md), where you can create your [credentials](../getting-started/gs-credentials.md) for the production environment and configure additional values, if needed. For details, see [Getting started with the UID2 portal](../portal/portal-getting-started.md).
 
-The steps you'll take in the UID2 Portal are different depending on whether your implementation will be client-side, client-server, or server-side. Specific instructions are in each implementation guide. For a summary, see [Client-Side, Client-Server, or Server-Side Integration?](integration-mobile-overview#client-side-client-server-or-server-side-integration)
+The steps you'll take in the UID2 Portal are different depending on whether your implementation will be client-side, client-server, or server-side. Specific instructions are in each implementation guide. For a summary, see [Client-side, client-server, or server-side integration?](integration-mobile-overview#client-side-client-server-or-server-side-integration)
 
 ## Requirements 
 
@@ -45,7 +45,7 @@ To run this plugin, install the following:
    - [Release history](https://developers.google.com/interactive-media-ads/docs/sdks/ios/client-side/history)
 1. SDK for iOS v1.7.0 or later:
    - [SDK](https://github.com/IABTechLab/uid2-ios-sdk)
-   - [SDK for iOS Reference Guide](../sdks/sdk-ref-ios.md)
+   - [SDK for iOS reference guide](../sdks/sdk-ref-ios.md)
 1. [UID2 IMA Plugin for iOS v1.0.0](https://github.com/IABTechLab/uid2-ios-plugin-google-ima)
 
 ## Installation
@@ -56,11 +56,11 @@ Install the UID2 iOS IMA Plugin via Swift Package Manager or CocoaPods to an exi
 
 There are three installation options:
 
--   [Package.swift](#installing-with-packageswift)
+-   [Package.Swift](#installing-with-packageswift)
 -   [Xcode](#installing-with-xcode)
--   [CocoaPods](#installing-with-cocoapods)
+-   [Cocoapods](#installing-with-cocoapods)
 
-### Installing with Package.swift
+### Installing with package.Swift
 
 Add the following dependency to Package.swift:
 
@@ -70,7 +70,7 @@ dependencies: [
 ]
 ```
 
-### Installing with Xcode
+### Installing with xcode
 
 In the XCode user interface, under Package Dependencies, add the following entry for your apps:
 
@@ -78,7 +78,7 @@ In the XCode user interface, under Package Dependencies, add the following entry
 | :--- | :--- | :--- |
 | uid2-ios-plugin-google-ima | `git@github.com:IABTechLab/uid2-ios-plugin-google-ima.git` | Exact Version: 1.0.0 |
 
-### Installing with CocoaPods
+### Installing with cocoapods
 
 Add the following entry in your `Podfile`:
 

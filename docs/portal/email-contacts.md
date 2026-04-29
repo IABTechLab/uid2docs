@@ -8,7 +8,7 @@ displayed_sidebar: docs
 
 import Link from '@docusaurus/Link';
 
-# Email Contacts
+# Email contacts
 
 In the UID2 Portal, you can specify people from your organization whom we should notify for information about the latest updates and releases for UID2. You can set up individual email addresses, or reference an email group that you've set up internally to notify multiple individuals in your organization.
 
@@ -20,13 +20,13 @@ Adding email groups rather than individuals has these benefits:
 Email contacts cannot log in to the UID2 Portal or modify the account. They only receive information notices. If an email contact wants to be removed, a team member must perform that action.
 :::
 
-## Accessing the Email Contacts Page
+## Accessing the email contacts page
 
 To access the Email Contacts page, go to the top right of the UID2 Portal user interface where your name is displayed. Click the down arrow and choose **Email Contacts**.
 
-For an illustration, see [UID2 Portal Structure](portal-overview.md#uid2-portal-structure).
+For an illustration, see [UID2 portal structure](portal-overview.md#uid2-portal-structure).
 
-## Configuring Email Contacts
+## Configuring email contacts
 
 On the Email Contacts page, you can perform all activities relating to configuring individuals who should be notified about UID2 updates, including the following:
 
@@ -34,7 +34,7 @@ On the Email Contacts page, you can perform all activities relating to configuri
 - [Edit information for an email contact](#edit-information-for-an-email-contact)
 - [Remove an email contact](#remove-an-email-contact)
 
-## Add an Email Contact
+## Add an email contact
 
 To add an email contact, complete the following steps:
 
@@ -57,7 +57,7 @@ To add an email contact, complete the following steps:
 For email contacts, no email confirmation is sent.
 :::
 
-## Edit Information for an Email Contact
+## Edit information for an email contact
 
 You can update any of the values: Email Group Name, Email Alias, or Contact Type.
 
@@ -68,7 +68,7 @@ To edit information for an email contact, complete the following steps:
 1. Find the contact on the list and then, in the Actions column, click ![the Edit icon](images/icon-pencil-solid.png) (the Edit icon).
 1. Update the information, and then save the changes.
 
-## Remove an Email Contact
+## Remove an email contact
 
 To remove an email contact, follow these steps:
 

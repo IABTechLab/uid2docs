@@ -8,9 +8,9 @@ displayed_sidebar: docs
 
 import Link from '@docusaurus/Link';
 
-# Raw UID2 Sharing
+# Raw UID2 sharing
 
-[Sharing participants](ref-info/glossary-uid.md#gl-sharing-participant) who want to share [raw UID2s](../ref-info/glossary-uid.md#gl-raw-uid2) with another authorized sharing participant must adhere to the responsibilities of authentication, authorization, accounting, and secure transport, as specified in [Security Requirements for UID2 Sharing](sharing-security.md). Make sure that all points are rigorously followed.
+[Sharing participants](ref-info/glossary-uid.md#gl-sharing-participant) who want to share [raw UID2s](../ref-info/glossary-uid.md#gl-raw-uid2) with another authorized sharing participant must adhere to the responsibilities of authentication, authorization, accounting, and secure transport, as specified in [Security requirements for UID2 sharing](sharing-security.md). Make sure that all points are rigorously followed.
 
 :::note
 It's important to honor user opt-out status. Before sharing raw UID2s with another authorized sharing participant, check the opt-out status of the raw UID2s, using the [POST&nbsp;/optout/status](../endpoints/post-optout-status.md) endpoint. Do not share raw UID2s that have been opted out.

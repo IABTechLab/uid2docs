@@ -25,16 +25,16 @@ A UID2 Operator is an organization that runs the Operator Service. Operators per
 - Encrypt raw UID2s to generate UID2 tokens.
 - Distribute UID2 token decryption keys to server-side SDKs (see [SDKs: Summary](../sdks/summary-sdks.md)).
 - Download the latest user opt-out information from the UID2 <a href="glossary-uid#gl-opt-out-service">Opt-Out Service</a>.
-- Support a number of UID2 endpoints. For details, see [UID2 Endpoints: Summary](../endpoints/summary-endpoints.md).
+- Support a number of UID2 endpoints. For details, see [UID2 endpoints: Summary](../endpoints/summary-endpoints.md).
 
 UID2 Operators fall into two categories:
 
-- [Public Operators](#public-operators)
+- [Public operators](#public-operators)
 - [Private Operators](#private-operators)
 
 The Operator is the operational code of UID2&#8212;the code that turns an email into a raw UID2 or a UID2 token, and that a participant who is sharing uses to refresh decryption keys.
 
-## Public Operators
+## Public operators
 
 A Public Operator is a UID2 Operator instance that is available to all relevant UID2 participants. Public Operators run publicly available instances of the Operator Service and make them available to participants.
 
@@ -42,13 +42,13 @@ In most cases, UID2 participants use a Public Operator.
 
 The Public Operator is owned and managed by the UID2 administration. For example, The Trade Desk currently serves as a Public Operator for the UID2 framework, available to all participants. If other Public Operators are available, a participant can choose which operator to work with.
 
-## Public Operator: Benefits
+## Public operator: Benefits
 
 When you use a Public Operator, there is no additional work for you to do to host, configure, maintain, or update the Operator. All you need to do is configure your integration to use an SDK or to call the UID2 endpoints.
 
 There is no cost, to the participant, for using a Public Operator.
 
-The participant must sign a contract (see [Account Setup](../getting-started/gs-account-setup.md)) to get the applicable credentials (see [UID2 Credentials](../getting-started/gs-credentials.md)) to use the UID2 APIs hosted on the Public Operator.
+The participant must sign a contract (see [Account setup](../getting-started/gs-account-setup.md)) to get the applicable credentials (see [UID2 credentials](../getting-started/gs-credentials.md)) to use the UID2 APIs hosted on the Public Operator.
 
 :::note
 With a Public Operator, data leaves the participant's infrastructure and is sent to the Operator. Rigorous security measures are in place to help protect the data within the Public Operator.
@@ -60,7 +60,7 @@ A Private Operator is a private instance of the UID2 Operator. This means that a
 
 Any participant can also choose to become a Private Operator to generate and manage their UID2s. However, becoming a Private Operator includes several additional steps, and uses resources that the participant must provide.
 
-For details, see [UID2 Private Operator Integration Overview](../guides/integration-options-private-operator.md).
+For details, see [UID2 Private Operator integration overview](../guides/integration-options-private-operator.md).
 
 ## Summary
 

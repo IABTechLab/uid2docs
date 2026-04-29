@@ -10,7 +10,7 @@ import Link from '@docusaurus/Link';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Server-Side Token Generation
+# Server-side token generation
 
 If you're a publisher setting up a client-server or server-side UID2 integration, the first step is to generate the UID2 token on your server. Then, you can keep the token refreshed either on the client side or server side, and pass the token to the client side for sending to the RTB bidstream.
 
@@ -20,7 +20,7 @@ There are two approaches for publishers generating UID2 tokens on the server sid
 - Direct integration to API endpoints
 
 :::warning
-For security reasons, the API key and secret used in token generation *must* be called on the server side. Do not store these values on the client side, whether on a web page, in a mobile app, or in Prebid. For details, see [Security of API Key and Client Secret](../getting-started/gs-credentials.md#security-of-api-key-and-client-secret).
+For security reasons, the API key and secret used in token generation *must* be called on the server side. Do not store these values on the client side, whether on a web page, in a mobile app, or in Prebid. For details, see [Security of API key and client secret](../getting-started/gs-credentials.md#security-of-api-key-and-client-secret).
 :::
 
 Options are summarized in the following table.
@@ -37,8 +37,8 @@ Whatever integration option you choose to generate the <Link href="../ref-info/g
 
    For instructions, see one of the following:
    
-   - [SDK for Java, Usage for Publishers, Basic Usage](../sdks/sdk-ref-java.md#basic-usage)
-   - [SDK for Python, Usage for Publishers](../sdks/sdk-ref-python.md#usage-for-publishers)
+   - [SDK for Java, usage for publishers, basic usage](../sdks/sdk-ref-java.md#basic-usage)
+   - [SDK for Python, usage for publishers](../sdks/sdk-ref-python.md#usage-for-publishers)
 
    If you're using an SDK option, the `Identity` response that you need for the rest of this guide is the output of the applicable method, as follows:
 
@@ -61,7 +61,7 @@ Whatever integration option you choose to generate the <Link href="../ref-info/g
 
 - **API**: Call the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) endpoint.
 
-  The identity output that you need for the rest of this guide is the content inside the body section of a successful endpoint response. For an example, see [Successful Response](../endpoints/post-token-generate.md#successful-response).
+  The identity output that you need for the rest of this guide is the content inside the body section of a successful endpoint response. For an example, see [Successful response](../endpoints/post-token-generate.md#successful-response).
   
 :::important
 The endpoint and SDK API return opt-out status if the <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> you are generating the token for has been opted out of UID2. If this happens, save the information and do not call the token generation endpoint for the same DII again. 

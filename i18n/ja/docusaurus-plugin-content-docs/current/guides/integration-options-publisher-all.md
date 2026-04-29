@@ -9,6 +9,6 @@ displayed_sidebar: sidebarPublishers
 import Link from '@docusaurus/Link';
 import SnptPublisherImplementationResources from '../snippets/_snpt-publisher-implementation-resources.mdx';
 
-# Publisher Integration Resources
+# Publisher integration resources
 
 <SnptPublisherImplementationResources />

@@ -8,7 +8,7 @@ displayed_sidebar: docs
 
 import Link from '@docusaurus/Link';
 
-# UID2 Identifier Types
+# UID2 identifier types
 
 UID2 は、メールアドレスや電話番号などの <Link href="../ref-info/glossary-uid#gl-dii">直接識別情報 (DII)</Link> に基づく決定論的 ID です。UID2 には、raw UID2 と UID2 Token (Advertising Token とも呼ばれます) の 2 種類があります。以下の表では、それぞれのタイプについて説明します。
 

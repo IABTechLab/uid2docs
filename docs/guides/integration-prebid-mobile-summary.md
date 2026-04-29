@@ -10,11 +10,11 @@ displayed_sidebar: docs
 
 import Link from '@docusaurus/Link';
 
-# UID2 Mobile Integration with Prebid Mobile SDK
+# UID2 mobile integration with Prebid Mobile SDK
 
 UID2 integration with Prebid is also supported for Android and iOS mobile devices, using the UID2 integration with Prebid Mobile SDK option.
 
 For details, see the following sections of the mobile integration guides:
 
-- [UID2 Client-Side Integration Guide for Mobile: UID2 Integration with Prebid Mobile SDK](integration-mobile-client-side#optional-uid2-integration-with-prebid-mobile-sdk)
-- [UID2 Client-Server Integration Guide for Mobile: UID2 Integration with Prebid Mobile SDK](integration-mobile-client-server#optional-uid2-integration-with-prebid-mobile-sdk)
+- [UID2 client-side integration guide for mobile: UID2 integration with Prebid Mobile SDK](integration-mobile-client-side#optional-uid2-integration-with-prebid-mobile-sdk)
+- [UID2 client-server integration guide for mobile: UID2 integration with Prebid Mobile SDK](integration-mobile-client-server#optional-uid2-integration-with-prebid-mobile-sdk)
