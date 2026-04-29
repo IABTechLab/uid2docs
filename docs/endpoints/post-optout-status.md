@@ -10,44 +10,44 @@ import Link from '@docusaurus/Link';
 
 # POST /optout/status
 
-Checks the opt-out status of <Link href="../ref-info/glossary-uid#gl-raw-uid2">raw UID2s</Link>. Given a list of raw UID2s, this endpoint returns the raw UID2s that have opted out, as well as the time that the opt-out took place. For more information, see [User opt-out](../getting-started/gs-opt-out.md).
+Checks the opt-out status of <Link href="../ref-info/glossary-uid#gl-raw-uid2">raw UID2s</Link>. Given a list of raw UID2s, this endpoint returns the raw UID2s that have opted out, as well as the time that the opt-out took place. For more information, see [User Opt-Out](../getting-started/gs-opt-out.md).
 
 Used by: This endpoint is used by advertisers, data providers, DSPs, and sharers. More generally, this is for participants who have access to raw UID2s but do not have access to the underlying email addresses or phone numbers and want to know opt-out status.
 
 For details, refer to the following documentation, depending on your role:
 
-- [Advertiser/data provider integration overview](../guides/integration-advertiser-dataprovider-overview.md)
-- [DSP integration guide](../guides/dsp-guide.md)
-- [UID2 sharing: Overview](../sharing/sharing-overview)
+- [Advertiser/Data Provider Integration Overview](../guides/integration-advertiser-dataprovider-overview.md)
+- [DSP Integration Guide](../guides/dsp-guide.md)
+- [UID2 Sharing: Overview](../sharing/sharing-overview)
 
-## Batch size and request parallelization requirements
+## Batch Size and Request Parallelization Requirements
 
 The key guidelines for managing batches of requests to this endpoint are as follows:
 
 - To check the opt-out status of a large number of UID2s, send them in sequential batches with a maximum batch size of 5,000 items per batch.
 - Unless you are using a <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link>, do not send batches in parallel. In other words, use a single HTTP connection and send batches of raw UID2s consecutively, without creating multiple parallel connections.
 
-## Request format
+## Request Format
 
 `POST '{environment}/v2/optout/status'`
 
-For authentication details, see [Authentication and authorization](../getting-started/gs-auth.md).
+For authentication details, see [Authentication and Authorization](../getting-started/gs-auth.md).
 
 :::important
-You must encrypt all requests using your secret. For details, and code examples in different programming languages, see [Encrypting requests and decrypting responses](../getting-started/gs-encryption-decryption.md).
+You must encrypt all requests using your secret. For details, and code examples in different programming languages, see [Encrypting Requests and Decrypting Responses](../getting-started/gs-encryption-decryption.md).
 :::
 
-### Path parameters
+### Path Parameters
 
 | Path Parameter | Data Type | Attribute | Description |
 | :--- | :--- | :--- | :--- |
 | `{environment}` | string | Required | Testing (integration) environment: `https://operator-integ.uidapi.com`<br/>Production environment: The best choice depends on where your users are based. For information about how to choose the best URL for your use case, and a full list of valid base URLs, see [Environments](../getting-started/gs-environments.md). |
 
 :::note
-The integration environment and the production environment require different <Link href="../ref-info/glossary-uid#gl-api-key">API keys</Link>. For information about getting credentials for each environment, see [Getting your credentials](../getting-started/gs-credentials.md#getting-your-credentials).
+The integration environment and the production environment require different <Link href="../ref-info/glossary-uid#gl-api-key">API keys</Link>. For information about getting credentials for each environment, see [Getting Your Credentials](../getting-started/gs-credentials.md#getting-your-credentials).
 :::
 
-### Unencrypted JSON body parameters
+### Unencrypted JSON Body Parameters
 
 There is a single body parameter.
 
@@ -55,7 +55,7 @@ There is a single body parameter.
 | :--- | :--- | :--- | :--- |
 | `advertising_ids` |	string array |	Required |	The list of raw UID2s for which you want to check the opt-out status.<br/>Include a maximum of 5,000 entries in one API call. |
 
-### Request example
+### Request Example
 
 The following is an example of an unencrypted JSON request body:
 
@@ -75,9 +75,9 @@ The following is an encrypted opt-out status request example:
 echo '{"advertising_ids": ["ufv1uGRovNiJNbJqiE/xzM+aKE7jP69MgspOZoEQ3xc="]}' | python3 uid2_request.py https://prod.uidapi.com/v2/optout/status [Your-Client-API-Key] [Your-Client-Secret]
 ```
 
-For details, and code examples in different programming languages, see [Encrypting requests and decrypting responses](../getting-started/gs-encryption-decryption.md).
+For details, and code examples in different programming languages, see [Encrypting Requests and Decrypting Responses](../getting-started/gs-encryption-decryption.md).
 
-## Decrypted JSON response format
+## Decrypted JSON Response Format
 
 :::note
 The response is encrypted only if the HTTP status code is 200. Otherwise, the response is not encrypted.
@@ -103,7 +103,7 @@ A successful decrypted response returns the raw UID2s that have opted out. For e
 }
 ```
 
-### Response body properties
+### Response Body Properties
 
 The response body includes the following properties.
 
@@ -112,7 +112,7 @@ The response body includes the following properties.
 | `advertising_id` | string | The <Link href="../ref-info/glossary-uid#gl-advertising-id">advertising ID</Link> (raw UID2). |
 | `opted_out_since` | number | The <a href="../ref-info/glossary-uid#gl-unix-time">Unix</a> timestamp (in milliseconds) that indicates when the raw UID2 was opted out. |
 
-### Response status codes
+### Response Status Codes
 
 The following table lists the status property values and their HTTP status code equivalents.
 

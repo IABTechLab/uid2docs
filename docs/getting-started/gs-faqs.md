@@ -9,33 +9,33 @@ displayed_sidebar: docs
 import Link from '@docusaurus/Link';
 import SnptExampleTokenInBidstream from '../snippets/_snpt-example-token-in-bidstream.mdx';
 
-# Frequently asked questions
+# Frequently Asked Questions
 
 Frequently asked questions for UID2 in this document are grouped by audience, into the following general categories:
 
-- [FAQs&#8212;general](#faqsgeneral)
-- [FAQs for publishers](#faqs-for-publishers)
-- [FAQs for advertisers and data providers](#faqs-for-advertisers-and-data-providers)
+- [FAQs&#8212;General](#faqsgeneral)
+- [FAQs for Publishers](#faqs-for-publishers)
+- [FAQs for Advertisers and Data Providers](#faqs-for-advertisers-and-data-providers)
 - [FAQs for DSPs](#faqs-for-dsps)
 
 The following additional FAQ information for publishers is also available:
-- [FAQs for mobile integrations](../guides/integration-mobile-overview.md#faqs-for-mobile-integrations)
+- [FAQs for Mobile Integrations](../guides/integration-mobile-overview.md#faqs-for-mobile-integrations)
 
-## FAQs&#8212;general
+## FAQs&#8212;General
 
 Here are some frequently asked questions regarding the UID2 framework.
 
-- [Will all integration partners in the EUID infrastructure (ssps, third-party data providers, measurement providers) be automatically integrated with UID2?](#will-all-integration-partners-in-the-euid-infrastructure-ssps-third-party-data-providers-measurement-providers-be-automatically-integrated-with-uid2)
+- [Will all integration partners in the EUID infrastructure (SSPs, third-party data providers, measurement providers) be automatically integrated with UID2?](#will-all-integration-partners-in-the-euid-infrastructure-ssps-third-party-data-providers-measurement-providers-be-automatically-integrated-with-uid2)
 - [Can users opt out of targeted advertising tied to their UID2?](#can-users-opt-out-of-targeted-advertising-tied-to-their-uid2)
 - [When I send DII to UID2, does UID2 store the information?](#when-i-send-dii-to-uid2-does-uid2-store-the-information)
-- [Does UID2 allow the processing of hipaa-regulated data?](#does-uid2-allow-the-processing-of-hipaa-regulated-data)
-- [Should I use a public operator or a Private Operator?](#should-i-use-a-public-operator-or-a-private-operator)
+- [Does UID2 allow the processing of HIPAA-regulated data?](#does-uid2-allow-the-processing-of-hipaa-regulated-data)
+- [Should I use a Public Operator or a Private Operator?](#should-i-use-a-public-operator-or-a-private-operator)
 
 :::note
-For FAQs relating to mobile publisher integrations, see [FAQs for mobile integrations](../guides/integration-mobile-overview.md#faqs-for-mobile-integrations).
+For FAQs relating to mobile publisher integrations, see [FAQs for Mobile Integrations](../guides/integration-mobile-overview.md#faqs-for-mobile-integrations).
 :::
 
-#### Will all integration partners in the EUID infrastructure (ssps, third-party data providers, measurement providers) be automatically integrated with UID2?
+#### Will all integration partners in the EUID infrastructure (SSPs, third-party data providers, measurement providers) be automatically integrated with UID2?
 
 No. UID2 has its own framework, which is separate from EUID. As such, paperwork relating to accessing and using the EUID framework does not automatically grant usage and access to the UID2 framework. New contracts are required to be signed for UID2.
 
@@ -49,11 +49,11 @@ No. None of the components of the <Link href="../ref-info/glossary-uid#gl-uid2-s
 
 In addition, in almost all cases, UID2 doesn't store any values at all once the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md), [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md), or [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) call is complete. A necessary exception is the case where a user has opted out. In this scenario, UID2 stores a hashed, opaque value to indicate the opted-out user. The stored value cannot be reverse engineered back to the original value of the DII, but can be used to identify future requests for a UID2 generated from the same DII, which are therefore denied.
 
-#### Does UID2 allow the processing of hipaa-regulated data?
+#### Does UID2 allow the processing of HIPAA-regulated data?
 
 No. UID2 participants must not generate UID2s from Protected Health Information, as defined by the Health Insurance Portability and Accountability Act (HIPAA), even if they have obtained consent to engage in marketing with respect to such data.
 
-#### Should I use a public operator or a Private Operator?
+#### Should I use a Public Operator or a Private Operator?
 
 For most participants, <Link href="../ref-info/glossary-uid#gl-public-operator">Public Operator</Link> is the simplest solution. A Public Operator integration is a much easier option than hosting your own <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link>. Having a Private Operator instance has some advantages, but adds extra complexities and costs.
 
@@ -61,9 +61,9 @@ The best choice depends on your unique scenario and needs. For more information 
 
 - [The UID2 Operator](../ref-info/ref-operators-public-private.md)
 
-- [UID2 Private Operator integration overview](../guides/integration-options-private-operator.md)
+- [UID2 Private Operator Integration Overview](../guides/integration-options-private-operator.md)
 
-## FAQs for publishers
+## FAQs for Publishers
 
 Here are some frequently asked questions for publishers using the UID2 framework.
 
@@ -76,14 +76,14 @@ Here are some frequently asked questions for publishers using the UID2 framework
 - [How can I test the refresh token workflow?](#how-can-i-test-the-refresh-token-workflow)
 - [What is the uniqueness and rotation policy for UID2 tokens?](#what-is-the-uniqueness-and-rotation-policy-for-uid2-tokens)
 - [What does a UID2 token look like in the bidstream?](#what-does-a-uid2-token-look-like-in-the-bidstream)
-- [Can I integrate UID2 with single sign-on (SSO)?](#can-i-integrate-uid2-with-single-sign-on-sso)
+- [Can I integrate UID2 with Single Sign-On (SSO)?](#can-i-integrate-uid2-with-single-sign-on-sso)
 - [I'm using Prebid with a Mobile SDK&#8212;what atype value should I use?](#im-using-prebid-with-a-mobile-sdkwhat-atype-value-should-i-use)
 
 #### How can I test that the DII sent and the returned token match up?
 
 You can use the [POST&nbsp;/token/validate](../endpoints/post-token-validate.md) endpoint to check whether the <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> that you are sending through [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) is valid. `POST /token/validate` is used primarily for testing purposes.
 
-For details, see [Using POST&nbsp;/token/validate to test](../endpoints/post-token-validate.md#using-post-tokenvalidate-to-test).
+For details, see [Using POST&nbsp;/token/validate to Test](../endpoints/post-token-validate.md#using-post-tokenvalidate-to-test).
 
 #### Do I need to decrypt tokens?
 
@@ -98,9 +98,9 @@ If the user has opted out, the API response notifies you in either of these case
 #### Where should I make token generation calls&#8212;from the server side or the client side?
 
 You can generate UID2 tokens from either the client side or the server side. For more information, see:
-- Generating tokens from the client side using Prebid.js: [UID2 client-side integration guide for Prebid.js](../guides/integration-prebid-client-side.md).
-- Generating tokens from the server side using Prebid.js: [UID2 client-server integration guide for Prebid.js](../guides/integration-prebid-client-server.md).
-- Other server-side options: [Publisher integrations](../guides/summary-guides.md#publisher-integrations).
+- Generating tokens from the client side using Prebid.js: [UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md).
+- Generating tokens from the server side using Prebid.js: [UID2 Client-Server Integration Guide for Prebid.js](../guides/integration-prebid-client-server.md).
+- Other server-side options: [Publisher Integrations](../guides/summary-guides.md#publisher-integrations).
 
 #### Can I make token refresh calls from the client side?
 
@@ -110,18 +110,18 @@ Yes. The [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) can be c
 
 The recommended refresh interval is hourly.
 
-To determine when to refresh, you can use the timestamp of the `refresh_from` field in the response to the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) endpoint (see [Successful response](../endpoints/post-token-generate.md#successful-response)) or [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) endpoint (see [Successful response with tokens](../endpoints/post-token-refresh.md#successful-response-with-tokens)).
+To determine when to refresh, you can use the timestamp of the `refresh_from` field in the response to the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) endpoint (see [Successful Response](../endpoints/post-token-generate.md#successful-response)) or [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) endpoint (see [Successful Response With Tokens](../endpoints/post-token-refresh.md#successful-response-with-tokens)).
 
 You could also use one of the SDKs that has a function to check if <a href="../ref-info/glossary-uid#gl-token-refresh">token refresh</a> is needed.
 
-For details, see [Recommended token refresh frequency](../ref-info/ref-tokens.md#recommended-token-refresh-frequency) and [Managing token refresh with an SDK](../ref-info/ref-tokens.md#managing-token-refresh-with-an-sdk).
+For details, see [Recommended Token Refresh Frequency](../ref-info/ref-tokens.md#recommended-token-refresh-frequency) and [Managing Token Refresh with an SDK](../ref-info/ref-tokens.md#managing-token-refresh-with-an-sdk).
 
 #### How can I test the refresh token workflow?
 
 You can use the `refresh-optout@example.com` email address or the `+00000000002` phone number to test your token refresh workflow. Using either parameter value in a request always generates an identity response with a `refresh_token` that results in a logout response.
 
 :::tip
-To get the normalized, hashed, and Base64-encoded hashed values for any email address, or the hashed and Base64-encoded hashed values for a phone number, you can use the hashing tool: see [UID2 hashing tool](gs-normalization-encoding.md#uid2-hashing-tool).
+To get the normalized, hashed, and Base64-encoded hashed values for any email address, or the hashed and Base64-encoded hashed values for a phone number, you can use the hashing tool: see [UID2 Hashing Tool](gs-normalization-encoding.md#uid2-hashing-tool).
 :::
 
 The procedure is a little different depending on whether or not you are using an SDK.
@@ -158,11 +158,11 @@ There are many ways to approach UID2 implementation. Here is one example of a co
 
 <SnptExampleTokenInBidstream />
 
-#### Can I integrate UID2 with single sign-on (SSO)?
+#### Can I integrate UID2 with Single Sign-On (SSO)?
 
 Yes. With popular <a href="../ref-info/glossary-uid#gl-sso">SSO</a> integration options such as Sign in with Google, Facebook Login, Sign in with Apple, or OpenPass, you can retrieve the email address and use it to generate a UID2.
 
-For details, see [Publisher integration with SSO providers](/docs/ref-info/ref-integration-sso-providers.md).
+For details, see [Publisher Integration with SSO Providers](/docs/ref-info/ref-integration-sso-providers.md).
 
 #### I'm using Prebid with a Mobile SDK&#8212;what atype value should I use?
 
@@ -174,7 +174,7 @@ For details, refer to these sections in the IAB documentation:
 - [Object: Extended Identifier UIDs](https://github.com/InteractiveAdvertisingBureau/AdCOM/blob/main/AdCOM%20v1.0%20FINAL.md#object_eid_uids)
 - [List: Agent Types](https://github.com/InteractiveAdvertisingBureau/AdCOM/blob/main/AdCOM%20v1.0%20FINAL.md#list_agenttypes)
 
-## FAQs for advertisers and data providers
+## FAQs for Advertisers and Data Providers
 
 Here are some frequently asked questions for advertisers and data providers using the UID2 framework.
 
@@ -233,7 +233,7 @@ In general yes, the process of generating a raw UID2 from DII is the same, and r
 
 However, there is a variable factor that's used in generating the raw UID2. The underlying values are refreshed roughly once per year (for details, see [How often should raw UID2s be refreshed for incremental updates?](#how-often-should-raw-uid2s-be-refreshed-for-incremental-updates)). If these values change between one request and another, those two requests result in two different raw UID2s, even when the DII is the same.
 
-For more information, see [Monitor for raw UID2 refresh](../guides/integration-advertiser-dataprovider-overview.md#5-monitor-for-raw-uid2-refresh) in the *Advertiser/Data Provider Integration Guide*.
+For more information, see [Monitor for Raw UID2 Refresh](../guides/integration-advertiser-dataprovider-overview.md#5-monitor-for-raw-uid2-refresh) in the *Advertiser/Data Provider Integration Guide*.
 
 #### If two operators process the same DII, are the results the same?
 
@@ -255,7 +255,7 @@ We do not make any promises about when the rotation takes place. To stay as up-t
 
 #### Do refreshed emails get assigned to the same bucket that they were previously associated with?
 
-Not necessarily. After you remap emails associated with a particular bucket ID, the emails might be assigned to a different bucket ID. To check the bucket ID, see [Generate raw UID2s from DII](../guides/integration-advertiser-dataprovider-overview.md#1-generate-raw-uid2s-from-dii) and save the returned raw UID2 and bucket ID again.
+Not necessarily. After you remap emails associated with a particular bucket ID, the emails might be assigned to a different bucket ID. To check the bucket ID, see [Generate Raw UID2s from DII](../guides/integration-advertiser-dataprovider-overview.md#1-generate-raw-uid2s-from-dii) and save the returned raw UID2 and bucket ID again.
 
 :::info
 When mapping and remapping emails, do not make any assumptions about the number of buckets, their rotation dates, or the specific bucket that an email gets assigned to.
@@ -316,7 +316,7 @@ Yes, all opt-outs from the UID2 [Transparency and Control Portal](https://www.tr
 
 #### Is the DSP expected to handle opt-out signals only for the UID2s that they already store?
 
-In some cases a DSP may receive a UID2 token for a newly-stored UID2 where the token is generated before the opt-out timestamp. The DSP is not allowed to bid on such tokens. It is therefore recommended to store all opt-out signals regardless of whether the corresponding UID2 is currently stored by the DSP or not. For details, see the diagram in [Bidding opt-out logic](../guides/dsp-guide.md#bidding-opt-out-logic).
+In some cases a DSP may receive a UID2 token for a newly-stored UID2 where the token is generated before the opt-out timestamp. The DSP is not allowed to bid on such tokens. It is therefore recommended to store all opt-out signals regardless of whether the corresponding UID2 is currently stored by the DSP or not. For details, see the diagram in [Bidding Opt-Out Logic](../guides/dsp-guide.md#bidding-opt-out-logic).
 
 #### How long should the DSP keep the opt-out list?
 
@@ -330,7 +330,7 @@ No. It is sent as an unencrypted (raw) UID2.
 
 If a user has opted out, the UID2 Operator returns the raw UID2s as URL-encoded query parameters.
 
-For details about the opt-out process for DSPs, see [Honor user opt-outs](../guides/dsp-guide.md#honor-user-opt-outs).
+For details about the opt-out process for DSPs, see [Honor User Opt-Outs](../guides/dsp-guide.md#honor-user-opt-outs).
 
 #### What request type do opt-outs use? 
 

@@ -20,26 +20,26 @@ Used by: This endpoint is used mainly by publishers.
 Rather than calling this endpoint directly, you could use one of the SDKs to manage it for you. For a summary of options, see [SDKs: Summary](../sdks/summary-sdks.md).
 
 :::important
-Whatever option you use, the data that you send for generating UID2s must be normalized, hashed, and encoded before sending. For details, see [Normalization and encoding](../getting-started/gs-normalization-encoding.md).
+Whatever option you use, the data that you send for generating UID2s must be normalized, hashed, and encoded before sending. For details, see [Normalization and Encoding](../getting-started/gs-normalization-encoding.md).
 :::
 
-## Request format 
+## Request Format 
 
 `POST '{environment}/v2/token/generate'`
 
-For authentication details, see [Authentication and authorization](../getting-started/gs-auth.md).
+For authentication details, see [Authentication and Authorization](../getting-started/gs-auth.md).
 
 Here's what you need to know about sending requests to this endpoint:
 - To ensure that the <Link href="../ref-info/glossary-uid#gl-api-key">API key</Link> used to access the service remains secret, UID2 tokens must be generated only on the server side after authentication. 
-- You must encrypt all requests using your secret. For details, and code examples in different programming languages, see [Encrypting requests and decrypting responses](../getting-started/gs-encryption-decryption.md).
+- You must encrypt all requests using your secret. For details, and code examples in different programming languages, see [Encrypting Requests and Decrypting Responses](../getting-started/gs-encryption-decryption.md).
 
-### Path parameters
+### Path Parameters
 
 | Path Parameter | Data Type | Attribute | Description |
 | :--- | :--- | :--- | :--- |
 | `{environment}` | string | Required | Testing (integration) environment: `https://operator-integ.uidapi.com`<br/>Production environment: The best choice depends on where your users are based. For information about how to choose the best URL for your use case, and a full list of valid base URLs, see [Environments](../getting-started/gs-environments.md).<br/>Notes:<ul><li>The `integ` environment and the `prod` environment require different <Link href="../ref-info/glossary-uid#gl-api-key">API keys</Link>.</li><li>Token expiration time is subject to change, but is always significantly shorter in the `integ` environment than it is in the `prod` environment.</li></ul> |
 
-### Unencrypted JSON body parameters
+### Unencrypted JSON Body Parameters
 
 :::important
 You must include only **one** of the following four conditional parameters as key-value pairs in the JSON body of the request when encrypting it.
@@ -52,10 +52,10 @@ You must include only **one** of the following four conditional parameters as ke
 | `phone` | string | Conditionally Required | The [normalized](../getting-started/gs-normalization-encoding.md#phone-number-normalization) phone number for which to generate tokens. |
 | `phone_hash` | string | Conditionally Required | The [Base64-encoded SHA-256](../getting-started/gs-normalization-encoding.md#phone-number-hash-encoding) hash of a [normalized](../getting-started/gs-normalization-encoding.md#phone-number-normalization) phone number. |
 
-### Request examples
+### Request Examples
 
 :::important
-To ensure that the API key used to access the service remains secret, the `POST /token/generate` endpoint must be called from the server side, unlike [POST&nbsp;/token/refresh](post-token-refresh.md) which does not require using an API key. If you want to generate tokens on the client side, see [Client-side integration options](../guides/integration-options-publisher-web.md#client-side-integration-options) (for web-based implementations) or [UID2 client-side integration guide for mobile](../guides/integration-mobile-client-side.md).
+To ensure that the API key used to access the service remains secret, the `POST /token/generate` endpoint must be called from the server side, unlike [POST&nbsp;/token/refresh](post-token-refresh.md) which does not require using an API key. If you want to generate tokens on the client side, see [Client-Side Integration Options](../guides/integration-options-publisher-web.md#client-side-integration-options) (for web-based implementations) or [UID2 Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side.md).
 :::
 
 The following are unencrypted JSON request body examples for each parameter, one of which you should include in your token generation requests:
@@ -86,9 +86,9 @@ Here's an encrypted token generation request example for an email hash:
 ```sh
 echo '{"email_hash": "tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ="}' | python3 uid2_request.py https://prod.uidapi.com/v2/token/generate [Your-Client-API-Key] [Your-Client-Secret]
 ```
-For details, and code examples in different programming languages, see [Encrypting requests and decrypting responses](../getting-started/gs-encryption-decryption.md).
+For details, and code examples in different programming languages, see [Encrypting Requests and Decrypting Responses](../getting-started/gs-encryption-decryption.md).
 
-## Decrypted JSON response format 
+## Decrypted JSON Response Format 
 
 :::note
 The response is encrypted only if the HTTP status code is 200. Otherwise, the response is not encrypted.
@@ -96,10 +96,10 @@ The response is encrypted only if the HTTP status code is 200. Otherwise, the re
 
 This section includes the following sample responses:
 
-* [Successful response](#successful-response)
+* [Successful Response](#successful-response)
 * [Optout](#optout)
 
-#### Successful response
+#### Successful Response
 
 A successful decrypted response returns the user's advertising and refresh tokens for the specified email address, phone number, or the respective hash.
 
@@ -115,7 +115,7 @@ Here is an example response when the user has opted out.
 }
 ```
 
-### Response body properties
+### Response Body Properties
 
 The response body includes the properties shown in the following table.
 
@@ -128,7 +128,7 @@ The response body includes the properties shown in the following table.
 | `refresh_expires` | number | The Unix timestamp (in milliseconds) that indicates when the refresh token expires. |
 | `refresh_response_key` | string | A key to be used in a [POST&nbsp;/token/refresh](post-token-refresh.md) request for response decryption. |
 
-### Response status codes
+### Response Status Codes
 
 The following table lists the `status` property values and their HTTP status code equivalents.
 
@@ -141,7 +141,7 @@ The following table lists the `status` property values and their HTTP status cod
 
 If the `status` value is anything other than `success`, the `message` field provides additional information about the issue.
 
-## Test identities
+## Test Identities
 
 | Type  | Identity                     | Purpose                                                                                                                                    | Next Endpoint                                       |
 |:------|:-----------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------|

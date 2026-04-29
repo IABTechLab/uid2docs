@@ -8,25 +8,25 @@ displayed_sidebar: docs
 
 import Link from '@docusaurus/Link';
 
-# API keys
+# API Keys
 
 :::note
-These instructions are for client-server or server-side implementations. If your UID2 implementation will be client-side, or visible to the public in any way, you'll need to set up different values. For details, see [Client-side integration](client-side-integration.md).
+These instructions are for client-server or server-side implementations. If your UID2 implementation will be client-side, or visible to the public in any way, you'll need to set up different values. For details, see [Client-Side Integration](client-side-integration.md).
 :::
 
 In the UID2 Portal, on the **API Keys** page, you can perform all activities relating to managing the API keys for your UID2 account, including the following:
 
-- [Adding an API key](#adding-an-api-key)
-- [Modifying an API key](#modifying-an-api-key)
-- [Deleting an API key](#deleting-an-api-key)
-- [Rotating an API key](#rotating-an-api-key)
+- [Adding an API Key](#adding-an-api-key)
+- [Modifying an API Key](#modifying-an-api-key)
+- [Deleting an API Key](#deleting-an-api-key)
+- [Rotating an API Key](#rotating-an-api-key)
 
 ## Overview
 
 The API key and client secret allow you to connect to the UID2 <Link href="../ref-info/glossary-uid#gl-operator-service">Operator Service</Link> and call API endpoints, directly or via one of the UID2 SDKs. These values identify you to the service.
 
 :::important
-When you add an API key in the UID2 Portal, you must store the key and its corresponding secret securely and do everything necessary to make sure that these values are not compromised. For more information, see [API key and client secret](../getting-started/gs-credentials.md#api-key-and-client-secret).
+When you add an API key in the UID2 Portal, you must store the key and its corresponding secret securely and do everything necessary to make sure that these values are not compromised. For more information, see [API Key and Client Secret](../getting-started/gs-credentials.md#api-key-and-client-secret).
 :::
 
 We recommend rotating each API key on a yearly basis. 
@@ -38,9 +38,9 @@ When you add an API key, you can assign one or more of the following permissions
 - Sharer
 - Bidder
 
-For details, see [API permissions](../getting-started/gs-permissions.md).
+For details, see [API Permissions](../getting-started/gs-permissions.md).
 
-## Adding an API key
+## Adding an API Key
 
 To add an API key, complete the following steps:
 
@@ -49,7 +49,7 @@ To add an API key, complete the following steps:
 1. In the  **Add API Key** page, provide a name for the new key.
 1. In the API Permissions section, choose one or more permissions for your key.
 
-    Choose only the permissions that you need. For example, if you're a publisher, choose the Generator role. For details, see [API permissions](../getting-started/gs-permissions.md).
+    Choose only the permissions that you need. For example, if you're a publisher, choose the Generator role. For details, see [API Permissions](../getting-started/gs-permissions.md).
 
     :::note
     If the permission that you want to add isn't available for selection, ask your UID2 contact.
@@ -69,7 +69,7 @@ To add an API key, complete the following steps:
 
    On the **API Keys** page, the new key is displayed with the name, Key ID, permissions, and the date it was created.
 
-## Modifying an API key
+## Modifying an API Key
 
 After you've added an API key, you can edit the following:
 
@@ -83,7 +83,7 @@ To modify an API key, complete the following steps:
 1. In the Actions column, click ![the Edit icon](images/icon-pencil-solid.png) (the Edit icon).
 1. Update the information, and then click **Save Key**.
 
-## Deleting an API key
+## Deleting an API Key
 
 If a key is compromised, you'll need to remove it.
 
@@ -100,22 +100,22 @@ To delete an API key, follow these steps:
 
    The key is removed from the display and is no longer valid.
 
-## Rotating an API key
+## Rotating an API Key
 
 We recommend rotating each API key on a yearly basis. To rotate an API key, follow these steps:
 
 1. In the UID2 Portal, go to the **API Keys** page.
 1. Find the key in the list that needs to be rotated.
-1. Add a new key with the same permissions as the key that needs to be rotated. For details, see [Adding an API key](#adding-an-api-key).
+1. Add a new key with the same permissions as the key that needs to be rotated. For details, see [Adding an API Key](#adding-an-api-key).
 1. Update your UID2 implementation to use the new key instead of the key that needs to be rotated.
 1. Ensure the new key is being used without issues. For example, make sure there is no degradation to the service or error logs related to the API key usage.
-1. Delete the old key. For details, see [Deleting an API key](#deleting-an-api-key).
+1. Delete the old key. For details, see [Deleting an API Key](#deleting-an-api-key).
 
-## Security recommendations for API keys
+## Security Recommendations for API Keys
 
 It's a security best practice, though not required, to have separate keys for separate roles.
 
-For additional security recommendations, see [Security of API key and client secret](../getting-started/gs-credentials.md#security-of-api-key-and-client-secret).
+For additional security recommendations, see [Security of API Key and Client Secret](../getting-started/gs-credentials.md#security-of-api-key-and-client-secret).
 
 <!-- In some instances, you might create API keys for one permission/role and then want to add a role to your account. For example, you might be an advertiser, but also want to operate as an inventory provider.
 

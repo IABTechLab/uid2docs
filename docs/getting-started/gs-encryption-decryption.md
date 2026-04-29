@@ -11,10 +11,10 @@ import TabItem from '@theme/TabItem';
 import Link from '@docusaurus/Link';
 import SnptIdentityGenerateResponse from '../snippets/_snpt-example-identity-generate-response.mdx';
 
-# Encrypting requests and decrypting responses
+# Encrypting Requests and Decrypting Responses
 
 :::note
-If you're a publisher and are implementing UID2 on the client side, encryption and decryption is managed automatically by your implementation, such as Prebid.js (see [UID2 client-side integration guide for Prebid.js](../guides/integration-prebid-client-side.md)) or the JavaScript SDK (see [Client-side integration guide for JavaScript](../guides/integration-javascript-client-side.md)).
+If you're a publisher and are implementing UID2 on the client side, encryption and decryption is managed automatically by your implementation, such as Prebid.js (see [UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md)) or the JavaScript SDK (see [Client-Side Integration Guide for JavaScript](../guides/integration-javascript-client-side.md)).
 :::
 
 For almost all UID2 [endpoints](../endpoints/summary-endpoints.md), requests sent to the endpoint must be [encrypted](#encrypting-requests) and responses from the endpoint must be [decrypted](#decrypting-responses).
@@ -24,7 +24,7 @@ The only exception is that requests to the [POST&nbsp;/token/refresh](../endpoin
 Here's what you need to know about encrypting UID2 API requests and decrypting respective responses:
 
 - To use the APIs, in addition to your client API key, you need your client secret.
-- You can write your own custom code or use one of the code examples provided: see [Encryption and decryption code examples](#encryption-and-decryption-code-examples).
+- You can write your own custom code or use one of the code examples provided: see [Encryption and Decryption Code Examples](#encryption-and-decryption-code-examples).
 - Request and response use AES/GCM/NoPadding encryption algorithm with 96-bit initialization vector and 128-bit authentication tag.
 - The raw, unencrypted JSON body of the request is wrapped in a binary [unencrypted request data envelope](#unencrypted-request-data-envelope) which then gets encrypted and formatted according to the [encrypted request envelope](#encrypted-request-envelope).
 - The response JSON body is wrapped in a binary [unencrypted response data envelope](#unencrypted-response-data-envelope) which is encrypted and formatted according to the [encrypted response envelope](#encrypted-response-envelope).
@@ -36,11 +36,11 @@ The high-level request-response workflow for the UID2 APIs includes the followin
 1. Prepare the request body with input parameters in the JSON format.
 2. Wrap the request JSON in an [unencrypted request data envelope](#unencrypted-request-data-envelope).
 3. Encrypt the envelope using AES/GCM/NoPadding algorithm and your secret key.
-4. Assemble the [Encrypted request envelope](#encrypted-request-envelope).
+4. Assemble the [Encrypted Request Envelope](#encrypted-request-envelope).
 5. Send the encrypted request and receive the encrypted response.
-6. Parse the [Encrypted response envelope](#encrypted-response-envelope).
+6. Parse the [Encrypted Response Envelope](#encrypted-response-envelope).
 7. Decrypt the data in the response envelope.
-8. Parse the resulting [Unencrypted response data envelope](#unencrypted-response-data-envelope).
+8. Parse the resulting [Unencrypted Response Data Envelope](#unencrypted-response-data-envelope).
 9. (Optional, recommended) Ensure that the nonce in the response envelope matches the nonce in the request envelope.
 10. Extract the response JSON object from the unencrypted envelope.
 
@@ -48,21 +48,21 @@ A code example for [encrypting requests and decrypting responses](#encryption-an
 
 Documentation for the individual UID2 [endpoints](../endpoints/summary-endpoints.md) explains the respective JSON body format requirements and parameters, includes call examples, and shows decrypted responses. The following sections provide encryption and decryption code examples, field layout requirements, and request and response examples.
 
-## Encrypting requests
+## Encrypting Requests
 
-You have the option of writing your own code for encrypting requests, using a UID2 SDK, or using one of the provided code examples (see [Encryption and decryption code examples](#encryption-and-decryption-code-examples)). If you choose to write your own code, be sure to follow the field layout requirements listed in [Unencrypted request data envelope](#unencrypted-request-data-envelope) and [Encrypted request envelope](#encrypted-request-envelope).
+You have the option of writing your own code for encrypting requests, using a UID2 SDK, or using one of the provided code examples (see [Encryption and Decryption Code Examples](#encryption-and-decryption-code-examples)). If you choose to write your own code, be sure to follow the field layout requirements listed in [Unencrypted Request Data Envelope](#unencrypted-request-data-envelope) and [Encrypted Request Envelope](#encrypted-request-envelope).
 
-### Unencrypted request data envelope
+### Unencrypted Request Data Envelope
 
 The following table describes the field layout for request encryption code.
 
 | Offset (Bytes) | Size (Bytes) | Description |
 | :--- | :--- | :--- |
 | 0 | 8 | The <a href="../ref-info/glossary-uid#gl-unix-time">Unix</a> timestamp (in milliseconds) of the request, in int64 big endian format.<br/>When the server receives and decrypts the envelope, it checks the embedded timestamp. If the timestamp is older than 60 seconds, the request is considered stale and is rejected. |
-| 8 | 8 | Nonce: Random 64 bits of data used to help protect against replay attacks. The corresponding [Unencrypted response data envelope](#unencrypted-response-data-envelope) should contain the same nonce value for the response to be considered valid. |
+| 8 | 8 | Nonce: Random 64 bits of data used to help protect against replay attacks. The corresponding [Unencrypted Response Data Envelope](#unencrypted-response-data-envelope) should contain the same nonce value for the response to be considered valid. |
 | 16 | N | Payload, which is a request JSON document serialized in UTF-8 encoding. |
 
-### Encrypted request envelope
+### Encrypted Request Envelope
 
 The following table describes the field layout for request encryption code.
 
@@ -73,25 +73,25 @@ The following table describes the field layout for request encryption code.
 | 13 | N | Payload ([unencrypted request data envelope](#unencrypted-request-data-envelope)) encrypted using the AES/GCM/NoPadding algorithm. |
 | 13 + N | 16 | 128-bit GCM authentication tag used to verify data integrity. |
 
-## Decrypting responses
+## Decrypting Responses
 
-You have the option of writing your own code for decrypting responses, using a UID2 SDK, or using one of the provided code examples (see [Encryption and decryption code examples](#encryption-and-decryption-code-examples)). If you choose to write your own code, be sure to follow the field layout requirements listed in [Encrypted response envelope](#encrypted-response-envelope) and [Unencrypted response data envelope](#unencrypted-response-data-envelope).
+You have the option of writing your own code for decrypting responses, using a UID2 SDK, or using one of the provided code examples (see [Encryption and Decryption Code Examples](#encryption-and-decryption-code-examples)). If you choose to write your own code, be sure to follow the field layout requirements listed in [Encrypted Response Envelope](#encrypted-response-envelope) and [Unencrypted Response Data Envelope](#unencrypted-response-data-envelope).
 
 :::note
 The response is encrypted only if the service returns HTTP status code 200.
 :::
 
-### Encrypted response envelope
+### Encrypted Response Envelope
 
 The following table describes the field layout for response decryption code.
 
 | Offset (Bytes) | Size (Bytes) | Description |
 | :--- | :--- | :--- |
 | 0 | 12 | 96-bit initialization vector (IV), which is used to randomize data encryption. |
-| 12 | N | Payload ([Unencrypted response data envelope](#unencrypted-response-data-envelope)) encrypted using the AES/GCM/NoPadding algorithm. |
+| 12 | N | Payload ([Unencrypted Response Data Envelope](#unencrypted-response-data-envelope)) encrypted using the AES/GCM/NoPadding algorithm. |
 | 12 + N | 16 | 128-bit GCM authentication tag used to verify data integrity. |
 
-### Unencrypted response data envelope
+### Unencrypted Response Data Envelope
 
 The following table describes the field layout for response decryption code.
 
@@ -101,13 +101,13 @@ The following table describes the field layout for response decryption code.
 | 8 | 8 | Nonce. For the response to be considered valid, this should match the nonce in the [unencrypted request data envelope](#unencrypted-request-data-envelope). |
 | 16 | N | Payload, which is a response JSON document serialized in UTF-8 encoding. |
 
-### Response example
+### Response Example
 
 For example, a decrypted response to the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) request for an email address might look like this:
 
 <SnptIdentityGenerateResponse />
 
-## Encryption and decryption code examples
+## Encryption and Decryption Code Examples
 
 This section includes encryption and decryption code examples in different programming languages.
 
@@ -117,7 +117,7 @@ For the [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) endpoint,
 For Windows, if you're using Windows Command Prompt instead of PowerShell, you must also remove the single quotes surrounding the JSON. For example, use `echo {"email": "test@example.com"}`.
 :::
 
-### Prerequisites and notes
+### Prerequisites and Notes
 
 Before using the code example, check the prerequisites and notes for the language you're using.
 
@@ -215,9 +215,9 @@ The following code example encrypts requests and decrypts responses using Go. Th
 </TabItem>
 </Tabs>
 
-### Code example
+### Code Example
 
-Choose the code example you want to use. Remember to review the [Prerequisites and notes](#prerequisites-and-notes).
+Choose the code example you want to use. Remember to review the [Prerequisites and Notes](#prerequisites-and-notes).
 
 <Tabs groupId="language-selection">
 <TabItem value='py' label='Python'>

@@ -12,28 +12,28 @@ import TabItem from '@theme/TabItem';
 import SnptExampleUid2Cookie from '../snippets/_snpt-example-uid2-cookie.mdx';
 import SnptExampleJavaScriptInit from '../snippets/_snpt-example-javascript-init.mdx';
 
-# SDK for JavaScript reference guide
+# SDK for JavaScript Reference Guide
 
 Use this SDK to facilitate the process of generating or establishing client identity using UID2, retrieving advertising tokens for <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link> use, and automatically refreshing UID2 tokens.
 
 The following sections describe the high-level [workflow](#workflow-overview) for establishing UID2 identity, provide the SDK [API reference](#api-reference), and explain the UID2 [storage format](#uid2-storage-format).
 
 :::tip
-If you're using Prebid.js with the UID2 Identity Module, or with another product that has UID2 support, you probably don't need to use the SDK at all. The Prebid.js module manages everything. For details, see [UID2 client-side integration guide for Prebid.js](../guides/integration-prebid-client-side.md).
+If you're using Prebid.js with the UID2 Identity Module, or with another product that has UID2 support, you probably don't need to use the SDK at all. The Prebid.js module manages everything. For details, see [UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md).
 :::
 
 For integration steps for publishers, refer to one of the following:
-  - [Client-side integration guide for JavaScript](../guides/integration-javascript-client-side.md)
-  - [Client-server integration guide for JavaScript](../guides/integration-javascript-client-server.md)
+  - [Client-Side Integration Guide for JavaScript](../guides/integration-javascript-client-side.md)
+  - [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md)
 
-## SDK version
+## SDK Version
 
 This page describes version 4 of the UID2 SDK for JavaScript, which is the latest version. If you're using an earlier version, we recommend that you upgrade your integration, using the [migration guide](#migration-guide). If needed, documentation is also available for the following earlier versions:
 
 - [Version 3](./sdk-ref-javascript-v3.md)
 - [Version 2.x and earlier](./sdk-ref-javascript-v2.md)
 
-## Changes in version 4
+## Changes in Version 4
 
 Version 4 includes the following key changes from version 3:
 
@@ -51,7 +51,7 @@ This SDK simplifies development for publishers who want to build their own custo
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | &#8212; | &#8212; | &#9989; | &#9989; | &#8212; | &#8212; |
 
-## Sample implementations
+## Sample Implementations
 
 For sample implementations with associated documentation, see:
   - Client-Side Integration Using UID2 SDK for JavaScript:
@@ -61,30 +61,30 @@ For sample implementations with associated documentation, see:
     - [Code](https://github.com/IABTechLab/uid2-examples/tree/main/web-integrations/javascript-sdk/client-server)
     - Running site: [Client-Server UID2 Integration Example](https://js-client-server.samples.uidapi.com/)
 
-## UID2 account setup
+## UID2 Account Setup
 
-To integrate with UID2, you'll need to have a UID2 account. If you haven't yet created an account, first follow the steps described on the [Account setup](../getting-started/gs-account-setup.md) page.
+To integrate with UID2, you'll need to have a UID2 account. If you haven't yet created an account, first follow the steps described on the [Account Setup](../getting-started/gs-account-setup.md) page.
 
-## API permissions
+## API Permissions
 
-When initial account setup is complete, you'll receive instructions and a link to access the [UID2 portal](../portal/portal-overview.md), where you can:
+When initial account setup is complete, you'll receive instructions and a link to access the [UID2 Portal](../portal/portal-overview.md), where you can:
 - Generate [credentials](../getting-started/gs-credentials.md) for your account.
 - Optional: For a client-side implementation, set up configuration values such as domain names.
 - Optional: Configure other values, such as setting up information about team members.
 
 You'll be granted permission to use specific functions offered by the SDK, and given credentials for that access.
 
-## SDK version
+## SDK Version
 
 This documentation is for version 4 of the SDK for JavaScript.
 
-## Github repository
+## GitHub Repository
 
 The source for this SDK is in the following open-source GitHub repository:
 
 - [https://github.com/iabtechlab/uid2-web-integrations](https://github.com/iabtechlab/uid2-web-integrations)
 
-## SDK distribution
+## SDK Distribution
 
 The SDK is published in these locations:
 
@@ -107,10 +107,10 @@ The SDK is published in these locations:
 In this document, the following terms apply:
 - **Identity** refers to a package of values, returned by the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) or [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) endpoint, that includes the UID2 token, the refresh token, and associated values such as timestamps.
 - **Advertising token** refers to the UID2 token.
-- **Callback function** refers to a callback function built for the current version of this SDK and registered using the [Array push pattern](#array-push-pattern).
+- **Callback function** refers to a callback function built for the current version of this SDK and registered using the [Array Push Pattern](#array-push-pattern).
 - **Legacy callback function** refers to a callback function built for version 1.x or 2.x of this SDK and registered in the call to `init`.
 
-## Include the SDK script
+## Include the SDK Script
 
 On every page where you want to use UID2 for targeted advertising, include the following SDK script:
 
@@ -118,7 +118,7 @@ On every page where you want to use UID2 for targeted advertising, include the f
 <script src="https://cdn.prod.uidapi.com/uid2-sdk-4.0.1.js" type="text/javascript"></script> 
 ```
 
-### Async or defer loading the SDK script
+### Async or Defer Loading the SDK Script
 
 Version 3 and above of the SDK can be used with `async` or `defer` script loading.
 
@@ -135,11 +135,11 @@ If you are using `async` or `defer` script loading on your site, do the followin
    </head>
    ```
 
-## Workflow overview
+## Workflow Overview
 
 The high-level client-side workflow for establishing UID2 identity using the SDK consists of the following steps:
 
-1. Register a callback function using the [Array push pattern](#array-push-pattern).
+1. Register a callback function using the [Array Push Pattern](#array-push-pattern).
 2. When your callback receives the `SdkLoaded` event, initialize the SDK using the [init](#initopts-object-void) function.
 3. Wait for your event listener to receive the `InitCompleted` event. The event data indicates the identity availability:
 	- If the identity is available, it is returned in the event payload. The SDK sets up a [background token auto-refresh](#background-token-auto-refresh).
@@ -151,9 +151,9 @@ The high-level client-side workflow for establishing UID2 identity using the SDK
 	- If the advertising token is available, use it to initiate requests for targeted advertising.
 	- If the advertising token is not available, either use untargeted advertising or redirect the user to the data capture with the consent form.
 
-For more detailed web integration steps, see [Client-server integration guide for JavaScript](../guides/integration-javascript-client-server.md).
+For more detailed web integration steps, see [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md).
 
-### Background token auto-refresh
+### Background Token Auto-Refresh
 
 As part of the SDK [initialization](#initopts-object-void), a token auto-refresh for the identity is set up, which is triggered in the background by the timestamps on the identity or by failed refresh attempts due to intermittent errors.
 
@@ -161,14 +161,14 @@ Here's what you need to know about the token auto-refresh:
 
 - Only one token refresh call can be active at a time. 
 - If the [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) response is unsuccessful because the user has opted out, or because the refresh token has expired, this suspends the background auto-refresh process. To use UID2-based targeted advertising again if the refresh token has expired, you must obtain the email or phone number from the consumer. If the user has opted out, take no further steps. In all other cases, auto-refresh attempts continue in the background.
-- All [callback functions](#callback-function) provided using the [Array push pattern](#array-push-pattern) are invoked in the following cases:
+- All [callback functions](#callback-function) provided using the [Array Push Pattern](#array-push-pattern) are invoked in the following cases:
 	- After each successful refresh attempt.
 	- When identity has become invalid&#8212;for example, because the user has opted out.<br/>NOTE: The callback is *not* invoked when identity is temporarily unavailable and the auto-refresh keeps failing. In this case, the SDK continues using the existing advertising token as long as it hasn't expired.
 - A [disconnect()](#disconnect-void) call cancels the active timer. 
 
-### Callback function
+### Callback Function
 
-You can register functions to receive events from the UID2 SDK using the [Array push pattern](#array-push-pattern). The following events are currently available:
+You can register functions to receive events from the UID2 SDK using the [Array Push Pattern](#array-push-pattern). The following events are currently available:
 - `SdkLoaded` is raised after the SDK has been parsed and the global `__uid2` object has been constructed. This is useful for calling `init()`, especially if your script loading order is not guaranteed (for example, if you are using `async` or `defer` script loading).
 - `InitCompleted` is raised when `init()` has finished and the SDK is ready for use. If an identity was provided in the `init` call, or the SDK was able to load a previously-provided identity, the identity is included in the payload.
 - `IdentityUpdated` is raised whenever there is a new identity available, or the existing identity is no longer available.
@@ -177,7 +177,7 @@ You can register functions to receive events from the UID2 SDK using the [Array 
 You can provide as many callback functions as you want, and register them from anywhere. This allows you to split your code up in a way that makes sense for your site.
 :::
 
-#### Callback function signature
+#### Callback Function Signature
 
 Your callback function should accept two parameters: an event type and a payload. The type of the payload depends on the event type.
 
@@ -222,7 +222,7 @@ window.__uid2.callbacks.push((eventType: EventType, payload: CallbackPayload) =>
 </TabItem>
 </Tabs>
 
-#### Array push pattern
+#### Array Push Pattern
 
 In order to best support script tags that are not guaranteed to load in order (for example, if you're using `async` or `defer` script tags), use the following pattern to register callbacks:
 
@@ -237,27 +237,27 @@ This ensures the following:
 - If the SDK runs before your code does, you do not overwrite the `__uid2` object or the `callbacks` array.
 - If multiple callbacks are registered using this pattern, they do not overwrite each other.
 
-### Provide an identity to the SDK
+### Provide an Identity to the SDK
 
 Unless the SDK is able to load a previously-stored identity from local storage or the cookie, you must provide an identity to it. There are several ways to do this:
 
-- [Provide an identity by setting a first-party cookie](#provide-an-identity-by-setting-a-first-party-cookie)
-- [Provide an identity in the call to `init`](#provide-an-identity-in-the-call-to-init)
-- [Provide an identity by calling `setidentity`](#provide-an-identity-by-calling-setidentity)
+- [Provide an Identity by Setting a First-Party Cookie](#provide-an-identity-by-setting-a-first-party-cookie)
+- [Provide an Identity in the Call to `init`](#provide-an-identity-in-the-call-to-init)
+- [Provide an Identity by Calling `setIdentity`](#provide-an-identity-by-calling-setidentity)
 
-#### Provide an identity by setting a first-party cookie
+#### Provide an Identity by Setting a First-Party Cookie
 
 If you store a first-party cookie, as described in the [storage format section](#uid2-storage-format), and the value is newer than the value available in local storage, the SDK loads the value from the cookie. If you have set the `useCookie` init option to `true`, it always loads this value, and does not check local storage. You can control several other things about the cookie using [init parameters](#init-parameters).
 
-#### Provide an identity in the call to `init`
+#### Provide an Identity in the Call to `init`
 
 You can provide a new identity when you call [`init`](#initopts-object-void).
 
-#### Provide an identity by calling `setidentity`
+#### Provide an Identity by Calling `setIdentity`
 
-At any time after `init` has completed, you can call [`setidentity`](#setidentityidentity-identity-void) to provide the SDK with a new identity to use.
+At any time after `init` has completed, you can call [`setIdentity`](#setidentityidentity-identity-void) to provide the SDK with a new identity to use.
 
-## API reference
+## API Reference
 
 All interactions with the SDK for JavaScript are done through the global `__uid2` object, which is an instance of the `UID2` class. All of the following JavaScript functions are members of the `UID2` class: 
 
@@ -287,11 +287,11 @@ Initializes the SDK and establishes user identity for targeted advertising.
 
 Here's what you need to know about this function:
 
-- You can call `init()` any time after the SDK has been loaded. The recommended way to do this is by registering a callback function that handles the `SdkLoaded` event using the [Array push pattern](#array-push-pattern). By using this pattern you can make sure that your code works regardless of script load order, and that using `async` or `defer` on your script tags does not cause UID2 SDK errors.
+- You can call `init()` any time after the SDK has been loaded. The recommended way to do this is by registering a callback function that handles the `SdkLoaded` event using the [Array Push Pattern](#array-push-pattern). By using this pattern you can make sure that your code works regardless of script load order, and that using `async` or `defer` on your script tags does not cause UID2 SDK errors.
 - The `identity` property in the `init()` call refers to the `body` property of the response JSON object returned from a successful [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) or [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) call with the server-side generated identity. This is a good way to provide the identity if your server-side integration ensures you always have a current token available and it is more convenient to provide it using JavaScript.
 - If the `identity` property in the `init()` call is falsy, the SDK attempts to load the identity from local storage or the cookie.
   - Once `init()` is complete, all callbacks receive the `InitCompleted` event. If the `identity` property on the payload of this event is null, no identity could be loaded, and you should therefore [provide an identity to the SDK](#provide-an-identity-to-the-sdk). This is the recommended way to provide an identity if your server-side integration does not ensure a current identity is always available, and you need to request it from the server only when necessary.
-  - If you are using a first-party cookie (see [UID2 storage format](#uid2-storage-format)) to store the passed UID2 information for the session, a call to `init()` made by a page on a different domain might not be able to access the cookie. You can adjust the settings used for the cookie with the `cookieDomain` and `cookiePath` options.
+  - If you are using a first-party cookie (see [UID2 Storage Format](#uid2-storage-format)) to store the passed UID2 information for the session, a call to `init()` made by a page on a different domain might not be able to access the cookie. You can adjust the settings used for the cookie with the `cookieDomain` and `cookiePath` options.
 - To tune specific behaviors, initialization calls might include optional configuration [init parameters](#init-parameters).
 
 The following is an example of an `init()` call made using a callback with the server-side generated identity included.
@@ -312,37 +312,37 @@ The following is an example of an `init()` call that loads a previously-provided
 </script>
 ```
 
-#### Init parameters
+#### Init Parameters
 
 The `opts` object supports the following properties.
 
 | Property | Data Type | Attribute | Description | Default Value |
 | :--- | :--- | :--- | :--- | :--- |
-| `identity` | object | Optional | The `body` property value from a successful [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) or [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) call that has been run on the server to generate an identity.<br/>To use the identity from a first-party cookie (see [UID2 storage format](#uid2-storage-format)), leave this property empty. | N/A |
+| `identity` | object | Optional | The `body` property value from a successful [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) or [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) call that has been run on the server to generate an identity.<br/>To use the identity from a first-party cookie (see [UID2 Storage Format](#uid2-storage-format)), leave this property empty. | N/A |
 | `baseUrl` | string | Optional | The custom base URL of the UID2 operator to use when invoking the [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) endpoint.<br/>For example: `https://my.operator.com`. | `https://prod.uidapi.com`. |
 | `refreshRetryPeriod` | number | Optional | The number of milliseconds after which to retry refreshing a token if an intermittent error occurs.<br/>This value must be >= 1000. | 5000 |
-| `cookieDomain` | string | Optional | The domain name string to apply to the UID2 cookie (see [UID2 storage format](#uid2-storage-format)).<br/>For example, if the `baseUrl` is `https://my.operator.com`, the `cookieDomain` value might be `operator.com`. | `undefined` |
-| `cookiePath` | string | Optional | The path string to apply to the UID2 cookie (see [UID2 storage format](#uid2-storage-format)). | `/` |
+| `cookieDomain` | string | Optional | The domain name string to apply to the UID2 cookie (see [UID2 Storage Format](#uid2-storage-format)).<br/>For example, if the `baseUrl` is `https://my.operator.com`, the `cookieDomain` value might be `operator.com`. | `undefined` |
+| `cookiePath` | string | Optional | The path string to apply to the UID2 cookie (see [UID2 Storage Format](#uid2-storage-format)). | `/` |
 | `useCookie` | `boolean` | Optional | Set this to `true` to tell the SDK to store the identity in cookie storage instead of local storage. You can still provide an identity using a first-party cookie if this value is false or not provided. | 
 
-#### Multiple init calls
+#### Multiple Init Calls
 
 You can call the `init()` function any number of times.  In most cases, the  code will accept the latest value of a certain [init parameter](#init-parameters). For example, if init is called twice, and a different `baseUrl` is passed in each call, the `baseUrl` variable is updated to the value from the second call. 
 
 There are two exceptions to this functionality:
 
 1. If a new identity is passed in a subsequent call, and the new identity expires before the current identity, the new identity does not replace the current identity.  
-2. For every subsequent callback function passed, the function is added to the existing array of callbacks using the [Array push pattern](#array-push-pattern).
+2. For every subsequent callback function passed, the function is added to the existing array of callbacks using the [Array Push Pattern](#array-push-pattern).
 
 :::note
 If `useCookie` is updated, the location of the identity changes.  For example, if the value is updated from `true` to `false`, the first-party cookie is removed and the identity is added to local storage.
 :::
 
-### Init config
+### Init Config
 
 Calling `init()` stores an init config in a first-party cookie or local storage which can include the following parameters if given: `baseUrl`, `useCookie`, `refreshRetryPeriod`, `cookiePath`, and `cookieDomain`.  This config is used to [bootstrap init](#self-bootstrap) and save load time in future page loads.  Subsequent calls to `init()` update the config with the most recent parameters.
 
-### Self bootstrap
+### Self Bootstrap
 
 When the constructor has completed and the SDK has been put on the window object, the code will check local storage and cookie storage for a stored [init config](#init-config).  If the config exists, `init()` is automatically called with the parameters from the config, and as a result, any functions that require `init()` can be used. 
 
@@ -355,11 +355,11 @@ The `init()` function can throw the following errors.
 | `TypeError` | One of the following issues has occurred:<ul><li>The `opts` value is not an object.</li><li>A legacy callback is provided, but it is not a function.</li><li>`refreshRetryPeriod` is provided, but it is not a number.</li></ul> |
 | `RangeError` | The refresh retry period is less than 1000. |
 
-#### Legacy callback function
+#### Legacy Callback Function
 
-This is provided only for backward compatibility between version 3 or 4 and earlier versions: new integrations should use the newer [callback function](#callback-function). Note that the callback parameters are not compatible in either direction: legacy callbacks cannot be registered using the [Array push pattern](#array-push-pattern), and newer callbacks cannot be provided to `init`.
+This is provided only for backward compatibility between version 3 or 4 and earlier versions: new integrations should use the newer [callback function](#callback-function). Note that the callback parameters are not compatible in either direction: legacy callbacks cannot be registered using the [Array Push Pattern](#array-push-pattern), and newer callbacks cannot be provided to `init`.
 
-For details, see [Legacy callback function](./sdk-ref-javascript-v2#callback-function) in the documentation for earlier versions of this SDK.
+For details, see [Legacy Callback Function](./sdk-ref-javascript-v2#callback-function) in the documentation for earlier versions of this SDK.
 
 If you have already built an integration using a legacy callback function, you can use it with the current version of the SDK with no changes. However, this functionality will be removed in a future version of the SDK. We strongly recommend that you update your integration to use the newer [callback function](#callback-function) used in versions 3 and 4.
 
@@ -420,7 +420,7 @@ Specifies whether a UID2 [POST&nbsp;/token/generate](../endpoints/post-token-gen
 </script>
 ```
 
-#### Return values
+#### Return Values
 
 | Value | Description |
 | :--- | :--- |
@@ -438,7 +438,7 @@ If false, a UID2 [POST&nbsp;/token/generate](../endpoints/post-token-generate.md
   __uid2.isIdentityAvailable();
 </script>
 ```
-#### Return values
+#### Return Values
 
 | Value | Description |
 | :--- | :--- |
@@ -447,7 +447,7 @@ If false, a UID2 [POST&nbsp;/token/generate](../endpoints/post-token-generate.md
 
 ### disconnect(): void
 
-Clears the UID2 identity from the first-party cookie and local storage (see [UID2 storage format](#uid2-storage-format)). This closes the client's identity session and disconnects the client lifecycle.
+Clears the UID2 identity from the first-party cookie and local storage (see [UID2 Storage Format](#uid2-storage-format)). This closes the client's identity session and disconnects the client lifecycle.
 
 When a user logs out of the publisher's site, make the following call:
 
@@ -465,7 +465,7 @@ If you need to provide a `cookieDomain` or `cookiePath` for the SDK to access th
 
 ### callbacks
 
-This is an array that stores all of the registered callbacks. You should only interact with it using the [Array push pattern](#array-push-pattern).
+This is an array that stores all of the registered callbacks. You should only interact with it using the [Array Push Pattern](#array-push-pattern).
 
 ### setIdentity(identity: Identity): void
 
@@ -491,13 +491,13 @@ Returns true if the `init()` function has been called at least once.
 
 Returns false if `init()` has never been called.
 
-## UID2 storage format
+## UID2 Storage Format
 
 The SDK uses either local storage or a first-party cookie to store the user's identity. The default option is to use local storage, but this can be changed using an [init parameter](#init-parameters).
 
 Even when using local storage, the SDK checks to see if there is a newer identity available in a first-party cookie. This allows the SDK to make use of local storage while still allowing you to provide an identity by setting the first-party cookie.
 
-### UID2 cookie properties
+### UID2 Cookie Properties
 
 If cookie storage is being used, the cookie uses the properties in the following table.
 
@@ -508,7 +508,7 @@ If cookie storage is being used, the cookie uses the properties in the following
 | `Path` | `/` | If you want to use a different value, you can set it during SDK initialization using the `cookiePath` [init() parameter](#init-parameters). |
 | `Domain` | `undefined` | If you want to use a different value, you can set it during SDK initialization using the `cookieDomain` [init() parameter](#init-parameters). |
 
-### Contents structure
+### Contents Structure
 
 The content of the UID2 local storage or cookie is a URI-encoded string representation of a JSON object with the structure identical to that of the `body` property in a [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) or [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) response, with the exception of the `private` object. 
 
@@ -520,27 +520,27 @@ The following is an example of the UID2 cookie structure:
 The contents of the `private` object are explicitly unspecified and are left for the SDK to interpret. Do not make any assumptions about the structure, semantics, or compatibility of this object. Any updates to the cookie must retain its structure.
 :::
 
-## Migration guide
+## Migration Guide
 
 This section includes all the information you need to upgrade from an earlier version of the SDK for JavaScript to the current version, v4. It includes:
 
-- [Benefits of migrating](#benefits-of-migrating)
-- [Required changes](#required-changes)
-- [Recommended changes](#recommended-changes)
-- [Optional changes](#optional-changes)
+- [Benefits of Migrating](#benefits-of-migrating)
+- [Required Changes](#required-changes)
+- [Recommended Changes](#recommended-changes)
+- [Optional Changes](#optional-changes)
 
-### Benefits of migrating
+### Benefits of Migrating
 
 Migrating to version 4 gives you the following benefits introduced in versions 3 and 4:
 
-- [Benefits in version 3](#benefits-in-version-3)
-- [Benefits in version 4](#benefits-in-version-4)
+- [Benefits in Version 3](#benefits-in-version-3)
+- [Benefits in Version 4](#benefits-in-version-4)
 
 :::important
-Version 3 of the SDK is fully backwards-compatible with earlier versions, but includes deprecated elements which were removed in version 4. To migrate to version 4, you must change your script tag to refer to the new URL. In addition, if your integration references any of the items listed in [Changes in version 4](#changes-in-version-4), and is not updated, you must make those updates as part of upgrading to version 4. For example, make sure your code no longer uses the `abort()` function, which has been removed in version 4.
+Version 3 of the SDK is fully backwards-compatible with earlier versions, but includes deprecated elements which were removed in version 4. To migrate to version 4, you must change your script tag to refer to the new URL. In addition, if your integration references any of the items listed in [Changes in Version 4](#changes-in-version-4), and is not updated, you must make those updates as part of upgrading to version 4. For example, make sure your code no longer uses the `abort()` function, which has been removed in version 4.
 :::
 
-#### Benefits in version 3
+#### Benefits in Version 3
 
 In version 3:
 
@@ -552,7 +552,7 @@ In version 3:
   - If you rely on setting a first-party cookie to provide a new identity, you do not gain any benefit from this change.
   - If you only provide the identity by passing it to `init`, the SDK no longer writes to the cookie.
 
-Some of the functionality from version 2 and earlier was deprecated in version 3, and we recommended that anyone upgrading to version 3 should future proof their integration by making some code updates. This functionality was removed in version 4. If your integration references any of the items listed in [Changes in version 4](#changes-in-version-4), and is not updated, you **must** make those updates as part of upgrading to version 4.
+Some of the functionality from version 2 and earlier was deprecated in version 3, and we recommended that anyone upgrading to version 3 should future proof their integration by making some code updates. This functionality was removed in version 4. If your integration references any of the items listed in [Changes in Version 4](#changes-in-version-4), and is not updated, you **must** make those updates as part of upgrading to version 4.
 
 The legacy callback system was deprecated in version 3, and will be removed in a future version.
 
@@ -565,48 +565,48 @@ By updating your integration, you can take advantage of these features added in 
 
   This makes the SDK much easier to use in single-page app scenarios.
 
-#### Benefits in version 4
+#### Benefits in Version 4
 
-Version 4 is more robust than earlier versions. For a summary of the benefits, see [Changes in version 4](#changes-in-version-4).
+Version 4 is more robust than earlier versions. For a summary of the benefits, see [Changes in Version 4](#changes-in-version-4).
 
-### Required changes
+### Required Changes
 
 To migrate to version 4, the steps are a little different depending on how your current implementation is configured:
 
-- **Migration from version 3, with no elements from earlier versions**: The only step needed is to update your script tag to load the SDK from the version 4.0.1 CDN URL. See [Include the SDK script](#include-the-sdk-script).
+- **Migration from version 3, with no elements from earlier versions**: The only step needed is to update your script tag to load the SDK from the version 4.0.1 CDN URL. See [Include the SDK Script](#include-the-sdk-script).
 
-- **Migration from version 3, and you previously migrated from version 2 without completing the steps to update your implementation**: Update your script tag, and also update your code so that it doesn't reference elements removed in version 4. For details, see [Changes in version 4](#changes-in-version-4).
+- **Migration from version 3, and you previously migrated from version 2 without completing the steps to update your implementation**: Update your script tag, and also update your code so that it doesn't reference elements removed in version 4. For details, see [Changes in Version 4](#changes-in-version-4).
 
-- **Migration from version 2 or earlier**: Update your script tag, and also update your code so that it doesn't reference elements removed in version 4. For details, see [Changes in version 4](#changes-in-version-4).
+- **Migration from version 2 or earlier**: Update your script tag, and also update your code so that it doesn't reference elements removed in version 4. For details, see [Changes in Version 4](#changes-in-version-4).
 
-### Additional changes: Migration from v2 or earlier
+### Additional Changes: Migration from v2 or Earlier
 
 If you're migrating from a version earlier than v3, or if you previously migrated from an earlier version to version 3 without updating your code, consider the following recommended and optional changes to improve your implementation of the UID2 JavaScript SDK:
 
-- [Recommended changes](#recommended-changes)
-- [Optional changes](#optional-changes)
+- [Recommended Changes](#recommended-changes)
+- [Optional Changes](#optional-changes)
 
-#### Recommended changes
+#### Recommended Changes
 
 If you're migrating from a version earlier than v3, or if you previously migrated from an earlier version to version 3 without updating your code, we strongly recommend that you implement the following changes in your code:
 
-- [Migrate to the newer callback system introduced in version 3](#migrate-to-the-newer-callback-system-introduced-in-version-3)
-- [Take advantage of `setidentity` and other features introduced in version 3](#take-advantage-of-setidentity-and-other-features-introduced-in-version-3)
+- [Migrate to the Newer Callback System Introduced in Version 3](#migrate-to-the-newer-callback-system-introduced-in-version-3)
+- [Take advantage of `setIdentity` and other features introduced in version 3](#take-advantage-of-setidentity-and-other-features-introduced-in-version-3)
 - [Change how you call init](#change-how-you-call-init)
 
 ##### Migrate to the Newer Callback System Introduced in Version 3
 
-In versions before version 3, the callback accepted a single object as a parameter, with properties `advertisingToken`, `status`, and `statusText`. When upgrading to version 3 or 4, change this function to use the [Callback function signature](#callback-function-signature) introduced in version 3.
+In versions before version 3, the callback accepted a single object as a parameter, with properties `advertisingToken`, `status`, and `statusText`. When upgrading to version 3 or 4, change this function to use the [Callback Function Signature](#callback-function-signature) introduced in version 3.
 
 Your original callback probably has some logic to deal with different values of `status`. The previous system had a variety of different status values to handle, such as `EXPIRED`, `REFRESHED`, and `NO_IDENTITY`. The new system instead has only three event types: `SdkLoaded`, `InitCompleted`, and `IdentityUpdated`.
 
-This guide cannot cover every possible scenario, and you should review the [Callback function](#callback-function) section and consider the best way to implement your requirements using the new system. However, there are some general guidelines that should help:
+This guide cannot cover every possible scenario, and you should review the [Callback Function](#callback-function) section and consider the best way to implement your requirements using the new system. However, there are some general guidelines that should help:
 - Check the `event` parameter. If the value is `SdkLoaded`, return immediately.
 - Otherwise, check to see if the `payload` parameter has an `identity` property.
   - If there is no object on the `identity` property, there is no UID2 identity available. You should invoke whatever the previous callback did in the equivalent situation.
   - Otherwise, the `identity` property is an object with a `string` property named `advertising_token`. You should use this in the same way that the old callback did.
 
-Remove the old callback from your `init` call, and provide your updated callback function to the SDK using the [Array push pattern](#array-push-pattern):
+Remove the old callback from your `init` call, and provide your updated callback function to the SDK using the [Array Push Pattern](#array-push-pattern):
 
 ```
 window.__uid2 = window.__uid2 || {};
@@ -620,7 +620,7 @@ Versions of the SDK prior to version 3 had only one way to provide a new identit
 
 ##### Change how you call init
 
-The recommended way to call `init` is by using the [Array push pattern](#array-push-pattern). Your existing call to `init` should be moved inside a callback handler that only handles the `SdkLoaded` event, as shown in the following example:
+The recommended way to call `init` is by using the [Array Push Pattern](#array-push-pattern). Your existing call to `init` should be moved inside a callback handler that only handles the `SdkLoaded` event, as shown in the following example:
 
 ```
 window.__uid2 = window.__uid2 || {};
@@ -635,7 +635,7 @@ window.__uid2.callbacks.push((eventType) => {
 });
 ```
 
-#### Optional changes
+#### Optional Changes
 
 If you're upgrading from a version earlier than v3, consider this optional change.
 

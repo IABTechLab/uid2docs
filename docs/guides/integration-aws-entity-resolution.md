@@ -11,7 +11,7 @@ displayed_sidebar: docs
 import Link from '@docusaurus/Link';
 import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emails-and-phone-numbers.mdx';
 
-# AWS Entity Resolution integration guide
+# AWS Entity Resolution Integration Guide
 
 [AWS Entity Resolution](https://aws.amazon.com/entity-resolution/) is an identity resolution product from Amazon Web Services that allows AWS customers to integrate with the UID2 framework. Through the integration, you can securely and seamlessly generate UID2s for your data without making direct calls to the UID2 operator or handling sensitive client ID and secret key values.
 
@@ -24,7 +24,7 @@ If you're not currently part of the UID2 ecosystem, go to the [Request Access to
 For a video presentation about integration with UID2 by using AWS Entity Resolution, and a demo, see [Getting Started with AWS Entity Resolution Integration with Unified ID 2.0](https://www.youtube.com/watch?v=ORbSsKMgVj8) on YouTube.
 
 :::tip
-For a summary of all integration options and steps for advertisers and data providers, see [Advertiser/data provider integration overview](integration-advertiser-dataprovider-overview.md).
+For a summary of all integration options and steps for advertisers and data providers, see [Advertiser/Data Provider Integration Overview](integration-advertiser-dataprovider-overview.md).
 :::
 
 ## Functionality
@@ -35,22 +35,22 @@ The following table summarizes the functionality available with the AWS Entity R
 | :--- | :--- | :--- | :--- | :--- |
 | No | No | No | No | Yes |
 
-## Integration summary
+## Integration Summary
 
 The following table summarizes the steps to integrate with UID2 using AWS Entity Resolution.
 
 | Step/Link | Details |
 | --- | --- |
-| [Initial setup steps](#initial-setup-steps) | Create UID2 account, create AWS account, and link them:<ul><li>[Create UID2 account](#create-uid2-account)</li><li>[Create AWS account](#create-aws-account)</li><li>[Subscribe to UID2 on AWS data exchange](#subscribe-to-uid2-on-aws-data-exchange)</li></ul> |
-| [Configure AWS account](#configure-aws-account) | Set up IAM users, data tables, and schema mapping for your data. |
-| [Create a matching workflow](#create-a-matching-workflow) | Create the workflow for matching your data, including input location, the matching technique to be applied, and output location. |
-| [Run the matching workflow](#run-the-matching-workflow) | Process the input data to create raw UID2s. |
+| [Initial Setup Steps](#initial-setup-steps) | Create UID2 account, create AWS account, and link them:<ul><li>[Create UID2 Account](#create-uid2-account)</li><li>[Create AWS Account](#create-aws-account)</li><li>[Subscribe to UID2 on AWS Data Exchange](#subscribe-to-uid2-on-aws-data-exchange)</li></ul> |
+| [Configure AWS Account](#configure-aws-account) | Set up IAM users, data tables, and schema mapping for your data. |
+| [Create a Matching Workflow](#create-a-matching-workflow) | Create the workflow for matching your data, including input location, the matching technique to be applied, and output location. |
+| [Run the Matching Workflow](#run-the-matching-workflow) | Process the input data to create raw UID2s. |
 
-## Workflow diagram
+## Workflow Diagram
 
 The following diagram illustrates the end-to-end UID2 process, from signing up for the service, through the configuration steps, to receiving the raw UID2s.
 
-![AWS Entity Resolution workflow](images/integration-aws-entity-resolution.png)
+![AWS Entity Resolution Workflow](images/integration-aws-entity-resolution.png)
 
 The following table shows the sequence of steps shown in the diagram.
 
@@ -74,44 +74,44 @@ The following table shows the sequence of steps shown in the diagram.
 | 16 | Amazon Data Exchange | Returns raw UID2s to AWS Entity Resolution. |
 | 17 | AWS Entity Resolution | Writes the output records to the S3 bucket including the raw UID2s. |
 
-## Preparing DII for processing
+## Preparing DII for Processing
 
 <SnptPreparingEmailsAndPhoneNumbers />
 
-## Initial setup steps
+## Initial Setup Steps
 
 The following are the initial steps for setting up your UID2 integration in AWS Entity Resolution:
 
-- [Create AWS account](#create-aws-account)
-- [Create UID2 account](#create-uid2-account)
-- [Subscribe to UID2 on AWS data exchange](#subscribe-to-uid2-on-aws-data-exchange)
+- [Create AWS Account](#create-aws-account)
+- [Create UID2 Account](#create-uid2-account)
+- [Subscribe to UID2 on AWS Data Exchange](#subscribe-to-uid2-on-aws-data-exchange)
 
-### Create AWS account
+### Create AWS Account
 
 Sign up for an AWS account, or use an existing one.
 
 For details, see [Getting started: Are you a first-time AWS user?](https://docs.aws.amazon.com/accounts/latest/reference/welcome-first-time-user.html) in the AWS documentation.
 
-### Create UID2 account
+### Create UID2 Account
 
-Ask your UID2 contact to register you as a UID2 participant. If you're not sure who to ask, see [Contact info](../getting-started/gs-account-setup.md#contact-info).
+Ask your UID2 contact to register you as a UID2 participant. If you're not sure who to ask, see [Contact Info](../getting-started/gs-account-setup.md#contact-info).
 
 Send your UID2 contact the AWS account ID that you'll use for your UID2 integration on Entity Resolution.
 
-### Subscribe to UID2 on AWS data exchange
+### Subscribe to UID2 on AWS Data Exchange
 
 Visit the [Unified ID 2.0 Identity Resolution](https://aws.amazon.com/marketplace/pp/prodview-66zqls7iqsm6o?sr=0-4&ref_=beagle&applicationId=AWSMPContessa#offers) page on the AWS Data Exchange and click **Continue to Subscribe.**
 
-![AWS data exchange market place screenshot](images/integration-aws-entity-resolution-public-listing.png)
+![AWS Data Exchange market place screenshot](images/integration-aws-entity-resolution-public-listing.png)
 
 On receipt of your subscription request, the UID2 team does the following:
 - Reviews your subscription request.
-- Matches your request with the AWS account ID that you sent in [Create UID2 account](#create-uid2-account).
+- Matches your request with the AWS account ID that you sent in [Create UID2 Account](#create-uid2-account).
 - Approves the request.
 
-## Configure AWS account
+## Configure AWS Account
 
-UID2 participants store their data in AWS, in an S3 bucket, and integrate with AWS Entity Resolution. The basic steps, once you've created the AWS account (see [Create AWS account](#create-aws-account)) are as follows.
+UID2 participants store their data in AWS, in an S3 bucket, and integrate with AWS Entity Resolution. The basic steps, once you've created the AWS account (see [Create AWS Account](#create-aws-account)) are as follows.
 
 :::note
 For detailed instructions, see [Setting up AWS Entity Resolution](https://docs.aws.amazon.com/entityresolution/latest/userguide/setting-up.html) in the AWS documentation.
@@ -133,7 +133,7 @@ For detailed instructions, see [Setting up AWS Entity Resolution](https://docs.a
 
 5. Create schema mapping for the data: see [Creating a schema mapping](https://docs.aws.amazon.com/entityresolution/latest/userguide/create-schema-mapping.html) in the AWS documentation.
 
-## Create a matching workflow
+## Create a Matching Workflow
 
 When your initial account creation and setup are done, the next step is to create a matching workflow for your data.
 
@@ -184,7 +184,7 @@ To create the matching workflow, first sign in to the AWS Management console, op
    - Then, under **Partner services**, choose **Unified ID2.0**.
    - Click **Next**.
 
-     If you completed the earlier step, see [Subscribe to UID2 on AWS data exchange](#subscribe-to-uid2-on-aws-data-exchange), you'll see an **Approved** message.
+     If you completed the earlier step, see [Subscribe to UID2 on AWS Data Exchange](#subscribe-to-uid2-on-aws-data-exchange), you'll see an **Approved** message.
 
 3. Define the data output:
    - For **Data Output Destination**, specify the URI of the S3 bucket that you want to use for your output data. Select the data format: Normalized or Original.
@@ -204,7 +204,7 @@ To create the matching workflow, first sign in to the AWS Management console, op
 
    The matching workflow is created, and you'll see a confirmation message.
 
-## Run the matching workflow
+## Run the Matching Workflow
 
 Follow these steps to run the matching workflow and view the results.
 

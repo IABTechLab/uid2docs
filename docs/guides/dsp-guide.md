@@ -9,7 +9,7 @@ displayed_sidebar: docs
 
 import Link from '@docusaurus/Link';
 
-# DSP integration guide
+# DSP Integration Guide
 
 This guide is for DSPs who transact on UID2s in the <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link>.
 
@@ -18,34 +18,34 @@ DSPs receive UID2 tokens in bid requests, and decrypt the [UID2 tokens](../ref-i
 For a summary of available server-side SDKs, see [SDKs: Summary](../sdks/summary-sdks.md).
 
 :::note
-If your back end is written in a language not covered by one of the available server-side SDKs, ask your UID2 contact in case there is additional information available to help you. If you're not sure who to ask, see [Contact info](../getting-started/gs-account-setup.md#contact-info).
+If your back end is written in a language not covered by one of the available server-side SDKs, ask your UID2 contact in case there is additional information available to help you. If you're not sure who to ask, see [Contact Info](../getting-started/gs-account-setup.md#contact-info).
 :::
 
-## Integration steps 
+## Integration Steps 
 
 The following describes the integration workflow for DSP to support UID2 as part of RTB, which consists of two major steps:
 1. [Honor user opt-outs](#honor-user-opt-outs)
 2. [Decrypt UID2 tokens for RTB use](#decrypt-uid2-tokens-for-rtb-use)
 
-![DSP flow](images/dsp-guide-flow-mermaid.png)
+![DSP Flow](images/dsp-guide-flow-mermaid.png)
 
 <!-- diagram source: resource/dsp-guide-flow-mermaid.md.bak -->
 
-### Honor user opt-outs
+### Honor User Opt-Outs
 
 This section includes the following information for DSPs, who must honor user opt-out of UID2:
 
-- [Opt-out webhook](#opt-out-webhook)
-- [POST /optout/status endpoint](#post-optoutstatus-endpoint)
-- [Bidding opt-out logic](#bidding-opt-out-logic)
+- [Opt-Out Webhook](#opt-out-webhook)
+- [POST /optout/status Endpoint](#post-optoutstatus-endpoint)
+- [Bidding Opt-Out Logic](#bidding-opt-out-logic)
 
-For details about the UID2 opt-out workflow and how users can opt out, see [User opt-out](../getting-started/gs-opt-out.md).
+For details about the UID2 opt-out workflow and how users can opt out, see [User Opt-Out](../getting-started/gs-opt-out.md).
 
-#### Opt-out webhook
+#### Opt-Out Webhook
 
 To receive and honor user opt-outs from the UID2 service, the DSP establishes a pre-configured interface (an opt-out webhook/API endpoint) and provides it to the UID2 service during onboarding. When a user opts out, the UID2 service sends the user's raw UID2 and the corresponding opt-out timestamp to the pre-configured interface.
 
-The UID2 service sends the following data within seconds of a user's opt-out, which the DSP records and uses the bidding logic defined in [Decrypt UID2 tokens for RTB use](#decrypt-uid2-tokens-for-rtb-use).
+The UID2 service sends the following data within seconds of a user's opt-out, which the DSP records and uses the bidding logic defined in [Decrypt UID2 Tokens for RTB Use](#decrypt-uid2-tokens-for-rtb-use).
 
 | Parameter | Description |
 | :--- | :--- |
@@ -60,11 +60,11 @@ The following example illustrates a webhook configured to receive the raw UID2 a
 https://dsp.example.com/optout?user=%%identity%%&optouttime=%%timestamp%%
 ```
 
-#### POST /optout/status endpoint
+#### POST /optout/status Endpoint
 
 DSPs can check the opt-out status of raw UID2s using the [POST&nbsp;/optout/status](../endpoints/post-optout-status.md) endpoint.
 
-#### Bidding opt-out logic
+#### Bidding Opt-Out Logic
 
 Use the logic below during bidding (2-b) to honor a user's opt-out.
 
@@ -72,20 +72,20 @@ Leverage one of the server-side SDKs (see [SDKs: Summary](../sdks/summary-sdks.m
 
 The following diagram illustrates opt-out logic.
 
-![DSP opt-out check](images/dsp-guide-optout.png)
+![DSP Opt-Out Check](images/dsp-guide-optout.png)
 
 If the user has opted out, the UID2 must not be used for RTB. In these cases, the DSP can choose to send an alternate ID for bidding or can choose not to bid.
 
-### Decrypt UID2 tokens for RTB use
+### Decrypt UID2 Tokens for RTB Use
 
-The following table provides details for Step 2 of the workflow diagram shown in [Integration steps](#integration-steps).
+The following table provides details for Step 2 of the workflow diagram shown in [Integration Steps](#integration-steps).
 
 | Step | SDK | Description |
 | :--- | :--- | :--- |
 | 2-a | Server-side SDK (see [SDKs: Summary](../sdks/summary-sdks.md)) | Leverage the provided SDK to decrypt incoming UID2 tokens. The response contains the `UID2` and the UID2 creation time. |
 | 2-b | | DSPs are required to honor opt-out protocol for UID2s. For details on configuring user opt-outs and honoring them during bidding, see [Honor user opt-outs](#honor-user-opt-outs). |
 
-## Recommendations for managing latency
+## Recommendations for Managing Latency
 
 :::note 
 This section refers to the example code in [Usage for DSPs](../sdks/sdk-ref-csharp-dotnet.md#usage-for-dsps) in the *SDK for C# / .NET Reference Guide*. The method names are similar for the [Java](../sdks/sdk-ref-java.md#usage-for-dsps), [Python](../sdks/sdk-ref-python#usage-for-dsps), and [C++](../sdks/sdk-ref-cplusplus.md#interface) SDKs.

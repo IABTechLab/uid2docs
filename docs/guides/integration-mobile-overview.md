@@ -12,7 +12,7 @@ import Link from '@docusaurus/Link';
 import SnptIntegratingWithSSO from '../snippets/_snpt-integrating-with-sso.mdx';
 import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emails-and-phone-numbers.mdx';
 
-# UID2 mobile integration overview for Android and iOS
+# UID2 Mobile Integration Overview for Android and iOS
 
 This guide is an overview of integration options for mobile app publishers who want to integrate with UID2 using the SDK for Android or the SDK for iOS.
 
@@ -28,17 +28,17 @@ UID2 provides SDKs for Android/iOS that support the following:
 - Refreshing the UID2 token
 - Storing the UID2 token
 
-For additional flexibility, UID2 also provides alternative methods for some of the features and complementary products, such as UID2 Google GMA/IMA Plugins. Available options are described in the individual guides: see [Integration overview: High-level steps](#integration-overview-high-level-steps).
+For additional flexibility, UID2 also provides alternative methods for some of the features and complementary products, such as UID2 Google GMA/IMA Plugins. Available options are described in the individual guides: see [Integration Overview: High-Level Steps](#integration-overview-high-level-steps).
 
-## Integrating with single sign-on (SSO)
+## Integrating with Single Sign-On (SSO)
 
 <SnptIntegratingWithSSO />
 
-## Preparing DII for processing
+## Preparing DII for Processing
 
 <SnptPreparingEmailsAndPhoneNumbers />
 
-## Integration overview: High-level steps
+## Integration Overview: High-Level Steps
 
 At a high level, to integrate your mobile app with UID2 using the UID2 mobile SDKs, you'll need to complete the following steps:
 
@@ -56,41 +56,41 @@ At a high level, to integrate your mobile app with UID2 using the UID2 mobile SD
 
 For details, refer to one of the following guides:
 
-- [Client-side integration guide for mobile](integration-mobile-client-side.md)
-- [Client-server integration guide for mobile](integration-mobile-client-server.md)
-- [Server-side integration guide for mobile](integration-mobile-server-side.md)
+- [Client-Side Integration Guide for Mobile](integration-mobile-client-side.md)
+- [Client-Server Integration Guide for Mobile](integration-mobile-client-server.md)
+- [Server-Side Integration Guide for Mobile](integration-mobile-server-side.md)
 
-## Mobile integration paths
+## Mobile Integration Paths
 
 To determine the best integration path for your mobile scenario, consider these points:
 
-1. Do you want to retrieve the UID2 token on the client side or on the server side? See [Client-side, client-server, or server-side integration?](#client-side-client-server-or-server-side-integration)
+1. Do you want to retrieve the UID2 token on the client side or on the server side? See [Client-Side, Client-Server, or Server-Side Integration?](#client-side-client-server-or-server-side-integration)
 
-1. What do you want to use to retrieve and refresh the UID2 token? See [Generating, storing, and refreshing the UID2 token](#generating-storing-and-refreshing-the-uid2-token).
+1. What do you want to use to retrieve and refresh the UID2 token? See [Generating, Storing, and Refreshing the UID2 Token](#generating-storing-and-refreshing-the-uid2-token).
 
-1. How do you want to use the UID2 tokens? See [Sending the token to the bidstream](#sending-the-token-to-the-bidstream).
+1. How do you want to use the UID2 tokens? See [Sending the Token to the Bidstream](#sending-the-token-to-the-bidstream).
 
-## Complete UID2 account setup and configure account
+## Complete UID2 Account Setup and Configure Account
 
-To integrate with UID2, you'll need to have a UID2 account. If you haven't yet created an account, first follow the steps described on the [Account setup](../getting-started/gs-account-setup.md) page.
+To integrate with UID2, you'll need to have a UID2 account. If you haven't yet created an account, first follow the steps described on the [Account Setup](../getting-started/gs-account-setup.md) page.
 
-When initial account setup is complete, you'll receive instructions and a link to access the [UID2 portal](../portal/portal-overview.md), where you can create your [credentials](../getting-started/gs-credentials.md) for the production environment and configure additional values, if needed. For details, see [Getting started with the UID2 portal](../portal/portal-getting-started.md).
+When initial account setup is complete, you'll receive instructions and a link to access the [UID2 Portal](../portal/portal-overview.md), where you can create your [credentials](../getting-started/gs-credentials.md) for the production environment and configure additional values, if needed. For details, see [Getting Started with the UID2 Portal](../portal/portal-getting-started.md).
 
-The steps you'll take in the UID2 Portal are different depending on whether your implementation will be client-side, client-server, or server-side. Specific instructions are in each implementation guide. For a summary, see [Client-side, client-server, or server-side integration?](#client-side-client-server-or-server-side-integration)
+The steps you'll take in the UID2 Portal are different depending on whether your implementation will be client-side, client-server, or server-side. Specific instructions are in each implementation guide. For a summary, see [Client-Side, Client-Server, or Server-Side Integration?](#client-side-client-server-or-server-side-integration)
 
-### Client-side, client-server, or server-side integration?
+### Client-Side, Client-Server, or Server-Side Integration?
 
 The options for integrating with UID2 using the UID2 mobile SDKs are summarized in the following table. Choose the <Link href="../ref-info/glossary-uid#gl-integration-approaches">integration approach</Link> that's best for you.
 
-For details, see [Integration approaches](../ref-info/ref-integration-approaches.md).
+For details, see [Integration Approaches](../ref-info/ref-integration-approaches.md).
 
 | Scenario | Option | Integration Guide |
 | :--- | :--- | :--- |
-| You have access to <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> (email address or phone number) on the client side/within the mobile app, and want to keep changes within your app only. | Client-Side integration | [UID2 client-side integration guide for mobile](integration-mobile-client-side.md) |
-| You have access to DII on the server side only and can do the necessary development to generate UID2 tokens server-side, but you want to refresh tokens on the client side&#8212;or you are using a <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link>. | Client-Server Integration | [UID2 client-server integration guide for mobile](integration-mobile-client-server.md) |
-| You have access to DII on the server side only and can do the necessary development to generate UID2 tokens server-side, or you are using a <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link>. | Server-Side Integration | [UID2 server-side integration guide for mobile](integration-mobile-server-side.md) |
+| You have access to <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> (email address or phone number) on the client side/within the mobile app, and want to keep changes within your app only. | Client-Side integration | [UID2 Client-Side Integration Guide for Mobile](integration-mobile-client-side.md) |
+| You have access to DII on the server side only and can do the necessary development to generate UID2 tokens server-side, but you want to refresh tokens on the client side&#8212;or you are using a <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link>. | Client-Server Integration | [UID2 Client-Server Integration Guide for Mobile](integration-mobile-client-server.md) |
+| You have access to DII on the server side only and can do the necessary development to generate UID2 tokens server-side, or you are using a <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link>. | Server-Side Integration | [UID2 Server-Side Integration Guide for Mobile](integration-mobile-server-side.md) |
 
-### Generating, storing, and refreshing the UID2 token
+### Generating, Storing, and Refreshing the UID2 Token
 
 The following table summarizes the mobile integration options for managing the UID2 token, including generating, storing, and refreshing the token, with links to the documentation for each option.
 
@@ -105,18 +105,18 @@ The following table summarizes the mobile integration options for managing the U
   <tbody>
     <tr>
       <td>UID2 Android SDK</td>
-      <td>[SDK for Android reference guide](../sdks/sdk-ref-android.md)</td>
-      <td>One of the following:<ul><li>[UID2 client-side integration guide for mobile](../guides/integration-mobile-client-side.md)</li><li>[UID2 client-server integration guide for mobile](../guides/integration-mobile-client-server.md)</li></ul></td>
+      <td>[SDK for Android Reference Guide](../sdks/sdk-ref-android.md)</td>
+      <td>One of the following:<ul><li>[UID2 Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side.md)</li><li>[UID2 Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server.md)</li></ul></td>
     </tr>
     <tr>
       <td>UID2 iOS SDK</td>
-      <td>[SDK for iOS reference guide](../sdks/sdk-ref-ios.md)</td>
-      <td>One of the following:<ul><li>[UID2 client-side integration guide for mobile](../guides/integration-mobile-client-side.md)</li><li>[UID2 client-server integration guide for mobile](../guides/integration-mobile-client-server.md)</li></ul></td>
+      <td>[SDK for iOS Reference Guide](../sdks/sdk-ref-ios.md)</td>
+      <td>One of the following:<ul><li>[UID2 Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side.md)</li><li>[UID2 Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server.md)</li></ul></td>
     </tr>
   </tbody>
 </table>
 
-### Sending the token to the bidstream
+### Sending the Token to the Bidstream
 
 There are many options for sending your UID2 tokens to the bidstream.
 
@@ -124,13 +124,13 @@ The following table summarizes the options supported by UID2.
 
 | Scenario | Integration Guide |
 | :--- | :--- |
-| You want to use Google GMA to integrate video, banner, interstitial, or native ads into your Android app | Both of the following, in this sequence:<ol><li>[UID2 GMA plugin for Android integration guide](../guides/mobile-plugin-gma-android.md)</li><li>One of the following:<ul><li>Client-side: [Optional: UID2 GMA/IMA plugin for gam Secure Signals integration](../guides/integration-mobile-client-side.md#optional-uid2-gmaima-plugin-for-gam-secure-signals-integration)</li><li>Client-server: [Optional: UID2 GMA/IMA plugin for gam Secure Signals integration](../guides/integration-mobile-client-server.md#optional-uid2-gmaima-plugin-for-gam-secure-signals-integration)</li></ul></li></ol> |
-| You want to use Google GMA to integrate video, banner, interstitial, or native ads into your iOS app | Both of the following, in this sequence:<ol><li>[UID2 GMA plugin for iOS integration guide](../guides/mobile-plugin-gma-ios.md)</li><li>One of the following:<ul><li>Client-side: [Optional: UID2 GMA/IMA plugin for gam Secure Signals integration](../guides/integration-mobile-client-side.md#optional-uid2-gmaima-plugin-for-gam-secure-signals-integration)</li><li>Client-server: [Optional: UID2 GMA/IMA plugin for gam Secure Signals integration](../guides/integration-mobile-client-server.md#optional-uid2-gmaima-plugin-for-gam-secure-signals-integration)</li></ul></li></ol> |
-| You want to use Google IMA to integrate multimedia ads into your Android app | Both of the following, in this sequence:<ol><li>[UID2 IMA plugin for Android integration guide](../guides/mobile-plugin-ima-android.md)</li><li>One of the following:<ul><li>Client-side: [Optional: UID2 GMA/IMA plugin for gam Secure Signals integration](../guides/integration-mobile-client-side.md#optional-uid2-gmaima-plugin-for-gam-secure-signals-integration)</li><li>Client-server: [Optional: UID2 GMA/IMA plugin for gam Secure Signals integration](../guides/integration-mobile-client-server.md#optional-uid2-gmaima-plugin-for-gam-secure-signals-integration)</li></ul></li></ol> |
-| You want to use Google IMA to integrate multimedia ads into your iOS app | Both of the following, in this sequence:<ol><li>[UID2 IMA plugin for iOS integration guide](../guides/mobile-plugin-ima-ios.md)</li><li>One of the following:<ul><li>Client-side: [Optional: UID2 GMA/IMA plugin for gam Secure Signals integration](../guides/integration-mobile-client-side.md#optional-uid2-gmaima-plugin-for-gam-secure-signals-integration)</li><li>Client-server: [Optional: UID2 GMA/IMA plugin for gam Secure Signals integration](../guides/integration-mobile-client-server.md#optional-uid2-gmaima-plugin-for-gam-secure-signals-integration)</li></ul></li></ol> |
-| You want to use the Prebid Mobile SDK and Prebid Server to send out ad requests from your Android or iOS app | One of the following:<ul><li>Client-side: [Optional: UID2 integration with Prebid Mobile SDK](../guides/integration-mobile-client-side.md#optional-uid2-integration-with-prebid-mobile-sdk)</li><li>Client-server: [Optional: UID2 integration with Prebid Mobile SDK](../guides/integration-mobile-client-server.md#optional-uid2-integration-with-prebid-mobile-sdk)</li></ul> |
+| You want to use Google GMA to integrate video, banner, interstitial, or native ads into your Android app | Both of the following, in this sequence:<ol><li>[UID2 GMA Plugin for Android Integration Guide](../guides/mobile-plugin-gma-android.md)</li><li>One of the following:<ul><li>Client-side: [Optional: UID2 GMA/IMA Plugin for GAM Secure Signals integration](../guides/integration-mobile-client-side.md#optional-uid2-gmaima-plugin-for-gam-secure-signals-integration)</li><li>Client-server: [Optional: UID2 GMA/IMA Plugin for GAM Secure Signals integration](../guides/integration-mobile-client-server.md#optional-uid2-gmaima-plugin-for-gam-secure-signals-integration)</li></ul></li></ol> |
+| You want to use Google GMA to integrate video, banner, interstitial, or native ads into your iOS app | Both of the following, in this sequence:<ol><li>[UID2 GMA Plugin for iOS Integration Guide](../guides/mobile-plugin-gma-ios.md)</li><li>One of the following:<ul><li>Client-side: [Optional: UID2 GMA/IMA Plugin for GAM Secure Signals integration](../guides/integration-mobile-client-side.md#optional-uid2-gmaima-plugin-for-gam-secure-signals-integration)</li><li>Client-server: [Optional: UID2 GMA/IMA Plugin for GAM Secure Signals integration](../guides/integration-mobile-client-server.md#optional-uid2-gmaima-plugin-for-gam-secure-signals-integration)</li></ul></li></ol> |
+| You want to use Google IMA to integrate multimedia ads into your Android app | Both of the following, in this sequence:<ol><li>[UID2 IMA Plugin for Android Integration Guide](../guides/mobile-plugin-ima-android.md)</li><li>One of the following:<ul><li>Client-side: [Optional: UID2 GMA/IMA Plugin for GAM Secure Signals integration](../guides/integration-mobile-client-side.md#optional-uid2-gmaima-plugin-for-gam-secure-signals-integration)</li><li>Client-server: [Optional: UID2 GMA/IMA Plugin for GAM Secure Signals integration](../guides/integration-mobile-client-server.md#optional-uid2-gmaima-plugin-for-gam-secure-signals-integration)</li></ul></li></ol> |
+| You want to use Google IMA to integrate multimedia ads into your iOS app | Both of the following, in this sequence:<ol><li>[UID2 IMA Plugin for iOS Integration Guide](../guides/mobile-plugin-ima-ios.md)</li><li>One of the following:<ul><li>Client-side: [Optional: UID2 GMA/IMA Plugin for GAM Secure Signals integration](../guides/integration-mobile-client-side.md#optional-uid2-gmaima-plugin-for-gam-secure-signals-integration)</li><li>Client-server: [Optional: UID2 GMA/IMA Plugin for GAM Secure Signals integration](../guides/integration-mobile-client-server.md#optional-uid2-gmaima-plugin-for-gam-secure-signals-integration)</li></ul></li></ol> |
+| You want to use the Prebid Mobile SDK and Prebid Server to send out ad requests from your Android or iOS app | One of the following:<ul><li>Client-side: [Optional: UID2 Integration with Prebid Mobile SDK](../guides/integration-mobile-client-side.md#optional-uid2-integration-with-prebid-mobile-sdk)</li><li>Client-server: [Optional: UID2 Integration with Prebid Mobile SDK](../guides/integration-mobile-client-server.md#optional-uid2-integration-with-prebid-mobile-sdk)</li></ul> |
 
-### Functionality summary
+### Functionality Summary
 
 The following table summarizes the functionality available with the various integration options.
 
@@ -154,7 +154,7 @@ All options support either client-side or server-side integration.
 
 <!-- &#9989; = Supported | &#8212; = Not Supported -->
 
-## FAQs for mobile integrations
+## FAQs for Mobile Integrations
 
 Here is some FAQ information relating to UID2 mobile integrations:
 
@@ -180,13 +180,13 @@ Therefore, if you already have GMA installed and want to install UID2, be sure t
 Podspec is the name of the file in CocoaPods that defines the libraries to be integrated with the app.
 :::
 
-## Troubleshooting tips for mobile integrations
+## Troubleshooting Tips for Mobile Integrations
 
 Here's some additional information to help you troubleshoot your UID2 mobile integrations:
 
-- [Android SDK cannot connect in production environment](#android-sdk-cannot-connect-in-production-environment)
+- [Android SDK Cannot Connect in Production Environment](#android-sdk-cannot-connect-in-production-environment)
 
-#### Android SDK cannot connect in production environment
+#### Android SDK Cannot Connect in Production Environment
 
 A good first step in troubleshooting is to look at the health check endpoint.
 
@@ -204,4 +204,4 @@ Some error responses indicate  a networking problem resulting in your app not be
 
    The SDK tries to refresh the UID2 token in the background. If an error such as an IOException occurs, the SDK retries multiple times. If retry is not successful, this exception is displayed.
 
-Another good troubleshooting step is to enable logging. For details, see [Enable logging](integration-mobile-client-side.md#enable-logging).
+Another good troubleshooting step is to enable logging. For details, see [Enable Logging](integration-mobile-client-side.md#enable-logging).

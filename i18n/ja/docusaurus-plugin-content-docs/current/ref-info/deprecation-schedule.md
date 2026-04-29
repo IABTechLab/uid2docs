@@ -9,11 +9,11 @@ displayed_sidebar: docs
 import Link from '@docusaurus/Link';
 import SnptUpgradePolicy from '../snippets/_snpt-private-operator-upgrade-policy.mdx';
 
-# Deprecation schedule
+# Deprecation Schedule
 
 以下のセクションでは、サポートされているバージョンと、該当する場合は廃止スケジュールに関する情報を提供します。
 
-## Private Operator versions
+## Private Operator Versions
 
 以下の表は、現在サポートされている Private Operator バージョンを示しています。具体的には以下の通りです:
 - [Private Operator for AWS](#private-operator-for-aws)
@@ -25,7 +25,7 @@ import SnptUpgradePolicy from '../snippets/_snpt-private-operator-upgrade-policy
 古いバージョンを使用している場合は、該当する表の「Deprecation Date」列を参照して、バージョンのサポート期間に関する情報を確認してください。新しい機能や改善された機能を利用するために、できるだけ早く最新バージョンにアップグレードすることを推奨します。
 :::
 
-### Private Operator upgrade policy
+### Private Operator Upgrade Policy
 
 <SnptUpgradePolicy />
 
@@ -42,7 +42,7 @@ import SnptUpgradePolicy from '../snippets/_snpt-private-operator-upgrade-policy
 | Q3 2024 | [v5.38.104](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.38.104) | 5.38.104 | September 12, 2024 | Mar 31, 2026 |
 | Q2 2024 | [v5.37.12](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.37.12) | 5.37.12 | June 12, 2024 | Sep 30, 2025 |
 
-ドキュメントは、[UID2 Private Operator for AWS integration guide](../guides/operator-guide-aws-marketplace.md)を参照してください。
+ドキュメントは、[UID2 Private Operator for AWS Integration Guide](../guides/operator-guide-aws-marketplace.md)を参照してください。
 
 ### Private Operator for GCP
 
@@ -57,7 +57,7 @@ import SnptUpgradePolicy from '../snippets/_snpt-private-operator-upgrade-policy
 | Q3 2024 | [v5.38.104](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.38.104) | [gcp-oidc-deployment-files-5.38.104.zip](https://github.com/IABTechLab/uid2-operator/releases/download/v5.38.104/gcp-oidc-deployment-files-5.38.104.zip) | September 12, 2024 | Mar 31, 2026 |
 | Q2 2024 | [v5.37.12](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.37.12) | [gcp-oidc-deployment-files-5.37.12.zip](https://github.com/IABTechLab/uid2-operator/releases/download/v5.37.12/gcp-oidc-deployment-files-5.37.12.zip) | June 12, 2024 | Sep 30, 2025 |
 
-ドキュメントは、[UID2 Private Operator for GCP integration guide](../guides/operator-private-gcp-confidential-space.md)を参照してください。
+ドキュメントは、[UID2 Private Operator for GCP Integration Guide](../guides/operator-private-gcp-confidential-space.md)を参照してください。
 
 ### Private Operator for Azure
 
@@ -72,7 +72,7 @@ import SnptUpgradePolicy from '../snippets/_snpt-private-operator-upgrade-policy
 | Q3 2024 | [v5.38.104](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.38.104) | [azure-cc-deployment-files-5.38.104.zip](https://github.com/IABTechLab/uid2-operator/releases/download/v5.38.104/azure-cc-deployment-files-5.38.104.zip) | September 12, 2024 | Mar 31, 2026 |
 | Q2 2024 | [v5.37.12](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.37.12) | [azure-cc-deployment-files-5.37.12.zip](https://github.com/IABTechLab/uid2-operator/releases/download/v5.37.12/azure-cc-deployment-files-5.37.12.zip) | June 12, 2024 | Sep 30, 2025 |
 
-ドキュメントは、[UID2 Private Operator for Azure integration guide](../guides/operator-guide-azure-enclave.md)を参照してください。
+ドキュメントは、[UID2 Private Operator for Azure Integration Guide](../guides/operator-guide-azure-enclave.md)を参照してください。
 
 <!-- ### Private Operator for AKS
 
@@ -83,9 +83,9 @@ The latest ZIP file is linked in the Release Notes column in the following table
 | Q2 2025 | xxx | xxx | xxx | xxx | -->
 <!-- | Q1 2025 | 5.49.7 | [v5.49.7](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.49.7) | Mar 19, 2025 | Mar 31, 2026 | -->
 
-## Endpoint versions
+## Endpoint Versions
 
-`POST /identity/map` エンドポイントのバージョン 2 は、バージョン 3 に置き換えられました。バージョン 3 では、[Version 3 improvements](../endpoints/post-identity-map.md#version-3-improvements)で説明されている追加の利点が含まれています。
+`POST /identity/map` エンドポイントのバージョン 2 は、バージョン 3 に置き換えられました。バージョン 3 では、[Version 3 Improvements](../endpoints/post-identity-map.md#version-3-improvements)で説明されている追加の利点が含まれています。
 
 `POST /identity/map` エンドポイントのバージョン 3 では、`POST /identity/buckets` エンドポイントは完全に使用されなくなりました。
 

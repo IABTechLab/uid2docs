@@ -13,75 +13,75 @@ import SnptIntegratingWithSSO from '../snippets/_snpt-integrating-with-sso.mdx';
 import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emails-and-phone-numbers.mdx';
 import SnptExampleClientServerSendUid2ToSdk from '../snippets/_snpt-example-client-server-send-uid2-to-sdk.mdx'; 
 
-# Client-server integration guide for JavaScript
+# Client-Server Integration Guide for JavaScript
 
 This guide is for publishers with web assets who want to generate identity tokens using UID2 for the RTB <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link>, generating UID2 tokens on the server side and passing them to the publishers' web pages, and refreshing the tokens on the client side using the SDK for JavaScript.
 
 This is called client-server integration because the JavaScript integration steps are client-side and some other steps are server-side.
 
-If you prefer to integrate with UID2 via **only** client-side JavaScript changes, see [Client-side integration guide for JavaScript](integration-javascript-client-side.md).
+If you prefer to integrate with UID2 via **only** client-side JavaScript changes, see [Client-Side Integration Guide for JavaScript](integration-javascript-client-side.md).
 
-For technical details about the SDK, see [SDK for JavaScript reference guide](../sdks/sdk-ref-javascript.md).
+For technical details about the SDK, see [SDK for JavaScript Reference Guide](../sdks/sdk-ref-javascript.md).
 
 ## Introduction
 
 This guide outlines the basic steps that you need to consider if you are building an integration without using an SDK. For example, you need to decide how to implement user authentication and data capture, how to manage UID2 identity information and use it for targeted advertising, and how to refresh tokens, deal with missing identities, and handle user opt-outs.
 
-For a workflow diagram, see [Integration steps](#integration-steps). See also [FAQs](#faqs).
+For a workflow diagram, see [Integration Steps](#integration-steps). See also [FAQs](#faqs).
 
-For details about the UID2 opt-out workflow and how users can opt out, see [User opt-out](../getting-started/gs-opt-out.md).
+For details about the UID2 opt-out workflow and how users can opt out, see [User Opt-Out](../getting-started/gs-opt-out.md).
 
-To facilitate the process of establishing client identity using UID2 and retrieving advertising tokens, the web integration steps provided in this guide rely on the SDK for JavaScript. For an example, see [Sample implementation](#sample-implementation).
+To facilitate the process of establishing client identity using UID2 and retrieving advertising tokens, the web integration steps provided in this guide rely on the SDK for JavaScript. For an example, see [Sample Implementation](#sample-implementation).
 
 :::tip
-The first-party cookie and local storage implementation details might change in the future. To avoid potential issues, be sure to rely on the functionality documented in the [SDK for JavaScript API reference](../sdks/sdk-ref-javascript.md#api-reference) for your identity management.
+The first-party cookie and local storage implementation details might change in the future. To avoid potential issues, be sure to rely on the functionality documented in the [SDK for JavaScript API Reference](../sdks/sdk-ref-javascript.md#api-reference) for your identity management.
 :::
 
-For integration scenarios for publishers that do not use the SDK for JavaScript, see [Publisher integration guide, server-side](integration-publisher-server-side.md). 
+For integration scenarios for publishers that do not use the SDK for JavaScript, see [Publisher Integration Guide, Server-Side](integration-publisher-server-side.md). 
 
 :::note
-If you are using Google Ad Manager and want to use the secure signals feature, first follow the steps in this guide and then follow the additional steps in the [Google Ad Manager Secure Signals integration guide](integration-google-ss.md).
+If you are using Google Ad Manager and want to use the secure signals feature, first follow the steps in this guide and then follow the additional steps in the [Google Ad Manager Secure Signals Integration Guide](integration-google-ss.md).
 :::
 
-## Integrating with single sign-on (SSO)
+## Integrating with Single Sign-On (SSO)
 
 <SnptIntegratingWithSSO />
 
-## Preparing DII for processing
+## Preparing DII for Processing
 
 <SnptPreparingEmailsAndPhoneNumbers />
 
-## Complete UID2 account setup and configure account
+## Complete UID2 Account Setup and Configure Account
 
-To integrate with UID2, you'll need to have a UID2 account. If you haven't yet created an account, first follow the steps described on the [Account setup](../getting-started/gs-account-setup.md) page.
+To integrate with UID2, you'll need to have a UID2 account. If you haven't yet created an account, first follow the steps described on the [Account Setup](../getting-started/gs-account-setup.md) page.
 
-When initial account setup is complete, you'll receive instructions and a link to access the [UID2 portal](../portal/portal-overview.md), where you can create your [credentials](../getting-started/gs-credentials.md) for the production environment and configure additional values, if needed. For details, see [Getting started with the UID2 portal](../portal/portal-getting-started.md).
+When initial account setup is complete, you'll receive instructions and a link to access the [UID2 Portal](../portal/portal-overview.md), where you can create your [credentials](../getting-started/gs-credentials.md) for the production environment and configure additional values, if needed. For details, see [Getting Started with the UID2 Portal](../portal/portal-getting-started.md).
 
-For a client-server integration you'll need to set up these values, in the UID2 Portal on the [API keys](../portal/api-keys.md) page:
+For a client-server integration you'll need to set up these values, in the UID2 Portal on the [API Keys](../portal/api-keys.md) page:
 
 - <Link href="../ref-info/glossary-uid#gl-api-key">API key</Link>, also called a client key
 - <Link href="../ref-info/glossary-uid#gl-client-secret">Client secret</Link>, a value known only to the participant and the UID2 service
 
 :::important
-It's very important that you keep these values secure. For details, see [Security of API key and client secret](../getting-started/gs-credentials.md#security-of-api-key-and-client-secret).
+It's very important that you keep these values secure. For details, see [Security of API Key and Client Secret](../getting-started/gs-credentials.md#security-of-api-key-and-client-secret).
 :::
 
-## Integration steps 
+## Integration Steps 
 
 The following diagram outlines the steps required for establishing a user's UID2 token with a publisher and how the UID2 token integrates with the RTB bidstream.
 
-![Publisher flow](images/integration-javascript-client-server-mermaid.png)
+![Publisher Flow](images/integration-javascript-client-server-mermaid.png)
 
 <!-- diagram source: resource/integration-javascript-client-server-mermaid.md.bak -->
 
 The following sections provide additional details for each step in the diagram:
  
  1. [Establish identity: capture user data](#establish-identity-capture-user-data)
- 2. [Bid using UID2 tokens](#bid-using-uid2-tokens)
- 3. [Refresh tokens](#refresh-tokens)
- 4. [Clear identity: User logout](#clear-identity-user-logout)
+ 2. [Bid Using UID2 Tokens](#bid-using-uid2-tokens)
+ 3. [Refresh Tokens](#refresh-tokens)
+ 4. [Clear Identity: User Logout](#clear-identity-user-logout)
 
-### Establish identity: Capture user data
+### Establish Identity: Capture User Data
 
 After authentication in step 1-c, which allows the publisher to validate the user's email address or phone number, a UID2 token must be generated on the server side. The following table details the token generation steps.
 
@@ -92,19 +92,19 @@ After authentication in step 1-c, which allows the publisher to validate the use
 | 1-f | SDK for JavaScript | The SDK sends the returned UID2 token from step 1-e to the SDK in the `identity` property of its [init() function](../sdks/sdk-ref-javascript.md#initopts-object-void). |
 | 1-g | SDK for JavaScript | Provide the SDK a callback function that will receive identity updates from the SDK and use them to initiate targeted advertising. |
 
-#### Generating a UID2 token on the server
+#### Generating a UID2 Token on the Server
 
 The first step is to generate the UID2 token on your server.
 
-For details, including instructions and examples, see [Server-side token generation](../ref-info/ref-server-side-token-generation.md).
+For details, including instructions and examples, see [Server-Side Token Generation](../ref-info/ref-server-side-token-generation.md).
 
-You will need to pass the `Identity` response to the SDK. See [Sending the UID2 token to the SDK](#sending-the-uid2-token-to-the-sdk).
+You will need to pass the `Identity` response to the SDK. See [Sending the UID2 Token to the SDK](#sending-the-uid2-token-to-the-sdk).
 
 :::warning
-For security reasons, the API key and secret used in token generation must be called server-side. Do not store these values on the client side. For details, see [Security of API key and client secret](../getting-started/gs-credentials.md#security-of-api-key-and-client-secret).
+For security reasons, the API key and secret used in token generation must be called server-side. Do not store these values on the client side. For details, see [Security of API Key and Client Secret](../getting-started/gs-credentials.md#security-of-api-key-and-client-secret).
 :::
 
-#### Sending the UID2 token to the SDK
+#### Sending the UID2 Token to the SDK
 
 The following code examples illustrate steps 1-f and 1-g, in JavaScript and TypeScript.
 
@@ -116,7 +116,7 @@ The SDK invokes the specified [callback function](../sdks/sdk-ref-javascript.md#
 Depending on the structure of your code, it might be convenient to combine the callbacks for steps 1-f and 1-g into a single callback function.
 :::
 
-### Bid using UID2 tokens
+### Bid Using UID2 Tokens
 
 Based on the status and availability of a valid identity, the SDK does the following:
 
@@ -141,14 +141,14 @@ For an example of what a UID2 token might look like in the bidstream, when it's 
 ```
 
 :::info
-You need to consider how you pass the returned advertising token to SSPs. With some other approaches to client-side UID2 implementation, such as using `Prebid.js` (see [UID2 integration overview for Prebid](integration-prebid.md)) or Google Ad Manager Secure Signals (see [Google Ad Manager Secure Signals integration guide](integration-google-ss.md)), the implementation includes functions that manage passing the returned advertising token. If you're using the SDK for JavaScript you'll need to manage this yourself.
+You need to consider how you pass the returned advertising token to SSPs. With some other approaches to client-side UID2 implementation, such as using `Prebid.js` (see [UID2 Integration Overview for Prebid](integration-prebid.md)) or Google Ad Manager Secure Signals (see [Google Ad Manager Secure Signals Integration Guide](integration-google-ss.md)), the implementation includes functions that manage passing the returned advertising token. If you're using the SDK for JavaScript you'll need to manage this yourself.
 :::
 
 :::tip
 Instead of calling `__uid2.getAdvertisingToken()`, you can use the `advertising_token` property of the identity passed to the callback that you set up for step 1-g. The callback will be called every time the identity changes.
 :::
 
-### Refresh tokens
+### Refresh Tokens
 
 As part of its initialization, the SDK sets up a [token auto-refresh](../sdks/sdk-ref-javascript.md#background-token-auto-refresh) for the identity, which is triggered in the background by the timestamps on the identity or by failed refresh attempts due to intermittent errors.
 
@@ -158,7 +158,7 @@ As part of its initialization, the SDK sets up a [token auto-refresh](../sdks/sd
 | 3-b | [SDK for JavaScript](../sdks/sdk-ref-javascript.md) | If the user hasn't opted out, the [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) endpoint automatically returns new identity tokens. |
 
 
-### Clear identity: User logout
+### Clear Identity: User Logout
 
 The client lifecycle is complete when the user decides to log out from the publisher's site (not UID2). This closes the client's identity session and clears the first-party cookie information.
 
@@ -174,7 +174,7 @@ The client lifecycle is complete when the user decides to log out from the publi
 </script>
 ```
 
-## Sample implementation
+## Sample Implementation
 
 A sample implementation is available for client-server integration using the UID2 SDK for JavaScript:
 
@@ -183,4 +183,4 @@ A sample implementation is available for client-server integration using the UID
 
 ## FAQs
 
-For a list of frequently asked questions for the publisher audience, see [FAQs for publishers](../getting-started/gs-faqs.md#faqs-for-publishers).
+For a list of frequently asked questions for the publisher audience, see [FAQs for Publishers](../getting-started/gs-faqs.md#faqs-for-publishers).

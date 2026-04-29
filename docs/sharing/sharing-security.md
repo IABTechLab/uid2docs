@@ -8,7 +8,7 @@ displayed_sidebar: docs
 
 import Link from '@docusaurus/Link';
 
-# Security requirements for UID2 sharing
+# Security Requirements for UID2 Sharing
 
 All UID2 participants have a core responsibility to ensure that the UID2 ecosystem is safe. The following are standard security practices for all UID2 participants. If you are sharing raw UID2s between authorized [sharing participants](../ref-info/glossary-uid.md#gl-sharing-participant) they are required and must all be met consistently; if you are sharing UID2 tokens they are recommended.
 
@@ -17,8 +17,8 @@ The security requirements are as follows:
 - [Authentication](#authentication)
 - [Authorization](#authorization)
 - [Accounting](#accounting)
-- [Secure transport](#secure-transport)
-- [Example workflow](#example-workflow)
+- [Secure Transport](#secure-transport)
+- [Example Workflow](#example-workflow)
 
 ## Authentication
 
@@ -59,14 +59,14 @@ The following table shows the key fields you should consider including in the tr
 
 Additional logs, such as network logs, application logs, and cloud audit logs, can also help by providing additional information such as source and destination IP addresses or cloud platform account IDs.
 
-## Secure transport
+## Secure Transport
 
 Secure transport helps protect raw UID2s from being accessible or modifiable by an onlooker during the transition of data from sender to receiver, end to end. Examples of secure transport include:
 
 - HTTPS or TLS
 - Message-based encryption
 
-## Example workflow
+## Example Workflow
 The following is an example workflow for an online AAA (Authentication, Authorization, and Accounting) flow, with an additional human verification step for contract validation.
 
 1. Pre-Authentication:

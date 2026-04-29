@@ -15,7 +15,7 @@ import SnptAttestFailure from '../snippets/_snpt-private-operator-attest-failure
 import SnptRotatingTheKeys from '../snippets/_snpt-private-operator-rotating-the-keys.mdx';
 import SnptRuntimeErrors from '../snippets/_snpt-private-operator-runtime-errors.mdx';
 
-# UID2 Private Operator for AWS integration guide
+# UID2 Private Operator for AWS Integration Guide
 
 The UID2 Operator is the API server in the UID2 ecosystem. For details, see [The UID2 Operator](../ref-info/ref-operators-public-private.md).
 
@@ -32,7 +32,7 @@ By subscribing to UID2 Private Operator for AWS, you gain access to the followin
 - [CloudFormation](https://aws.amazon.com/cloudformation/) template:<br/>
     The template deploys the UID2 Operator AMI.
 
-## Operator version
+## Operator Version
 
 The latest ZIP file is linked in the Release Notes column in the following table.
 
@@ -41,10 +41,10 @@ The latest ZIP file is linked in the Release Notes column in the following table
 | Q4 2025 | [v5.62.24](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.62.24-r2) | v5.62.24-r2 | January 15, 2026 |
 
 :::note
-For information about supported versions and deprecation dates, see [Private Operator versions](../ref-info/deprecation-schedule.md#private-operator-versions).
+For information about supported versions and deprecation dates, see [Private Operator Versions](../ref-info/deprecation-schedule.md#private-operator-versions).
 :::
 
-## Private Operator upgrade policy
+## Private Operator Upgrade Policy
 
 <SnptUpgradePolicy />
 
@@ -55,7 +55,7 @@ To subscribe and deploy one or more UID2 Operators on AWS, complete the followin
 1. Register your organization as a UID2 Operator.
 2. Create an AWS account with an [IAM](https://aws.amazon.com/iam/) role that has the [minimal privileges](#minimal-iam-role-privileges).
 
-#### Minimal iam role privileges
+#### Minimal IAM Role Privileges
 
 To succeed in a one-click deployment, your AWS account **must** have the privileges to run the following actions:
 
@@ -120,7 +120,7 @@ To succeed in a one-click deployment, your AWS account **must** have the privile
 }
 ```
 
-### Resources created
+### Resources Created
 
 The following table lists all resources that are created during the [deployment](#deployment).
 
@@ -131,11 +131,11 @@ The following table lists all resources that are created during the [deployment]
 | `TokenSecret` | `AWS::SecretsManager::Secret` | A Secrets Manager secret to store the operator key. |
 | `WorkerRole` | `AWS::IAM::Role` | The IAM role that your UID2 Operators run as. The role provides access to AWS Secrets Manager to retrieve operator keys. |
 | `WorkerInstanceProfile` | `AWS::IAM::InstanceProfile` | The instance profile with Worker Role to attach to Operator EC2 instances. |
-| `SecurityGroup` | `AWS::EC2::SecurityGroup` | A security group policy that provides rules for operator instances. See also [Security group policy](#security-group-policy).|
+| `SecurityGroup` | `AWS::EC2::SecurityGroup` | A security group policy that provides rules for operator instances. See also [Security Group Policy](#security-group-policy).|
 | `LaunchTemplate` | `AWS::EC2::LaunchTemplate` | A launch template with all configurations in place. You can spawn new UID2 Operator instances from it. |
 | `AutoScalingGroup` | `AWS::AutoScaling::AutoScalingGroup` | An auto-scaling group (ASG) to which the launch template is attached. You can use this to update the desired number of instances later, if needed. |
 
-### Customization options
+### Customization Options
 
 Here's what you can customize during or after the [deployment](#deployment):
 
@@ -144,7 +144,7 @@ Here's what you can customize during or after the [deployment](#deployment):
 - SSH key: This is the SSH key that you use to access the UID2 Operator EC2 instances.
 - [Instance type](https://aws.amazon.com/ec2/instance-types/): m5.2xlarge, m5.4xlarge, and so on. If there is no customization, the default value, m5.2xlarge, is recommended.
 
-### Security group policy
+### Security Group Policy
 
 :::note
 To avoid passing certificates associated with your domain into the enclave, inbound HTTP is allowed instead of HTTPS. This also avoids the cost of a secure layer, if used in a private network that is internal to your organization.
@@ -152,17 +152,17 @@ To avoid passing certificates associated with your domain into the enclave, inbo
 
 | Port Number | Direction | Protocol | Description |
 | ----------- | --------- | -------- | ------ |
-| 80 | Inbound | HTTP | Serves all UID2 APIs, including the healthcheck endpoint `/ops/healthcheck`.<br/>When everything is up and running, the endpoint returns HTTP 200 with a response body of `OK`. For details, see [Checking UID2 Operator status](#checking-uid2-operator-status). |
+| 80 | Inbound | HTTP | Serves all UID2 APIs, including the healthcheck endpoint `/ops/healthcheck`.<br/>When everything is up and running, the endpoint returns HTTP 200 with a response body of `OK`. For details, see [Checking UID2 Operator Status](#checking-uid2-operator-status). |
 | 9080 | Inbound | HTTP | Serves Prometheus metrics (`/metrics`). |
 | 443 | Outbound | HTTPS | Calls the UID2 Core Service, AWS S3, to download files for opt-out data and key store. |
 
-### VPC chart
+### VPC Chart
 
 The following diagram illustrates the virtual private cloud that hosts private operators.
 
-![UID2 Operator VPC chart](images/aws-vpc-chart-uid2.png)
+![UID2 Operator VPC Chart](images/aws-vpc-chart-uid2.png)
 
-## Preparing DII for processing
+## Preparing DII for Processing
 
 <SnptPreparingEmailsAndPhoneNumbers />
 
@@ -173,7 +173,7 @@ To deploy UID2 Operator on AWS Marketplace, complete the following steps:
 1. Subscribe to [Unified ID 2.0 Operator on AWS Marketplace](https://aws.amazon.com/marketplace/pp/prodview-wdbccsarov5la). It might take several minutes before AWS completes your subscription.
 2. Click **Configuration** and then specify configuration values.
 
-   For software version, see [Operator version](#operator-version) and choose the value in the AWS Version column.
+   For software version, see [Operator Version](#operator-version) and choose the value in the AWS Version column.
 3. On the Configuration page, click **Launch** and then select the **Launch CloudFormation** action.
 4. In the Create Stack wizard, specify the template and then click **Next**. The S3 path for the template file is automatically filled in.
 5. Fill in the [stack details](#stack-details) and then click **Next**.
@@ -184,15 +184,15 @@ To deploy UID2 Operator on AWS Marketplace, complete the following steps:
 
 It takes several minutes for the stack to be created. When you see an Auto Scaling Group (ASG) created, you can select it and check the EC2 instances. By default, there is only one instance to start with.
 
-### Stack details
+### Stack Details
 
 The following images show the **Specify stack details** page in the Create stack wizard ([deployment](#deployment) step 5). The table that follows provides a parameter value reference.
 
-![Application configuration](images/cloudformation-step-2.png) 
+![Application Configuration](images/cloudformation-step-2.png) 
 
 Lower part of the page:
 
-![Infrastructure configuration](images/cloudformation-step-2-2.png)
+![Infrastructure Configuration](images/cloudformation-step-2-2.png)
 
 The following table explains the parameter values that you need to provide in step 5 during the [deployment](#deployment).
 
@@ -209,11 +209,11 @@ The following table explains the parameter values that you need to provide in st
 |VpcSubnet1 |The existing VPC AZ1 Subnet ID. |
 |VpcSubnet2 |The existing VPC AZ2 Subnet ID. |
 
-### Stack configuration options
+### Stack Configuration Options
 
 The following image shows the **Configure stack options** page in the Create stack wizard ([deployment](#deployment) step 6).
 
-![Configure stack options](images/cloudformation-step-3.png)
+![Configure Stack Options](images/cloudformation-step-3.png)
 
 The following table explains the parameter values that you need to provide in step 6 during the [deployment](#deployment).
 
@@ -224,7 +224,7 @@ The following table explains the parameter values that you need to provide in st
 |Stack failure options |Choose what happens when deployment fails. The `Roll back all stack resources` option is recommended. |
 |Advanced options | These are optional. |
 
-## Creating a load balancer
+## Creating a Load Balancer
 
 To create a load balancer and a target operator auto-scaling group, complete the following steps:
 
@@ -248,16 +248,16 @@ To create a load balancer and a target operator auto-scaling group, complete the
 10. Go back to the Load Balancer page, and under **Listeners and routing**, select `UID2ALBTG` as the target group to forward to as a default action. Note that you may have to refresh the target groups for your newly created target group to appear. Change the listener **Port** value to `443`.
 11. Set up an HTTPS listener by following the instructions in the [AWS user guide](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html).
 12. Click **Create load balancer**.
-13. To verify the status of this load balancer, please continue in the below section: [Checking UID2 Operator status](#checking-uid2-operator-status)
+13. To verify the status of this load balancer, please continue in the below section: [Checking UID2 Operator Status](#checking-uid2-operator-status)
 
-## Checking UID2 Operator status
+## Checking UID2 Operator Status
 
 To check the UID2 Operator status of your Load Balancer, complete the following steps:
 
 1. Identify the DNS name of your load balancer by going to **EC2 > Load balancers** and looking at the **DNS name** column of your load balancer.
 2. In your browser, go to `https://{dns-name-of-your-load-balancer}/ops/healthcheck`. A response of `OK` indicates good operator status.
 
-### Private Operator attestation failure
+### Private Operator Attestation Failure
 
 <SnptAttestFailure />
 
@@ -274,30 +274,30 @@ Here's what you need to know about upgrading:
 For a smooth transition, create the new stack first. After the new stack is bootstrapped and ready to serve, delete the old stack. If you are using a load balancer, first get the new instances up and running and then convert the DNS name from the previous one to the new one.
 :::
 
-## Managing the logs
+## Managing the Logs
 Use the following sections to help you make the best use of your logs:
 
-- [Where to read logs](#where-to-read-logs)
-- [Default log settings](#default-log-settings)
-- [Changing the log rotation schedule](#changing-the-log-rotation-schedule)
-- [Additional commands for logging](#additional-commands-for-logging)
+- [Where to Read Logs](#where-to-read-logs)
+- [Default Log Settings](#default-log-settings)
+- [Changing the Log Rotation Schedule](#changing-the-log-rotation-schedule)
+- [Additional Commands for Logging](#additional-commands-for-logging)
 
-### Where to read logs
+### Where to Read Logs
 To access the logs, ssh into the EC2 instance. The logs are located at `/var/logs/` and are in the format `operator.log-<timestamp rotated>`.
 
-### Default log settings
+### Default Log Settings
 The UID2 system uses `syslog-ng` for log generation and employs `logrotate` with cron jobs to manage log rotation and prevent excessive log size. The following sections provide information on the default settings and the reasons behind them, and give guidance for customizing the log rotation configuration to meet your specific requirements:
 
-- [Log rotation configuration](#log-rotation-configuration)
-- [Log rotation default settings](#log-rotation-default-settings)
+- [Log Rotation Configuration](#log-rotation-configuration)
+- [Log Rotation Default Settings](#log-rotation-default-settings)
 - [cronjob Configuration](#cronjob-configuration)
 
-#### Log rotation configuration
+#### Log Rotation Configuration
 When the operator instance has been deployed, the default log rotation settings are applied, as follows:
 - Logs are rotated daily and 30 log entries are kept, so the log history is equivalent to 30 days of data if the log entries are not abnormally large.
 - If log entries are very large, and the log size reaches 30 MB within a 24-hour period, the log is rotated at that point.
 
-#### Log rotation default settings
+#### Log Rotation Default Settings
 
 The following are the default logrotate settings, defined in `/etc/logrotate.d/operator-logrotate.conf`:
 
@@ -346,7 +346,7 @@ These are the default settings for the following reasons:
 - The script ensure that the `maxsize` condition is checked frequently.
 - The command refers to `/var/lib/logrotate/logrotate.status` to check the log status and see if it has reached the rotation condition, so that it won't make extra rotations when `logrotate` is run every minute.
 
-### Changing the log rotation schedule
+### Changing the Log Rotation Schedule
 
 To change the log rotation schedule, update the `etc/logrotate.d/operator-logrotate.conf` file. 
 
@@ -356,7 +356,7 @@ Follow the instructions in the logrotate documentation: see [logrotate(8) - Linu
 The service does NOT need to be restarted to pick up the change.
 :::
 
-### Additional commands for logging
+### Additional Commands for Logging
 
 The following table includes some additional commands that might help you manage logs.
 
@@ -366,11 +366,11 @@ The following table includes some additional commands that might help you manage
 | Runs one iteration of `logrotate` manually, without changing the scheduled interval. | `sudo logrotate -f /etc/logrotate.conf --force` |
 | Reloads `syslog-ng`. | `sudo /usr/sbin/syslog-ng-ctl reload` |
 
-## Keeping the operator key secure
+## Keeping the Operator Key Secure
 
 <SnptRotatingTheKeys />
 
-## UID2 Operator error codes
+## UID2 Operator Error Codes
 
 The following sections list error codes that might occur during a Private Operator's startup or runtime.
 
@@ -378,7 +378,7 @@ The following sections list error codes that might occur during a Private Operat
 Error codes for Private Operator issues are applicable only to release v5.49.7 and later.
 :::
 
-### Startup errors
+### Startup Errors
 
 The following errors might occur during operator startup:
 
@@ -391,12 +391,12 @@ The following errors might occur during operator startup:
 | E05 | OperatorKeyValidationError | Ensure the operator key is correct for the environment and matches the one provided to you. |
 | E06 | UID2ServicesUnreachableError | Allow UID2 core and opt-out service IP addresses in the egress firewall. For IP addresses and DNS details, refer to the logs.  |
 
-### Runtime errors
+### Runtime Errors
 
 The following errors might occur during operator runtime:
 
 <SnptRuntimeErrors />
 
-## Technical support
+## Technical Support
 
 If you have trouble subscribing to the product, or deploying, [contact us](mailto:aws-mktpl-uid@thetradedesk.com).

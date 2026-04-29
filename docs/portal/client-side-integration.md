@@ -8,44 +8,44 @@ displayed_sidebar: docs
 
 import Link from '@docusaurus/Link';
 
-# Client-side integration
+# Client-Side Integration
 
 :::note
-These instructions are for client-side implementations. If your UID2 implementation will be client-server or server-side, you'll need to set up different values. For details, see [API keys](api-keys.md).
+These instructions are for client-side implementations. If your UID2 implementation will be client-server or server-side, you'll need to set up different values. For details, see [API Keys](api-keys.md).
 :::
 
 In the UID2 Portal, if you want to use an implementation option that generates UID2 tokens on the client side, you'll need to define the following values that are applicable to your implementation type:
 
 | Value | Implementation Type | Details | Documentation Link |
 | :--- | :--- | :---| :---|
-| Key pair | All (web or mobile) | At least one. In your implementation, you'll share the public key. | [Subscription ID and public key](../getting-started/gs-credentials.md#subscription-id-and-public-key) |
-| Domain | Web | At least one. Provide a complete list of your root-level domains. | [Client-side web integrations](../getting-started/gs-account-setup.md#client-side-web-integrations) |
-| Mobile App ID | Mobile | Any IDs that apply to your mobile apps, such as Android App ID, iOS/tvOS Bundle ID, or iOS App Store ID. | [Client-side mobile integrations](../getting-started/gs-account-setup.md#client-side-mobile-integrations) |
+| Key pair | All (web or mobile) | At least one. In your implementation, you'll share the public key. | [Subscription ID and Public Key](../getting-started/gs-credentials.md#subscription-id-and-public-key) |
+| Domain | Web | At least one. Provide a complete list of your root-level domains. | [Client-Side Web Integrations](../getting-started/gs-account-setup.md#client-side-web-integrations) |
+| Mobile App ID | Mobile | Any IDs that apply to your mobile apps, such as Android App ID, iOS/tvOS Bundle ID, or iOS App Store ID. | [Client-Side Mobile Integrations](../getting-started/gs-account-setup.md#client-side-mobile-integrations) |
 
 :::important
 It's important to provide a complete list of root-level domain names for your sites, and mobile app IDs for your apps. This is a security measure, for client-side implementation only. If a domain or app is not defined in the UID2 Portal, UID2 token requests from that domain or app will fail.
 :::
 
 On the Client-Side Integration page you can perform all activities relating to setting up and managing these values, including the following:
-- [Adding and managing key pairs](#adding-and-managing-key-pairs)
-- [Adding and managing root-level domains](#adding-and-managing-root-level-domains)
-- [Adding and managing mobile app ids](#adding-and-managing-mobile-app-ids)
+- [Adding and Managing Key Pairs](#adding-and-managing-key-pairs)
+- [Adding and Managing Root-Level Domains](#adding-and-managing-root-level-domains)
+- [Adding and Managing Mobile App IDs](#adding-and-managing-mobile-app-ids)
 
 :::note
 When you go into the Client-Side Integration page, you'll be prompted to provide missing configuration items if you haven't yet created at least one key pair and at least one root-level domain or mobile app ID.
 :::
 
-## Client-side implementation options
+## Client-Side Implementation Options
 
 Client-side implementation options are shown in the following table. The options available to you depend on your role.
 
 | Client-Side Implementation Option | Available For (Role) | Documentation Link |
 | :--- | :--- | :---|
-| UID2 JavaScript SDK | Publishers, Advertisers | [Client-side integration guide for JavaScript](../guides/integration-javascript-client-side.md) |
-| Prebid.js client-side integration | Publishers only |[UID2 client-side integration guide for Prebid.js](../guides/integration-prebid-client-side.md) |
-| UID2 Mobile SDK | Publishers only |[UID2 client-side integration guide for mobile](../guides/integration-mobile-client-side.md) |
+| UID2 JavaScript SDK | Publishers, Advertisers | [Client-Side Integration Guide for JavaScript](../guides/integration-javascript-client-side.md) |
+| Prebid.js client-side integration | Publishers only |[UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md) |
+| UID2 Mobile SDK | Publishers only |[UID2 Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side.md) |
 
-## Adding and managing key pairs
+## Adding and Managing Key Pairs
 
 :::note
 The key pair identifies you to the UID2 service, but the values are not secret. You do not need to store the key pair securely, and can share it, since it's intended for use in a client-side implementation.
@@ -53,16 +53,16 @@ The key pair identifies you to the UID2 service, but the values are not secret. 
 
 On the Client-Side Integration page, you can perform the following activities relating to setting up and managing key pairs:
 
-- [Adding a key pair](#adding-a-key-pair)
-- [Copying or viewing a public key](#copying-or-viewing-a-public-key)
-- [Changing the name of a key pair](#changing-the-name-of-a-key-pair)
-- [Deleting a key pair](#deleting-a-key-pair)
+- [Adding a Key Pair](#adding-a-key-pair)
+- [Copying or Viewing a Public Key](#copying-or-viewing-a-public-key)
+- [Changing the Name of a Key Pair](#changing-the-name-of-a-key-pair)
+- [Deleting a Key Pair](#deleting-a-key-pair)
 
 :::important
 As well as creating key pairs, you must add at least one root-level domain name or mobile app ID. The sequence doesn't matter; you can create a key pair first, but you must complete both steps to configure your client-side integration.
 :::
 
-### Adding a key pair
+### Adding a Key Pair
 
 To add a key pair, complete the following steps:
 
@@ -72,9 +72,9 @@ To add a key pair, complete the following steps:
 
    The key pair is generated automatically. On the **Client-Side Integration** page, the new key pair is displayed with the name, Subscription ID, public key, and the date it was created, as shown in the following example.
 
-   ![Client-side integration page, key pairs](images/portal-client-side-integration-key-pairs.png)
+   ![Client-Side Integration page, Key Pairs](images/portal-client-side-integration-key-pairs.png)
 
-### Copying or viewing a public key
+### Copying or Viewing a Public Key
 
 When you create a key pair in the Client-Side Integration page, you can share your public key. The UID2 service uses the corresponding private key, plus other values, to authenticate your messages.
 
@@ -88,7 +88,7 @@ To view or copy a public key, follow these steps:
 
      Save the public key in a safe place.
 
-### Changing the name of a key pair
+### Changing the Name of a Key Pair
 
 When you've created a key pair, the only value you can change is the name. To change the value, you'll need to create a new key pair.
 
@@ -99,7 +99,7 @@ To change the name of a key pair, complete the following steps:
 1. In the Actions column, click ![the Edit icon](images/icon-pencil-solid.png) (the Edit icon).
 1. Update the name, and then click **Save Key Pair**.
 
-### Deleting a key pair
+### Deleting a Key Pair
 
 To delete a key pair, follow these steps:
 
@@ -110,16 +110,16 @@ To delete a key pair, follow these steps:
    The key pair is removed from the display and is no longer valid.
 
 
-## Adding and managing root-level domains
+## Adding and Managing Root-Level Domains
 
 On the Client-Side Integration page, you can perform the following activities relating to setting up and managing domains:
 
-- [Adding domains](#adding-domains)
-- [Updating a domain](#updating-a-domain)
-- [Deleting a domain](#deleting-a-domain)
-- [Deleting multiple domains](#deleting-multiple-domains)
+- [Adding Domains](#adding-domains)
+- [Updating a Domain](#updating-a-domain)
+- [Deleting a Domain](#deleting-a-domain)
+- [Deleting Multiple Domains](#deleting-multiple-domains)
 
-### Adding domains
+### Adding Domains
 
 It's important to provide a complete list of root-level domain names. UID2 token requests are accepted only from domains that are set up in the UID2 Portal.
 
@@ -140,7 +140,7 @@ To add one or more root-level domains, complete the following steps:
 
    On the **Client-Side Integration** page, the list is updated.
 
-### Updating a domain
+### Updating a Domain
 
 To update the name of a domain on the list, complete the following steps:
 
@@ -149,7 +149,7 @@ To update the name of a domain on the list, complete the following steps:
 1. In the Actions column, click ![the Edit icon](images/icon-pencil-solid.png) (the Edit icon).
 1. Update the name, and then click **Save Domain**.
 
-### Deleting a domain
+### Deleting a Domain
 
 To delete a domain from your list, follow these steps:
 
@@ -160,12 +160,12 @@ To delete a domain from your list, follow these steps:
 
    The domain is removed from your domains list.
 
-### Deleting multiple domains
+### Deleting Multiple Domains
 
 There are two ways that you can delete more than one domain at a time:
 
 - Choose multiple individual values from the list and then delete the selected domains.
-- Replace your existing list with an updated list that you are adding. See [Adding domains](#adding-domains).
+- Replace your existing list with an updated list that you are adding. See [Adding Domains](#adding-domains).
 
 To multi-select domains for deletion:
 
@@ -174,7 +174,7 @@ To multi-select domains for deletion:
 
    A Delete icon appears, and all domains are selected for deletion.
 
-   ![Domains multi-select checkbox](images/portal-client-side-integration-domains-multiselect.png)
+   ![Domains Multi-Select Checkbox](images/portal-client-side-integration-domains-multiselect.png)
 
 1. Conditional: if you want to keep some of the domains, clear the checkboxes for those domains.
 
@@ -184,16 +184,16 @@ To multi-select domains for deletion:
 
    The domains are removed from your domains list.
 
-## Adding and managing mobile app ids
+## Adding and Managing Mobile App IDs
 
 On the Client-Side Integration page, you can perform the following activities relating to setting up and managing mobile app IDs:
 
-- [Adding mobile app ids](#adding-mobile-app-ids)
-- [Updating a mobile app ID](#updating-a-mobile-app-id)
-- [Deleting a mobile app ID](#deleting-a-mobile-app-id)
-- [Deleting multiple mobile app ids](#deleting-multiple-mobile-app-ids)
+- [Adding Mobile App IDs](#adding-mobile-app-ids)
+- [Updating a Mobile App ID](#updating-a-mobile-app-id)
+- [Deleting a Mobile App ID](#deleting-a-mobile-app-id)
+- [Deleting Multiple Mobile App IDs](#deleting-multiple-mobile-app-ids)
 
-### Adding mobile app ids
+### Adding Mobile App IDs
 
 It's important to provide a complete list of all your mobile app IDs, including:
 - Android App ID: any that apply.
@@ -216,7 +216,7 @@ To add one or more mobile app IDs, complete the following steps:
 
    On the **Client-Side Integration** page, the list is updated.
 
-### Updating a mobile app ID
+### Updating a Mobile App ID
 
 To change the name of a mobile app ID on the list, complete the following steps:
 
@@ -225,7 +225,7 @@ To change the name of a mobile app ID on the list, complete the following steps:
 1. In the Actions column, click ![the Edit icon](images/icon-pencil-solid.png) (the Edit icon).
 1. Update the name, and then click **Save Mobile App ID**.
 
-### Deleting a mobile app ID
+### Deleting a Mobile App ID
 
 To delete a mobile app ID from your list, follow these steps:
 
@@ -236,12 +236,12 @@ To delete a mobile app ID from your list, follow these steps:
 
    The entry is removed from your Mobile App IDs list.
 
-### Deleting multiple mobile app ids
+### Deleting Multiple Mobile App IDs
 
 There are two ways that you can delete more than one mobile app ID at a time:
 
 - Choose multiple individual values from the list and then delete the selected mobile app IDs.
-- Replace your existing list with an updated list that you are adding. See [Adding mobile app ids](#adding-mobile-app-ids).
+- Replace your existing list with an updated list that you are adding. See [Adding Mobile App IDs](#adding-mobile-app-ids).
 
 To multi-select mobile app IDs for deletion:
 
@@ -250,7 +250,7 @@ To multi-select mobile app IDs for deletion:
 
    A Delete icon appears, and all mobile app IDs are selected for deletion:
 
-   ![Multi-select checkbox](images/portal-client-side-integration-multiselect.png)
+   ![Multi-Select Checkbox](images/portal-client-side-integration-multiselect.png)
 
 1. Conditional: if you want to keep some of the mobile app IDs, clear the checkboxes for those entries.
 

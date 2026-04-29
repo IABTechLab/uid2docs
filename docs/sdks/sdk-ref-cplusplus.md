@@ -8,7 +8,7 @@ displayed_sidebar: docs
 
 import Link from '@docusaurus/Link';
 
-# SDK for C++ reference guide
+# SDK for C++ Reference Guide
 
 You can use the SDK for C++ on the server side to encrypt raw UID2s to create UID2 tokens for sharing, and to decrypt UID2 tokens to access the raw UID2.
 
@@ -24,17 +24,17 @@ This SDK simplifies integration with UID2 for any DSPs or UID2 sharers who are u
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | &#9989; | &#9989; | &#8212; | &#8212; | &#8212; | &#8212; |
 
-## UID2 account setup
+## UID2 Account Setup
 
-To integrate with UID2, you'll need to have a UID2 account. If you haven't yet created an account, first follow the steps described on the [Account setup](../getting-started/gs-account-setup.md) page.
+To integrate with UID2, you'll need to have a UID2 account. If you haven't yet created an account, first follow the steps described on the [Account Setup](../getting-started/gs-account-setup.md) page.
 
-## API permissions
+## API Permissions
 
-When initial account setup is complete, if you're a publisher, advertiser, or data provider, you'll receive instructions and a link to access the [UID2 portal](../portal/portal-overview.md), where you can:
+When initial account setup is complete, if you're a publisher, advertiser, or data provider, you'll receive instructions and a link to access the [UID2 Portal](../portal/portal-overview.md), where you can:
 - Generate [credentials](../getting-started/gs-credentials.md) for your account.
 - Optionally, configure other values, such as setting up information about team members.
 
-You'll be granted permission to use specific functions offered by the SDK, and given credentials for that access. Bear in mind that there might be functions in the SDK that you don't have permission to use. For details, see [API permissions](../getting-started/gs-permissions.md).
+You'll be granted permission to use specific functions offered by the SDK, and given credentials for that access. Bear in mind that there might be functions in the SDK that you don't have permission to use. For details, see [API Permissions](../getting-started/gs-permissions.md).
 
 If you're a DSP, we'll send credentials to you.
 
@@ -42,7 +42,7 @@ If you're a DSP, we'll send credentials to you.
 
 The SDK requires C++ version 11.
 
-## Github repository/binary
+## GitHub Repository/Binary
 
 This SDK is in the following open-source GitHub repository:
 
@@ -59,7 +59,7 @@ The initialization function configures the parameters necessary for the SDK to a
 | Parameter | Description | Recommended Value |
 | :--- | :--- | :--- |
 | `endpoint` | The endpoint for the UID2 service. | N/A |
-| `authKey` | The authentication token that belongs to the client. For access to UID2, see [Contact info](../getting-started/gs-account-setup.md#contact-info). | N/A |
+| `authKey` | The authentication token that belongs to the client. For access to UID2, see [Contact Info](../getting-started/gs-account-setup.md#contact-info). | N/A |
 
 ## Interface 
 
@@ -69,7 +69,7 @@ The interface allows you to decrypt UID2 advertising tokens and return the corre
 When you use an SDK, you do not need to store or manage decryption keys.
 :::
 
-If you're a DSP, for bidding, call the interface to decrypt a UID2 advertising token and return the UID2. For details on the bidding logic for handling user opt-outs, see [DSP integration guide](../guides/dsp-guide.md).
+If you're a DSP, for bidding, call the interface to decrypt a UID2 advertising token and return the UID2. For details on the bidding logic for handling user opt-outs, see [DSP Integration Guide](../guides/dsp-guide.md).
 
 The following is the decrypt method in C++:
 
@@ -82,17 +82,17 @@ client->Refresh(); //Note that Refresh() should be called once after create(), a
 const auto result = client->Decrypt(adToken);
 ```
 
-### Response content
+### Response Content
 
 Available information returned through the SDK is outlined in the following table.
 
 | Function | Description |
 | :--- | :--- |
-| `GetStatus()` | The decryption result status. For a list of possible values and definitions, see [Response statuses](#response-statuses). |
+| `GetStatus()` | The decryption result status. For a list of possible values and definitions, see [Response Statuses](#response-statuses). |
 | `GetUid()` | The raw UID2 for the corresponding UID2 advertising token. |
 | `GetEstablished()` | The timestamp indicating when a user first established the UID2 with the publisher. |
 
-### Response statuses
+### Response Statuses
 
 | Value | Description |
 | :--- | :--- |
@@ -104,14 +104,14 @@ Available information returned through the SDK is outlined in the following tabl
 | `KeysNotSynced` | The client has failed to synchronize keys from the UID2 service. |
 | `VersionNotSupported` | The client library does not support the version of the encrypted token. |
 
-## Usage for UID2 sharers
+## Usage for UID2 Sharers
 
 A UID2 <Link href="../ref-info/glossary-uid#gl-sharing-participant">sharing participant</Link> is a company that takes part in sharing, either as a sender or a receiver, to share UID2s with another participant.
 
-Advertisers and data providers can use this SDK to share UID2s with other authorized UID2 sharing participants (<Link href="../ref-info/glossary-uid#gl-tokenized-sharing">tokenized sharing</Link>). They can encrypt [raw UID2s](../ref-info/glossary-uid#gl-raw-uid2) into <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> and then send them to another participant for sharing in pixels (see [Tokenized sharing in pixels](../sharing/sharing-tokenized-from-data-pixel.md)). If you are not sending data in pixels, you can take part in UID2 sharing as long as you follow the requirements laid out in [Security requirements for UID2 sharing](../sharing/sharing-security.md).
+Advertisers and data providers can use this SDK to share UID2s with other authorized UID2 sharing participants (<Link href="../ref-info/glossary-uid#gl-tokenized-sharing">tokenized sharing</Link>). They can encrypt [raw UID2s](../ref-info/glossary-uid#gl-raw-uid2) into <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> and then send them to another participant for sharing in pixels (see [Tokenized Sharing in Pixels](../sharing/sharing-tokenized-from-data-pixel.md)). If you are not sending data in pixels, you can take part in UID2 sharing as long as you follow the requirements laid out in [Security Requirements for UID2 Sharing](../sharing/sharing-security.md).
 
 :::important
-The UID2 token generated during this process is for sharing only&#8212;you cannot use it in the <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link>. There is a different workflow for generating tokens for the bidstream: see [Tokenized sharing in the bidstream](../sharing/sharing-tokenized-from-data-bid-stream.md).
+The UID2 token generated during this process is for sharing only&#8212;you cannot use it in the <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link>. There is a different workflow for generating tokens for the bidstream: see [Tokenized Sharing in the Bidstream](../sharing/sharing-tokenized-from-data-bid-stream.md).
 :::
 
  For an example of usage, see [com.uid2.client.test.IntegrationExamples](https://github.com/IABTechLab/uid2-client-java/blob/master/src/test/java/com/uid2/client/test/IntegrationExamples.java) (`runSharingExample` method).

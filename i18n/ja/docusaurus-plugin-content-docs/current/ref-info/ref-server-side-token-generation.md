@@ -10,7 +10,7 @@ import Link from '@docusaurus/Link';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Server-side token generation
+# Server-Side Token Generation
 
 パブリッシャーが Client-Server または Server-Side UID2 インテグレーションを設定する場合、最初のステップはサーバーで UID2 Token を生成することです。その後、トークンを Client-Side または Server-Side でリフレッシュし、RTB ビッドストリームに送信するためにトークンを Client-Side に渡すことができます。
 
@@ -20,7 +20,7 @@ import TabItem from '@theme/TabItem';
 - API エンドポイントへのダイレクトインテグレーション
 
 :::warning
-セキュリティ上の理由により、トークン生成に使用される API Key と Client Secret は Server-Side で呼び出す必要があります。これらの値を Client-Side（Web ページ、モバイルアプリ、Prebid）に保存しないでください。詳細は、[Security of API key and client secret](../getting-started/gs-credentials.md#security-of-api-key-and-client-secret) を参照してください。
+セキュリティ上の理由により、トークン生成に使用される API Key と Client Secret は Server-Side で呼び出す必要があります。これらの値を Client-Side（Web ページ、モバイルアプリ、Prebid）に保存しないでください。詳細は、[Security of API Key and Client Secret](../getting-started/gs-credentials.md#security-of-api-key-and-client-secret) を参照してください。
 :::
 
 オプションは次の表にまとめられています。
@@ -37,8 +37,8 @@ import TabItem from '@theme/TabItem';
 
    手順は、次のいずれかを参照してください:
    
-   - [SDK for Java, usage for publishers, basic usage](../sdks/sdk-ref-java.md#basic-usage)
-   - [SDK for Python, usage for publishers](../sdks/sdk-ref-python.md#usage-for-publishers)
+   - [SDK for Java, Usage for Publishers, Basic Usage](../sdks/sdk-ref-java.md#basic-usage)
+   - [SDK for Python, Usage for Publishers](../sdks/sdk-ref-python.md#usage-for-publishers)
 
    SDK オプションを使用している場合、このガイドの残りの部分で必要な `Identity` レスポンスは、次のいずれかのメソッドの出力です:
 
@@ -61,7 +61,7 @@ import TabItem from '@theme/TabItem';
 
 - **API**: [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) エンドポイントを呼び出します。
 
-  このガイドの残りの部分で必要な Identity の出力は、成功したエンドポイントのレスポンスの body セクション内のコンテンツです。例は、[Successful response](../endpoints/post-token-generate.md#successful-response) を参照してください。
+  このガイドの残りの部分で必要な Identity の出力は、成功したエンドポイントのレスポンスの body セクション内のコンテンツです。例は、[Successful Response](../endpoints/post-token-generate.md#successful-response) を参照してください。
   
 :::important
 トークンを生成する DII が UID2 からオプトアウトされている場合、エンドポイントと SDK API はオプトアウトステータスを返します。この場合、情報を保存し、同じ DII に対してトークン生成エンドポイントを呼び出さないでください。

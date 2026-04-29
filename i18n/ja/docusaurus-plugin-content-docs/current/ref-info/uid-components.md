@@ -8,7 +8,7 @@ displayed_sidebar: docs
 
 import Link from '@docusaurus/Link';
 
-# UID2 components
+# UID2 Components
 
 UID2 フレームワークは以下のコンポーネントで構成されており、すべて The Trade Desk によって管理されています。
 

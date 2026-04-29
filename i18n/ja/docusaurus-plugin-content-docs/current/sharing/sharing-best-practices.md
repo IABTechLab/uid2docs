@@ -8,20 +8,20 @@ displayed_sidebar: docs
 
 import Link from '@docusaurus/Link';
 
-# UID2 sharing: Best practices
+# UID2 Sharing: Best Practices
 
 raw UID2 や UID2 Token を、UID2 の許可を受けた他のユーザーと安全に共有できるようになったことで、UID2 をビジネスでさまざまに活用できるようになりました。
 
 しかし、UID2 参加者は皆、UID2 エコシステムのセキュリティを維持する責任を負っています。ここでは、UID2 の共有を円滑かつ安全に行うためのベストプラクティスをいくつか紹介します。
 
-## Best practices for managing raw UID2s and UID2 tokens
+## Best Practices for Managing Raw UID2s and UID2 Tokens
 
 以下のガイドラインに従ってください:
 - プラットフォーム上の UID2 は、UID2 Token としてではなく、raw UID2 として使用・保管してください。UID2 Token を受け取ったら、できるだけ早く復号化してください。
 
   UID2 Token は短命なので、この点は重要です。UID2 Token の作成に使われた鍵の有効期限が切れると、トークンを復号化できなくなります。
 
-- raw UID2 は、非参加者に**渡してはなりません**。詳細は [UID2 token pass-through](sharing-tokenized-overview.md#uid2-token-pass-through) を参照してください。
+- raw UID2 は、非参加者に**渡してはなりません**。詳細は [UID2 Token Pass-Through](sharing-tokenized-overview.md#uid2-token-pass-through) を参照してください。
 
 - コードでは、将来の拡張性を考慮して、以下を許容してください：
 
@@ -31,7 +31,7 @@ raw UID2 や UID2 Token を、UID2 の許可を受けた他のユーザーと安
 
 - raw UID2 を他の承認された共有参加者と共有する前に、[POST&nbsp;/optout/status](../endpoints/post-optout-status.md) エンドポイントを使用して、raw UID2 のオプトアウトステータスを確認してください。オプトアウトされた raw UID2 を共有しないでください。
 
-## Decryption key refresh cadence for sharing
+## Decryption Key Refresh Cadence for Sharing
 
 SDK を使用している場合、共有キーの更新スケジュールを設定することはセットアップの一部です。
 

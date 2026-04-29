@@ -8,23 +8,23 @@ displayed_sidebar: docs
 
 import Link from '@docusaurus/Link';
 
-# UID2 endpoints: Summary
+# UID2 Endpoints: Summary
 
-すべての UID2 エンドポイントでは、API リクエストの暗号化([POST&nbsp;/token/refresh](post-token-refresh.md) を除く) とレスポンスの復号化に Client Secret が必要です。詳細といくつかのプログラミング言語でのコードの例は、[Encrypting requests and decrypting responses](../getting-started/gs-encryption-decryption.md) を参照してください。
+すべての UID2 エンドポイントでは、API リクエストの暗号化([POST&nbsp;/token/refresh](post-token-refresh.md) を除く) とレスポンスの復号化に Client Secret が必要です。詳細といくつかのプログラミング言語でのコードの例は、[Encrypting Requests and Decrypting Responses](../getting-started/gs-encryption-decryption.md) を参照してください。
 
-## UID2 endpoints by audience
+## UID2 Endpoints by Audience
 
 以下の表は、UID2 エンドポイントと各エンドポイントの対象ユーザーを示しています。詳細については、該当するセクションをクリックしてください。
 
 | Endpoint | Audience | Details |
 | :--- | :--- | :--- |
-| [POST&nbsp;/token/generate](post-token-generate.md) | パブリッシャー | [UID2 tokens](#uid2-tokens) |
-| [POST&nbsp;/token/validate](post-token-validate.md) | パブリッシャー | [UID2 tokens](#uid2-tokens) |
-| [POST&nbsp;/token/refresh](post-token-refresh.md) | パブリッシャー | [UID2 tokens](#uid2-tokens) |
-| [POST&nbsp;/identity/map](post-identity-map.md) | 広告主、データプロバイダー | [Identity map](#identity-map) |
-| [POST&nbsp;/optout/status](post-optout-status.md) | 広告主、データプロバイダー、DSP、共有参加者 | [Opt-out status](#opt-out-status) |
+| [POST&nbsp;/token/generate](post-token-generate.md) | パブリッシャー | [UID2 Tokens](#uid2-tokens) |
+| [POST&nbsp;/token/validate](post-token-validate.md) | パブリッシャー | [UID2 Tokens](#uid2-tokens) |
+| [POST&nbsp;/token/refresh](post-token-refresh.md) | パブリッシャー | [UID2 Tokens](#uid2-tokens) |
+| [POST&nbsp;/identity/map](post-identity-map.md) | 広告主、データプロバイダー | [Identity Map](#identity-map) |
+| [POST&nbsp;/optout/status](post-optout-status.md) | 広告主、データプロバイダー、DSP、共有参加者 | [Opt-Out Status](#opt-out-status) |
 
-## UID2 tokens
+## UID2 Tokens
 
 以下のエンドポイントは、UID2 Token (identity tokens, advertising tokens) を取得および管理するためのもので、主にパブリッシャーが使用します。
 
@@ -34,11 +34,11 @@ import Link from '@docusaurus/Link';
 | [POST&nbsp;/token/validate](post-token-validate.md) | Advertising Token (UID2) が指定されたメールアドレス、電話番号、またはそれぞれのハッシュと一致するかどうかを検証するためのテストに使用します。 | 必須 | 必須 |
 | [POST&nbsp;/token/refresh](post-token-refresh.md) | [POST&nbsp;/token/generate](./post-token-generate.md) レスポンスから、ユーザーの Refresh Token 用に新しいトークンを生成します。 | N/A | 必須 |
 
-## Identity map
+## Identity Map
 
 以下のエンドポイントは、広告主とサードパーティのデータプロバイダーが使用します。パブリッシャーはこれらのエンドポイントを使用する必要はありません。
 
-### Latest identity map endpoint (v3)
+### Latest Identity Map Endpoint (v3)
 
 最新の Identity Map インテグレーションでは、1 つのエンドポイント `POST /identity/map` を呼び出すだけで済みます。`POST /identity/buckets` エンドポイントはワークフローの一部ではありません。
 
@@ -52,7 +52,7 @@ import Link from '@docusaurus/Link';
 | :--- | :--- | :--- | :--- |
 | [POST&nbsp;/identity/map](post-identity-map.md) | 1 つ以上のメールアドレス、電話番号、またはそのハッシュに対して、raw UID2、以前の raw UID2、および更新タイムスタンプをマップします。 | 必須 | 必須 |
 
-### Earlier identity map endpoints (v2)
+### Earlier Identity Map Endpoints (v2)
 
 以下のエンドポイントは、以前の Identity Map インテグレーション (バージョン 2) の一部です。
 
@@ -61,11 +61,11 @@ import Link from '@docusaurus/Link';
 | [POST&nbsp;/identity/buckets](post-identity-buckets.md) | ローテーションしたソルトバケットの最終更新タイムスタンプをモニターします。 | 必須 | 必須 |
 | [POST&nbsp;/identity/map (v2)](post-identity-map-v2.md) | 1 つ以上のメールアドレス、電話番号、またはそれぞれのハッシュに対して、raw UID2 と ソルトバケット ID をマッピングします。 | 必須 | 必須 |
 
-## Opt-out status
+## Opt-Out Status
 
 以下のエンドポイントは、広告主、サードパーティのデータプロバイダー、DSP、共有参加者が使用できます。パブリッシャーは、このエンドポイントを使用する必要はありません。
 
-UID2 の Opt-Out ワークフローとユーザーが Opt-Out する方法の詳細は、[User opt-out](../getting-started/gs-opt-out.md) を参照してください。
+UID2 の Opt-Out ワークフローとユーザーが Opt-Out する方法の詳細は、[User Opt-Out](../getting-started/gs-opt-out.md) を参照してください。
 
 | Endpoint | Description | Request Encryption | Response Decryption |
 | :--- | :--- | :--- | :--- |

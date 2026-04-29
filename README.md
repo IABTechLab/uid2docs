@@ -1,4 +1,4 @@
-# UID2 documentation
+# UID2 Documentation
 
 > Note: The new location for viewing UID2 documentation content is on the Unified ID website: [Unified ID 2.0 Overview](https://unifiedid.com/docs/intro).
 
@@ -7,7 +7,7 @@ This repository contains all the content files and supporting site infrastructur
 - English (US)
 - Japanese
 
-For information about build tools and about contributing to this repository, see [Contributing.md](CONTRIBUTING.md).
+For information about build tools and about contributing to this repository, see [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Adding custom tags
 

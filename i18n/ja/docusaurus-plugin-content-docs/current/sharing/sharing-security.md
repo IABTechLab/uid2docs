@@ -8,7 +8,7 @@ displayed_sidebar: docs
 
 import Link from '@docusaurus/Link';
 
-# Security requirements for UID2 sharing
+# Security Requirements for UID2 Sharing
 
 すべての UID2 参加者は、UID2 エコシステムの安全を確保する中核的な責任を負っています。以下は、すべての UID2 参加者のための標準的なセキュリティ慣行です。承認された [共有参加者](../ref-info/glossary-uid.md#gl-sharing-participant) 間で raw UID2 を共有する場合、これらは必須であり、すべて一貫して満たす必要があります。UID2 Token を共有する場合は推奨されます。
 
@@ -17,8 +17,8 @@ import Link from '@docusaurus/Link';
 - [Authentication](#authentication)
 - [Authorization](#authorization)
 - [Accounting](#accounting)
-- [Secure transport](#secure-transport)
-- [Example workflow](#example-workflow)
+- [Secure Transport](#secure-transport)
+- [Example Workflow](#example-workflow)
 
 ## Authentication
 
@@ -59,14 +59,14 @@ Accounting とは、取引の記録があり、必要に応じてその活動を
 
 ネットワークログ、アプリケーションログ、クラウド監査ログなどの追加ログも、送信元と送信先の IP アドレスやクラウドプラットフォームのアカウント ID などの追加情報を提供することで役立ちます。
 
-## Secure transport
+## Secure Transport
 
 セキュアトランスポートは、送信者から受信者、エンドからエンドへのデータの移行中に、傍受者が raw UID2 にアクセスしたり、変更したりできないように保護するのに役立ちます。セキュアトランスポートの例:
 
 - HTTPS or TLS
 - Message-based encryption
 
-## Example workflow
+## Example Workflow
 以下は、契約検証のための人による確認ステップを含む、オンライン AAA (Authentication, Authorization, and Accounting) フローのワークフロー例です。
 
 1. Pre-Authentication:

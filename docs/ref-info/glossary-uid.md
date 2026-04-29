@@ -9,7 +9,7 @@ displayed_sidebar: docs
 import Link from '@docusaurus/Link';
 import MdxJumpAnchor from '@site/src/components/MdxJumpAnchor';
 
-# Unified ID 2.0 glossary
+# Unified ID 2.0 Glossary
 <p>This page defines some key terms used in the UID2 documentation.</p>
 
 <!-- 

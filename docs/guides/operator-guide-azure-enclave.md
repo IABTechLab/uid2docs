@@ -15,7 +15,7 @@ import SnptAttestFailure from '../snippets/_snpt-private-operator-attest-failure
 import SnptRotatingTheKeys from '../snippets/_snpt-private-operator-rotating-the-keys.mdx';
 import SnptRuntimeErrors from '../snippets/_snpt-private-operator-runtime-errors.mdx';
 
-# UID2 Private Operator for Azure integration guide
+# UID2 Private Operator for Azure Integration Guide
 
 The UID2 Operator is the API server in the UID2 ecosystem. For details, see [The UID2 Operator](../ref-info/ref-operators-public-private.md).
 
@@ -29,7 +29,7 @@ When the attestation is successful, the UID2 Core Service provides seed informat
 UID2 Private Operator for Azure is not supported in these areas: Europe, China.
 :::
 
-## Operator version
+## Operator Version
 
 The latest ZIP file is linked in the Azure Download column in the following table.
 
@@ -38,10 +38,10 @@ The latest ZIP file is linked in the Azure Download column in the following tabl
 | Q4 2025 | v5.62.24 | [v5.62.24](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.62.24-r2) | [azure-cc-deployment-files-5.62.24-r2.zip](https://github.com/IABTechLab/uid2-operator/releases/download/v5.62.24-r2/azure-cc-deployment-files-5.62.24-r2.zip) | January 15, 2026 | January 15, 2027 |
 
 :::note
-For information about supported versions and deprecation dates, see [Private Operator versions](../ref-info/deprecation-schedule.md#private-operator-versions).
+For information about supported versions and deprecation dates, see [Private Operator Versions](../ref-info/deprecation-schedule.md#private-operator-versions).
 :::
 
-## Private Operator upgrade policy
+## Private Operator Upgrade Policy
 
 <SnptUpgradePolicy />
 
@@ -49,13 +49,13 @@ For information about supported versions and deprecation dates, see [Private Ope
 
 Before deploying the UID2 Private Operator for Azure, complete these prerequisite steps:
 
-- [Set up UID2 Operator account](#set-up-uid2-operator-account)
+- [Set Up UID2 Operator Account](#set-up-uid2-operator-account)
 - [Install Azure CLI](#install-azure-cli)
-- [Get the required Azure permissions](#install-azure-cli)
+- [Get the Required Azure Permissions](#install-azure-cli)
 
-### Set up UID2 Operator account
+### Set Up UID2 Operator Account
 
-Ask your UID2 contact to register your organization as a UID2 Operator. If you're not sure who to ask, see [Contact info](../getting-started/gs-account-setup.md#contact-info).
+Ask your UID2 contact to register your organization as a UID2 Operator. If you're not sure who to ask, see [Contact Info](../getting-started/gs-account-setup.md#contact-info).
 
 When the registration process is complete, you'll receive an operator key, exclusive to you, that identifies you with the UID2 service as a Private Operator. During configuration, use this as the value for `OPERATOR_KEY`. This value is both your unique identifier and a password; store it securely and do not share it.
 
@@ -67,7 +67,7 @@ You'll receive a separate operator key for each deployment environment.
 
 Install the Azure command-line interface. For details, see [How to install the Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli) in the Azure documentation.
 
-### Get the required Azure permissions
+### Get the Required Azure Permissions
 
 You'll need to have subscription owner permission so that you can create a resource group.
 
@@ -77,11 +77,11 @@ For details, see [Azure roles](https://learn.microsoft.com/en-us/azure/role-base
 
 When all prerequisite steps are complete, you're ready to deploy the UID2 Private Operator. See [Deployment](#deployment).
 
-## Preparing DII for processing
+## Preparing DII for Processing
 
 <SnptPreparingEmailsAndPhoneNumbers />
 
-## Deployment environments
+## Deployment Environments
 
 The following environments are available. As a best practice, we recommend that you test and verify your implementation in the integration environment before deploying in the production environment.
 
@@ -98,14 +98,14 @@ You'll receive separate `{OPERATOR_KEY}` values for each environment. Be sure to
 
 To deploy a new UID2 Private Operator for Azure, you'll need to complete the following high-level steps:
 
-- [Download ZIP file and extract files](#download-zip-file-and-extract-files)
-- [Create resource group](#create-resource-group)
-- [Complete key vault and managed identity setup](#complete-key-vault-and-managed-identity-setup)
-- [Set up the VPC network](#set-up-the-vpc-network)
-- [Complete the UID2 Private Operator setup](#complete-the-uid2-private-operator-setup)
-- [Set up the gateway load balancer](#set-up-the-gateway-load-balancer)
+- [Download ZIP File and Extract Files](#download-zip-file-and-extract-files)
+- [Create Resource Group](#create-resource-group)
+- [Complete Key Vault and Managed Identity Setup](#complete-key-vault-and-managed-identity-setup)
+- [Set Up the VPC Network](#set-up-the-vpc-network)
+- [Complete the UID2 Private Operator Setup](#complete-the-uid2-private-operator-setup)
+- [Set Up the Gateway Load Balancer](#set-up-the-gateway-load-balancer)
 
-### Download ZIP file and extract files
+### Download ZIP File and Extract Files
 
 The first step is to get set up with the deployment files you'll need:
 
@@ -118,7 +118,7 @@ The first step is to get set up with the deployment files you'll need:
    - `operator.json` and `operator.parameters.json`
    - `gateway.json` and `gateway.parameters.json`
 
-### Create resource group
+### Create Resource Group
 
 In Azure, run the following command to create a resource group to run the UID2 operator:
 
@@ -141,7 +141,7 @@ There are some limitations with regard to location:
 az account list-locations -o table
 ```
 
-### Complete key vault and managed identity setup
+### Complete Key Vault and Managed Identity Setup
 
 The next step is to set up a [key vault](https://learn.microsoft.com/en-us/azure/key-vault/general/overview) and save the operator key in it.
 
@@ -156,7 +156,7 @@ Follow these steps:
    | Parameter | Description |
    | :--- | :--- |
    | `vaultName` | The name of the key vault for hosting the operator key secret. The name you choose must be globally unique. |
-   | `operatorKeyValue` | The `OPERATOR_KEY` secret value, which you received from the UID team as part of account setup (see [Set up UID2 Operator account](#set-up-uid2-operator-account)). This value is unique to you, and acts as a password: keep it secure and secret. |
+   | `operatorKeyValue` | The `OPERATOR_KEY` secret value, which you received from the UID team as part of account setup (see [Set Up UID2 Operator Account](#set-up-uid2-operator-account)). This value is unique to you, and acts as a password: keep it secure and secret. |
 
 2. (Optional) If you don't want to accept the defaults, update the `vault.parameters.json` file with the following values. These parameters have default values and in most cases you won't need to make any updates.
 
@@ -171,13 +171,13 @@ Follow these steps:
    az deployment group create --name vault --resource-group {RESOURCE_GROUP_NAME} --parameters vault.parameters.json  --template-file vault.json
    ```
 
-### Set up the VPC network
+### Set Up the VPC Network
 
 The next step is to set up the VPC network.
 
 The following diagram illustrates the virtual private cloud that hosts a UID2 Private Operator in Microsoft Azure.
 
-![VPC network](images/operator-azure-drawio.png)
+![VPC Network](images/operator-azure-drawio.png)
 
 Follow these steps:
 
@@ -198,7 +198,7 @@ Follow these steps:
    az deployment group create --name vnet --resource-group {RESOURCE_GROUP_NAME} --parameters vnet.parameters.json  --template-file vnet.json
    ```
 
-### Complete the UID2 Private Operator setup
+### Complete the UID2 Private Operator Setup
 
 The next step is to bring up multiple Azure Container Instances (ACIs) in the VPC subnetwork that you created.
 
@@ -208,17 +208,17 @@ Follow these steps:
 
    | Parameter | Description |
    | :--- | :--- |
-   | `vaultName` | The name of the key vault for hosting the operator key secret. The value must match the name you created in [Complete key vault and managed identity setup](#complete-key-vault-and-managed-identity-setup). |
-   | `deploymentEnvironment` | Indicates the environment you're deploying to: `integ` or `prod`. For details, see [Deployment environments](#deployment-environments). |
+   | `vaultName` | The name of the key vault for hosting the operator key secret. The value must match the name you created in [Complete Key Vault and Managed Identity Setup](#complete-key-vault-and-managed-identity-setup). |
+   | `deploymentEnvironment` | Indicates the environment you're deploying to: `integ` or `prod`. For details, see [Deployment Environments](#deployment-environments). |
 
 2. (Optional) If you don't want to accept the defaults, update the `operator.parameters.json` file with the following values. These parameters have default values and in most cases you won't need to make any updates.
 
     Parameter | Description |
    | :--- | :--- |
-   | `operatorKeyName` | The operator key secret name. The value must match the value specified in [Complete key vault and managed identity setup](#complete-key-vault-and-managed-identity-setup). If you accepted the default, the value is `operator-key`. |
-   | `operatorIdentifier` | The name of the managed identity that will launch the container. The value must match the value specified in [Complete key vault and managed identity setup](#complete-key-vault-and-managed-identity-setup). If you accepted the default, the value is `uid-operator`. |
-   | `vnetName` | The virtual network name. The value must match the value specified in [Set up the VPC network](#set-up-the-vpc-network). If you accepted the default, the value is `unified-id-network`. |
-   | `computeSubnetName` | The name of the subnet that will run the Private Operator. The value must match the value specified in [Set up the VPC network](#set-up-the-vpc-network). If you accepted the default, the value is `unified-id-subnet-operators`. |
+   | `operatorKeyName` | The operator key secret name. The value must match the value specified in [Complete Key Vault and Managed Identity Setup](#complete-key-vault-and-managed-identity-setup). If you accepted the default, the value is `operator-key`. |
+   | `operatorIdentifier` | The name of the managed identity that will launch the container. The value must match the value specified in [Complete Key Vault and Managed Identity Setup](#complete-key-vault-and-managed-identity-setup). If you accepted the default, the value is `uid-operator`. |
+   | `vnetName` | The virtual network name. The value must match the value specified in [Set Up the VPC Network](#set-up-the-vpc-network). If you accepted the default, the value is `unified-id-network`. |
+   | `computeSubnetName` | The name of the subnet that will run the Private Operator. The value must match the value specified in [Set Up the VPC Network](#set-up-the-vpc-network). If you accepted the default, the value is `unified-id-subnet-operators`. |
    | `count` | The count for the number of instances you want to bring up. The default is `2`. |
 
 2. Run the following command to deploy the ACIs:
@@ -239,7 +239,7 @@ Follow these steps:
    { "ipAddress": { "type": "Array", "value": [ "10.0.0.5", "10.0.0.4" ] } }
    ```
 
-### Set up the gateway load balancer
+### Set Up the Gateway Load Balancer
 
 The next step is to set up the [Gateway Load Balancer](https://learn.microsoft.com/en-us/azure/load-balancer/gateway-overview), which takes the private IP addresses of the ACIs you created and uses them as a [backend pool](https://learn.microsoft.com/en-us/azure/load-balancer/backend-pool-management).
 
@@ -249,7 +249,7 @@ Follow these steps:
 
    | Parameter | Description |
    | :--- | :--- |
-   | `containerGroupIPs` | The IP addresses of the ACI instances you created&#8212;the values output as a result of [Complete the UID2 Private Operator setup](#complete-the-uid2-private-operator-setup) Step 4. |
+   | `containerGroupIPs` | The IP addresses of the ACI instances you created&#8212;the values output as a result of [Complete the UID2 Private Operator Setup](#complete-the-uid2-private-operator-setup) Step 4. |
 
    For example, the updated file might look something like the following:
    
@@ -266,8 +266,8 @@ Follow these steps:
 
     Parameter | Description |
    | :--- | :--- |
-   | `vnetName` | The virtual network name. The value must match the value specified in [Set up the VPC network](#set-up-the-vpc-network). If you accepted the default, the value is `unified-id-network`. |
-   | `gatewaySubnetName` | The name of the subnet that runs the UID2 Gateway. The value must match the value specified in [Set up the VPC network](#set-up-the-vpc-network). If you accepted the default, the value is `unified-id-subnet-gateway`. |
+   | `vnetName` | The virtual network name. The value must match the value specified in [Set Up the VPC Network](#set-up-the-vpc-network). If you accepted the default, the value is `unified-id-network`. |
+   | `gatewaySubnetName` | The name of the subnet that runs the UID2 Gateway. The value must match the value specified in [Set Up the VPC Network](#set-up-the-vpc-network). If you accepted the default, the value is `unified-id-subnet-gateway`. |
    
 2. Run the following command:
 
@@ -295,7 +295,7 @@ If you update the container, the Azure backend pool is not automatically updated
 This example deploys a Gateway Load Balancer with HTTP. We strongly recommend you set up SSL. For instructions, see [Tutorial: Configure an Application Gateway with TLS termination using the Azure portal](https://learn.microsoft.com/en-us/azure/application-gateway/create-ssl-portal) in the Azure documentation.
 :::
 
-## Running the health check
+## Running the Health Check
 
 Call the health check endpoint to test the health of your implementation.
 
@@ -303,22 +303,22 @@ Running the health check is the same for the integration and production environm
 
 Follow these steps:
 
-1. Get the public IP address for the Gateway Load Balancer&#8212;the value output as a result of [Set up the gateway load balancer](#set-up-the-gateway-load-balancer) Step 4.
+1. Get the public IP address for the Gateway Load Balancer&#8212;the value output as a result of [Set Up the Gateway Load Balancer](#set-up-the-gateway-load-balancer) Step 4.
 
 2. To test operator status, in your browser, go to the health check endpoint: `http://{LB_IP}/ops/healthcheck`.
 
    An HTTP 200 with a response body of `OK` indicates healthy status.
 
-### Private Operator attestation failure
+### Private Operator Attestation Failure
 
 <SnptAttestFailure />
 
-### Scraping metrics
+### Scraping Metrics
 The Private Operator for Azure exposes [Prometheus-formatted metrics](https://prometheus.io/docs/concepts/data_model/) on port 9080 through the `/metrics` endpoint. You can use a Prometheus-compatible scraper to collect and aggregate these metrics for your own needs. 
 
 The scraper must have access to the VNet that the Private Operator is running in. We do not recommend giving the load balancer access to the `/metrics` endpoint.
 
-## Network security group policy
+## Network Security Group Policy
 
 :::note
 To avoid passing certificates associated with your domain into the enclave, only inbound HTTP is allowed. Inbound HTTPS is not allowed. This also avoids the extra cost of another secure layer in a network that's already private and internal to your organization.
@@ -328,8 +328,8 @@ The following table provides information about supported protocols.
 
 | Port Number | Direction | Protocol | Description |
 | ----------- | --------- | -------- | ------ |
-| 80 | Inbound | HTTP | Serves all UID2 APIs, including the health check endpoint `/ops/healthcheck`.<br/>When everything is up and running, the endpoint returns HTTP 200 with a response body of `OK`. For details, see [Running the health check](#running-the-health-check). |
-| 9080 | Inbound | HTTP | Serves Prometheus metrics (`/metrics`). For details, see [Scraping metrics](#scraping-metrics). |
+| 80 | Inbound | HTTP | Serves all UID2 APIs, including the health check endpoint `/ops/healthcheck`.<br/>When everything is up and running, the endpoint returns HTTP 200 with a response body of `OK`. For details, see [Running the Health Check](#running-the-health-check). |
+| 9080 | Inbound | HTTP | Serves Prometheus metrics (`/metrics`). For details, see [Scraping Metrics](#scraping-metrics). |
 | 443 | Outbound | HTTPS | Calls the UID2 Core Service and Azure Blob Storage, to download files for opt-out data and key store. |
 
 ## Upgrading
@@ -338,11 +338,11 @@ When a new version of UID2 Azure Confidential Containers is released, private op
 
 To upgrade, complete the following steps:
 
-1. Follow the instructions in [Download ZIP file and extract files](#download-zip-file-and-extract-files) to download the deployment file for the new version and then unzip it.
+1. Follow the instructions in [Download ZIP File and Extract Files](#download-zip-file-and-extract-files) to download the deployment file for the new version and then unzip it.
 
-1. Follow the instructions in [Complete the UID2 Private Operator setup](#complete-the-uid2-private-operator-setup), using the new files, to deploy ACIs with new versions.
+1. Follow the instructions in [Complete the UID2 Private Operator Setup](#complete-the-uid2-private-operator-setup), using the new files, to deploy ACIs with new versions.
 
-2. Follow the instructions in [Set up the gateway load balancer](#set-up-the-gateway-load-balancer) to add the new ACIs to the backend pool.
+2. Follow the instructions in [Set Up the Gateway Load Balancer](#set-up-the-gateway-load-balancer) to add the new ACIs to the backend pool.
 
 3. Check the health of the new ACIs and make sure the status is healthy, as shown in the following example:
 
@@ -350,7 +350,7 @@ To upgrade, complete the following steps:
    az network application-gateway show-backend-health --resource-group {RESOURCE_GROUP_NAME} --name uid-operator-gateway
    ```
 
-4. Clean up old ACIs from the Gateway Load Balancer: Follow the instructions in [Set up the gateway load balancer](#set-up-the-gateway-load-balancer) to remove the old ACIs from the backend pool.
+4. Clean up old ACIs from the Gateway Load Balancer: Follow the instructions in [Set Up the Gateway Load Balancer](#set-up-the-gateway-load-balancer) to remove the old ACIs from the backend pool.
 
 5. Shut down old ACIs by running the following command:
 
@@ -358,11 +358,11 @@ To upgrade, complete the following steps:
    for i in {0..COUNT}; az container delete --name uid-operator-OLD-VERSION-$i --resource-group {RESOURCE_GROUP} --yes
    ```
 
-## Keeping the operator key secure
+## Keeping the Operator Key Secure
 
 <SnptRotatingTheKeys />
 
-## UID2 Operator error codes
+## UID2 Operator Error Codes
 
 The following sections list error codes that might occur during a Private Operator's startup or runtime.
 
@@ -370,7 +370,7 @@ The following sections list error codes that might occur during a Private Operat
 Error codes for Private Operator issues are applicable only to release v5.49.7 and later.
 :::
 
-### Startup errors
+### Startup Errors
 
 The following errors might occur during operator startup:
 
@@ -383,7 +383,7 @@ The following errors might occur during operator startup:
 | E06 | UID2ServicesUnreachableError | Allow UID2 core and opt-out service IP addresses in the egress firewall. For IP addresses and DNS details, refer to the logs.  |
 | E08 | OperatorKeyPermissionError | The managed identity (specified via the `operatorIdentifier` parameter) that launches the container must have access to the key vault where the operator key is stored. The value of `operatorIdentifier` must be identical across all configuration JSON files. |
 
-### Runtime errors
+### Runtime Errors
 
 The following errors might occur during operator runtime:
 

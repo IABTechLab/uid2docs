@@ -15,7 +15,7 @@ npm i
 
 After you've checked out the repo (and whenever you pull in new changes) you should run this command to install any new packages.
 
-## Local development
+## Local Development
 
 ```
 npm start
@@ -31,7 +31,7 @@ npm run build
 
 This command generates static content into the `build` directory and can be served using any static contents hosting service.
 
-## Build all languages
+## Build All Languages
 
 ```
 npm run build && npm run serve

@@ -8,7 +8,7 @@ displayed_sidebar: docs
 
 import Link from '@docusaurus/Link';
 
-# UID2 components
+# UID2 Components
 
 The UID2 framework consists of the following components, all of which are currently managed by The Trade Desk.
 

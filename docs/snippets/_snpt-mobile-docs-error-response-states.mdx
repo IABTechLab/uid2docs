@@ -3,15 +3,15 @@
 In certain conditions, the mobile SDK might return one of the following error response states:
 
 - [Expired](#response-state-of-expired)
-- [Refreshexpired](#response-state-of-refreshexpired)
+- [RefreshExpired](#response-state-of-refreshexpired)
 - [Invalid](#response-state-of-expired)
-- [Noidentity](#response-state-of-expired)
+- [NoIdentity](#response-state-of-expired)
 
 :::note
 The response states are the same for both Android and iOS.
 :::
 
-### Response state of expired
+### Response State of Expired
 
 A response state of `Expired` means that the UID2 token has expired but the refresh token has not expired, therefore the UID2 token can be refreshed.
 
@@ -23,7 +23,7 @@ For example, if the app is launched and the SDK is immediately queried, you migh
 
 **Manual refresh**: If you've disabled automatic refreshing of the token, and get a response state of `Expired`, you can manually request the refresh by calling the `refreshIdentity()` method.
 
-### Response state of refreshexpired
+### Response State of RefreshExpired
 
 A response state of `RefreshExpired` means that the UID2 token and the refresh token have both expired, therefore the UID2 token cannot be refreshed.
 
@@ -31,7 +31,7 @@ An example of how this could occur is if a user does not run your app for a long
 
 In this scenario, you'd need to regenerate the identity.
 
-### Response state of invalid
+### Response State of Invalid
 
 A response state of `Invalid` means that the identity, whether loaded off disk or requested via the API, did not include all the necessary tokens. This should never happen, but might occur in unexpected circumstances.
 
@@ -39,7 +39,7 @@ If the SDK detects this error, it clears any previous identity since it's consid
 
 In this scenario, you'd need to regenerate the identity. Ideally, also report the issue to your UID2 contact.
 
-### Response state of noidentity
+### Response State of NoIdentity
 
 A response state of `NoIdentity` means that the SDK has been initialized, but doesn't yet have a current identity.
 

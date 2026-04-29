@@ -9,7 +9,7 @@ displayed_sidebar: docs
 
 import Link from '@docusaurus/Link';
 
-# DSP direct integration instructions
+# DSP Direct Integration Instructions
 
 This document provides instructions for DSPs who want to integrate with UID2 but who are using a programming language not supported by an existing UID2 SDK.
 
@@ -27,7 +27,7 @@ An example implementation, in the [UID2 SDK for C#&nbsp;/&nbsp;.NET](https://git
 
 This document refers to additional code sections from the C#&nbsp;/&nbsp;.NET SDK as examples.
 
-## Retrieve/refresh encryption keys
+## Retrieve/Refresh Encryption Keys
 
 To retrieve or refresh the encryption keys, so that you can decrypt UID2 tokens into raw UID2s, you'll need to write code to do the following:
 
@@ -46,15 +46,15 @@ Refresh the keys once at startup, and then periodically (recommended refresh int
 
 The UID2 SDK for C# / .NET uses a `Refresh` function. For details, see [BidstreamClient.cs, line 26](https://github.com/IABTechLab/uid2-client-net/blob/6ac53b106301e431a4aada3cbfbb93f8164ff7be/src/UID2.Client/BidstreamClient.cs#L26).
 
-For an implementation example that shows encrypting the request and decrypting the response, see [Encryption and decryption code examples](../getting-started/gs-encryption-decryption.md#encryption-and-decryption-code-examples).
+For an implementation example that shows encrypting the request and decrypting the response, see [Encryption and Decryption Code Examples](../getting-started/gs-encryption-decryption.md#encryption-and-decryption-code-examples).
 
 The decrypted API response is in JSON format, and includes `site_data`, the list of domains or app names that are allowed for the site.
 
 To see how all the fields are parsed, refer to the UID2 SDK for C#&nbsp;/&nbsp;.NET parse function: see [KeyParser.cs, lines 41-74](https://github.com/IABTechLab/uid2-client-net/blob/6ac53b106301e431a4aada3cbfbb93f8164ff7be/src/UID2.Client/KeyParser.cs#L41-L74).
 
-After decrypting the token into a raw UID2, if the token was generated on the client side, you must use the information in `site_data` to verify that a specific domain or app name is on the list of names allowed for it. For details, see [Verify the domain or app name](#for-tokens-generated-on-the-client-side-verify-the-domain-or-app-name).
+After decrypting the token into a raw UID2, if the token was generated on the client side, you must use the information in `site_data` to verify that a specific domain or app name is on the list of names allowed for it. For details, see [Verify the Domain or App Name](#for-tokens-generated-on-the-client-side-verify-the-domain-or-app-name).
 
-## Decrypt UID2 tokens into raw UID2s
+## Decrypt UID2 Tokens into Raw UID2s
 
 When you have current keys, you'll be able to decrypt a UID2 token into a raw UID2. You also need to check several conditions to make sure that the token is eligible for use in the bidstream.
 
@@ -69,29 +69,29 @@ You'll need to complete the following steps:
 
 The UID2 SDK for C# / .NET uses a `DecryptTokenIntoRawUid` function to perform these steps: see [BidstreamClient.cs, line 15](https://github.com/IABTechLab/uid2-client-net/blob/6ac53b106301e431a4aada3cbfbb93f8164ff7be/src/UID2.Client/BidstreamClient.cs#L15).
 
-### Decrypt the token
+### Decrypt the Token
 
 Use the master key and site key to decrypt the token. For a code example, refer to the `Decrypt` function: see [UID2Encryption.cs, line 29](https://github.com/IABTechLab/uid2-client-net/blob/6ac53b106301e431a4aada3cbfbb93f8164ff7be/src/UID2.Client/UID2Encryption.cs#L29). This function decrypts UID2 tokens into raw UID2s as part of the UID2 SDK for C# / .NET.
 
 <!--
-### For tokens generated on the client side: Honor opt-out status
+### For Tokens Generated on the Client Side: Honor Opt-Out Status
 
 For tokens generated on the client side, there is an additional step with regard to opt-out. After decrypting the token, you must check for opt-out information indicating that the token does not contain a targetable UID2. If the user has opted out, you must not use the token for bidding.
 
 For an example of how to do this check, review the code for the `DecryptV3` function: see [UID2Encryption.cs, line 201](https://github.com/IABTechLab/uid2-client-net/blob/6ac53b106301e431a4aada3cbfbb93f8164ff7be/src/UID2.Client/UID2Encryption.cs#L201).
 
 :::note
-This step, which is only for tokens generated on the client side, is additional to checking the token against your opt-out records, which is required in all instances. For details, see [Honor user opt-out after token decryption](#honor-user-opt-out-after-token-decryption).
+This step, which is only for tokens generated on the client side, is additional to checking the token against your opt-out records, which is required in all instances. For details, see [Honor User Opt-Out After Token Decryption](#honor-user-opt-out-after-token-decryption).
 :::
 
 For more information about client-side UID2 integration, refer to one of these integration guides:
 
-- [Client-side integration guide for JavaScript](integration-javascript-client-side.md)
-- [UID2 client-side integration guide for Prebid.js](integration-prebid-client-side.md)
-- [UID2 client-side integration guide for mobile](integration-mobile-client-side.md)
+- [Client-Side Integration Guide for JavaScript](integration-javascript-client-side.md)
+- [UID2 Client-Side Integration Guide for Prebid.js](integration-prebid-client-side.md)
+- [UID2 Client-Side Integration Guide for Mobile](integration-mobile-client-side.md)
 -->
 
-### Make sure token lifetime and expiration are valid
+### Make Sure Token Lifetime and Expiration Are Valid
 
 For use in the bidstream, a token must be valid and current. You must do two things:
 
@@ -107,7 +107,7 @@ To make sure that the token lifetime has a valid value, check these two conditio
 
  For an example of how this is done, review the code for the `DoesTokenHaveValidLifetimeImpl` function: see [UID2Encryption.cs, line 237](https://github.com/IABTechLab/uid2-client-net/blob/6ac53b106301e431a4aada3cbfbb93f8164ff7be/src/UID2.Client/UID2Encryption.cs#L237).
 
-#### Calculating token lifetime
+#### Calculating Token Lifetime
 
 The calculation to make sure that the token lifetime is valid for bidstream use is as follows:
 
@@ -119,7 +119,7 @@ time until token generation = token generated - current time
 
 The token includes a **Token Generated** field, which is updated if the token is refreshed, so we use this to calculate the token lifetime.
 
-### For tokens generated on the client side: Verify the domain or app name
+### For Tokens Generated on the Client Side: Verify the Domain or App Name
 
 For tokens generated on the client side, after decrypting the token, you must verify that the domain name or app name is valid. To do this, make sure the `domainOrAppName` value is included in the `domain_names` list of the site ID, within the `site_data` section of the response from the `/v2/key/bidstream` API endpoint.
 
@@ -127,12 +127,12 @@ For an example of code that does this, refer to the `IsDomainOrAppNameAllowedFor
 
 For more information about client-side UID2 integration, refer to one of these integration guides:
 
-- [Client-side integration guide for JavaScript](integration-javascript-client-side.md)
-- [UID2 client-side integration guide for Prebid.js](integration-prebid-client-side.md)
-- [UID2 client-side integration guide for mobile](integration-mobile-client-side.md)
+- [Client-Side Integration Guide for JavaScript](integration-javascript-client-side.md)
+- [UID2 Client-Side Integration Guide for Prebid.js](integration-prebid-client-side.md)
+- [UID2 Client-Side Integration Guide for Mobile](integration-mobile-client-side.md)
 
-## Honor user opt-out after token decryption
+## Honor User Opt-Out After Token Decryption
 
 After decrypting the token, you must check the resulting raw UID2 against your opt-out records. If it appears in your opt-out records, you must honor the user's opt-out preference, including by not using the UID2 for bidding.
 
-For more information, refer to [Honor user opt-outs](dsp-guide.md#honor-user-opt-outs) in the *DSP Integration Guide*.
+For more information, refer to [Honor User Opt-Outs](dsp-guide.md#honor-user-opt-outs) in the *DSP Integration Guide*.

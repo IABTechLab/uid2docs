@@ -27,10 +27,10 @@ This solution is for you if you're offering data or related services for online 
 Learn about the benefits, workflow, documentation, and other resources for data providers adopting UID2, as well as instructions for getting started.
 
 :::note
-If you want access in the left sidebar to the full set of UID2 documentation, see [Unified ID 2.0 overview](../intro.md).
+If you want access in the left sidebar to the full set of UID2 documentation, see [Unified ID 2.0 Overview](../intro.md).
 :::
 
-## Benefits of UID2 for data providers
+## Benefits of UID2 for Data Providers
 
 Here are just some of the intended benefits available to you as a data provider using UID2. You can:
 - Upgrade to a more privacy-conscious identifier that offers opt-out for consumer privacy control.
@@ -39,7 +39,7 @@ Here are just some of the intended benefits available to you as a data provider 
 - Connect online and offline data with a common ID to aim for more precision.
 - More accurately measure campaigns with or without third-party cookies.
 
-## Workflow for data providers
+## Workflow for Data Providers
 
 The following steps provide a high-level outline of the workflow intended for organizations that collect user data and push it to DSPs—for example, advertisers, identity graph providers, and third-party data providers.
 
@@ -54,38 +54,38 @@ The following steps are an example of how a data provider can integrate with UID
 
    Server-side: The data provider stores the UID2 and refresh timestamp in a mapping table, DMP, data lake, or other server-side application.
 
-![Data provider workflow](images/UID2AdvertiserAndThirdPartyDataProviderWorkflow.svg)
+![Data Provider Workflow](images/UID2AdvertiserAndThirdPartyDataProviderWorkflow.svg)
 
-## Getting started
+## Getting Started
 
 To get started, follow these steps:
 
-1. Request access to UID2 by filling out the form on the [Request access](/request-access) page.
+1. Request access to UID2 by filling out the form on the [Request Access](/request-access) page.
 
    Someone will contact you to discuss your needs and advise on appropriate next steps.
 1. Decide on your [participant](participants-overview.md#uid2-external-participants) role or roles.
 1. Decide which implementation option you want to use.
-1. Receive your credentials (see [UID2 credentials](../getting-started/gs-credentials.md)) and follow the instructions in the implementation guide for the option you chose.
+1. Receive your credentials (see [UID2 Credentials](../getting-started/gs-credentials.md)) and follow the instructions in the implementation guide for the option you chose.
 
    :::note
-   Be sure to encrypt request messages to UID2. For details, see [Encrypting requests and decrypting responses](../getting-started/gs-encryption-decryption.md).
+   Be sure to encrypt request messages to UID2. For details, see [Encrypting Requests and Decrypting Responses](../getting-started/gs-encryption-decryption.md).
    :::
 1. Test.
 1. Go live.
 
-## Implementation resources
+## Implementation Resources
 
 The following documentation resources are available for advertisers and data providers to implement UID2.
 
 | Integration Type| Documentation | Content Description |
 | :--- | :--- | :--- |
-| Overview of integration options for organizations that collect user data and push it to other UID2 participants | [Advertiser/data provider integration overview](../guides/integration-advertiser-dataprovider-overview.md) | This guide covers integration workflows for mapping identity for audience-building and targeting. |
-| Snowflake | [Snowflake integration guide](../guides/integration-snowflake.md) | This guide provides instructions for generating UID2s from emails or phone numbers within Snowflake. |
-| Databricks Clean Rooms | [Databricks clean rooms integration guide](../guides/integration-databricks.md) | This guide provides instructions for generating UID2s from emails or phone numbers in a Databricks Clean Rooms environment. |
-| AWS Entity Resolution | [AWS Entity Resolution integration guide](../guides/integration-aws-entity-resolution.md) | This guide provides instructions for integrating with the UID2 framework using AWS Entity Resolution. |
-| Integration steps for organizations that collect user data and push it to other UID2 participants, using UID2 HTTP endpoints only | [Advertiser/data provider integration to HTTP endpoints](../guides/integration-advertiser-dataprovider-endpoints.md) | This guide covers integration steps for advertisers and data providers to integrate with UID2 by writing code to call UID2 HTTP endpoints, rather than using another implementation option such as an SDK, Snowflake, or AWS Entity Resolution. |
-| Integration steps for advertisers and data providers who want to use the client-side JavaScript SDK for adding a UID2 token to their tracking pixels. | [Client-side integration guide for JavaScript](../guides/integration-javascript-client-side.md) | This guide provides instructions for generating UID2 tokens (advertising tokens) using only JavaScript client-side changes.<!-- UID2_only: Not applicable for EUID --> |
+| Overview of integration options for organizations that collect user data and push it to other UID2 participants | [Advertiser/Data Provider Integration Overview](../guides/integration-advertiser-dataprovider-overview.md) | This guide covers integration workflows for mapping identity for audience-building and targeting. |
+| Snowflake | [Snowflake Integration Guide](../guides/integration-snowflake.md) | This guide provides instructions for generating UID2s from emails or phone numbers within Snowflake. |
+| Databricks Clean Rooms | [Databricks Clean Rooms Integration Guide](../guides/integration-databricks.md) | This guide provides instructions for generating UID2s from emails or phone numbers in a Databricks Clean Rooms environment. |
+| AWS Entity Resolution | [AWS Entity Resolution Integration Guide](../guides/integration-aws-entity-resolution.md) | This guide provides instructions for integrating with the UID2 framework using AWS Entity Resolution. |
+| Integration steps for organizations that collect user data and push it to other UID2 participants, using UID2 HTTP endpoints only | [Advertiser/Data Provider Integration to HTTP Endpoints](../guides/integration-advertiser-dataprovider-endpoints.md) | This guide covers integration steps for advertisers and data providers to integrate with UID2 by writing code to call UID2 HTTP endpoints, rather than using another implementation option such as an SDK, Snowflake, or AWS Entity Resolution. |
+| Integration steps for advertisers and data providers who want to use the client-side JavaScript SDK for adding a UID2 token to their tracking pixels. | [Client-Side Integration Guide for JavaScript](../guides/integration-javascript-client-side.md) | This guide provides instructions for generating UID2 tokens (advertising tokens) using only JavaScript client-side changes.<!-- UID2_only: Not applicable for EUID --> |
 
-## FAQs for data providers
+## FAQs for Data Providers
 
-For a list of frequently asked questions for data providers using the UID2 framework, see [FAQs for advertisers and data providers](../getting-started/gs-faqs.md#faqs-for-advertisers-and-data-providers).
+For a list of frequently asked questions for data providers using the UID2 framework, see [FAQs for Advertisers and Data Providers](../getting-started/gs-faqs.md#faqs-for-advertisers-and-data-providers).

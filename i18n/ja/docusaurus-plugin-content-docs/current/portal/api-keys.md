@@ -8,25 +8,25 @@ displayed_sidebar: docs
 
 import Link from '@docusaurus/Link';
 
-# API keys
+# API Keys
 
 :::note
-これらは、Client-Server または Server-Side の実装についての手順です。UID2 の実装が Client-Side であるか、一般に公開される場合は、異なる値を設定する必要があります。詳細は、[Client-side integration](client-side-integration.md) を参照してください。
+これらは、Client-Server または Server-Side の実装についての手順です。UID2 の実装が Client-Side であるか、一般に公開される場合は、異なる値を設定する必要があります。詳細は、[Client-Side Integration](client-side-integration.md) を参照してください。
 :::
 
 UID2 Portal の **API Keys** ページでは、UID2 アカウントの API Key を管理するためのすべての操作を実行できます:
 
-- [Adding an API key](#adding-an-api-key)
-- [Modifying an API key](#modifying-an-api-key)
-- [Deleting an API key](#deleting-an-api-key)
-- [Rotating an API key](#rotating-an-api-key)
+- [Adding an API Key](#adding-an-api-key)
+- [Modifying an API Key](#modifying-an-api-key)
+- [Deleting an API Key](#deleting-an-api-key)
+- [Rotating an API Key](#rotating-an-api-key)
 
 ## Overview
 
 API Key と Client Secret を使用すると、UID2 <Link href="../ref-info/glossary-uid#gl-operator-service">Operator Service</Link> に接続して、直接または UID2 SDK を介して API エンドポイントを呼び出すことができます。これらの値は、サービスに対してあなたを識別します。
 
 :::important
-UID2 Portal で API Key を追加するときは、キーとそれに対応するシークレットを安全に保存し、これらの値が漏洩しないようにするために必要な措置をすべて講じる必要があります。詳細は、[API key と client secret](../getting-started/gs-credentials.md#api-key-and-client-secret) を参照してください。
+UID2 Portal で API Key を追加するときは、キーとそれに対応するシークレットを安全に保存し、これらの値が漏洩しないようにするために必要な措置をすべて講じる必要があります。詳細は、[API Key と Client Secret](../getting-started/gs-credentials.md#api-key-and-client-secret) を参照してください。
 :::
 
 各 API Key は、1 年ごとにローテーションすることを推奨します。
@@ -38,9 +38,9 @@ API Key を追加するときには、次のいずれかの権限を割り当て
 - Sharer
 - Bidder
 
-詳細は [API permissions](../getting-started/gs-permissions.md) を参照してください。
+詳細は [API Permissions](../getting-started/gs-permissions.md) を参照してください。
 
-## Adding an API key
+## Adding an API Key
 
 API Key を追加するには、次の手順を実行します:
 
@@ -49,7 +49,7 @@ API Key を追加するには、次の手順を実行します:
 1. **Add API Key** ページで、新しいキーの名前を指定します。
 1. API Permissions セクションで、キーに割り当てる権限を 1 つ以上選択します。
 
-    必要な権限のみを選択してください。たとえば、パブリッシャーの場合は Generator ロールを選択します。詳細は [API permissions](../getting-started/gs-permissions.md) を参照してください。
+    必要な権限のみを選択してください。たとえば、パブリッシャーの場合は Generator ロールを選択します。詳細は [API Permissions](../getting-started/gs-permissions.md) を参照してください。
 
     :::note
     選択可能な権限が表示されない場合は、UID2 の担当者に問い合わせてください。
@@ -69,7 +69,7 @@ API Key を追加するには、次の手順を実行します:
 
    **API Keys** ページには、新しいキーが名前、キー ID、権限、および作成日付とともに表示されます。
 
-## Modifying an API key
+## Modifying an API Key
 
 API Key を追加した後は、次の情報を編集できます:
 
@@ -83,7 +83,7 @@ API Key を変更するには、次の手順を実行します:
 1. アクション列で ![the Edit icon](images/icon-pencil-solid.png) (Edit アイコン) をクリックします。
 1. 情報を更新し、**Save Key** をクリックします。
 
-## Deleting an API key
+## Deleting an API Key
 
 キーが漏洩した場合、そのキーを削除する必要があります。
 
@@ -100,22 +100,22 @@ API Key を削除するには、次の手順を実行します:
 
    キーは表示から削除され、無効になります。
 
-## Rotating an API key
+## Rotating an API Key
 
 API Key をローテーションすることを推奨します。API Key をローテーションするには、次の手順を実行します:
 
 1. UID2 Portal で **API Keys** ページに移動します。
 1. リストでローテーションするキーを見つけます。
-1. ローテーションするキーと同じ権限を持つ新しいキーを追加します。詳細は [Adding an API key](#adding-an-api-key) を参照してください。
+1. ローテーションするキーと同じ権限を持つ新しいキーを追加します。詳細は [Adding an API Key](#adding-an-api-key) を参照してください。
 1. UID2 の実装を更新して、ローテーションするキーの代わりに新しいキーを使用するようにします。
 1. 新しいキーが問題なく使用されていることを確認します。たとえば、サービスに対する劣化や API Key の使用に関連するエラーログがないことを確認します。
-1. 古いキーを削除します。詳細は [Deleting an API key](#deleting-an-api-key) を参照してください。
+1. 古いキーを削除します。詳細は [Deleting an API Key](#deleting-an-api-key) を参照してください。
 
-## Security recommendations for API keys
+## Security Recommendations for API Keys
 
 セキュリティのベストプラクティスとして、異なる役割に対して異なるキーを持つことが推奨されます。
 
-追加のセキュリティに関する推奨事項は、[API key と client secret のセキュリティ](../getting-started/gs-credentials.md#security-of-api-key-and-client-secret) を参照してください。
+追加のセキュリティに関する推奨事項は、[API Key と Client Secret のセキュリティ](../getting-started/gs-credentials.md#security-of-api-key-and-client-secret) を参照してください。
 
 <!-- In some instances, you might create API keys for one permission/role and then want to add a role to your account. For example, you might be an advertiser, but also want to operate as an inventory provider.
 

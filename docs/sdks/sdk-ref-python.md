@@ -8,7 +8,7 @@ displayed_sidebar: docs
 
 import Link from '@docusaurus/Link';
 
-# SDK for Python reference guide
+# SDK for Python Reference Guide
 
 You can use the SDK for Python on the server side to facilitate the process of generating or establishing client identity using UID2, retrieving advertising tokens for <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link> use, and automatically refreshing UID2 tokens. If you have the applicable permissions, you can also encrypt and decrypt for sharing and map DII to raw UID2s.
 
@@ -22,17 +22,17 @@ This SDK simplifies integration with UID2 for any DSPs or UID2 sharers who are u
 
 &ast;Only applicable to SDK versions referencing versions of the `POST /identity/map` endpoint prior to version 3.
 
-## UID2 account setup
+## UID2 Account Setup
 
-To integrate with UID2, you'll need to have a UID2 account. If you haven't yet created an account, first follow the steps described on the [Account setup](../getting-started/gs-account-setup.md) page.
+To integrate with UID2, you'll need to have a UID2 account. If you haven't yet created an account, first follow the steps described on the [Account Setup](../getting-started/gs-account-setup.md) page.
 
-## API permissions
+## API Permissions
 
-When initial account setup is complete, if you're a publisher, advertiser, or data provider, you'll receive instructions and a link to access the [UID2 portal](../portal/portal-overview.md), where you can:
+When initial account setup is complete, if you're a publisher, advertiser, or data provider, you'll receive instructions and a link to access the [UID2 Portal](../portal/portal-overview.md), where you can:
 - Generate [credentials](../getting-started/gs-credentials.md) for your account.
 - Optionally, configure other values, such as setting up information about team members.
 
-You'll be granted permission to use specific functions offered by the SDK, and given credentials for that access. Bear in mind that there might be functions in the SDK that you don't have permission to use. For example, publishers get a specific API permission to generate and refresh tokens, but the SDK might support other activities that require a different API permission. For details, see [API permissions](../getting-started/gs-permissions.md).
+You'll be granted permission to use specific functions offered by the SDK, and given credentials for that access. Bear in mind that there might be functions in the SDK that you don't have permission to use. For example, publishers get a specific API permission to generate and refresh tokens, but the SDK might support other activities that require a different API permission. For details, see [API Permissions](../getting-started/gs-permissions.md).
 
 If you're a DSP, we'll send credentials to you.
 
@@ -45,7 +45,7 @@ version:
 - **v2.6.0**: Python 3.8 or higher  
 - **v2.5.0 and below**: Python 3.6 or higher
 
-## Github repository/package
+## GitHub Repository/Package
 
 This SDK is in the following open-source GitHub repository:
 
@@ -55,7 +55,7 @@ The package is published in this location:
 
 - [https://pypi.org/project/uid2-client/](https://pypi.org/project/uid2-client/)
 
-## Release notes
+## Release Notes
 
 For detailed information about changes, bug fixes, and new features in each release, see the [release notes on GitHub](https://github.com/IABTechLab/uid2-client-python/releases).
 
@@ -73,10 +73,10 @@ The initialization step depends on the role, as shown in the following table.
 
 | Role	                    | Create Instance of Class	 | Link to Instructions                                                         |
 |:-------------------------|:--------------------------|:-----------------------------------------------------------------------------|
-| Publisher                | `Uid2PublisherClient`     | [Usage for publishers](#usage-for-publishers)                                |
-| Advertiser/Data Provider | `IdentityMapV3Client`     | [Usage for advertisers/data providers](#usage-for-advertisersdata-providers) |
+| Publisher                | `Uid2PublisherClient`     | [Usage for Publishers](#usage-for-publishers)                                |
+| Advertiser/Data Provider | `IdentityMapV3Client`     | [Usage for Advertisers/Data Providers](#usage-for-advertisersdata-providers) |
 | DSP                      | `BidstreamClient`         | [Usage for DSPs](#usage-for-dsps)                                            |
-| Sharer                   | `SharingClient`           | [Usage for sharers](#usage-for-uid2-sharers)                                 |
+| Sharer                   | `SharingClient`           | [Usage for Sharers](#usage-for-uid2-sharers)                                 |
 
 
 
@@ -85,14 +85,14 @@ You will need to provide the values necessary for the SDK to authenticate with t
 | Parameter    | Description                                                                                |
 |:-------------|:-------------------------------------------------------------------------------------------|
 | `base_url`   | The endpoint for the UID2 service. See [Environments](../getting-started/gs-environments). |
-| `auth_key`   | The API key. See [UID2 credentials](../getting-started/gs-credentials).                    |
-| `secret_key` | The client secret. See [UID2 credentials](../getting-started/gs-credentials).              |
+| `auth_key`   | The API key. See [UID2 Credentials](../getting-started/gs-credentials).                    |
+| `secret_key` | The client secret. See [UID2 Credentials](../getting-started/gs-credentials).              |
 
 ## Interface 
 
 The `BidstreamClient` class allows you to decrypt UID2 tokens into raw UID2s.
 
-For details on the bidding logic for handling user opt-outs, see [DSP integration guide](../guides/dsp-guide.md).
+For details on the bidding logic for handling user opt-outs, see [DSP Integration Guide](../guides/dsp-guide.md).
 
 The `SharingClient` class allows you to encrypt raw UID2s into UID2 tokens and decrypt UID2 tokens into raw UID2s.
 
@@ -101,16 +101,16 @@ The `SharingClient` class allows you to encrypt raw UID2s into UID2 tokens and d
 When you use an SDK, you do not need to store or manage decryption keys.
 :::
 
-### Encryption response content
+### Encryption Response Content
 
 When encrypting with the `SharingClient`, the SDK returns the information shown in the following table.
 
 | Property         | Description                                                                                                                                     |
 |:-----------------|:------------------------------------------------------------------------------------------------------------------------------------------------|
-| `status`         | The encryption result status. For a list of possible values and definitions, see [Encryption response statuses](#encryption-response-statuses). |
+| `status`         | The encryption result status. For a list of possible values and definitions, see [Encryption Response Statuses](#encryption-response-statuses). |
 | `encrypted_data` | The encrypted UID2 token.                                                                                                                       |
 
-### Encryption response statuses
+### Encryption Response Statuses
 
 Encryption response codes, and their meanings, are shown in the following table.
 
@@ -123,17 +123,17 @@ Encryption response codes, and their meanings, are shown in the following table.
 | `KEYS_NOT_SYNCED`               | The client has failed to synchronize keys from the UID2 service.       |
 | `ENCRYPTION_FAILURE`            | A generic encryption failure occurred.                                 |
 
-### Decryption response content
+### Decryption Response Content
 
 Whether decrypting with the `BidstreamClient` or the `SharingClient`, the SDK returns the information shown in the following table.
 
 | Property      | Description                                                                                                                                     |
 |:--------------|:------------------------------------------------------------------------------------------------------------------------------------------------|
-| `status`      | The decryption result status. For a list of possible values and definitions, see [Decryption response statuses](#decryption-response-statuses). |
+| `status`      | The decryption result status. For a list of possible values and definitions, see [Decryption Response Statuses](#decryption-response-statuses). |
 | `uid`         | The raw UID2 for the corresponding UID2 token.                                                                                                  |
 | `established` | The timestamp indicating when a user first established the UID2 with the publisher.                                                             |
 
-### Decryption response statuses
+### Decryption Response Statuses
 
 Decryption response codes, and their meanings, are shown in the following table.
 
@@ -149,7 +149,7 @@ Decryption response codes, and their meanings, are shown in the following table.
 | `DOMAIN_NAME_CHECK_FAILED` | The domain name doesn't match the domain of the encrypted token.        |
 | `INVALID_TOKEN_LIFETIME`   | The token has an invalid timestamp.                                     |
 
-## Usage for publishers
+## Usage for Publishers
 
 1. Create an instance of `Uid2PublisherClient`:
    ```py
@@ -163,9 +163,9 @@ Decryption response codes, and their meanings, are shown in the following table.
 
 <!-- uid2_euid_diff: admonition re legal basis (in EUID not in UID2)-->
 
-### Client-server integration
+### Client-Server Integration
 
-If you're using client-server integration (see [Client-server integration guide for JavaScript](../guides/integration-javascript-client-server.md)), follow this step:
+If you're using client-server integration (see [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md)), follow this step:
 
 * Send this identity as a JSON string back to the client (to use in the [identity field](../sdks/sdk-ref-javascript.md#initopts-object-void)) using the following:
 
@@ -177,9 +177,9 @@ If you're using client-server integration (see [Client-server integration guide 
   If the user has opted out, this method returns None, so be sure to handle that case.
   :::
 
-### Server-side integration
+### Server-Side Integration
 
-If you're using server-side integration (see [Publisher integration guide, server-side](../guides/integration-publisher-server-side.md)):
+If you're using server-side integration (see [Publisher Integration Guide, Server-Side](../guides/integration-publisher-server-side.md)):
 
 1. Store this identity as a JSON string in the user's session, using the `token_generate_response.get_identity_json_string()` function.
 
@@ -221,13 +221,13 @@ If you're using server-side integration (see [Publisher integration guide, serve
 
    If the user has opted out, this method returns `None`, indicating that the user's identity should be removed from the session. To confirm optout, you can use the `token_refresh_response.is_optout()` function.
 
-## Usage for advertisers/data providers
+## Usage for Advertisers/Data Providers
 
 The following instructions provide an example of how to map DII to raw UID2s using the latest version of the `POST /identity/map` endpoint.
 
-For the earlier version, see [Previous version (v2 identity map)](#previous-version-v2-identity-map). For migration steps to the latest version, see [Migration from version using v2 identity map](#migration-from-version-using-v2-identity-map).
+For the earlier version, see [Previous Version (v2 Identity Map)](#previous-version-v2-identity-map). For migration steps to the latest version, see [Migration From Version Using v2 Identity Map](#migration-from-version-using-v2-identity-map).
 
-### Map DII to raw UID2s
+### Map DII to Raw UID2s
 
 To map DII to raw UID2s, follow these steps:
 
@@ -280,7 +280,7 @@ To map DII to raw UID2s, follow these steps:
    The raw UID2 does not change before the refresh timestamp. After the refresh timestamp, remapping the DII returns a new refresh timestamp, but the raw UID2 might or might not change. It is possible for the raw UID2 to remain unchanged for multiple refresh intervals.
    :::
 
-#### Usage example
+#### Usage Example
 
 ```py
 client = IdentityMapV3Client(UID2_BASE_URL, UID2_API_KEY, UID2_SECRET_KEY)
@@ -309,15 +309,15 @@ mixed_input = IdentityMapV3Input()
 mixed_response = client.generate_identity_map(mixed_input)
 ```
 
-## Migration from version using v2 identity map
+## Migration From Version Using v2 Identity Map
 
 The following sections provide general information and guidance for migrating to the latest version of this SDK, which references `POST /identity/map` version 3, including:
 
-- [Version 3 improvements](#version-3-improvements)
-- [Upgrading client version](#upgrading-client-version)
-- [Updating DII mapping](#updating-dii-mapping)
+- [Version 3 Improvements](#version-3-improvements)
+- [Upgrading Client Version](#upgrading-client-version)
+- [Updating DII Mapping](#updating-dii-mapping)
 
-### Version 3 improvements
+### Version 3 Improvements
 
 The `POST /v3/identity/map` provides the following improvements over v2:
 
@@ -327,7 +327,7 @@ The `POST /v3/identity/map` provides the following improvements over v2:
 - **Multiple Identity Types in One Request**: You can process both emails and phone numbers in a single request.
 - **Improved Performance**: The updated version uses significantly less bandwidth to process the same amount of DII.
 
-### Upgrading client version
+### Upgrading Client Version
 
 To upgrade your client to the latest version (version 3), follow these steps:
 
@@ -350,7 +350,7 @@ To upgrade your client to the latest version (version 3), follow these steps:
    from uid2_client import IdentityMapV3Client, IdentityMapV3Input, IdentityMapV3Response, UnmappedIdentityReason
    ```
 
-### Updating DII mapping
+### Updating DII Mapping
 
 To update DII mapping from version 2 to version 3 of the `POST /identity/map` endpoint, follow these steps:
 
@@ -397,14 +397,14 @@ To update DII mapping from version 2 to version 3 of the `POST /identity/map` en
    raw_reason = unmapped.raw_reason
    ```
 
-### Previous version (v2 identity map)
+### Previous Version (v2 Identity Map)
 
 :::note
 The v2 Identity Map SDK is an earlier version maintained for backwards compatibility. Migrate to the current SDK for improved performance, multi-identity type support, and better UID2 rotation management.
 
 New integrations should not use this version.
 
-For instructions, see [Migration from version using v2 identity map](#migration-from-version-using-v2-identity-map).
+For instructions, see [Migration From Version Using v2 Identity Map](#migration-from-version-using-v2-identity-map).
 :::
 
 To map email addresses, phone numbers, or their respective hashes to their raw UID2s and salt bucket IDs, if you're using an earlier SDK version that uses `POST /identity/map` version 2, follow these steps.
@@ -440,11 +440,11 @@ To map email addresses, phone numbers, or their respective hashes to their raw U
         reason = unmapped_identity.get_reason()
    ```
 
-#### Monitor rotated salt buckets
+#### Monitor Rotated Salt Buckets
 
 To monitor salt buckets, follow these steps.
 
-1. Create an instance of `IdentityMapClient` as an instance variable or reuse the one from [Map DII to raw UID2s:](#map-dii-to-raw-uid2s)
+1. Create an instance of `IdentityMapClient` as an instance variable or reuse the one from [Map DII to Raw UID2s:](#map-dii-to-raw-uid2s)
 
    ```py
    client = IdentityMapClient(base_url, api_key, client_secret)
@@ -504,14 +504,14 @@ else:
 
 For a full example, see the `sample_bidstream_client.py` in [examples/sample_bidstream_client.py](https://github.com/IABTechLab/uid2-client-python/blob/main/examples/sample_bidstream_client.py).
 
-## Usage for UID2 sharers
+## Usage for UID2 Sharers
 
 A UID2 <Link href="../ref-info/glossary-uid#gl-sharing-participant">sharing participant</Link> is a company that takes part in sharing, either as a sender or a receiver, to share UID2s with another participant.
 
-Advertisers and data providers can use this SDK to share UID2s with other authorized UID2 sharing participants (<Link href="../ref-info/glossary-uid#gl-tokenized-sharing">tokenized sharing</Link>). They can encrypt [raw UID2s](../ref-info/glossary-uid#gl-raw-uid2) into <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> and then send them to another participant for sharing in pixels (see [Tokenized sharing in pixels](../sharing/sharing-tokenized-from-data-pixel.md)). If you are not sending data in pixels, you can take part in UID2 sharing as long as you follow the requirements laid out in [Security requirements for UID2 sharing](../sharing/sharing-security.md).
+Advertisers and data providers can use this SDK to share UID2s with other authorized UID2 sharing participants (<Link href="../ref-info/glossary-uid#gl-tokenized-sharing">tokenized sharing</Link>). They can encrypt [raw UID2s](../ref-info/glossary-uid#gl-raw-uid2) into <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> and then send them to another participant for sharing in pixels (see [Tokenized Sharing in Pixels](../sharing/sharing-tokenized-from-data-pixel.md)). If you are not sending data in pixels, you can take part in UID2 sharing as long as you follow the requirements laid out in [Security Requirements for UID2 Sharing](../sharing/sharing-security.md).
 
 :::important
-The UID2 token generated during this process is for sharing only&#8212;you cannot use it in the bidstream. There is a different workflow for generating tokens for the bidstream: see [Tokenized sharing in the bidstream](../sharing/sharing-tokenized-from-data-bid-stream.md).
+The UID2 token generated during this process is for sharing only&#8212;you cannot use it in the bidstream. There is a different workflow for generating tokens for the bidstream: see [Tokenized Sharing in the Bidstream](../sharing/sharing-tokenized-from-data-bid-stream.md).
 :::
 
 The following instructions provide an example of how you can implement sharing using the SDK for Python, either as a sender or a receiver.
@@ -555,10 +555,10 @@ For a full example, see the `sample_sharing_client.py` in [examples/sample_shari
 
 The following steps might be useful in development:
 
-- [Example usage](#example-usage)
+- [Example Usage](#example-usage)
 - [Running tests](#running-tests)
 
-### Example usage
+### Example Usage
 You can run specific examples from the [examples](https://github.com/IABTechLab/uid2-client-python/blob/main/examples) directory.
 
 ```py
