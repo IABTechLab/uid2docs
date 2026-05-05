@@ -38,7 +38,7 @@ import Link from '@docusaurus/Link';
 
 以下のエンドポイントは、広告主とサードパーティのデータプロバイダーが使用します。パブリッシャーはこれらのエンドポイントを使用する必要はありません。
 
-### Latest Identity Map Endpoint (v3)
+### Latest POST /v3/identity/map Endpoint
 
 最新の Identity Map インテグレーションでは、1 つのエンドポイント `POST /identity/map` を呼び出すだけで済みます。`POST /identity/buckets` エンドポイントはワークフローの一部ではありません。
 

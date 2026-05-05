@@ -648,7 +648,7 @@ In addition, the existing guides have been restructured and simplified.
 For details, see:
 
 - [UID2 Integration Overview for Prebid](../guides/integration-prebid.md)
-- [Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md)
+- [UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md)
 - [Client-Server Integration Guide for Prebid.js](../guides/integration-prebid-client-server.md)
 
 </CustomTagsContainer>
@@ -721,7 +721,7 @@ This document was updated in January 2024 to [Client-Side Integration Guide for 
 
 <CustomTagsContainer tags="Guides, Prebid.js">
 
-### Client-Side Integration Guide for Prebid.js
+### UID2 Client-Side Integration Guide for Prebid.js
 
 November 2, 2023
 
@@ -732,7 +732,7 @@ The content that was in the previous version of the Prebid document is now in a 
 :::note
 These documents were further updated in later revisions. Updated links are as follows:
 - [UID2 Integration Overview for Prebid](../guides/integration-prebid.md)
-- [Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md)
+- [UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md)
 - [Client-Server Integration Guide for Prebid.js](../guides/integration-prebid-client-server.md)
 :::
 

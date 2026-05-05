@@ -19,7 +19,7 @@ import SnptExampleJavaScriptInit from '../snippets/_snpt-example-javascript-init
 以下のセクションでは、UID2 ID の確立のための高レベルな [ワークフロー](#workflow-overview)、SDK [API リファレンス](#api-reference)、および UID2 [ストレージフォーマット](#uid2-storage-format) を説明します。
 
 :::tip
-UID2 Identify Module、または UID2 サポートのある他の製品と Prebid.js を使用している場合、SDK を使用する必要はありません。Prebid.js モジュールがすべてを管理します。詳細は、[Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md) を参照してください。
+UID2 Identify Module、または UID2 サポートのある他の製品と Prebid.js を使用している場合、SDK を使用する必要はありません。Prebid.js モジュールがすべてを管理します。詳細は、[UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md) を参照してください。
 :::
 
 コンテンツパブリッシャー向けのインテグレーション手順は、以下のガイドを参照してください:
