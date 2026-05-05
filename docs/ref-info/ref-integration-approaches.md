@@ -29,7 +29,7 @@ For example:
 
 Examples of documentation for publisher client-side integrations:
 
-- [UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md)
+- [Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md)
 - [Client-Side Integration Guide for JavaScript](../guides/integration-javascript-client-side.md)
 - [Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side.md)
 

@@ -107,7 +107,7 @@ UID2 フレームワークを使用するパブリッシャーからのよくあ
 トークン生成の呼び出しは、Server-Side と Client-Side のどちらで行うべきですか？
 
 UID2 Token は、Client-Side、Server-Sideのどちらでも生成できます。詳細は、以下を参照してください:
-- Prebid.js を使用して Client-Side からトークンを生成します: [UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md).
+- Prebid.js を使用して Client-Side からトークンを生成します: [Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md).
 - Prebid.js を使用して Server-Side からトークンを生成します: [Client-Server Integration Guide for Prebid.js](../guides/integration-prebid-client-server.md).
 - その他の Server-Side オプション: [Publisher Integrations](../guides/summary-guides.md#publisher-integrations).
 

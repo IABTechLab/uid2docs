@@ -37,7 +37,7 @@ The following approaches are available for encrypting the DII directly into a UI
 
 | Integration Option | Token Generated Client-Side or Server-Side? | Integration Guide |
 | :--- | :--- | :--- |
-| Prebid.js | Client-Side | [UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md) |
+| Prebid.js | Client-Side | [Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md) |
 | Prebid.js | Server-Side | [Client-Server Integration Guide for Prebid.js](../guides/integration-prebid-client-server.md) |
 | JavaScript SDK | Client-Side | [Client-Side Integration Guide for JavaScript](../guides/integration-javascript-client-side.md) |
 | JavaScript SDK | Server-Side | [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md) |
