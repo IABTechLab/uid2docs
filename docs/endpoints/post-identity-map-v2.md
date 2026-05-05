@@ -33,7 +33,7 @@ Here's what you need to know:
 
 ## Rate Limiting
 
-To ensure fair usage and platform stability, the `POST /identity/map` endpoint enforces rate limits to safeguard against bursts of incoming traffic. If you send many requests in quick succession, you might receive `429` error responses.
+To ensure fair usage and platform stability, the `POST /v2/identity/map` endpoint enforces rate limits to safeguard against bursts of incoming traffic. If you send many requests in quick succession, you might receive `429` error responses.
 
 To handle rate limit errors gracefully, we recommend implementing [exponential backoff](https://en.wikipedia.org/wiki/Exponential_backoff) with random jitter when retrying requests. To maximize throughput within the limit, use the maximum batch size of 5,000 items per request rather than sending many small requests.
 
@@ -72,7 +72,7 @@ You must include only **one** of the following four conditional parameters as a 
 
 ### Request Examples
 
-The following are unencrypted JSON request body examples for each parameter, one of which you should include in your requests to the `POST /identity/map` endpoint:
+The following are unencrypted JSON request body examples for each parameter, one of which you should include in your requests to the `POST /v2/identity/map` endpoint:
 
 ```json
 {
@@ -107,7 +107,7 @@ The following are unencrypted JSON request body examples for each parameter, one
 }
 ```
 
-Here's an encrypted request example to the `POST /identity/map` endpoint for a phone number:
+Here's an encrypted request example to the `POST /v2/identity/map` endpoint for a phone number:
 
 ```sh
 echo '{"phone": ["+12345678901", "+441234567890"]}' | python3 uid2_request.py https://prod.uidapi.com/v2/identity/map [Your-Client-API-Key] [Your-Client-Secret]
