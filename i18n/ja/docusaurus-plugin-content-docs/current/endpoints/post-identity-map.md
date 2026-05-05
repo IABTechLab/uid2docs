@@ -9,7 +9,7 @@ displayed_sidebar: docs
 import Link from '@docusaurus/Link';
 import SnptPOSTIdentityMapImprovements from '../snippets/_snpt-post-identity-map-improvements-v3.mdx';
 
-# POST /identity/map
+# POST /v3/identity/map
 
 複数のメールアドレス、電話番号、またはそれぞれのハッシュを、raw UID2 にマッピングします。このエンドポイントを使用して、オプトアウト情報の更新をチェックしたり、raw UID2 の更新が可能な時期を確認したり、現在の raw UID2 が発行されてから 90 日未満の場合に前の UID2 を表示することもできます。
 

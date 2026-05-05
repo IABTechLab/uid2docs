@@ -122,7 +122,7 @@ We updated the following additional implementations and corresponding documentat
 
 July 11, 2025
 
-We've released a new version of the Identity Map API (v3) that provides significant improvements for advertisers and data providers. This update includes documentation for the [POST /identity/map](../endpoints/post-identity-map.md) endpoint, the [SDK for Java Reference Guide](../sdks/sdk-ref-java.md#usage-for-advertisersdata-providers), and the [Advertiser/Data Provider Integration Overview](../guides/integration-advertiser-dataprovider-overview.md).
+We've released a new version of the Identity Map API (v3) that provides significant improvements for advertisers and data providers. This update includes documentation for the [POST /v3/identity/map](../endpoints/post-identity-map.md) endpoint, the [SDK for Java Reference Guide](../sdks/sdk-ref-java.md#usage-for-advertisersdata-providers), and the [Advertiser/Data Provider Integration Overview](../guides/integration-advertiser-dataprovider-overview.md).
 
 <!-- UID2-5558, UID2-5560, UID2-5559, APIDOCS-3070 -->
 

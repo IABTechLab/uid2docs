@@ -9,7 +9,7 @@ displayed_sidebar: docs
 import Link from '@docusaurus/Link';
 import SnptPOSTIdentityMapImprovements from '../snippets/_snpt-post-identity-map-improvements-v3.mdx';
 
-# POST /identity/map
+# POST /v3/identity/map
 
 Maps multiple email addresses, phone numbers, or their respective hashes to their raw UID2s. You can also use this endpoint to check for updates to opt-out information, check when a raw UID2 can be refreshed, or view the previous UID2 if the current UID2 is less than 90 days old.
 

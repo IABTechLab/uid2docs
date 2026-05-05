@@ -423,11 +423,11 @@ import MdxJumpAnchor from '@site/src/components/MdxJumpAnchor';
 <dt><MdxJumpAnchor id="gl-salt-bucket"><a href="#gl-salt-bucket">Salt bucket</a></MdxJumpAnchor></dt>
 <dd>ソルトバケットは、raw UID2 や UID2 Token を生成するために使用される秘密の<a href="#gl-salt">ソルト</a>値を、時間経過とともに管理するために使用されます。各バケットには単一の現在のソルト値が含まれており、一定期間アクティブな状態を維持した後、新しい値にローテーションされます。バケットは互いに独立して更新できます。</dd>
 <dd>100万個以上のソルトバケットが存在し、各メールアドレスまたは電話番号は決定論的な方法で特定のバケットに割り当てられます。ただし、この割り当ては永続的なものではなく、バケットの現在のソルトが新しい値にローテーションされると変更される可能性があります。</dd>
-<dd>[POST /identity/map](../endpoints/post-identity-map.md) エンドポイントのバージョン 3 以前では、ソルトバケットは <a href="#gl-salt-bucket-id">ソルトバケット ID</a> を使用して識別されます。バージョン 3 以降では、ソルトバケット情報は必要ありません。</dd>
+<dd>[POST /v3/identity/map](../endpoints/post-identity-map.md) エンドポイントのバージョン 3 以前では、ソルトバケットは <a href="#gl-salt-bucket-id">ソルトバケット ID</a> を使用して識別されます。バージョン 3 以降では、ソルトバケット情報は必要ありません。</dd>
 
 <dt><MdxJumpAnchor id="gl-salt-bucket-id"><a href="#gl-salt-bucket-id">Salt bucket ID</a></MdxJumpAnchor></dt>
 <dd>ソルトバケット ID は、特定の <a href="#gl-salt-bucket">ソルトバケット</a> を識別する一意の文字列です。ソルトバケット ID を使用すると、最近、ソルト値が更新されたソルトバケットを確認し、どのメールアドレスまたは電話番号が raw UID2 値を再生成する必要があるかを確認できます。</dd>
-<dd>[POST /identity/map](../endpoints/post-identity-map.md) エンドポイントのバージョン 3 以前、たとえば [POST /v2/identity/map](../endpoints/post-identity-map-v2.md) では、エンドポイントはソルトバケット ID を返します。バージョン 3 以降では、ソルトバケット情報は必要ありません。</dd>
+<dd>[POST /v3/identity/map](../endpoints/post-identity-map.md) エンドポイントのバージョン 3 以前、たとえば [POST /v2/identity/map](../endpoints/post-identity-map-v2.md) では、エンドポイントはソルトバケット ID を返します。バージョン 3 以降では、ソルトバケット情報は必要ありません。</dd>
 <dd>ソルトバケット ID の例は、[POST /v2/identity/buckets](../endpoints/post-identity-buckets.md) エンドポイントのレスポンスを参照してください: <a href="../endpoints/post-identity-buckets#decrypted-json-response-format">Decrypted JSON Response Format</a>。`POST /v3/identity/map` を使用している場合、`POST /v2/identity/buckets` を使用する必要はありません。</dd>
 
 <dt><MdxJumpAnchor id="gl-salted-hash">Salted hash</MdxJumpAnchor></dt>
