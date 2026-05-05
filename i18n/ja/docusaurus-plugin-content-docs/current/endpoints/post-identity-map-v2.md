@@ -1,5 +1,5 @@
 ---
-title: POST /identity/map (v2)
+title: POST /v2/identity/map
 description: DII を raw UID2 とソルトバケット ID にマッピング。
 hide_table_of_contents: false
 sidebar_position: 07
@@ -7,7 +7,7 @@ sidebar_position: 07
 
 import Link from '@docusaurus/Link';
 
-# POST /identity/map (v2)
+# POST /v2/identity/map
 
 複数のメールアドレス、電話番号、またはそれぞれのハッシュを、raw UID2 と <Link href="../ref-info/glossary-uid#gl-salt-bucket-id">ソルトバケット ID</Link> にマッピングします。このエンドポイントを使用して、オプトアウト情報の更新をチェックすることもできます。
 

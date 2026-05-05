@@ -300,7 +300,7 @@ If you're using server-side integration (see [Publisher Integration Guide, Serve
 
 The following instructions provide an example of how to map DII to raw UID2s using the latest version of the `POST /identity/map` endpoint.
 
-For the earlier version, see [Previous SDK Version (using POST /identity/map v2)](#previous-sdk-version-using-post-identitymap-v2). For migration steps to the latest version, see [Migration From Version Using v2 Identity Map](#migration-from-version-using-v2-identity-map).
+For the earlier version, see [Previous SDK Version (using POST /v2/identity/map)](#previous-sdk-version-using-post-v2identitymap). For migration steps to the latest version, see [Migration From Version Using v2 Identity Map](#migration-from-version-using-v2-identity-map).
 
 1. Create an IdentityMapV3Client as an instance variable:
    ```java
@@ -487,7 +487,7 @@ The following changes are **optional** but allow you to take advantage of new v3
    String rawReason = unmapped.getRawReason();
    ```
 
-## Previous SDK Version (using POST /identity/map v2)
+## Previous SDK Version (using POST /v2/identity/map)
 
 :::note
 An earlier version of the SDK for Java, which references the `POST /identity/map` v2 endpoint is also available, for backwards compatibility. Migrate to the current SDK for improved performance, multi-identity type support, and better UID rotation management. New integrations should not use this version. 

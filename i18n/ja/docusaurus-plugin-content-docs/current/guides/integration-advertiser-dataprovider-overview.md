@@ -49,7 +49,7 @@ UID2 とインテグレーションする広告主とデータプロバイダー
 6. [Monitor for Opt-Out Status](#6-monitor-for-opt-out-status)
 
 :::note
-[POST&nbsp;/identity/map](../endpoints/post-identity-map.md) エンドポイントのバージョン 3 より前のバージョンを使用している場合は、[Using POST /identity/map Version 2](#using-post-identitymap-version-2) を参照してください。このバージョンを使用している場合は、強化された機能を利用するためにできるだけ早くアップグレードすることを推奨します。
+[POST&nbsp;/identity/map](../endpoints/post-identity-map.md) エンドポイントのバージョン 3 より前のバージョンを使用している場合は、[Using POST /v2/identity/map](#using-post-v2identitymap) を参照してください。このバージョンを使用している場合は、強化された機能を利用するためにできるだけ早くアップグレードすることを推奨します。
 :::
 
 ## Summary of Implementation Options
@@ -152,7 +152,7 @@ UID2 <Link href="../ref-info/glossary-uid#gl-operator-service">Operator Service<
 
 UID2 オプトアウトワークフローの詳細や、ユーザーがオプトアウトする方法は、[User Opt-Out](../getting-started/gs-opt-out.md) を参照してください。
 
-## Using POST /identity/map Version 2
+## Using POST /v2/identity/map
 
 :::note
 以下の情報は、`POST /identity/map` エンドポイントの以前のバージョン 2 を使用するインテグレーションアプローチにのみ関連し、参照用に提供されています。新しい実装では最新バージョンを使用する必要があります: [High-Level Steps](#high-level-steps) を参照してください。

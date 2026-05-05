@@ -1,5 +1,5 @@
 ---
-title: POST /identity/map
+title: POST /v3/identity/map
 description: DII を raw UID2 にマップします。
 hide_table_of_contents: false
 sidebar_position: 08
@@ -21,7 +21,7 @@ UID2 のオプトアウト手順とユーザーがオプトアウトする方法
 
 このドキュメントは、エンドポイントの最新版であるバージョン 3 を対象としています。
 
-必要に応じて、以前のバージョンのドキュメントも利用可能です: [POST /identity/map (v2)](post-identity-map-v2.md) を参照してください。
+必要に応じて、以前のバージョンのドキュメントも利用可能です: [POST /v2/identity/map](post-identity-map-v2.md) を参照してください。
 
 ## Batch Size and Request Parallelization Requirements
 

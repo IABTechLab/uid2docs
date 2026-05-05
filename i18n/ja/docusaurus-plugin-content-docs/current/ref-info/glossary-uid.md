@@ -185,13 +185,13 @@ import MdxJumpAnchor from '@site/src/components/MdxJumpAnchor';
 <dt><MdxJumpAnchor id="gl-client-server"><a href="#gl-client-server">Client-Server Integration</a></MdxJumpAnchor></dt>
 <dd>UID2の <a href="#gl-integration-approaches">インテグレーションアプローチ</a> の1つは、Client-Side と Server-Side の両方でインテグレーションする方法です (Client-Server)。</dd>
 <dd>たとえば、パブリッシャーの Client-Server インテグレーションでは、UID2 Token は Server-Side で生成され、Client-Side でリフレッシュされます。</dd>
-<dd>パブリッシャーの Client-Server インテグレーションに関するドキュメントの例: <a href="../guides/integration-prebid-client-server">UID2 Client-Server Integration Guide for Prebid.js</a>, <a href="../guides/integration-javascript-client-server">Client-Server Integration Guide for JavaScript</a>, <a href="../guides/integration-mobile-client-server">UID2 Client-Server Integration Guide for Mobile</a>.</dd>
+<dd>パブリッシャーの Client-Server インテグレーションに関するドキュメントの例: <a href="../guides/integration-prebid-client-server">Client-Server Integration Guide for Prebid.js</a>, <a href="../guides/integration-javascript-client-server">Client-Server Integration Guide for JavaScript</a>, <a href="../guides/integration-mobile-client-server">Client-Server Integration Guide for Mobile</a>.</dd>
 
 <dt><MdxJumpAnchor id="gl-client-side"><a href="#gl-client-side">Client-side integration</a></MdxJumpAnchor></dt>
 <dd>UID2の <a href="#gl-integration-approaches">インテグレーションアプローチ</a> の1つは、完全に Client-Side でインテグレーションする方法です。</dd>
 <dd>Client-Side インテグレーションでは、UID2 Token はクライアントサイドで生成およびリフレッシュされます。</dd>
 <dd>たとえば、広告主は、トラッキングピクセルのために Client-Side で UID2 Token を生成し、パブリッシャーは、ビッドストリームのために Client-Side で UID2 Token を生成し、トークンをリフレッシュします。</dd>
-<dd>パブリッシャーの Client-Side インテグレーションに関するドキュメントの例: <a href="../guides/integration-prebid-client-side">UID2 Client-Side Integration Guide for Prebid.js</a>, <a href="../guides/integration-javascript-client-side">Client-Side Integration Guide for JavaScript</a>, <a href="../guides/integration-mobile-client-side">UID2 Client-Side Integration Guide for Mobile</a>.</dd>
+<dd>パブリッシャーの Client-Side インテグレーションに関するドキュメントの例: <a href="../guides/integration-prebid-client-side">Client-Side Integration Guide for Prebid.js</a>, <a href="../guides/integration-javascript-client-side">Client-Side Integration Guide for JavaScript</a>, <a href="../guides/integration-mobile-client-side">Client-Side Integration Guide for Mobile</a>.</dd>
 
 <dt><MdxJumpAnchor id="gl-closed-operator">Closed Operator</MdxJumpAnchor></dt>
 <dd>Closed Operator は <a href="#gl-private-operator">Private Operator</a> の別名です。</dd>
@@ -385,7 +385,7 @@ import MdxJumpAnchor from '@site/src/components/MdxJumpAnchor';
 
 <dt><MdxJumpAnchor id="gl-public-key">Public key</MdxJumpAnchor></dt>
 <dd>Client-Side のパブリッシャーインテグレーションでは、パブリッシャーに発行される2つの値のうちの1つがアカウントを一意に識別する公開鍵です。詳細は <a href="../getting-started/gs-credentials#subscription-id-and-public-key">Subscription ID and Public Key</a> を参照してください。</dd>
-<dd>UID2 のインテグレーションでは、この値はしばしば <b>serverPublicKey</b> として表されます。たとえば、<a href="../guides/integration-prebid-client-side">UID2 Client-Side Integration Guide for Prebid.js</a>、<a href="../guides/integration-javascript-client-side">Client-Side Integration Guide for JavaScript</a>、<a href="../guides/integration-mobile-client-side">UID2 Client-Side Integration Guide for Mobile</a> など。</dd>
+<dd>UID2 のインテグレーションでは、この値はしばしば <b>serverPublicKey</b> として表されます。たとえば、<a href="../guides/integration-prebid-client-side">Client-Side Integration Guide for Prebid.js</a>、<a href="../guides/integration-javascript-client-side">Client-Side Integration Guide for JavaScript</a>、<a href="../guides/integration-mobile-client-side">Client-Side Integration Guide for Mobile</a> など。</dd>
 
 <dt><MdxJumpAnchor id="gl-public-operator">Public Operator</MdxJumpAnchor></dt>
 <dd>Public <a href="#gl-operator">Operator</a> は、UID2 Operator Service のパブリックインスタンスを実行する組織です。たとえば、The Trade Desk は現在、UID2 フレームワークの Public Operator として機能しており、すべての参加者が利用できます。</dd>
@@ -427,7 +427,7 @@ import MdxJumpAnchor from '@site/src/components/MdxJumpAnchor';
 
 <dt><MdxJumpAnchor id="gl-salt-bucket-id"><a href="#gl-salt-bucket-id">Salt bucket ID</a></MdxJumpAnchor></dt>
 <dd>ソルトバケット ID は、特定の <a href="#gl-salt-bucket">ソルトバケット</a> を識別する一意の文字列です。ソルトバケット ID を使用すると、最近、ソルト値が更新されたソルトバケットを確認し、どのメールアドレスまたは電話番号が raw UID2 値を再生成する必要があるかを確認できます。</dd>
-<dd>[POST /identity/map](../endpoints/post-identity-map.md) エンドポイントのバージョン 3 以前、たとえば [POST /identity/map (v2)](../endpoints/post-identity-map-v2.md) では、エンドポイントはソルトバケット ID を返します。バージョン 3 以降では、ソルトバケット情報は必要ありません。</dd>
+<dd>[POST /identity/map](../endpoints/post-identity-map.md) エンドポイントのバージョン 3 以前、たとえば [POST /v2/identity/map](../endpoints/post-identity-map-v2.md) では、エンドポイントはソルトバケット ID を返します。バージョン 3 以降では、ソルトバケット情報は必要ありません。</dd>
 <dd>ソルトバケット ID の例は、[POST /v2/identity/buckets](../endpoints/post-identity-buckets.md) エンドポイントのレスポンスを参照してください: <a href="../endpoints/post-identity-buckets#decrypted-json-response-format">Decrypted JSON Response Format</a>。`POST /v3/identity/map` を使用している場合、`POST /v2/identity/buckets` を使用する必要はありません。</dd>
 
 <dt><MdxJumpAnchor id="gl-salted-hash">Salted hash</MdxJumpAnchor></dt>

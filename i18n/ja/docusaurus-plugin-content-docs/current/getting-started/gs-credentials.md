@@ -14,8 +14,8 @@ UID2 の <a href="../overviews/participants-overview#uid2-external-participants"
 
 | Audience | Credentials | Integration |
 | :--- | :--- | :--- |
-| Client-Side 実装を使用する参加者 | 次の両方: <ul><li><Link href="../ref-info/glossary-uid#gl-subscription-id">Subscription ID</Link></li><li><Link href="../ref-info/glossary-uid#gl-public-key">Public key</Link></li></ul>これら 2 つをあわせて <Link href="../ref-info/glossary-uid#gl-client-keypair">client keypair</Link> と呼ぶこともあります。 | 次のいずれかを使用したインテグレーション: <ul><li>[UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md)</li><li>[Client-Side Integration Guide for JavaScript](../guides/integration-javascript-client-side.md)</li><li>[UID2 Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side.md)</li></ul> |
-| Client-Server 実装を使用する参加者 | 次の両方:<ul><li><Link href="../ref-info/glossary-uid#gl-api-key">API Key</Link>、Client Key とも呼ばれます。</li><li><Link href="../ref-info/glossary-uid#gl-client-secret">Client Secret</Link>は、参加者と UID2 Service のみが知る値です。</li></ul> | 次のいずれかを使用したインテグレーション: <ul><li>[Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md)</li><li>[UID2 Client-Server Integration Guide for Prebid.js](../guides/integration-prebid-client-server.md)</li><li>[UID2 Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server.md)</li></ul> |
+| Client-Side 実装を使用する参加者 | 次の両方: <ul><li><Link href="../ref-info/glossary-uid#gl-subscription-id">Subscription ID</Link></li><li><Link href="../ref-info/glossary-uid#gl-public-key">Public key</Link></li></ul>これら 2 つをあわせて <Link href="../ref-info/glossary-uid#gl-client-keypair">client keypair</Link> と呼ぶこともあります。 | 次のいずれかを使用したインテグレーション: <ul><li>[Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md)</li><li>[Client-Side Integration Guide for JavaScript](../guides/integration-javascript-client-side.md)</li><li>[Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side.md)</li></ul> |
+| Client-Server 実装を使用する参加者 | 次の両方:<ul><li><Link href="../ref-info/glossary-uid#gl-api-key">API Key</Link>、Client Key とも呼ばれます。</li><li><Link href="../ref-info/glossary-uid#gl-client-secret">Client Secret</Link>は、参加者と UID2 Service のみが知る値です。</li></ul> | 次のいずれかを使用したインテグレーション: <ul><li>[Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md)</li><li>[Client-Server Integration Guide for Prebid.js](../guides/integration-prebid-client-server.md)</li><li>[Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server.md)</li></ul> |
 | Server-Side 実装を使用する参加者 | 次の両方:<ul><li><Link href="../ref-info/glossary-uid#gl-api-key">API Key</Link>、Client Key とも呼ばれます。</li><li><Link href="../ref-info/glossary-uid#gl-client-secret">Client Secret</Link>は、参加者と UID2 Service のみが知る値です。</li></ul> | 次のいずれかを使用したインテグレーション: <ul><li>[Publisher Integration Guide, Server-Side](../guides/integration-publisher-server-side.md)</li><li>[Advertiser/Data Provider Integration Overview](../guides/integration-advertiser-dataprovider-overview.md)</li></ul> |
 
 ## Separate Credentials Per Environment/Role
@@ -79,7 +79,7 @@ To get your credentials, ask your UID2 contact.
 
 ## Subscription ID and Public Key
 
-Client-Side の実装([UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md) または [Client-Side Integration Guide for JavaScript](../guides/integration-javascript-client-side.md) を参照) を使用している場合は、以下の認証情報を受け取ります:
+Client-Side の実装([Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md) または [Client-Side Integration Guide for JavaScript](../guides/integration-javascript-client-side.md) を参照) を使用している場合は、以下の認証情報を受け取ります:
 - **Subscription ID**: UID2 Service に対してサイトを識別する値です。
 - **Public key**: この値は暗号化に使用されます。
 
@@ -97,7 +97,7 @@ Notes:
 
 ## API Key and Client Secret
 
-Client-Server または Server-Side の実装を使用している場合([UID2 Client-Server Integration Guide for Prebid.js](../guides/integration-prebid-client-server.md) または [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md) を参照)、API Key と Client Secret を使用して、<Link href="../ref-info/glossary-uid#gl-operator-service">Operator Service</Link> に接続し、API エンドポイントを呼び出すことができます。これらの値は、サービスの参加者を識別します。
+Client-Server または Server-Side の実装を使用している場合([Client-Server Integration Guide for Prebid.js](../guides/integration-prebid-client-server.md) または [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md) を参照)、API Key と Client Secret を使用して、<Link href="../ref-info/glossary-uid#gl-operator-service">Operator Service</Link> に接続し、API エンドポイントを呼び出すことができます。これらの値は、サービスの参加者を識別します。
 
 以下は API Key と Client Secret に関する情報です:
 - これらの値は安全に保管する必要があります。詳細は、[Security of API Key and Client Secret](#security-of-api-key-and-client-secret) を参照してください。

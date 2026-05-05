@@ -1,5 +1,5 @@
 ---
-title: POST /identity/map
+title: POST /v3/identity/map
 description: Maps DII to raw UID2s.
 hide_table_of_contents: false
 sidebar_position: 08
@@ -21,7 +21,7 @@ For details about the UID2 opt-out workflow and how users can opt out, see [User
 
 This documentation is for the latest version of this endpoint, version 3.
 
-If needed, documentation is also available for the previous version: see [POST /identity/map (v2)](post-identity-map-v2.md).
+If needed, documentation is also available for the previous version: see [POST /v2/identity/map](post-identity-map-v2.md).
 
 ## Batch Size and Request Parallelization Requirements
 

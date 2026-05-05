@@ -134,7 +134,7 @@ UID2 <Link href="../ref-info/glossary-uid#gl-operator-service">Operator Service<
 
 UID2 のオプトアウト手順の詳細と、ユーザーがどのようにオプトアウトできるかは、[User Opt-Out](../getting-started/gs-opt-out.md) を参照してください。
 
-## Using POST /identity/map Version 2
+## Using POST /v2/identity/map
 
 :::note
 以下の情報は、`POST /identity/map` エンドポイントのバージョン 2 またはそれ以前を使用している場合にのみ関連し、参照用に提供されています。新しい実装では最新バージョンを使用する必要があります。手順は、[High-Level Steps](#high-level-steps) を参照してください。

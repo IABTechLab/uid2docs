@@ -1,5 +1,5 @@
 ---
-title: POST /identity/map (v2)
+title: POST /v2/identity/map
 description: Maps DII to raw UID2s and salt bucket IDs.
 hide_table_of_contents: false
 sidebar_position: 07
@@ -7,7 +7,7 @@ sidebar_position: 07
 
 import Link from '@docusaurus/Link';
 
-# POST /identity/map (v2)
+# POST /v2/identity/map
 
 Maps multiple email addresses, phone numbers, or their respective hashes to their raw UID2s and <Link href="../ref-info/glossary-uid#gl-salt-bucket-id">salt bucket IDs</Link>. You can also use this endpoint to check for updates to opt-out information.
 
