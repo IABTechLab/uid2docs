@@ -210,7 +210,7 @@ If the `status` value is anything other than `success`, the `message` field prov
 429 responses do not include a JSON response body.
 :::
 
-## Migration from v2 Identity Map
+## Migration from POST /v2/identity/map
 
 The following sections provide general information and guidance for migrating to version 3 from earlier versions, including:
 
