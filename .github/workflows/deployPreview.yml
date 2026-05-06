@@ -7,6 +7,11 @@ on:
   #push:
     #branches: []
   workflow_dispatch:
+    inputs:
+      source_ref:
+        description: "Ref of uid2docs to deploy as preview (branch name, tag, or full SHA). Defaults to main."
+        type: string
+        default: main
 
 permissions:
   contents: read
@@ -21,18 +26,51 @@ concurrency:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    environment: ci-auto-merge
     steps:
-      - name: Checkout
+      - name: Checkout source at requested ref
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
-      - name: Clone to preview folder (excluding actions)
-        run: rsync -arv --delete --delete-excluded --exclude=".github" --exclude="preview-output" --exclude="preview-output" --exclude=".git" ./ preview-output/
-      - name: Push to staging repository
-        uses: cpina/github-action-push-to-another-repository@55306faa4ed53b815ae49e564af8cfb359d32ae2 # main
-        env:
-            SSH_DEPLOY_KEY: ${{ secrets.SSH_DEPLOY_KEY }}
         with:
-            source-directory: 'preview-output'
-            destination-github-username: 'UnifiedID2'
-            destination-repository-name: 'uid2-docs-preview'
-            target-branch: main
-            target-directory: preview
+          ref: ${{ inputs.source_ref }}
+          path: source
+          persist-credentials: false
+
+      - name: Checkout target preview repo
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          repository: UnifiedID2/uid2-docs-preview
+          token: ${{ secrets.GH_MERGE_TOKEN }}
+          path: preview-target
+
+      - name: Sync source into preview/ subdir of target
+        run: |
+          rsync -arv --delete --delete-excluded \
+            --exclude=".github" \
+            --exclude=".git" \
+            source/ preview-target/preview/
+
+      - name: Resolve source SHA for traceability
+        id: source-sha
+        run: echo "sha=$(git -C source rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+      - name: Create PR with sync changes
+        id: cpr
+        uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8.1.1
+        with:
+          path: preview-target
+          token: ${{ secrets.GH_MERGE_TOKEN }}
+          branch: ci-deploy-preview
+          delete-branch: true
+          commit-message: "[CI Pipeline] Deploy preview from ${{ github.repository }} ${{ inputs.source_ref }} @ ${{ steps.source-sha.outputs.sha }}"
+          title: "[CI Pipeline] Deploy preview from ${{ github.repository }} ${{ inputs.source_ref }}"
+          body: "Automated preview deployment from `${{ github.repository }}` ref `${{ inputs.source_ref }}` (SHA `${{ steps.source-sha.outputs.sha }}`)."
+
+      - name: Merge PR as UID2SourceAdmin
+        if: steps.cpr.outputs.pull-request-number != ''
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_MERGE_TOKEN }}
+          PR_NUMBER: ${{ steps.cpr.outputs.pull-request-number }}
+        run: |
+          gh api --method PUT \
+            "repos/UnifiedID2/uid2-docs-preview/pulls/$PR_NUMBER/merge" \
+            -f merge_method="merge"
