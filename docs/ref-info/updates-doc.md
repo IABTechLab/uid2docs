@@ -118,7 +118,7 @@ We updated the following additional implementations and corresponding documentat
 
 <CustomTagsContainer tags="Endpoints, Guides, SDKs">
 
-### Identity Map v3 (Endpoint Doc)
+### POST /v3/identity/map (Endpoint Doc)
 
 July 11, 2025
 
@@ -455,7 +455,7 @@ May 17, 2024
 
 We've added the following integration guides to support publishers who want to implement UID2 for their Android or iOS mobile apps:
 
-- [UID2 Mobile Integration Overview for Android and iOS](../guides/integration-mobile-overview)
+- [Mobile Integration Overview for Android and iOS](../guides/integration-mobile-overview)
 - [Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side)
 - [Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server)
 

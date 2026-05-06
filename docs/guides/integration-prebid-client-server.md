@@ -1,7 +1,7 @@
 ---
 title: Client-Server Integration Guide for Prebid.js
 sidebar_label: Client-Server Integration for Prebid.js
-pagination_label: UID2 Client-Server Integration for Prebid.js
+pagination_label: Client-Server Integration for Prebid.js
 description: Information about setting up a client-server Prebid.js integration.
 hide_table_of_contents: false
 sidebar_position: 04

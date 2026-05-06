@@ -40,7 +40,7 @@ import Link from '@docusaurus/Link';
 
 ### Latest POST /v3/identity/map Endpoint
 
-最新の Identity Map インテグレーションでは、1 つのエンドポイント `POST /identity/map` を呼び出すだけで済みます。`POST /identity/buckets` エンドポイントはワークフローの一部ではありません。
+最新の Identity Map インテグレーションでは、1 つのエンドポイント `POST /v3/identity/map` を呼び出すだけで済みます。`POST /identity/buckets` エンドポイントはワークフローの一部ではありません。
 
 :::important
 以前のバージョンを使用している場合は、改善点を活用するためにできるだけ早くアップグレードすることを推奨します。
@@ -50,7 +50,7 @@ import Link from '@docusaurus/Link';
 
 | Endpoint | Description | Request Encryption | Response Decryption |
 | :--- | :--- | :--- | :--- |
-| [POST&nbsp;/identity/map](post-identity-map.md) | 1 つ以上のメールアドレス、電話番号、またはそのハッシュに対して、raw UID2、以前の raw UID2、および更新タイムスタンプをマップします。 | 必須 | 必須 |
+| [POST&nbsp;/v3/identity/map](post-identity-map.md) | 1 つ以上のメールアドレス、電話番号、またはそのハッシュに対して、raw UID2、以前の raw UID2、および更新タイムスタンプをマップします。 | 必須 | 必須 |
 
 ### Earlier Identity Map Endpoints (v2)
 
@@ -59,7 +59,7 @@ import Link from '@docusaurus/Link';
 | Endpoint | Description | Request Encryption | Response Decryption |
 | :--- | :--- | :--- | :--- |
 | [POST&nbsp;/identity/buckets](post-identity-buckets.md) | ローテーションしたソルトバケットの最終更新タイムスタンプをモニターします。 | 必須 | 必須 |
-| [POST&nbsp;/identity/map (v2)](post-identity-map-v2.md) | 1 つ以上のメールアドレス、電話番号、またはそれぞれのハッシュに対して、raw UID2 と ソルトバケット ID をマッピングします。 | 必須 | 必須 |
+| [POST&nbsp;/v2/identity/map](post-identity-map-v2.md) | 1 つ以上のメールアドレス、電話番号、またはそれぞれのハッシュに対して、raw UID2 と ソルトバケット ID をマッピングします。 | 必須 | 必須 |
 
 ## Opt-Out Status
 

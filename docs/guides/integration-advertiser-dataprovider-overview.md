@@ -128,7 +128,7 @@ You could also send conversion information via API or pixels for measurement (at
 
 A raw UID2 is an identifier for a user at a specific moment in time. The raw UID2 for a specific user changes roughly once per year as part of the UID2 refresh process.
 
-The v3 `POST /identity/map` API provides a refresh timestamp (`r` field) in the response that indicates when each raw UID2 might rotate. Use this timestamp to determine when to regenerate raw UID2s for your stored data. 
+The `POST /v3/identity/map` API provides a refresh timestamp (`r` field) in the response that indicates when each raw UID2 might rotate. Use this timestamp to determine when to regenerate raw UID2s for your stored data. 
 
 The raw UID2 does not change before the refresh timestamp. After the refresh timestamp, remapping the DII returns a new refresh timestamp, but the raw UID2 might or might not change. It is possible for the raw UID2 to remain unchanged for multiple refresh intervals.
 
