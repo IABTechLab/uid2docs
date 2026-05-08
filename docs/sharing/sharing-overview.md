@@ -1,5 +1,5 @@
 ---
-title: Overview of Sharing
+title: Overview of sharing
 description: Learn about sharing UID2s with other participants.
 hide_table_of_contents: false
 sidebar_position: 01

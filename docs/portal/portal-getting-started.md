@@ -1,5 +1,5 @@
 ---
-title: Getting Started
+title: Getting started
 description: Learn how to create an account in the UID2 Portal.
 hide_table_of_contents: false
 sidebar_position: 03
@@ -8,7 +8,7 @@ displayed_sidebar: docs
 
 import Link from '@docusaurus/Link';
 
-# Getting started with the UID2 portal
+# Getting started with the UID2 Portal
 
 As part of requesting a UID2 Portal account, you must provide your UID2 contact with some information about yourself and your company.
 

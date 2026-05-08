@@ -1,5 +1,5 @@
 ---
-title: Participant Information
+title: Participant information
 description: Configure your UID2 sharing participant profile.
 hide_table_of_contents: false
 sidebar_position: 06
@@ -16,7 +16,7 @@ In the UID2 Portal, some of this information is displayed. When you have access,
 
 To access the page, go to the top right of the UID2 Portal user interface where your name is displayed. Click the down arrow and choose **Participant Information**.
 
-For an illustration, see [UID2 portal structure](portal-overview.md#uid2-portal-structure).
+For an illustration, see [UID2 Portal structure](portal-overview.md#uid2-portal-structure).
 
 Review general information for your account, such as <Link href="../ref-info/glossary-uid#gl-sharing-participant">participant</Link> name and type. The information you provided when you created the account is displayed. 
 

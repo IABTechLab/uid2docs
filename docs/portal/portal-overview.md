@@ -1,5 +1,5 @@
 ---
-title: UID2 Portal Overview
+title: UID2 Portal overview
 description: General information about the UID2 Portal.
 hide_table_of_contents: false
 sidebar_position: 01
@@ -8,13 +8,13 @@ displayed_sidebar: docs
 
 import Link from '@docusaurus/Link';
 
-# UID2 portal: Overview
+# UID2 Portal: Overview
 
 The UID2 Portal is your one-stop shop for setting up and configuring your UID2 account. In this self-serve portal, you can complete all basic setup steps for UID2 participation. Click through on the links for more information about each activity.
 
 | Activity | Documentation Link |
 | :--- | :--- | 
-| Request an account, configure basic account information such as name and location, log in for the first time, and reset your password. | [Getting started with the UID2 portal](portal-getting-started.md) |
+| Request an account, configure basic account information such as name and location, log in for the first time, and reset your password. | [Getting started with the UID2 Portal](portal-getting-started.md) |
 | Review your profile. | [Participant information](participant-info.md) |
 | Server-side or client-server integrations: Manage API keys for your account, including adding, modifying, or deleting keys. | [API keys](api-keys.md) |
 | Client-side integrations only: Set up and manage the values needed for generating UID2 tokens on the client side. | [Client-side integration](client-side-integration.md) |
@@ -24,7 +24,7 @@ The UID2 Portal is your one-stop shop for setting up and configuring your UID2 a
 | View a detailed log of all past actions performed by, or on behalf of, the current participant. | [Audit trail](audit-trail.md) |
 | Change password when required by the Portal. | [Password change requirement](portal-getting-started.md#password-change-requirement) |
 
-## Access the UID2 portal
+## Access the UID2 Portal
 
 To get access to the portal, ask your UID2 contact for permission to create an account. You'll need to include some information in your request: see [Request an account](portal-getting-started.md#request-an-account).
 
@@ -32,13 +32,13 @@ Your contact will send you a link to get started.
 
 The URL for the UID2 Portal is: [https://portal.unifiedid.com/](https://portal.unifiedid.com/).
 
-### UID2 portal structure
+### UID2 Portal structure
 
 The UID2 Portal is structured for easy navigation.
 
 There are two main ways to access the pages, as shown in the following image:
 
-![UID2 portal structure](images/portal-uid2-overview.png)
+![UID2 Portal structure](images/portal-uid2-overview.png)
 
 The name of the current participant is displayed at the top of the left sidebar. If your account has access to multiple participants, you'll see a drop-down list of the participants that you have access to. You can use this to switch between participants.
 
@@ -66,7 +66,7 @@ From here, you can access the following pages relating to your personal account 
 
 ## Set up your account
 
-To set up your account, see [Getting started with the UID2 portal](portal-getting-started.md).
+To set up your account, see [Getting started with the UID2 Portal](portal-getting-started.md).
 
 ## Participant switcher
 
@@ -74,6 +74,6 @@ In most cases, each user has access to the data for one UID2 sharing participant
 
 The current participant is displayed at the top of the left sidebar. If the current user is on the team for more than one participant, an arrow indicates that the user can switch between participants, to perform actions in the context of the correct participant. 
 
-For an illustration, see [UID2 portal structure](#uid2-portal-structure).
+For an illustration, see [UID2 Portal structure](#uid2-portal-structure).
 
 When the user logs out, the most recent participant choice is stored and is applied the next time the user logs in.

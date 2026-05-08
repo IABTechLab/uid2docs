@@ -1,5 +1,5 @@
 ---
-title: Tokenized Sharing in Pixels
+title: Tokenized sharing in pixels
 description: Learn about sharing UID2 tokens in pixels.
 hide_table_of_contents: false
 sidebar_position: 08
@@ -44,13 +44,13 @@ There are two scenarios:
 - [Tokenized sharing in tracking pixels](#workflow-tokenized-sharing-in-tracking-pixels)
 - [Tokenized sharing in creative pixels](#workflow-tokenized-sharing-in-creative-pixels)
 
-## Account setup in the UID2 portal
+## Account setup in the UID2 Portal
 
 In the UID2 Portal, the sender and the receiver must set up an account and the sender must configure sharing permissions.
 
 The sender only needs to set up sharing permission once for each receiver or participant type. However, if you want to add new sharing permissions or change existing ones, you'll need to go back to adjust your settings.
 
-For details, see [UID2 portal: Overview](../portal/portal-overview.md) and follow the links for each task.
+For details, see [UID2 Portal: Overview](../portal/portal-overview.md) and follow the links for each task.
 
 ## Workflow: Tokenized sharing in tracking pixels
 
@@ -76,7 +76,7 @@ For example, let's say that an advertiser (sender) wants to share UID2 tokens wi
 
 2. The DSP, who is also taking part in sharing, is the receiver. The DSP has access to the advertiser's cryptographic keys, through the UID2 Portal sharing permissions setup, and can therefore decrypt the UID2 tokens into raw UID2s for segment creation.
 
-Both the UID2 sender and receiver must create a UID2 Portal account (see [Account setup in the UID2 portal](#account-setup-in-the-uid2-portal)) in order to take part in sharing. Without an account, a UID2 participant is not displayed in the list of sharing participants in the UID2 Portal, and cannot receive the sender's cryptographic keys for decryption.
+Both the UID2 sender and receiver must create a UID2 Portal account (see [Account setup in the UID2 Portal](#account-setup-in-the-uid2-portal)) in order to take part in sharing. Without an account, a UID2 participant is not displayed in the list of sharing participants in the UID2 Portal, and cannot receive the sender's cryptographic keys for decryption.
 
 ## Workflow: Tokenized sharing in creative pixels
 

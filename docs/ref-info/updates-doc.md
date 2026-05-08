@@ -1,5 +1,5 @@
 ---
-title: Documentation Updates
+title: Documentation updates
 description: A summary of significant UID2 documentation updates.
 hide_table_of_contents: false
 sidebar_position: 06
@@ -218,7 +218,7 @@ For details, see [Snowflake integration guide](../guides/integration-snowflake.m
 
 <CustomTagsContainer tags="Portal, Reference">
 
-### Instructions for using the UID2 portal
+### Instructions for using the UID2 Portal
 
 February 10, 2025
 
@@ -879,7 +879,7 @@ August 3, 2023
 
 We published several documentation pages to help users navigating the UID2 Portal user interface, where you can manage your UID2 account.
 
-For details, see [UID2 portal: Overview](../portal/portal-overview.md).
+For details, see [UID2 Portal: Overview](../portal/portal-overview.md).
 
 </CustomTagsContainer>
 

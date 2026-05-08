@@ -1,5 +1,5 @@
 ---
-title: Tokenized Sharing in the Bidstream
+title: Tokenized sharing in the bidstream
 description: Learn about sharing UID2 tokens to the bidstream.
 hide_table_of_contents: false
 sidebar_position: 08
@@ -22,7 +22,7 @@ Data in the bidstream can be accessed by unauthorized parties, so it is never ac
 
 Additional information for publishers is on the following pages:
 - [UID2 overview for publishers](../overviews/overview-publishers.md)
-- [UID2 portal: Overview](../portal/portal-overview.md)
+- [UID2 Portal: Overview](../portal/portal-overview.md)
 
 ### Audience
 
@@ -63,7 +63,7 @@ The following approaches are available for decrypting UID2 tokens.
    | Tokenized sharing in tracking pixels from DII | [Workflow: Tokenized sharing in tracking pixels](sharing-tokenized-from-data-pixel.md#workflow-tokenized-sharing-in-tracking-pixels) |
    | Tokenized sharing in creative pixels from raw UID2s | [Workflow: Tokenized sharing in creative pixels](sharing-tokenized-from-data-pixel.md#workflow-tokenized-sharing-in-creative-pixels) |
 
-### Account setup in the UID2 portal
+### Account setup in the UID2 Portal
 
 For sharing in the bidstream, the sender does not need a UID2 Portal account. We automatically set up any publisher to share with all DSPs. However, if you are a publisher and want to limit your sharing scope, you can request a UID2 Portal account and set up sharing permissions. For example, you might want to share with a limited audience of one or more sharing partners for security or other reasons.
 
@@ -71,7 +71,7 @@ All sharing receivers must set up an account in the UID2 Portal.
 
 The sender only needs to set up sharing permission once for each receiver or participant type. However, if you want to add new sharing permissions or change existing ones, you'll need to go back to adjust your settings.
 
-For details, see [UID2 portal: Overview](../portal/portal-overview.md) and follow the links for each task.
+For details, see [UID2 Portal: Overview](../portal/portal-overview.md) and follow the links for each task.
 
 ### Workflow: Tokenized sharing in the bidstream
 
@@ -81,7 +81,7 @@ The workflow for generating UID2 tokens from DII, via the API or the specified s
 
    - Publisher: Use one of the integration options listed in [Implementation options for senders](#implementation-options-for-senders).
 
-     Optional to restrict which DSPs can decrypt your UID2 tokens: Set up sharing permissions in the UID2 Portal. See [Account setup in the UID2 portal](#account-setup-in-the-uid2-portal).
+     Optional to restrict which DSPs can decrypt your UID2 tokens: Set up sharing permissions in the UID2 Portal. See [Account setup in the UID2 Portal](#account-setup-in-the-uid2-portal).
    - DSP: Use one of the integration options listed in [Decryption options for receivers](#decryption-options-for-receivers).
 
 1. The publisher completes the following steps to create and send the UID2 tokens:

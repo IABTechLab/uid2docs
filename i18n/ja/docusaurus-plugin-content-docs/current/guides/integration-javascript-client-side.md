@@ -70,7 +70,7 @@ SDK のデバッグビルドを使用したい場合は、代わりに以下の 
 
 UID2 とインテグレーションするには、UID2 アカウントが必要です。まだアカウントを作成していない場合は、まず [Account setup](../getting-started/gs-account-setup.md) ページの手順に従ってください。
 
-アカウントの初期設定が完了すると、[UID2 portal](../portal/portal-overview.md) へのアクセス手順とリンクが送られます。ポータルでは本番環境用の [credentials](../getting-started/gs-credentials.md) (認証情報) を作成したり、必要な追加値を設定したりできます。詳細は [Getting started with the UID2 portal](../portal/portal-getting-started.md) を参照してください。
+アカウントの初期設定が完了すると、[UID2 Portal](../portal/portal-overview.md) へのアクセス手順とリンクが送られます。ポータルでは本番環境用の [credentials](../getting-started/gs-credentials.md) (認証情報) を作成したり、必要な追加値を設定したりできます。詳細は [Getting started with the UID2 Portal](../portal/portal-getting-started.md) を参照してください。
 
 Client-Side インテグレーションを行うには、UID2 Portal の [Client-side integration](../portal/client-side-integration.md) ページで以下の値を設定する必要があります:
 

@@ -1,5 +1,5 @@
 ---
-title: Data Providers
+title: Data providers
 description: Information summary for data providers.
 hide_table_of_contents: false
 sidebar_position: 08

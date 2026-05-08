@@ -8,7 +8,7 @@ displayed_sidebar: docs
 
 import Link from '@docusaurus/Link';
 
-# Getting started with the UID2 portal
+# Getting started with the UID2 Portal
 
 UID2 Portal アカウントをリクエストする際には、自分自身と会社に関する情報を UID2 の担当者に提供する必要があります。
 

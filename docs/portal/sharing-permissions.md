@@ -1,5 +1,5 @@
 ---
-title: Sharing Permissions
+title: Sharing permissions
 description: Configure sharing permissions in the UID2 Portal.
 hide_table_of_contents: false
 sidebar_position: 04
@@ -86,7 +86,7 @@ The UID2 Portal makes the following recommendations based on your role:
 
 The following illustration shows the recommendations for an advertiser.
 
-![UID2 portal, sharing permissions page, recommendations (advertiser)](images/portal-sharing-permissions.png)
+![UID2 Portal, sharing permissions page, recommendations (advertiser)](images/portal-sharing-permissions.png)
 
 ### Configure current and future permissions
 
@@ -100,7 +100,7 @@ If needed, you can click **View Participants** to see the list of participants y
 
 The following example shows a subset of the **View Participants** list.
 
-![UID2 portal, sharing permissions page, view participants list)](images/portal-sharing-permissions-view-participants.png)
+![UID2 Portal, sharing permissions page, view participants list)](images/portal-sharing-permissions-view-participants.png)
 
 If you prefer, you can set up individual sharing relationships with one or more sharing participants.
 
@@ -123,7 +123,7 @@ Click ![the Search icon](images/icon-magnifying-glass-solid.png) (the Search ico
 
 The following example shows matches in a search, after typing the first two letters:
 
-![UID2 portal, sharing permissions page, individual permissions: Using search)](images/portal-sharing-permissions-individual-search.png)
+![UID2 Portal, sharing permissions page, individual permissions: Using search)](images/portal-sharing-permissions-individual-search.png)
 
 When you make changes to your selections, the **Add Permissions** button is enabled.
 
@@ -156,7 +156,7 @@ Here are a couple of scenarios:
 
 To save your choices, click **Add Permissions**. You'll see a review list so that you can check your changes, as shown in the following example (actual participant names are obscured):
 
-![UID2 portal, sharing permissions page, individual permissions: Review)](images/portal-sharing-permissions-individual-review.png)
+![UID2 Portal, sharing permissions page, individual permissions: Review)](images/portal-sharing-permissions-individual-review.png)
 
 To confirm your changes, click **Save**.
 
@@ -177,11 +177,11 @@ There are several ways to delete sharing permissions:
 
   In the **Add Permissions&#8212;Individual** section of the page, under **Your Sharing Permissions**, click the **Participant Type** drop-down and choose one or more participant types:
   
-  ![UID2 portal, sharing permissions page, individual permissions: choosing participant type)](images/portal-sharing-permissions-individual-participant-type.png)
+  ![UID2 Portal, sharing permissions page, individual permissions: choosing participant type)](images/portal-sharing-permissions-individual-participant-type.png)
 
   Check the top checkbox and/or customize the list as needed to specify the participants you want to delete, and then click **Delete Permissions**, as shown in the following example.
 
-  ![UID2 portal, sharing permissions page, individual permissions: Delete options)](images/portal-sharing-permissions-individual-delete-options.png)
+  ![UID2 Portal, sharing permissions page, individual permissions: Delete options)](images/portal-sharing-permissions-individual-delete-options.png)
   
   At the **Are you sure...** prompt, click **Delete Permissions** to confirm.
 - Individual permissions, by sharer:

@@ -1,5 +1,5 @@
 ---
-title: Email Contacts
+title: Email contacts
 description: Set up and manage contacts for UID2 updates.
 hide_table_of_contents: false
 sidebar_position: 09
@@ -24,7 +24,7 @@ Email contacts cannot log in to the UID2 Portal or modify the account. They only
 
 To access the Email Contacts page, go to the top right of the UID2 Portal user interface where your name is displayed. Click the down arrow and choose **Email Contacts**.
 
-For an illustration, see [UID2 portal structure](portal-overview.md#uid2-portal-structure).
+For an illustration, see [UID2 Portal structure](portal-overview.md#uid2-portal-structure).
 
 ## Configuring email contacts
 

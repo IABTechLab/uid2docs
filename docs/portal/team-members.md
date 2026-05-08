@@ -1,5 +1,5 @@
 ---
-title: Team Members
+title: Team members
 description: Set up and manage your UID2 team.
 hide_table_of_contents: false
 sidebar_position: 07
@@ -43,7 +43,7 @@ Each team member has one of the roles shown in the following table.
 
 | Role | Actions |
 | :--- | :--- |
-| Admin | Users with the Admin role can perform all activities related to UID2 participation, as summarized in the [UID2 portal overview](portal-overview.md), for the current participant organization. |
+| Admin | Users with the Admin role can perform all activities related to UID2 participation, as summarized in the [UID2 Portal overview](portal-overview.md), for the current participant organization. |
 | Operations | Users with the Operations role can perform most of the same actions as Admin users. However, there are some limitations:<ul><li>They cannot add, modify, or remove team members. Instead, they have read-only access to the [Team members](team-members.md) page.</li><li>They cannot view the [Audit trail](audit-trail.md) page.</li></ul> |
 
 User roles can only be modified by users with the Admin role. For details, see [Edit information for a team member](#edit-information-for-a-team-member).
@@ -62,7 +62,7 @@ To add a team member, complete the following steps:
    The team member is added to the list, with Pending status, and an invitation email is sent to the invited person.
 
 :::note
-The same team member can be added to more than one participant. Team members who belong to multiple participants can switch between participants, as shown in [UID2 portal structure](portal-overview.md#uid2-portal-structure).
+The same team member can be added to more than one participant. Team members who belong to multiple participants can switch between participants, as shown in [UID2 Portal structure](portal-overview.md#uid2-portal-structure).
 :::
 
 ## Set the primary contact
@@ -94,7 +94,7 @@ If the user has been invited but has not yet accepted, the Team Members list inc
 - A Pending label after the person's name.
 - A **Resend Invitation** link.
 
-![UID2 portal, team members page, pending user](images/portal-team-members-resend-invitation.png)
+![UID2 Portal, team members page, pending user](images/portal-team-members-resend-invitation.png)
 
 To re-send the invitation for a team member, complete the following steps:
 

@@ -1,5 +1,5 @@
 ---
-title: Best Practices
+title: Best practices
 description: Best practices for UID2 sharing.
 hide_table_of_contents: false
 sidebar_position: 05

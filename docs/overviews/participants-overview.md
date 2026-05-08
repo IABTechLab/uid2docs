@@ -1,5 +1,5 @@
 ---
-title: Overview of UID2 Participants
+title: Overview of UID2 participants
 description: An overview of different types of UID2 participants.
 hide_table_of_contents: false
 sidebar_position: 06

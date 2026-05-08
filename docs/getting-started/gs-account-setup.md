@@ -1,5 +1,5 @@
 ---
-title: Account Setup
+title: Account setup
 description: Information about setting up a UID2 account.
 hide_table_of_contents: false
 sidebar_position: 02

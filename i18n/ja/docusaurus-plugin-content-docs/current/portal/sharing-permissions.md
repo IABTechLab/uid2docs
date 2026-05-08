@@ -86,7 +86,7 @@ UID2 Portal は、次の役割に応じた推奨事項を示します:
 
 次の図は、広告主向けの推奨事項を示しています。
 
-![UID2 portal, sharing permissions page, recommendations (advertiser)](images/portal-sharing-permissions.png)
+![UID2 Portal, sharing permissions page, recommendations (advertiser)](images/portal-sharing-permissions.png)
 
 ### Configure current and future permissions
 
@@ -100,7 +100,7 @@ UID2 Portal は、次の役割に応じた推奨事項を示します:
 
 次の例は、**View Participants** リストの一部を示しています。
 
-![UID2 portal, sharing permissions page, view participants list)](images/portal-sharing-permissions-view-participants.png)
+![UID2 Portal, sharing permissions page, view participants list)](images/portal-sharing-permissions-view-participants.png)
 
 必要に応じて、1 つ以上の共有参加者と個別の共有関係を設定することもできます。
 
@@ -123,7 +123,7 @@ UID2 Portal は、次の役割に応じた推奨事項を示します:
 
 次の例は、最初の 2 文字を入力した後の検索結果を示しています:
 
-![UID2 portal, sharing permissions page, individual permissions: Using search)](images/portal-sharing-permissions-individual-search.png)
+![UID2 Portal, sharing permissions page, individual permissions: Using search)](images/portal-sharing-permissions-individual-search.png)
 
 選択内容を更新すると、**Add Permissions** ボタンが有効になります。
 
@@ -156,7 +156,7 @@ UID2 Portal は、次の役割に応じた推奨事項を示します:
 
 選択内容を保存するには、**Add Permissions** をクリックしてください。変更内容を確認するためのリストが表示されます。次の例は、実際の参加者名が隠されています:
 
-![UID2 portal, sharing permissions page, individual permissions: Review)](images/portal-sharing-permissions-individual-review.png)
+![UID2 Portal, sharing permissions page, individual permissions: Review)](images/portal-sharing-permissions-individual-review.png)
 
 変更を確定するには、**Save** をクリックしてください。
 
@@ -177,11 +177,11 @@ UID2 Portal は、次の役割に応じた推奨事項を示します:
 
   ページの **Add Permissions&#8212;Individual** セクションで、**Your Sharing Permissions** の下にある **Participant Type** ドロップダウンをクリックし、1 つ以上の参加者タイプを選択します:
   
-  ![UID2 portal, sharing permissions page, individual permissions: choosing participant type)](images/portal-sharing-permissions-individual-participant-type.png)
+  ![UID2 Portal, sharing permissions page, individual permissions: choosing participant type)](images/portal-sharing-permissions-individual-participant-type.png)
 
   次の例のように、削除したい参加者を指定するために、トップのチェックボックスをクリックし、またはリストをカスタマイズし、**Delete Permissions** をクリックします。
 
-  ![UID2 portal, sharing permissions page, individual permissions: Delete options)](images/portal-sharing-permissions-individual-delete-options.png)
+  ![UID2 Portal, sharing permissions page, individual permissions: Delete options)](images/portal-sharing-permissions-individual-delete-options.png)
   
   **Are you sure...** プロンプトで **Delete Permissions** をクリックして確認してください。
 - 参加者ごとの個別の権限:

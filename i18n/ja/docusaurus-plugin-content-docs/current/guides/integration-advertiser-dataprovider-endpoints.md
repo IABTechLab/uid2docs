@@ -22,7 +22,7 @@ import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emai
 
 UID2 とインテグレーションするには、UID2 アカウントが必要です。まだアカウントを作成していない場合は、まず [Account setup](../getting-started/gs-account-setup.md) ページに記載されている手順に従ってください。
 
-初期アカウント設定が完了すると、[UID2 portal](../portal/portal-overview.md) にアクセスするための指示とリンクが送信されます。ここで、[credentials](../getting-started/gs-credentials.md) を作成し、必要に応じて追加の値を構成できます。詳細は、[Getting started with the UID2 portal](../portal/portal-getting-started.md) を参照してください。
+初期アカウント設定が完了すると、[UID2 Portal](../portal/portal-overview.md) にアクセスするための指示とリンクが送信されます。ここで、[credentials](../getting-started/gs-credentials.md) を作成し、必要に応じて追加の値を構成できます。詳細は、[Getting started with the UID2 Portal](../portal/portal-getting-started.md) を参照してください。
 
 UID2 Portal の [API keys](../portal/api-keys.md) ページで、次の値を設定する必要があります:
 

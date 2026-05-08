@@ -1,5 +1,5 @@
 ---
-title: UID Verify Chrome Extension
+title: UID Verify Chrome extension
 description: How to use the UID Verify Chrome extension to debug and inspect UID2 integrations on any web page.
 hide_table_of_contents: false
 sidebar_position: 03

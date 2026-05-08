@@ -22,7 +22,7 @@ import Link from '@docusaurus/Link';
 
 パブリッシャー向けの追加情報は以下のページにあります:
 - [UID2 overview for publishers](../overviews/overview-publishers.md)
-- [UID2 portal: Overview](../portal/portal-overview.md)
+- [UID2 Portal: Overview](../portal/portal-overview.md)
 
 ### Audience
 
@@ -63,7 +63,7 @@ UID2 Token の復号化には以下の方法があります。
    | Tokenized sharing in tracking pixels from DII | [Workflow: Tokenized sharing in tracking pixels](sharing-tokenized-from-data-pixel.md#workflow-tokenized-sharing-in-tracking-pixels) |
    | Tokenized sharing in creative pixels from raw UID2s | [Workflow: Tokenized sharing in creative pixels](sharing-tokenized-from-data-pixel.md#workflow-tokenized-sharing-in-creative-pixels) |
 
-### Account setup in the UID2 portal
+### Account setup in the UID2 Portal
 
 ビッドストリームで共有する場合、送信者は UID2 Portal アカウントを必要としません。どのパブリッシャーも、すべての DSP と共有できるように自動的に設定されます。ただし、パブリッシャーで共有範囲を限定したい場合は、UID2 Portal アカウントをリクエストし、共有権限を設定することができます。たとえば、セキュリティ上の理由やその他の理由で、1社または複数の共有パートナーに限定して共有したい場合などです。
 
@@ -71,7 +71,7 @@ UID2 Token の復号化には以下の方法があります。
 
 送信者は、受信者または参加者のタイプごとに共有許可を1回だけ設定する必要があります。ただし、新しい共有権限を追加したり、既存の共有権限を変更したりする場合は、再度設定し直す必要があります。
 
-詳細は [UID2 portal: Overview](../portal/portal-overview.md) を参照し、各タスクのリンクをたどってください。
+詳細は [UID2 Portal: Overview](../portal/portal-overview.md) を参照し、各タスクのリンクをたどってください。
 
 ### Workflow: Tokenized sharing in the bidstream
 
@@ -81,7 +81,7 @@ API または指定された Server-Side SDK を介して、DII から UID2 Toke
 
    - パブリッシャー: [Implementation options for senders](#implementation-options-for-senders) に記載されているいずれかの方法を使用します。
 
-     オプションで、UID2 Token を復号化できる DSP を制限できます: UID2 Portal で共有権限を設定します。[Account setup in the UID2 portal](#account-setup-in-the-uid2-portal) を参照してください。
+     オプションで、UID2 Token を復号化できる DSP を制限できます: UID2 Portal で共有権限を設定します。[Account setup in the UID2 Portal](#account-setup-in-the-uid2-portal) を参照してください。
    - DSP: [Decryption options for receivers](#decryption-options-for-receivers) に記載されているインテグレーションオプションのいずれかを使用します。
 
 1. パブリッシャーは以下の手順で UID2 Token を作成し、送信します:

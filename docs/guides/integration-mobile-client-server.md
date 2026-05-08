@@ -70,7 +70,7 @@ For instructions for installing the correct SDK/version into your mobile app, se
 
 To integrate with UID2, you'll need to have a UID2 account. If you haven't yet created an account, first follow the steps described on the [Account setup](../getting-started/gs-account-setup.md) page.
 
-When initial account setup is complete, you'll receive instructions and a link to access the [UID2 portal](../portal/portal-overview.md), where you can create your [credentials](../getting-started/gs-credentials.md) for the production environment and configure additional values, if needed. For details, see [Getting started with the UID2 portal](../portal/portal-getting-started.md).
+When initial account setup is complete, you'll receive instructions and a link to access the [UID2 Portal](../portal/portal-overview.md), where you can create your [credentials](../getting-started/gs-credentials.md) for the production environment and configure additional values, if needed. For details, see [Getting started with the UID2 Portal](../portal/portal-getting-started.md).
 
 For a client-server integration you'll need to set up these values, in the UID2 Portal on the [API keys](../portal/api-keys.md) page:
 

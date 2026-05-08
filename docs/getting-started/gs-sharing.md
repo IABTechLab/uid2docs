@@ -1,5 +1,5 @@
 ---
-title: UID2 Sharing
+title: UID2 sharing
 description: Information about UID2 sharing.
 hide_table_of_contents: false
 sidebar_position: 24
@@ -44,7 +44,7 @@ For more information on UID2 sharing, refer to the following pages:
 
 - General information: [UID2 sharing: Overview](../sharing/sharing-overview.md)
 - [Security requirements for UID2 sharing](../sharing/sharing-security)
-- Information about setting up a UID2 Portal account and configuring sharing relationships: [UID2 portal: Overview](../portal/portal-overview.md)
+- Information about setting up a UID2 Portal account and configuring sharing relationships: [UID2 Portal: Overview](../portal/portal-overview.md)
 - [Tokenized sharing overview](../sharing/sharing-tokenized-overview.md)
 - [Sharing UID2s: Use cases](../sharing/sharing-use-cases.md)
 - [UID2 sharing: Best practices](../sharing/sharing-best-practices.md)

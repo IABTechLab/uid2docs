@@ -44,7 +44,7 @@ UID2 とインテグレーションするには、次の 3 つの主要なステ
 
 UID2 とインテグレーションするには、UID2 のアカウントが必要です。まだアカウントを作成していない場合は、最初に [Account setup](../getting-started/gs-account-setup.md) ページの手順に従ってください。
 
-アカウントの初期設定が完了すると、本番環境用の [credentials](../getting-started/gs-credentials.md) を作成し、必要に応じて追加の値を設定できる [UID2 portal](../portal/portal-overview.md) にアクセスするための手順とリンクが送信されます。詳細は、[UID2 portal での開始](../portal/portal-getting-started.md) を参照してください。
+アカウントの初期設定が完了すると、本番環境用の [credentials](../getting-started/gs-credentials.md) を作成し、必要に応じて追加の値を設定できる [UID2 Portal](../portal/portal-overview.md) にアクセスするための手順とリンクが送信されます。詳細は、[UID2 Portal での開始](../portal/portal-getting-started.md) を参照してください。
 
 設定する具体的な値は、[CTV integration options](#ctv-integration-options) で選択したオプションによって異なります:
 

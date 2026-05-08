@@ -1,5 +1,5 @@
 ---
-title: UID2 Glossary
+title: UID2 glossary
 description: Definitions for some UID2 terms.
 hide_table_of_contents: false
 sidebar_position: 10
@@ -10,6 +10,7 @@ import Link from '@docusaurus/Link';
 import MdxJumpAnchor from '@site/src/components/MdxJumpAnchor';
 
 # Unified ID 2.0 glossary
+
 <p>This page defines some key terms used in the UID2 documentation.</p>
 
 <!-- 
