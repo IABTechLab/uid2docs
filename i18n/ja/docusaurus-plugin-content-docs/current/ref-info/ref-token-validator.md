@@ -43,7 +43,7 @@ Token Validation セクションの上部にあるフィールドに **API Key**
 4. **Token** フィールドに、検証する UID2 Token を貼り付けます。
 5. **Validate Tokens** をクリックします。
 
-### Validate multiple tokens (csv)
+### Validate multiple tokens (CSV)
 
 トークンと識別子のペアを一括検証するには:
 

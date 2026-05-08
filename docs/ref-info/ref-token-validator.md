@@ -46,7 +46,7 @@ To validate a single token, follow these steps:
 4. In the **Token** field, paste the UID2 token you want to validate.
 5. Click **Validate Tokens**.
 
-### Validate multiple tokens (csv)
+### Validate multiple tokens (CSV)
 
 To validate a batch of token-identifier pairs, follow these steps:
 

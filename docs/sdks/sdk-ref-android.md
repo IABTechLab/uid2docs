@@ -166,7 +166,7 @@ Get the UID2 token (advertising token) to pass to the Advertising SDK (for ad re
 UID2Manager.getInstance().getAdvertisingToken()
 ```
 
-## Uid2manager API
+## UID2Manager API
 
 This section includes the functions and variables that are part of the UID2Manager API.
 

@@ -882,7 +882,7 @@ August 3, 2023
 
 <CustomTagsContainer tags="Guides, Mobile, SDKs">
 
-### iOS SDK Guide
+### iOS SDK guide
 
 August 3, 2023
 

@@ -290,7 +290,7 @@ The UID2 system uses `syslog-ng` for log generation and employs `logrotate` with
 
 - [Log rotation configuration](#log-rotation-configuration)
 - [Log rotation default settings](#log-rotation-default-settings)
-- [cronjob Configuration](#cronjob-configuration)
+- [cronjob configuration](#cronjob-configuration)
 
 #### Log rotation configuration
 When the operator instance has been deployed, the default log rotation settings are applied, as follows:
@@ -318,7 +318,8 @@ The following are the default logrotate settings, defined in `/etc/logrotate.d/o
 
 For a detailed explanation of this config, see [logrotate(8) - Linux man page](https://linux.die.net/man/8/logrotate), or run `logrotate man` in the Linux environment.
 
-#### cronjob Configuration
+#### cronjob configuration
+
 The logrotate generates the following script in `/etc/cron.daily` by default:
 
 ```

@@ -166,7 +166,7 @@ Advertising SDK に渡す UID2 Token (Advertising Token) を取得します:
 UID2Manager.getInstance().getAdvertisingToken()
 ```
 
-## Uid2manager API
+## UID2Manager API
 
 このセクションには、UID2Manager API の一部である関数と変数が含まれています。
 

@@ -917,7 +917,7 @@ For details, see [SDK for Android reference guide](../sdks/sdk-ref-android.md).
 
 <CustomTagsContainer tags="Guides, Mobile, SDKs">
 
-### iOS SDK Guide
+### iOS SDK guide
 
 August 3, 2023
 

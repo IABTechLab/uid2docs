@@ -62,7 +62,7 @@ UID2 Operator Confidential Space 用の Docker コンテナが起動すると、
    - [Terraform template](#deployterraform-template)
    - [gcloud CLI](#deploygcloud-cli)
 1. 必要であれば、エグレスルールを有効にします。
-   - 詳細は [Confidential space account setup](#confidential-space-account-setup)、Step 4 を参照してください。
+   - 詳細は [Confidential Space account setup](#confidential-space-account-setup)、Step 4 を参照してください。
 
 すべての手順が完了すると、実装が稼働するようになります。
 
@@ -70,10 +70,10 @@ UID2 Operator Confidential Space 用の Docker コンテナが起動すると、
 
 Google Cloud Platform で Confidential Space を使用して UID2 Operator Service を設定する前に、次の前提条件を満たす必要があります:
 
-- [Confidential space account setup](#confidential-space-account-setup)
+- [Confidential Space account setup](#confidential-space-account-setup)
 - [UID2 Operator account setup](#uid2-operator-account-setup)
 
-### Confidential space account setup
+### Confidential Space account setup
 
 UID2 Operator Service は、任意の GCP アカウントとプロジェクトで実行できます。ただし、認証をサポートするためには、Confidential Space 仮想マシン（VM）を実行するために使用できるサービスアカウントを作成する必要があります。
 
@@ -159,7 +159,7 @@ Terraform テンプレートは次の操作を行います:
 - HTTPS が有効になっている場合、Terraform に HTTPS 証明書を提供します。
 
 :::note
-Terraform テンプレートは、[Confidential space account setup](#confidential-space-account-setup) Step 3 でインストールした gcloud CLI を使用します。
+Terraform テンプレートは、[Confidential Space account setup](#confidential-space-account-setup) Step 3 でインストールした gcloud CLI を使用します。
 :::
 
 新しい UID2 Operator を GCP Confidential Space Enclave にデプロイするための Terraform テンプレートを使用する手順は次のとおりです:
@@ -181,7 +181,7 @@ Terraform がインストールされていない場合は、[terraform.io](http
 
 #### Set up the Terraform environment
 
-1. 新しいプロジェクトを作成するか、既存のプロジェクトを選択します。プロジェクト ID の `{PROJECT_ID}` プレースホルダを自分のプロジェクト ID に置き換えてください（[Confidential space account setup](#confidential-space-account-setup) を参照）:
+1. 新しいプロジェクトを作成するか、既存のプロジェクトを選択します。プロジェクト ID の `{PROJECT_ID}` プレースホルダを自分のプロジェクト ID に置き換えてください（[Confidential Space account setup](#confidential-space-account-setup) を参照）:
 
    ```
    gcloud config set project {PROJECT_ID}
@@ -295,7 +295,7 @@ gcloud CLI を使用して GCP Confidential Space Enclave に新しい UID2 Oper
 
 gcloud CLI を使用して、UID2 Operator Service を実行するためのサービスアカウントを設定するには、次の手順に従います。プレースフォルダー値を自分の有効な値に置き換えてください。
 
-1. 作成したプロジェクトに切り替えます（[Confidential space account setup](#confidential-space-account-setup) で作成したプロジェクト）:
+1. 作成したプロジェクトに切り替えます（[Confidential Space account setup](#confidential-space-account-setup) で作成したプロジェクト）:
     ```
     $ gcloud config set project {PROJECT_ID}
     ```

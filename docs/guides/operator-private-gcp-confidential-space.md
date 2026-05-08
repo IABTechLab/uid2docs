@@ -62,7 +62,7 @@ At a high level, the setup steps are as follows:
    - [Terraform template](#deployterraform-template)
    - [gcloud CLI](#deploygcloud-cli)
 1. Enable egress rule if required.
-   - See [Confidential space account setup](#confidential-space-account-setup), Step 4.
+   - See [Confidential Space account setup](#confidential-space-account-setup), Step 4.
 
 When all steps are complete, your implementation should be up and running.
 
@@ -70,10 +70,10 @@ When all steps are complete, your implementation should be up and running.
 
 Before setting up your UID2 Operator Service in the Google Cloud Platform using Confidential Space, complete these prerequisite steps:
 
-- [Confidential space account setup](#confidential-space-account-setup)
+- [Confidential Space account setup](#confidential-space-account-setup)
 - [UID2 Operator account setup](#uid2-operator-account-setup)
 
-### Confidential space account setup
+### Confidential Space account setup
 
 You can run the UID2 Operator Service on any GCP account and project. However, to support attestation, you'll need to create a service account that you can use to run Confidential Space virtual machines (VMs).
 
@@ -159,7 +159,7 @@ The Terraform template does the following:
 - If HTTPS is enabled, provides your HTTPS certificate to Terraform.
 
 :::note
-The Terraform template uses the gcloud CLI that you installed in [Confidential space account setup](#confidential-space-account-setup) Step 3.
+The Terraform template uses the gcloud CLI that you installed in [Confidential Space account setup](#confidential-space-account-setup) Step 3.
 :::
 
 To deploy a new UID2 Operator in the GCP Confidential Space Enclave, using the Terraform template, follow these steps:
@@ -181,7 +181,7 @@ Install Terraform if it is not already installed: visit [terraform.io](https://w
 
 #### Set up the Terraform environment
 
-1. Create a new project or select an existing one, replacing the `{PROJECT_ID}` placeholder with your own project ID (see [Confidential space account setup](#confidential-space-account-setup)):
+1. Create a new project or select an existing one, replacing the `{PROJECT_ID}` placeholder with your own project ID (see [Confidential Space account setup](#confidential-space-account-setup)):
 
    ```
    gcloud config set project {PROJECT_ID}
@@ -295,7 +295,7 @@ For deployment to the production environment we do not recommend this option. We
 
 To set up and configure the account that you created when you installed the gcloud CLI, complete the following steps. Replace the placeholder values with your own valid values.
 
-1. Switch to the project that you created in [Confidential space account setup](#confidential-space-account-setup):
+1. Switch to the project that you created in [Confidential Space account setup](#confidential-space-account-setup):
     ```
     $ gcloud config set project {PROJECT_ID}
     ```
