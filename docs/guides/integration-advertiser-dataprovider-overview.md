@@ -1,6 +1,6 @@
 ---
-title: Advertiser/Data Provider Integration Overview
-sidebar_label: Advertiser/Data Provider Integration Overview
+title: Advertiser/data provider integration overview
+sidebar_label: Advertiser/data provider integration overview
 description: Overview of integration options for organizations that collect user data and push it to other participants.
 hide_table_of_contents: false
 sidebar_position: 07

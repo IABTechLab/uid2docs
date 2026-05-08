@@ -4,7 +4,7 @@ description: Information summary for advertisers.
 hide_table_of_contents: false
 sidebar_position: 04
 use_banner: true
-banner_title: UID2 Overview for Advertisers
+banner_title: UID2 overview for advertisers
 banner_description: Upgrade campaign activation with Unified ID 2.0.
 banner_icon: 'advertisers'
 banner_text_color: 'white'

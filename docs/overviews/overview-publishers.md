@@ -4,7 +4,7 @@ description: Information summary for publishers.
 hide_table_of_contents: false
 sidebar_position: 02
 use_banner: true
-banner_title: UID2 Overview for Publishers
+banner_title: UID2 overview for publishers
 banner_description: Maintain audience targeting in the ever-changing advertising industry for better impression monetization and more relevance.
 banner_icon: 'publishers'
 banner_text_color: 'white'

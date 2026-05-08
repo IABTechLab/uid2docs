@@ -1,7 +1,7 @@
 ---
-title: LiveRamp Integration Tips
-sidebar_label: LiveRamp Integration Tips
-pagination_label: LiveRamp Integration Tips
+title: LiveRamp integration tips
+sidebar_label: LiveRamp integration tips
+pagination_label: LiveRamp integration tips
 description: Tips for integrating with UID2 with LiveRamp. 
 hide_table_of_contents: false
 sidebar_position: 04

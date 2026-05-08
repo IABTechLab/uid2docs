@@ -1,7 +1,7 @@
 ---
-title: UID2 Integration Overview for JavaScript
-sidebar_label: UID2 Integration Overview for JavaScript
-pagination_label: UID2 Integration Overview for JavaScript
+title: UID2 integration overview for JavaScript
+sidebar_label: UID2 integration overview for JavaScript
+pagination_label: UID2 integration overview for JavaScript
 description: Overview of options for integrating with the SDK for JavaScript as part of your UID2 implementation.
 hide_table_of_contents: false
 sidebar_position: 04

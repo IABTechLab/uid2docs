@@ -1,7 +1,7 @@
 ---
-title: Client-Side Integration Guide for JavaScript
-sidebar_label: Client-Side Integration for JavaScript
-pagination_label: Client-Side Integration Guide for JavaScript
+title: Client-side integration guide for JavaScript
+sidebar_label: Client-side integration for JavaScript
+pagination_label: Client-side integration guide for JavaScript
 description: Information about using the SDK for JavaScript in your client-side integration.
 hide_table_of_contents: false
 sidebar_position: 04
