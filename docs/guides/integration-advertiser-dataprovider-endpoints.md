@@ -68,7 +68,7 @@ DII refers to a user's normalized email address or phone number, or the normaliz
 | Step | Endpoint | Description |
 | --- | --- | --- |
 | 1-a | [POST&nbsp;/v3/identity/map](../endpoints/post-identity-map.md) request | Send a request containing DII to the identity mapping endpoint. |
-| 1-b | [POST&nbsp;/v3/identity/map](../endpoints/post-identity-map.md) response | The raw UID2 (`u` field) returned in the response can be used to target audiences on relevant DSPs.<br/>The response returns a user's raw UID2 (`u`), refresh timestamp (`r`), and optionally the previous raw UID2 (`p`) if the current UID2 was rotated within the last 90 days. Use the refresh timestamp to determine when to refresh the UID2. For details, see [5: Monitor for Raw UID2 Refresh](#5-monitor-for-raw-uid2-refresh). |
+| 1-b | [POST&nbsp;/v3/identity/map](../endpoints/post-identity-map.md) response | The raw UID2 (`u` field) returned in the response can be used to target audiences on relevant DSPs.<br/>The response returns a user's raw UID2 (`u`), refresh timestamp (`r`), and optionally the previous raw UID2 (`p`) if the current UID2 was rotated within the last 90 days. Use the refresh timestamp to determine when to refresh the UID2. For details, see [5: Monitor for raw UID2 refresh](#5-monitor-for-raw-uid2-refresh). |
 
 ### 2: Store raw UID2s and refresh timestamps
 
@@ -155,7 +155,7 @@ The following diagram outlines the v2 integration flow. Note that the difference
 
 <!-- diagram source: resource/advertiser-flow-endpoints-v2-mermaid.md.bak -->
 
-### Store raw UID2s and salt bucket ids (v2)
+### Store raw UID2s and salt bucket IDs (v2)
 
 :::note
 This step replaces Step 2 in the v3 implementation.

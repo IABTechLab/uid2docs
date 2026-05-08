@@ -46,7 +46,7 @@ import Link from '@docusaurus/Link';
 2025年2月の UID2 Snowflake マーケットプレイスインテグレーションの更新には、いくつかの更新と機能強化が含まれています。主な変更点の一つは、以前の 2 つのデータ共有（広告主向けとデータプロバイダー向け）の機能を組み合わせた単一のリスティングとデータ共有が含まれることです。これにより、すべての参加者のインテグレーションが簡素化されます。
 
 :::note
-これらの変更は、2025 年 2 月以前に公開された Snowflake 関数のバージョンを使用しているコードインテグレーションを想定しています（[Snowflake integration guide (version prior to february 2025)](integration-snowflake-before-february-2025.md) を参照）。`FN_T_UID2_IDENTITY_MAP_EMAIL` と `FN_T_UID2_IDENTITY_MAP_EMAIL_HASH` 関数を使用するさらに古いバージョンを使用している場合は、[Migration guide section in the earlier guide](integration-snowflake-before-february-2025.md#migration-guide) の指示に従い、その後再度現在のバージョンにアップグレードすることもできます。ただし、このシナリオでは、このガイドの指示に従い、一度に更新することを勧めます。詳細は、[Migration guide](#migration-guide) を参照してください。
+これらの変更は、2025 年 2 月以前に公開された Snowflake 関数のバージョンを使用しているコードインテグレーションを想定しています（[Snowflake integration guide (version prior to February 2025)](integration-snowflake-before-february-2025.md) を参照）。`FN_T_UID2_IDENTITY_MAP_EMAIL` と `FN_T_UID2_IDENTITY_MAP_EMAIL_HASH` 関数を使用するさらに古いバージョンを使用している場合は、[Migration guide section in the earlier guide](integration-snowflake-before-february-2025.md#migration-guide) の指示に従い、その後再度現在のバージョンにアップグレードすることもできます。ただし、このシナリオでは、このガイドの指示に従い、一度に更新することを勧めます。詳細は、[Migration guide](#migration-guide) を参照してください。
 :::
 
 以下の表は、以前のバージョンからの Snowflake 関数の変更詳細を示しています。

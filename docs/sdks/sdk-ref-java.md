@@ -39,7 +39,7 @@ If you're a DSP, we'll send credentials to you.
 
 The SDK requires Java version 1.8 or later.
 
-## Github repository/binary
+## GitHub repository/binary
 
 This SDK is in the following open-source GitHub repository:
 
@@ -300,7 +300,7 @@ If you're using server-side integration (see [Publisher integration guide, serve
 
 The following instructions provide an example of how to map DII to raw UID2s using the latest version of the `POST /identity/map` endpoint.
 
-For the earlier version, see [Previous SDK Version (using POST /v2/identity/map)](#previous-sdk-version-using-post-v2identitymap). For migration steps to the latest version, see [Migration From Version Using POST /v2/identity/map](#migration-from-version-using-post-v2identitymap).
+For the earlier version, see [Previous SDK version (using POST /v2/identity/map)](#previous-sdk-version-using-post-v2identitymap). For migration steps to the latest version, see [Migration from version using POST /v2/identity/map](#migration-from-version-using-post-v2identitymap).
 
 1. Create an IdentityMapV3Client as an instance variable:
    ```java
@@ -386,7 +386,7 @@ IdentityMapV3Input mixedInput = new IdentityMapV3Input()
 IdentityMapV3Response mixedResponse = client.generateIdentityMap(mixedInput);
 ```
 
-## Migration From Version Using POST /v2/identity/map
+## Migration from version using POST /v2/identity/map
 
 The following sections provide general information and guidance for migrating to the latest version of this SDK, which references `POST /identity/map` version 3, including:
 
@@ -487,11 +487,11 @@ The following changes are **optional** but allow you to take advantage of new v3
    String rawReason = unmapped.getRawReason();
    ```
 
-## Previous SDK Version (using POST /v2/identity/map)
+## Previous SDK version (using POST /v2/identity/map)
 
 :::note
 An earlier version of the SDK for Java, which references the `POST /identity/map` v2 endpoint is also available, for backwards compatibility. Migrate to the current SDK for improved performance, multi-identity type support, and better UID rotation management. New integrations should not use this version. 
-For details, see [Migration From Version Using POST /v2/identity/map](#migration-from-version-using-post-v2identitymap).
+For details, see [Migration from version using POST /v2/identity/map](#migration-from-version-using-post-v2identitymap).
 :::
 
 To use the earlier version, follow these instructions.

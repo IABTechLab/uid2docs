@@ -40,14 +40,14 @@ To find out whether you have to apply [normalization and encoding](../getting-st
 The following options are available for implementing [Sign in with Google](https://support.google.com/accounts/answer/12849458?hl=en):
 
 - [Sign in with Google for Android](#sign-in-with-google-for-android)
-- [Sign in with Google for iOS and macos](#sign-in-with-google-for-ios-and-macos)
+- [Sign in with Google for iOS and macOS](#sign-in-with-google-for-ios-and-macos)
 - [Sign in with Google for web](#sign-in-with-google-for-web)
 
 ### Sign in with Google for Android
 
 Follow the instructions in [Create the Sign in with Google flow](https://developer.android.com/identity/sign-in/credential-manager-siwg#create-sign). Once the token has been validated, you can retrieve the email address by using the [getEmail() method](https://cloud.google.com/java/docs/reference/google-api-client/latest/com.google.api.client.googleapis.auth.oauth2.GoogleIdToken.Payload#com_google_api_client_googleapis_auth_oauth2_GoogleIdToken_Payload_getEmail__) of the identity token payload.
 
-### Sign in with Google for iOS and macos
+### Sign in with Google for iOS and macOS
 
 To get an email address from [Sign in with Google](https://developers.google.com/identity/sign-in/ios/start-integrating) on iOS or macOS, retrieve it from the `GIDGoogleUser` object. For details, see [Getting profile information](https://developers.google.com/identity/sign-in/ios/people).
 
@@ -59,7 +59,7 @@ Follow the instructions to [verify the Google ID token on your server side](http
 
 There are two ways to integrate Facebook Login with UID2: with an <Link href="glossary-uid#gl-oidc">OpenID Connect (OIDC)</Link> token or without.
 
-### Facebook login using an oidc token on iOS
+### Facebook login using an OIDC token on iOS
 
 To get an email address from [Facebook Login](https://developers.facebook.com/docs/facebook-login/) using an [OIDC token](https://developers.facebook.com/docs/facebook-login/guides/access-tokens/get-oidc/) on iOS:
 
@@ -67,7 +67,7 @@ To get an email address from [Facebook Login](https://developers.facebook.com/do
 
 1. Extract the user's email address from the OIDC authentication token: for example, by using the `Profile` helper class. For details, see [OIDC Tokens in Facebook Login for iOS](https://developers.facebook.com/docs/facebook-login/guides/access-tokens/get-oidc).
 
-### Facebook login without an oidc token
+### Facebook login without an OIDC token
 
 To get an email address from [Facebook Login](https://developers.facebook.com/docs/facebook-login/) without using an OIDC token:
 
@@ -83,21 +83,21 @@ The following applications demonstrate how to integrate with Facebook Login:
 
 - [Facebook Login sample application for iOS](https://github.com/facebook/facebook-ios-sdk/tree/main/samples/FacebookLoginSample)
 
-## Sign in with apple
+## Sign in with Apple
 
 The instructions for signing in with Apple are different for apps and websites.
 
-### Sign in with apple in an app
+### Sign in with Apple in an app
 
 Request authorization, making sure to request the `email` scope. For details, see [Request Authorization with Apple ID](https://developer.apple.com/documentation/sign_in_with_apple/implementing_user_authentication_with_sign_in_with_apple#3546458).
 
 If authentication succeeds, retrieve the user's email address from the `email` property of the `ASAuthorizationAppleIDCredential` object.
 
-### Sign in with apple js on a webpage
+### Sign in with Apple JS on a webpage
 
 Refer to the section [Handle the Authorization Response](https://developer.apple.com/documentation/sign_in_with_apple/sign_in_with_apple_js/configuring_your_webpage_for_sign_in_with_apple#3331292) of the page [Configure your webpage for Sign in with Apple](https://developer.apple.com/documentation/sign_in_with_apple/sign_in_with_apple_js/configuring_your_webpage_for_sign_in_with_apple).
 
-## Sign in with openpass
+## Sign in with OpenPass
 
 To get an email address from an [OpenPass](https://openpass.thetradedesk.com/en) integration:
 

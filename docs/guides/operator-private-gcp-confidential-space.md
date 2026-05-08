@@ -411,7 +411,7 @@ This section includes:
 - [Sample deployment script&#8212;integ](#sample-deployment-scriptinteg)
 - [Sample deployment script&#8212;prod](#sample-deployment-scriptprod)
 
-##### Placeholder Values and Definitions
+##### Placeholder values and definitions
 
 Placeholder values are defined in the following table.
 
@@ -424,7 +424,7 @@ Placeholder values are defined in the following table.
 | `{OPERATOR_IMAGE}` | The Docker image URL for the UID2 Private Operator for GCP, used in configuration.<br/>This can be found in the `terraform.tfvars` file in the GCP download file (see [Operator version](#operator-version)). |
 | `{OPERATOR_KEY_SECRET_FULL_NAME}` | The full name that you specified for the Operator Key secret (see [Create secret for the operator key in secret manager](#create-secret-for-the-operator-key-in-secret-manager)), including the path, in the format `projects/<project_id>/secrets/<secret_id>/versions/<version>`. For example: `projects/111111111111/secrets/uid2-operator-operator-key-secret-integ/versions/1`. |
 
-##### Sample Deployment Script&#8212;Integ
+##### Sample deployment script&#8212;integ
 
 The following example of the deployment script for the integration environment uses some placeholder values.
 
@@ -442,7 +442,7 @@ $ gcloud compute instances create {INSTANCE_NAME} \
   --metadata ^~^tee-image-reference={OPERATOR_IMAGE}~tee-container-log-redirect=true~tee-restart-policy=Never~tee-env-DEPLOYMENT_ENVIRONMENT=integ~tee-env-API_TOKEN_SECRET_NAME={OPERATOR_KEY_SECRET_FULL_NAME}~tee-env-CORE_BASE_URL=https://core-integ.uidapi.com~tee-env-OPTOUT_BASE_URL=https://optout-integ.uidapi.com
 ```
 
-##### Sample Deployment Script&#8212;Prod
+##### Sample deployment script&#8212;prod
 
 The following example of the deployment script for the production environment uses some placeholder values.
 

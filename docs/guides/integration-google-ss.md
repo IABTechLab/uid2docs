@@ -48,7 +48,7 @@ The specific values you set up will depend on which of the [publisher integratio
 - For a client-side implementation, you'll need to set up these values, in the UID2 Portal on the [Client-side integration](../portal/client-side-integration.md) page:
   - Subscription ID and Public Key: See [Adding and managing key pairs](../portal/client-side-integration.md#adding-and-managing-key-pairs)
   - A list of **domain names** for any sites on which you'll be using this SDK: See [Adding and managing root-level domains](../portal/client-side-integration.md#adding-and-managing-root-level-domains)
-  - Mobile App IDs (any that apply): See [Adding and managing mobile app ids](../portal/client-side-integration.md#adding-and-managing-mobile-app-ids)
+  - Mobile App IDs (any that apply): See [Adding and managing mobile app IDs](../portal/client-side-integration.md#adding-and-managing-mobile-app-ids)
 
 ## Allow Secure Signals sharing
 

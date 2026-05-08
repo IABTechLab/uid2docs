@@ -55,7 +55,7 @@ To subscribe and deploy one or more UID2 Operators on AWS, complete the followin
 1. Register your organization as a UID2 Operator.
 2. Create an AWS account with an [IAM](https://aws.amazon.com/iam/) role that has the [minimal privileges](#minimal-iam-role-privileges).
 
-#### Minimal iam role privileges
+#### Minimal IAM role privileges
 
 To succeed in a one-click deployment, your AWS account **must** have the privileges to run the following actions:
 

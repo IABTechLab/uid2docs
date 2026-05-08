@@ -42,7 +42,7 @@ DSP の場合は、資格情報を送信します。
 
 この SDK には C++ version 11 が必要です。
 
-## Github repository/binary
+## GitHub repository/binary
 
 この SDK は以下のオープンソースの GitHub リポジトリにあります:
 

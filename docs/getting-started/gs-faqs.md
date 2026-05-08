@@ -25,17 +25,17 @@ The following additional FAQ information for publishers is also available:
 
 Here are some frequently asked questions regarding the UID2 framework.
 
-- [Will all integration partners in the EUID infrastructure (ssps, third-party data providers, measurement providers) be automatically integrated with UID2?](#will-all-integration-partners-in-the-euid-infrastructure-ssps-third-party-data-providers-measurement-providers-be-automatically-integrated-with-uid2)
+- [Will all integration partners in the EUID infrastructure (SSPs, third-party data providers, measurement providers) be automatically integrated with UID2?](#will-all-integration-partners-in-the-euid-infrastructure-ssps-third-party-data-providers-measurement-providers-be-automatically-integrated-with-uid2)
 - [Can users opt out of targeted advertising tied to their UID2?](#can-users-opt-out-of-targeted-advertising-tied-to-their-uid2)
 - [When I send DII to UID2, does UID2 store the information?](#when-i-send-dii-to-uid2-does-uid2-store-the-information)
 - [Does UID2 allow the processing of hipaa-regulated data?](#does-uid2-allow-the-processing-of-hipaa-regulated-data)
-- [Should I use a public operator or a Private Operator?](#should-i-use-a-public-operator-or-a-private-operator)
+- [Should I use a Public Operator or a Private Operator?](#should-i-use-a-public-operator-or-a-private-operator)
 
 :::note
 For FAQs relating to mobile publisher integrations, see [FAQs for mobile integrations](../guides/integration-mobile-overview.md#faqs-for-mobile-integrations).
 :::
 
-#### Will all integration partners in the EUID infrastructure (ssps, third-party data providers, measurement providers) be automatically integrated with UID2?
+#### Will all integration partners in the EUID infrastructure (SSPs, third-party data providers, measurement providers) be automatically integrated with UID2?
 
 No. UID2 has its own framework, which is separate from EUID. As such, paperwork relating to accessing and using the EUID framework does not automatically grant usage and access to the UID2 framework. New contracts are required to be signed for UID2.
 
@@ -53,7 +53,7 @@ In addition, in almost all cases, UID2 doesn't store any values at all once the 
 
 No. UID2 participants must not generate UID2s from Protected Health Information, as defined by the Health Insurance Portability and Accountability Act (HIPAA), even if they have obtained consent to engage in marketing with respect to such data.
 
-#### Should I use a public operator or a Private Operator?
+#### Should I use a Public Operator or a Private Operator?
 
 For most participants, <Link href="../ref-info/glossary-uid#gl-public-operator">Public Operator</Link> is the simplest solution. A Public Operator integration is a much easier option than hosting your own <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link>. Having a Private Operator instance has some advantages, but adds extra complexities and costs.
 
@@ -77,7 +77,7 @@ Here are some frequently asked questions for publishers using the UID2 framework
 - [What is the uniqueness and rotation policy for UID2 tokens?](#what-is-the-uniqueness-and-rotation-policy-for-uid2-tokens)
 - [What does a UID2 token look like in the bidstream?](#what-does-a-uid2-token-look-like-in-the-bidstream)
 - [Can I integrate UID2 with single sign-on (SSO)?](#can-i-integrate-uid2-with-single-sign-on-sso)
-- [I'm using Prebid with a Mobile SDK&#8212;what atype value should I use?](#im-using-prebid-with-a-mobile-sdkwhat-atype-value-should-i-use)
+- [I'm using Prebid with a mobile SDK&#8212;what atype value should I use?](#im-using-prebid-with-a-mobile-sdkwhat-atype-value-should-i-use)
 
 #### How can I test that the DII sent and the returned token match up?
 
@@ -98,9 +98,9 @@ If the user has opted out, the API response notifies you in either of these case
 #### Where should I make token generation calls&#8212;from the server side or the client side?
 
 You can generate UID2 tokens from either the client side or the server side. For more information, see:
-- Generating tokens from the client side using Prebid.js: [Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md).
-- Generating tokens from the server side using Prebid.js: [Client-Server Integration Guide for Prebid.js](../guides/integration-prebid-client-server.md).
-- Other server-side options: [Publisher Integrations](../guides/summary-guides.md#publisher-integrations).
+- Generating tokens from the client side using Prebid.js: [Client-side integration guide for Prebid.js](../guides/integration-prebid-client-side.md).
+- Generating tokens from the server side using Prebid.js: [Client-server integration guide for Prebid.js](../guides/integration-prebid-client-server.md).
+- Other server-side options: [Publisher integrations](../guides/summary-guides.md#publisher-integrations).
 
 #### Can I make token refresh calls from the client side?
 
@@ -164,7 +164,7 @@ Yes. With popular <a href="../ref-info/glossary-uid#gl-sso">SSO</a> integration 
 
 For details, see [Publisher integration with SSO providers](/docs/ref-info/ref-integration-sso-providers.md).
 
-#### I'm using Prebid with a Mobile SDK&#8212;what atype value should I use?
+#### I'm using Prebid with a mobile SDK&#8212;what atype value should I use?
 
 According to the IAB documentation, the `atype` (agent type) value indicates the type of user agent that the match is from. IAB recommends defining this property.
 
@@ -267,7 +267,7 @@ Here are some frequently asked questions for demand-side platforms (DSPs).
 
 - [How do I know which decryption key to apply to a UID2?](#how-do-i-know-which-decryption-key-to-apply-to-a-uid2)
 - [Where do I get the decryption keys?](#where-do-i-get-the-decryption-keys)
-- [How many decryption keys may be present in memory at any point?](#how-many-decryption-keys-may-be-present-in-memory-at-any-point)
+- [How many decryption keys might be present in memory at any point?](#how-many-decryption-keys-might-be-present-in-memory-at-any-point)
 - [How do I know when to refresh mapped raw UID2s?](#how-do-i-know-when-to-refresh-mapped-raw-uid2s)
 - [How do I know if/when the raw UID2 has rotated?](#how-do-i-know-ifwhen-the-raw-uid2-has-rotated)
 - [Should the DSP be concerned with latency?](#should-the-dsp-be-concerned-with-latency)
@@ -290,7 +290,7 @@ Each of the server-side SDKs (see [SDKs: Summary](../sdks/summary-sdks.md)) upda
 
 You can use one of the server-side SDKs (see [SDKs: Summary](../sdks/summary-sdks.md)) to communicate with the UID2 service and fetch the latest keys. To make sure that the keys remain up-to-date, it is recommended to fetch them periodically; for example, once every hour.
 
-#### How many decryption keys may be present in memory at any point?
+#### How many decryption keys might be present in memory at any point?
 
 There may be thousands of decryption keys present in the system at any given point.
 

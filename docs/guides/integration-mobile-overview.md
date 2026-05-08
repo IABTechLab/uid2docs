@@ -12,7 +12,7 @@ import Link from '@docusaurus/Link';
 import SnptIntegratingWithSSO from '../snippets/_snpt-integrating-with-sso.mdx';
 import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emails-and-phone-numbers.mdx';
 
-# Mobile Integration Overview for Android and iOS
+# Mobile integration overview for Android and iOS
 
 This guide is an overview of integration options for mobile app publishers who want to integrate with UID2 using the SDK for Android or the SDK for iOS.
 
@@ -86,9 +86,9 @@ For details, see [Integration approaches](../ref-info/ref-integration-approaches
 
 | Scenario | Option | Integration Guide |
 | :--- | :--- | :--- |
-| You have access to <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> (email address or phone number) on the client side/within the mobile app, and want to keep changes within your app only. | Client-Side integration | [Client-Side Integration Guide for Mobile](integration-mobile-client-side.md) |
-| You have access to DII on the server side only and can do the necessary development to generate UID2 tokens server-side, but you want to refresh tokens on the client side&#8212;or you are using a <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link>. | Client-Server Integration | [Client-Server Integration Guide for Mobile](integration-mobile-client-server.md) |
-| You have access to DII on the server side only and can do the necessary development to generate UID2 tokens server-side, or you are using a <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link>. | Server-Side Integration | [UID2 Server-Side Integration Guide for Mobile](integration-mobile-server-side.md) |
+| You have access to <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> (email address or phone number) on the client side/within the mobile app, and want to keep changes within your app only. | Client-Side integration | [Client-side integration guide for mobile](integration-mobile-client-side.md) |
+| You have access to DII on the server side only and can do the necessary development to generate UID2 tokens server-side, but you want to refresh tokens on the client side&#8212;or you are using a <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link>. | Client-Server Integration | [Client-server integration guide for mobile](integration-mobile-client-server.md) |
+| You have access to DII on the server side only and can do the necessary development to generate UID2 tokens server-side, or you are using a <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link>. | Server-Side Integration | [UID2 server-side integration guide for mobile](integration-mobile-server-side.md) |
 
 ### Generating, storing, and refreshing the UID2 token
 
@@ -105,13 +105,13 @@ The following table summarizes the mobile integration options for managing the U
   <tbody>
     <tr>
       <td>UID2 Android SDK</td>
-      <td>[SDK for Android Reference Guide](../sdks/sdk-ref-android.md)</td>
-      <td>One of the following:<ul><li>[Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side.md)</li><li>[Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server.md)</li></ul></td>
+      <td>[SDK for Android reference guide](../sdks/sdk-ref-android.md)</td>
+      <td>One of the following:<ul><li>[Client-side integration guide for mobile](../guides/integration-mobile-client-side.md)</li><li>[Client-server integration guide for mobile](../guides/integration-mobile-client-server.md)</li></ul></td>
     </tr>
     <tr>
       <td>UID2 iOS SDK</td>
-      <td>[SDK for iOS Reference Guide](../sdks/sdk-ref-ios.md)</td>
-      <td>One of the following:<ul><li>[Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side.md)</li><li>[Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server.md)</li></ul></td>
+      <td>[SDK for iOS reference guide](../sdks/sdk-ref-ios.md)</td>
+      <td>One of the following:<ul><li>[Client-side integration guide for mobile](../guides/integration-mobile-client-side.md)</li><li>[Client-server integration guide for mobile](../guides/integration-mobile-client-server.md)</li></ul></td>
     </tr>
   </tbody>
 </table>
@@ -124,11 +124,11 @@ The following table summarizes the options supported by UID2.
 
 | Scenario | Integration Guide |
 | :--- | :--- |
-| You want to use Google GMA to integrate video, banner, interstitial, or native ads into your Android app | Both of the following, in this sequence:<ol><li>[UID2 GMA plugin for Android integration guide](../guides/mobile-plugin-gma-android.md)</li><li>One of the following:<ul><li>Client-side: [Optional: UID2 GMA/IMA plugin for gam Secure Signals integration](../guides/integration-mobile-client-side.md#optional-uid2-gmaima-plugin-for-gam-secure-signals-integration)</li><li>Client-server: [Optional: UID2 GMA/IMA plugin for gam Secure Signals integration](../guides/integration-mobile-client-server.md#optional-uid2-gmaima-plugin-for-gam-secure-signals-integration)</li></ul></li></ol> |
-| You want to use Google GMA to integrate video, banner, interstitial, or native ads into your iOS app | Both of the following, in this sequence:<ol><li>[UID2 GMA plugin for iOS integration guide](../guides/mobile-plugin-gma-ios.md)</li><li>One of the following:<ul><li>Client-side: [Optional: UID2 GMA/IMA plugin for gam Secure Signals integration](../guides/integration-mobile-client-side.md#optional-uid2-gmaima-plugin-for-gam-secure-signals-integration)</li><li>Client-server: [Optional: UID2 GMA/IMA plugin for gam Secure Signals integration](../guides/integration-mobile-client-server.md#optional-uid2-gmaima-plugin-for-gam-secure-signals-integration)</li></ul></li></ol> |
-| You want to use Google IMA to integrate multimedia ads into your Android app | Both of the following, in this sequence:<ol><li>[UID2 IMA plugin for Android integration guide](../guides/mobile-plugin-ima-android.md)</li><li>One of the following:<ul><li>Client-side: [Optional: UID2 GMA/IMA plugin for gam Secure Signals integration](../guides/integration-mobile-client-side.md#optional-uid2-gmaima-plugin-for-gam-secure-signals-integration)</li><li>Client-server: [Optional: UID2 GMA/IMA plugin for gam Secure Signals integration](../guides/integration-mobile-client-server.md#optional-uid2-gmaima-plugin-for-gam-secure-signals-integration)</li></ul></li></ol> |
-| You want to use Google IMA to integrate multimedia ads into your iOS app | Both of the following, in this sequence:<ol><li>[UID2 IMA plugin for iOS integration guide](../guides/mobile-plugin-ima-ios.md)</li><li>One of the following:<ul><li>Client-side: [Optional: UID2 GMA/IMA plugin for gam Secure Signals integration](../guides/integration-mobile-client-side.md#optional-uid2-gmaima-plugin-for-gam-secure-signals-integration)</li><li>Client-server: [Optional: UID2 GMA/IMA plugin for gam Secure Signals integration](../guides/integration-mobile-client-server.md#optional-uid2-gmaima-plugin-for-gam-secure-signals-integration)</li></ul></li></ol> |
-| You want to use the Prebid Mobile SDK and Prebid Server to send out ad requests from your Android or iOS app | One of the following:<ul><li>Client-side: [Optional: UID2 integration with Prebid Mobile SDK](../guides/integration-mobile-client-side.md#optional-uid2-integration-with-prebid-mobile-sdk)</li><li>Client-server: [Optional: UID2 integration with Prebid Mobile SDK](../guides/integration-mobile-client-server.md#optional-uid2-integration-with-prebid-mobile-sdk)</li></ul> |
+| You want to use Google GMA to integrate video, banner, interstitial, or native ads into your Android app | Both of the following, in this sequence:<ol><li>[UID2 GMA plugin for Android integration guide](../guides/mobile-plugin-gma-android.md)</li><li>One of the following:<ul><li>Client-side: [Optional: UID2 GMA/IMA plugin for GAM Secure Signals integration](../guides/integration-mobile-client-side.md#optional-uid2-gmaima-plugin-for-gam-secure-signals-integration)</li><li>Client-server: [Optional: UID2 GMA/IMA plugin for GAM Secure Signals integration](../guides/integration-mobile-client-server.md#optional-uid2-gmaima-plugin-for-gam-secure-signals-integration)</li></ul></li></ol> |
+| You want to use Google GMA to integrate video, banner, interstitial, or native ads into your iOS app | Both of the following, in this sequence:<ol><li>[UID2 GMA plugin for iOS integration guide](../guides/mobile-plugin-gma-ios.md)</li><li>One of the following:<ul><li>Client-side: [Optional: UID2 GMA/IMA plugin for GAM Secure Signals integration](../guides/integration-mobile-client-side.md#optional-uid2-gmaima-plugin-for-gam-secure-signals-integration)</li><li>Client-server: [Optional: UID2 GMA/IMA plugin for GAM Secure Signals integration](../guides/integration-mobile-client-server.md#optional-uid2-gmaima-plugin-for-gam-secure-signals-integration)</li></ul></li></ol> |
+| You want to use Google IMA to integrate multimedia ads into your Android app | Both of the following, in this sequence:<ol><li>[UID2 IMA plugin for Android integration guide](../guides/mobile-plugin-ima-android.md)</li><li>One of the following:<ul><li>Client-side: [Optional: UID2 GMA/IMA plugin for GAM Secure Signals integration](../guides/integration-mobile-client-side.md#optional-uid2-gmaima-plugin-for-gam-secure-signals-integration)</li><li>Client-server: [Optional: UID2 GMA/IMA plugin for GAM Secure Signals integration](../guides/integration-mobile-client-server.md#optional-uid2-gmaima-plugin-for-gam-secure-signals-integration)</li></ul></li></ol> |
+| You want to use Google IMA to integrate multimedia ads into your iOS app | Both of the following, in this sequence:<ol><li>[UID2 IMA plugin for iOS integration guide](../guides/mobile-plugin-ima-ios.md)</li><li>One of the following:<ul><li>Client-side: [Optional: UID2 GMA/IMA plugin for GAM Secure Signals integration](../guides/integration-mobile-client-side.md#optional-uid2-gmaima-plugin-for-gam-secure-signals-integration)</li><li>Client-server: [Optional: UID2 GMA/IMA plugin for GAM Secure Signals integration](../guides/integration-mobile-client-server.md#optional-uid2-gmaima-plugin-for-gam-secure-signals-integration)</li></ul></li></ol> |
+| You want to use the Prebid Mobile SDK and Prebid Server to send out ad requests from your Android or iOS app | One of the following:<ul><li>Client-side: [Optional: UID2 integration with Prebid mobile SDK](../guides/integration-mobile-client-side.md#optional-uid2-integration-with-prebid-mobile-sdk)</li><li>Client-server: [Optional: UID2 integration with Prebid mobile SDK](../guides/integration-mobile-client-server.md#optional-uid2-integration-with-prebid-mobile-sdk)</li></ul> |
 
 ### Functionality summary
 

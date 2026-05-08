@@ -50,8 +50,8 @@ Determine which method is best for you, and then follow the applicable integrati
 
 | Scenario | Integration Guide |
 | :--- | :--- |
-| You have access to DII on the client side and want to do front-end development only | [Client-Side Integration Guide for Prebid.js](integration-prebid-client-side.md) |
-| You have access to DII on the server side and can do server-side development | [Client-Server Integration Guide for Prebid.js](integration-prebid-client-server.md) |
+| You have access to DII on the client side and want to do front-end development only | [Client-side integration guide for Prebid.js](integration-prebid-client-side.md) |
+| You have access to DII on the server side and can do server-side development | [Client-server integration guide for Prebid.js](integration-prebid-client-server.md) |
 
 ### Refreshing the UID2 token
 
@@ -65,8 +65,8 @@ The Prebid.js UID2 module can automatically refresh the UID2 tokens. If you pref
 
 To configure the UID2 module, call `pbjs.setConfig`. For details on supported parameters, refer to the guide that applies to your implementation:
 
-- [Client-Side Integration Guide for Prebid.js](integration-prebid-client-side.md)
-- [Client-Server Integration Guide for Prebid.js](integration-prebid-client-server.md)
+- [Client-side integration guide for Prebid.js](integration-prebid-client-side.md)
+- [Client-server integration guide for Prebid.js](integration-prebid-client-server.md)
 
 When the UID2 module is configured, it manages a UID2 token for the user and stores it in the user's browser. 
 
@@ -82,9 +82,9 @@ At a high level, to integrate your site with UID2 using Prebid.js, you'll need t
 
 For detailed instructions, refer to one of the following integration guides:
 
-- [Client-Side Integration Guide for Prebid.js](integration-prebid-client-side.md)
-- [Client-Server Integration Guide for Prebid.js](integration-prebid-client-server.md)
+- [Client-side integration guide for Prebid.js](integration-prebid-client-side.md)
+- [Client-server integration guide for Prebid.js](integration-prebid-client-server.md)
 
-## UID2 integration with Prebid Mobile SDK for mobile devices
+## UID2 integration with Prebid mobile SDK for mobile devices
 
-UID2 integration with Prebid is supported for Android and iOS mobile devices using the [UID2 mobile integration with Prebid Mobile SDK](integration-prebid-mobile-summary.md).
+UID2 integration with Prebid is supported for Android and iOS mobile devices using the [UID2 mobile integration with Prebid mobile SDK](integration-prebid-mobile-summary.md).

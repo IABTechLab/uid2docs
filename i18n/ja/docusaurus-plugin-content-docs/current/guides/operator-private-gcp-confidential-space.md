@@ -411,7 +411,7 @@ UID2 Operator には、Operator Key が必要です。UID2 アカウントの設
 - [Sample deployment script&#8212;integ](#sample-deployment-scriptinteg)
 - [Sample deployment script&#8212;prod](#sample-deployment-scriptprod)
 
-##### Placeholder Values and Definitions
+##### Placeholder values and definitions
 
 プレースホルダ値は、次の表に定義されています。
 
@@ -424,7 +424,7 @@ UID2 Operator には、Operator Key が必要です。UID2 アカウントの設
 | `{OPERATOR_IMAGE}` | コンフィギュレーションで使用する UID2 Private Operator for GCP の Docker イメージ URL。<br/>これは、GCP ダウンロードファイルの `terraform.tfvars` ファイルにあります。([Operator version](#operator-version) を参照) |
 | `{OPERATOR_KEY_SECRET_FULL_NAME}` | Operator Key secret に指定したフルネーム ([Create secret for the operator key in secret manager](#create-secret-for-the-operator-key-in-secret-manager) を参照)。パスを含め `projects/<project_id>/secrets/<secret_id>/versions/<version>` の形式でしています。たとえば: `projects/111111111111/secrets/uid2-operator-operator-key-secret-integ/versions/1` |
 
-##### Sample Deployment Script&#8212;Integ
+##### Sample deployment script&#8212;integ
 
 インテグレーション環境のデプロイメントスクリプトの例は、次のプレースホルダ値を使用しています。
 
@@ -442,7 +442,7 @@ $ gcloud compute instances create {INSTANCE_NAME} \
   --metadata ^~^tee-image-reference={OPERATOR_IMAGE}~tee-container-log-redirect=true~tee-restart-policy=Never~tee-env-DEPLOYMENT_ENVIRONMENT=integ~tee-env-API_TOKEN_SECRET_NAME={OPERATOR_KEY_SECRET_FULL_NAME}~tee-env-CORE_BASE_URL=https://core-integ.uidapi.com~tee-env-OPTOUT_BASE_URL=https://optout-integ.uidapi.com
 ```
 
-##### Sample Deployment Script&#8212;Prod
+##### Sample deployment script&#8212;prod
 
 本番環境のデプロイメントスクリプトの例は、次のプレースホルダ値を使用しています。
 

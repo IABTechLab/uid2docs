@@ -29,7 +29,7 @@ It's important to provide a complete list of root-level domain names for your si
 On the Client-Side Integration page you can perform all activities relating to setting up and managing these values, including the following:
 - [Adding and managing key pairs](#adding-and-managing-key-pairs)
 - [Adding and managing root-level domains](#adding-and-managing-root-level-domains)
-- [Adding and managing mobile app ids](#adding-and-managing-mobile-app-ids)
+- [Adding and managing mobile app IDs](#adding-and-managing-mobile-app-ids)
 
 :::note
 When you go into the Client-Side Integration page, you'll be prompted to provide missing configuration items if you haven't yet created at least one key pair and at least one root-level domain or mobile app ID.
@@ -41,9 +41,9 @@ Client-side implementation options are shown in the following table. The options
 
 | Client-Side Implementation Option | Available For (Role) | Documentation Link |
 | :--- | :--- | :---|
-| UID2 JavaScript SDK | Publishers, Advertisers | [Client-Side Integration Guide for JavaScript](../guides/integration-javascript-client-side.md) |
-| Prebid.js client-side integration | Publishers only |[Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md) |
-| UID2 Mobile SDK | Publishers only |[Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side.md) |
+| UID2 JavaScript SDK | Publishers, Advertisers | [Client-side integration guide for JavaScript](../guides/integration-javascript-client-side.md) |
+| Prebid.js client-side integration | Publishers only |[Client-side integration guide for Prebid.js](../guides/integration-prebid-client-side.md) |
+| UID2 Mobile SDK | Publishers only |[Client-side integration guide for mobile](../guides/integration-mobile-client-side.md) |
 
 ## Adding and managing key pairs
 
@@ -184,16 +184,16 @@ To multi-select domains for deletion:
 
    The domains are removed from your domains list.
 
-## Adding and managing mobile app ids
+## Adding and managing mobile app IDs
 
 On the Client-Side Integration page, you can perform the following activities relating to setting up and managing mobile app IDs:
 
-- [Adding mobile app ids](#adding-mobile-app-ids)
+- [Adding mobile app IDs](#adding-mobile-app-ids)
 - [Updating a mobile app ID](#updating-a-mobile-app-id)
 - [Deleting a mobile app ID](#deleting-a-mobile-app-id)
-- [Deleting multiple mobile app ids](#deleting-multiple-mobile-app-ids)
+- [Deleting multiple mobile app IDs](#deleting-multiple-mobile-app-ids)
 
-### Adding mobile app ids
+### Adding mobile app IDs
 
 It's important to provide a complete list of all your mobile app IDs, including:
 - Android App ID: any that apply.
@@ -236,12 +236,12 @@ To delete a mobile app ID from your list, follow these steps:
 
    The entry is removed from your Mobile App IDs list.
 
-### Deleting multiple mobile app ids
+### Deleting multiple mobile app IDs
 
 There are two ways that you can delete more than one mobile app ID at a time:
 
 - Choose multiple individual values from the list and then delete the selected mobile app IDs.
-- Replace your existing list with an updated list that you are adding. See [Adding mobile app ids](#adding-mobile-app-ids).
+- Replace your existing list with an updated list that you are adding. See [Adding mobile app IDs](#adding-mobile-app-ids).
 
 To multi-select mobile app IDs for deletion:
 

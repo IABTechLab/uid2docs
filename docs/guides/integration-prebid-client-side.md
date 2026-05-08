@@ -14,7 +14,7 @@ import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emai
 import SnptAddPrebidjsToYourSite from '../snippets/_snpt-prebid-add-prebidjs-to-your-site.mdx';
 import SnptStoreUID2TokenInBrowser from '../snippets/_snpt-prebid-storing-uid2-token-in-browser.mdx';
 
-# Client-Side Integration Guide for Prebid.js
+# Client-side integration guide for Prebid.js
 
 This guide is for publishers who have access to <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> (email address or phone number) on the client side and want to integrate with UID2 and generate <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> (advertising tokens) to be passed by Prebid.js in the RTB <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link>.
 
@@ -26,7 +26,7 @@ This implementation requires Prebid.js version 8.21.0 or later. For version info
 
 <!-- Diff in Prebid.js supported version for UID2/EUID is fine: verif SS 11/19/24 -->
 
-If you need to use an earlier version of Prebid.js, use the implementation solution presented in the [Client-Server Integration Guide for Prebid.js](integration-prebid-client-server.md) instead.
+If you need to use an earlier version of Prebid.js, use the implementation solution presented in the [Client-server integration guide for Prebid.js](integration-prebid-client-server.md) instead.
 
 ## Integrating with single sign-on (SSO)
 
@@ -222,7 +222,7 @@ pbjs.setConfig({
 }); 
 ```
 
-## Optional: Deferred client-side UID2 configuration with mergeconfig
+## Optional: Deferred client-side UID2 configuration with mergeConfig
 
 If you already have Prebid.js configured but didn't include UID2 in the initial setup, you can still add the UID2 module using two functions provided by Prebid.js:
 

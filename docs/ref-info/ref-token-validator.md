@@ -25,7 +25,7 @@ To use the UID2 Token Validator, you need:
 
 If you do not have these, see [API keys](../portal/api-keys.md) for instructions on creating them in the UID2 Portal.
 
-## Using the token validator
+## Using the Token Validator
 
 To use the token validator, follow these steps:
 

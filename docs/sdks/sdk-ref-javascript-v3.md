@@ -35,7 +35,7 @@ Use this SDK to facilitate the process of generating or establishing client iden
 The following sections describe the high-level [workflow](#workflow-overview) for establishing UID2 identity, provide the SDK [API reference](#api-reference), and explain the UID2 [storage format](#uid2-storage-format).
 
 :::tip
-If you're using Prebid.js with the UID2 Identity Module, or with another product that has UID2 support, you probably don't need to use the SDK at all. The Prebid.js module manages everything. For details, see [Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md).
+If you're using Prebid.js with the UID2 Identity Module, or with another product that has UID2 support, you probably don't need to use the SDK at all. The Prebid.js module manages everything. For details, see [Client-side integration guide for Prebid.js](../guides/integration-prebid-client-side.md).
 :::
 
 This page describes version 3 of the SDK. If you are using an earlier version, we recommend that you upgrade your integration, using the [migration guide](#migration-guide). If needed, documentation for [earlier versions of the SDK](./sdk-ref-javascript-v2.md) is also available.
@@ -69,7 +69,7 @@ You'll be granted permission to use specific functions offered by the SDK, and g
 
 This documentation is for version 3 of the SDK for JavaScript.
 
-## Github repository
+## GitHub repository
 
 The source for this SDK is in the following open-source GitHub repository:
 
@@ -248,7 +248,7 @@ Unless the SDK is able to load a previously-stored identity from local storage o
 
 - [Provide an identity by setting a first-party cookie](#provide-an-identity-by-setting-a-first-party-cookie)
 - [Provide an identity in the call to `init`](#provide-an-identity-in-the-call-to-init)
-- [Provide an identity by calling `setidentity`](#provide-an-identity-by-calling-setidentity)
+- [Provide an identity by calling `setIdentity`](#provide-an-identity-by-calling-setidentity)
 
 #### Provide an identity by setting a first-party cookie
 
@@ -258,9 +258,9 @@ If you store a first-party cookie, as described in the [storage format section](
 
 You can provide a new identity when you call [`init`](#initopts-object-void).
 
-#### Provide an identity by calling `setidentity`
+#### Provide an identity by calling `setIdentity`
 
-At any time after `init` has completed, you can call [`setidentity`](#setidentityidentity-identity-void) to provide the SDK with a new identity to use.
+At any time after `init` has completed, you can call [`setIdentity`](#setidentityidentity-identity-void) to provide the SDK with a new identity to use.
 
 ## API reference
 
@@ -583,7 +583,7 @@ Update your script tag to load the SDK from [the version 3 CDN URL](#include-the
 We strongly recommend that you implement the following changes to get the benefits of version 3 of the SDK:
 
 - [Migrate to the version 3 callback system](#migrate-to-the-version-3-callback-system)
-- [Take advantage of `setidentity` and other new features](#take-advantage-of-setidentity-and-other-new-features)
+- [Take advantage of `setIdentity` and other new features](#take-advantage-of-setidentity-and-other-new-features)
 - [Change how you call init](#change-how-you-call-init)
 
 #### Migrate to the version 3 callback system
@@ -606,7 +606,7 @@ window.__uid2.callbacks = window.__uid2.callbacks || [];
 window.__uid2.callbacks.push(callbackFunction);
 ```
 
-#### Take advantage of `setidentity` and other new features
+#### Take advantage of `setIdentity` and other new features
 
 Previous versions of the SDK had only one way to provide a new identity: in the call to `init`. This meant that some publishers had to make use of various workarounds to provide a new identity later in the page lifecycle. You might be able to simplify your integration by removing these workarounds and just calling `setIdentity` if you want to pass a new identity to the SDK after `init` has been called.
 

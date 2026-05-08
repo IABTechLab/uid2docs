@@ -19,7 +19,7 @@ Use this SDK to facilitate the process of generating or establishing client iden
 The following sections describe the high-level [workflow](#workflow-overview) for establishing UID2 identity, provide the SDK [API reference](#api-reference), and explain the UID2 [storage format](#uid2-storage-format).
 
 :::tip
-If you're using Prebid.js with the UID2 Identity Module, or with another product that has UID2 support, you probably don't need to use the SDK at all. The Prebid.js module manages everything. For details, see [Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md).
+If you're using Prebid.js with the UID2 Identity Module, or with another product that has UID2 support, you probably don't need to use the SDK at all. The Prebid.js module manages everything. For details, see [Client-side integration guide for Prebid.js](../guides/integration-prebid-client-side.md).
 :::
 
 For integration steps for publishers, refer to one of the following:
@@ -78,7 +78,7 @@ You'll be granted permission to use specific functions offered by the SDK, and g
 
 This documentation is for version 4 of the SDK for JavaScript.
 
-## Github repository
+## GitHub repository
 
 The source for this SDK is in the following open-source GitHub repository:
 
@@ -243,7 +243,7 @@ Unless the SDK is able to load a previously-stored identity from local storage o
 
 - [Provide an identity by setting a first-party cookie](#provide-an-identity-by-setting-a-first-party-cookie)
 - [Provide an identity in the call to `init`](#provide-an-identity-in-the-call-to-init)
-- [Provide an identity by calling `setidentity`](#provide-an-identity-by-calling-setidentity)
+- [Provide an identity by calling `setIdentity`](#provide-an-identity-by-calling-setidentity)
 
 #### Provide an identity by setting a first-party cookie
 
@@ -253,9 +253,9 @@ If you store a first-party cookie, as described in the [storage format section](
 
 You can provide a new identity when you call [`init`](#initopts-object-void).
 
-#### Provide an identity by calling `setidentity`
+#### Provide an identity by calling `setIdentity`
 
-At any time after `init` has completed, you can call [`setidentity`](#setidentityidentity-identity-void) to provide the SDK with a new identity to use.
+At any time after `init` has completed, you can call [`setIdentity`](#setidentityidentity-identity-void) to provide the SDK with a new identity to use.
 
 ## API reference
 
@@ -591,10 +591,10 @@ If you're migrating from a version earlier than v3, or if you previously migrate
 If you're migrating from a version earlier than v3, or if you previously migrated from an earlier version to version 3 without updating your code, we strongly recommend that you implement the following changes in your code:
 
 - [Migrate to the newer callback system introduced in version 3](#migrate-to-the-newer-callback-system-introduced-in-version-3)
-- [Take advantage of `setidentity` and other features introduced in version 3](#take-advantage-of-setidentity-and-other-features-introduced-in-version-3)
+- [Take advantage of `setIdentity` and other features introduced in version 3](#take-advantage-of-setidentity-and-other-features-introduced-in-version-3)
 - [Change how you call init](#change-how-you-call-init)
 
-##### Migrate to the Newer Callback System Introduced in Version 3
+##### Migrate to the newer callback system introduced in version 3
 
 In versions before version 3, the callback accepted a single object as a parameter, with properties `advertisingToken`, `status`, and `statusText`. When upgrading to version 3 or 4, change this function to use the [Callback function signature](#callback-function-signature) introduced in version 3.
 

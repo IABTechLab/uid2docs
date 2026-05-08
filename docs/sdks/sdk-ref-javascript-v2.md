@@ -40,7 +40,7 @@ For details, see [API permissions](../getting-started/gs-permissions.md).
 
 This documentation is for version 2 of the SDK for JavaScript.
 
-## Github repository
+## GitHub repository
 
 This SDK is in the following open-source GitHub repository:
 

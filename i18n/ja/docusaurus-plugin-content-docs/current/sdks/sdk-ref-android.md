@@ -60,7 +60,7 @@ UID2 Portal で実行する手順は、実装が Client-Side、Client-Server、S
 
 リリースノートの情報は、[https://github.com/IABTechLab/uid2-android-sdk/releases](https://github.com/IABTechLab/uid2-android-sdk/releases) を参照してください。
 
-## Github repository/binary
+## GitHub repository/binary
 
 この SDK は以下のオープンソースの GitHub リポジトリにあります:
 
@@ -186,7 +186,7 @@ UID2Manager API の一部として利用可能な関数は次のとおりです:
 
 #### setIdentity()
 
-SDK が管理する、Server-Side で作成された UID2 Identity を設定します。詳細は、*Client-Server Integration Guide for Mobile* の [Configure the UID2 Mobile SDK](../guides/integration-mobile-client-server.md#configure-the-uid2-mobile-sdk) を参照してください。
+SDK が管理する、Server-Side で作成された UID2 Identity を設定します。詳細は、*Client-Server Integration Guide for Mobile* の [Configure the UID2 mobile SDK](../guides/integration-mobile-client-server.md#configure-the-uid2-mobile-sdk) を参照してください。
 
 #### resetIdentity()
 

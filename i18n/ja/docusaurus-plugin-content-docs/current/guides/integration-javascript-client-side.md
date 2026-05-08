@@ -78,7 +78,7 @@ Client-Side インテグレーションを行うには、UID2 Portal の [Client
 
 - この SDK を使用するサイトの **ドメイン名** のリスト: [Adding and managing root-level domains](../portal/client-side-integration.md#adding-and-managing-root-level-domains) を参照してください。
 
-- モバイルアプリ ID (該当する場合): [Adding and managing mobile app ids](../portal/client-side-integration.md#adding-and-managing-mobile-app-ids) を参照してください。
+- モバイルアプリ ID (該当する場合): [Adding and managing mobile app IDs](../portal/client-side-integration.md#adding-and-managing-mobile-app-ids) を参照してください。
 
 <!-- (earlier instructions, no-portal, for EUID)
 When account setup is complete, you'll receive a client keypair consisting of two values that identify you to the UID2 servers: Subscription ID and public key. These values are unique to you, and you'll use them to configure the UID2 module. For details, see [Subscription ID and public key](../getting-started/gs-credentials.md#subscription-id-and-public-key). 

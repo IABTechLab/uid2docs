@@ -42,7 +42,7 @@ DSP の場合は、資格情報を送信します。
 
 このライブラリは、.NET Standard 2.1. のユニットテストを使用しています。サンプルアプリは .NET 5.0 を使用しています。
 
-## Github repository/binary
+## GitHub repository/binary
 
 この SDK は以下のオープンソースの GitHub リポジトリにあります:
 

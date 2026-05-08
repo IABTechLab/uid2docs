@@ -29,12 +29,12 @@ A UID2 Operator is an organization that runs the Operator Service. Operators per
 
 UID2 Operators fall into two categories:
 
-- [Public operators](#public-operators)
+- [Public Operators](#public-operators)
 - [Private Operators](#private-operators)
 
 The Operator is the operational code of UID2&#8212;the code that turns an email into a raw UID2 or a UID2 token, and that a participant who is sharing uses to refresh decryption keys.
 
-## Public operators
+## Public Operators
 
 A Public Operator is a UID2 Operator instance that is available to all relevant UID2 participants. Public Operators run publicly available instances of the Operator Service and make them available to participants.
 
@@ -42,7 +42,7 @@ In most cases, UID2 participants use a Public Operator.
 
 The Public Operator is owned and managed by the UID2 administration. For example, The Trade Desk currently serves as a Public Operator for the UID2 framework, available to all participants. If other Public Operators are available, a participant can choose which operator to work with.
 
-## Public operator: Benefits
+## Public Operator: Benefits
 
 When you use a Public Operator, there is no additional work for you to do to host, configure, maintain, or update the Operator. All you need to do is configure your integration to use an SDK or to call the UID2 endpoints.
 

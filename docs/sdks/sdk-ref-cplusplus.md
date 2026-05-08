@@ -42,7 +42,7 @@ If you're a DSP, we'll send credentials to you.
 
 The SDK requires C++ version 11.
 
-## Github repository/binary
+## GitHub repository/binary
 
 This SDK is in the following open-source GitHub repository:
 

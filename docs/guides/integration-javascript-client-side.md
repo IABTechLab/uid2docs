@@ -78,7 +78,7 @@ For a client-side integration you'll need to set up these values, in the UID2 Po
 
 - A list of **domain names** for the sites on which you'll be using this SDK: See [Adding and managing root-level domains](../portal/client-side-integration.md#adding-and-managing-root-level-domains)
 
-- Mobile App IDs (any that apply): See [Adding and managing mobile app ids](../portal/client-side-integration.md#adding-and-managing-mobile-app-ids)
+- Mobile App IDs (any that apply): See [Adding and managing mobile app IDs](../portal/client-side-integration.md#adding-and-managing-mobile-app-ids)
 
 <!-- (earlier instructions, no-portal, for EUID)
 When account setup is complete, you'll receive a client keypair consisting of two values that identify you to the UID2 servers: Subscription ID and public key. These values are unique to you, and you'll use them to configure the UID2 module. For details, see [Subscription ID and public key](../getting-started/gs-credentials.md#subscription-id-and-public-key). 

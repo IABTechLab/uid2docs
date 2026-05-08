@@ -57,7 +57,7 @@ This documentation is for the SDK for iOS version 2.0.0 or later.
 
 For current and past release notes information, see [https://github.com/IABTechLab/uid2-ios-sdk/releases](https://github.com/IABTechLab/uid2-ios-sdk/releases).
 
-## Github open-source repository
+## GitHub open-source repository
 
 This SDK is in the following open-source GitHub repository:
 
@@ -80,11 +80,11 @@ Minimum requirements for this SDK are as follows:
 
 Install the iOS SDK via Swift Package Manager (SPM) or CocoaPods. There are three installation options:
 
--   [Package.Swift](#installing-with-packageswift)
+-   [Package.swift](#installing-with-packageswift)
 -   [Xcode](#installing-with-xcode)
--   [Cocoapods](#installing-with-cocoapods)
+-   [CocoaPods](#installing-with-cocoapods)
 
-### Installing with package.Swift
+### Installing with Package.swift
 
 Add the following dependency to Package.swift:
 
@@ -94,15 +94,15 @@ dependencies: [
 ]
 ```
 
-### Installing with xcode
+### Installing with Xcode
 
-In the XCode user interface, under Package Dependencies, add the following entry for your apps:
+In the Xcode user interface, under Package Dependencies, add the following entry for your apps:
 
 | Name | Location | Dependency Rule |
 | :--- | :--- | :--- |
 | uid2-ios-sdk | `git@github.com:IABTechLab/uid2-ios-sdk.git` | Up to next major version: 2.0.0 < 3.0.0 |
 
-### Installing with cocoapods
+### Installing with CocoaPods
 
 Add the following entry in your `Podfile`:
 
@@ -167,11 +167,11 @@ The following functions are available as part of the UID2Manager API:
 
 #### generateIdentity()
 
-Generate a UID2 Identity using <Link href="../ref-info/glossary-uid#gl-dii">Directly identifying information (DII)</Link>. For details, see [Configure the UID2 Mobile SDK](../guides/integration-mobile-client-side.md#configure-the-uid2-mobile-sdk) in the *Client-Side Integration Guide for Mobile*.
+Generate a UID2 Identity using <Link href="../ref-info/glossary-uid#gl-dii">Directly identifying information (DII)</Link>. For details, see [Configure the UID2 mobile SDK](../guides/integration-mobile-client-side.md#configure-the-uid2-mobile-sdk) in the *Client-Side Integration Guide for Mobile*.
 
 #### setIdentity()
 
-Sets a UID2 Identity, created server-side, to be managed by the SDK. For details, see [Configure the UID2 Mobile SDK](../guides/integration-mobile-client-server.md#configure-the-uid2-mobile-sdk) in the *Client-Server Integration Guide for Mobile*.
+Sets a UID2 Identity, created server-side, to be managed by the SDK. For details, see [Configure the UID2 mobile SDK](../guides/integration-mobile-client-server.md#configure-the-uid2-mobile-sdk) in the *Client-Server Integration Guide for Mobile*.
 
 #### resetIdentity()
 

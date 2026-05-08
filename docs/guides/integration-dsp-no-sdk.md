@@ -86,9 +86,9 @@ This step, which is only for tokens generated on the client side, is additional 
 
 For more information about client-side UID2 integration, refer to one of these integration guides:
 
-- [Client-Side Integration Guide for JavaScript](integration-javascript-client-side.md)
-- [Client-Side Integration Guide for Prebid.js](integration-prebid-client-side.md)
-- [Client-Side Integration Guide for Mobile](integration-mobile-client-side.md)
+- [Client-side integration guide for JavaScript](integration-javascript-client-side.md)
+- [Client-side integration guide for Prebid.js](integration-prebid-client-side.md)
+- [Client-side integration guide for mobile](integration-mobile-client-side.md)
 -->
 
 ### Make sure token lifetime and expiration are valid
@@ -127,9 +127,9 @@ For an example of code that does this, refer to the `IsDomainOrAppNameAllowedFor
 
 For more information about client-side UID2 integration, refer to one of these integration guides:
 
-- [Client-Side Integration Guide for JavaScript](integration-javascript-client-side.md)
-- [Client-Side Integration Guide for Prebid.js](integration-prebid-client-side.md)
-- [Client-Side Integration Guide for Mobile](integration-mobile-client-side.md)
+- [Client-side integration guide for JavaScript](integration-javascript-client-side.md)
+- [Client-side integration guide for Prebid.js](integration-prebid-client-side.md)
+- [Client-side integration guide for mobile](integration-mobile-client-side.md)
 
 ## Honor user opt-out after token decryption
 
