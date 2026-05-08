@@ -119,7 +119,7 @@ March 18, 2025
 
 モバイルアプリのパブリッシャーが、UID2 Token を Server-Side で完全に管理するためのガイドを追加しました。
 
-詳細は、[UID2 server-side integration guide for mobile](../guides/integration-mobile-server-side.md) を参照してください。
+詳細は、[Server-side integration guide for mobile](../guides/integration-mobile-server-side.md) を参照してください。
 
 <!-- APIDOCS-2931 -->
 

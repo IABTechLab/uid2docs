@@ -233,7 +233,7 @@ In general yes, the process of generating a raw UID2 from DII is the same, and r
 
 However, there is a variable factor that's used in generating the raw UID2. The underlying values are refreshed roughly once per year (for details, see [How often should raw UID2s be refreshed for incremental updates?](#how-often-should-raw-uid2s-be-refreshed-for-incremental-updates)). If these values change between one request and another, those two requests result in two different raw UID2s, even when the DII is the same.
 
-For more information, see [Monitor for raw UID2 refresh](../guides/integration-advertiser-dataprovider-overview.md#5-monitor-for-raw-uid2-refresh) in the *Advertiser/Data Provider Integration Guide*.
+For more information, see [Monitor for raw UID2 refresh](../guides/integration-advertiser-dataprovider-overview.md#5-monitor-for-raw-uid2-refresh) in the *Advertiser/data provider integration guide*.
 
 #### If two operators process the same DII, are the results the same?
 

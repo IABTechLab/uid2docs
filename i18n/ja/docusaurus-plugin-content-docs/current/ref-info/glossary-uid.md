@@ -191,7 +191,7 @@ import MdxJumpAnchor from '@site/src/components/MdxJumpAnchor';
 <dd>UID2の <a href="#gl-integration-approaches">インテグレーションアプローチ</a> の1つは、完全に Client-Side でインテグレーションする方法です。</dd>
 <dd>Client-Side インテグレーションでは、UID2 Token はクライアントサイドで生成およびリフレッシュされます。</dd>
 <dd>たとえば、広告主は、トラッキングピクセルのために Client-Side で UID2 Token を生成し、パブリッシャーは、ビッドストリームのために Client-Side で UID2 Token を生成し、トークンをリフレッシュします。</dd>
-<dd>パブリッシャーの Client-Side インテグレーションに関するドキュメントの例: <a href="../guides/integration-prebid-client-side">Client-Side Integration Guide for Prebid.js</a>, <a href="../guides/integration-javascript-client-side">Client-Side Integration Guide for JavaScript</a>, <a href="../guides/integration-mobile-client-side">Client-Side Integration Guide for Mobile</a>.</dd>
+<dd>パブリッシャーの Client-Side インテグレーションに関するドキュメントの例: <a href="../guides/integration-prebid-client-side">Client-Side Integration Guide for Prebid.js</a>, <a href="../guides/integration-javascript-client-side">Client-Side Integration Guide for JavaScript</a>, <a href="../guides/integration-mobile-client-side">Client-side integration guide for mobile</a>.</dd>
 
 <dt><MdxJumpAnchor id="gl-closed-operator">Closed Operator</MdxJumpAnchor></dt>
 <dd>Closed Operator は <a href="#gl-private-operator">Private Operator</a> の別名です。</dd>
@@ -385,7 +385,7 @@ import MdxJumpAnchor from '@site/src/components/MdxJumpAnchor';
 
 <dt><MdxJumpAnchor id="gl-public-key">Public key</MdxJumpAnchor></dt>
 <dd>Client-Side のパブリッシャーインテグレーションでは、パブリッシャーに発行される2つの値のうちの1つがアカウントを一意に識別する公開鍵です。詳細は <a href="../getting-started/gs-credentials#subscription-id-and-public-key">Subscription ID and Public Key</a> を参照してください。</dd>
-<dd>UID2 のインテグレーションでは、この値はしばしば <b>serverPublicKey</b> として表されます。たとえば、<a href="../guides/integration-prebid-client-side">Client-Side Integration Guide for Prebid.js</a>、<a href="../guides/integration-javascript-client-side">Client-Side Integration Guide for JavaScript</a>、<a href="../guides/integration-mobile-client-side">Client-Side Integration Guide for Mobile</a> など。</dd>
+<dd>UID2 のインテグレーションでは、この値はしばしば <b>serverPublicKey</b> として表されます。たとえば、<a href="../guides/integration-prebid-client-side">Client-Side Integration Guide for Prebid.js</a>、<a href="../guides/integration-javascript-client-side">Client-Side Integration Guide for JavaScript</a>、<a href="../guides/integration-mobile-client-side">Client-side integration guide for mobile</a> など。</dd>
 
 <dt><MdxJumpAnchor id="gl-public-operator">Public Operator</MdxJumpAnchor></dt>
 <dd>Public <a href="#gl-operator">Operator</a> は、UID2 Operator Service のパブリックインスタンスを実行する組織です。たとえば、The Trade Desk は現在、UID2 フレームワークの Public Operator として機能しており、すべての参加者が利用できます。</dd>

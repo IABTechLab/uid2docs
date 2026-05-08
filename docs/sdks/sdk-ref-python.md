@@ -497,7 +497,7 @@ client.refresh()
 decrypted = client.decrypt_token_into_raw_uid(uid_token, domainOrAppName)
 # If decryption succeeded, use the raw UID2.
 if decrypted.success:
-    #  Use decrypted.uid
+    # Use decrypted.uid
 else:
    # Check decrypted.status for the failure reason.
 ```
@@ -544,7 +544,7 @@ If you are a receiver, call `decrypt_token_into_raw_uid()`:
 decrypted = client.decrypt_token_into_raw_uid(uid_token)
 # If decryption succeeded, use the raw UID2.
 if decrypted.success:
-    #  Use decrypted.uid
+    # Use decrypted.uid
 else:
     # Check decrypted.status for the failure reason.
 ```

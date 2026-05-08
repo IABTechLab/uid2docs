@@ -1,7 +1,7 @@
 ---
-title: UID2 Server-Side Integration Guide for Mobile
-sidebar_label: Server-Side Integration for Mobile
-pagination_label: UID2 Server-Side Integration Guide for Mobile
+title: Server-side integration guide for mobile
+sidebar_label: Server-side integration guide for mobile
+pagination_label: Server-side integration guide for mobile
 description: Setting up a mobile integration with token generate and refresh both on the server side.
 hide_table_of_contents: false
 sidebar_position: 04
@@ -10,7 +10,7 @@ displayed_sidebar: docs
 
 import Link from '@docusaurus/Link';
 
-# UID2 server-side integration guide for mobile
+# Server-side integration guide for mobile
 
 This guide is for mobile app publishers who want to manage the UID2 token entirely on the server side:
 

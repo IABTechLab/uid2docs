@@ -55,7 +55,7 @@ Determine which method is best for you, and then follow the applicable integrati
 
 ### Refreshing the UID2 token
 
-The Prebid.js UID2 module can automatically refresh the UID2 tokens. If you prefer to implement manual refresh outside Prebid.js, see [Refreshing a UID2 token](integration-prebid-client-server.md#refreshing-a-uid2-token) in the Server-Side Integration Guide. The client-side integration solution includes automated token refresh.
+The Prebid.js UID2 module can automatically refresh the UID2 tokens. If you prefer to implement manual refresh outside Prebid.js, see [Refreshing a UID2 token](integration-prebid-client-server.md#refreshing-a-uid2-token) in the server-side integration guide. The client-side integration solution includes automated token refresh.
 
 ### Storing the UID2 token in the browser
 
@@ -70,7 +70,7 @@ To configure the UID2 module, call `pbjs.setConfig`. For details on supported pa
 
 When the UID2 module is configured, it manages a UID2 token for the user and stores it in the user's browser. 
 
-When generating tokens with Client Refresh mode on the client side or on the server side, the module automatically takes care of refreshing the token as long as your site is open in the user's browser. However, you also have the option to manage the token refresh on the server side. For details, see [Refreshing a UID2 token](integration-prebid-client-server.md#refreshing-a-uid2-token) in the Server-Side Integration Guide. The client-side integration solution includes automated token refresh.
+When generating tokens with Client Refresh mode on the client side or on the server side, the module automatically takes care of refreshing the token as long as your site is open in the user's browser. However, you also have the option to manage the token refresh on the server side. For details, see [Refreshing a UID2 token](integration-prebid-client-server.md#refreshing-a-uid2-token) in the server-side integration guide. The client-side integration solution includes automated token refresh.
 
 ### Integration overview: High-level steps
 

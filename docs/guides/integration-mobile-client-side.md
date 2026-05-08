@@ -1,7 +1,7 @@
 ---
-title: Client-Side Integration Guide for Mobile
-sidebar_label: Client-Side Integration for Mobile
-pagination_label: Client-Side Integration Guide for Mobile
+title: Client-side integration guide for mobile
+sidebar_label: Client-side integration guide for mobile
+pagination_label: Client-side integration guide for mobile
 description: Setting up a mobile integration with token generate and refresh both on the client side.
 hide_table_of_contents: false
 sidebar_position: 04

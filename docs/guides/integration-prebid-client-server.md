@@ -120,7 +120,7 @@ As long as the refresh token remains valid, the UID2 Prebid module refreshes the
 This section includes the following information:
 - [Client refresh mode response configuration options](#client-refresh-mode-response-configuration-options)
 - [Client refresh mode cookie example](#client-refresh-mode-cookie-example)
-- [Client refresh mode uid2token example](#client-refresh-mode-uid2token-example)
+- [Client refresh mode uid2Token example](#client-refresh-mode-uid2token-example)
 - [Passing a new token: Client refresh mode](#passing-a-new-token-client-refresh-mode)
 
 #### Client refresh mode response configuration options
@@ -130,7 +130,7 @@ When you configure the module to use Client Refresh mode, you must choose **one*
 | Option | Details | Use Case | 
 | --- | --- | --- |
 | Set `params.uid2Cookie` to the name of the cookie that contains the response body as a JSON string. | See [Client refresh mode cookie example](#client-refresh-mode-cookie-example) | Use this option only if you're sure that there is enough space left in your cookie to store the response body. If you're not sure, or the cookie storage needs might vary, choose the other option. |
-| Set `params.uid2Token` to the response body as a JavaScript object. | See [Client refresh mode uid2token example](#client-refresh-mode-uid2token-example) | You might choose to provide the response body via `params.uid2Token` in either of these cases:<ul><li>If you are already storing a lot of data in the cookie and adding the response body might exceed the cookie size limit.</li><li>If you prefer to have the Prebid module store the token value for you.</li></ul> |
+| Set `params.uid2Token` to the response body as a JavaScript object. | See [Client refresh mode uid2Token example](#client-refresh-mode-uid2token-example) | You might choose to provide the response body via `params.uid2Token` in either of these cases:<ul><li>If you are already storing a lot of data in the cookie and adding the response body might exceed the cookie size limit.</li><li>If you prefer to have the Prebid module store the token value for you.</li></ul> |
 
 #### Client refresh mode cookie example
 
@@ -159,7 +159,7 @@ pbjs.setConfig({
 
 For an example of the token, see [Sample token response object](#sample-token-response-object).
 
-#### Client refresh mode uid2token example
+#### Client refresh mode uid2Token example
 
 The following example shows a sample configuration. For the contents of the token, see [Sample token response object](#sample-token-response-object).
 
