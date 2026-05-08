@@ -37,13 +37,13 @@ The following approaches are available for encrypting the DII directly into a UI
 
 | Integration Option | Token Generated Client-Side or Server-Side? | Integration Guide |
 | :--- | :--- | :--- |
-| Prebid.js | Client-Side | [UID2 client-side integration guide for Prebid.js](../guides/integration-prebid-client-side.md) |
-| Prebid.js | Server-Side | [UID2 client-server integration guide for Prebid.js](../guides/integration-prebid-client-server.md) |
-| JavaScript SDK | Client-Side | [Client-side integration guide for JavaScript](../guides/integration-javascript-client-side.md) |
-| JavaScript SDK | Server-Side | [Client-server integration guide for JavaScript](../guides/integration-javascript-client-server.md) |
-| Java SDK | Server-Side | [SDK for Java reference guide](../sdks/sdk-ref-java.md) |
-| Python SDK | Server-Side | [SDK for Python reference guide](../sdks/sdk-ref-python.md) |
-| UID2 API (token generate and refresh) | Server-Side | [UID2 endpoints summary: UID2 tokens](../endpoints/summary-endpoints.md#uid2-tokens) | 
+| Prebid.js | Client-Side | [Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md) |
+| Prebid.js | Server-Side | [Client-Server Integration Guide for Prebid.js](../guides/integration-prebid-client-server.md) |
+| JavaScript SDK | Client-Side | [Client-Side Integration Guide for JavaScript](../guides/integration-javascript-client-side.md) |
+| JavaScript SDK | Server-Side | [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md) |
+| Java SDK | Server-Side | [SDK for Java Reference Guide](../sdks/sdk-ref-java.md) |
+| Python SDK | Server-Side | [SDK for Python Reference Guide](../sdks/sdk-ref-python.md) |
+| UID2 API (token generate and refresh) | Server-Side | [UID2 Endpoints Summary: UID2 Tokens](../endpoints/summary-endpoints.md#uid2-tokens) | 
 
 These options support generating UID2 tokens from email addresses or phone numbers and also refreshing the tokens regularly. Other SDKs do not support token generate and token refresh at this time.
 

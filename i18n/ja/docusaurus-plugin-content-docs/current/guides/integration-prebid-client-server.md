@@ -1,7 +1,7 @@
 ---
-title: UID2 Client-Server Integration Guide for Prebid.js
+title: Client-Server Integration Guide for Prebid.js
 sidebar_label: Client-Server Integration for Prebid.js
-pagination_label: UID2 Client-Server Integration for Prebid.js
+pagination_label: Client-Server Integration for Prebid.js
 description: Client-Server での Prebid.js インテグレーションの設定に関する情報。
 hide_table_of_contents: false
 sidebar_position: 04
@@ -14,7 +14,7 @@ import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emai
 import SnptAddPrebidjsToYourSite from '../snippets/_snpt-prebid-add-prebidjs-to-your-site.mdx';
 import SnptStoreUID2TokenInBrowser from '../snippets/_snpt-prebid-storing-uid2-token-in-browser.mdx';
 
-# UID2 client-server integration guide for Prebid.js
+# Client-Server Integration Guide for Prebid.js
 
 このガイドは、Server-Side で <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> (メールアドレスまたは電話番号) にアクセスでき、UID2 とインテグレーションして、RTB <Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link>で Prebid.js によって渡される <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 Token</Link> (Advertising Token) を生成したいパブリッシャー向けのものです。
 

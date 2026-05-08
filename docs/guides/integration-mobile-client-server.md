@@ -1,7 +1,7 @@
 ---
-title: UID2 Client-Server Integration Guide for Mobile
+title: Client-Server Integration Guide for Mobile
 sidebar_label: Client-Server Integration for Mobile
-pagination_label: UID2 Client-Server Integration Guide for Mobile
+pagination_label: Client-Server Integration Guide for Mobile
 description: Setting up a mobile integration with token generate on server and refresh on client.
 hide_table_of_contents: false
 sidebar_position: 04
@@ -19,13 +19,13 @@ import SnptGMAIMA_Plugins from '../snippets/_snpt-mobile_docs_gmaima-plugin-gss.
 import SnptPrebidMobileSDK from '../snippets/_snpt-mobile_docs_prebid-mobile.mdx';
 import SnptErrorResponseStates from '../snippets/_snpt-mobile-docs-error-response-states.mdx';
 
-# UID2 client-server integration guide for mobile
+# Client-Server Integration Guide for Mobile
 
 This guide is for mobile app publishers who want to integrate with UID2 by generating UID2 tokens server-side via a <Link href="../ref-info/glossary-uid#gl-public-operator">Public Operator</Link> or <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link> and then passing the tokens and user identities into their mobile apps, which will in turn pass the tokens for <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link> use.  
 
 This is called client-server integration because some integration steps are client-side and some are server-side.
 
-If you want to integrate with UID2 via client-side only changes (that is, all integration changes required are within the mobile apps), refer to the [UID2 client-side integration guide for mobile](integration-mobile-client-side.md) instead.
+If you want to integrate with UID2 via client-side only changes (that is, all integration changes required are within the mobile apps), refer to the [Client-Side Integration Guide for Mobile](integration-mobile-client-side.md) instead.
 
 This page provides a high-level overview of integration steps and links to additional documentation.
 

@@ -225,7 +225,7 @@ If you're using server-side integration (see [Publisher integration guide, serve
 
 The following instructions provide an example of how to map DII to raw UID2s using the latest version of the `POST /identity/map` endpoint.
 
-For the earlier version, see [Previous version (v2 identity map)](#previous-version-v2-identity-map). For migration steps to the latest version, see [Migration from version using v2 identity map](#migration-from-version-using-v2-identity-map).
+For the earlier version, see [Previous Version (POST /v2/identity/map)](#previous-version-post-v2identitymap). For migration steps to the latest version, see [Migration From Version Using POST /v2/identity/map](#migration-from-version-using-post-v2identitymap).
 
 ### Map DII to raw UID2s
 
@@ -309,7 +309,7 @@ mixed_input = IdentityMapV3Input()
 mixed_response = client.generate_identity_map(mixed_input)
 ```
 
-## Migration from version using v2 identity map
+## Migration From Version Using POST /v2/identity/map
 
 The following sections provide general information and guidance for migrating to the latest version of this SDK, which references `POST /identity/map` version 3, including:
 
@@ -397,14 +397,14 @@ To update DII mapping from version 2 to version 3 of the `POST /identity/map` en
    raw_reason = unmapped.raw_reason
    ```
 
-### Previous version (v2 identity map)
+### Previous Version (POST /v2/identity/map)
 
 :::note
 The v2 Identity Map SDK is an earlier version maintained for backwards compatibility. Migrate to the current SDK for improved performance, multi-identity type support, and better UID2 rotation management.
 
 New integrations should not use this version.
 
-For instructions, see [Migration from version using v2 identity map](#migration-from-version-using-v2-identity-map).
+For instructions, see [Migration From Version Using POST /v2/identity/map](#migration-from-version-using-post-v2identitymap).
 :::
 
 To map email addresses, phone numbers, or their respective hashes to their raw UID2s and salt bucket IDs, if you're using an earlier SDK version that uses `POST /identity/map` version 2, follow these steps.

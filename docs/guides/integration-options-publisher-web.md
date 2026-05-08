@@ -85,8 +85,8 @@ The following table summarizes the options for publishers who want to generate t
 
 | Option | Documentation |
 | :--- | :--- |
-| Prebid.js client-side implementation (8.21.0 or later) | [UID2 client-side integration guide for Prebid.js](integration-prebid-client-side.md) |
-| SDK for JavaScript, client-side implementation | [Client-side integration guide for JavaScript](integration-javascript-client-side.md) |
+| Prebid.js client-side implementation (8.21.0 or later) | [Client-Side Integration Guide for Prebid.js](integration-prebid-client-side.md) |
+| SDK for JavaScript, client-side implementation | [Client-Side Integration Guide for JavaScript](integration-javascript-client-side.md) |
 
 ### Server-side integration options
 
@@ -115,13 +115,13 @@ The following table shows the integration options that support refreshing the UI
 
 | Option | Documentation |
 | :--- | :--- |
-| Prebid.js client-side implementation (8.21.0 or later) | [UID2 client-side integration guide for Prebid.js](integration-prebid-client-side.md) |
-| Prebid.js client-server implementation (7.53.0 or later) | [UID2 client-server integration guide for Prebid.js](integration-prebid-client-server.md) |
-| SDK for JavaScript, client-side implementation | [Client-side integration guide for JavaScript](integration-javascript-client-side.md) |
-| SDK for JavaScript, client-server implementation | [Client-server integration guide for JavaScript](integration-javascript-client-server.md) |
-| SDK for Java | - [Publisher integration guide, server-side](integration-publisher-server-side.md)<br/>- [SDK for Java](../sdks/sdk-ref-java.md) |
-| SDK for Python | - [Publisher integration guide, server-side](integration-publisher-server-side.md)<br/>- [SDK for Python](../sdks/sdk-ref-python.md)  |
-| Direct integration (API endpoints) | [Publisher integration guide, server-side](integration-publisher-server-side.md) |
+| Prebid.js client-side implementation (8.21.0 or later) | [Client-Side Integration Guide for Prebid.js](integration-prebid-client-side.md) |
+| Prebid.js client-server implementation (7.53.0 or later) | [Client-Server Integration Guide for Prebid.js](integration-prebid-client-server.md) |
+| SDK for JavaScript, client-side implementation | [Client-Side Integration Guide for JavaScript](integration-javascript-client-side.md) |
+| SDK for JavaScript, client-server implementation | [Client-Server Integration Guide for JavaScript](integration-javascript-client-server.md) |
+| SDK for Java | - [Publisher Integration Guide, Server-Side](integration-publisher-server-side.md)<br/>- [SDK for Java](../sdks/sdk-ref-java.md) |
+| SDK for Python | - [Publisher Integration Guide, Server-Side](integration-publisher-server-side.md)<br/>- [SDK for Python](../sdks/sdk-ref-python.md)  |
+| Direct integration (API endpoints) | [Publisher Integration Guide, Server-Side](integration-publisher-server-side.md) |
 
 ## Pass the UID2 token into the bidstream
 
@@ -131,9 +131,9 @@ The following table shows integration options that support passing UID2 token in
 
 | Option | Documentation |
 | :--- | :--- |
-| Prebid.js client-side implementation (8.21.0 or later) | [UID2 client-side integration guide for Prebid.js](integration-prebid-client-side.md) |
-| Prebid.js client-server implementation (7.53.0 or later) | [UID2 client-server integration guide for Prebid.js](integration-prebid-client-server.md) |
-| Google Ad Manager Secure Signals| [Google Ad Manager Secure Signals integration guide](integration-google-ss.md) |
+| Prebid.js client-side implementation (8.21.0 or later) | [Client-Side Integration Guide for Prebid.js](integration-prebid-client-side.md) |
+| Prebid.js client-server implementation (7.53.0 or later) | [Client-Server Integration Guide for Prebid.js](integration-prebid-client-server.md) |
+| Google Ad Manager Secure Signals| [Google Ad Manager Secure Signals Integration Guide](integration-google-ss.md) |
 
 :::note
 As long as you generate the token and keep it refreshed, you can also use other options for passing the UID2 token into the bidstream.

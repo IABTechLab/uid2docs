@@ -62,7 +62,7 @@ import Link from '@docusaurus/Link';
 
 - Site: [Client-Side UID2 Integration with Prebid.js](https://prebid-client.samples.uidapi.com/)
 - Code: [uid2-examples/web-integrations/prebid-integrations/client-side](https://github.com/IABTechLab/uid2-examples/tree/main/web-integrations/prebid-integrations/client-side)
-- Doc: [UID2 client-side integration guide for Prebid.js](../guides/integration-prebid-client-side)
+- Doc: [Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side)
 
 ### Client-server integration with Prebid.js
 
@@ -70,7 +70,7 @@ import Link from '@docusaurus/Link';
 
 - Site: [Client-Server UID2 Integration with Prebid.js](https://prebid-client-server.samples.uidapi.com/)
 - Code: [uid2-examples/web-integrations/prebid-integrations/client-server](https://github.com/IABTechLab/uid2-examples/tree/main/web-integrations/prebid-integrations/client-server)
-- Doc: [UID2 client-server integration guide for Prebid.js](../guides/integration-prebid-client-server)
+- Doc: [Client-Server Integration Guide for Prebid.js](../guides/integration-prebid-client-server)
 
 ### Deferred client-side integration with Prebid.js
 
@@ -78,7 +78,7 @@ import Link from '@docusaurus/Link';
 
 - Site: [Deferred Client-Side UID2 Integration with Prebid.js](https://prebid-deferred.samples.uidapi.com/)
 - Code: [uid2-examples/web-integrations/prebid-integrations/client-side-deferred](https://github.com/IABTechLab/uid2-examples/tree/main/web-integrations/prebid-integrations/client-side-deferred)
-- Doc: [UID2 client-side integration guide for Prebid.js](../guides/integration-prebid-client-side)
+- Doc: [Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side)
 
 ### Prebid.js with Secure Signals
 

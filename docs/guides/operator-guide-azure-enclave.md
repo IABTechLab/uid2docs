@@ -334,7 +334,7 @@ The following table provides information about supported protocols.
 
 ## Upgrading
 
-When a new version of UID2 Azure Confidential Containers is released, private operators receive an email notification of the update, with a new release link. There is a window of time for upgrade, after which the older version is deactivated and is no longer supported.
+When a new version of UID2 Azure Confidential Containers is released, Private Operators receive an email notification of the update, with a new release link. There is a window of time for upgrade, after which the older version is deactivated and is no longer supported.
 
 To upgrade, complete the following steps:
 

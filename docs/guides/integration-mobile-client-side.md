@@ -1,7 +1,7 @@
 ---
-title: UID2 Client-Side Integration Guide for Mobile
+title: Client-Side Integration Guide for Mobile
 sidebar_label: Client-Side Integration for Mobile
-pagination_label: UID2 Client-Side Integration Guide for Mobile
+pagination_label: Client-Side Integration Guide for Mobile
 description: Setting up a mobile integration with token generate and refresh both on the client side.
 hide_table_of_contents: false
 sidebar_position: 04
@@ -19,7 +19,7 @@ import SnptGMAIMA_Plugins from '../snippets/_snpt-mobile_docs_gmaima-plugin-gss.
 import SnptPrebidMobileSDK from '../snippets/_snpt-mobile_docs_prebid-mobile.mdx';
 import SnptErrorResponseStates from '../snippets/_snpt-mobile-docs-error-response-states.mdx';
 
-# UID2 client-side integration guide for mobile
+# Client-Side Integration Guide for Mobile
 
 This guide is for mobile app publishers who want to integrate with UID2 with changes only within their mobile app.
 

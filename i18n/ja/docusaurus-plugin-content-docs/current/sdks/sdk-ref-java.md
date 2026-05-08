@@ -300,7 +300,7 @@ Server-Side Integration ([Publisher integration guide, server-side](../guides/in
 
 以下の手順は、最新バージョンの `POST /identity/map` エンドポイントを使用して DII を raw UID2 にマップする方法の例です。
 
-以前のバージョンを使用する場合は、[Previous SDK version (using POST /identity/map v2)](#previous-sdk-version-using-post-identitymap-v2) を参照してください。最新バージョンへの移行手順については、[Migration from version using v2 identity map](#migration-from-version-using-v2-identity-map) を参照してください。
+以前のバージョンを使用する場合は、[Previous SDK Version (using POST /v2/identity/map)](#previous-sdk-version-using-post-v2identitymap) を参照してください。最新バージョンへの移行手順については、[Migration From Version Using POST /v2/identity/map](#migration-from-version-using-post-v2identitymap) を参照してください。
 
 1. IdentityMapClient のインスタンスをインスタンス変数として作成します:
    ```java
@@ -386,7 +386,7 @@ IdentityMapV3Input mixedInput = new IdentityMapV3Input()
 IdentityMapV3Response mixedResponse = client.generateIdentityMap(mixedInput);
 ```
 
-## Migration from version using v2 identity map
+## Migration From Version Using POST /v2/identity/map
 
 以下のセクションでは、この SDK の最新バージョンへの移行に関する一般的な情報とガイダンスを提供します。最新バージョンは `POST /identity/map` バージョン 3 を参照しています:
 
@@ -487,11 +487,11 @@ import com.uid2.client.UnmappedIdentityReason;
    String rawReason = unmapped.getRawReason();
    ```
 
-## Previous SDK version (using POST /identity/map v2)
+## Previous SDK Version (using POST /v2/identity/map)
 
 :::note
 下位互換性のために、`POST /identity/map` v2 エンドポイントを参照する SDK for Java の以前のバージョンも利用可能です。パフォーマンスの向上、複数の ID タイプのサポート、UID ローテーション管理の改善のために、現在の SDK に移行してください。新しいインテグレーションではこのバージョンを使用しないでください。
-詳細は [Migration from version using v2 identity map](#migration-from-version-using-v2-identity-map) を参照してください。
+詳細は [Migration From Version Using POST /v2/identity/map](#migration-from-version-using-post-v2identitymap) を参照してください。
 :::
 
 以前のバージョンを使用するには、以下の手順に従ってください。

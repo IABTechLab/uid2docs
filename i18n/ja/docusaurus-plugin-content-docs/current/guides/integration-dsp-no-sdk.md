@@ -86,9 +86,9 @@ This step, which is only for tokens generated on the client side, is additional 
 
 For more information about client-side UID2 integration, refer to one of these integration guides:
 
-- [Client-side integration guide for JavaScript](integration-javascript-client-side.md)
-- [UID2 client-side integration guide for Prebid.js](integration-prebid-client-side.md)
-- [UID2 client-side integration guide for mobile](integration-mobile-client-side.md)
+- [Client-Side Integration Guide for JavaScript](integration-javascript-client-side.md)
+- [Client-Side Integration Guide for Prebid.js](integration-prebid-client-side.md)
+- [Client-Side Integration Guide for Mobile](integration-mobile-client-side.md)
 -->
 
 ### Make sure token lifetime and expiration are valid
@@ -127,9 +127,9 @@ Client-Side で生成されたトークンの場合、トークンを復号化�
 
 Client-Side UID2 インテグレーションの詳細は、以下のインテグレーションガイドのいずれかを参照してください:
 
-- [Client-side integration guide for JavaScript](integration-javascript-client-side.md)
-- [UID2 client-side integration guide for Prebid.js](integration-prebid-client-side.md)
-- [UID2 client-side integration guide for mobile](integration-mobile-client-side.md)
+- [Client-Side Integration Guide for JavaScript](integration-javascript-client-side.md)
+- [Client-Side Integration Guide for Prebid.js](integration-prebid-client-side.md)
+- [Client-Side Integration Guide for Mobile](integration-mobile-client-side.md)
 
 ## Honor user opt-out after token decryption
 

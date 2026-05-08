@@ -35,7 +35,7 @@ Use this SDK to facilitate the process of generating or establishing client iden
 The following sections describe the high-level [workflow](#workflow-overview) for establishing UID2 identity, provide the SDK [API reference](#api-reference), and explain the UID2 [storage format](#uid2-storage-format).
 
 :::tip
-If you're using Prebid.js with the UID2 Identity Module, or with another product that has UID2 support, you probably don't need to use the SDK at all. The Prebid.js module manages everything. For details, see [UID2 client-side integration guide for Prebid.js](../guides/integration-prebid-client-side.md).
+If you're using Prebid.js with the UID2 Identity Module, or with another product that has UID2 support, you probably don't need to use the SDK at all. The Prebid.js module manages everything. For details, see [Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md).
 :::
 
 This page describes version 3 of the SDK. If you are using an earlier version, we recommend that you upgrade your integration, using the [migration guide](#migration-guide). If needed, documentation for [earlier versions of the SDK](./sdk-ref-javascript-v2.md) is also available.

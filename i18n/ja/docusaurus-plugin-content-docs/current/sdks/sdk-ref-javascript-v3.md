@@ -35,7 +35,7 @@ export const Deprecated3100 = () => (
 以下のセクションでは、UID2 ID の確立のための高レベルな [ワークフロー](#workflow-overview)、SDK [API リファレンス](#api-reference)、および UID2 [ストレージフォーマット](#uid2-storage-format) を説明します。
 
 :::tip
-UID2 Identify Module、または UID2 サポートのある他の製品と Prebid.js を使用している場合、SDK を使用する必要はありません。Prebid.js モジュールがすべてを管理します。詳細は、[UID2 client-side integration guide for Prebid.js](../guides/integration-prebid-client-side.md) を参照してください。
+UID2 Identify Module、または UID2 サポートのある他の製品と Prebid.js を使用している場合、SDK を使用する必要はありません。Prebid.js モジュールがすべてを管理します。詳細は、[Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md) を参照してください。
 :::
 
 このページでは、SDK のバージョン 3 について説明します。以前のバージョンを使用している場合は、[移行ガイド](#migration-guide) を使用してインテグレーションをアップグレードすることを推奨します。必要に応じて、[SDK の以前のバージョン](./sdk-ref-javascript-v2.md) のドキュメントも利用できます。

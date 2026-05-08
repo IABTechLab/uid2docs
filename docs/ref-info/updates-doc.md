@@ -101,7 +101,7 @@ The following documents were released in this quarter.
 
 <CustomTagsContainer tags="Endpoints, Guides, SDKs">
 
-### Identity map v3 (Python SDK, Snowflake)
+### POST /v3/identity/map (Python SDK, Snowflake)
 
 July 31, 2025
 
@@ -118,11 +118,11 @@ We updated the following additional implementations and corresponding documentat
 
 <CustomTagsContainer tags="Endpoints, Guides, SDKs">
 
-### Identity map v3 (endpoint doc)
+### POST /v3/identity/map (Endpoint Doc)
 
 July 11, 2025
 
-We've released a new version of the Identity Map API (v3) that provides significant improvements for advertisers and data providers. This update includes documentation for the [POST /identity/map](../endpoints/post-identity-map.md) endpoint, the [SDK for Java reference guide](../sdks/sdk-ref-java.md#usage-for-advertisersdata-providers), and the [Advertiser/data provider integration overview](../guides/integration-advertiser-dataprovider-overview.md).
+We've released a new version of the Identity Map API (v3) that provides significant improvements for advertisers and data providers. This update includes documentation for the [POST /v3/identity/map](../endpoints/post-identity-map.md) endpoint, the [SDK for Java Reference Guide](../sdks/sdk-ref-java.md#usage-for-advertisersdata-providers), and the [Advertiser/Data Provider Integration Overview](../guides/integration-advertiser-dataprovider-overview.md).
 
 <!-- UID2-5558, UID2-5560, UID2-5559, APIDOCS-3070 -->
 
@@ -406,8 +406,8 @@ July 2, 2024
 
 We've added a section to the two mobile integration guides with instructions for mobile integration using Prebid, currently for Android only:
 
-- [UID2 client-side integration guide for mobile: Prebid integration](../guides/integration-mobile-client-side#optional-uid2-integration-with-prebid-mobile-sdk)
-- [UID2 client-server integration guide for mobile: Prebid integration](../guides/integration-mobile-client-server#optional-uid2-integration-with-prebid-mobile-sdk)
+- [Client-Side Integration Guide for Mobile: Prebid Integration](../guides/integration-mobile-client-side#optional-uid2-integration-with-prebid-mobile-sdk)
+- [Client-Server Integration Guide for Mobile: Prebid Integration](../guides/integration-mobile-client-server#optional-uid2-integration-with-prebid-mobile-sdk)
 
 <!-- APIDOCS-2269 -->
 
@@ -455,9 +455,9 @@ May 17, 2024
 
 We've added the following integration guides to support publishers who want to implement UID2 for their Android or iOS mobile apps:
 
-- [UID2 mobile integration overview for Android and iOS](../guides/integration-mobile-overview)
-- [UID2 client-side integration guide for mobile](../guides/integration-mobile-client-side)
-- [UID2 client-server integration guide for mobile](../guides/integration-mobile-client-server)
+- [Mobile Integration Overview for Android and iOS](../guides/integration-mobile-overview)
+- [Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side)
+- [Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server)
 
 <!-- APIDOCS-1903-->
 
@@ -647,9 +647,9 @@ In addition, the existing guides have been restructured and simplified.
 
 For details, see:
 
-- [UID2 integration overview for Prebid](../guides/integration-prebid.md)
-- [UID2 client-side integration guide for Prebid.js](../guides/integration-prebid-client-side.md)
-- [UID2 client-server integration guide for Prebid.js](../guides/integration-prebid-client-server.md)
+- [UID2 Integration Overview for Prebid](../guides/integration-prebid.md)
+- [Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md)
+- [Client-Server Integration Guide for Prebid.js](../guides/integration-prebid-client-server.md)
 
 </CustomTagsContainer>
 
@@ -725,15 +725,15 @@ This document was updated in January 2024 to [Client-side integration guide for 
 
 November 2, 2023
 
-The UID2 Client-Side Integration Guide for Prebid.js is a completely new document at the existing URL, covering a way of integrating UID2 with Prebid that does not require any server-side work.
+The Client-Side Integration Guide for Prebid.js is a completely new document at the existing URL, covering a way of integrating UID2 with Prebid that does not require any server-side work.
 
 The content that was in the previous version of the Prebid document is now in a supplementary document, *Prebid.js Advanced Integration Guide*, for publishers who are using a Private Operator or who prefer to implement token generate on the server side.
 
 :::note
 These documents were further updated in later revisions. Updated links are as follows:
-- [UID2 integration overview for Prebid](../guides/integration-prebid.md)
-- [UID2 client-side integration guide for Prebid.js](../guides/integration-prebid-client-side.md)
-- [UID2 client-server integration guide for Prebid.js](../guides/integration-prebid-client-server.md)
+- [UID2 Integration Overview for Prebid](../guides/integration-prebid.md)
+- [Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md)
+- [Client-Server Integration Guide for Prebid.js](../guides/integration-prebid-client-server.md)
 :::
 
 </CustomTagsContainer>

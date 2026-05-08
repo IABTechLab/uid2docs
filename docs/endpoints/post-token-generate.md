@@ -55,7 +55,7 @@ You must include only **one** of the following four conditional parameters as ke
 ### Request examples
 
 :::important
-To ensure that the API key used to access the service remains secret, the `POST /token/generate` endpoint must be called from the server side, unlike [POST&nbsp;/token/refresh](post-token-refresh.md) which does not require using an API key. If you want to generate tokens on the client side, see [Client-side integration options](../guides/integration-options-publisher-web.md#client-side-integration-options) (for web-based implementations) or [UID2 client-side integration guide for mobile](../guides/integration-mobile-client-side.md).
+To ensure that the API key used to access the service remains secret, the `POST /token/generate` endpoint must be called from the server side, unlike [POST&nbsp;/token/refresh](post-token-refresh.md) which does not require using an API key. If you want to generate tokens on the client side, see [Client-side integration options](../guides/integration-options-publisher-web.md#client-side-integration-options) (for web-based implementations) or [Client-side integration guide for mobile](../guides/integration-mobile-client-side.md).
 :::
 
 The following are unencrypted JSON request body examples for each parameter, one of which you should include in your token generation requests:
