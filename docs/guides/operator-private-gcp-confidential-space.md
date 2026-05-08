@@ -1,7 +1,7 @@
 ---
-title: UID2 Private Operator for GCP Integration Guide
+title: UID2 Private Operator for GCP integration guide
 sidebar_label: GCP Confidential Space
-pagination_label: UID2 Private Operator for GCP Integration Guide
+pagination_label: UID2 Private Operator for GCP integration guide
 description: Integration information for Private Operator in GCP.
 hide_table_of_contents: false
 sidebar_position: 18

@@ -122,7 +122,7 @@ The following steps are for Snowflake users who want to take part in UID2 sharin
 
 1. Review the examples in [Snowflake integration guide: Usage for UID2 sharers](../guides/integration-snowflake.md#usage-for-uid2-sharers) to see what the sharing code might look like.
 
-2. Integrate Snowflake into your code, according to whether your role is sender or receiver. Use the code examples in the documentation referenced in the Snowflake Integration Guide, [UID2 sharing example](../guides/integration-snowflake.md#uid2-sharing-example):
+2. Integrate Snowflake into your code, according to whether your role is sender or receiver. Use the code examples in the documentation referenced in the Snowflake integration guide, [UID2 sharing example](../guides/integration-snowflake.md#uid2-sharing-example):
 
    - Senders, set up encryption.
    - Receivers, set up decryption.

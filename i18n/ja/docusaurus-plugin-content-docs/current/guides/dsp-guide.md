@@ -1,6 +1,6 @@
 ---
-title: DSP Integration
-sidebar_label: DSP Integration Guide
+title: DSP integration
+sidebar_label: DSP integration guide
 description: ビッドストリームで UID2 の取引を行う DSP のためのガイド。
 hide_table_of_contents: false
 sidebar_position: 05

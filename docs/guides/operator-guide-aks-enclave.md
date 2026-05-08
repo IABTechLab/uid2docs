@@ -1,7 +1,7 @@
 ---
-title: UID2 Private Operator for AKS Integration Guide
+title: UID2 Private Operator for AKS integration guide
 sidebar_label: Azure Kubernetes Service (AKS)
-pagination_label: UID2 Private Operator for AKS Integration Guide
+pagination_label: UID2 Private Operator for AKS integration guide
 description: Integration information for Private Operator in AKS.
 hide_table_of_contents: false
 sidebar_position: 18

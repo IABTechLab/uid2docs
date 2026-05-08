@@ -1,7 +1,7 @@
 ---
-title: Snowflake Integration
+title: Snowflake integration
 sidebar_label: Snowflake
-pagination_label: Snowflake Integration
+pagination_label: Snowflake integration
 description: Information about integrating with UID2 through the UID2 Share in Snowflake. 
 hide_table_of_contents: false
 sidebar_position: 04

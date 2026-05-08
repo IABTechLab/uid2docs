@@ -1,7 +1,7 @@
 ---
-title: UID2 Private Operator for Azure Integration Guide
+title: UID2 Private Operator for Azure integration guide
 sidebar_label: Microsoft Azure
-pagination_label: UID2 Private Operator for Azure Integration Guide
+pagination_label: UID2 Private Operator for Azure integration guide
 description: Integration information for Private Operator in Microsoft Azure.
 hide_table_of_contents: false
 sidebar_position: 18

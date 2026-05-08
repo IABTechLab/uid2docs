@@ -26,7 +26,7 @@ This sample is for publishers who prefer a fully client-side integration using t
 
 - Site: [Client-Side UID2 Integration Example using JavaScript SDK](https://js-client-side.samples.uidapi.com/)
 - Code: [uid2-examples/web-integrations/javascript-sdk/client-side](https://github.com/IABTechLab/uid2-examples/tree/main/web-integrations/javascript-sdk/client-side)
-- Doc: [Client-Side Integration Guide for JavaScript](https://unifiedid.com/docs/guides/integration-javascript-client-side)
+- Doc: [Client-side integration guide for JavaScript](https://unifiedid.com/docs/guides/integration-javascript-client-side)
 
 ### Client-server integration using UID2 SDK for JavaScript
 
@@ -34,7 +34,7 @@ This sample is for publishers who want more control over UID2 token creation (ha
 
 - Site: [Client-Server UID2 Integration Example using JavaScript SDK](https://js-client-server.samples.uidapi.com/)
 - Code: [uid2-examples/web-integrations/javascript-sdk/client-server](https://github.com/IABTechLab/uid2-examples/tree/main/web-integrations/javascript-sdk/client-server)
-- Doc: [Client-Server Integration Guide for JavaScript](https://unifiedid.com/docs/guides/integration-javascript-client-server)
+- Doc: [Client-server integration guide for JavaScript](https://unifiedid.com/docs/guides/integration-javascript-client-server)
 
 ### React client-side integration using UID2 SDK for JavaScript
 
@@ -42,7 +42,7 @@ This sample is for publishers with React apps who want to integrate UID2 directl
 
 - Site: [React Client-Side UID2 Integration Example using JavaScript SDK](https://js-react.samples.uidapi.com/)
 - Code: [uid2-examples/web-integrations/javascript-sdk/react-client-side](https://github.com/IABTechLab/uid2-examples/tree/main/web-integrations/javascript-sdk/react-client-side)
-- Doc: [Client-Side Integration Guide for JavaScript](https://unifiedid.com/docs/guides/integration-javascript-client-side)
+- Doc: [Client-side integration guide for JavaScript](https://unifiedid.com/docs/guides/integration-javascript-client-side)
 
 ### UID2 server-only (server-side)
 
@@ -50,7 +50,7 @@ This sample is for publishers who want all UID2 operations to occur on the serve
 
 - Site: [Server-Side UID2 Integration Example](https://server-side.samples.uidapi.com/)
 - Code: [uid2-examples/web-integrations/server-side](https://github.com/IABTechLab/uid2-examples/tree/main/web-integrations/server-side)
-- Doc: [Publisher Integration Guide, Server-Side](https://unifiedid.com/docs/guides/integration-publisher-server-side)
+- Doc: [Publisher integration guide, server-side](https://unifiedid.com/docs/guides/integration-publisher-server-side)
 
 ## Prebid.js integrations
 
@@ -62,7 +62,7 @@ This sample is for publishers who have access to DII on the client side and want
 
 - Site: [Client-Side UID2 Integration with Prebid.js](https://prebid-client.samples.uidapi.com/)
 - Code: [uid2-examples/web-integrations/prebid-integrations/client-side](https://github.com/IABTechLab/uid2-examples/tree/main/web-integrations/prebid-integrations/client-side)
-- Doc: [Client-Side Integration Guide for Prebid.js](https://unifiedid.com/docs/guides/integration-prebid-client-side)
+- Doc: [Client-side integration guide for Prebid.js](https://unifiedid.com/docs/guides/integration-prebid-client-side)
 
 ### Client-server integration with Prebid.js
 
@@ -70,7 +70,7 @@ This sample is for publishers who have access to DII on the server side and can 
 
 - Site: [Client-Server UID2 Integration with Prebid.js](https://prebid-client-server.samples.uidapi.com/)
 - Code: [uid2-examples/web-integrations/prebid-integrations/client-server](https://github.com/IABTechLab/uid2-examples/tree/main/web-integrations/prebid-integrations/client-server)
-- Doc: [Client-Server Integration Guide for Prebid.js](https://unifiedid.com/docs/guides/integration-prebid-client-server)
+- Doc: [Client-server integration guide for Prebid.js](https://unifiedid.com/docs/guides/integration-prebid-client-server)
 
 ### Deferred client-side integration with Prebid.js
 
@@ -78,7 +78,7 @@ This sample demonstrates how publishers who already have Prebid.js configured ca
 
 - Site: [Deferred Client-Side UID2 Integration with Prebid.js](https://prebid-deferred.samples.uidapi.com/)
 - Code: [uid2-examples/web-integrations/prebid-integrations/client-side-deferred](https://github.com/IABTechLab/uid2-examples/tree/main/web-integrations/prebid-integrations/client-side-deferred)
-- Doc: [Client-Side Integration Guide for Prebid.js](https://unifiedid.com/docs/guides/integration-prebid-client-side)
+- Doc: [Client-side integration guide for Prebid.js](https://unifiedid.com/docs/guides/integration-prebid-client-side)
 
 ### Prebid.js with Secure Signals
 
@@ -86,11 +86,11 @@ This sample demonstrates how to configure Prebid.js with both UID2 and Google Se
 
 - Site: [Client-Side UID2 Integration with Prebid.js (with Google Secure Signals)](https://prebid-secure-signals.samples.uidapi.com/)
 - Code: [uid2-examples/web-integrations/prebid-secure-signals](https://github.com/IABTechLab/uid2-examples/tree/main/web-integrations/prebid-secure-signals)
-- Doc: [Google Ad Manager Secure Signals Integration Guide](https://unifiedid.com/docs/guides/integration-google-ss)
+- Doc: [Google Ad Manager Secure Signals integration guide](https://unifiedid.com/docs/guides/integration-google-ss)
 
 ## Google Secure Signals integrations
 
-This section includes sample pages for passing UID2 identity data to Google's advertising systems through their Secure Signals feature. For details, see [Google Ad Manager Secure Signals Integration Guide](https://unifiedid.com/docs/guides/integration-google-ss).
+This section includes sample pages for passing UID2 identity data to Google's advertising systems through their Secure Signals feature. For details, see [Google Ad Manager Secure Signals integration guide](https://unifiedid.com/docs/guides/integration-google-ss).
 
 ### Client-side Secure Signals
 
@@ -98,7 +98,7 @@ This sample is for publishers who want a client-side integration with Google Ad 
 
 - Site: [Client-Side UID2 Integration with Google Secure Signals](https://secure-signals-client-side.samples.uidapi.com/)
 - Code: [uid2-examples/web-integrations/google-secure-signals/client-side](https://github.com/IABTechLab/uid2-examples/tree/main/web-integrations/google-secure-signals/client-side)
-- Doc: [Google Ad Manager Secure Signals Integration Guide](https://unifiedid.com/docs/guides/integration-google-ss)
+- Doc: [Google Ad Manager Secure Signals integration guide](https://unifiedid.com/docs/guides/integration-google-ss)
 
 ### Client-server Secure Signals
 
@@ -106,7 +106,7 @@ This sample is for publishers who want to generate UID2 tokens on the server sid
 
 - Site: [Client-Server UID2 SDK Integration Example with Google Secure Signals](https://secure-signals-client-server.samples.uidapi.com/)
 - Code: [uid2-examples/web-integrations/google-secure-signals/client-server](https://github.com/IABTechLab/uid2-examples/tree/main/web-integrations/google-secure-signals/client-server)
-- Doc: [Google Ad Manager Secure Signals Integration Guide](https://unifiedid.com/docs/guides/integration-google-ss)
+- Doc: [Google Ad Manager Secure Signals integration guide](https://unifiedid.com/docs/guides/integration-google-ss)
 
 ### Server-side Secure Signals
 
@@ -114,7 +114,7 @@ This sample is for publishers who want all UID2 token logic handled server-side.
 
 - Site: [Server-Side UID2 Integration with Google Secure Signals](https://secure-signals-server-side.samples.uidapi.com/)
 - Code: [uid2-examples/web-integrations/google-secure-signals/server-side](https://github.com/IABTechLab/uid2-examples/tree/main/web-integrations/google-secure-signals/server-side)
-- Doc: [Google Ad Manager Secure Signals Integration Guide](https://unifiedid.com/docs/guides/integration-google-ss)
+- Doc: [Google Ad Manager Secure Signals integration guide](https://unifiedid.com/docs/guides/integration-google-ss)
 
 ### React client-side Secure Signals
 
@@ -122,7 +122,7 @@ This sample is for publishers with React apps who want a client-side integration
 
 - Site: [React Client-Side UID2 Integration with Google Secure Signals](https://secure-signals-react.samples.uidapi.com/)
 - Code: [uid2-examples/web-integrations/google-secure-signals/react-client-side](https://github.com/IABTechLab/uid2-examples/tree/main/web-integrations/google-secure-signals/react-client-side)
-- Doc: [Google Ad Manager Secure Signals Integration Guide](https://unifiedid.com/docs/guides/integration-google-ss)
+- Doc: [Google Ad Manager Secure Signals integration guide](https://unifiedid.com/docs/guides/integration-google-ss)
 
 ## Tools
 
@@ -142,5 +142,5 @@ UID Verify is a Google Chrome browser extension for debugging UID2 integrations.
 - Doc: [UID Verify Chrome Extension](https://unifiedid.com/docs/ref-info/ref-uid-verify)
 
 :::note
-The sample sites on this page highlight some common integrations, but do not represent all available UID2 integration options. For a summary of all the integration options available, see [UID2 Integration Guides: Summary](https://unifiedid.com/docs/guides/summary-guides).
+The sample sites on this page highlight some common integrations, but do not represent all available UID2 integration options. For a summary of all the integration options available, see [UID2 integration guides: Summary](https://unifiedid.com/docs/guides/summary-guides).
 :::

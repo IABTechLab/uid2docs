@@ -1,5 +1,5 @@
 ---
-title: UID2 Endpoints - Summary
+title: UID2 endpoints - summary
 description: Summary of the endpoints available in the UID2 service.
 hide_table_of_contents: false
 sidebar_position: 01

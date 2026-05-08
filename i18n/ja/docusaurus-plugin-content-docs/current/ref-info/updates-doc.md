@@ -672,14 +672,14 @@ November 21, 2023
 
 November 21, 2023
 
-Client-Side Integration Guide for JavaScript は、既存の URL の全く新しいドキュメントで、Client-Sideパブリッシャー実装のために SDK for JavaScript を使用する、よりシンプルな新しい方法を網羅しています。
+Client-side integration guide for JavaScript は、既存の URL の全く新しいドキュメントで、Client-Sideパブリッシャー実装のために SDK for JavaScript を使用する、よりシンプルな新しい方法を網羅しています。
 
 詳細は [Client-side integration guide for JavaScript](../guides/integration-javascript-client-side.md) を参照してください。
 
-以前の *SDK for JavaScript Integration Guide* にあった内容は、JavaScript SDK を Server-Side に実装したいパブリッシャーのための補足文書になりました: [JavaScript standard integration guide](../guides/integration-javascript-client-server.md).
+以前の *SDK for JavaScript integration guide* にあった内容は、JavaScript SDK を Server-Side に実装したいパブリッシャーのための補足文書になりました: [JavaScript standard integration guide](../guides/integration-javascript-client-server.md).
 
 :::note
-このドキュメントは2024年1月に [Client-side integration guide for JavaScript](../guides/integration-javascript-client-side.md) に更新され、JavaScript Standard Integration Guide は[Client-server integration guide for JavaScript](../guides/integration-javascript-client-server.md) になりました。
+このドキュメントは2024年1月に [Client-side integration guide for JavaScript](../guides/integration-javascript-client-side.md) に更新され、*JavaScript standard integration guide* は[Client-server integration guide for JavaScript](../guides/integration-javascript-client-server.md) になりました。
 :::
 
 </CustomTagsContainer>
@@ -690,9 +690,9 @@ Client-Side Integration Guide for JavaScript は、既存の URL の全く新し
 
 November 2, 2023
 
-Client-Side Integration Guide for Prebid.js は、既存の URL にまったく新しいドキュメントを追加したもので、UID2 と Prebid をインテグレーションする、Server-Side の作業を必要としない、よりシンプルな新しい方法について説明しています。
+Client-side integration guide for Prebid.js は、既存の URL にまったく新しいドキュメントを追加したもので、UID2 と Prebid をインテグレーションする、Server-Side の作業を必要としない、よりシンプルな新しい方法について説明しています。
 
-前バージョンの Prebid ドキュメントにあった内容は、Private Operator を使用しているパブリッシャーや、Server-Side でトークン生成を実装したいパブリッシャーのために、補足ドキュメントである *Prebid.js Advanced Integration Guide* に追加されました。
+前バージョンの Prebid ドキュメントにあった内容は、Private Operator を使用しているパブリッシャーや、Server-Side でトークン生成を実装したいパブリッシャーのために、補足ドキュメントである *Prebid.js advanced integration guide* に追加されました。
 
 :::note
 これらのドキュメントは、その後の改訂でさらに更新されました。更新されたリンクは以下のとおりです:

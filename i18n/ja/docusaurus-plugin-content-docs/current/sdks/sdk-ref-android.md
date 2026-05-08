@@ -186,7 +186,7 @@ UID2Manager API の一部として利用可能な関数は次のとおりです:
 
 #### setIdentity()
 
-SDK が管理する、Server-side で作成された UID2 Identity を設定します。詳細は、*Client-Server Integration Guide for Mobile* の [Configure the UID2 mobile SDK](../guides/integration-mobile-client-server.md#configure-the-uid2-mobile-sdk) を参照してください。
+SDK が管理する、Server-side で作成された UID2 Identity を設定します。詳細は、*Client-server integration guide for mobile* の [Configure the UID2 mobile SDK](../guides/integration-mobile-client-server.md#configure-the-uid2-mobile-sdk) を参照してください。
 
 #### resetIdentity()
 

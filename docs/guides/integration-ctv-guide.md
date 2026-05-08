@@ -1,7 +1,7 @@
 ---
-title: CTV Integration Guide
+title: CTV integration guide
 sidebar_label: CTV
-pagination_label: CTV Integration Guide
+pagination_label: CTV integration guide
 description: Summary of options for UID2 mobile integration.
 hide_table_of_contents: false
 sidebar_position: 04

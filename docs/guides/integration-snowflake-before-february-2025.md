@@ -1,7 +1,7 @@
 ---
-title: Snowflake Integration (Pre-Feb 2025)
-sidebar_label: Snowflake (Before Feb 2025)
-pagination_label: Snowflake Integration
+title: Snowflake integration (pre-Feb 2025)
+sidebar_label: Snowflake (before Feb 2025)
+pagination_label: Snowflake integration
 description: Information about integrating with UID2 through the UID2 Share in Snowflake (earlier listings, separate for Advertiser and Data Provider).
 hide_table_of_contents: false
 sidebar_position: 04

@@ -1,7 +1,7 @@
 ---
-title: SDKs - Summary
-sidebar_label: SDKs - Summary
-pagination_label: SDKs - Summary
+title: SDKs - summary
+sidebar_label: SDKs - summary
+pagination_label: SDKs - summary
 description: Summary of SDK documentation available.
 hide_table_of_contents: false
 sidebar_position: 01

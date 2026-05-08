@@ -1,7 +1,7 @@
 ---
-title: Google Ad Manager Secure Signals Integration
+title: Google Ad Manager Secure Signals integration
 sidebar_label: GAM Secure Signals
-pagination_label: Google Ad Manager Secure Signals Integration
+pagination_label: Google Ad Manager Secure Signals integration
 description: Covers integration steps for publishers using UID2 with the Google Ad ManagerSecure Signals feature.
 hide_table_of_contents: false
 sidebar_position: 10

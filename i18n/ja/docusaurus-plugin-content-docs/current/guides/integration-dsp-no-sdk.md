@@ -135,4 +135,4 @@ Client-Side UID2 インテグレーションの詳細は、以下のインテグ
 
 トークンを復号化した後、結果の raw UID2 をオプトアウトレコードと照合する必要があります。オプトアウトレコードにある場合は、入札に UID2 を使用しないなど、ユーザーのオプトアウト設定を尊重する必要があります。
 
-詳細については、*DSP Integration Guide* の [Honor user opt-outs](dsp-guide.md#honor-user-opt-outs) を参照してください。
+詳細については、*DSP integration guide* の [Honor user opt-outs](dsp-guide.md#honor-user-opt-outs) を参照してください。

@@ -1,7 +1,7 @@
 ---
-title: UID2 Integration Guides - Summary
+title: UID2 integration guides - summary
 sidebar_label: Summary
-pagination_label: UID2 Integration Guides - Summary
+pagination_label: UID2 integration guides - summary
 description: 利用可能なすべてのインテグレーションガイドの概要。
 hide_table_of_contents: false
 sidebar_position: 01

@@ -1,7 +1,7 @@
 ---
-title: Client-Server Integration Guide for JavaScript
+title: Client-server integration guide for JavaScript
 sidebar_label: Client-Server Integration for JavaScript
-pagination_label: Client-Server Integration Guide for JavaScript
+pagination_label: Client-server integration guide for JavaScript
 description: SDK for JavaScript を使用し、Server-Side でトークンを生成してパブリッシャーの Web ページに渡す必要がある標準的な Web インテグレーションシナリオをカバーするパブリッシャー向けの情報。
 hide_table_of_contents: false
 sidebar_position: 02

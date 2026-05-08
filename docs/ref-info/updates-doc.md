@@ -707,14 +707,14 @@ For details, see [UID2 credentials](../getting-started/gs-credentials.md).
 
 November 21, 2023
 
-The Client-Side Integration Guide for JavaScript is a completely new document at the existing URL, covering a way of using the SDK for JavaScript for a client-side publisher implementation.
+The Client-side integration guide for JavaScript is a completely new document at the existing URL, covering a way of using the SDK for JavaScript for a client-side publisher implementation.
 
 For details, see [Client-side integration guide for JavaScript](../guides/integration-javascript-client-side.md).
 
-The content that was in the previous *SDK for JavaScript Integration Guide*  is now in a supplementary document for publishers who want to implement the JavaScript SDK on the server side.
+The content that was in the previous *SDK for JavaScript integration guide*  is now in a supplementary document for publishers who want to implement the JavaScript SDK on the server side.
 
 :::note
-This document was updated in January 2024 to [Client-side integration guide for JavaScript](../guides/integration-javascript-client-side.md), and the JavaScript Standard Integration Guide is now the [Client-server integration guide for JavaScript](../guides/integration-javascript-client-server.md).
+This document was updated in January 2024 to [Client-side integration guide for JavaScript](../guides/integration-javascript-client-side.md), and the *JavaScript standard integration guide* is now the [Client-server integration guide for JavaScript](../guides/integration-javascript-client-server.md).
 :::
 
 </CustomTagsContainer>
@@ -725,9 +725,9 @@ This document was updated in January 2024 to [Client-side integration guide for 
 
 November 2, 2023
 
-The Client-Side Integration Guide for Prebid.js is a completely new document at the existing URL, covering a way of integrating UID2 with Prebid that does not require any server-side work.
+The Client-side integration guide for Prebid.js is a completely new document at the existing URL, covering a way of integrating UID2 with Prebid that does not require any server-side work.
 
-The content that was in the previous version of the Prebid document is now in a supplementary document, *Prebid.js Advanced Integration Guide*, for publishers who are using a Private Operator or who prefer to implement token generate on the server side.
+The content that was in the previous version of the Prebid document is now in a supplementary document, *Prebid.js advanced integration guide*, for publishers who are using a Private Operator or who prefer to implement token generate on the server side.
 
 :::note
 These documents were further updated in later revisions. Updated links are as follows:
