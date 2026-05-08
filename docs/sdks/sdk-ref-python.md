@@ -225,7 +225,7 @@ If you're using server-side integration (see [Publisher Integration Guide, Serve
 
 The following instructions provide an example of how to map DII to raw UID2s using the latest version of the `POST /identity/map` endpoint.
 
-For the earlier version, see [Previous Version (POST /v2/Identity Map)](#previous-version-post-v2identity-map). For migration steps to the latest version, see [Migration From Version Using POST /v2/identity/map](#migration-from-version-using-post-v2identitymap).
+For the earlier version, see [Previous Version (POST /v2/identity/map)](#previous-version-post-v2identitymap). For migration steps to the latest version, see [Migration From Version Using POST /v2/identity/map](#migration-from-version-using-post-v2identitymap).
 
 ### Map DII to Raw UID2s
 
@@ -397,7 +397,7 @@ To update DII mapping from version 2 to version 3 of the `POST /identity/map` en
    raw_reason = unmapped.raw_reason
    ```
 
-### Previous Version (POST /v2/Identity Map)
+### Previous Version (POST /v2/identity/map)
 
 :::note
 The v2 Identity Map SDK is an earlier version maintained for backwards compatibility. Migrate to the current SDK for improved performance, multi-identity type support, and better UID2 rotation management.
