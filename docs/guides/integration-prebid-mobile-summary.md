@@ -1,7 +1,7 @@
 ---
-title: Mobile Integration with Prebid Mobile SDK
-sidebar_label: Mobile Integration with Prebid Mobile SDK
-pagination_label: Mobile Integration with Prebid Mobile SDK
+title: Mobile integration with Prebid mobile SDK
+sidebar_label: Mobile integration with Prebid mobile SDK
+pagination_label: Mobile integration with Prebid mobile SDK
 description: Summary of information resources for setting up Prebid integration on mobile devices.
 hide_table_of_contents: false
 sidebar_position: 04

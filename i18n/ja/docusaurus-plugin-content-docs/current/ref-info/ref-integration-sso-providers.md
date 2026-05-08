@@ -1,6 +1,6 @@
 ---
-title: Publisher Integration with SSO Providers
-sidebar_label: Publisher SSO Integration
+title: Publisher integration with SSO providers
+sidebar_label: Publisher SSO integration
 description: UID2 と組み合わせてシングルサインオン (SSO) プロバイダーを使用するためのパブリッシャー向け情報。
 hide_table_of_contents: false
 sidebar_position: 06

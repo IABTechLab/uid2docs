@@ -1,7 +1,7 @@
 ---
-title: Client-Server Integration Guide for Prebid.js
-sidebar_label: Client-Server Integration for Prebid.js
-pagination_label: Client-Server Integration for Prebid.js
+title: Client-server integration guide for Prebid.js
+sidebar_label: Client-server integration for Prebid.js
+pagination_label: Client-server integration guide for Prebid.js
 description: Client-Server での Prebid.js インテグレーションの設定に関する情報。
 hide_table_of_contents: false
 sidebar_position: 04
