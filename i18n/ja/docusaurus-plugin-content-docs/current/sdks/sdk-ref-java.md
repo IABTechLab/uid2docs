@@ -406,7 +406,7 @@ IdentityMapV3Response mixedResponse = client.generateIdentityMap(mixedInput);
 2. [Change client class](#2-change-client-class)
 3. [Update import statements](#3-update-import-statements)
 
-#### 1. update dependency version
+#### 1. Update dependency version
 
 コード内で参照されている依存関係のバージョンを、次の例のように更新します。
 
@@ -418,7 +418,7 @@ IdentityMapV3Response mixedResponse = client.generateIdentityMap(mixedInput);
 </dependency>
 ```
 
-#### 2. change client class
+#### 2. Change client class
 
 コード内で参照されているクライアントクラスを更新します。以下の例を参照してください。
 
@@ -430,7 +430,7 @@ IdentityMapClient identityMapClient = new IdentityMapClient(UID2_BASE_URL, UID2_
 IdentityMapV3Client identityMapClient = new IdentityMapV3Client(UID2_BASE_URL, UID2_API_KEY, UID2_SECRET_KEY);
 ```
 
-#### 3. update import statements
+#### 3. Update import statements
 
 以下の例のように、インポートステートメントを更新します。
 

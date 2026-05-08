@@ -28,7 +28,7 @@ Here are some frequently asked questions regarding the UID2 framework.
 - [Will all integration partners in the EUID infrastructure (SSPs, third-party data providers, measurement providers) be automatically integrated with UID2?](#will-all-integration-partners-in-the-euid-infrastructure-ssps-third-party-data-providers-measurement-providers-be-automatically-integrated-with-uid2)
 - [Can users opt out of targeted advertising tied to their UID2?](#can-users-opt-out-of-targeted-advertising-tied-to-their-uid2)
 - [When I send DII to UID2, does UID2 store the information?](#when-i-send-dii-to-uid2-does-uid2-store-the-information)
-- [Does UID2 allow the processing of hipaa-regulated data?](#does-uid2-allow-the-processing-of-hipaa-regulated-data)
+- [Does UID2 allow the processing of HIPAA-regulated data?](#does-uid2-allow-the-processing-of-hipaa-regulated-data)
 - [Should I use a Public Operator or a Private Operator?](#should-i-use-a-public-operator-or-a-private-operator)
 
 :::note
@@ -49,7 +49,7 @@ No. None of the components of the <Link href="../ref-info/glossary-uid#gl-uid2-s
 
 In addition, in almost all cases, UID2 doesn't store any values at all once the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md), [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md), or [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) call is complete. A necessary exception is the case where a user has opted out. In this scenario, UID2 stores a hashed, opaque value to indicate the opted-out user. The stored value cannot be reverse engineered back to the original value of the DII, but can be used to identify future requests for a UID2 generated from the same DII, which are therefore denied.
 
-#### Does UID2 allow the processing of hipaa-regulated data?
+#### Does UID2 allow the processing of HIPAA-regulated data?
 
 No. UID2 participants must not generate UID2s from Protected Health Information, as defined by the Health Insurance Portability and Accountability Act (HIPAA), even if they have obtained consent to engage in marketing with respect to such data.
 
@@ -267,7 +267,7 @@ Here are some frequently asked questions for demand-side platforms (DSPs).
 
 - [How do I know which decryption key to apply to a UID2?](#how-do-i-know-which-decryption-key-to-apply-to-a-uid2)
 - [Where do I get the decryption keys?](#where-do-i-get-the-decryption-keys)
-- [How many decryption keys might be present in memory at any point?](#how-many-decryption-keys-might-be-present-in-memory-at-any-point)
+- [How many decryption keys may be present in memory at any point?](#how-many-decryption-keys-may-be-present-in-memory-at-any-point)
 - [How do I know when to refresh mapped raw UID2s?](#how-do-i-know-when-to-refresh-mapped-raw-uid2s)
 - [How do I know if/when the raw UID2 has rotated?](#how-do-i-know-ifwhen-the-raw-uid2-has-rotated)
 - [Should the DSP be concerned with latency?](#should-the-dsp-be-concerned-with-latency)
@@ -290,7 +290,7 @@ Each of the server-side SDKs (see [SDKs: Summary](../sdks/summary-sdks.md)) upda
 
 You can use one of the server-side SDKs (see [SDKs: Summary](../sdks/summary-sdks.md)) to communicate with the UID2 service and fetch the latest keys. To make sure that the keys remain up-to-date, it is recommended to fetch them periodically; for example, once every hour.
 
-#### How many decryption keys might be present in memory at any point?
+#### How many decryption keys may be present in memory at any point?
 
 There may be thousands of decryption keys present in the system at any given point.
 

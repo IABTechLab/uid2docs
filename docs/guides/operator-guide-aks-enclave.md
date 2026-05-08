@@ -56,7 +56,7 @@ Before deploying the UID2 Private Operator for AKS, complete these prerequisite 
 - [Install the Azure CLI](#install-the-azure-cli)
 - [Get the required Azure permissions](#get-the-required-azure-permissions)
 - [Install the kubectl CLI](#install-the-kubectl-cli)
-- [Install the helm CLI](#install-the-helm-cli)
+- [Install the Helm CLI](#install-the-helm-cli)
 
 ### Set up the UID2 Operator account
 
@@ -86,7 +86,7 @@ When all prerequisite steps are complete, you're ready to deploy the UID2 Privat
 
 Install the Kubernetes `kubectl` command-line interface. For details, see [Install Tools](https://kubernetes.io/docs/tasks/tools/) in the Kubernetes documentation.
 
-### Install the helm CLI
+### Install the Helm CLI
 
 Install the `helm` command-line interface. For details, see [Installing Helm](https://helm.sh/docs/intro/install/) in the Helm documentation.
 
@@ -158,9 +158,9 @@ To set up AKS and the node pool, complete the following steps:
 - [Create resource group](#create-resource-group)
 - [Create virtual network](#create-virtual-network)
 - [Create subnets](#create-subnets)
-- [Create public ip address](#create-public-ip-address)
-- [Create nat gateway](#create-nat-gateway)
-- [Configure nat service for source Subnet](#configure-nat-service-for-source-subnet)
+- [Create public IP address](#create-public-ip-address)
+- [Create NAT gateway](#create-nat-gateway)
+- [Configure NAT service for source subnet](#configure-nat-service-for-source-subnet)
 - [Get the AKS Subnet ID](#get-the-aks-subnet-id)
 - [Create an AKS service](#create-an-aks-service)
 - [Get the principal ID of the managed identity](#get-the-principal-id-of-the-managed-identity)
@@ -228,7 +228,7 @@ az network vnet subnet create \
     --delegations Microsoft.ContainerInstance/containerGroups
 ```
 
-#### Create public ip address
+#### Create public IP address
 
 To create the public IP address, run the following command, using your own values as needed:
 
@@ -236,7 +236,7 @@ To create the public IP address, run the following command, using your own value
 az network public-ip create --name ${PUBLIC_IP_ADDRESS_NAME} --resource-group ${RESOURCE_GROUP} --sku standard --allocation static
 ```
 
-#### Create nat gateway
+#### Create NAT gateway
 
 To create the [Azure Network Address Translation (NAT) gateway](https://learn.microsoft.com/en-us/azure/nat-gateway/nat-overview), run the following command, using your own values as needed:
 
@@ -248,7 +248,7 @@ az network nat gateway create \
     --idle-timeout 4
 ```
 
-#### Configure nat service for source Subnet
+#### Configure NAT service for source subnet
 
 To configure the NAT service, run the following command, using your own values as needed:
 

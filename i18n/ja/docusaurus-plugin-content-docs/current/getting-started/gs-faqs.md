@@ -28,7 +28,7 @@ UID2 フレームワークに関するよくある質問を紹介します。
 - [EUID インフラのすべての連携パートナー (SSP、サードパーティデータプロバイダー、測定プロバイダー) は、自動的に UID2 と連携されますか？](#will-all-integration-partners-in-the-euid-infrastructure-ssps-third-party-data-providers-measurement-providers-be-automatically-integrated-with-uid2)
 - [ユーザーは、自分の UID2 ID に基づいたターゲティング広告をオプトアウトできますか？](#can-users-opt-out-of-targeted-advertising-tied-to-their-uid2)
 - [UID2 に DII を送信すると、UID2 はその情報を保存しますか？](#when-i-send-dii-to-uid2-does-uid2-store-the-information)
-- [UID2 は hipaa で規制されているデータの処理を許可しますか？](#does-uid2-allow-the-processing-of-hipaa-regulated-data)
+- [UID2 は HIPAA で規制されているデータの処理を許可しますか？](#does-uid2-allow-the-processing-of-hipaa-regulated-data)
 - [パブリックオペレーターとプライベートオペレーターのどちらを使用すべきですか？](#should-i-use-a-public-operator-or-a-private-operator)
 
 :::note
@@ -52,7 +52,7 @@ UID2 に DII を送信すると、UID2 はその情報を保存しますか？
 
 さらに、ほとんどの場合、UID2 は、[POST&nbsp;/token/generate](../endpoints/post-token-generate.md)、[POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md)、または [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) の呼び出しが完了すると、値を全く保存しません。ただし、例外として、ユーザーがオプトアウトした場合です。この場合、UID2 は、オプトアウトしたユーザーを示すハッシュ化された不透明な値を保存します。保存された値は、DII から生成された同じ UID2 に関する将来のリクエストを識別するために使用され、そのため拒否されます。
 
-#### Does UID2 allow the processing of hipaa-regulated data?
+#### Does UID2 allow the processing of HIPAA-regulated data?
 UID2 は HIPAA で規制されているデータの処理を許可しますか？
 
 いいえ。UID2 の参加者は、HIPAA (Health Insurance Portability and Accountability Act of 1996;医療保健の携行性と責任に関する法律) で定義されている、保護対象保険情報 (PHI: Protected Health Information) から UID2 を生成してはなりません。
@@ -294,7 +294,7 @@ demand-side platform (DSP) に関するよくある質問を紹介します。
 
 - [UID2 に適用する復号キーを知るには？](#how-do-i-know-which-decryption-key-to-apply-to-a-uid2)
 - [復号キーはどこで入手できますか？](#where-do-i-get-the-decryption-keys)
-- [メモリ上に存在する複号キーの数は？](#how-many-decryption-keys-might-be-present-in-memory-at-any-point)
+- [メモリ上に存在する複号キーの数は？](#how-many-decryption-keys-may-be-present-in-memory-at-any-point)
 - [マップされた raw UID2 を更新するタイミングを知るには？](#how-do-i-know-when-to-refresh-mapped-raw-uid2s)
 - [raw UID2 がローテーションしたか、またローテーション時期を確認するには？](#how-do-i-know-ifwhen-the-raw-uid2-has-rotated)
 - [DSP はレイテンシーを気にすべきでしょうか？](#should-the-dsp-be-concerned-with-latency)
@@ -319,7 +319,7 @@ UID2 に適用する復号キーを知るには？
 
 Server-Side SDK のいずれか([SDK](../sdks/summary-sdks.md) を参照) を使用して UID2 Service と通信し、最新のキーを取得することができます。キーを確実に最新に保つため、1 時間に 1 回など、定期的にキーを取得することを推奨します。
 
-#### How many decryption keys might be present in memory at any point?
+#### How many decryption keys may be present in memory at any point?
 メモリ上に存在する復号キーの数は？
 
 システムには、ある時点で何千もの復号キーが存在する可能性があります。

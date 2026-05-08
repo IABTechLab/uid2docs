@@ -297,9 +297,9 @@ If you're a publisher and this is the first page load with no <Link href="../ref
 In some cases, the user's DII is not available on page load, and getting the DII has some associated cost. For example, an API call might be required to fetch the DII, or the user has to be prompted to provide it.
 
 You can potentially avoid that cost by checking for an existing token that you can use or refresh. To do this, call
-[__UID2.isloginrequired](../sdks/sdk-ref-javascript#isloginrequired-boolean) which returns a Boolean value. If it returns `true`, this means that the UID2 SDK cannot create a new advertising token with the existing resource and DII is required to generate a brand new UID2 token.
+[__uid2.isLoginRequired](../sdks/sdk-ref-javascript#isloginrequired-boolean) which returns a Boolean value. If it returns `true`, this means that the UID2 SDK cannot create a new advertising token with the existing resource and DII is required to generate a brand new UID2 token.
 
-It is possible that when you provide DII, [__UID2.isloginrequired](../sdks/sdk-ref-javascript#isloginrequired-boolean) still returns a `false` value. This happens if the user has opted out of UID2. The UID2 SDK for JavaScript respects the user's optout and does not generate UID2 tokens, even if you call any of the `setIdentity` method calls with the same DII again. Optionally, you might want to avoid making such calls repeatedly.
+It is possible that when you provide DII, [__uid2.isLoginRequired](../sdks/sdk-ref-javascript#isloginrequired-boolean) still returns a `false` value. This happens if the user has opted out of UID2. The UID2 SDK for JavaScript respects the user's optout and does not generate UID2 tokens, even if you call any of the `setIdentity` method calls with the same DII again. Optionally, you might want to avoid making such calls repeatedly.
 
 The following code snippet demonstrates how you might integrate with the UID2 SDK for JavaScript for these two scenarios&#8212;starting with no token, or reusing/refreshing an existing UID2 token.
 

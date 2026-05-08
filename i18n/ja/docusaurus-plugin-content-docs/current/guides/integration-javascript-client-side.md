@@ -297,9 +297,9 @@ await __uid2.setIdentityFromPhoneHash(
 場合によっては、ページロード時にユーザーの DII が利用できず、DII の取得にコストがかかることがあります。たとえば、DII を取得するために API コールが必要だったり、ユーザーに入力を求める必要があったりする場合です。
 
 既存の使用可能またはリフレッシュ可能なトークンを確認することで、そのコストを回避できる可能性があります。これを行うには、
-ブール値を返す [__UID2.isloginrequired](../sdks/sdk-ref-javascript#isloginrequired-boolean) を呼び出します。これが `true` を返す場合、UID2 SDK は既存のリソースで新しい Advertising Token を作成できず、まったく新しい UID2 Token を生成するために DII が必要であることを意味します。
+ブール値を返す [__uid2.isLoginRequired](../sdks/sdk-ref-javascript#isloginrequired-boolean) を呼び出します。これが `true` を返す場合、UID2 SDK は既存のリソースで新しい Advertising Token を作成できず、まったく新しい UID2 Token を生成するために DII が必要であることを意味します。
 
-DII を提供しても、[__UID2.isloginrequired](../sdks/sdk-ref-javascript#isloginrequired-boolean) が `false` を返す可能性があります。これは、ユーザーが UID2 からオプトアウトしている場合に発生します。JavaScript 用 UID2 SDK はユーザーのオプトアウトを尊重し、同じ DII で `setIdentity` メソッドを再度呼び出したとしても、UID2 Token を生成しません。任意で、そのような呼び出しを繰り返し行わないようにすることもできます。
+DII を提供しても、[__uid2.isLoginRequired](../sdks/sdk-ref-javascript#isloginrequired-boolean) が `false` を返す可能性があります。これは、ユーザーが UID2 からオプトアウトしている場合に発生します。JavaScript 用 UID2 SDK はユーザーのオプトアウトを尊重し、同じ DII で `setIdentity` メソッドを再度呼び出したとしても、UID2 Token を生成しません。任意で、そのような呼び出しを繰り返し行わないようにすることもできます。
 
 以下のコードスニペットは、これら 2 つのシナリオ（トークンなしで開始する場合と、既存の UID2 Token を再利用/リフレッシュする場合）で JavaScript 用 UID2 SDK とインテグレーションする方法を示しています。
 

@@ -242,7 +242,7 @@ To upgrade from an earlier version to version 3, follow these steps:
 2. [Update v3 response parsing logic](#2-update-v3-response-parsing-logic)
 3. [Replace salt bucket monitoring with refresh timestamp logic](#3-replace-salt-bucket-monitoring-with-refresh-timestamp-logic)
 
-#### 1. update endpoint URL
+#### 1. Update endpoint URL
 
 Update any reference to the endpoint URL so that it references the /v3/ implementation, as shown in the following example.
 
@@ -254,7 +254,7 @@ url = '/v2/identity/map'
 url = '/v3/identity/map'
 ```
 
-#### 2. update v3 response parsing logic
+#### 2. Update v3 response parsing logic
 
 Update the logic for parsing the response, as shown in the following example.
 
@@ -285,7 +285,7 @@ for index, item in enumerate(response['body']['email']):
         handle_unmapped(original_email, item['e'])
 ```
 
-#### 3. replace salt bucket monitoring with refresh timestamp logic
+#### 3. Replace salt bucket monitoring with refresh timestamp logic
 
 Update your code for salt bucket monitoring, replacing it with code that checks the `refresh_from` timestamp to determine raw UID2s that are due for refresh.
 

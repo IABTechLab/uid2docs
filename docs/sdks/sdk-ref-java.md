@@ -406,7 +406,7 @@ To upgrade, follow these steps:
 2. [Change client class](#2-change-client-class)
 3. [Update import statements](#3-update-import-statements)
 
-#### 1. update dependency version
+#### 1. Update dependency version
 
 Update the dependency version referenced in your code, as shown in the following example.
 
@@ -418,7 +418,7 @@ Update the dependency version referenced in your code, as shown in the following
 </dependency>
 ```
 
-#### 2. change client class
+#### 2. Change client class
 
 Update the client class referenced in your code, as shown in the following example.
 
@@ -430,7 +430,7 @@ IdentityMapClient identityMapClient = new IdentityMapClient(UID2_BASE_URL, UID2_
 IdentityMapV3Client identityMapClient = new IdentityMapV3Client(UID2_BASE_URL, UID2_API_KEY, UID2_SECRET_KEY);
 ```
 
-#### 3. update import statements
+#### 3. Update import statements
 
 Update import statements, as shown in the following example.
 

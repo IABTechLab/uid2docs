@@ -576,7 +576,7 @@ Version 1.x と 2.x の機能の一部は非推奨となっており、将来の
 
 #### Update your script URL
 
-[Version 3 cdn URL](#include-the-sdk-script) から SDK をロードするようにスクリプトタグを更新します。
+[Version 3 CDN URL](#include-the-sdk-script) から SDK をロードするようにスクリプトタグを更新します。
 
 ### Recommended changes
 
