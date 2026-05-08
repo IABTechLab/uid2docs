@@ -1,7 +1,7 @@
 ---
-title: UID2 Client-Side Integration Guide for Mobile
+title: Client-Side Integration Guide for Mobile
 sidebar_label: Client-Side Integration for Mobile
-pagination_label: UID2 Client-Side Integration Guide for Mobile
+pagination_label: Client-Side Integration Guide for Mobile
 description: Client-Side でトークン生成とリフレッシュの両方を行うモバイルインテグレーションの設定。
 hide_table_of_contents: false
 sidebar_position: 04
@@ -19,7 +19,7 @@ import SnptGMAIMA_Plugins from '../snippets/_snpt-mobile_docs_gmaima-plugin-gss.
 import SnptPrebidMobileSDK from '../snippets/_snpt-mobile_docs_prebid-mobile.mdx';
 import SnptErrorResponseStates from '../snippets/_snpt-mobile-docs-error-response-states.mdx';
 
-# UID2 Client-Side Integration Guide for Mobile
+# Client-Side Integration Guide for Mobile
 
 このガイドは、モバイルアプリのみの変更で UID2 とインテグレーションしたいモバイルアプリパブリッシャー向けです。
 

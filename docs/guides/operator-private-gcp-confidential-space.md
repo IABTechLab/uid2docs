@@ -520,7 +520,7 @@ The following example shows the health check for the `gcloud` command line optio
 
 ## Upgrading
 
-When a new version of UID2 Google Cloud Platform Confidential Space is released, private operators receive an email notification of the update, with a new image version. There is a window of time for upgrade, after which the older version is deactivated and is no longer supported.
+When a new version of UID2 Google Cloud Platform Confidential Space is released, Private Operators receive an email notification of the update, with a new image version. There is a window of time for upgrade, after which the older version is deactivated and is no longer supported.
 
 If you're upgrading to a new version, the upgrade process depends on the deployment option you chose. Follow the applicable steps:
 

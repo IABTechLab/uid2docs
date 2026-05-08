@@ -1,7 +1,7 @@
 ---
-title: UID2 Client-Server Integration Guide for Mobile
+title: Client-Server Integration Guide for Mobile
 sidebar_label: Client-Server Integration for Mobile
-pagination_label: UID2 Client-Server Integration Guide for Mobile
+pagination_label: Client-Server Integration Guide for Mobile
 description: トークンをサーバーで生成し、クライアントで更新するモバイルインテグレーションの設定。
 hide_table_of_contents: false
 sidebar_position: 04
@@ -19,13 +19,13 @@ import SnptGMAIMA_Plugins from '../snippets/_snpt-mobile_docs_gmaima-plugin-gss.
 import SnptPrebidMobileSDK from '../snippets/_snpt-mobile_docs_prebid-mobile.mdx';
 import SnptErrorResponseStates from '../snippets/_snpt-mobile-docs-error-response-states.mdx';
 
-# UID2 Client-Server Integration Guide for Mobile
+# Client-Server Integration Guide for Mobile
 
 このガイドは、<Link href="../ref-info/glossary-uid#gl-public-operator">Public Operator</Link> または <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link> を介して Server-Side で UID2 Token を生成し、そのトークンとユーザー ID をモバイルアプリに渡して UID2 とインテグレーションしたいモバイルアプリパブリッシャー向けです。モバイルアプリは、そのトークンを <Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link> に使用するために渡します。
 
 これは Client-Server インテグレーションと呼ばれます。これは、いくつかのインテグレーションステップがクライアントサイドで行われ、いくつかがサーバーサイドで行われるためです。
 
-Client-Side のみの変更で UID2 とインテグレーションしたい場合 (つまり、すべてのインテグレーション変更がモバイルアプリ内で行われる場合) は、代わりに [UID2 Client-Side Integration Guide for Mobile](integration-mobile-client-side.md) を参照してください。
+Client-Side のみの変更で UID2 とインテグレーションしたい場合 (つまり、すべてのインテグレーション変更がモバイルアプリ内で行われる場合) は、代わりに [Client-Side Integration Guide for Mobile](integration-mobile-client-side.md) を参照してください。
 
 このページでは、インテグレーション手順の概要と、追加のドキュメントへのリンクを提供します。
 

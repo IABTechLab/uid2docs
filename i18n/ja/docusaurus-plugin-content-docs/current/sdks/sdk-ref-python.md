@@ -225,7 +225,7 @@ Server-Side インテグレーションを使用している場合 (詳細は [P
 
 以下の手順は、最新バージョンの `POST /identity/map` エンドポイントを使用して、DII を raw UID2 にマッピングする方法の例を示しています。
 
-以前のバージョンについては、[Previous Version (v2 Identity Map)](#previous-version-v2-identity-map) を参照してください。最新バージョンへの移行手順は、[Migration From Version Using v2 Identity Map](#migration-from-version-using-v2-identity-map) を参照してください。
+以前のバージョンについては、[Previous Version (POST /v2/identity/map)](#previous-version-post-v2identitymap) を参照してください。最新バージョンへの移行手順は、[Migration From Version Using POST /v2/identity/map](#migration-from-version-using-post-v2identitymap) を参照してください。
 
 ### Map DII to Raw UID2s
 
@@ -309,7 +309,7 @@ mixed_input = IdentityMapV3Input()
 mixed_response = client.generate_identity_map(mixed_input)
 ```
 
-## Migration From Version Using v2 Identity Map
+## Migration From Version Using POST /v2/identity/map
 
 以下は、`POST /identity/map` バージョン 3 を参照する最新バージョンの SDK への移行に関する一般的な情報とガイダンスです:
 
@@ -397,14 +397,14 @@ mixed_response = client.generate_identity_map(mixed_input)
    raw_reason = unmapped.raw_reason
    ```
 
-### Previous Version (v2 Identity Map)
+### Previous Version (POST /v2/identity/map)
 
 :::note
 v2 の Identity Map SDK は、後方互換性のために維持されている以前のバージョンです。パフォーマンスの向上、複数のアイデンティティタイプのサポート、および UID2 ローテーション管理の改善のために、現在の SDK に移行してください。
 
 新しいインテグレーションはこのバージョンを使用しないでください。
 
-手順は、[Migration From Version Using v2 Identity Map](#migration-from-version-using-v2-identity-map) を参照してください。
+手順は、[Migration From Version Using POST /v2/identity/map](#migration-from-version-using-post-v2identitymap) を参照してください。
 :::
 
 メールアドレス、電話番号、またはそれらのハッシュを raw UID2s およびソルトバケット ID にマッピングするには、`POST /identity/map` version 2 を使用している以前の SDK バージョンを使用している場合は、以下の手順に従ってください。
