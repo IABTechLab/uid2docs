@@ -1,5 +1,5 @@
 ---
-title: UID2 Overview
+title: UID2 overview
 description: UID2 ドキュメントの紹介。
 hide_table_of_contents: false
 sidebar_position: 01

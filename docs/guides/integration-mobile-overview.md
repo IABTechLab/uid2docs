@@ -1,6 +1,6 @@
 ---
 title: Mobile integration overview for Android and iOS
-sidebar_label: Integration overview for Mobile
+sidebar_label: Integration overview for mobile
 pagination_label: Mobile integration overview for Android and iOS
 description: Overview of options for UID2 mobile integration.
 hide_table_of_contents: false
