@@ -1,5 +1,5 @@
 ---
-title: API Keys
+title: API keys
 description: API Key の設定と管理。
 hide_table_of_contents: false
 sidebar_position: 07

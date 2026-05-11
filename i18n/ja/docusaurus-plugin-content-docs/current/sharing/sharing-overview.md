@@ -1,5 +1,5 @@
 ---
-title: Overview of Sharing
+title: Overview of sharing
 description: 他の参加者と UID2 を共有する方法について学ぶ。
 hide_table_of_contents: false
 sidebar_position: 01

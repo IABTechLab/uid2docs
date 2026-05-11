@@ -1,6 +1,6 @@
 ---
 title: Client-side integration guide for JavaScript
-sidebar_label: Client-Side Integration for JavaScript
+sidebar_label: Client-side integration for JavaScript
 pagination_label: Client-side integration guide for JavaScript
 description: Client-Side インテグレーションで SDK for JavaScript を使用する際の情報。
 hide_table_of_contents: false

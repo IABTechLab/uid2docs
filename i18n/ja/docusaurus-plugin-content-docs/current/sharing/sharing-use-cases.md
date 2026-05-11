@@ -1,5 +1,5 @@
 ---
-title: Use Cases
+title: Use cases
 description: UID2 を他の参加者と共有するためのユースケース。
 hide_table_of_contents: false
 sidebar_position: 03

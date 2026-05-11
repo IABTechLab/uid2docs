@@ -1,6 +1,6 @@
 ---
-title: Advertiser/Data Provider Integration to HTTP Endpoints
-sidebar_label: HTTP Endpoints
+title: Advertiser/data provider integration to HTTP endpoints
+sidebar_label: HTTP endpoints
 description: ユーザーデータを収集し、他の参加者にプッシュする組織向けのインテグレーション。SDK や Snowflake ではなく、HTTP エンドポイントへのコーディングを行います。
 hide_table_of_contents: false
 sidebar_position: 07

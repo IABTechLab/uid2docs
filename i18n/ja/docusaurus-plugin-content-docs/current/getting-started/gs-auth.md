@@ -1,5 +1,5 @@
 ---
-title: Authentication and Authorization
+title: Authentication and authorization
 description: UID2 エンドポイントの認証要件。
 hide_table_of_contents: false
 sidebar_position: 05

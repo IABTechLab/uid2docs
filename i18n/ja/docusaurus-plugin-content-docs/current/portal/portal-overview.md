@@ -1,5 +1,5 @@
 ---
-title: UID2 Portal Overview
+title: UID2 Portal overview
 description: UID2 Portal に関する一般情報。
 hide_table_of_contents: false
 sidebar_position: 01

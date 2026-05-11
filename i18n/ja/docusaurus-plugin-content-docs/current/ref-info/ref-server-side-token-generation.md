@@ -1,5 +1,5 @@
 ---
-title: Server-Side Token Generation
+title: Server-side token generation
 description: パブリッシャー向けのサーバーサイドでのトークン生成に関する情報。
 hide_table_of_contents: false
 sidebar_position: 06

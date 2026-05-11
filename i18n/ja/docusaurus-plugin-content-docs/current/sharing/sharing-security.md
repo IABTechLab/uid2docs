@@ -1,5 +1,5 @@
 ---
-title: Security Requirements for UID2 Sharing
+title: Security requirements for UID2 sharing
 description: 認証、認可、アカウンティング、セキュアトランスポートなど、UID2 セキュリティに関する情報。
 hide_table_of_contents: false
 sidebar_position: 03

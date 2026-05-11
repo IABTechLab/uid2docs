@@ -1,7 +1,7 @@
 ---
-title: UID2 Integration Overview for Prebid
-sidebar_label: UID2 Integration Overview for Prebid
-pagination_label: UID2 Integration Overview for Prebid
+title: UID2 integration overview for Prebid
+sidebar_label: UID2 integration overview for Prebid
+pagination_label: UID2 integration overview for Prebid
 description: UID2 実装の一部として Prebid とインテグレーションするためのオプションの概要。
 hide_table_of_contents: false
 sidebar_position: 04

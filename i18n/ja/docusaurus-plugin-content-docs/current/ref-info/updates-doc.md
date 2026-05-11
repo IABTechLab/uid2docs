@@ -1,5 +1,5 @@
 ---
-title: Documentation Updates
+title: Documentation updates
 description: UID2 ドキュメントの重要な更新の概要。
 hide_table_of_contents: false
 sidebar_position: 06

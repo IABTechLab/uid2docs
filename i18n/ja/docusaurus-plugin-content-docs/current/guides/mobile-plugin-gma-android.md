@@ -1,5 +1,5 @@
 ---
-title: UID2 GMA Plugin for Android
+title: UID2 GMA plugin for Android
 description: Android アプリの広告リクエストに GMA を使用するパブリッシャーのためのガイド。
 hide_table_of_contents: false
 sidebar_position: 12

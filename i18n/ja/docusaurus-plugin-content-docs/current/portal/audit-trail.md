@@ -1,5 +1,5 @@
 ---
-title: Audit Trail
+title: Audit trail
 description: UID2 Portal で過去に実行されたアクションの詳細なログを表示します。
 hide_table_of_contents: false
 sidebar_position: 09

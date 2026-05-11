@@ -1,5 +1,5 @@
 ---
-title: Email Contacts
+title: Email contacts
 description: UID2 アップデートのための連絡先の設定と管理。
 hide_table_of_contents: false
 sidebar_position: 09

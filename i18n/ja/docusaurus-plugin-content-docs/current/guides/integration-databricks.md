@@ -1,7 +1,7 @@
 ---
-title: Databricks Integration
+title: Databricks integration
 sidebar_label: Databricks
-pagination_label: Databricks Integration
+pagination_label: Databricks integration
 description: Databricks を使用した UID2 とのインテグレーションに関する情報。
 hide_table_of_contents: false
 sidebar_position: 04

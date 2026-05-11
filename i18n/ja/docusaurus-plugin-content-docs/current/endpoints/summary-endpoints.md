@@ -1,5 +1,5 @@
 ---
-title: UID2 Endpoints - Summary
+title: UID2 endpoints - summary
 description: UID2 Service で利用可能なエンドポイントの概要。
 hide_table_of_contents: false
 sidebar_position: 01

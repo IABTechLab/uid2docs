@@ -1,5 +1,5 @@
 ---
-title: Publisher Integration Resources
+title: Publisher integration resources
 description: UID2 をインテグレーションするパブリッシャー向けのリソースの概要
 hide_table_of_contents: false
 sidebar_position: 02

@@ -1,5 +1,5 @@
 ---
-title: Sharing Permissions
+title: Sharing permissions
 description: UID2 Portal での共有権限の設定。
 hide_table_of_contents: false
 sidebar_position: 04

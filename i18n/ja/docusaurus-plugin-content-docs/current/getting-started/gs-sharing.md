@@ -1,5 +1,5 @@
 ---
-title: UID2 Sharing
+title: UID2 sharing
 description: UID2 Sharing に関する情報。
 hide_table_of_contents: false
 sidebar_position: 24

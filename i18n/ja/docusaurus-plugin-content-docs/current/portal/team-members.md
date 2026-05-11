@@ -1,5 +1,5 @@
 ---
-title: Team Members
+title: Team members
 description: UID2 チームを設定および管理します。
 hide_table_of_contents: false
 sidebar_position: 07

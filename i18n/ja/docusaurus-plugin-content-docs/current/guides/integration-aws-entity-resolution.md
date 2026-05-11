@@ -1,5 +1,5 @@
 ---
-title: AWS Entity Resolution Integration
+title: AWS Entity Resolution integration
 sidebar_label: AWS Entity Resolution
 pagination_label: AWS Entity Resolution
 description: AWS Entity Resolution とのインテグレーションに関する情報。

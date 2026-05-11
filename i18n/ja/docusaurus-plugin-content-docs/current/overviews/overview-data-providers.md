@@ -1,5 +1,5 @@
 ---
-title: Data Providers
+title: Data providers
 description: データプロバイダー向けの情報の概要。
 hide_table_of_contents: false
 sidebar_position: 08

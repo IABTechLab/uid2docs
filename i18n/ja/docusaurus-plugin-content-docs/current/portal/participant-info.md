@@ -1,5 +1,5 @@
 ---
-title: Participant Information
+title: Participant information
 description: UID2 Sharing 参加者プロファイルの設定。
 hide_table_of_contents: false
 sidebar_position: 06

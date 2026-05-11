@@ -1,5 +1,5 @@
 ---
-title: UID2 Integrations for Private Operators
+title: UID2 integrations for Private Operators
 description: Private Operator 向けの情報概要。
 hide_table_of_contents: false
 displayed_sidebar: docs

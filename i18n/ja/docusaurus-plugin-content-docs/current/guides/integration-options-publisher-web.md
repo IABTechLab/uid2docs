@@ -1,5 +1,5 @@
 ---
-title: Publisher Web Integration Overview
+title: Publisher web integration overview
 description: UID2 Web インテグレーションにおけるパブリッシャーオプションの概要。
 hide_table_of_contents: false
 sidebar_position: 02

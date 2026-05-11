@@ -1,5 +1,5 @@
 ---
-title: UID2 IMA Plugin for iOS
+title: UID2 IMA plugin for iOS
 description: iOS アプリの広告リクエストに IMA を使用するパブリッシャー向けのガイド。
 hide_table_of_contents: false
 sidebar_position: 15

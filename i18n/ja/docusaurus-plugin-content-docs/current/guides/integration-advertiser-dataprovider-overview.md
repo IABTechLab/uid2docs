@@ -1,6 +1,6 @@
 ---
-title: Advertiser/Data Provider Integration Overview
-sidebar_label: Advertiser/Data Provider Integration Overview
+title: Advertiser/data provider integration overview
+sidebar_label: Advertiser/data provider integration overview
 description: ユーザーデータを収集し、他の参加者に送信する組織向けのインテグレーションオプションの概要。
 hide_table_of_contents: false
 sidebar_position: 07

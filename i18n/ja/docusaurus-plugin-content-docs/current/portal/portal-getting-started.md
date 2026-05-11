@@ -1,5 +1,5 @@
 ---
-title: Getting Started
+title: Getting started
 description: UID2 Portal のアカウント作成方法。
 hide_table_of_contents: false
 sidebar_position: 03

@@ -1,5 +1,5 @@
 ---
-title: Integration Samples and Tools
+title: Integration samples and tools
 description: UID2 のすべてのサンプルサイト例の概要とリファレンス。
 hide_table_of_contents: false
 ---

@@ -1,5 +1,5 @@
 ---
-title: UID2 Glossary
+title: UID2 glossary
 description: UID2 に関する用語の定義。
 hide_table_of_contents: false
 sidebar_position: 10

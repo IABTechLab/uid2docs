@@ -1,5 +1,5 @@
 ---
-title: Integration Approaches
+title: Integration approaches
 description: UID2 インテグレーションに利用可能なアプローチに関する情報。
 hide_table_of_contents: false
 sidebar_position: 06
