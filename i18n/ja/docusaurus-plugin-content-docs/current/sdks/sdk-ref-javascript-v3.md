@@ -1,5 +1,5 @@
 ---
-title: SDK for JavaScript v3
+title: SDK for JavaScript (v3)
 description: JavaScript Client-Side SDK に関するリファレンス情報。
 hide_table_of_contents: false
 sidebar_position: 02
