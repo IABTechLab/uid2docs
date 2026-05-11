@@ -1,5 +1,6 @@
 ---
 title: Preparing DII for processing
+sidebar_label: Preparing DII for processing
 description: Summary of key steps to prepare your input data for conversion to UID2s.
 hide_table_of_contents: false
 sidebar_position: 01
