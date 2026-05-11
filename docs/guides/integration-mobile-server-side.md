@@ -1,6 +1,6 @@
 ---
 title: Server-side integration guide for mobile
-sidebar_label: Server-side integration guide for mobile
+sidebar_label: Server-side integration for mobile
 pagination_label: Server-side integration guide for mobile
 description: Setting up a mobile integration with token generate and refresh both on the server side.
 hide_table_of_contents: false
