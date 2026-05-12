@@ -282,7 +282,7 @@ Server-Side Integration ([Publisher Integration Guide, Server-Side](../guides/in
       if (identity.isDueForRefresh()) {..}
       ```
 4. リフレッシュが必要な場合は、[POST token/refresh](../endpoints/post-token-refresh.md)エンドポイントを、以下のように呼び出します:
-   1. Headers: HTTPライブラリによっては、次のようになります:
+   1. Headers: HTTP ライブラリによっては、次のようになります:
     
       `.putHeader("Authorization", "Bearer " + UID2_API_KEY)`  
       `.putHeader("X-UID2-Client-Version", PublisherUid2Helper.getVersionHttpHeader())`. 
