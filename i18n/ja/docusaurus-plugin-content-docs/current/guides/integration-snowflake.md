@@ -179,7 +179,7 @@ DII が電話番号の場合、UID2 [Phone Number Normalization](../getting-star
 | :--- | :--- | :--- |
 | `UID` | TEXT | 値は次のいずれかです:<ul><li>DII が正常にマッピングされた: DII に関連付けられた UID2。</li><li>それ以外の場合: `NULL`。</li></ul> |
 | `PREV_UID` | TEXT | 値は次のいずれかです:<ul><li>DII が正常にマッピングされ、現在の raw UID2 は過去 90 日間にローテーションしました: 以前の raw UID2</li><li>それ以外の場合: `NULL`。</li></ul> |
-| `REFRESH_FROM` | TIMESTAMP | 値は次のいずれかです:<ul><li>DII が正常にマッピングされた: この UID2 を更新する必要がある時刻 (エポック秒) を示します。</li><li>それ以外の場合: `NULL`。</li></ul> |
+| `REFRESH_FROM` | NUMBER | 値は次のいずれかです:<ul><li>DII が正常にマッピングされた: この UID2 を更新する必要がある時刻 (エポック秒) を示します。</li><li>それ以外の場合: `NULL`。</li></ul> |
 | `UNMAPPED` | TEXT | 値は次のいずれかです:<ul><li>DII が正常にマッピングされた: `NULL`。</li><li>それ以外の場合: 識別子がマッピングされなかった理由: `OPTOUT`、`INVALID IDENTIFIER`、または `INVALID INPUT TYPE`。<br/>詳細は、[UNMAPPED 列の値](#values-for-the-unmapped-column)を参照してください。</li></ul> |
 
 #### Values for the UNMAPPED Column
@@ -401,7 +401,7 @@ UID2 のリフレッシュが必要なものを特定するには、関数から
 | Column Name | Data Type | Description |
 | :--- | :--- | :--- |
 | `UID` | TEXT | UID2 に関連付けられた DII です。これは、アイデンティティマッピング関数によって返された現在の UID2 値です。 |
-| `REFRESH_FROM` | TIMESTAMP | この UID2 をリフレッシュする必要がある時刻を示すタイムスタンプ (エポック秒) です。この値を現在の時刻と比較して、再生成が必要かどうかを判断します。 |
+| `REFRESH_FROM` | NUMBER | この UID2 をリフレッシュする必要がある時刻を示すタイムスタンプ (エポック秒) です。この値を現在の時刻と比較して、再生成が必要かどうかを判断します。 |
 
 以下の例は、入力テーブルと、リフレッシュ時間が到達したために再生成する必要がある UID2 をテーブル内で見つけるために使用されるクエリです。
 
