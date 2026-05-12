@@ -23,12 +23,12 @@ UID2 のオプトアウト手順とユーザーがオプトアウトする方法
 
 必要に応じて、以前のバージョンのドキュメントも利用可能です: [POST /identity/map (v2)](post-identity-map-v2.md) を参照してください。
 
-## Batch Size Requirements
+## Batch Size and Request Parallelization Requirements
 
 以下が必要な情報です:
 
 - 最大リクエストサイズは 1MB です。
-- 大量のメールアドレス、電話番号、またはそれぞれのハッシュをマップするには、1 バッチあたり最大 5,000 アイテムで送信してください。
+- 大量のメールアドレス、電話番号、またはそれぞれのハッシュをマップするには、1 バッチあたり最大 5,000 アイテムで送信してください。同時に送信するバッチは 20 件以内にすることを勧めます。
 - メールアドレス、電話番号、またはそれぞれのハッシュのマッピングを必ず保存してください。<br/>マッピングを保存しないと、数百万のメールアドレスや電話番号をマッピングする際に処理時間が大幅に増加する可能性があります。ただし、実際に更新が必要なマッピングのみを再計算すると、UID2 の約 1/365 が毎日更新されるため、総処理時間が短縮されます。詳細は、[Advertiser/Data Provider Integration Overview](../guides/integration-advertiser-dataprovider-overview.md) と [FAQs for Advertisers and Data Providers](../getting-started/gs-faqs.md#faqs-for-advertisers-and-data-providers) を参照してください。
 
 ## Rate Limiting
