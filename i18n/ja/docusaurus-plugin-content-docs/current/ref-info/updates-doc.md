@@ -30,10 +30,9 @@ UID2 ドキュメントリソースの最新アップデートを確認してく
 
 April 24, 2026
 
-We've added a new reference page for the [UID2 Token Validator](ref-token-validator.md), a web-based tool that validates UID2 tokens against their source DII so you can confirm that your token generation process is correct.
 UID2 Token の生成プロセスが正しいことを確認できるよう、ソースとなる DII に対して UID2 Token の有効性を検証するウェブベースのツール [UID2 Token Validator](ref-token-validator.md) の新しいリファレンスページを追加しました。
 
-For details, see [UID2 Token Validator](ref-token-validator.md).
+詳細は、[UID2 Token Validator](ref-token-validator.md) を参照してください。
 
 <!-- UID2-6592 -->
 
