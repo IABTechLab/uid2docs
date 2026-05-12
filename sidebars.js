@@ -37,7 +37,7 @@ const fullSidebar = [
  
     {
       type: 'category',
-      label: 'UID2 Participants',
+      label: 'UID2 participants',
       link: {
         type: 'doc',
         id: 'overviews/participants-overview',
@@ -327,7 +327,7 @@ const fullSidebar = [
 
     {
       type: 'category',
-      label: 'UID2 Sharing',
+      label: 'UID2 sharing',
       link: {
         type: 'generated-index',
       },
@@ -423,7 +423,6 @@ const sidebars = {
     'JavaScript',
     'guides/integration-javascript',
     'guides/integration-javascript-client-server',
-    'Server-only',
     'guides/integration-publisher-server-side',
     'GAM Secure Signals',
     'guides/integration-google-ss',
@@ -464,7 +463,6 @@ const sidebars = {
     'guides/integration-javascript',
     'guides/integration-javascript-client-side',
     'guides/integration-javascript-client-server',
-    'Server-only',
     'guides/integration-publisher-server-side',
     'GAM Secure Signals',
     'guides/integration-google-ss',
@@ -507,7 +505,6 @@ const sidebars = {
     'JavaScript',
     'guides/integration-javascript',
     'guides/integration-javascript-client-server',
-    'Server-only',
     'guides/integration-publisher-server-side',
     'GAM Secure Signals',
     'guides/integration-google-ss',
