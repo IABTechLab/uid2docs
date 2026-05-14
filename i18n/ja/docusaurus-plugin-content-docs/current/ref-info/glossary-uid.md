@@ -140,7 +140,7 @@ import MdxJumpAnchor from '@site/src/components/MdxJumpAnchor';
 
 <dt><MdxJumpAnchor id="gl-api-key">API key</MdxJumpAnchor></dt>
 <dd>Server-Side の実装を使用する各 UID2 <a href="../overviews/participants-overview#uid2-external-participants">参加者</a> は、API Key (Client Key) と、そのキーに関連付けられた <a href="#gl-client-secret">Client Secret</a> (API Secret) と呼ばれる秘密の値を持っています。Client Secret は、参加者と UID2 Service だけが知っています。</dd>
-<dd>詳細は <a href="../getting-started/gs-credentials">UID2 Credentials</a> を参照してください。</dd>
+<dd>詳細は <a href="../getting-started/gs-credentials">UID2 credentials</a> を参照してください。</dd>
 
 <dt><MdxJumpAnchor id="gl-api-secret">API secret</MdxJumpAnchor></dt>
 <dd><a href="#gl-client-secret">client secret</a> を参照してください。</dd>
@@ -176,11 +176,11 @@ import MdxJumpAnchor from '@site/src/components/MdxJumpAnchor';
 
 <dt><MdxJumpAnchor id="gl-client-keypair"><a href="#gl-client-keypair">Client keypair</a></MdxJumpAnchor></dt>
 <dd>Client-Side のパブリッシャーインテグレーションの場合、アカウントを一意に識別するためにパブリッシャーに発行される2つの値は、<a href="#gl-subscription-id">Subscription ID</a> と <a href="#gl-public-key">public key</a> です。Client keypair とは、この2つの値をまとめて呼ぶ用語です。</dd>
-<dd>詳細は <a href="../getting-started/gs-credentials#subscription-id-and-public-key">Subscription ID and Public Key</a> を参照してください。</dd>
+<dd>詳細は <a href="../getting-started/gs-credentials#subscription-id-and-public-key">Subscription ID and public key</a> を参照してください。</dd>
 
 <dt><MdxJumpAnchor id="gl-client-secret">Client secret</MdxJumpAnchor></dt>
 <dd>Server-Side の実装を使用する各 UID2 <a href="../overviews/participants-overview#uid2-external-participants">参加者</a> は、API Key (Client Key) と、そのキーに関連付けられた秘密値 (Client Secret (API Secret)) を持っています。Client Secret は、参加者と UID2 Service だけが知っています。</dd>
-<dd>詳細は、<a href="../getting-started/gs-credentials">UID2 Credentials</a> を参照してください。</dd>
+<dd>詳細は、<a href="../getting-started/gs-credentials">UID2 credentials</a> を参照してください。</dd>
 
 <dt><MdxJumpAnchor id="gl-client-server"><a href="#gl-client-server">Client-Server Integration</a></MdxJumpAnchor></dt>
 <dd>UID2の <a href="#gl-integration-approaches">インテグレーションアプローチ</a> の1つは、Client-Side と Server-Side の両方でインテグレーションする方法です (Client-Server)。</dd>
@@ -212,7 +212,7 @@ import MdxJumpAnchor from '@site/src/components/MdxJumpAnchor';
 
 <dt><MdxJumpAnchor id="gl-core-service">Core Service</MdxJumpAnchor></dt>
 <dd>UID2 Core Serviceは、UID2 エコシステムの秘密の <a href="#gl-salt">ソルト</a>、暗号化キー、その他の関連データへのアクセスを管理する一元的なサービスです。</dd>
-<dd>すべてのUID2 Service の概要は、<a href="../overviews/participants-overview#uid2-component-services">UID2 Component Services</a> を参照してください。</dd>
+<dd>すべてのUID2 Service の概要は、<a href="../overviews/participants-overview#uid2-component-services">UID2 component services</a> を参照してください。</dd>
 
 </dl>
 
@@ -243,7 +243,7 @@ import MdxJumpAnchor from '@site/src/components/MdxJumpAnchor';
 
 <dt><MdxJumpAnchor id="gl-enclave">Enclave</MdxJumpAnchor></dt>
 <dd>Enclave は、コンピューティング環境のセキュアなサブセクションです。エンクレーブには追加のビジネスロジックとセキュリティ対策が施され、改ざんできないようになっています。</dd>
-<dd>UID2 のコンテキストでは、<a href="#gl-private-operator">Private Operator</a> はエンクレーブ内で実行されなければなりません。サポートされるエンクレーブバージョンの概要は、*UID2 Private Operator Integration Overview* の <a href="../guides/integration-options-private-operator#hosting-options-for-private-operators">Hosting Options for Private Operators</a> を参照してください。</dd>
+<dd>UID2 のコンテキストでは、<a href="#gl-private-operator">Private Operator</a> はエンクレーブ内で実行されなければなりません。サポートされるエンクレーブバージョンの概要は、*UID2 Private Operator Integration Overview* の <a href="../guides/integration-options-private-operator#hosting-options-for-private-operators">Hosting options for Private Operators</a> を参照してください。</dd>
 <dd>Enclave では、オペレータイメージは特殊で、事前に定義されたバージョンでなければならず、セキュリティを確保するために追加の制約が適用されます。</dd>
 
 <dt><MdxJumpAnchor id="gl-encryption-key"><a href="#gl-encryption-key">Encryption key</a></MdxJumpAnchor></dt>
@@ -326,7 +326,7 @@ import MdxJumpAnchor from '@site/src/components/MdxJumpAnchor';
 
 <dt><MdxJumpAnchor id="gl-normalize">Normalize</MdxJumpAnchor></dt>
 <dd>データセットを正規化するとは、それを標準的な条件や状態にすることを意味します。</dd>
-<dd>UID2 には特定の正規化規則があります。詳細は、<a href="../getting-started/gs-normalization-encoding#email-address-normalization">Email Address Normalization</a> と <a href="../getting-started/gs-normalization-encoding#phone-number-normalization">Phone Number Normalization</a> を参照してください。</dd>
+<dd>UID2 には特定の正規化規則があります。詳細は、<a href="../getting-started/gs-normalization-encoding#email-address-normalization">Email address normalization</a> と <a href="../getting-started/gs-normalization-encoding#phone-number-normalization">Phone number normalization</a> を参照してください。</dd>
 
 </dl>
 
@@ -356,15 +356,15 @@ import MdxJumpAnchor from '@site/src/components/MdxJumpAnchor';
 
 <dt><MdxJumpAnchor id="gl-operator-service">Operator Service</MdxJumpAnchor></dt>
 <dd><a href="#gl-operator">Operator</a> のすべての機能を可能にするサービスです。</dd>
-<dd>すべての UID2 Service の概要は、<a href="../overviews/participants-overview#uid2-component-services">UID2 Component Services</a> を参照してください。</dd>
+<dd>すべての UID2 Service の概要は、<a href="../overviews/participants-overview#uid2-component-services">UID2 component services</a> を参照してください。</dd>
 
 <dt><MdxJumpAnchor id="gl-opt-out">Opt-out</MdxJumpAnchor></dt>
 <dd>UID2 エコシステムに参加しているエンドユーザーは、<a href="https://www.transparentadvertising.com/">Transparency and Control Portal</a> にアクセスすることで、いつでもオプトアウトすることができます。</dd>
-<dd>UID2 の Opt-out のワークフローと、ユーザーが Opt-out する方法の詳細は、<a href="../getting-started/gs-opt-out">User Opt-Out</a> を参照してください。</dd>
+<dd>UID2 の Opt-out のワークフローと、ユーザーが Opt-out する方法の詳細は、<a href="../getting-started/gs-opt-out">User opt-out</a> を参照してください。</dd>
 
 <dt><MdxJumpAnchor id="gl-opt-out-service">Opt-Out Service</MdxJumpAnchor></dt>
 <dd>Opt-Out Service は、ユーザーのオプトアウト要求を管理・保存するグローバルな UID2 Service です。</dd>
-<dd>すべての UID2 Service の概要は、<a href="../overviews/participants-overview#uid2-component-services">UID2 Component Services</a> を参照してください。</dd>
+<dd>すべての UID2 Service の概要は、<a href="../overviews/participants-overview#uid2-component-services">UID2 component services</a> を参照してください。</dd>
 
 </dl>
 
@@ -384,7 +384,7 @@ import MdxJumpAnchor from '@site/src/components/MdxJumpAnchor';
 <dd><a href="#gl-private-operator">Private Operator</a> が運用する Operator Service のインスタンスです。</dd>
 
 <dt><MdxJumpAnchor id="gl-public-key">Public key</MdxJumpAnchor></dt>
-<dd>Client-Side のパブリッシャーインテグレーションでは、パブリッシャーに発行される2つの値のうちの1つがアカウントを一意に識別する公開鍵です。詳細は <a href="../getting-started/gs-credentials#subscription-id-and-public-key">Subscription ID and Public Key</a> を参照してください。</dd>
+<dd>Client-Side のパブリッシャーインテグレーションでは、パブリッシャーに発行される2つの値のうちの1つがアカウントを一意に識別する公開鍵です。詳細は <a href="../getting-started/gs-credentials#subscription-id-and-public-key">Subscription ID and public key</a> を参照してください。</dd>
 <dd>UID2 のインテグレーションでは、この値はしばしば <b>serverPublicKey</b> として表されます。たとえば、<a href="../guides/integration-prebid-client-side">Client-side integration guide for Prebid.js</a>、<a href="../guides/integration-javascript-client-side">Client-side integration guide for JavaScript</a>、<a href="../guides/integration-mobile-client-side">Client-side integration guide for mobile</a> など。</dd>
 
 <dt><MdxJumpAnchor id="gl-public-operator">Public Operator</MdxJumpAnchor></dt>
@@ -399,7 +399,7 @@ import MdxJumpAnchor from '@site/src/components/MdxJumpAnchor';
 
 <dt><MdxJumpAnchor id="gl-raw-uid2">Raw UID2</MdxJumpAnchor></dt>
 <dd>UID2 API または SDK を通じて、ユーザーの <a href="#gl-dii">directly identifying information</a> (メールアドレスまたは電話番号) を入力として作成される、暗号化されていない英数字の識別子。raw UID2 を暗号化して UID2 Token を作成します。raw UID2 は一意な値であり、同じ UID2 は2つとありません。raw UID2 とそれに関連付けられた UID2 Token は、大文字と小文字を区別します。</dd>
-<dd>詳細は <a href="uid-identifier-types">UID2 Identifier Types</a> を参照してください。</dd>
+<dd>詳細は <a href="uid-identifier-types">UID2 identifier types</a> を参照してください。</dd>
 
 <dt><MdxJumpAnchor id="gl-refresh-timestamp"><a href="#gl-refresh-timestamp">Refresh timestamp</a></MdxJumpAnchor></dt>
 <dd><a href="#gl-dii">DII</a> を raw UID2 にマッピングする場合、リフレッシュタイムスタンプは、<a href="../endpoints/post-identity-map">POST&nbsp;/identity/map</a> エンドポイントのレスポンスの <code>r</code> フィールドで返される Unix タイムスタンプ (秒単位) です。raw UID2 は、このタイムスタンプまで有効です。この時刻以降のいずれかの時点で更新されます。</dd>
@@ -409,7 +409,7 @@ import MdxJumpAnchor from '@site/src/components/MdxJumpAnchor';
 <dd>Refresh Token は、<a href="#gl-uid2-token">UID2 Token</a> とともに発行される不透明な文字列です。<a href="#gl-uid2-token">UID2 Token</a> の有効期限を更新するために使用されます。</dd>
 <dd>UID2 Server は、新しい UID2 Token のリクエストとともに Refresh Token を受け取ると、ユーザーの Opt-Out をチェックします。ユーザーが UID2 を Opt-Out している場合、新しい UID2 Token は生成されません。</dd>
 <dd>新しい UID2 Token が生成されて返されると、新しい Refresh Token も一緒に返されます。ただし、ユーザーが長期間活動していない場合は、Refresh Token は期限切れとなります。</dd>
-<dd>詳細は、<a href="ref-tokens">UID2 Tokens and Refresh Tokens</a> を参照してください。</dd>
+<dd>詳細は、<a href="ref-tokens">UID2 tokens and refresh tokens</a> を参照してください。</dd>
 </dl>
 
 ### S
@@ -428,7 +428,7 @@ import MdxJumpAnchor from '@site/src/components/MdxJumpAnchor';
 <dt><MdxJumpAnchor id="gl-salt-bucket-id"><a href="#gl-salt-bucket-id">Salt bucket ID</a></MdxJumpAnchor></dt>
 <dd>ソルトバケット ID は、特定の <a href="#gl-salt-bucket">ソルトバケット</a> を識別する一意の文字列です。ソルトバケット ID を使用すると、最近、ソルト値が更新されたソルトバケットを確認し、どのメールアドレスまたは電話番号が raw UID2 値を再生成する必要があるかを確認できます。</dd>
 <dd>[POST /v3/identity/map](../endpoints/post-identity-map.md) エンドポイントのバージョン 3 以前、たとえば [POST /v2/identity/map](../endpoints/post-identity-map-v2.md) では、エンドポイントはソルトバケット ID を返します。バージョン 3 以降では、ソルトバケット情報は必要ありません。</dd>
-<dd>ソルトバケット ID の例は、[POST /v2/identity/buckets](../endpoints/post-identity-buckets.md) エンドポイントのレスポンスを参照してください: <a href="../endpoints/post-identity-buckets#decrypted-json-response-format">Decrypted JSON Response Format</a>。`POST /v3/identity/map` を使用している場合、`POST /v2/identity/buckets` を使用する必要はありません。</dd>
+<dd>ソルトバケット ID の例は、[POST /v2/identity/buckets](../endpoints/post-identity-buckets.md) エンドポイントのレスポンスを参照してください: <a href="../endpoints/post-identity-buckets#decrypted-json-response-format">Decrypted JSON response format</a>。`POST /v3/identity/map` を使用している場合、`POST /v2/identity/buckets` を使用する必要はありません。</dd>
 
 <dt><MdxJumpAnchor id="gl-salted-hash">Salted hash</MdxJumpAnchor></dt>
 <dd><a href="#gl-hash">hash</a> 関数を適用する前に入力文字列に <a href="#gl-salt">salt</a> 値を追加すると、結果はソルトハッシュとなります。入力値がハッシュ化される前にソルト化されると、ハッシュを持つ攻撃者は、同じ出力に到達するために多くの可能な入力を試して入力値を決定することができなくなります。</dd>
@@ -454,11 +454,11 @@ import MdxJumpAnchor from '@site/src/components/MdxJumpAnchor';
 
 <dt><MdxJumpAnchor id="gl-sharing"><a href="#gl-sharing">Sharing (in UID2)</a></MdxJumpAnchor></dt>
 <dd>UID2 のコンテキストでは、Sharing は、<a href="#gl-raw-uid2">raw UID2</a> を直接または <a href="#gl-uid2-token">UID2 Token</a> に暗号化して、1つの UID2 <a href="#gl-sharing-participant">sharing participant</a> から別の共有者に配布するプロセスです。</dd>
-<dd>詳細は <a href="../getting-started/gs-sharing">UID2 Sharing</a> を参照してください。</dd>
+<dd>詳細は <a href="../getting-started/gs-sharing">UID2 sharing</a> を参照してください。</dd>
 
 <dt><MdxJumpAnchor id="gl-sharing-participant">Sharing participant</MdxJumpAnchor></dt>
 <dd>UID2 において、sharing participant とは、UID2 Participation Policy に準拠することに同意した企業、または <a href="../getting-started/gs-sharing#exceptions">例外</a> に該当する企業であり、送信者または受信者として <a href="#gl-sharing">sharing</a> に参加する企業のことです。</dd>
-<dd>詳細は <a href="../getting-started/gs-sharing">UID2 Sharing</a> を参照してください。</dd>
+<dd>詳細は <a href="../getting-started/gs-sharing">UID2 sharing</a> を参照してください。</dd>
 
 <dt><MdxJumpAnchor id="gl-sso">Single sign-on (SSO)</MdxJumpAnchor></dt>
 <dd>SSO はシングルサインオンの略語です。SSO は、ユーザーがアプリやウェブサイトなどの複数のソフトウェアシステムの 1 つに、同じ認証情報(通常は ID とパスワードですが、必ずしもそうではありません) でログインすることを可能にします。SSO によって、ユーザーは 1 セットの認証情報を使って複数のアプリケーションやサイトに一度だけログインすることができます。SSO によって、ウェブサイトやアプリは独自の認証システムを維持する必要がなくなります。</dd>
@@ -467,7 +467,7 @@ import MdxJumpAnchor from '@site/src/components/MdxJumpAnchor';
 <dd><a href="#gl-sso">Single sign-on (SSO)</a> を参照してください。</dd>
 
 <dt><MdxJumpAnchor id="gl-subscription-id">Subscription ID</MdxJumpAnchor></dt>
-<dd>Client-Side のパブリッシャーインテグレーションでは、パブリッシャーに発行される2つの値のうちの1つがアカウントを一意に識別する公開鍵です。詳細は <a href="../getting-started/gs-credentials#subscription-id-and-public-key">Subscription ID and Public Key</a> を参照してください。</dd>
+<dd>Client-Side のパブリッシャーインテグレーションでは、パブリッシャーに発行される2つの値のうちの1つがアカウントを一意に識別する公開鍵です。詳細は <a href="../getting-started/gs-credentials#subscription-id-and-public-key">Subscription ID and public key</a> を参照してください。</dd>
 
 </dl>
 
@@ -480,11 +480,11 @@ import MdxJumpAnchor from '@site/src/components/MdxJumpAnchor';
 <dd>UID2 Token をリクエストする UID2 参加者は、トークンの有効性を維持するためのプロセスを持っている必要があります: リフレッシュ期間を監視し、Refresh Token が期限切れになる前に新しい UID2 Token をリクエストするか、毎回新しい UID2 Token をリクエストするか、DII を送信する必要があります。</dd>
 <dd>ほとんどの場合、トークンの更新は、SDK または Prebid.js の実装戦略など、他の実装戦略によって管理されます。</dd>
 <dd>Refresh Token が期限切れになった場合、パブリッシャーは DII を送信して UID2 Token を再リクエストする必要があります。</dd>
-<dd>詳細は、<a href="ref-tokens">UID2 Tokens and Refresh Tokens</a> を参照してください。</dd>
+<dd>詳細は、<a href="ref-tokens">UID2 tokens and refresh tokens</a> を参照してください。</dd>
 
 <dt><MdxJumpAnchor id="gl-tokenized-sharing">Tokenized sharing</MdxJumpAnchor></dt>
 <dd>Tokenized sharing とは <a href="#gl-dii">DII</a> または <a href="#gl-raw-uid2">Raw UID2</a> を <a href="#gl-uid2-token">UID2 Token</a> に暗号化し、許可された受信者とトークンを共有することです。UID2 Token を使用することで、データの送信者と受信者の間で、未承認の関係者をデータが通過する場合も含めて、raw UID2 をエンドツーエンドで保護することができます。Tokenized sharing は、ビッドストリームまたはピクセル経由での共有に必要ですが、どのような共有ユースケースでも使用できます。</dd>
-<dd>詳細は <a href="../sharing/sharing-tokenized-overview">Tokenized Sharing Overview</a> を参照してください。</dd>
+<dd>詳細は <a href="../sharing/sharing-tokenized-overview">Tokenized sharing overview</a> を参照してください。</dd>
 
 <dt><MdxJumpAnchor id="gl-transparency-and-control-portal">Transparency and Control Portal</MdxJumpAnchor></dt>
 <dd>UID2 Transparency and Control Portalは、ユーザー向けのウェブサイト <a href="https://www.transparentadvertising.com/">https://www.transparentadvertising.com/</a> で、消費者はいつでもここから UID2 の Opt-Out を選択することができます。</dd>
@@ -507,11 +507,11 @@ import MdxJumpAnchor from '@site/src/components/MdxJumpAnchor';
 
 <dt><MdxJumpAnchor id="gl-uid2-identifier">UID2 identifier</MdxJumpAnchor></dt>
 <dd>Unified ID 2.0 (UID2)識別子には、<a href="#gl-raw-uid2">raw UID2s</a> と <a href="#gl-uid2-token">UID2 tokens</a> (Advertising token とも呼ばれます) の2種類があります。</dd>
-<dd>詳細は <a href="uid-identifier-types">UID2 Identifier Types</a> を参照してください。</dd>
+<dd>詳細は <a href="uid-identifier-types">UID2 identifier types</a> を参照してください。</dd>
 
 <dt><MdxJumpAnchor id="gl-uid2-portal">UID2 Portal</MdxJumpAnchor></dt>
 <dd>UID2 Portal は、UID2 参加者が自分のアカウントを管理するための独立したユーザーインターフェースです。</dd>
-<dd>詳細は <a href="../portal/portal-overview">UID2 Portal: Overview</a> を参照してください。</dd>
+<dd>詳細は <a href="../portal/portal-overview">UID2 portal: Overview</a> を参照してください。</dd>
 
 <dt><MdxJumpAnchor id="gl-uid2-service"><a href="#gl-uid2-service">UID2 Service</a></MdxJumpAnchor></dt>
 <dd>Unified ID 2.0 (UID2) service とは、<a href="#gl-uid2-framework">UID2 framework</a> を実装し、関連する UID2 機能へのアクセスをクライアントに提供する、コンポーネント、API エンドポイント、およびその他の種類のソリューションの集合です。</dd>
@@ -523,13 +523,13 @@ import MdxJumpAnchor from '@site/src/components/MdxJumpAnchor';
 <dd>トークンの値は不透明です。文字列のフォーマットや長さについて、推測してはなりません。</dd>
 <dd>トークンの寿命は限られていますが、<a href="#gl-refresh-token">refresh token</a> を使ってバックグラウンドでリフレッシュすることができます。</dd>
 <dd>パブリッシャーは、ビッドストリームに UID2 Token を送信します。</dd>
-<dd>詳細は <a href="uid-identifier-types">UID2 Identifier Types</a>、 <a href="ref-tokens#uid2-tokens-key-information">UID2 Tokens: Key Information</a> と <a href="ref-how-uid-is-created">How the UID2 Token Is Created</a> を参照してください。</dd>
+<dd>詳細は <a href="uid-identifier-types">UID2 identifier types</a>、 <a href="ref-tokens#uid2-tokens-key-information">UID2 tokens: Key information</a> と <a href="ref-how-uid-is-created">How the UID2 token is created</a> を参照してください。</dd>
 
 <dt><MdxJumpAnchor id="gl-unified-id-20">Unified ID 2.0 (UID2)</MdxJumpAnchor></dt>
 <dd>"UID2" という用語は、<a href="#gl-uid2-framework">UID2 framework</a>、<a href="#gl-uid2-service">UID2 service</a>、<a href="#gl-raw-uid2">raw UID2</a>、または <a href="#gl-uid2-token">UID2 Token</a> (Advertising Token) の意味でも使われます。</dd>
 
 <dt><MdxJumpAnchor id="gl-unix-time"><a href="#gl-unix-time">Unix time</a></MdxJumpAnchor></dt>
-<dd>Unix time (エポックタイム) は、1970年1月1日木曜日の00:00:00 <a href="#gl-utc">UTC</a> からの経過秒数として定義されています。Unix time は、UID2 の一部のレスポンスメッセージで使用され、ミリ秒で表されます。たとえば、`POST /token/refresh` エンドポイントのレスポンス (<a href="../endpoints/post-token-refresh#successful-response-with-tokens">Successful Response With Tokens</a> を参照) においてです。</dd>
+<dd>Unix time (エポックタイム) は、1970年1月1日木曜日の00:00:00 <a href="#gl-utc">UTC</a> からの経過秒数として定義されています。Unix time は、UID2 の一部のレスポンスメッセージで使用され、ミリ秒で表されます。たとえば、`POST /token/refresh` エンドポイントのレスポンス (<a href="../endpoints/post-token-refresh#successful-response-with-tokens">Successful response with tokens</a> を参照) においてです。</dd>
 <dd>例: 2024年1月1日午前9時00分00秒 GMT は、Unix time で `1704067200` と表されます。ミリ秒で表すと、`1704067200000` です。</dd>
 
 <dt><MdxJumpAnchor id="gl-utc">UTC</MdxJumpAnchor></dt>
