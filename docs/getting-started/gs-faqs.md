@@ -296,7 +296,7 @@ There may be thousands of decryption keys present in the system at any given poi
 
 #### How do I know when to refresh mapped raw UID2s?
 
-See [How do I know when to refresh a raw UID2?](#how-do-i-know-when-to-refresh-a-raw-uid2) in the FAQs for sdvertisers and data providers.
+See [How do I know when to refresh a raw UID2?](#how-do-i-know-when-to-refresh-a-raw-uid2) in the FAQs for advertisers and data providers.
 
 #### How do I know if/when the raw UID2 has rotated?
 
