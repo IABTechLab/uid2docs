@@ -484,7 +484,7 @@ March 4, 2024
 
 新しい UID2 ハッシュツールを追加しました。正規化とエンコーディングが正しく行われているかどうかをチェックすることができます。
 
-詳細は *Normalization and Encoding* ドキュメントの [UID2 hashing tool](../getting-started/gs-normalization-encoding#uid2-hashing-tool) を参照してください。
+詳細は *Normalization and encoding* ドキュメントの [UID2 hashing tool](../getting-started/gs-normalization-encoding#uid2-hashing-tool) を参照してください。
 
 <!-- APIDOCS-1974 -->
 

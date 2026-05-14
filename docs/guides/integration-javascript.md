@@ -66,7 +66,7 @@ The SDK for JavaScript includes automated <a href="../ref-info/glossary-uid#gl-t
 ## Storing the UID2 token in the browser
 <!-- GWH check corresponding (not identical) section in integration-prebid.md, integration-prebid-client-side.md, integration-prebid-client-side.md, for consistency -->
 
-The client-side option stores data using local storage. The client-server option uses local storage by default, but you can also choose to use a cookie instead. For details, see [UID2 storage format](../sdks/sdk-ref-javascript.md#uid2-storage-format) in the *SDK for JavaScript Reference Guide*.
+The client-side option stores data using local storage. The client-server option uses local storage by default, but you can also choose to use a cookie instead. For details, see [UID2 storage format](../sdks/sdk-ref-javascript.md#uid2-storage-format) in the *SDK for JavaScript reference guide*.
 
 The cookie size can be significant, which could be a problem. However, if local storage is not an option, this is one possible approach.
 

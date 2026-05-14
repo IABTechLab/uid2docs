@@ -519,7 +519,7 @@ March 4, 2024
 
 We've added a UID2 hashing tool so that you can check that you're normalizing and encoding correctly.
 
-For details, see [UID2 hashing tool](../getting-started/gs-normalization-encoding#uid2-hashing-tool) in the *Normalization and Encoding* documentation.
+For details, see [UID2 hashing tool](../getting-started/gs-normalization-encoding#uid2-hashing-tool) in the *Normalization and encoding* documentation.
 
 <!-- APIDOCS-1974 -->
 
@@ -533,7 +533,7 @@ February 28, 2024
 
 The Java SDK now supports Advertisers and Data Providers wanting to use the [POST&nbsp;/identity/map (v2)](../endpoints/post-identity-map-v2.md) endpoint.
 
-For details, see the updated documentation in the *SDK for Java Reference Guide*: [Usage for advertisers and data providers](../sdks/sdk-ref-java.md#usage-for-advertisersdata-providers).
+For details, see the updated documentation in the *SDK for Java reference guide*: [Usage for advertisers and data providers](../sdks/sdk-ref-java.md#usage-for-advertisersdata-providers).
 
 <!-- UID2-2759 -->
 
