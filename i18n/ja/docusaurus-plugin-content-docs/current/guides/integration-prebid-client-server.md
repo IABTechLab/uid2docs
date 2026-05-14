@@ -103,10 +103,10 @@ UID2 Token をリフレッシュするには、次の表に示すように 2 つ
 
 | Mode | Description | Link to Section | 
 | --- | --- | --- |
-| Client refresh mode | Prebid.js は内部で自動的にトークンをリフレッシュします。<br/>これは最もシンプルなアプローチです。 | [Client refresh mode](#client-refresh-mode) |
+| Client Refresh mode | Prebid.js は内部で自動的にトークンをリフレッシュします。<br/>これは最もシンプルなアプローチです。 | [Client Refresh mode](#client-refresh-mode) |
 | Server-only mode | Prebid.js はトークンを自動的にリフレッシュしません。トークンのリフレッシュを管理するのはパブリッシャーです。<br/>このオプションを選択する理由の例:<ul><li>[SDK for JavaScript](../sdks/sdk-ref-javascript.md) を使用してトークンをリフレッシュし、Prebid.js でトークンをビッドストリームに送信したい場合。</li><li>トークンを複数の手段(Prebid.js や Google など) でビッドストリームに送信したい場合。</li></ul> | [Server-only mode](#server-only-mode) |
 
-### Client refresh mode
+### Client Refresh mode
 
 該当するエンドポイントからの完全な JSON レスポンスボディを Prebid module に提供する必要があります:
 
@@ -118,21 +118,21 @@ UID2 Token をリフレッシュするには、次の表に示すように 2 つ
 Refresh Token が有効である限り、UID2 Prebid module は必要に応じて UID2 Token をリフレッシュします。
 
 このセクションには以下の情報が含まれます:
-- [Client refresh mode response configuration options](#client-refresh-mode-response-configuration-options)
-- [Client refresh mode cookie example](#client-refresh-mode-cookie-example)
-- [Client refresh mode uid2Token example](#client-refresh-mode-uid2token-example)
-- [Passing a new token: Client refresh mode](#passing-a-new-token-client-refresh-mode)
+- [Client Refresh mode response configuration options](#client-refresh-mode-response-configuration-options)
+- [Client Refresh mode cookie example](#client-refresh-mode-cookie-example)
+- [Client Refresh mode uid2Token example](#client-refresh-mode-uid2token-example)
+- [Passing a new token: Client Refresh mode](#passing-a-new-token-client-refresh-mode)
 
-#### Client refresh mode response configuration options
+#### Client Refresh mode response configuration options
 
 Client Refresh Mode を使用するようにモジュールを構成する場合、Prebid module にトークンを提供するための以下のオプションの **1つ** を選択する必要があります。
 
 | Option | Details | Use Case | 
 | --- | --- | --- |
-| `params.uid2Cookie` に、JSON 文字列としてレスポンスボディを含むクッキーの名前を設定します。 |  [Client refresh mode cookie example](#client-refresh-mode-cookie-example) を参照してください。 | レスポンスボディを保存するのに十分なスペースがクッキーに残っていることが確実な場合のみ、このオプションを使用してください。確信が持てない場合や、クッキーの保存の必要性が異なる可能性がある場合は、他のオプションを選択してください。 |
-| `params.uid2Token` を JavaScript オブジェクトとしてレスポンスボディに設定します。 | [Client refresh mode uid2Token example](#client-refresh-mode-uid2token-example) を参照してください。 | `params.uid2Token` を介してレスポンスボディを提供することもできます:<ul><li>すでに多くのデータをクッキーに保存していて、レスポンスボディを追加するとクッキーのサイズ制限を超える可能性がある場合。</li><li>Prebid module にトークン値を保存させたい場合。</li></ul> |
+| `params.uid2Cookie` に、JSON 文字列としてレスポンスボディを含むクッキーの名前を設定します。 |  [Client Refresh mode cookie example](#client-refresh-mode-cookie-example) を参照してください。 | レスポンスボディを保存するのに十分なスペースがクッキーに残っていることが確実な場合のみ、このオプションを使用してください。確信が持てない場合や、クッキーの保存の必要性が異なる可能性がある場合は、他のオプションを選択してください。 |
+| `params.uid2Token` を JavaScript オブジェクトとしてレスポンスボディに設定します。 | [Client Refresh mode uid2Token example](#client-refresh-mode-uid2token-example) を参照してください。 | `params.uid2Token` を介してレスポンスボディを提供することもできます:<ul><li>すでに多くのデータをクッキーに保存していて、レスポンスボディを追加するとクッキーのサイズ制限を超える可能性がある場合。</li><li>Prebid module にトークン値を保存させたい場合。</li></ul> |
 
-#### Client refresh mode cookie example
+#### Client Refresh mode cookie example
 
 Client Refresh Mode では、Prebid.js がトークンの更新を行います。そのためには、トークンを保存するように設定する必要があります。以下の例では、Cookie と、`uid2_pub_cookie` という Cookie にトークンを保存するための設定しています。
 
@@ -159,7 +159,7 @@ pbjs.setConfig({
 
 トークンの例は、[Sample token response object](#sample-token-response-object) を参照してください。
 
-#### Client refresh mode uid2Token example
+#### Client Refresh mode uid2Token example
 
 次の例は、コンフィギュレーションのサンプルを示しています。トークンの内容は、[Sample token response object](#sample-token-response-object)  を参照してください。
 
@@ -180,7 +180,7 @@ pbjs.setConfig({
 });
 ```
 
-#### Passing a new token: Client refresh mode
+#### Passing a new token: Client Refresh mode
 
 Refresh Token の有効期限が切れた場合は、新しい Advertising Token と新しい Refresh Token を将来のリフレッシュのために利用できるように、新しいトークンレスポンスを提供する必要があります。
 
