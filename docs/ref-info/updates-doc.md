@@ -400,7 +400,7 @@ For details, see [Server-side token generation](ref-server-side-token-generation
 
 <CustomTagsContainer tags="Guides, Mobile, Prebid.js">
 
-### Integration with Prebid mobile SDK (Android)
+### Integration with Prebid Mobile SDK (Android)
 
 July 2, 2024
 
