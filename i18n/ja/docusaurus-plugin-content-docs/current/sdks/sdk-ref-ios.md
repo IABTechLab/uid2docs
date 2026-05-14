@@ -16,8 +16,8 @@ iOS SDK を使用すると、UID2 を使用したクライアント ID の生成
 
 | Purpose | Product/Documentation |
 | :--- | :--- |
-| Google Mobile Ads (GMA) SDK を使用して iOS/tvOS アプリから広告リクエストで [secure signals](https://support.google.com/admob/answer/11556288) として <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 Token</Link> を送信する | [UID2 GMA plugin for iOS integration guide](../guides/mobile-plugin-gma-ios.md) |
-| Google Interactive Media Ads SDK for iOS を使用して iOS/tvOS アプリから広告リクエストで [secure signals](https://support.google.com/admob/answer/11556288) として <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 Token</Link> を送信する | [UID2 IMA plugin for iOS integration guide](../guides/mobile-plugin-ima-ios.md) |
+| Google Mobile Ads (GMA) SDK を使用して iOS/tvOS アプリから広告リクエストで [secure signals](https://support.google.com/admob/answer/11556288) として <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 Token</Link> を送信する | [UID2 GMA Plugin for iOS integration guide](../guides/mobile-plugin-gma-ios.md) |
+| Google Interactive Media Ads SDK for iOS を使用して iOS/tvOS アプリから広告リクエストで [secure signals](https://support.google.com/admob/answer/11556288) として <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 Token</Link> を送信する | [UID2 IMA Plugin for iOS integration guide](../guides/mobile-plugin-ima-ios.md) |
 
 ## tvOS support
 

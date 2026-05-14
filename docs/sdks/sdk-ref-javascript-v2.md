@@ -262,7 +262,7 @@ If the `getAdvertisingTokenAsync()` function is called *after* the initializatio
 ```
 
 :::tip
-You can use this function to be notified of the completion of the Client-Side JavaScript SDK initialization from a component that might not be the one that called `init()`.
+You can use this function to be notified of the completion of the client-side JavaScript SDK initialization from a component that might not be the one that called `init()`.
 :::
 
 ### isLoginRequired(): boolean

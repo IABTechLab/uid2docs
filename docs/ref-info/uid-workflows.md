@@ -14,7 +14,7 @@ The following table lists four key workflows in the UID2 framework with links to
 
 | Workflow | Intended Primary Participants | Integration Guides |
 | :--- |:--- |:--- |
-| [Workflow for DSPs](../overviews/overview-dsps.md#workflow-for-dsps) (Buy-Side) | DSPs who transact on UID2 tokens in the bidstream. | See [DSP integrations](../guides/summary-guides#dsp-integrations) |
+| [Workflow for DSPs](../overviews/overview-dsps.md#workflow-for-dsps) (buy-side) | DSPs who transact on UID2 tokens in the bidstream. | See [DSP integrations](../guides/summary-guides#dsp-integrations) |
 | [Workflow for advertisers](../overviews/overview-advertisers.md#workflow-for-advertisers) and [Workflow for data providers](../overviews/overview-data-providers.md#workflow-for-data-providers) | Organizations that collect user data and push it to DSPs. | See [Advertiser/data provider integrations](../guides/summary-guides#advertiserdata-provider-integrations) |
 | [Workflow for publishers](../overviews/overview-publishers.md#workflow-for-publishers) | Organizations that propagate UID2 tokens to the bidstream via SSPs.<br/> NOTE: Publishers can choose to integrate using Prebid, leverage the SDK for JavaScript, or complete their own server-side integration without using an SDK. | See [Publisher integrations](../guides/summary-guides#publisher-integrations) |
 | [Opt-out workflow](../getting-started/gs-opt-out.md#opt-out-workflow) | Consumers who engage with publishers or their SSO providers and other identity providers. | N/A |

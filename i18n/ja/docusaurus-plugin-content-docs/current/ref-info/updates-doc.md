@@ -778,49 +778,49 @@ September 7, 2023
 
 <CustomTagsContainer tags="Guides, Mobile, SDKs">
 
-### IMA mobile plugin for Android
+### IMA mobile Plugin for Android
 
 August 8, 2023
 
 Android 向け UID2 Interactive Media Ads(IMA)Plugin に関する情報を提供する、パブリッシャー向けの新しいガイドです。このプラグインを使用すると、Google IMA SDK for Android を使用するパブリッシャーが、Android アプリからの広告リクエストで <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 token</Link> を secure signals として送信できるようになります。
 
-詳細は [UID2 IMA plugin for Android integration guide](../guides/mobile-plugin-ima-android.md) を参照してください。
+詳細は [UID2 IMA Plugin for Android integration guide](../guides/mobile-plugin-ima-android.md) を参照してください。
 
 </CustomTagsContainer>
 
 <CustomTagsContainer tags="Guides, Mobile, SDKs">
 
-### IMA mobile plugin for iOS
+### IMA mobile Plugin for iOS
 
 August 8, 2023
 
 iOS 向け UID2 Interactive Media Ads(IMA)Plugin に関する情報を提供する、パブリッシャー向けの新しいガイドです。このプラグインを使用すると、Google IMA SDK for iOS を使用するパブリッシャーが、iOS アプリからの広告リクエストで <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 token</Link> を secure signals として送信できるようになります。
 
-詳細は [UID2 IMA plugin for iOS integration guide](../guides/mobile-plugin-ima-ios.md) を参照してください。
+詳細は [UID2 IMA Plugin for iOS integration guide](../guides/mobile-plugin-ima-ios.md) を参照してください。
 
 </CustomTagsContainer>
 
 <CustomTagsContainer tags="Guides, Mobile, SDKs">
 
-### GMA mobile plugin for Android
+### GMA mobile Plugin for Android
 
 August 4, 2023
 
 Android 向け UID2 Google Mobile Ads(GMA)Plugin に関する情報を提供する、パブリッシャー向けの新しいガイドです。このプラグインを使用すると、Google GMA SDK を使用するパブリッシャーが、Android アプリからの広告リクエストで <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 token</Link> を secure signals として送信できるようになります。
 
-詳細は [UID2 GMA plugin for Android integration guide](../guides/mobile-plugin-gma-android.md) を参照してください。
+詳細は [UID2 GMA Plugin for Android integration guide](../guides/mobile-plugin-gma-android.md) を参照してください。
 
 </CustomTagsContainer>
 
 <CustomTagsContainer tags="Guides, Mobile, SDKs">
 
-### GMA mobile plugin for iOS
+### GMA mobile Plugin for iOS
 
 August 4, 2023
 
 iOS 向け UID2 Google Mobile Ads(GMA)Plugin に関する情報を提供する、パブリッシャー向けの新しいガイドです。このプラグインを使用すると、Google GMA SDK を使用するパブリッシャーが、iOS アプリからの広告リクエストで <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 token</Link> を secure signals として送信できるようになります。
 
-詳細は [UID2 GMA plugin for iOS integration guide](../guides/mobile-plugin-gma-ios.md) を参照してください。
+詳細は [UID2 GMA Plugin for iOS integration guide](../guides/mobile-plugin-gma-ios.md) を参照してください。
 
 </CustomTagsContainer>
 

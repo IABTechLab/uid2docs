@@ -1,5 +1,5 @@
 ---
-title: UID2 GMA plugin for Android
+title: UID2 GMA Plugin for Android
 description: A guide for publishers using GMA for ad requests on Android apps.
 hide_table_of_contents: false
 sidebar_position: 12
@@ -8,7 +8,7 @@ displayed_sidebar: docs
 
 import Link from '@docusaurus/Link';
 
-# UID2 GMA plugin for Android integration guide
+# UID2 GMA Plugin for Android integration guide
 
 The UID2 Google Mobile Ads (GMA) Plugin for Android enables publishers that use the [Google Mobile Ads (GMA) SDK](https://developers.google.com/ad-manager/mobile-ads-sdk) to send <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> as [secure signals](https://support.google.com/admob/answer/11556288) in ad requests from Android apps. This is done automatically, with no direct coding needed from the app developer.
 

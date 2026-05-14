@@ -48,7 +48,7 @@ To integrate with UID2 client-side, you'll need to complete the following steps:
 
 1. [Check that the token was successfully generated and then pass it for bidstream use](#pass-generated-token-for-bidstream-use).
 
-1. [Optionally, integrate the UID2 GMA/IMA plugin for GAM Secure Signals integration](#optional-uid2-gmaima-plugin-for-gam-secure-signals-integration).
+1. [Optionally, integrate the UID2 GMA/IMA Plugin for GAM Secure Signals integration](#optional-uid2-gmaima-plugin-for-gam-secure-signals-integration).
 
 ## Mobile SDK version
 
@@ -735,7 +735,7 @@ If the response status indicates that the DII has been opted out of UID2, you mi
 
 <SnptEnableLogging />
 
-## Optional: UID2 GMA/IMA plugin for GAM Secure Signals integration
+## Optional: UID2 GMA/IMA Plugin for GAM Secure Signals integration
 
 <SnptGMAIMA_Plugins />
 

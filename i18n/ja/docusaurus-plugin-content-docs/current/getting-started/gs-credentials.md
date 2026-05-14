@@ -85,7 +85,7 @@ Client-Side の実装([Client-side integration guide for Prebid.js](../guides/in
 
 **Client keypair** は、Client-Side でトークンを生成する実装を使用するアカウントを一意に定義するために使用される、これら 2 つの値をまとめたグループ用語です。
 
-UID2 を Client-Side で実装する場合、UID2 JavaScript SDK、Client-Side Integration for Mobile、または Prebid.js を使用している場合は、設定の一部として SDK または Prebid.js に値を提供してください。
+UID2 を Client-Side で実装する場合、UID2 JavaScript SDK、client-side integration for mobile、または Prebid.js を使用している場合は、設定の一部として SDK または Prebid.js に値を提供してください。
 
 Notes:
 
