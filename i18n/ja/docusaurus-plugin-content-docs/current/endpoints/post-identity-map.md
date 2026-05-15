@@ -298,7 +298,7 @@ remap_identities(to_remap)
 アイデンティティマッピングの一般的な情報については、[Advertiser/data provider integration overview](../guides/integration-advertiser-dataprovider-overview.md) を参照してください。
 
 特定の SDK の移行ガイダンスについては、以下を参照してください:
-- SDK for Python Reference Guide, [Usage for advertisers/data providers](../sdks/sdk-ref-python.md#usage-for-advertisersdata-providers) セクション
-- SDK for Java Reference Guide, [Usage for advertisers/data providers](../sdks/sdk-ref-java.md#usage-for-advertisersdata-providers) セクション
+- SDK for Python reference guide, [Usage for advertisers/data providers](../sdks/sdk-ref-python.md#usage-for-advertisersdata-providers) セクション
+- SDK for Java reference guide, [Usage for advertisers/data providers](../sdks/sdk-ref-java.md#usage-for-advertisersdata-providers) セクション
 
 Snowflake に関する情報は、[Snowflake integration guide](../guides/integration-snowflake.md) を参照してください。

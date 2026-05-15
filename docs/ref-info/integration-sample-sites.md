@@ -22,7 +22,7 @@ This section summarizes sample integrations using the UID2 SDK for JavaScript di
 
 ### Client-side integration using UID2 SDK for JavaScript
 
-This sample is for publishers who prefer a fully client-side integration using the [SDK for JavaScript Reference Guide](https://unifiedid.com/docs/sdks/sdk-ref-javascript) to generate and manage tokens directly in the browser. This approach is ideal for fast prototyping with minimal back-end requirements.
+This sample is for publishers who prefer a fully client-side integration using the [SDK for JavaScript reference guide](https://unifiedid.com/docs/sdks/sdk-ref-javascript) to generate and manage tokens directly in the browser. This approach is ideal for fast prototyping with minimal back-end requirements.
 
 - Site: [Client-Side UID2 Integration Example using JavaScript SDK](https://js-client-side.samples.uidapi.com/)
 - Code: [uid2-examples/web-integrations/javascript-sdk/client-side](https://github.com/IABTechLab/uid2-examples/tree/main/web-integrations/javascript-sdk/client-side)

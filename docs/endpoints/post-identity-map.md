@@ -307,8 +307,8 @@ remap_identities(to_remap)
 
 For general information about identity mapping, see [Advertiser/data provider integration overview](../guides/integration-advertiser-dataprovider-overview.md).
 
-For migration guidance for specific SDKs, see:
-- SDK for Python Reference Guide, [Usage for advertisers/data providers](../sdks/sdk-ref-python.md#usage-for-advertisersdata-providers) section
-- SDK for Java Reference Guide, [Usage for advertisers/data providers](../sdks/sdk-ref-java.md#usage-for-advertisersdata-providers) section
+For migration guidance for specific SDKs, see the *Usage for advertisers/data providers* section in the following reference guides:
+- [SDK for Python reference guide](../sdks/sdk-ref-python.md#usage-for-advertisersdata-providers)
+- [SDK for Java reference guide](../sdks/sdk-ref-java.md#usage-for-advertisersdata-providers)
 
 For Snowflake information, see [Snowflake integration guide](../guides/integration-snowflake.md).

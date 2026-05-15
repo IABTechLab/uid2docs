@@ -583,7 +583,7 @@ January 22, 2024
 
 We've added sections in the SDK for Java documentation to help publishers implementing the SDK.
 
-For details, see [Usage for publishers](../sdks/sdk-ref-java.md#usage-for-publishers) in the SDK for Java Reference Guide.
+For details, see [Usage for publishers](../sdks/sdk-ref-java.md#usage-for-publishers) in the *SDK for Java reference guide*.
 
 <!-- APIDOCS-1705 -->
 

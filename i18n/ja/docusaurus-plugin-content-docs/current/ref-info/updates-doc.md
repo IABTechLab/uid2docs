@@ -548,7 +548,7 @@ January 26, 2024
 
 SDK for Java のドキュメントに、SDK を実装するパブリッシャーに役立つ新しいセクションを追加しました。
 
-詳細は SDK for Java Reference Guide の [Usage for publishers](../sdks/sdk-ref-java.md#usage-for-publishers) を参照してください。
+詳細は *SDK for Java reference guide* の [Usage for publishers](../sdks/sdk-ref-java.md#usage-for-publishers) を参照してください。
 
 <!-- APIDOCS-1705 -->
 
