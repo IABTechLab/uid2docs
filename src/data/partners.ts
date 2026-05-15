@@ -710,7 +710,7 @@ export const partnersData: PartnersDataType = [
   },
   {
     name: "Open X",
-    logo: "PartnerLogo_OpenX_580x250.png",
+    logo: "OpenX.png",
     type: ["DSP"],
   },
   {
