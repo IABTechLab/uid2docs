@@ -725,7 +725,7 @@ This document was updated in January 2024 to [Client-side integration guide for 
 
 November 2, 2023
 
-The Client-side integration guide for Prebid.js is a completely new document at the existing URL, covering a way of integrating UID2 with Prebid that does not require any server-side work.
+The *Client-side integration guide for Prebid.js* is a completely new document at the existing URL, covering a way of integrating UID2 with Prebid that does not require any server-side work.
 
 The content that was in the previous version of the Prebid document is now in a supplementary document, *Prebid.js advanced integration guide*, for publishers who are using a Private Operator or who prefer to implement token generate on the server side.
 
@@ -784,7 +784,7 @@ The following documents were released in the third quarter of 2023.
 
 <CustomTagsContainer tags="Guides, Private Operator">
 
-### Private Operator guide for Google confidential space 
+### Private Operator guide for Google Confidential Space
 
 September 30, 2023
 
@@ -813,7 +813,7 @@ For details, see:
 
 <CustomTagsContainer tags="Guides, Mobile, SDKs">
 
-### IMA mobile Plugin for Android
+### IMA Plugin for Android
 
 August 8, 2023
 
@@ -825,7 +825,7 @@ For details, see [UID2 IMA Plugin for Android integration guide](../guides/mobil
 
 <CustomTagsContainer tags="Guides, Mobile, SDKs">
 
-### IMA mobile Plugin for iOS
+### IMA Plugin for iOS
 
 August 8, 2023
 
@@ -837,7 +837,7 @@ For details, see [UID2 IMA Plugin for iOS integration guide](../guides/mobile-pl
 
 <CustomTagsContainer tags="Guides, Mobile, SDKs">
 
-### GMA mobile Plugin for Android
+### GMA Plugin for Android
 
 August 4, 2023
 
@@ -849,7 +849,7 @@ For details, see [UID2 GMA Plugin for Android integration guide](../guides/mobil
 
 <CustomTagsContainer tags="Guides, Mobile, SDKs">
 
-### GMA mobile Plugin for iOS
+### GMA Plugin for iOS
 
 August 4, 2023
 
@@ -861,7 +861,7 @@ For details, see [UID2 GMA Plugin for iOS integration guide](../guides/mobile-pl
 
 <CustomTagsContainer tags="Infrastructure">
 
-### UID2 website in japanese
+### UID2 website in Japanese
 
 August 3, 2023
 

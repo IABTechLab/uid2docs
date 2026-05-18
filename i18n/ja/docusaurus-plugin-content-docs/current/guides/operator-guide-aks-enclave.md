@@ -305,7 +305,7 @@ az aks create \
 
 #### Get the principal ID of the managed identity
 
-Principal ID を取得するには、次のコマンドを実行します:
+principal ID を取得するには、次のコマンドを実行します:
 
 ```
 export MANAGED_IDENTITY_PRINCIPAL_ID="$(az aks show --resource-group ${RESOURCE_GROUP} --name ${AKS_CLUSTER_NAME} --query "identityProfile.kubeletidentity.clientId" --output tsv)"

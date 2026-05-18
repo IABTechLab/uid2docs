@@ -28,7 +28,7 @@ Before you can participate with UID2 sharing you must have in place an effective
 
 If you've agreed to comply with the UID2 Participation Policy, you can proceed with UID2 sharing by following the documentation: see [UID2 sharing](/docs/category/uid2-sharing).
 
-If you still need to satisfy this requirement, or if you have any questions, please reach out to [Uid2partners@thetradedesk.com](mailto:UID2partners@thetradedesk.com).
+If you still need to satisfy this requirement, or if you have any questions, please reach out to [UID2partners@thetradedesk.com](mailto:UID2partners@thetradedesk.com).
 
 ### Exceptions
 

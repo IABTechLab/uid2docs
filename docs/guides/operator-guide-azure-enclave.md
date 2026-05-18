@@ -103,7 +103,7 @@ To deploy a new UID2 Private Operator for Azure, you'll need to complete the fol
 - [Complete key vault and managed identity setup](#complete-key-vault-and-managed-identity-setup)
 - [Set up the VPC network](#set-up-the-vpc-network)
 - [Complete the UID2 Private Operator setup](#complete-the-uid2-private-operator-setup)
-- [Set up the gateway load balancer](#set-up-the-gateway-load-balancer)
+- [Set up the Gateway Load Balancer](#set-up-the-gateway-load-balancer)
 
 ### Download ZIP file and extract files
 
@@ -239,7 +239,7 @@ Follow these steps:
    { "ipAddress": { "type": "Array", "value": [ "10.0.0.5", "10.0.0.4" ] } }
    ```
 
-### Set up the gateway load balancer
+### Set up the Gateway Load Balancer
 
 The next step is to set up the [Gateway Load Balancer](https://learn.microsoft.com/en-us/azure/load-balancer/gateway-overview), which takes the private IP addresses of the ACIs you created and uses them as a [backend pool](https://learn.microsoft.com/en-us/azure/load-balancer/backend-pool-management).
 
@@ -303,7 +303,7 @@ Running the health check is the same for the integration and production environm
 
 Follow these steps:
 
-1. Get the public IP address for the Gateway Load Balancer&#8212;the value output as a result of [Set up the gateway load balancer](#set-up-the-gateway-load-balancer) Step 4.
+1. Get the public IP address for the Gateway Load Balancer&#8212;the value output as a result of [Set up the Gateway Load Balancer](#set-up-the-gateway-load-balancer) Step 4.
 
 2. To test operator status, in your browser, go to the health check endpoint: `http://{LB_IP}/ops/healthcheck`.
 
@@ -342,7 +342,7 @@ To upgrade, complete the following steps:
 
 1. Follow the instructions in [Complete the UID2 Private Operator setup](#complete-the-uid2-private-operator-setup), using the new files, to deploy ACIs with new versions.
 
-2. Follow the instructions in [Set up the gateway load balancer](#set-up-the-gateway-load-balancer) to add the new ACIs to the backend pool.
+2. Follow the instructions in [Set up the Gateway Load Balancer](#set-up-the-gateway-load-balancer) to add the new ACIs to the backend pool.
 
 3. Check the health of the new ACIs and make sure the status is healthy, as shown in the following example:
 
@@ -350,7 +350,7 @@ To upgrade, complete the following steps:
    az network application-gateway show-backend-health --resource-group {RESOURCE_GROUP_NAME} --name uid-operator-gateway
    ```
 
-4. Clean up old ACIs from the Gateway Load Balancer: Follow the instructions in [Set up the gateway load balancer](#set-up-the-gateway-load-balancer) to remove the old ACIs from the backend pool.
+4. Clean up old ACIs from the Gateway Load Balancer: Follow the instructions in [Set up the Gateway Load Balancer](#set-up-the-gateway-load-balancer) to remove the old ACIs from the backend pool.
 
 5. Shut down old ACIs by running the following command:
 

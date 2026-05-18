@@ -305,7 +305,7 @@ Be sure to use the latest supported Kubernetes version, using the `--kubernetes-
 
 #### Get the principal ID of the managed identity
 
-To get the Principal ID, run the following command, using your own values as needed:
+To get the principal ID, run the following command, using your own values as needed:
 
 ```
 export MANAGED_IDENTITY_PRINCIPAL_ID="$(az aks show --resource-group ${RESOURCE_GROUP} --name ${AKS_CLUSTER_NAME} --query "identityProfile.kubeletidentity.clientId" --output tsv)"

@@ -286,7 +286,7 @@ For deployment to the production environment we do not recommend this option. We
 :::
 
    1. [Set up service account rules and permissions](#set-up-service-account-rules-and-permissions)
-   1. [Create secret for the operator key in secret manager](#create-secret-for-the-operator-key-in-secret-manager)
+   1. [Create secret for the operator key in Secret Manager](#create-secret-for-the-operator-key-in-secret-manager)
    1. [Update the script with valid values](#update-the-script-with-valid-values)
    1. [Run the script](#run-the-script)
    1. [Test gcloud using the health check endpoint](#test-gcloud-using-the-health-check-endpoint)
@@ -368,7 +368,7 @@ To set up and configure the account that you created when you installed the gclo
 `source-ranges` specifies the range of IP addresses from which your clients will call the Private Operator. It is in CIDR notation, and you can use comma-separated values to provide multiple ranges. Example: `--source-ranges="10.0.0.0/8,10.10.0.0/16"`. Make sure the ranges are accurate and include only IP addresses that belong to you.
 :::
 
-#### Create secret for the operator key in secret manager
+#### Create secret for the operator key in Secret Manager
 
 As part of setting up your UID2 account (see [UID2 Operator account setup](#uid2-operator-account-setup)), you'll receive an operator key for each environment.
 
@@ -422,7 +422,7 @@ Placeholder values are defined in the following table.
 | `{IMAGE_FAMILY}` | Use `confidential-space` for Integration and Production, `confidential-space-debug` for debugging purposes in Integration only. Note that `confidential-space-debug` will not work in Production. |
 | `{SERVICE_ACCOUNT}` | The service account email that you created as part of creating your account, in this format: `{SERVICE_ACCOUNT_NAME}@{PROJECT_ID}.iam.gserviceaccount.com`.<br/>For details, see [Set up service account rules and permissions](#set-up-service-account-rules-and-permissions) (Step 4). |
 | `{OPERATOR_IMAGE}` | The Docker image URL for the UID2 Private Operator for GCP, used in configuration.<br/>This can be found in the `terraform.tfvars` file in the GCP download file (see [Operator version](#operator-version)). |
-| `{OPERATOR_KEY_SECRET_FULL_NAME}` | The full name that you specified for the Operator Key secret (see [Create secret for the operator key in secret manager](#create-secret-for-the-operator-key-in-secret-manager)), including the path, in the format `projects/<project_id>/secrets/<secret_id>/versions/<version>`. For example: `projects/111111111111/secrets/uid2-operator-operator-key-secret-integ/versions/1`. |
+| `{OPERATOR_KEY_SECRET_FULL_NAME}` | The full name that you specified for the Operator Key secret (see [Create secret for the operator key in Secret Manager](#create-secret-for-the-operator-key-in-secret-manager)), including the path, in the format `projects/<project_id>/secrets/<secret_id>/versions/<version>`. For example: `projects/111111111111/secrets/uid2-operator-operator-key-secret-integ/versions/1`. |
 
 ##### Sample deployment script&#8212;integ
 
