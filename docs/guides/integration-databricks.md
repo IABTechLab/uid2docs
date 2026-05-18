@@ -54,7 +54,7 @@ Here are some key benefits of integrating with Databricks for your UID2 processi
 At a high level, the following are the steps to set up your Databricks integration and process your data:
 
 1. [Create a clean room for UID2 collaboration](#create-clean-room-for-uid2-collaboration).
-1. [Send your databricks sharing identifier to your UID2 contact](#send-sharing-identifier-to-uid2-contact).
+1. [Send your Databricks sharing identifier to your UID2 contact](#send-sharing-identifier-to-uid2-contact).
 1. [Add data to the clean room](#add-data-to-the-clean-room).
 1. [Map DII](#map-dii) by running the clean room notebook.
 

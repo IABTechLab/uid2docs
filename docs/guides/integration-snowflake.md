@@ -472,9 +472,9 @@ A successful query returns the following information for the specified raw UID2.
 |Column Name|Data Type|Description|
 | :--- | :--- | :--- |
 | `UID_TOKEN` | TEXT | The value is one of the following:<ul><li>Encryption successful: The UID2 token containing the raw UID2.</li><li>Encryption not successful: `NULL`.</li></ul> |
-| `ENCRYPTION_STATUS` | TEXT | The value is one of the following:<ul><li>Encryption successful: `NULL`.</li><li>Encryption not successful: The reason why the raw UID2 was not encrypted. For example: `INVALID_RAW_UID2` or `INVALID NOT_AUTHORIZED_FOR_MASTER_KEY`.<br/>For details, see [Values for the encryption_status column](#values-for-the-encryption_status-column).</li></ul> |
+| `ENCRYPTION_STATUS` | TEXT | The value is one of the following:<ul><li>Encryption successful: `NULL`.</li><li>Encryption not successful: The reason why the raw UID2 was not encrypted. For example: `INVALID_RAW_UID2` or `INVALID NOT_AUTHORIZED_FOR_MASTER_KEY`.<br/>For details, see [Values for the ENCRYPTION_STATUS column](#values-for-the-encryption_status-column).</li></ul> |
 
-#### Values for the encryption_status column
+#### Values for the ENCRYPTION_STATUS column
 
 The following table shows possible values for the `ENCRYPTION_STATUS` column.
 
@@ -541,13 +541,13 @@ A successful query returns the following information for the specified UID2 toke
 |:--------------------| :--- | :--- |
 | `UID`               | TEXT | The value is one of the following:<ul><li>Decryption successful: The raw UID2 corresponding to the UID2 token.</li><li>Decryption not successful: `NULL`.</li></ul> |
 | `SITE_ID`           | INT | The value is one of the following:<ul><li>Decryption successful: The identifier of the UID2 participant that encrypted the token.</li><li>Decryption not successful: `NULL`.</li></ul> |
-| `DECRYPTION_STATUS` | TEXT | The value is one of the following:<ul><li>Decryption successful: `NULL`.</li><li>Decryption not successful:  The reason why the UID2 token was not decrypted; for example, `EXPIRED_TOKEN`.<br/>For details, see [Values for the decryption_status column](#values-for-the-decryption_status-column).</li></ul> |
+| `DECRYPTION_STATUS` | TEXT | The value is one of the following:<ul><li>Decryption successful: `NULL`.</li><li>Decryption not successful:  The reason why the UID2 token was not decrypted; for example, `EXPIRED_TOKEN`.<br/>For details, see [Values for the DECRYPTION_STATUS column](#values-for-the-decryption_status-column).</li></ul> |
 
 :::note
 In most circumstances where UID2 token cannot be successfully decrypted, the function will not return any rows at all.
 :::
 
-#### Values for the decryption_status column
+#### Values for the DECRYPTION_STATUS column
 
 Possible values for `DECRYPTION_STATUS` are:
 

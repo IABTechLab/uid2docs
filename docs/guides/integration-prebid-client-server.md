@@ -322,7 +322,7 @@ An example of a tool for validating and debugging Prebid.js configuration is Pro
 
 The following parameters apply only to the UID2 Prebid User ID Module integration.
 
-In this table, CR = client refresh mode, SO = server-only mode, and N/A = not applicable.
+In this table, CR = Client Refresh mode, SO = Server-Only mode, and N/A = not applicable.
 
 | Param under userSync.userIds[] | Mode/Scope | Type | Description | Example |
 | --- | --- | --- | --- | --- |
