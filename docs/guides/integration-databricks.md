@@ -145,13 +145,13 @@ The following table provides information about the structure of the output data,
 | `UID` | string | The value is one of the following:<ul><li>**DII was successfully mapped**: The UID2 associated with the DII.</li><li>**Otherwise**: `NULL`.</li></ul> |
 | `PREV_UID` | string | The value is one of the following:<ul><li>**DII was successfully mapped and the current raw UID2 was rotated in the last 90 days**: the previous raw UID2.</li><li>**Otherwise**: `NULL`.</li></ul> |
 | `REFRESH_FROM` | timestamp | The value is one of the following:<ul><li>**DII was successfully mapped**: The timestamp indicating when this UID2 should be refreshed.</li><li>**Otherwise**: `NULL`.</li></ul> |
-| `UNMAPPED` | string | The value is one of the following:<ul><li>**DII was successfully mapped**: `NULL`.</li><li>**Otherwise**: The reason why the identifier was not mapped: `OPTOUT`, `INVALID IDENTIFIER`, or `INVALID INPUT TYPE`.<br/>For details, see [Values for the unmapped column](#values-for-the-unmapped-column).</li></ul> |
+| `UNMAPPED` | string | The value is one of the following:<ul><li>**DII was successfully mapped**: `NULL`.</li><li>**Otherwise**: The reason why the identifier was not mapped: `OPTOUT`, `INVALID IDENTIFIER`, or `INVALID INPUT TYPE`.<br/>For details, see [Values for the UNMAPPED column](#values-for-the-unmapped-column).</li></ul> |
 
 :::note
 The raw UID2 does not change before the refresh timestamp. After the refresh timestamp, remapping the DII returns a new refresh timestamp, but the raw UID2 might or might not change. It is possible for the raw UID2 to remain unchanged for multiple refresh intervals.
 :::
 
-#### Values for the unmapped column
+#### Values for the UNMAPPED column
 
 The following table shows possible values for the `UNMAPPED` column in the output table schema.
 

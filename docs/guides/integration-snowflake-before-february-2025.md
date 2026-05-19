@@ -136,9 +136,9 @@ A successful query returns the following information for the specified DII.
 | :--- | :--- | :--- |
 | `UID2` | TEXT | The value is one of the following:<ul><li>DII was successfully mapped: The UID2 associated with the DII.</li><li>DII was not successfully mapped: `NULL`.</li></ul> |
 | `BUCKET_ID` | TEXT | The value is one of the following:<ul><li>DII was successfully mapped: The ID of the salt bucket used to generate the UID2. This ID maps to the bucket ID in the `UID2_SALT_BUCKETS` view.</li><li>DII was not successfully mapped: `NULL`.</li></ul> |
-| `UNMAPPED` | TEXT | The value is one of the following:<ul><li>DII was successfully mapped: `NULL`.</li><li>DII was not successfully mapped:  The reason why the identifier was not mapped: `OPTOUT`, `INVALID IDENTIFIER`, or `INVALID INPUT TYPE`.<br/>For details, see [Values for the unmapped column](#values-for-the-unmapped-column).</li></ul> |
+| `UNMAPPED` | TEXT | The value is one of the following:<ul><li>DII was successfully mapped: `NULL`.</li><li>DII was not successfully mapped:  The reason why the identifier was not mapped: `OPTOUT`, `INVALID IDENTIFIER`, or `INVALID INPUT TYPE`.<br/>For details, see [Values for the UNMAPPED column](#values-for-the-unmapped-column).</li></ul> |
 
-#### Values for the unmapped column
+#### Values for the UNMAPPED column
 
 The following table shows possible values for the `UNMAPPED` column.
 
@@ -483,12 +483,12 @@ Advantages of the `FN_T_UID2_IDENTITY_MAP` function:
 
 - It supports mapping both phone numbers and hashed phone numbers.
 - It supports user opt-out.
-- It adds a new column, `UNMAPPED`. In any scenario where the DII cannot be mapped to a UID2 for any reason, this column includes information about the reason.<br/>For details, see [Values for the unmapped column](#values-for-the-unmapped-column)
+- It adds a new column, `UNMAPPED`. In any scenario where the DII cannot be mapped to a UID2 for any reason, this column includes information about the reason.<br/>For details, see [Values for the UNMAPPED column](#values-for-the-unmapped-column)
 
 This section includes the following information to help you upgrade to the new function:
 
 - [Changing existing code](#changing-existing-code) 
-- [Using the values for the unmapped column](#using-the-values-for-the-unmapped-column) 
+- [Using the Values for the UNMAPPED column](#using-the-values-for-the-unmapped-column) 
 
 ### Changing existing code
 
@@ -522,10 +522,10 @@ After:
 FN_T_UID2_IDENTITY_MAP(EMAIL_HASH, 'email_hash')
 ```
 
-### Using the values for the unmapped column
+### Using the Values for the UNMAPPED column
 When you have the new function implemented, you can check the `UNMAPPED` column returned by the `FN_T_UID2_IDENTITY_MAP`. If any DII could not be mapped to a UID2, this column gives the reason.
 
-For details about the values and their explanations, see [Values for the unmapped column](#values-for-the-unmapped-column).
+For details about the values and their explanations, see [Values for the UNMAPPED column](#values-for-the-unmapped-column).
 
 ## Usage for UID2 sharers
 

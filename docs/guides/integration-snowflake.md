@@ -180,9 +180,9 @@ A successful query returns the following information for the specified DII.
 | `UID`          | TEXT      | The value is one of the following:<ul><li>DII was successfully mapped: The UID2 associated with the DII.</li><li>Otherwise: `NULL`.</li></ul>                                                                                                                                                               |
 | `PREV_UID`     | TEXT      | The value is one of the following:<ul><li>DII was successfully mapped and the current raw UID2 was rotated in the last 90 days: the previous raw UID2.</li><li>Otherwise: `NULL`.</li></ul>                                             |
 | `REFRESH_FROM` | NUMBER | The value is one of the following:<ul><li>DII was successfully mapped: The timestamp (in epoch seconds) indicating when this UID2 should be refreshed.</li><li>Otherwise: `NULL`.</li></ul>                                                                                                                    |
-| `UNMAPPED`     | TEXT      | The value is one of the following:<ul><li>DII was successfully mapped: `NULL`.</li><li>Otherwise:  The reason why the identifier was not mapped: `OPTOUT`, `INVALID IDENTIFIER`, or `INVALID INPUT TYPE`.<br/>For details, see [Values for the unmapped column](#values-for-the-unmapped-column).</li></ul> |
+| `UNMAPPED`     | TEXT      | The value is one of the following:<ul><li>DII was successfully mapped: `NULL`.</li><li>Otherwise:  The reason why the identifier was not mapped: `OPTOUT`, `INVALID IDENTIFIER`, or `INVALID INPUT TYPE`.<br/>For details, see [Values for the UNMAPPED column](#values-for-the-unmapped-column).</li></ul> |
 
-#### Values for the unmapped column
+#### Values for the UNMAPPED column
 
 The following table shows possible values for the `UNMAPPED` column.
 

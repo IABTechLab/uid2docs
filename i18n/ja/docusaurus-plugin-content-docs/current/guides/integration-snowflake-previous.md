@@ -157,9 +157,9 @@ DII が電話番号の場合、UID2 の[Phone number normalization](../getting-s
 | :--- | :--- | :--- |
 | `UID` | TEXT | 値は以下のいずれかです：<ul><li>DII が正常にマッピングされた場合： DII に関連付けられた UID2。</li><li>DII が正常にマッピングされなかった場合：`NULL`。</li></ul> |
 | `BUCKET_ID` | TEXT | 値は以下のいずれかです：<ul><li> DII が正常にマッピングされた場合：UID2 を生成するために使用された<Link href="../ref-info/glossary-uid#gl-salt-bucket">ソルトバケット</Link>の ID。この ID は `SALT_BUCKETS` ビューのバケット ID にマッピングされます。</li><li>DII が正常にマッピングされなかった場合：`NULL`。</li></ul> |
-| `UNMAPPED`  | TEXT | 値は以下のいずれかです：<ul><li>DII が正常にマッピングされた場合：`NULL`。</li><li>DII が正常にマッピングされなかった場合：識別子がマッピングされなかった理由：`OPTOUT`、`INVALID IDENTIFIER`、または`INVALID INPUT TYPE`。<br/>詳細は、[Values for the unmapped column](#values-for-the-unmapped-column)を参照してください。</li></ul> |
+| `UNMAPPED`  | TEXT | 値は以下のいずれかです：<ul><li>DII が正常にマッピングされた場合：`NULL`。</li><li>DII が正常にマッピングされなかった場合：識別子がマッピングされなかった理由：`OPTOUT`、`INVALID IDENTIFIER`、または`INVALID INPUT TYPE`。<br/>詳細は、[Values for the UNMAPPED column](#values-for-the-unmapped-column)を参照してください。</li></ul> |
 
-#### Values for the unmapped column
+#### Values for the UNMAPPED column
 
 以下の表は、`UNMAPPED` カラムの可能な値を示しています。
 

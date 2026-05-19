@@ -182,7 +182,7 @@ DII が電話番号の場合、UID2 [Phone number normalization](../getting-star
 | `REFRESH_FROM` | TIMESTAMP | 値は次のいずれかです:<ul><li>DII が正常にマッピングされた: この UID2 を更新する必要がある時刻 (エポック秒) を示します。</li><li>それ以外の場合: `NULL`。</li></ul> |
 | `UNMAPPED` | TEXT | 値は次のいずれかです:<ul><li>DII が正常にマッピングされた: `NULL`。</li><li>それ以外の場合: 識別子がマッピングされなかった理由: `OPTOUT`、`INVALID IDENTIFIER`、または `INVALID INPUT TYPE`。<br/>詳細は、[Unmapped 列の値](#values-for-the-unmapped-column)を参照してください。</li></ul> |
 
-#### Values for the unmapped column
+#### Values for the UNMAPPED column
 
 以下の表は、`UNMAPPED` 列の可能な値です。
 

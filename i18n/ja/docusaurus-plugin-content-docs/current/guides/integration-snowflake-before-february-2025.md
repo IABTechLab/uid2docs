@@ -136,9 +136,9 @@ DII が電話番号の場合、UID2 [電話番号正規化](../getting-started/g
 | :--- | :--- | :--- |
 | `UID2`      | TEXT | DII は正常にマッピングされました: <br/>DII は正常にマップされませんでした: `NULL`。 |
 | `BUCKET_ID` | TEXT | DII は正常にマップされました: UID2 の生成に使われたセカンドレベルのソルトバケットの ID。この ID は `UID2_SALT_BUCKETS` ビューのバケット ID に対応します。<br/>DII は正常にマップされませんでした: `NULL`。 |
-| `UNMAPPED`  | TEXT | DII は正常にマッピングされました: `NULL`<br/>DII は正常にマップされませんでした: `NULL`:  DII は正常にマップされませんでした: 識別子がマップされなかった理由: `OPTOUT`、`INVALID IDENTIFIER`、`INVALID INPUT TYPE` のいずれか。詳細は [Values for the unmapped column](#values-for-the-unmapped-column) を参照してください。 |
+| `UNMAPPED`  | TEXT | DII は正常にマッピングされました: `NULL`<br/>DII は正常にマップされませんでした: `NULL`:  DII は正常にマップされませんでした: 識別子がマップされなかった理由: `OPTOUT`、`INVALID IDENTIFIER`、`INVALID INPUT TYPE` のいずれか。詳細は [Values for the UNMAPPED column](#values-for-the-unmapped-column) を参照してください。 |
 
-#### Values for the unmapped column
+#### Values for the UNMAPPED column
 
 `UNMAPPED`に指定できる値は以下の通りです:
 
@@ -483,7 +483,7 @@ select a.*, b.LAST_SALT_UPDATE_UTC
 
 - 電話番号とハッシュ化された電話番号の両方のマッピングをサポートしています。
 - ユーザーのオプトアウトをサポートしました。
-- `UNMAPPED` という新しいカラムが追加されました。何らかの理由で DII を UID2 にマッピングできない場合、この列にはその理由についての情報が含まれます。詳細は [Values for the unmapped column](#values-for-the-unmapped-column) を参照してください。
+- `UNMAPPED` という新しいカラムが追加されました。何らかの理由で DII を UID2 にマッピングできない場合、この列にはその理由についての情報が含まれます。詳細は [Values for the UNMAPPED column](#values-for-the-unmapped-column) を参照してください。
 
 このセクションには、新機能へのアップグレードに役立つ以下の情報が含まれています:
 
@@ -522,10 +522,10 @@ After:
 FN_T_UID2_IDENTITY_MAP(EMAIL_HASH, 'email_hash')
 ```
 
-### Using the values for the unmapped column
+### Using the Values for the UNMAPPED column
 新しい関数を実装したら、`FN_T_UID2_IDENTITY_MAP`が返す `UNMAPPED` カラムをチェックすることができます。DII が UID2 にマッピングできなかった場合、この列にはその理由が示されます。
 
-値とその説明の詳細は [Values for the unmapped column](#values-for-the-unmapped-column) を参照してください。
+値とその説明の詳細は [Values for the UNMAPPED column](#values-for-the-unmapped-column) を参照してください。
 
 ## Usage for UID2 sharers
 

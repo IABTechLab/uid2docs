@@ -145,13 +145,13 @@ Databricks Clean Rooms の `identity_map_v3` [ノートブック](https://docs.d
 | `UID` | string | 値は以下のいずれかです。<ul><li>**DII が正常にマッピングされた場合**: DII に関連付けられた UID2。</li><li>**それ以外の場合**: `NULL`。</li></ul> |
 | `PREV_UID` | string | 値は以下のいずれかです。<ul><li>**DII が正常にマッピングされ、現在の raw UID2 が過去 90 日以内にローテーションされた場合**: 以前の raw UID2。</li><li>**それ以外の場合**: `NULL`。</li></ul> |
 | `REFRESH_FROM` | timestamp | 値は以下のいずれかです。<ul><li>**DII が正常にマッピングされた場合**: この UID2 をリフレッシュすべき日時を示すタイムスタンプ。</li><li>**それ以外の場合**: `NULL`。</li></ul> |
-| `UNMAPPED` | string | 値は以下のいずれかです。<ul><li>**DII が正常にマッピングされた場合**: `NULL`。</li><li>**それ以外の場合**: 識別子がマッピングされなかった理由。(`OPTOUT`, `INVALID IDENTIFIER`, または `INVALID INPUT TYPE`)。<br/>詳細については、[Values for the unmapped column](#values-for-the-unmapped-column) を参照してください。</li></ul> |
+| `UNMAPPED` | string | 値は以下のいずれかです。<ul><li>**DII が正常にマッピングされた場合**: `NULL`。</li><li>**それ以外の場合**: 識別子がマッピングされなかった理由。(`OPTOUT`, `INVALID IDENTIFIER`, または `INVALID INPUT TYPE`)。<br/>詳細については、[Values for the UNMAPPED column](#values-for-the-unmapped-column) を参照してください。</li></ul> |
 
 :::note
 raw UID2 は、リフレッシュのタイムスタンプより前には変更されません。リフレッシュのタイムスタンプ以降に DII を再マッピングすると、新しいリフレッシュのタイムスタンプが返されますが、raw UID2 は変更される場合と変更されない場合があります。raw UID2 は、複数のリフレッシュ間隔にわたって変更されない可能性があります。
 :::
 
-#### Values for the unmapped column
+#### Values for the UNMAPPED column
 
 以下の表は、出力テーブルスキーマの `UNMAPPED` カラムに設定可能な値を示しています。
 
