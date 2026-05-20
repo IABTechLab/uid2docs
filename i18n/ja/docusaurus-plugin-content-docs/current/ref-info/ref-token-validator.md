@@ -23,7 +23,7 @@ UID2 Token Validator を使用するには、以下が必要です:
 - **UID2 API Key** (Client Key)
 - **UID2 Client Secret**
 
-これらをお持ちでない場合は、UID2 Portal での作成手順について [API Keys](../portal/api-keys.md) を参照してください。
+これらをお持ちでない場合は、UID2 Portal での作成手順について [API keys](../portal/api-keys.md) を参照してください。
 
 ## Using the Token Validator
 
@@ -32,7 +32,7 @@ Token Validator を使用するには、以下の手順に従います:
 1. Token Validator セクションの上部にあるフィールドに、**API Key** (Client Key) と **Client Secret** を入力します。
 2. 検証対象とする **Operator** (環境) を選択します。UID2 環境の詳細については、[Environments](../getting-started/gs-environments.md) を参照してください。
 
-### Validate a Single Token
+### Validate a single token
 
 単一のトークンと識別子のペアを検証するには、以下の手順に従います:
 
@@ -46,7 +46,7 @@ Token Validator を使用するには、以下の手順に従います:
 4. **Token** フィールドに、検証する UID2 Token を貼り付けます。
 5. **Validate Tokens** をクリックします。
 
-### Validate Multiple Tokens (CSV)
+### Validate multiple tokens (CSV)
 
 トークンと識別子のペアを一括検証するには、以下の手順に従います:
 
@@ -58,7 +58,7 @@ Token Validator を使用するには、以下の手順に従います:
 3. CSV ファイルをアップロードします。
 4. **Validate Tokens** をクリックします。
 
-## Interpret Validation Results
+## Interpret validation results
 
 **Validate Tokens** をクリックすると、**Validation Results** テーブルにトークンと識別子の各ペアの行が、以下の表に示す形式で表示されます。
 
@@ -80,5 +80,5 @@ Token Validator を使用するには、以下の手順に従います:
 | `Failed: {"status":"unauthorized"}` | 提供された API 認証情報が無効または許可されていません。 |
 
 :::tip
-結果が **Failed: Token does not match identifier** の場合、結果に表示される **Normalized Hash** と、同じ DII に対して自身の実装で生成した値を比較してください。異なる場合は、正規化またはハッシュ化のステップに問題があります。詳細については、[Normalization and Encoding](../getting-started/gs-normalization-encoding.md) および [Preparing Emails and Phone Numbers for Processing](ref-preparing-emails-and-phone-numbers-for-processing.md) を参照してください。
+結果が **Failed: Token does not match identifier** の場合、結果に表示される **Normalized Hash** と、同じ DII に対して自身の実装で生成した値を比較してください。異なる場合は、正規化またはハッシュ化のステップに問題があります。詳細については、[Normalization and encoding](../getting-started/gs-normalization-encoding.md) および [Preparing emails and phone numbers for processing](ref-preparing-emails-and-phone-numbers-for-processing.md) を参照してください。
 :::

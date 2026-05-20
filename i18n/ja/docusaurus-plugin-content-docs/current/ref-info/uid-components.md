@@ -1,5 +1,5 @@
 ---
-title: UID2 Components
+title: UID2 components
 description: Summary of key components of the UID2 technical infrastructure.
 hide_table_of_contents: false
 sidebar_position: 01
@@ -8,7 +8,7 @@ displayed_sidebar: docs
 
 import Link from '@docusaurus/Link';
 
-# UID2 Components
+# UID2 components
 
 UID2 フレームワークは以下のコンポーネントで構成されており、すべて The Trade Desk によって管理されています。
 
