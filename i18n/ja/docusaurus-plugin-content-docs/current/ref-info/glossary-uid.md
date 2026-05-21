@@ -10,6 +10,7 @@ import Link from '@docusaurus/Link';
 import MdxJumpAnchor from '@site/src/components/MdxJumpAnchor';
 
 # Unified ID 2.0 glossary
+
 <p>このページでは、UID2 のドキュメントで使用されるいくつかの重要な用語を定義しています。</p>
 
 <!-- 
@@ -134,7 +135,7 @@ import MdxJumpAnchor from '@site/src/components/MdxJumpAnchor';
 <dt><MdxJumpAnchor id="gl-aks"><a href="#gl-aks">AKS</a></MdxJumpAnchor></dt>
 <dd>AKS は Azure Kubernetes Service の略です。詳細は、[Azure Kubernetes Service (AKS) とは?](https://learn.microsoft.com/ja-jp/azure/aks/what-is-aks) (Microsoft documentation) を参照してください。</dd>
 <dd>機密コンテナ上で AKS クラスターを実行するために、Microsoft は、Microsoft Azure コンテナインスタンス上の仮想ノードで実行するソリューションを提供しています。詳細は、[Virtual nodes on Azure Container Instances](https://learn.microsoft.com/ja-jp/azure/container-instances/container-instances-virtual-nodes) (Microsoft documentation) を参照してください。</dd>
-<dd>UID2 のコンテキストでは、AKS は <a href="#gl-private-operator">Private Operator</a> をホストするためのサポートされるセキュアコンピューティング環境の1つです。</dd>
+<dd>UID2 のコンテキストでは、AKS は <a href="#gl-private-operator">Private Operator</a> をホストするためのサポートされるセキュアコンピューティング環境の 1 つです。</dd>
 <dd>詳細は、<a href="../guides/operator-guide-aks-enclave">UID2 Private Operator for AKS integration guide</a> を参照してください。</dd>
 <!-- <dd>**new**</dd> -->
 
@@ -175,7 +176,7 @@ import MdxJumpAnchor from '@site/src/components/MdxJumpAnchor';
 <dd><a href="#gl-api-key">API key</a> を参照してください。</dd>
 
 <dt><MdxJumpAnchor id="gl-client-keypair"><a href="#gl-client-keypair">Client keypair</a></MdxJumpAnchor></dt>
-<dd>Client-Side のパブリッシャーインテグレーションの場合、アカウントを一意に識別するためにパブリッシャーに発行される2つの値は、<a href="#gl-subscription-id">Subscription ID</a> と <a href="#gl-public-key">public key</a> です。Client keypair とは、この2つの値をまとめて呼ぶ用語です。</dd>
+<dd>Client-Side のパブリッシャーインテグレーションの場合、アカウントを一意に識別するためにパブリッシャーに発行される 2 つの値は、<a href="#gl-subscription-id">Subscription ID</a> と <a href="#gl-public-key">public key</a> です。Client keypair とは、この2つの値をまとめて呼ぶ用語です。</dd>
 <dd>詳細は <a href="../getting-started/gs-credentials#subscription-id-and-public-key">Subscription ID and public key</a> を参照してください。</dd>
 
 <dt><MdxJumpAnchor id="gl-client-secret">Client secret</MdxJumpAnchor></dt>
@@ -221,7 +222,7 @@ import MdxJumpAnchor from '@site/src/components/MdxJumpAnchor';
 <dl>
 
 <dt><MdxJumpAnchor id="gl-data-provider">Data provider</MdxJumpAnchor></dt>
-<dd>UID2 のコンテキストでは、データプロバイダーは、データパートナー、測定パートナー、オフライン測定プロバイダーなど、広告に関連するデータおよび測定サービスを提供する事業者を指します。</dd>
+<dd>UID2 のコンテキストでは、データプロバイダーは、データパートナー、測定パートナー、オフライン測定プロバイダーなど、広告に関連するデータおよび測定サービスを提供する Operator (参加者) を指します。</dd>
 <dd>詳細は <a href="../overviews/participants-overview#uid2-external-participants">participant</a> (Data Providers) を参照してください。</dd>
 
 <dt><MdxJumpAnchor id="gl-demand-side-platform">Demand-side platform (DSP)</MdxJumpAnchor></dt>
@@ -377,7 +378,7 @@ import MdxJumpAnchor from '@site/src/components/MdxJumpAnchor';
 <dd>詳細は、<a href="../overviews/participants-overview">参加者</a> を参照してください。</dd>
 
 <dt><MdxJumpAnchor id="gl-private-operator">Private Operator</MdxJumpAnchor></dt>
-<dd>Private <a href="#gl-operator">operator</a> は、Operator Service のプライベートインスタンスを実行する事業者です。Private Operator は、安全な環境で独自のリソース (ハードウェアなど) を使用して、自身のために UID2 を生成および管理します。</dd>
+<dd>Private <a href="#gl-operator">operator</a> は、Operator Service のプライベートインスタンスを実行する参加者です。Private Operator は、安全な環境で独自のリソース (ハードウェアなど) を使用して、自身のために UID2 を生成および管理します。</dd>
 <dd>詳細は <a href="../ref-info/ref-operators-public-private">The UID2 Operator</a> を参照してください。</dd>
 
 <dt><MdxJumpAnchor id="gl-private-operator-service">Private Operator Service</MdxJumpAnchor></dt>

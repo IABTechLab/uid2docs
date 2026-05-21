@@ -28,9 +28,14 @@ UID2 のオプトアウトワークフローとユーザーがオプトアウト
 知っておくべきことは以下のとおりです:
 
 - リクエストの最大サイズは 1MB です。
-- 大量のメールアドレス、電話番号、またはそれぞれのハッシュをマップするには、1 バッチあたり最大 5,000 アイテムのバッチサイズで、それらを *連続した* バッチで送信してください。
-- <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link> を使用している場合を除き、バッチを並行して送信しないでください。つまり、単一の HTTP 接続を使用して、[Directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii) を連続してマッピングしてください。
+- 大量のメールアドレス、電話番号、またはそれぞれのハッシュをマップするには、1 バッチあたり最大 5,000 アイテムで送信してください。同時に送信するバッチは 20 件以内にすることを勧めます。
 - メールアドレス、電話番号、またはそれぞれのハッシュのマッピングを必ず保存してください。<br/>マッピングを保存しないと、数百万のメールアドレスや電話番号をマッピングする必要がある場合に、処理時間が大幅に増加する可能性があります。しかし、実際に更新が必要なマッピングのみを再計算することで、毎日更新が必要な raw UID2 の数は約 1/365 となり、総処理時間を短縮できます。[Advertiser/data provider integration overview](../guides/integration-advertiser-dataprovider-overview.md) と [FAQs for advertisers and data providers](../getting-started/gs-faqs.md#faqs-for-advertisers-and-data-providers) も参照してください。
+
+## Rate limiting
+
+公正な使用とプラットフォームの安定性を確保するために、`POST /v2/identity/map` エンドポイントは、急激なトラフィックの増加から保護するためにレート制限を適用しています。短時間に多数のリクエストを送信すると、`429` エラー応答が返される可能性があります。
+
+レート制限エラーを適切に処理するには、リクエストを再試行する際に [exponential backoff](https://en.wikipedia.org/wiki/Exponential_backoff) とランダムジッターを実装することを勧めます。制限内でスループットを最大化するには、多数の小さなリクエストを送信するのではなく、リクエストごとに最大バッチサイズの 5,000 アイテムを使用してください。
 
 ## Request format
 
@@ -203,5 +208,6 @@ echo '{"phone": ["+12345678901", "+441234567890"]}' | python3 uid2_request.py ht
 | `success` | 200 | リクエストは成功しました。レスポンスは暗号化されています。 |
 | `client_error` | 400 | リクエストに不足している、または無効なパラメータがありました。 |
 | `unauthorized` | 401 | リクエストにベアラートークンが含まれていない、無効なベアラートークンが含まれている、またはリクエストされた操作を実行するのに許可されていないベアラートークンが含まれていました。 |
+| N/A | 429 | このエンドポイントへのリクエストが多すぎます。待ってからexponential backoffを使用して再試行してください。 |
 
-`status` の値が `success` 以外であれば、`message` フィールドにその問題に関する追加情報が表示されます。
+`status` の値が `success` 以外であれば、`message` フィールドにその問題に関する追加情報が表示されます。Note: 429 のレスポンスには、JSON 形式のレスポンス本文が含まれていません。

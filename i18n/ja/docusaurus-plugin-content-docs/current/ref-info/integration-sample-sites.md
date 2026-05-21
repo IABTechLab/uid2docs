@@ -134,6 +134,13 @@ import Link from '@docusaurus/Link';
 - Code: [uid2-examples/tools/hashing-tool](https://github.com/IABTechLab/uid2-examples/tree/main/tools/hashing-tool)
 - Doc: [Normalization and encoding](../getting-started/gs-normalization-encoding)
 
+### UID Verify Chrome extension
+
+UID2 Verify は、UID2 インテグレーションのデバッグのための Google Chrome ブラウザ拡張機能です。ウェブサイト上の UID2 SDK 情報を検査し、イベントとイベント履歴を追跡し、ストレージ（クッキーとローカルストレージ）を監視します。また、Prebid.js と Google Secure Signals のインテグレーションもサポートしています。
+
+- Site: [UID Verify on Chrome Web Store](https://chromewebstore.google.com/detail/uid-verify/cfpjjmdagnkmmolcddnoagffeoekkmle)
+- Doc: [UID Verify Chrome Extension](https://unifiedid.com/docs/ref-info/ref-uid-verify)
+
 :::note
 このファイルのサンプルサイトは、一般的なインテグレーションのいくつかを強調していますが、利用可能なすべての UID2 インテグレーションオプションを表しているわけではありません。利用可能なすべてのインテグレーションオプションの概要については、[UID2 integration guides: Summary](../guides/summary-guides) を参照してください。
 :::

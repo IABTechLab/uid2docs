@@ -20,6 +20,41 @@ UID2 ドキュメントリソースの最新アップデートを確認してく
 タグツールバーを使用して、ドキュメントの更新の一部を表示できます。
 :::
 
+## Q2 2026
+
+2026 年第 2 四半期にリリースされたドキュメントは以下の通りです。
+
+<CustomTagsContainer tags="Reference">
+
+### UID2 Token Validator
+
+April 24, 2026
+
+UID2 Token の生成プロセスが正しいことを確認できるよう、ソースとなる DII に対して UID2 Token の有効性を検証するウェブベースのツール [UID2 Token Validator](ref-token-validator.md) の新しいリファレンスページを追加しました。
+
+詳細は、[UID2 Token Validator](ref-token-validator.md) を参照してください。
+
+<!-- UID2-6592 -->
+
+</CustomTagsContainer>
+
+<CustomTagsContainer tags="Endpoints">
+
+### Rate limiting and parallel request updates for POST /identity/map
+
+April 1, 2026
+
+[POST&nbsp;/identity/map](../endpoints/post-identity-map.md) エンドポイントのドキュメントが、以下の変更で更新されました:
+
+- エンドポイントがトラフィックの急増からシステムを保護するためにレート制限を強制することを説明する、新しい [Rate limiting](../endpoints/post-identity-map.md#rate-limiting) セクションを追加しました。
+- 単一の HTTP 接続でバッチを順次に送信するという以前の推奨事項を削除しました。
+
+これらの変更は、[v2](../endpoints/post-identity-map-v2.md) と [v3](../endpoints/post-identity-map.md) の両方のエンドポイントに適用されます。
+
+<!-- UID2-6642 -->
+
+</CustomTagsContainer>
+
 ## Q1 2026
 
 2026 年第 1 四半期にリリースされたドキュメントは以下の通りです。
@@ -496,7 +531,7 @@ March 4, 2024
 
 February 28, 2024
 
-Java SDKは、[POST&nbsp;/identity/map (v2)](../endpoints/post-identity-map-v2.md) エンドポイントの使用を希望する広告主およびデータプロバイダーをサポートするようになりました。
+Java SDK は、[POST&nbsp;/identity/map (v2)](../endpoints/post-identity-map-v2.md) エンドポイントの使用を希望する広告主およびデータプロバイダーをサポートするようになりました。
 
 詳細は、*SDK for Javaリファレンスガイド*: [Usage for advertisers and data providers](../sdks/sdk-ref-java.md#usage-for-advertisersdata-providers) の更新されたドキュメントを参照してください。
 

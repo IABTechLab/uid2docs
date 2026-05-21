@@ -14,7 +14,7 @@ import Link from '@docusaurus/Link';
 
 ## Overview
 
-DII を提供することで UID2 Token を生成するパブリッシャーは、有効に見えるにもかかわらず UID2 エコシステムで使用できないトークンを受け取ることがあります。これは、正規化またはハッシュ化のステップが正しく実行されなかった場合に発生します。UID2 はトークンの導出に DII の正規化・ハッシュ化された形式を使用するため、いずれかのステップでエラーが発生すると、そのパブリッシャー固有の <Link href="../ref-info/glossary-uid#gl-raw-uid2">raw UID2</Link> が生成されます。この不一致な raw UID2 は、他の参加者が同じ DII に対して使用するものと一致しないため、そのパブリッシャーのトークンは、他のパブリッシャー、データプロバイダー、または広告主の CRM アップロードによるトークンと一致しません。
+パブリッシャーが DII を提供して UID2 Token を生成する際、結果の UID2 Token が有効に見えるが実際にはそうでない場合があります。これは、正規化やハッシュ化のステップが正しく実行されていないためです。UID2 は DII の正規化されたハッシュ化された形式を使用してトークンを生成するため、いずれかのステップでエラーが発生すると、その DII から他の参加者が生成した正しい値と対応しない UID2 Token と基になる <Link href="../ref-info/glossary-uid#gl-raw-uid2">raw UID2</Link> が生成されます。
 
 ## Prerequisites
 
@@ -27,25 +27,28 @@ UID2 Token Validator を使用するには、以下が必要です:
 
 ## Using the Token Validator
 
-Token Validation セクションの上部にあるフィールドに **API Key** (Client Key) と **Client Secret** を入力します。
+Token Validator を使用するには、以下の手順に従います:
 
-検証対象の **Operator**（環境）を選択します。UID2 の環境については、[Environments](../getting-started/gs-environments.md) を参照してください。
+1. Token Validator セクションの上部にあるフィールドに、**API Key** (Client Key) と **Client Secret** を入力します。
+2. 検証対象とする **Operator** (環境) を選択します。UID2 環境の詳細については、[Environments](../getting-started/gs-environments.md) を参照してください。
 
 ### Validate a single token
+
+単一のトークンと識別子のペアを検証するには、以下の手順に従います:
 
 1. **Input Mode** で **Single Validation** を選択します。
 2. **Identifier** フィールドに、トークンの生成に使用した DII を入力します。以下のいずれかを入力できます:
    - 生のメールアドレス
    - 生の電話番号
-   - Base64 エンコードされたメールアドレスハッシュ
-   - Base64 エンコードされた電話番号ハッシュ
+   - 正規化し、Base64 エンコードされたメールアドレスハッシュ
+   - 正規化し、Base64 エンコードされた電話番号ハッシュ
 3. 入力内容に一致する識別子タイプを選択します。
 4. **Token** フィールドに、検証する UID2 Token を貼り付けます。
 5. **Validate Tokens** をクリックします。
 
 ### Validate multiple tokens (CSV)
 
-トークンと識別子のペアを一括検証するには:
+トークンと識別子のペアを一括検証するには、以下の手順に従います:
 
 1. **Input Mode** で **CSV** を選択します。
 2. 次の列を持つ CSV ファイルを用意します: 
