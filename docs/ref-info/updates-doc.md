@@ -406,8 +406,8 @@ July 2, 2024
 
 We've added a section to the two mobile integration guides with instructions for mobile integration using Prebid, currently for Android only:
 
-- [Client-side integration guide for mobile: Prebid integration](../guides/integration-mobile-client-side#optional-uid2-integration-with-prebid-mobile-sdk)
-- [Client-server integration guide for mobile: Prebid integration](../guides/integration-mobile-client-server#optional-uid2-integration-with-prebid-mobile-sdk)
+- [Client-side integration guide for mobile: Prebid integration](../guides/integration-mobile-client-side#optional-integration-with-prebid-mobile-sdk)
+- [Client-server integration guide for mobile: Prebid integration](../guides/integration-mobile-client-server#optional-integration-with-prebid-mobile-sdk)
 
 <!-- APIDOCS-2269 -->
 
