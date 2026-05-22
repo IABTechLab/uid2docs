@@ -1,5 +1,6 @@
 ---
-title: Identifier types
+title: UID2 identifier types
+sidebar_label: Identifier types
 description: Information about UID2 identifier types (raw UID2s and UID2 tokens).
 hide_table_of_contents: false
 sidebar_position: 01

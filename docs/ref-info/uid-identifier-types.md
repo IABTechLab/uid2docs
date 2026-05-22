@@ -1,5 +1,6 @@
 ---
-title: Identifier types
+title: UID2 identifier types
+sidebar_label: Identifier types
 description: Information about UID2 identifier types (raw UID2s and UID2 tokens).
 hide_table_of_contents: false
 sidebar_position: 01
@@ -8,7 +9,7 @@ displayed_sidebar: docs
 
 import Link from '@docusaurus/Link';
 
-# Identifier types
+# UID2 identifier types
 
 UID2 is a deterministic ID that is based on <Link href="../ref-info/glossary-uid#gl-dii">directly identifying information (DII)</Link>, such as email address or phone number. There are two types of UID2s: raw UID2s and UID2 tokens (also known as advertising tokens). The following table explains each type.
 
