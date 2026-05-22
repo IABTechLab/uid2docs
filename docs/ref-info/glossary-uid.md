@@ -1,5 +1,6 @@
 ---
 title: UID2 glossary
+sidebar_label: Glossary
 description: Definitions for some UID2 terms.
 hide_table_of_contents: false
 sidebar_position: 10
