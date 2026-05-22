@@ -136,7 +136,7 @@ import MdxJumpAnchor from '@site/src/components/MdxJumpAnchor';
 <dd>AKS is an acronym for Azure Kubernetes Service. For details, see [What is Azure Kubernetes Service (AKS)?](https://learn.microsoft.com/en-us/azure/aks/what-is-aks) (Microsoft documentation).</dd>
 <dd>To run an AKS cluster on a confidential container, Microsoft offers a solution to run it on virtual nodes on Microsoft Azure container instances. For details, see [Virtual nodes on Azure Container Instances](https://learn.microsoft.com/en-us/azure/container-instances/container-instances-virtual-nodes) (Microsoft documentation).</dd>
 <dd>In the context of UID2, AKS is one of the supported secure computing environments for hosting a <a href="#gl-private-operator">Private Operator</a>.</dd>
-<dd>For details, see <a href="../guides/operator-guide-aks-enclave">UID2 Private Operator for AKS integration guide</a>.</dd>
+<dd>For details, see <a href="../guides/operator-guide-aks-enclave">Private Operator for AKS integration guide</a>.</dd>
 <!-- <dd>**new**</dd> -->
 
 <dt><MdxJumpAnchor id="gl-api-key"><a href="#gl-api-key">API key</a></MdxJumpAnchor></dt>
@@ -204,12 +204,12 @@ import MdxJumpAnchor from '@site/src/components/MdxJumpAnchor';
 <dt><MdxJumpAnchor id="gl-confidential-containers"><a href="#gl-confidential-containers">Confidential containers (Azure)</a></MdxJumpAnchor></dt>
 <dd>Confidential Containers is the name of a secure confidential computing option from Microsoft Azure. Each Confidential Containers implementation runs in a hardware-backed Trusted Execution Environment (TEE) that provides intrinsic capabilities such as data integrity, data confidentiality, and code integrity.</dd>
 <dd>In the context of UID2, Confidential Containers from Azure is one of the supported secure computing environments for hosting a <a href="#gl-private-operator">Private Operator</a>.</dd>
-<dd>For details, see <a href="../guides/operator-guide-azure-enclave">UID2 Private Operator for Azure integration guide</a>.</dd>
+<dd>For details, see <a href="../guides/operator-guide-azure-enclave">Private Operator for Azure integration guide</a>.</dd>
 
 <dt><MdxJumpAnchor id="gl-confidential-space"><a href="#gl-confidential-space">Confidential Space (GCP)</a></MdxJumpAnchor></dt>
 <dd>Confidential Space is one of the Confidential Computing options from Google Cloud Platform (GCP). Confidential Space offers a secure enclave environment, known as a Trusted Execution Environment (TEE).</dd>
 <dd>In the context of UID2, GCP Confidential Space is one of the supported secure computing environments for hosting a <a href="#gl-private-operator">Private Operator</a>.</dd>
-<dd>For details, see <a href="../guides/operator-private-gcp-confidential-space">UID2 Private Operator for GCP integration guide</a>.</dd>
+<dd>For details, see <a href="../guides/operator-private-gcp-confidential-space">Private Operator for GCP integration guide</a>.</dd>
 
 <dt><MdxJumpAnchor id="gl-core-service"><a href="#gl-core-service">Core Service</a></MdxJumpAnchor></dt>
 <dd>The UID2 Core Service is a centralized service that manages access to secret <a href="#gl-salt">salts</a>, encryption keys, and other relevant data in the UID2 ecosystem.</dd>
@@ -400,7 +400,7 @@ import MdxJumpAnchor from '@site/src/components/MdxJumpAnchor';
 
 <dt><MdxJumpAnchor id="gl-raw-uid2"><a href="#gl-raw-uid2">Raw UID2</a></MdxJumpAnchor></dt>
 <dd>An unencrypted alphanumeric identifier created through the UID2 APIs or SDKs with the user's <a href="#gl-dii">directly identifying information</a> (email address or phone number) as input. The raw UID2 is encrypted to create a <a href="#gl-uid2-token">UID2 token</a>. The raw UID2 is a unique value; no two raw UID2s are the same. Raw UID2s, and their associated UID2 tokens, are case sensitive.</dd>
-<dd>For details, see <a href="uid-identifier-types">UID2 identifier types</a>.</dd>
+<dd>For details, see <a href="uid-identifier-types">Identifier types</a>.</dd>
 
 <dt><MdxJumpAnchor id="gl-refresh-timestamp"><a href="#gl-refresh-timestamp">Refresh timestamp</a></MdxJumpAnchor></dt>
 <dd>In the context of mapping <a href="#gl-dii">DII</a> to raw UID2s, a refresh timestamp is a Unix timestamp (in seconds) returned in the <code>r</code> field of the <a href="../endpoints/post-identity-map">POST&nbsp;/identity/map</a> endpoint response. The raw UID2 is valid until this timestamp. It is refreshed at some point after this time.</dd>
@@ -508,7 +508,7 @@ import MdxJumpAnchor from '@site/src/components/MdxJumpAnchor';
 
 <dt><MdxJumpAnchor id="gl-uid2-identifier"><a href="#gl-uid2-identifier">UID2 identifier</a></MdxJumpAnchor></dt>
 <dd>There are two Unified ID 2.0 (UID2) identifier types: <a href="#gl-raw-uid2">raw UID2s</a> and <a href="#gl-uid2-token">UID2 tokens</a> (also known as advertising tokens).</dd>
-<dd>For details, see <a href="uid-identifier-types">UID2 identifier types</a>.</dd>
+<dd>For details, see <a href="uid-identifier-types">Identifier types</a>.</dd>
 
 <dt><MdxJumpAnchor id="gl-uid2-portal"><a href="#gl-uid2-portal">UID2 Portal</a></MdxJumpAnchor></dt>
 <dd>The UID2 Portal is a separate user interface that allows UID2 participants to manage their accounts.</dd>
@@ -524,7 +524,7 @@ import MdxJumpAnchor from '@site/src/components/MdxJumpAnchor';
 <dd>The token value is opaque: No assumptions should be made about the format or about the length of the string.</dd>
 <dd>The token has a limited life, but can be refreshed in the background using the <a href="#gl-refresh-token">refresh token</a>.</dd>
 <dd>Publishers send UID2 tokens in the bidstream.</dd>
-<dd>For details, see <a href="uid-identifier-types">UID2 identifier types</a>, <a href="ref-tokens#uid2-tokens-key-information">UID2 tokens: Key information</a>, and <a href="ref-how-uid-is-created">How the UID2 token is created</a>.</dd>
+<dd>For details, see <a href="uid-identifier-types">Identifier types</a>, <a href="ref-tokens#uid2-tokens-key-information">UID2 tokens: Key information</a>, and <a href="ref-how-uid-is-created">How the UID2 token is created</a>.</dd>
 
 <dt><MdxJumpAnchor id="gl-unified-id-20"><a href="#gl-unified-id-20">Unified ID 2.0</a></MdxJumpAnchor></dt>
 <dd>The term UID2 can be used to mean the <a href="#gl-uid2-framework">UID2 framework</a>, the <a href="#gl-uid2-service">UID2 service</a>, a <a href="#gl-raw-uid2">raw UID2</a>, or a <a href="#gl-uid2-token">UID2 token</a> (advertising token).</dd>

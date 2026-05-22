@@ -136,7 +136,7 @@ import MdxJumpAnchor from '@site/src/components/MdxJumpAnchor';
 <dd>AKS は Azure Kubernetes Service の略です。詳細は、[Azure Kubernetes Service (AKS) とは?](https://learn.microsoft.com/ja-jp/azure/aks/what-is-aks) (Microsoft documentation) を参照してください。</dd>
 <dd>機密コンテナ上で AKS クラスターを実行するために、Microsoft は、Microsoft Azure コンテナインスタンス上の仮想ノードで実行するソリューションを提供しています。詳細は、[Virtual nodes on Azure Container Instances](https://learn.microsoft.com/ja-jp/azure/container-instances/container-instances-virtual-nodes) (Microsoft documentation) を参照してください。</dd>
 <dd>UID2 のコンテキストでは、AKS は <a href="#gl-private-operator">Private Operator</a> をホストするためのサポートされるセキュアコンピューティング環境の 1 つです。</dd>
-<dd>詳細は、<a href="../guides/operator-guide-aks-enclave">UID2 Private Operator for AKS integration guide</a> を参照してください。</dd>
+<dd>詳細は、<a href="../guides/operator-guide-aks-enclave">Private Operator for AKS integration guide</a> を参照してください。</dd>
 <!-- <dd>**new**</dd> -->
 
 <dt><MdxJumpAnchor id="gl-api-key">API key</MdxJumpAnchor></dt>
@@ -204,12 +204,12 @@ import MdxJumpAnchor from '@site/src/components/MdxJumpAnchor';
 <dt><MdxJumpAnchor id="gl-confidential-containers"><a href="#gl-confidential-containers">Confidential containers (Azure)</a></MdxJumpAnchor></dt>
 <dd>Confidential Containers は、Microsoft Azure のセキュアな機密コンピューティングオプションの名称です。各 Confidential Containers の実装は、データ整合性、データ機密性、コード整合性などの本質的な機能を提供する、ハードウェアで保護された Trusted Execution Environment (TEE) で実行されます。</dd>
 <dd>UID2 のコンテキストでは、Azure の Confidential Containers は、<a href="#gl-private-operator">Private Operator</a> をホストするためのサポートされるセキュアコンピューティング環境の1つです。</dd>
-<dd>詳細は <a href="../guides/operator-guide-azure-enclave">UID2 Private Operator for Azure integration guide</a> を参照してください。</dd>
+<dd>詳細は <a href="../guides/operator-guide-azure-enclave">Private Operator for Azure integration guide</a> を参照してください。</dd>
 
 <dt><MdxJumpAnchor id="gl-confidential-space"><a href="#gl-confidential-space">Confidential Space (GCP)</a></MdxJumpAnchor></dt>
 <dd>Confidential Space は、Google Cloud Platform (GCP) の Confidential Computing オプションの1つです。Confidential Space は、Trusted Execution Environment (TEE) として知られるセキュアエンクレーブ環境を提供します。</dd>
 <dd>UID2 のコンテキストでは、GCP Confidential Space は、<a href="#gl-private-operator">Private Operator</a> をホストするためのサポートされるセキュアコンピューティング環境の1つです。</dd>
-<dd>詳細は <a href="../guides/operator-private-gcp-confidential-space">UID2 Private Operator for GCP integration guide</a> を参照してください。</dd>
+<dd>詳細は <a href="../guides/operator-private-gcp-confidential-space">Private Operator for GCP integration guide</a> を参照してください。</dd>
 
 <dt><MdxJumpAnchor id="gl-core-service">Core Service</MdxJumpAnchor></dt>
 <dd>UID2 Core Serviceは、UID2 エコシステムの秘密の <a href="#gl-salt">ソルト</a>、暗号化キー、その他の関連データへのアクセスを管理する一元的なサービスです。</dd>
@@ -400,7 +400,7 @@ import MdxJumpAnchor from '@site/src/components/MdxJumpAnchor';
 
 <dt><MdxJumpAnchor id="gl-raw-uid2">Raw UID2</MdxJumpAnchor></dt>
 <dd>UID2 API または SDK を通じて、ユーザーの <a href="#gl-dii">directly identifying information</a> (メールアドレスまたは電話番号) を入力として作成される、暗号化されていない英数字の識別子。raw UID2 を暗号化して UID2 Token を作成します。raw UID2 は一意な値であり、同じ UID2 は2つとありません。raw UID2 とそれに関連付けられた UID2 Token は、大文字と小文字を区別します。</dd>
-<dd>詳細は <a href="uid-identifier-types">UID2 identifier types</a> を参照してください。</dd>
+<dd>詳細は <a href="uid-identifier-types">Identifier types</a> を参照してください。</dd>
 
 <dt><MdxJumpAnchor id="gl-refresh-timestamp"><a href="#gl-refresh-timestamp">Refresh timestamp</a></MdxJumpAnchor></dt>
 <dd><a href="#gl-dii">DII</a> を raw UID2 にマッピングする場合、リフレッシュタイムスタンプは、<a href="../endpoints/post-identity-map">POST&nbsp;/identity/map</a> エンドポイントのレスポンスの <code>r</code> フィールドで返される Unix タイムスタンプ (秒単位) です。raw UID2 は、このタイムスタンプまで有効です。この時刻以降のいずれかの時点で更新されます。</dd>
@@ -508,7 +508,7 @@ import MdxJumpAnchor from '@site/src/components/MdxJumpAnchor';
 
 <dt><MdxJumpAnchor id="gl-uid2-identifier">UID2 identifier</MdxJumpAnchor></dt>
 <dd>Unified ID 2.0 (UID2)識別子には、<a href="#gl-raw-uid2">raw UID2s</a> と <a href="#gl-uid2-token">UID2 tokens</a> (Advertising token とも呼ばれます) の2種類があります。</dd>
-<dd>詳細は <a href="uid-identifier-types">UID2 identifier types</a> を参照してください。</dd>
+<dd>詳細は <a href="uid-identifier-types">Identifier types</a> を参照してください。</dd>
 
 <dt><MdxJumpAnchor id="gl-uid2-portal">UID2 Portal</MdxJumpAnchor></dt>
 <dd>UID2 Portal は、UID2 参加者が自分のアカウントを管理するための独立したユーザーインターフェースです。</dd>
@@ -524,7 +524,7 @@ import MdxJumpAnchor from '@site/src/components/MdxJumpAnchor';
 <dd>トークンの値は不透明です。文字列のフォーマットや長さについて、推測してはなりません。</dd>
 <dd>トークンの寿命は限られていますが、<a href="#gl-refresh-token">refresh token</a> を使ってバックグラウンドでリフレッシュすることができます。</dd>
 <dd>パブリッシャーは、ビッドストリームに UID2 Token を送信します。</dd>
-<dd>詳細は <a href="uid-identifier-types">UID2 identifier types</a>、 <a href="ref-tokens#uid2-tokens-key-information">UID2 tokens: Key information</a> と <a href="ref-how-uid-is-created">How the UID2 token is created</a> を参照してください。</dd>
+<dd>詳細は <a href="uid-identifier-types">Identifier types</a>、 <a href="ref-tokens#uid2-tokens-key-information">UID2 tokens: Key information</a> と <a href="ref-how-uid-is-created">How the UID2 token is created</a> を参照してください。</dd>
 
 <dt><MdxJumpAnchor id="gl-unified-id-20">Unified ID 2.0 (UID2)</MdxJumpAnchor></dt>
 <dd>"UID2" という用語は、<a href="#gl-uid2-framework">UID2 framework</a>、<a href="#gl-uid2-service">UID2 service</a>、<a href="#gl-raw-uid2">raw UID2</a>、または <a href="#gl-uid2-token">UID2 Token</a> (Advertising Token) の意味でも使われます。</dd>

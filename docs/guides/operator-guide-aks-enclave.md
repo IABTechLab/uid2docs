@@ -1,7 +1,7 @@
 ---
-title: UID2 Private Operator for AKS integration guide
+title: Private Operator for AKS integration guide
 sidebar_label: Azure Kubernetes Service (AKS)
-pagination_label: UID2 Private Operator for AKS integration guide
+pagination_label: Private Operator for AKS integration guide
 description: Integration information for Private Operator in AKS.
 hide_table_of_contents: false
 sidebar_position: 18
@@ -14,7 +14,7 @@ import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emai
 import SnptAttestFailure from '../snippets/_snpt-private-operator-attest-failure.mdx';
 import SnptRotatingTheKeys from '../snippets/_snpt-private-operator-rotating-the-keys.mdx';
 
-# UID2 Private Operator for AKS integration guide
+# Private Operator for AKS integration guide
 
 The UID2 Operator is the API server in the UID2 ecosystem. For details, see [The UID2 Operator](../ref-info/ref-operators-public-private.md).
 

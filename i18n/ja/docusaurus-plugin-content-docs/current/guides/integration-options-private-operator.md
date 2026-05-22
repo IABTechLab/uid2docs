@@ -1,5 +1,5 @@
 ---
-title: UID2 integrations for Private Operators
+title: Private Operator integration overview
 description: Private Operator 向けの情報概要。
 hide_table_of_contents: false
 displayed_sidebar: docs
@@ -132,7 +132,7 @@ Private Operator のバージョン間に機能的な違いはありません。
 
 | Integration Type| Documentation | Content Description |
 | :--- | :--- | :--- |
-| AWS | [UID2 Private Operator for AWS integration guide](../guides/operator-guide-aws-marketplace.md) | AWS Marketplace の Private Operator Service の設定方法。 |
-| GCP Confidential Space | [UID2 Private Operator for GCP integration guide](../guides/operator-private-gcp-confidential-space.md) | [Google Cloud](https://cloud.google.com/docs/overview/) Platform の機密コンピューティング オプションである [Confidential Space](https://cloud.google.com/confidential-computing#confidential-space) に UID2 Operator Service を設定する方法。 |
-| Azure | [UID2 Private Operator for Azure integration guide](../guides/operator-guide-azure-enclave.md) | Microsoft Azure の機密コンピューティング オプションである Confidential Containers インスタンスで UID2 Operator Service を設定する方法。 |
-| AKS | [UID2 Private Operator for AKS integration guide](../guides/operator-guide-aks-enclave.md) | AKS のインスタンスで UID2 Operator Service を設定する方法。AKS は、Microsoft Azure コンテナインスタンスの仮想ノードで実行され、Kubernetes を使用する機密コンピューティングソリューションです。 |
+| AWS | [Private Operator for AWS integration guide](../guides/operator-guide-aws-marketplace.md) | AWS Marketplace の Private Operator Service の設定方法。 |
+| GCP Confidential Space | [Private Operator for GCP integration guide](../guides/operator-private-gcp-confidential-space.md) | [Google Cloud](https://cloud.google.com/docs/overview/) Platform の機密コンピューティング オプションである [Confidential Space](https://cloud.google.com/confidential-computing#confidential-space) に UID2 Operator Service を設定する方法。 |
+| Azure | [Private Operator for Azure integration guide](../guides/operator-guide-azure-enclave.md) | Microsoft Azure の機密コンピューティング オプションである Confidential Containers インスタンスで UID2 Operator Service を設定する方法。 |
+| AKS | [Private Operator for AKS integration guide](../guides/operator-guide-aks-enclave.md) | AKS のインスタンスで UID2 Operator Service を設定する方法。AKS は、Microsoft Azure コンテナインスタンスの仮想ノードで実行され、Kubernetes を使用する機密コンピューティングソリューションです。 |

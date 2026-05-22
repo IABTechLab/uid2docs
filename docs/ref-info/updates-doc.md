@@ -140,7 +140,7 @@ March 19, 2025
 
 A UID2 <a href="../intro#participants">participant</a> who wants to be a <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link> can now set up the UID2 Operator Service as a Private Operator in an Azure Kubernetes Service (<Link href="../ref-info/glossary-uid#gl-aks">AKS</Link>) cluster, running on [virtual nodes on Azure Container Instances](https://learn.microsoft.com/en-us/azure/container-instances/container-instances-virtual-nodes) (ACI).
 
-For details, see [UID2 Private Operator for AKS integration guide](../guides/operator-guide-aks-enclave.md).
+For details, see [Private Operator for AKS integration guide](../guides/operator-guide-aks-enclave.md).
 
 <!-- APIDOCS-3030 -->
 
@@ -340,7 +340,7 @@ August 28, 2024
 
 We've added a page with information about Private Operator integrations.
 
-For details, see [UID2 Private Operator integration overview](../guides/integration-options-private-operator).
+For details, see [Private Operator integration overview](../guides/integration-options-private-operator).
 
 <!-- APIDOCS-2164 -->
 
@@ -567,7 +567,7 @@ We've added an overview guide summarizing the options for publishers using the S
 
 For details, see:
 
-- [UID2 integration overview for JavaScript](../guides/integration-javascript)
+- [Integration overview for JavaScript](../guides/integration-javascript)
 - [Client-side integration guide for JavaScript](../guides/integration-javascript-client-side.md)
 - [Client-server integration guide for JavaScript](../guides/integration-javascript-client-server.md)
 
@@ -647,7 +647,7 @@ In addition, the existing guides have been restructured and simplified.
 
 For details, see:
 
-- [UID2 integration overview for Prebid](../guides/integration-prebid.md)
+- [Integration overview for Prebid](../guides/integration-prebid.md)
 - [Client-side integration guide for Prebid.js](../guides/integration-prebid-client-side.md)
 - [Client-server integration guide for Prebid.js](../guides/integration-prebid-client-server.md)
 
@@ -673,7 +673,7 @@ November 30, 2023
 
 A UID2 <a href="../overviews/participants-overview">participant</a> who wants to be a [Private Operator](../ref-info/glossary-uid.md#gl-private-operator) can now set up the UID2 Operator Service in an instance of [Confidential Containers](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-containers), a confidential computing option from Microsoft Azure.
 
-For details, see [UID2 Private Operator for Azure integration guide](../guides/operator-guide-azure-enclave.md).
+For details, see [Private Operator for Azure integration guide](../guides/operator-guide-azure-enclave.md).
 
 </CustomTagsContainer>
 
@@ -731,7 +731,7 @@ The content that was in the previous version of the Prebid document is now in a 
 
 :::note
 These documents were further updated in later revisions. Updated links are as follows:
-- [UID2 integration overview for Prebid](../guides/integration-prebid.md)
+- [Integration overview for Prebid](../guides/integration-prebid.md)
 - [Client-side integration guide for Prebid.js](../guides/integration-prebid-client-side.md)
 - [Client-server integration guide for Prebid.js](../guides/integration-prebid-client-server.md)
 :::
@@ -790,7 +790,7 @@ September 30, 2023
 
 This guide provides information for setting up the UID2 Operator Service in [Confidential Space](https://cloud.google.com/confidential-computing#confidential-space), a confidential computing option from the Google Cloud Platform.
 
-For details, see [UID2 Private Operator for GCP integration guide](../guides/operator-private-gcp-confidential-space.md).
+For details, see [Private Operator for GCP integration guide](../guides/operator-private-gcp-confidential-space.md).
 
 <!-- APIDOCS-1655 -->
 
@@ -819,7 +819,7 @@ August 8, 2023
 
 A guide for publishers that provides information about the UID2 Interactive Media Ads (IMA) Plugin for Android. This plugin enables publishers who use the Google IMA SDK for Android to send <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> as secure signals in ad requests from Android apps.
 
-For details, see [UID2 IMA Plugin for Android integration guide](../guides/mobile-plugin-ima-android.md).
+For details, see [IMA Plugin for Android integration guide](../guides/mobile-plugin-ima-android.md).
 
 </CustomTagsContainer>
 
@@ -831,7 +831,7 @@ August 8, 2023
 
 A guide for publishers that provides information about the UID2 Interactive Media Ads (IMA) Plugin for iOS. This plugin enables publishers who use the Google IMA SDK for iOS to send <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> as secure signals in ad requests from iOS apps.
 
-For details, see [UID2 IMA Plugin for iOS integration guide](../guides/mobile-plugin-ima-ios.md).
+For details, see [IMA Plugin for iOS integration guide](../guides/mobile-plugin-ima-ios.md).
 
 </CustomTagsContainer>
 
@@ -843,7 +843,7 @@ August 4, 2023
 
 A guide for publishers that provides information about the UID2 Google Mobile Ads (GMA) Plugin for Android. This plugin enables publishers who use the Google GMA SDK to send <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> as secure signals in ad requests from Android apps.
 
-For details, see [UID2 GMA Plugin for Android integration guide](../guides/mobile-plugin-gma-android.md).
+For details, see [GMA Plugin for Android integration guide](../guides/mobile-plugin-gma-android.md).
 
 </CustomTagsContainer>
 
@@ -855,7 +855,7 @@ August 4, 2023
 
 A guide for publishers that provides information about the UID2 Google Mobile Ads (GMA) Plugin for iOS. This plugin enables publishers who use the Google GMA SDK to send <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> as secure signals in ad requests from iOS apps.
 
-For details, see [UID2 GMA Plugin for iOS integration guide](../guides/mobile-plugin-gma-ios.md).
+For details, see [GMA Plugin for iOS integration guide](../guides/mobile-plugin-gma-ios.md).
 
 </CustomTagsContainer>
 

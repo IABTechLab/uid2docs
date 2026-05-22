@@ -1,7 +1,7 @@
 ---
-title: UID2 Private Operator for Azure integration guide
+title: Private Operator for Azure integration guide
 sidebar_label: Microsoft Azure
-pagination_label: UID2 Private Operator for Azure integration guide
+pagination_label: Private Operator for Azure integration guide
 description: Microsoft Azure の Private Operator インテグレーション情報。
 hide_table_of_contents: false
 sidebar_position: 18

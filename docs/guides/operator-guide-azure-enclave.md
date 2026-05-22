@@ -1,7 +1,7 @@
 ---
-title: UID2 Private Operator for Azure integration guide
+title: Private Operator for Azure integration guide
 sidebar_label: Microsoft Azure
-pagination_label: UID2 Private Operator for Azure integration guide
+pagination_label: Private Operator for Azure integration guide
 description: Integration information for Private Operator in Microsoft Azure.
 hide_table_of_contents: false
 sidebar_position: 18
@@ -15,7 +15,7 @@ import SnptAttestFailure from '../snippets/_snpt-private-operator-attest-failure
 import SnptRotatingTheKeys from '../snippets/_snpt-private-operator-rotating-the-keys.mdx';
 import SnptRuntimeErrors from '../snippets/_snpt-private-operator-runtime-errors.mdx';
 
-# UID2 Private Operator for Azure integration guide
+# Private Operator for Azure integration guide
 
 The UID2 Operator is the API server in the UID2 ecosystem. For details, see [The UID2 Operator](../ref-info/ref-operators-public-private.md).
 

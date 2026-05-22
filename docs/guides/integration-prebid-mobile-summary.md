@@ -10,7 +10,7 @@ displayed_sidebar: docs
 
 import Link from '@docusaurus/Link';
 
-# UID2 mobile integration with Prebid Mobile SDK
+# Mobile integration with Prebid Mobile SDK
 
 UID2 integration with Prebid is also supported for Android and iOS mobile devices, using the UID2 integration with Prebid Mobile SDK option.
 

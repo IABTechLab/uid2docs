@@ -1,7 +1,7 @@
 ---
-title: UID2 integration overview for Prebid
-sidebar_label: UID2 integration overview for Prebid
-pagination_label: UID2 integration overview for Prebid
+title: Integration overview for Prebid
+sidebar_label: Integration overview for Prebid
+pagination_label: Integration overview for Prebid
 description: Overview of options for integrating with Prebid as part of your UID2 implementation.
 hide_table_of_contents: false
 sidebar_position: 04
@@ -13,7 +13,7 @@ import SnptIntegratingWithSSO from '../snippets/_snpt-integrating-with-sso.mdx';
 import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emails-and-phone-numbers.mdx';
 import SnptStoreUID2TokenInBrowser from '../snippets/_snpt-prebid-storing-uid2-token-in-browser.mdx';
 
-# UID2 integration overview for Prebid
+# Integration overview for Prebid
 
 This guide is an overview of integration options for publishers who want to integrate with UID2 and generate <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> (advertising tokens) to be passed by Prebid.js or the Prebid Mobile SDK in the RTB <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link>.
 
@@ -87,4 +87,4 @@ For detailed instructions, refer to one of the following integration guides:
 
 ## UID2 integration with Prebid Mobile SDK for mobile devices
 
-UID2 integration with Prebid is supported for Android and iOS mobile devices using the [UID2 mobile integration with Prebid Mobile SDK](integration-prebid-mobile-summary.md).
+UID2 integration with Prebid is supported for Android and iOS mobile devices using the [Mobile integration with Prebid Mobile SDK](integration-prebid-mobile-summary.md).

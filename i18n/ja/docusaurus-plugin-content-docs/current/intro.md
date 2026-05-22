@@ -50,7 +50,7 @@ UID2 フレームワークは、以下の技術的原則に基づいて構築さ
 
 UID2 インフラストラクチャの主要な要素や、UID2 のその他の側面については、以下のページを参照してください。
 
-- [UID2 identifier types](ref-info/uid-identifier-types.md)
+- [Identifier types](ref-info/uid-identifier-types.md)
 - [UID2 components](ref-info/uid-components.md)
 - [UID2 participants](overviews/participants-overview.md)
 - [Workflows](ref-info/uid-workflows.md)
