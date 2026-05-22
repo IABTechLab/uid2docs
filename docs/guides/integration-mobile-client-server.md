@@ -47,7 +47,7 @@ You'll need to complete the following steps:
 3. [Add the UID2 mobile SDK to your mobile app](#add-the-uid2-mobile-sdk-to-your-mobile-app).
 4. [Configure the UID2 mobile SDK](#configure-the-uid2-mobile-sdk).
 5. [Check that the token was successfully generated and then pass it for bidstream use](#pass-generated-token-for-bidstream-use).
-6. [Optionally, integrate the UID2 GMA/IMA Plugin for GAM Secure Signals integration](#optional-uid2-gmaima-plugin-for-gam-secure-signals-integration).
+6. [Optionally, integrate the GMA/IMA Plugin for GAM Secure Signals integration](#optional-gmaima-plugin-for-gam-secure-signals-integration).
 
 ## Mobile SDK version
 
@@ -324,11 +324,11 @@ UID2Manager.shared.automaticRefreshEnabled = false
 </TabItem>
 </Tabs>
 
-## Optional: UID2 GMA/IMA Plugin for GAM Secure Signals integration
+## Optional: GMA/IMA Plugin for GAM Secure Signals integration
 
 <SnptGMAIMA_Plugins />
 
-## Optional: UID2 integration with Prebid Mobile SDK
+## Optional: Integration with Prebid Mobile SDK
 
 :::important
 The UID2 integration with Prebid Mobile SDK v2 requires version 1.6.0 of the UID2 SDK for Android, or version 1.7.0 of the UID2 SDK for iOS.

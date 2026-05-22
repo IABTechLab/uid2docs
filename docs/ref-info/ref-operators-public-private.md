@@ -25,7 +25,7 @@ A UID2 Operator is an organization that runs the Operator Service. Operators per
 - Encrypt raw UID2s to generate UID2 tokens.
 - Distribute UID2 token decryption keys to server-side SDKs (see [SDKs: Summary](../sdks/summary-sdks.md)).
 - Download the latest user opt-out information from the UID2 <a href="glossary-uid#gl-opt-out-service">Opt-Out Service</a>.
-- Support a number of UID2 endpoints. For details, see [UID2 endpoints: Summary](../endpoints/summary-endpoints.md).
+- Support a number of UID2 endpoints. For details, see [Endpoints: Summary](../endpoints/summary-endpoints.md).
 
 UID2 Operators fall into two categories:
 
@@ -60,7 +60,7 @@ A Private Operator is a private instance of the UID2 Operator. This means that a
 
 Any participant can also choose to become a Private Operator to generate and manage their UID2s. However, becoming a Private Operator includes several additional steps, and uses resources that the participant must provide.
 
-For details, see [UID2 Private Operator integration overview](../guides/integration-options-private-operator.md).
+For details, see [Private Operator integration overview](../guides/integration-options-private-operator.md).
 
 ## Summary
 

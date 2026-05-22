@@ -1,5 +1,6 @@
 ---
 title: UID2 glossary
+sidebar_label: Glossary
 description: Definitions for some UID2 terms.
 hide_table_of_contents: false
 sidebar_position: 10
@@ -136,7 +137,7 @@ import MdxJumpAnchor from '@site/src/components/MdxJumpAnchor';
 <dd>AKS is an acronym for Azure Kubernetes Service. For details, see [What is Azure Kubernetes Service (AKS)?](https://learn.microsoft.com/en-us/azure/aks/what-is-aks) (Microsoft documentation).</dd>
 <dd>To run an AKS cluster on a confidential container, Microsoft offers a solution to run it on virtual nodes on Microsoft Azure container instances. For details, see [Virtual nodes on Azure Container Instances](https://learn.microsoft.com/en-us/azure/container-instances/container-instances-virtual-nodes) (Microsoft documentation).</dd>
 <dd>In the context of UID2, AKS is one of the supported secure computing environments for hosting a <a href="#gl-private-operator">Private Operator</a>.</dd>
-<dd>For details, see <a href="../guides/operator-guide-aks-enclave">UID2 Private Operator for AKS integration guide</a>.</dd>
+<dd>For details, see <a href="../guides/operator-guide-aks-enclave">Private Operator for AKS integration guide</a>.</dd>
 <!-- <dd>**new**</dd> -->
 
 <dt><MdxJumpAnchor id="gl-api-key"><a href="#gl-api-key">API key</a></MdxJumpAnchor></dt>
@@ -204,12 +205,12 @@ import MdxJumpAnchor from '@site/src/components/MdxJumpAnchor';
 <dt><MdxJumpAnchor id="gl-confidential-containers"><a href="#gl-confidential-containers">Confidential containers (Azure)</a></MdxJumpAnchor></dt>
 <dd>Confidential Containers is the name of a secure confidential computing option from Microsoft Azure. Each Confidential Containers implementation runs in a hardware-backed Trusted Execution Environment (TEE) that provides intrinsic capabilities such as data integrity, data confidentiality, and code integrity.</dd>
 <dd>In the context of UID2, Confidential Containers from Azure is one of the supported secure computing environments for hosting a <a href="#gl-private-operator">Private Operator</a>.</dd>
-<dd>For details, see <a href="../guides/operator-guide-azure-enclave">UID2 Private Operator for Azure integration guide</a>.</dd>
+<dd>For details, see <a href="../guides/operator-guide-azure-enclave">Private Operator for Azure integration guide</a>.</dd>
 
 <dt><MdxJumpAnchor id="gl-confidential-space"><a href="#gl-confidential-space">Confidential Space (GCP)</a></MdxJumpAnchor></dt>
 <dd>Confidential Space is one of the Confidential Computing options from Google Cloud Platform (GCP). Confidential Space offers a secure enclave environment, known as a Trusted Execution Environment (TEE).</dd>
 <dd>In the context of UID2, GCP Confidential Space is one of the supported secure computing environments for hosting a <a href="#gl-private-operator">Private Operator</a>.</dd>
-<dd>For details, see <a href="../guides/operator-private-gcp-confidential-space">UID2 Private Operator for GCP integration guide</a>.</dd>
+<dd>For details, see <a href="../guides/operator-private-gcp-confidential-space">Private Operator for GCP integration guide</a>.</dd>
 
 <dt><MdxJumpAnchor id="gl-core-service"><a href="#gl-core-service">Core Service</a></MdxJumpAnchor></dt>
 <dd>The UID2 Core Service is a centralized service that manages access to secret <a href="#gl-salt">salts</a>, encryption keys, and other relevant data in the UID2 ecosystem.</dd>

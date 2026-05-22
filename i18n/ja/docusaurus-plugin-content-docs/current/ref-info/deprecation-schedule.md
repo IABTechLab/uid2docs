@@ -42,7 +42,7 @@ import SnptUpgradePolicy from '../snippets/_snpt-private-operator-upgrade-policy
 | Q3 2024 | [v5.38.104](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.38.104) | 5.38.104 | September 12, 2024 | Mar 31, 2026 |
 | Q2 2024 | [v5.37.12](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.37.12) | 5.37.12 | June 12, 2024 | Sep 30, 2025 |
 
-ドキュメントは、[UID2 Private Operator for AWS integration guide](../guides/operator-guide-aws-marketplace.md)を参照してください。
+ドキュメントは、[Private Operator for AWS integration guide](../guides/operator-guide-aws-marketplace.md)を参照してください。
 
 ### Private Operator for GCP
 
@@ -57,7 +57,7 @@ import SnptUpgradePolicy from '../snippets/_snpt-private-operator-upgrade-policy
 | Q3 2024 | [v5.38.104](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.38.104) | [gcp-oidc-deployment-files-5.38.104.zip](https://github.com/IABTechLab/uid2-operator/releases/download/v5.38.104/gcp-oidc-deployment-files-5.38.104.zip) | September 12, 2024 | Mar 31, 2026 |
 | Q2 2024 | [v5.37.12](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.37.12) | [gcp-oidc-deployment-files-5.37.12.zip](https://github.com/IABTechLab/uid2-operator/releases/download/v5.37.12/gcp-oidc-deployment-files-5.37.12.zip) | June 12, 2024 | Sep 30, 2025 |
 
-ドキュメントは、[UID2 Private Operator for GCP integration guide](../guides/operator-private-gcp-confidential-space.md)を参照してください。
+ドキュメントは、[Private Operator for GCP integration guide](../guides/operator-private-gcp-confidential-space.md)を参照してください。
 
 ### Private Operator for Azure
 
@@ -72,7 +72,7 @@ import SnptUpgradePolicy from '../snippets/_snpt-private-operator-upgrade-policy
 | Q3 2024 | [v5.38.104](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.38.104) | [azure-cc-deployment-files-5.38.104.zip](https://github.com/IABTechLab/uid2-operator/releases/download/v5.38.104/azure-cc-deployment-files-5.38.104.zip) | September 12, 2024 | Mar 31, 2026 |
 | Q2 2024 | [v5.37.12](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.37.12) | [azure-cc-deployment-files-5.37.12.zip](https://github.com/IABTechLab/uid2-operator/releases/download/v5.37.12/azure-cc-deployment-files-5.37.12.zip) | June 12, 2024 | Sep 30, 2025 |
 
-ドキュメントは、[UID2 Private Operator for Azure integration guide](../guides/operator-guide-azure-enclave.md)を参照してください。
+ドキュメントは、[Private Operator for Azure integration guide](../guides/operator-guide-azure-enclave.md)を参照してください。
 
 <!-- ### Private Operator for AKS
 

@@ -54,7 +54,7 @@ import Link from '@docusaurus/Link';
 
 ## Prebid.js integrations
 
-このセクションには、RTB ビッドストリームで Prebid.js によって渡される UID2 Token を生成するためのサンプルページが含まれています。詳細については、[UID2 integration overview for Prebid](../guides/integration-prebid) を参照してください。
+このセクションには、RTB ビッドストリームで Prebid.js によって渡される UID2 Token を生成するためのサンプルページが含まれています。詳細については、[Integration overview for Prebid](../guides/integration-prebid) を参照してください。
 
 ### Client-side integration with Prebid.js
 
@@ -142,5 +142,5 @@ UID2 Verify は、UID2 インテグレーションのデバッグのための Go
 - Doc: [UID Verify Chrome Extension](https://unifiedid.com/docs/ref-info/ref-uid-verify)
 
 :::note
-このファイルのサンプルサイトは、一般的なインテグレーションのいくつかを強調していますが、利用可能なすべての UID2 インテグレーションオプションを表しているわけではありません。利用可能なすべてのインテグレーションオプションの概要については、[UID2 integration guides: Summary](../guides/summary-guides) を参照してください。
+このファイルのサンプルサイトは、一般的なインテグレーションのいくつかを強調していますが、利用可能なすべての UID2 インテグレーションオプションを表しているわけではありません。利用可能なすべてのインテグレーションオプションの概要については、[Integration guides: Summary](../guides/summary-guides) を参照してください。
 :::

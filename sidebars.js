@@ -22,7 +22,7 @@ const fullSidebar = [
 
   {
     type: 'category',
-    label: 'Overview',
+    label: 'UID2 overview',
     link: {
       type: 'doc',
       id: 'intro',

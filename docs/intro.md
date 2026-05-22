@@ -53,7 +53,7 @@ For information about key elements of the UID2 infrastructure, and other aspects
 - [UID2 identifier types](ref-info/uid-identifier-types.md)
 - [UID2 components](ref-info/uid-components.md)
 - [UID2 participants](overviews/participants-overview.md)
-- [Workflows](ref-info/uid-workflows.md)
+- [UID2 workflows](ref-info/uid-workflows.md)
 
 ## FAQs
 

@@ -1,5 +1,5 @@
 ---
-title: UID2 integrations for Private Operators
+title: Private Operator integration overview
 description: Information summary for Private Operators.
 hide_table_of_contents: false
 displayed_sidebar: docs
@@ -10,7 +10,7 @@ import SnptUpgradePolicy from '../snippets/_snpt-private-operator-upgrade-policy
 import SnptRotatingTheKeys from '../snippets/_snpt-private-operator-rotating-the-keys.mdx';
 import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emails-and-phone-numbers.mdx';
 
-# UID2 Private Operator integration overview
+# Private Operator integration overview
 
 UID2 participants that host their own <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link> send their own first-party <Link href="../ref-info/glossary-uid#gl-dii">directly identifying information (DII)</Link> to their own local UID2 <Link href="../ref-info/glossary-uid#gl-operator">Operator</Link> service, running in a private environment.
 
@@ -132,7 +132,7 @@ There is no functional difference between the Private Operator versions.
 
 | Integration Type| Documentation | Content Description |
 | :--- | :--- | :--- |
-| AWS | [UID2 Private Operator for AWS integration guide](../guides/operator-guide-aws-marketplace.md) | Instructions for setting up a Private Operator service for AWS Marketplace. |
-| GCP Confidential Space | [UID2 Private Operator for GCP integration guide](../guides/operator-private-gcp-confidential-space.md) | Information for setting up the UID2 Operator Service in [Confidential Space](https://cloud.google.com/confidential-computing#confidential-space), a confidential computing option from [Google Cloud](https://cloud.google.com/docs/overview/) Platform. |
-| Azure | [UID2 Private Operator for Azure integration guide](../guides/operator-guide-azure-enclave.md) | Instructions for setting up the UID2 Operator Service in an instance of Confidential Containers, a confidential computing option from Microsoft Azure. |
-| AKS | [UID2 Private Operator for AKS integration guide](../guides/operator-guide-aks-enclave.md) | Instructions for setting up the UID2 Operator Service in an instance of AKS, a confidential computing solution that runs on virtual nodes on Microsoft Azure container instances and uses Kubernetes. |
+| AWS | [Private Operator for AWS integration guide](../guides/operator-guide-aws-marketplace.md) | Instructions for setting up a Private Operator service for AWS Marketplace. |
+| GCP Confidential Space | [Private Operator for GCP integration guide](../guides/operator-private-gcp-confidential-space.md) | Information for setting up the UID2 Operator Service in [Confidential Space](https://cloud.google.com/confidential-computing#confidential-space), a confidential computing option from [Google Cloud](https://cloud.google.com/docs/overview/) Platform. |
+| Azure | [Private Operator for Azure integration guide](../guides/operator-guide-azure-enclave.md) | Instructions for setting up the UID2 Operator Service in an instance of Confidential Containers, a confidential computing option from Microsoft Azure. |
+| AKS | [Private Operator for AKS integration guide](../guides/operator-guide-aks-enclave.md) | Instructions for setting up the UID2 Operator Service in an instance of AKS, a confidential computing solution that runs on virtual nodes on Microsoft Azure container instances and uses Kubernetes. |

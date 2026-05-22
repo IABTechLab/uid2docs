@@ -1,5 +1,5 @@
 ---
-title: UID2 endpoints - summary
+title: Endpoints - summary
 description: Summary of the endpoints available in the UID2 service.
 hide_table_of_contents: false
 sidebar_position: 01
@@ -8,7 +8,7 @@ displayed_sidebar: docs
 
 import Link from '@docusaurus/Link';
 
-# UID2 endpoints: Summary
+# Endpoints: Summary
 
 All UID2 endpoints require a client secret for encrypting API requests (except [POST&nbsp;/token/refresh](post-token-refresh.md) requests) and decrypting responses. For details, and code examples in different programming languages, see [Encrypting requests and decrypting responses](../getting-started/gs-encryption-decryption.md).
 

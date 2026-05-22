@@ -1,5 +1,6 @@
 ---
 title: UID2 glossary
+sidebar_label: Glossary
 description: UID2 に関する用語の定義。
 hide_table_of_contents: false
 sidebar_position: 10
@@ -136,7 +137,7 @@ import MdxJumpAnchor from '@site/src/components/MdxJumpAnchor';
 <dd>AKS は Azure Kubernetes Service の略です。詳細は、[Azure Kubernetes Service (AKS) とは?](https://learn.microsoft.com/ja-jp/azure/aks/what-is-aks) (Microsoft documentation) を参照してください。</dd>
 <dd>機密コンテナ上で AKS クラスターを実行するために、Microsoft は、Microsoft Azure コンテナインスタンス上の仮想ノードで実行するソリューションを提供しています。詳細は、[Virtual nodes on Azure Container Instances](https://learn.microsoft.com/ja-jp/azure/container-instances/container-instances-virtual-nodes) (Microsoft documentation) を参照してください。</dd>
 <dd>UID2 のコンテキストでは、AKS は <a href="#gl-private-operator">Private Operator</a> をホストするためのサポートされるセキュアコンピューティング環境の 1 つです。</dd>
-<dd>詳細は、<a href="../guides/operator-guide-aks-enclave">UID2 Private Operator for AKS integration guide</a> を参照してください。</dd>
+<dd>詳細は、<a href="../guides/operator-guide-aks-enclave">Private Operator for AKS integration guide</a> を参照してください。</dd>
 <!-- <dd>**new**</dd> -->
 
 <dt><MdxJumpAnchor id="gl-api-key">API key</MdxJumpAnchor></dt>
@@ -204,12 +205,12 @@ import MdxJumpAnchor from '@site/src/components/MdxJumpAnchor';
 <dt><MdxJumpAnchor id="gl-confidential-containers"><a href="#gl-confidential-containers">Confidential containers (Azure)</a></MdxJumpAnchor></dt>
 <dd>Confidential Containers は、Microsoft Azure のセキュアな機密コンピューティングオプションの名称です。各 Confidential Containers の実装は、データ整合性、データ機密性、コード整合性などの本質的な機能を提供する、ハードウェアで保護された Trusted Execution Environment (TEE) で実行されます。</dd>
 <dd>UID2 のコンテキストでは、Azure の Confidential Containers は、<a href="#gl-private-operator">Private Operator</a> をホストするためのサポートされるセキュアコンピューティング環境の1つです。</dd>
-<dd>詳細は <a href="../guides/operator-guide-azure-enclave">UID2 Private Operator for Azure integration guide</a> を参照してください。</dd>
+<dd>詳細は <a href="../guides/operator-guide-azure-enclave">Private Operator for Azure integration guide</a> を参照してください。</dd>
 
 <dt><MdxJumpAnchor id="gl-confidential-space"><a href="#gl-confidential-space">Confidential Space (GCP)</a></MdxJumpAnchor></dt>
 <dd>Confidential Space は、Google Cloud Platform (GCP) の Confidential Computing オプションの1つです。Confidential Space は、Trusted Execution Environment (TEE) として知られるセキュアエンクレーブ環境を提供します。</dd>
 <dd>UID2 のコンテキストでは、GCP Confidential Space は、<a href="#gl-private-operator">Private Operator</a> をホストするためのサポートされるセキュアコンピューティング環境の1つです。</dd>
-<dd>詳細は <a href="../guides/operator-private-gcp-confidential-space">UID2 Private Operator for GCP integration guide</a> を参照してください。</dd>
+<dd>詳細は <a href="../guides/operator-private-gcp-confidential-space">Private Operator for GCP integration guide</a> を参照してください。</dd>
 
 <dt><MdxJumpAnchor id="gl-core-service">Core Service</MdxJumpAnchor></dt>
 <dd>UID2 Core Serviceは、UID2 エコシステムの秘密の <a href="#gl-salt">ソルト</a>、暗号化キー、その他の関連データへのアクセスを管理する一元的なサービスです。</dd>

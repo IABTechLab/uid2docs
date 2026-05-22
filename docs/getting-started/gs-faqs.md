@@ -61,7 +61,7 @@ The best choice depends on your unique scenario and needs. For more information 
 
 - [The UID2 Operator](../ref-info/ref-operators-public-private.md)
 
-- [UID2 Private Operator integration overview](../guides/integration-options-private-operator.md)
+- [Private Operator integration overview](../guides/integration-options-private-operator.md)
 
 ## FAQs for publishers
 
