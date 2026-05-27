@@ -126,12 +126,6 @@ To get set up with the installation files, follow these steps:
 
 1. Download and unzip the file.
 
-<!-- Download the ZIP file linked in the following table, AKS Download column, for the latest version. 
-
-1. Unzip the ZIP file to extract the following files, needed for the deployment:
-
-   - `operator.yaml` -->
-
 ### Prepare environment variables
 
 Run the following commands to prepare environment variables that you'll use later. Choose variable names to suit your needs.

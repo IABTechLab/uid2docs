@@ -93,19 +93,6 @@ The following documentation resources are available for DSPs to implement UID2.
 | Integration guide | [DSP integration guide](../guides/dsp-guide.md) | This integration guide for DSPs covers handling UID2s for bidding and honoring user opt-outs. |
 | DSP direct integration instructions | [DSP direct integration tips](../guides/integration-dsp-no-sdk.md) | Instructions for DSPs who prefer to integrate without using one of the UID2 SDKs. |
 
-<!-- ## Integration Requirements
-
-To integrate with UID2 to receive UID2s from brands (as first-party data) and data providers (as third-party data) and leverage them to inform bidding on UID2s in the bidstream, the buy-side participants must meet the following requirements:
-
-- Accept data in the form of UID2s
-- Bid on data in the form of UID2s
-- Build a webhook for honoring opt-out requests
-- Sync <a href="../ref-info/glossary-uid#gl-encryption-key">encryption keys</a> daily with the UID2 Administrator
-
-For details, see [DSP integration guide](../guides/dsp-guide.md).
-
-Optionally, if DSPs want to generate UID2s themselves from DII, they can also follow the [Third-party data provider workflow](overview-data-providers.md#workflow-for-data-providers). -->
-
 ## FAQs for DSPs
 
 For a list of frequently asked questions for DSPs using the UID2 framework, see [FAQs for DSPs](../getting-started/gs-faqs.md#faqs-for-dsps).
