@@ -399,7 +399,7 @@ const sidebars = {
     'guides/integration-snowflake-previous',
     'guides/integration-databricks',
     'guides/integration-aws-entity-resolution',
-    'guides/advertiser-dataprovider-endpoints',
+    'guides/integration-advertiser-dataprovider-endpoints',
     'DSP integrations',
     'guides/dsp-guide',
     'endpoints/post-identity-buckets',
@@ -426,9 +426,6 @@ const sidebars = {
     'guides/integration-publisher-server-side',
     'GAM Secure Signals',
     'guides/integration-google-ss',
-    'Mobile',
-    'guides/sdk-ref-android',
-    'guides/sdk-ref-ios',
     'Prebid',
     'guides/integration-prebid',
     'guides/integration-prebid-client-side',
@@ -444,7 +441,7 @@ const sidebars = {
     'endpoints/post-token-generate',
     'endpoints/post-token-validate',
     'endpoints/post-token-refresh',
-    'sharing/sharing-bid-stream'
+    'sharing/sharing-tokenized-from-data-bid-stream'
     ),
 
   sidebarDSPs: removeItems(fullSidebar, 
@@ -466,9 +463,6 @@ const sidebars = {
     'guides/integration-publisher-server-side',
     'GAM Secure Signals',
     'guides/integration-google-ss',
-    'Mobile',
-    'guides/sdk-ref-android',
-    'guides/sdk-ref-ios',
     'Prebid',
     'guides/integration-prebid',
     'guides/integration-prebid-client-side',
@@ -485,8 +479,8 @@ const sidebars = {
     'guides/integration-snowflake-previous',
     'guides/integration-databricks',
     'guides/integration-aws-entity-resolution',
-    'guides/advertiser-dataprovider-endpoints',
-    'sharing/sharing-bid-stream',
+    'guides/integration-advertiser-dataprovider-endpoints',
+    'sharing/sharing-tokenized-from-data-bid-stream',
     'ref-info/ref-token-validator'
   ),
 
@@ -508,9 +502,6 @@ const sidebars = {
     'guides/integration-publisher-server-side',
     'GAM Secure Signals',
     'guides/integration-google-ss',
-    'Mobile',
-    'guides/sdk-ref-android',
-    'guides/sdk-ref-ios',
     'Prebid',
     'guides/integration-prebid',
     'guides/integration-prebid-client-side',
@@ -526,7 +517,7 @@ const sidebars = {
     'endpoints/post-token-generate',
     'endpoints/post-token-validate',
     'endpoints/post-token-refresh',
-    'sharing/sharing-bid-stream',
+    'sharing/sharing-tokenized-from-data-bid-stream',
     'ref-info/ref-token-validator'
   ),
 
