@@ -29,14 +29,14 @@ jobs:
     environment: ci-auto-merge
     steps:
       - name: Checkout source at requested ref
-        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
         with:
           ref: ${{ inputs.source_ref }}
           path: source
           persist-credentials: false
 
       - name: Checkout target preview repo
-        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
         with:
           repository: UnifiedID2/uid2-docs-preview
           token: ${{ secrets.GH_MERGE_TOKEN }}
