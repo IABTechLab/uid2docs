@@ -93,5 +93,5 @@ The following table shows the deprecation schedule for the v2 endpoints.
 
 Endpoint | Deprecation Date | 
 | ------- | ------ |
-| `POST /v2/identity/map` | June 30, 2026 |
-| `POST /v2/identity/buckets` | June 30, 2026 |
+| `POST /v2/identity/map` | September 30, 2026 |
+| `POST /v2/identity/buckets` | September 30, 2026 |
