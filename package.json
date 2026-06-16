@@ -64,7 +64,8 @@
     "lodash": "^4.18.0",
     "@babel/plugin-transform-modules-systemjs": ">=7.29.4",
     "fast-uri": ">=3.1.2",
-    "shell-quote": "^1.8.4"
+    "shell-quote": "^1.8.4",
+    "ws": ">=7.5.11"
   },
   "browserslist": {
     "production": [
