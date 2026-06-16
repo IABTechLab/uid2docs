@@ -1,6 +1,6 @@
 ---
 title: Private Operator network and firewall requirements
-sidebar_label: Network and firewall requirements
+sidebar_label: Private Operator network and firewall requirements
 pagination_label: Private Operator network and firewall requirements
 description: Outbound network destinations a Private Operator must reach, for configuring egress firewall allowlists.
 hide_table_of_contents: false
@@ -12,7 +12,7 @@ import Link from '@docusaurus/Link';
 
 # Private Operator network and firewall requirements
 
-A <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link> connects to the UID2 <Link href="../ref-info/glossary-uid#gl-core-service">Core</Link> and <Link href="../ref-info/glossary-uid#gl-opt-out-service">Opt-Out</Link> services, and downloads data files directly from AWS S3 using URLs that the Core service provides. For details, see [Private Operator workflow](integration-options-private-operator.md#private-operator-workflow).
+A <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link> connects to the UID2 <Link href="../ref-info/glossary-uid#gl-core-service">Core</Link> and <Link href="../ref-info/glossary-uid#gl-opt-out-service">Opt-Out</Link> services, and downloads data files directly from AWS S3 using URLs that the Core service provides. For details, see [Private Operator workflow](../guides/integration-options-private-operator.md#private-operator-workflow).
 
 If your environment restricts outbound network traffic, you must allow outbound HTTPS (port 443) to all of the destinations below, or the operator cannot start.
 
