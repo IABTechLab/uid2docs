@@ -154,7 +154,7 @@ To avoid passing certificates associated with your domain into the enclave, inbo
 | ----------- | --------- | -------- | ------ |
 | 80 | Inbound | HTTP | Serves all UID2 APIs, including the healthcheck endpoint `/ops/healthcheck`.<br/>When everything is up and running, the endpoint returns HTTP 200 with a response body of `OK`. For details, see [Checking UID2 Operator status](#checking-uid2-operator-status). |
 | 9080 | Inbound | HTTP | Serves Prometheus metrics (`/metrics`). |
-| 443 | Outbound | HTTPS | Calls the UID2 Core Service, AWS S3, to download files for opt-out data and key store. |
+| 443 | Outbound | HTTPS | Calls the UID2 Core Service and AWS S3, to download files for opt-out data and key store. If your environment restricts outbound network traffic, you must allow the destinations listed in [Network and firewall requirements](operator-private-network-requirements.md). |
 
 ### VPC chart
 

@@ -259,6 +259,7 @@ const fullSidebar = [
             'guides/operator-private-gcp-confidential-space',
             'guides/operator-guide-azure-enclave',
             'guides/operator-guide-aks-enclave',
+            'guides/operator-private-network-requirements',
           ],
         },
       ],

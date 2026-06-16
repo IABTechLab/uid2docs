@@ -254,6 +254,10 @@ az network vnet subnet update \
     --nat-gateway ${NAT_GATEWAY_NAME}
 ```
 
+:::note
+The NAT gateway provides the operator's outbound internet access. If your environment restricts outbound network traffic, you must allow the destinations listed in [Network and firewall requirements](operator-private-network-requirements.md).
+:::
+
 #### Get the AKS Subnet ID
 
 To create the AKS subnet ID, run the following command, using your own values as needed:
