@@ -330,7 +330,11 @@ The following table provides information about supported protocols.
 | ----------- | --------- | -------- | ------ |
 | 80 | Inbound | HTTP | Serves all UID2 APIs, including the health check endpoint `/ops/healthcheck`.<br/>When everything is up and running, the endpoint returns HTTP 200 with a response body of `OK`. For details, see [Running the health check](#running-the-health-check). |
 | 9080 | Inbound | HTTP | Serves Prometheus metrics (`/metrics`). For details, see [Scraping metrics](#scraping-metrics). |
-| 443 | Outbound | HTTPS | Calls the UID2 Core Service and AWS S3, to download files for opt-out data and key store. If your environment restricts outbound network traffic, you must allow the destinations listed in [Network and firewall requirements](operator-private-network-requirements.md). |
+| 443 | Outbound | HTTPS | Calls the UID2 Core Service and AWS S3, to download files for opt-out data and key store. |
+
+:::note
+If your environment restricts outbound network traffic, you must allow outbound access to the destinations listed in [Network and firewall requirements](operator-private-network-requirements.md).
+:::
 
 ## Upgrading
 

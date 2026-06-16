@@ -255,7 +255,7 @@ az network vnet subnet update \
 ```
 
 :::note
-The NAT gateway provides the operator's outbound internet access. If your environment restricts outbound network traffic, you must allow the destinations listed in [Network and firewall requirements](operator-private-network-requirements.md).
+If your environment restricts outbound network traffic, you must allow outbound access to the destinations listed in [Network and firewall requirements](operator-private-network-requirements.md).
 :::
 
 #### Get the AKS Subnet ID
