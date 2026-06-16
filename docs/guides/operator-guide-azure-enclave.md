@@ -333,7 +333,7 @@ The following table provides information about supported protocols.
 | 443 | Outbound | HTTPS | Calls the UID2 Core Service and AWS S3, to download files for opt-out data and key store. |
 
 :::note
-If your environment restricts outbound network traffic, you must allow outbound access to the destinations listed in [Network and firewall requirements](operator-private-network-requirements.md).
+If your environment restricts outbound network traffic, you must allow outbound access to the destinations listed in [Network and firewall requirements](../ref-info/operator-private-network-requirements.md).
 :::
 
 ## Upgrading
