@@ -36,4 +36,4 @@ If your environment restricts outbound network traffic, you must allow outbound 
 | `uid2-optout-prod-store.s3.us-east-2.amazonaws.com` | Opt-out data storage |
 | `uid2-optout-prod-store-replica.s3.us-west-2.amazonaws.com` | Opt-out data storage (failover replica) |
 
-Allow these by hostname rather than by IP address, as the underlying addresses change.
+Allow these by hostname rather than by IP address, because the underlying addresses might change.
