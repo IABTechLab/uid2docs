@@ -26,7 +26,7 @@ The following table lists the hostnames you must allow for the integration envir
 | `uid2-optout-integ-store.s3.us-east-2.amazonaws.com` | Opt-out data storage |
 
 ## Production
-
+The following table lists the hostnames you must allow for the production environment.
 | Hostname | Purpose |
 | --- | --- |
 | `core-prod.uidapi.com` | Core Service (attestation, keys, salts, configuration) |
