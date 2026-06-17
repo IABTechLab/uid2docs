@@ -17,7 +17,7 @@ A <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Li
 If your environment restricts outbound network traffic, you must allow outbound HTTPS (port 443) to all of the destinations below, or the operator cannot start.
 
 ## Integration
-
+The following table lists the hostnames you must allow for the integration environment.
 | Hostname | Purpose |
 | --- | --- |
 | `core-integ.uidapi.com` | Core Service (attestation, keys, salts, configuration) |
