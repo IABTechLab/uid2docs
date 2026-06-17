@@ -255,7 +255,7 @@ az network vnet subnet update \
 ```
 
 :::note
-If your environment restricts outbound network traffic, you must allow outbound access to the destinations listed in [Network and firewall requirements](../ref-info/operator-private-network-requirements.md).
+If your environment restricts outbound network traffic, you must allow outbound access to the destinations listed in [Private Operator network egress](../ref-info/operator-private-network-requirements.md).
 :::
 
 #### Get the AKS Subnet ID
