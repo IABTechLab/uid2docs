@@ -90,6 +90,8 @@ Before choosing your deployment option, complete these Google Cloud setup steps:
 
 1. Enable egress rule. If your VPC infrastructure only allows egress to known endpoints, you will need to enable an egress rule to allow the operator to retrieve the certificates required for attestation. To enable this, follow the details in this document from Google: [VPC Service Controls](https://cloud.google.com/vpc-service-controls/docs/supported-products#table_confidential_space).
 
+   You must also allow outbound access to the UID2 service and storage destinations that the operator depends on. For the full list, see [Private Operator network egress](../ref-info/operator-private-network-requirements.md).
+
 ### UID2 Operator account setup
 
 Ask your UID2 contact to register your organization as a UID2 Operator. If you're not sure who to ask, see [Contact info](../getting-started/gs-account-setup.md#contact-info).
