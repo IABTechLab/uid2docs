@@ -38,7 +38,7 @@ The latest ZIP file is linked in the Release Notes column in the following table
 
 | Version Name | Version&nbsp;#/Release&nbsp;Notes | AWS Version |  Date |
 | ------- | ------ | ------ | ------ | 
-| Q4 2025 | [v5.62.24](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.62.24-r2) | v5.62.24-r2 | January 15, 2026 |
+| H1 2026 | [v5.70.159](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.70.159-r0) | v5.70.159-r0 | June 23, 2026 |
 
 :::note
 For information about supported versions and deprecation dates, see [Private Operator versions](../ref-info/deprecation-schedule.md#private-operator-versions).

@@ -35,6 +35,7 @@ The latest ZIP file is available in the Assets section at the bottom of the link
 
 | Version Name | Version&nbsp;#/Release&nbsp;Notes | AWS Version | Date | Deprecation Date |
 | ------- | ------ | ------ | ------ | ------ |
+| H1 2026 | [v5.70.159](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.70.159-r0) | v5.70.159-r0 | June 23, 2026 | June 30, 2027 |
 | Q4 2025 | [v5.62.24](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.62.24-r2) | v5.62.24-r2 | January 15, 2026 | January 15, 2027 |
 | Q2 2025 | [v5.55.9](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.55.9-r1) | v5.55.9-r1 | July 1, 2025 | July 1, 2026 |
 | Q1 2025 | [v5.49.7](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.49.7) | 5.49.7 | Mar 19, 2025 | Mar 31, 2026 |
@@ -50,6 +51,7 @@ The latest ZIP file is linked in the GCP Download column in the following table.
 
 | Version Name | Version&nbsp;#/Release&nbsp;Notes | GCP Download | Date | Deprecation Date |
 | ------- | ------ | ------ | ------ | ------ |
+| H1 2026 | [v5.70.159](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.70.159-r0) | [gcp-oidc-deployment-files-5.70.159-r0.zip](https://github.com/IABTechLab/uid2-operator/releases/download/v5.70.159-r0/gcp-oidc-deployment-files-5.70.159-r0.zip) | June 23, 2026 | June 30, 2027 |
 | Q4 2025 | [v5.62.24](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.62.24-r2) | [gcp-oidc-deployment-files-5.62.24-r2.zip](https://github.com/IABTechLab/uid2-operator/releases/download/v5.62.24-r2/gcp-oidc-deployment-files-5.62.24-r2.zip) | January 15, 2026 | January 15, 2027 |
 | Q2 2025 | [v5.55.9](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.55.9-r1) | [gcp-oidc-deployment-files-5.55.9-r1.zip](https://github.com/IABTechLab/uid2-operator/releases/download/v5.55.9-r1/gcp-oidc-deployment-files-5.55.9-r1.zip) | July 1, 2025 | July 1, 2026 | 
 | Q1 2025 | [v5.49.7](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.49.7) | [gcp-oidc-deployment-files-5.49.7.zip](https://github.com/IABTechLab/uid2-operator/releases/download/v5.49.7/gcp-oidc-deployment-files-5.49.7.zip) | Mar 19, 2025 | Mar 31, 2026 |
@@ -65,6 +67,7 @@ The latest ZIP file is linked in the Azure Download column in the following tabl
 
 | Version Name | Version&nbsp;#/Release&nbsp;Notes | Azure Download | Date | Deprecation Date |
 | ------- | ------ | ------ | ------ | ------ |
+| H1 2026 | [v5.70.159](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.70.159-r0) | [azure-cc-deployment-files-5.70.159-r0.zip](https://github.com/IABTechLab/uid2-operator/releases/download/v5.70.159-r0/azure-cc-deployment-files-5.70.159-r0.zip) | June 23, 2026 | June 30, 2027 |
 | Q4 2025 | [v5.62.24](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.62.24-r2) | [azure-cc-deployment-files-5.62.24-r2.zip](https://github.com/IABTechLab/uid2-operator/releases/download/v5.62.24-r2/azure-cc-deployment-files-5.62.24-r2.zip) | January 15, 2026 | January 15, 2027 |
 | Q2 2025 | [v5.55.9](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.55.9-r1) | [azure-cc-deployment-files-5.55.9-r1.zip](https://github.com/IABTechLab/uid2-operator/releases/download/v5.55.9-r1/azure-cc-deployment-files-5.55.9-r1.zip) | July 1, 2025 | July 1, 2026 |
 | Q1 2025 | [v5.49.7](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.49.7) | [azure-cc-deployment-files-5.49.7.zip](https://github.com/IABTechLab/uid2-operator/releases/download/v5.49.7/azure-cc-deployment-files-5.49.7.zip) | Mar 19, 2025 | Mar 31, 2026 |

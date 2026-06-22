@@ -37,7 +37,7 @@ The latest ZIP file is linked in the GCP Download column in the following table.
 
 | Version Name | Version&nbsp;#/Release&nbsp;Notes | GCP Download |  Date | Deprecation Date |
 | ------- | ------ | ------ | ------ | ------ |
-| Q4 2025 | [v5.62.24](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.62.24-r2) | [gcp-oidc-deployment-files-5.62.24-r2.zip](https://github.com/IABTechLab/uid2-operator/releases/download/v5.62.24-r2/gcp-oidc-deployment-files-5.62.24-r2.zip) | January 15, 2026 | January 15, 2027 | 
+| H1 2026 | [v5.70.159](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.70.159-r0) | [gcp-oidc-deployment-files-5.70.159-r0.zip](https://github.com/IABTechLab/uid2-operator/releases/download/v5.70.159-r0/gcp-oidc-deployment-files-5.70.159-r0.zip) | June 23, 2026 | June 30, 2027 | 
 
 :::note
 For information about supported versions and deprecation dates, see [Private Operator versions](../ref-info/deprecation-schedule.md#private-operator-versions).
