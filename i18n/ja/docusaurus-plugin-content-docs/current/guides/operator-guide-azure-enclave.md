@@ -35,7 +35,7 @@ UID2 Private Operator for Azure は、次の地域ではサポートされてい
 
 | Version Name | Version Number  | Release Notes | Azure Download |  Date | Deprecation Date |
 | ------- | ------ | ------ | ------ | ------ | ------ |
-| Q4 2025 | v5.62.24 | [v5.62.24](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.62.24-r2) | [azure-cc-deployment-files-5.62.24-r2.zip](https://github.com/IABTechLab/uid2-operator/releases/download/v5.62.24-r2/azure-cc-deployment-files-5.62.24-r2.zip) | January 15, 2026 | January 15, 2027 |
+| H1 2026 | v5.70.159 | [v5.70.159](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.70.159-r0) | [azure-cc-deployment-files-5.70.159-r0.zip](https://github.com/IABTechLab/uid2-operator/releases/download/v5.70.159-r0/azure-cc-deployment-files-5.70.159-r0.zip) | June 23, 2026 | June 30, 2027 |
 
 :::note
 サポートされているバージョンと非推奨日については、[Private Operator versions](../ref-info/deprecation-schedule.md#private-operator-versions) を参照してください。
