@@ -81,6 +81,10 @@ Each supported Private Operator implementation must meet rigorous security stand
 - The information retrieved at startup is not stored locally at any point. It is only ever held in memory, and the Private Operator is running in a protected environment that makes it difficult for anyone running the Operator (such as an Administrator), as well as any external players, to see the data that's in memory.
 - The Private Operator never stores <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> that is sent for processing (email addresses and/or phone numbers). The data is only used within the enclave, to generate UID2s, and is discarded immediately after processing.
 
+:::note
+All Private Operators must be allowed to access the destinations in [Private Operator network egress](../ref-info/operator-private-network-requirements.md). If your organization is secured with a firewall or proxy, these domains must be added to the allowlist.
+:::
+
 ## Private Operator limitations
 
 There are a couple of limitations to Private Operator functionality:
@@ -136,7 +140,3 @@ There is no functional difference between the Private Operator versions.
 | GCP Confidential Space | [Private Operator for GCP integration guide](../guides/operator-private-gcp-confidential-space.md) | Information for setting up the UID2 Operator Service in [Confidential Space](https://cloud.google.com/confidential-computing#confidential-space), a confidential computing option from [Google Cloud](https://cloud.google.com/docs/overview/) Platform. |
 | Azure | [Private Operator for Azure integration guide](../guides/operator-guide-azure-enclave.md) | Instructions for setting up the UID2 Operator Service in an instance of Confidential Containers, a confidential computing option from Microsoft Azure. |
 | AKS | [Private Operator for AKS integration guide](../guides/operator-guide-aks-enclave.md) | Instructions for setting up the UID2 Operator Service in an instance of AKS, a confidential computing solution that runs on virtual nodes on Microsoft Azure container instances and uses Kubernetes. |
-
-:::note
-All Private Operators must be allowed to access the destinations in [Private Operator network egress](../ref-info/operator-private-network-requirements.md). If your organization is secured with a firewall or proxy, these domains must be added to the allowlist.
-:::
