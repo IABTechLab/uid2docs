@@ -82,7 +82,7 @@ Each supported Private Operator implementation must meet rigorous security stand
 - The Private Operator never stores <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> that is sent for processing (email addresses and/or phone numbers). The data is only used within the enclave, to generate UID2s, and is discarded immediately after processing.
 
 :::note
-All Private Operators must be allowed to access the destinations in [Private Operator network egress](../ref-info/operator-private-network-requirements.md). If your organization is secured with a firewall or proxy, these domains must be added to the allowlist.
+All Private Operators must be allowed to access the destinations in [Private Operator network egress](../ref-info/operator-private-network-requirements.md). If your organization is secured with a firewall or proxy, these domains must be added to the allowlist. 
 :::
 
 ## Private Operator limitations
