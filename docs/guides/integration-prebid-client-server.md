@@ -25,6 +25,10 @@ To integrate with UID2 using Prebid.js, you'll need to:
 - Make changes to the HTML and JavaScript on your site.
 - Make server-side changes for token generation (and, optionally, <a href="../ref-info/glossary-uid#gl-token-refresh">token refresh</a>).  
 
+:::tip
+You can use the [UID Verify Chrome extension](../ref-info/ref-uid-verify.md) to inspect and debug this integration directly in Chrome.
+:::
+
 ## Prebid.js version
 
 This implementation requires Prebid.js version 7.53.0 or later. For version information, see [https://github.com/prebid/Prebid.js/releases](https://github.com/prebid/Prebid.js/releases).

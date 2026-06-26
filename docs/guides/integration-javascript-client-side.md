@@ -37,6 +37,10 @@ UID2 provides an SDK for JavaScript (see [SDK for JavaScript reference guide](..
 - Automatic refreshing of UID2 tokens
 - Automatic storage of UID2 tokens in the browser
 
+:::tip
+You can use the [UID Verify Chrome extension](../ref-info/ref-uid-verify.md) to inspect and debug this integration directly in Chrome.
+:::
+
 To implement, you'll need to complete the following steps:
 
 1. [Complete UID2 account setup and configure account](#complete-uid2-account-setup-and-configure-account)

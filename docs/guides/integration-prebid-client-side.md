@@ -20,6 +20,10 @@ This guide is for publishers who have access to <Link href="../ref-info/glossary
 
 To integrate with UID2 using Prebid.js, you'll need to make changes to the HTML and JavaScript on your site. No server-side work is required if you follow this guide.
 
+:::tip
+You can use the [UID Verify Chrome extension](../ref-info/ref-uid-verify.md) to inspect and debug this integration directly in Chrome.
+:::
+
 ## Prebid.js version
 
 This implementation requires Prebid.js version 8.21.0 or later. For version information, see [https://github.com/prebid/Prebid.js/releases](https://github.com/prebid/Prebid.js/releases).

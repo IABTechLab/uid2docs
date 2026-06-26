@@ -43,6 +43,10 @@ For integration scenarios for publishers that do not use the SDK for JavaScript,
 If you are using Google Ad Manager and want to use the secure signals feature, first follow the steps in this guide and then follow the additional steps in the [Google Ad Manager Secure Signals integration guide](integration-google-ss.md).
 :::
 
+:::tip
+You can use the [UID Verify Chrome extension](../ref-info/ref-uid-verify.md) to inspect and debug this integration directly in Chrome.
+:::
+
 ## Integrating with single sign-on (SSO)
 
 <SnptIntegratingWithSSO />

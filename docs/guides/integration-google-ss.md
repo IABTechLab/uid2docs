@@ -20,6 +20,10 @@ This guide covers integration steps for publishers using UID2 with the Google Ad
 To use the UID2 Google Ad Manager secure signals integration, if you are using an SDK you must have your UID2 integration already set up. This does not apply if you are using server-side integration. For a summary of all the integration options available, see [Integration guides: Summary](summary-guides.md).
 :::
 
+:::tip
+You can use the [UID Verify Chrome extension](../ref-info/ref-uid-verify.md) to inspect and debug this integration directly in Chrome.
+:::
+
 ## Overview
 
 Google secure signals is a way for publishers to pass "encrypted" user IDs to bidders that are approved by Google, via [Google Ad Manager](https://admanager.google.com/home/) and the [Google Ad Manager Ad Exchange (AdX)](https://support.google.com/admanager/answer/6321605?hl=en). The framework is an optional part of the <a href="https://developers.google.com/publisher-tag/guides/get-started">Google Publisher Tag (GPT)</a> library commonly used by publishers.
