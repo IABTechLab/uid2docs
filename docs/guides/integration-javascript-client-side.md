@@ -13,6 +13,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import SnptIntegratingWithSSO from '../snippets/_snpt-integrating-with-sso.mdx';
 import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emails-and-phone-numbers.mdx';
+import SnptUidVerifyDebugTip from '../snippets/_snpt-uid-verify-debug-tip.mdx';
 
 # Client-side integration guide for JavaScript
 
@@ -37,9 +38,7 @@ UID2 provides an SDK for JavaScript (see [SDK for JavaScript reference guide](..
 - Automatic refreshing of UID2 tokens
 - Automatic storage of UID2 tokens in the browser
 
-:::tip
-You can use the [UID Verify Chrome extension](../ref-info/ref-uid-verify.md) to inspect and debug this integration directly in Chrome.
-:::
+<SnptUidVerifyDebugTip />
 
 To implement, you'll need to complete the following steps:
 

@@ -8,6 +8,7 @@ displayed_sidebar: sidebarPublishers
 
 import Link from '@docusaurus/Link';
 import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emails-and-phone-numbers.mdx';
+import SnptUidVerifyDebugTip from '../snippets/_snpt-uid-verify-debug-tip.mdx';
 
 # Publisher web integration overview
 
@@ -141,8 +142,4 @@ As long as you generate the token and keep it refreshed, you can also use other 
 
 ## Debug your integration
 
-After you integrate, you can use the UID Verify Chrome extension to inspect and debug your UID2 web integration in real time, directly in the browser.
-
-:::tip
-The [UID Verify Chrome extension](../ref-info/ref-uid-verify.md) supports the SDK for JavaScript, Prebid.js, and Google Secure Signals.
-:::
+<SnptUidVerifyDebugTip />

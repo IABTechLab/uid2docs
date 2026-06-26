@@ -13,6 +13,7 @@ import SnptIntegratingWithSSO from '../snippets/_snpt-integrating-with-sso.mdx';
 import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emails-and-phone-numbers.mdx';
 import SnptAddPrebidjsToYourSite from '../snippets/_snpt-prebid-add-prebidjs-to-your-site.mdx';
 import SnptStoreUID2TokenInBrowser from '../snippets/_snpt-prebid-storing-uid2-token-in-browser.mdx';
+import SnptUidVerifyDebugTip from '../snippets/_snpt-uid-verify-debug-tip.mdx';
 
 # Client-server integration guide for Prebid.js
 
@@ -25,9 +26,7 @@ To integrate with UID2 using Prebid.js, you'll need to:
 - Make changes to the HTML and JavaScript on your site.
 - Make server-side changes for token generation (and, optionally, <a href="../ref-info/glossary-uid#gl-token-refresh">token refresh</a>).  
 
-:::tip
-You can use the [UID Verify Chrome extension](../ref-info/ref-uid-verify.md) to inspect and debug this integration directly in Chrome.
-:::
+<SnptUidVerifyDebugTip />
 
 ## Prebid.js version
 

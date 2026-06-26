@@ -12,6 +12,7 @@ import Link from '@docusaurus/Link';
 import SnptIntegratingWithSSO from '../snippets/_snpt-integrating-with-sso.mdx';
 import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emails-and-phone-numbers.mdx';
 import SnptExampleClientServerSendUid2ToSdk from '../snippets/_snpt-example-client-server-send-uid2-to-sdk.mdx'; 
+import SnptUidVerifyDebugTip from '../snippets/_snpt-uid-verify-debug-tip.mdx';
 
 # Client-server integration guide for JavaScript
 
@@ -43,9 +44,7 @@ For integration scenarios for publishers that do not use the SDK for JavaScript,
 If you are using Google Ad Manager and want to use the secure signals feature, first follow the steps in this guide and then follow the additional steps in the [Google Ad Manager Secure Signals integration guide](integration-google-ss.md).
 :::
 
-:::tip
-You can use the [UID Verify Chrome extension](../ref-info/ref-uid-verify.md) to inspect and debug this integration directly in Chrome.
-:::
+<SnptUidVerifyDebugTip />
 
 ## Integrating with single sign-on (SSO)
 
