@@ -21,10 +21,6 @@ This guide is for publishers who have access to <Link href="../ref-info/glossary
 
 To integrate with UID2 using Prebid.js, you'll need to make changes to the HTML and JavaScript on your site. No server-side work is required if you follow this guide.
 
-## Inspecting with UID Verify Chrome Extension
-
-<SnptUidVerifyInspect />
-
 ## Prebid.js version
 
 This implementation requires Prebid.js version 8.21.0 or later. For version information, see [https://github.com/prebid/Prebid.js/releases](https://github.com/prebid/Prebid.js/releases).
@@ -36,6 +32,10 @@ If you need to use an earlier version of Prebid.js, use the implementation solut
 ## Integrating with single sign-on (SSO)
 
 <SnptIntegratingWithSSO />
+
+## Inspecting with UID Verify Chrome extension
+
+<SnptUidVerifyInspect />
 
 ## Preparing DII for processing
 

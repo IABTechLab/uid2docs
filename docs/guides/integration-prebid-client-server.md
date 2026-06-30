@@ -26,10 +26,6 @@ To integrate with UID2 using Prebid.js, you'll need to:
 - Make changes to the HTML and JavaScript on your site.
 - Make server-side changes for token generation (and, optionally, <a href="../ref-info/glossary-uid#gl-token-refresh">token refresh</a>).  
 
-## Inspecting with UID Verify Chrome Extension
-
-<SnptUidVerifyInspect />
-
 ## Prebid.js version
 
 This implementation requires Prebid.js version 7.53.0 or later. For version information, see [https://github.com/prebid/Prebid.js/releases](https://github.com/prebid/Prebid.js/releases).
@@ -45,6 +41,10 @@ Information about how to integrate Prebid with UID2 is also in the following loc
 ## Integrating with single sign-on (SSO)
 
 <SnptIntegratingWithSSO />
+
+## Inspecting with UID Verify Chrome extension
+
+<SnptUidVerifyInspect />
 
 ## Preparing DII for processing
 
