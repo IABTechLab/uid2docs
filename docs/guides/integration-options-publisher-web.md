@@ -138,3 +138,7 @@ The following table shows integration options that support passing UID2 token in
 :::note
 As long as you generate the token and keep it refreshed, you can also use other options for passing the UID2 token into the bidstream.
 :::
+
+## Inspecting with UID Verify Chrome Extension
+
+<SnptUidVerifyInspect />

@@ -38,6 +38,8 @@ UID2 provides an SDK for JavaScript (see [SDK for JavaScript reference guide](..
 - Automatic refreshing of UID2 tokens
 - Automatic storage of UID2 tokens in the browser
 
+## Inspecting with UID Verify Chrome Extension
+
 <SnptUidVerifyInspect />
 
 To implement, you'll need to complete the following steps:

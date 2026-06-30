@@ -21,6 +21,8 @@ This guide is for publishers who have access to <Link href="../ref-info/glossary
 
 To integrate with UID2 using Prebid.js, you'll need to make changes to the HTML and JavaScript on your site. No server-side work is required if you follow this guide.
 
+## Inspecting with UID Verify Chrome Extension
+
 <SnptUidVerifyInspect />
 
 ## Prebid.js version

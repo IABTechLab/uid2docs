@@ -21,6 +21,8 @@ This guide covers integration steps for publishers using UID2 with the Google Ad
 To use the UID2 Google Ad Manager secure signals integration, if you are using an SDK you must have your UID2 integration already set up. This does not apply if you are using server-side integration. For a summary of all the integration options available, see [Integration guides: Summary](summary-guides.md).
 :::
 
+## Inspecting with UID Verify Chrome Extension
+
 <SnptUidVerifyInspect />
 
 ## Overview
