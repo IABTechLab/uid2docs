@@ -8,6 +8,7 @@ displayed_sidebar: sidebarPublishers
 
 import Link from '@docusaurus/Link';
 import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emails-and-phone-numbers.mdx';
+import SnptUidVerifyInspect from '../snippets/_snpt-uid-verify-inspect.mdx';
 
 # Publisher web integration overview
 
