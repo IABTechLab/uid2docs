@@ -13,7 +13,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import SnptIntegratingWithSSO from '../snippets/_snpt-integrating-with-sso.mdx';
 import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emails-and-phone-numbers.mdx';
-import SnptUidVerifyDebugTip from '../snippets/_snpt-uid-verify-debug-tip.mdx';
+import SnptUidVerifyInspect from '../snippets/_snpt-uid-verify-inspect.mdx';
 
 # Client-side integration guide for JavaScript
 
@@ -38,7 +38,7 @@ UID2 provides an SDK for JavaScript (see [SDK for JavaScript reference guide](..
 - Automatic refreshing of UID2 tokens
 - Automatic storage of UID2 tokens in the browser
 
-<SnptUidVerifyDebugTip />
+<SnptUidVerifyInspect />
 
 To implement, you'll need to complete the following steps:
 

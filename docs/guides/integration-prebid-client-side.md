@@ -13,7 +13,7 @@ import SnptIntegratingWithSSO from '../snippets/_snpt-integrating-with-sso.mdx';
 import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emails-and-phone-numbers.mdx';
 import SnptAddPrebidjsToYourSite from '../snippets/_snpt-prebid-add-prebidjs-to-your-site.mdx';
 import SnptStoreUID2TokenInBrowser from '../snippets/_snpt-prebid-storing-uid2-token-in-browser.mdx';
-import SnptUidVerifyDebugTip from '../snippets/_snpt-uid-verify-debug-tip.mdx';
+import SnptUidVerifyInspect from '../snippets/_snpt-uid-verify-inspect.mdx';
 
 # Client-side integration guide for Prebid.js
 
@@ -21,7 +21,7 @@ This guide is for publishers who have access to <Link href="../ref-info/glossary
 
 To integrate with UID2 using Prebid.js, you'll need to make changes to the HTML and JavaScript on your site. No server-side work is required if you follow this guide.
 
-<SnptUidVerifyDebugTip />
+<SnptUidVerifyInspect />
 
 ## Prebid.js version
 

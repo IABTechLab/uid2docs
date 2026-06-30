@@ -8,7 +8,7 @@ displayed_sidebar: sidebarPublishers
 
 import Link from '@docusaurus/Link';
 import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emails-and-phone-numbers.mdx';
-import SnptUidVerifyDebugTip from '../snippets/_snpt-uid-verify-debug-tip.mdx';
+import SnptUidVerifyInspect from '../snippets/_snpt-uid-verify-inspect.mdx';
 
 # Publisher web integration overview
 
@@ -142,4 +142,4 @@ As long as you generate the token and keep it refreshed, you can also use other 
 
 ## Debug your integration
 
-<SnptUidVerifyDebugTip />
+<SnptUidVerifyInspect />
