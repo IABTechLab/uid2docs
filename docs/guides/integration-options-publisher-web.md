@@ -8,7 +8,6 @@ displayed_sidebar: sidebarPublishers
 
 import Link from '@docusaurus/Link';
 import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emails-and-phone-numbers.mdx';
-import SnptUidVerifyInspect from '../snippets/_snpt-uid-verify-inspect.mdx';
 
 # Publisher web integration overview
 
@@ -139,7 +138,3 @@ The following table shows integration options that support passing UID2 token in
 :::note
 As long as you generate the token and keep it refreshed, you can also use other options for passing the UID2 token into the bidstream.
 :::
-
-## Debug your integration
-
-<SnptUidVerifyInspect />
