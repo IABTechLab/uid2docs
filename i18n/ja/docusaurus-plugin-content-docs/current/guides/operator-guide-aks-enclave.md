@@ -14,7 +14,7 @@ import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emai
 import SnptAttestFailure from '../snippets/_snpt-private-operator-attest-failure.mdx';
 import SnptRotatingTheKeys from '../snippets/_snpt-private-operator-rotating-the-keys.mdx';
 
-# UID2 Private Operator for AKS integration guide
+# Private Operator for AKS integration guide
 
 UID2 Operator は UID2 エコシステムの API サーバーです。詳細は、[The UID2 Operator](../ref-info/ref-operators-public-private.md) を参照してください。
 

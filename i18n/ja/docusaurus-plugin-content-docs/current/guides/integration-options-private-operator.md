@@ -10,7 +10,7 @@ import SnptUpgradePolicy from '../snippets/_snpt-private-operator-upgrade-policy
 import SnptRotatingTheKeys from '../snippets/_snpt-private-operator-rotating-the-keys.mdx';
 import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emails-and-phone-numbers.mdx';
 
-# UID2 Private Operator integration overview
+# Private Operator integration overview
 
 <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link> をホストする UID2 参加者は、自身のローカル UID2 <Link href="../ref-info/glossary-uid#gl-operator">Operator</Link> サービスに、自社のファーストパーティ <Link href="../ref-info/glossary-uid#gl-dii">directly identifying information (DII)</Link> を送信します。この Operator は、プライベート環境で実行されます。
 

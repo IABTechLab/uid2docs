@@ -20,6 +20,6 @@ import Link from '@docusaurus/Link';
 | [Workflow for publishers](../overviews/overview-publishers.md#workflow-for-publishers) | SSP を介して UID2 Token をビッドストリームに送る組織。<br/> 注意: パブリッシャーは、Prebid を使用したインテグレーション、SDK for JavaScript の活用、または SDK を使用しない独自の Server-Side インテグレーションを選択できます。 | [Publisher integrations](../guides/summary-guides#publisher-integrations) を参照 |
 | [Opt-out workflow](../getting-started/gs-opt-out.md#opt-out-workflow) | パブリッシャーやその SSO プロバイダー、その他のアイデンティティプロバイダーと関わる消費者。 | N/A |
 
-以下の図は、4 つのワークフローすべてをまとめたものです。各ワークフローについて、[外部参加者](../overviews/participants-overview.md#uid2-external-participants)、[コンポーネント](../ref-info/uid-components.md)、[UID2 識別子タイプ](../ref-info/uid-identifier-types.md)、および番号付きのステップが色分けされています。
+以下の図は、4 つのワークフローすべてをまとめたものです。各ワークフローについて、[外部参加者](../overviews/participants-overview.md#uid2-external-participants)、[コンポーネント](../ref-info/uid-components.md)、[識別子タイプ](../ref-info/uid-identifier-types.md)、および番号付きのステップが色分けされています。
 
 ![The UID2 ecosystem](images/UID2Workflows.svg)
