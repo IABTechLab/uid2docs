@@ -13,6 +13,7 @@ import SnptIntegratingWithSSO from '../snippets/_snpt-integrating-with-sso.mdx';
 import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emails-and-phone-numbers.mdx';
 import SnptAddPrebidjsToYourSite from '../snippets/_snpt-prebid-add-prebidjs-to-your-site.mdx';
 import SnptStoreUID2TokenInBrowser from '../snippets/_snpt-prebid-storing-uid2-token-in-browser.mdx';
+import SnptUidVerifyInspect from '../snippets/_snpt-uid-verify-inspect.mdx';
 
 # Client-server integration guide for Prebid.js
 
@@ -40,6 +41,10 @@ Information about how to integrate Prebid with UID2 is also in the following loc
 ## Integrating with single sign-on (SSO)
 
 <SnptIntegratingWithSSO />
+
+## Inspecting with UID Verify Chrome extension
+
+<SnptUidVerifyInspect />
 
 ## Preparing DII for processing
 

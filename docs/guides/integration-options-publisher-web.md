@@ -7,6 +7,8 @@ displayed_sidebar: sidebarPublishers
 ---
 
 import Link from '@docusaurus/Link';
+import SnptIntegratingWithSSO from '../snippets/_snpt-integrating-with-sso.mdx';
+import SnptUidVerifyInspect from '../snippets/_snpt-uid-verify-inspect.mdx';
 import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emails-and-phone-numbers.mdx';
 
 # Publisher web integration overview
@@ -43,6 +45,14 @@ To accomplish all steps, you can combine solutions. For example, you could use t
 | [Google Ad Manager Secure Signals](integration-google-ss.md) | &#8212; | &#8212; | &#9989; |
 
 <!-- &#9989; = Supported | &#8212; = Not Supported -->
+
+## Integrating with single sign-on (SSO)
+
+<SnptIntegratingWithSSO />
+
+## Inspecting with UID Verify Chrome extension
+
+<SnptUidVerifyInspect />
 
 ## Preparing DII for processing
 

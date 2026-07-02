@@ -13,6 +13,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import SnptIntegratingWithSSO from '../snippets/_snpt-integrating-with-sso.mdx';
 import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emails-and-phone-numbers.mdx';
+import SnptUidVerifyInspect from '../snippets/_snpt-uid-verify-inspect.mdx';
 
 # Client-side integration guide for JavaScript
 
@@ -61,6 +62,10 @@ If you want to use a debug build of the SDK, use the following URL instead:
 ## Integrating with single sign-on (SSO)
 
 <SnptIntegratingWithSSO />
+
+## Inspecting with UID Verify Chrome extension
+
+<SnptUidVerifyInspect />
 
 ## Preparing DII for processing
 
