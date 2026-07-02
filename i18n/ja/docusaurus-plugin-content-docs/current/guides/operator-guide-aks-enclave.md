@@ -254,6 +254,10 @@ az network vnet subnet update \
     --nat-gateway ${NAT_GATEWAY_NAME}
 ```
 
+:::note
+アウトバンドのネットワークが制限されている場合は、[Private Operator network egress](../ref-info/operator-private-network-requirements.md) に記載されている宛先へのアウトバウンドアクセスを許可する必要があります。
+:::
+
 #### Get the AKS Subnet ID
 
 AKS サブネット ID を取得するには、次のコマンドを実行します:

@@ -136,3 +136,8 @@ Private Operator のバージョン間に機能的な違いはありません。
 | GCP Confidential Space | [Private Operator for GCP integration guide](../guides/operator-private-gcp-confidential-space.md) | [Google Cloud](https://cloud.google.com/docs/overview/) Platform の機密コンピューティング オプションである [Confidential Space](https://cloud.google.com/confidential-computing#confidential-space) に UID2 Operator Service を設定する方法。 |
 | Azure | [Private Operator for Azure integration guide](../guides/operator-guide-azure-enclave.md) | Microsoft Azure の機密コンピューティング オプションである Confidential Containers インスタンスで UID2 Operator Service を設定する方法。 |
 | AKS | [Private Operator for AKS integration guide](../guides/operator-guide-aks-enclave.md) | AKS のインスタンスで UID2 Operator Service を設定する方法。AKS は、Microsoft Azure コンテナインスタンスの仮想ノードで実行され、Kubernetes を使用する機密コンピューティングソリューションです。 |
+
+:::note
+All Private Operators must be allowed to access the destinations in [Private Operator network egress](../ref-info/operator-private-network-requirements.md). If your organization is secured with a firewall or proxy, these domains must be added to the allowlist.
+すべての Private Operator は、[Private Operator network egress](../ref-info/operator-private-network-requirements.md) に記載されている宛先にアクセスできる必要があります。組織がファイアウォールまたはプロキシで保護されている場合、これらのドメインを許可リストに追加する必要があります。
+:::
