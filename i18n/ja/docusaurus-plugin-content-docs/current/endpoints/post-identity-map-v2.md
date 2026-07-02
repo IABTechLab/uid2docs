@@ -17,10 +17,10 @@ UID2 のオプトアウトワークフローとユーザーがオプトアウト
 
 ## Version
 
-このドキュメントは、このエンドポイントのバージョン 2 のものであり、最新バージョンではありません。最新バージョン v3 の詳細は、[POST /v3/identity/map](post-identity-map.md) を参照してください。
+このドキュメントは、このエンドポイントのバージョン 2 のものです。最新バージョン v3 の詳細は、[POST /v3/identity/map](post-identity-map.md) を参照してください。
 
-:::note
-以前のバージョンを使用している場合は、改善点を活用するためにできるだけ早くアップグレードすることを推奨します。移行ガイダンスは、[Migration from POST /v2/identity/map](post-identity-map.md#migration-from-post-v2identitymap) を参照してください。廃止に関する情報は、[Deprecation schedule: Endpoint versions](../ref-info/deprecation-schedule.md#endpoint-versions) を参照してください。
+:::important
+このエンドポイントのこのバージョンは廃止予定です。バージョン 2 を使用している場合は、できるだけ早くアップグレードしてください。移行ガイダンスは、[Migration from POST /v2/identity/map](post-identity-map.md#migration-from-post-v2identitymap) を参照してください。廃止に関する情報は、[Deprecation schedule: Endpoint versions](../ref-info/deprecation-schedule.md#endpoint-versions) を参照してください。
 :::
 
 ## Batch size and request parallelization requirements
