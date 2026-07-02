@@ -72,7 +72,7 @@ UID2 のオプトアウトワークフローとユーザーがオプトアウト
 
 ### Request examples
 
-以下は、各パラメータの暗号化されていない JSON リクエストボディの例です。このうちの 1 つを、`POST /identity/map` エンドポイントへのリクエストに含める必要があります:
+以下は、各パラメータの暗号化されていない JSON リクエストボディの例です。このうちの 1 つを、`POST /v2/identity/map` エンドポイントへのリクエストに含める必要があります:
 
 ```json
 {
@@ -107,7 +107,7 @@ UID2 のオプトアウトワークフローとユーザーがオプトアウト
 }
 ```
 
-以下は、電話番号に対する `POST /identity/map` エンドポイントへの暗号化リクエストの例です:
+以下は、電話番号に対する `POST /v2/identity/map` エンドポイントへの暗号化リクエストの例です:
 
 ```sh
 echo '{"phone": ["+12345678901", "+441234567890"]}' | python3 uid2_request.py https://prod.uidapi.com/v2/identity/map [Your-Client-API-Key] [Your-Client-Secret]
