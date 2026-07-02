@@ -235,7 +235,7 @@ Terraform がインストールされていない場合は、[terraform.io](http
    | `region` | `string` | `us-east1` | no | デプロイ先のリージョン。有効なリージョンの一覧は、Google Cloud ドキュメントの [Available regions and zones](https://cloud.google.com/compute/docs/regions-zones#available) を参照してください。<br/>注意: GCP Confidential Space 用の UID2 Private Operator の実装は、次の地域ではサポートされていません: ヨーロッパ、中国。 |
    | `network_name` | `string` | `uid-operator` | no | VPC リソース名（ルール/インスタンスタグにも使用されます）。 |
    | `min_replicas` | `number` | `1` | no | デプロイする最小レプリカ数を示します。 |
-   | `max_replicas` | `number` | `5` | no | デプロイする最大レプリカ数を示します。 |
+   | `max_replicas` | `number` | `1` | no | デプロイする最大レプリカ数を示します。 |
    | `uid_operator_key_secret_name` | `string` | `"secret-operator-key"` | no | Operator Key のシークレットの名前を指定します。Terraform テンプレートは、GCP Secret Manager に `uid_operator_key` 値を保持するためのシークレットを作成します。名前を定義できます。例: `uid2-operator-operator-key-secret-integ`。 |
    | `debug_mode` | `bool`  | `false` | no | UID2 チームと協力して問題をデバッグする場合を除き、`true` に設定しないでください。それ以外の場合、このフラグを `true` に設定すると、認証が失敗します。 |
 
