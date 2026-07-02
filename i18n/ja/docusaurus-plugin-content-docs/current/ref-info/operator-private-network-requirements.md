@@ -17,7 +17,9 @@ import Link from '@docusaurus/Link';
 環境でアウトバウンドのネットワークトラフィックが制限されている場合、以下のすべての送信先に対してアウトバウンドの HTTPS（ポート 443）を許可する必要があります。許可しないと、Operator を起動できません。
 
 ## Integration
+
 次の表に、インテグレーション環境で許可する必要があるホスト名を示します。
+
 | ホスト名 | 用途 |
 | --- | --- |
 | `core-integ.uidapi.com` | Core Service（証明、キー、ソルト、構成） |
@@ -26,7 +28,9 @@ import Link from '@docusaurus/Link';
 | `uid2-optout-integ-store.s3.us-east-2.amazonaws.com` | Opt-out データストレージ |
 
 ## Production
+
 次の表に、本番環境で許可する必要があるホスト名を示します。
+
 | ホスト名 | 用途 |
 | --- | --- |
 | `core-prod.uidapi.com` | Core Service（証明、キー、ソルト、構成） |
