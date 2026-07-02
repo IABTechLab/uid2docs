@@ -81,7 +81,7 @@ import Link from '@docusaurus/Link';
 
 ## Creating a UID2 token&#8212;example
 
-以下の図は、[raw UID2](../ref-info/glossary-uid.md#gl-raw-uid2)（第1列、第2列）を作成し、その後 [UID2 token](../ref-info/glossary-uid.md#gl-uid2-token)（第3列）を作成するための手順を示しています。
+以下の図は、[raw UID2](../ref-info/glossary-uid.md#gl-raw-uid2)（第 1 列、第 2 列）を作成し、その後 [UID2 token](../ref-info/glossary-uid.md#gl-uid2-token)（第 3 列）を作成するための手順を示しています。
 
 パブリッシャーは、[POST&nbsp;/token/generate](../endpoints/post-token-generate.md) エンドポイントにリクエストを送信するか、SDK または Prebid のような他のインテグレーションオプションを使用できます。どのインテグレーションオプションを使用しても、その結果は UID2 Token です。これは、パブリッシャーがビッドストリームで送信できる暗号化された値です。
 

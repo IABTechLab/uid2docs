@@ -16,7 +16,7 @@ import Link from '@docusaurus/Link';
 | Workflow | Intended Primary Participants | Integration Guides |
 | :--- |:--- |:--- |
 | [Workflow for DSPs](../overviews/overview-dsps.md#workflow-for-dsps) (buy-side) | ビッドストリームで UID2 Token 取引を行う DSP。 | [DSP integrations](../guides/summary-guides#dsp-integrations) を参照 |
-| [Workflow for advertisers](../overviews/overview-advertisers.md#workflow-for-advertisers) and [Workflow for data providers](../overviews/overview-data-providers.md#workflow-for-data-providers) | ユーザーデータを収集し、DSPに提供する組織。 | [Advertiser/data provider integrations](../guides/summary-guides#advertiserdata-provider-integrations) を参照 |
+| [Workflow for advertisers](../overviews/overview-advertisers.md#workflow-for-advertisers) and [Workflow for data providers](../overviews/overview-data-providers.md#workflow-for-data-providers) | ユーザーデータを収集し、DSP に提供する組織。 | [Advertiser/data provider integrations](../guides/summary-guides#advertiserdata-provider-integrations) を参照 |
 | [Workflow for publishers](../overviews/overview-publishers.md#workflow-for-publishers) | SSP を介して UID2 Token をビッドストリームに送る組織。<br/> 注意: パブリッシャーは、Prebid を使用したインテグレーション、SDK for JavaScript の活用、または SDK を使用しない独自の Server-Side インテグレーションを選択できます。 | [Publisher integrations](../guides/summary-guides#publisher-integrations) を参照 |
 | [Opt-out workflow](../getting-started/gs-opt-out.md#opt-out-workflow) | パブリッシャーやその SSO プロバイダー、その他のアイデンティティプロバイダーと関わる消費者。 | N/A |
 

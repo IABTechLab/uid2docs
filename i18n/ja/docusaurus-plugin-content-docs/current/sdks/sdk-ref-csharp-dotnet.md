@@ -175,7 +175,7 @@ UID2 <Link href="../ref-info/glossary-uid#gl-sharing-participant">Sharing Partic
 var client = new SharingClient(UID2_BASE_URL, UID2_API_KEY, UID2_SECRET_KEY);
 ```
 
-2. 起動時に一度リフレッシュし、その後定期的にリフレッシュします(推奨リフレッシュ間隔は1時間毎):
+2. 起動時に一度リフレッシュし、その後定期的にリフレッシュします(推奨リフレッシュ間隔は 1 時間毎):
 
 ```cs
 client.Refresh();

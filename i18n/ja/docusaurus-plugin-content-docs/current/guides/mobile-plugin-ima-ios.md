@@ -54,7 +54,7 @@ UID2 Portal で実行する手順は、実装が Client-Side、Client-Server、S
 
 SDK for iOS と Google Interactive Ads SDK がインストールされた既存のアプリに、Swift Package Manager または CocoaPods を使用して UID2 iOS IMA Plugin をインストールします。
 
-3つのインストールオプションがあります:
+3 つのインストールオプションがあります:
 
 -   [Package.swift](#installing-with-packageswift)
 -   [Xcode](#installing-with-xcode)

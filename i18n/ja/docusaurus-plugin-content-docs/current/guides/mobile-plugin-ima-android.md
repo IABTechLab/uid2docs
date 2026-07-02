@@ -53,7 +53,7 @@ UID2 Portal で実行する手順は、実装が Client-Side、Client-Server、S
 
 前提条件: Google Interactive Media Ads SDK と SDK for Android をインストールします。
 
-SDK for Android と Google IMA SDK がインストールされている既存のアプリに、UID2 Android IMA Plugin をインストールします。インストールオプションは2つあります:
+SDK for Android と Google IMA SDK がインストールされている既存のアプリに、UID2 Android IMA Plugin をインストールします。インストールオプションは 2 つあります:
 
 - [Gradle](#gradle)
 - [Maven](#maven)

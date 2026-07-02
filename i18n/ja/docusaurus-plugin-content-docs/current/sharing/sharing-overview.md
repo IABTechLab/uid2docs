@@ -34,7 +34,7 @@ UID2 では、Sharing Participant とは、ある UID2 参加者から別の UID
 
 ## UID2 sharing approaches
 
-共有参加者が UID2 を他の許可された共有参加者と共有したい場合、2つの経路があります:
+共有参加者が UID2 を他の許可された共有参加者と共有したい場合、2 つの経路があります:
 
 - [Sharing UID2 tokens](#sharing-uid2-tokens)
 - [Sharing raw UID2s](#sharing-raw-uid2s)

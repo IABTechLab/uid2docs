@@ -61,7 +61,7 @@ UID2 とインテグレーションするには、次の 3 つの主要なアク
 
 ## Generate the UID2 token
 
-UID2 Token を生成するには、主に2つの方法があります。&#8212;UID2 Token 生成リクエストを選択することができます:
+UID2 Token を生成するには、主に 2 つの方法があります。&#8212;UID2 Token 生成リクエストを選択することができます:
 
 - Client-Side (ユーザーのブラウザ内): [Client-side integration options](#client-side-integration-options) を参照してください。
 - Server-Side: [Server-side integration options](#server-side-integration-options) を参照してください。

@@ -61,7 +61,7 @@ Private Operator を選択する場合、いくつかの実装オプションが
 
 Private Operator の基本的なワークフローは次のとおりです:
 
-1. 起動時に Private Operatorは、<a href="../ref-info/glossary-uid#gl-core-service">Core</a> service　との認証プロセスを実行します。認証プロセスは、Operator が安全な信頼された実行環境 (TEE) で実行されていること、およびその環境が改ざんされていないことを検証します。
+1. 起動時に Private Operator は、<a href="../ref-info/glossary-uid#gl-core-service">Core</a> service　との認証プロセスを実行します。認証プロセスは、Operator が安全な信頼された実行環境 (TEE) で実行されていること、およびその環境が改ざんされていないことを検証します。
 
 1. Operator が認証プロセスに合格すると、Core Service は、起動に必要な情報を取得するための安全な S3 URL を Private Operator に提供します。
 

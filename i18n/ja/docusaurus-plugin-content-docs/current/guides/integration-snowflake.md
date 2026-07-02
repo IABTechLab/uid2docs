@@ -44,7 +44,7 @@ import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emai
 
 ## Changes from previous version
 
-2025年7月の UID2 Snowflake Marketplace インテグレーションの更新では、UID2 のリフレッシュ管理を簡素化し、ローテーション後 90 日間の以前の raw UID2 にアクセスできる新しい ID マッピング関数が導入されました。
+2025 年 7 月の UID2 Snowflake Marketplace インテグレーションの更新では、UID2 のリフレッシュ管理を簡素化し、ローテーション後 90 日間の以前の raw UID2 にアクセスできる新しい ID マッピング関数が導入されました。
 
 :::note
 これらの変更は、コードインテグレーションが 2025 年 7 月以前に公開された Snowflake 関数のバージョンを使用していることを前提としています: [Snowflake integration guide (pre-July 2025)](integration-snowflake-previous.md) を参照してください。このバージョンへの移行の詳細は、[Migration guide](#migration-guide) を参照してください。
@@ -642,7 +642,7 @@ UID2 Token が共有中に期限切れにならないようにするために、
 このセクションでは、以前のバージョンから新しい UID2 Snowflake v3 機能にアップグレードするための情報を提供します。
 
 :::note
-2025年2月以前のバージョンからアップグレードする場合は、以前のバージョンのドキュメントの [Migration guide](integration-snowflake-previous.md#migration-guide) を参照してください。
+2025 年 2 月以前のバージョンからアップグレードする場合は、以前のバージョンのドキュメントの [Migration guide](integration-snowflake-previous.md#migration-guide) を参照してください。
 :::
 
 ### Changing existing code

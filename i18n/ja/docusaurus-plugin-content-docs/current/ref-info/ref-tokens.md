@@ -51,7 +51,7 @@ Refresh Token に関する主なポイントは次のとおりです:
 
 UID2 Token を有効期限内に保つことが非常に重要です。トークンが有効な場合のみ、UID2 の利点を享受できます。
 
-UID2 Token を最新の状態に保つには、次の2つの方法があります：
+UID2 Token を最新の状態に保つには、次の 2 つの方法があります：
 - [POST /token/refresh](../endpoints/post-token-refresh.md) エンドポイントまたは多くの UID2 SDK のトークン更新機能を使用して、頻繁に更新してください。詳細は [Recommended token refresh frequency](#recommended-token-refresh-frequency) を参照してください。
 - 既存トークンの更新に代わる方法として、[POST&nbsp;/token/generate](../endpoints/post-token-generate.md) エンドポイントまたは多くの UID2 SDK のトークン生成機能を使用して、毎回新しいトークンを生成してください。
 

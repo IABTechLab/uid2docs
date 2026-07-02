@@ -177,7 +177,7 @@ import MdxJumpAnchor from '@site/src/components/MdxJumpAnchor';
 <dd><a href="#gl-api-key">API key</a> を参照してください。</dd>
 
 <dt><MdxJumpAnchor id="gl-client-keypair"><a href="#gl-client-keypair">Client keypair</a></MdxJumpAnchor></dt>
-<dd>Client-Side のパブリッシャーインテグレーションの場合、アカウントを一意に識別するためにパブリッシャーに発行される 2 つの値は、<a href="#gl-subscription-id">Subscription ID</a> と <a href="#gl-public-key">public key</a> です。Client keypair とは、この2つの値をまとめて呼ぶ用語です。</dd>
+<dd>Client-Side のパブリッシャーインテグレーションの場合、アカウントを一意に識別するためにパブリッシャーに発行される 2 つの値は、<a href="#gl-subscription-id">Subscription ID</a> と <a href="#gl-public-key">public key</a> です。Client keypair とは、この 2 つの値をまとめて呼ぶ用語です。</dd>
 <dd>詳細は <a href="../getting-started/gs-credentials#subscription-id-and-public-key">Subscription ID and public key</a> を参照してください。</dd>
 
 <dt><MdxJumpAnchor id="gl-client-secret">Client secret</MdxJumpAnchor></dt>
@@ -185,12 +185,12 @@ import MdxJumpAnchor from '@site/src/components/MdxJumpAnchor';
 <dd>詳細は、<a href="../getting-started/gs-credentials">UID2 credentials</a> を参照してください。</dd>
 
 <dt><MdxJumpAnchor id="gl-client-server"><a href="#gl-client-server">Client-Server Integration</a></MdxJumpAnchor></dt>
-<dd>UID2の <a href="#gl-integration-approaches">インテグレーションアプローチ</a> の1つは、Client-Side と Server-Side の両方でインテグレーションする方法です (Client-Server)。</dd>
+<dd>UID2 の <a href="#gl-integration-approaches">インテグレーションアプローチ</a> の 1 つは、Client-Side と Server-Side の両方でインテグレーションする方法です (Client-Server)。</dd>
 <dd>たとえば、パブリッシャーの Client-Server インテグレーションでは、UID2 Token は Server-Side で生成され、Client-Side でリフレッシュされます。</dd>
 <dd>パブリッシャーの Client-Server インテグレーションに関するドキュメントの例: <a href="../guides/integration-prebid-client-server">Client-server integration guide for Prebid.js</a>, <a href="../guides/integration-javascript-client-server">Client-server integration guide for JavaScript</a>, <a href="../guides/integration-mobile-client-server">Client-server integration guide for mobile</a>.</dd>
 
 <dt><MdxJumpAnchor id="gl-client-side"><a href="#gl-client-side">Client-side integration</a></MdxJumpAnchor></dt>
-<dd>UID2の <a href="#gl-integration-approaches">インテグレーションアプローチ</a> の1つは、完全に Client-Side でインテグレーションする方法です。</dd>
+<dd>UID2 の <a href="#gl-integration-approaches">インテグレーションアプローチ</a> の 1 つは、完全に Client-Side でインテグレーションする方法です。</dd>
 <dd>Client-Side インテグレーションでは、UID2 Token はクライアントサイドで生成およびリフレッシュされます。</dd>
 <dd>たとえば、広告主は、トラッキングピクセルのために Client-Side で UID2 Token を生成し、パブリッシャーは、ビッドストリームのために Client-Side で UID2 Token を生成し、トークンをリフレッシュします。</dd>
 <dd>パブリッシャーの Client-Side インテグレーションに関するドキュメントの例: <a href="../guides/integration-prebid-client-side">Client-side integration guide for Prebid.js</a>, <a href="../guides/integration-javascript-client-side">Client-side integration guide for JavaScript</a>, <a href="../guides/integration-mobile-client-side">Client-side integration guide for mobile</a>.</dd>
@@ -199,22 +199,22 @@ import MdxJumpAnchor from '@site/src/components/MdxJumpAnchor';
 <dd>Closed Operator は <a href="#gl-private-operator">Private Operator</a> の別名です。</dd>
 
 <dt><MdxJumpAnchor id="gl-confidential-computing"><a href="#gl-confidential-computing">Confidential Computing (GCP)</a></MdxJumpAnchor></dt>
-<dd>Google Cloud Platform (GCP) の機密コンピューティングオプションの1つである Confidential Computing は、UID2 <a href="#gl-private-operator">Private Operator</a> のホスティングをサポートしています。</dd>
+<dd>Google Cloud Platform (GCP) の機密コンピューティングオプションの 1 つである Confidential Computing は、UID2 <a href="#gl-private-operator">Private Operator</a> のホスティングをサポートしています。</dd>
 <dd>詳細は <a href="#gl-confidential-space">Confidential Space</a> を参照してください。</dd>
 
 <dt><MdxJumpAnchor id="gl-confidential-containers"><a href="#gl-confidential-containers">Confidential containers (Azure)</a></MdxJumpAnchor></dt>
 <dd>Confidential Containers は、Microsoft Azure のセキュアな機密コンピューティングオプションの名称です。各 Confidential Containers の実装は、データ整合性、データ機密性、コード整合性などの本質的な機能を提供する、ハードウェアで保護された Trusted Execution Environment (TEE) で実行されます。</dd>
-<dd>UID2 のコンテキストでは、Azure の Confidential Containers は、<a href="#gl-private-operator">Private Operator</a> をホストするためのサポートされるセキュアコンピューティング環境の1つです。</dd>
+<dd>UID2 のコンテキストでは、Azure の Confidential Containers は、<a href="#gl-private-operator">Private Operator</a> をホストするためのサポートされるセキュアコンピューティング環境の 1 つです。</dd>
 <dd>詳細は <a href="../guides/operator-guide-azure-enclave">Private Operator for Azure integration guide</a> を参照してください。</dd>
 
 <dt><MdxJumpAnchor id="gl-confidential-space"><a href="#gl-confidential-space">Confidential Space (GCP)</a></MdxJumpAnchor></dt>
-<dd>Confidential Space は、Google Cloud Platform (GCP) の Confidential Computing オプションの1つです。Confidential Space は、Trusted Execution Environment (TEE) として知られるセキュアエンクレーブ環境を提供します。</dd>
-<dd>UID2 のコンテキストでは、GCP Confidential Space は、<a href="#gl-private-operator">Private Operator</a> をホストするためのサポートされるセキュアコンピューティング環境の1つです。</dd>
+<dd>Confidential Space は、Google Cloud Platform (GCP) の Confidential Computing オプションの 1 つです。Confidential Space は、Trusted Execution Environment (TEE) として知られるセキュアエンクレーブ環境を提供します。</dd>
+<dd>UID2 のコンテキストでは、GCP Confidential Space は、<a href="#gl-private-operator">Private Operator</a> をホストするためのサポートされるセキュアコンピューティング環境の 1 つです。</dd>
 <dd>詳細は <a href="../guides/operator-private-gcp-confidential-space">Private Operator for GCP integration guide</a> を参照してください。</dd>
 
 <dt><MdxJumpAnchor id="gl-core-service">Core Service</MdxJumpAnchor></dt>
-<dd>UID2 Core Serviceは、UID2 エコシステムの秘密の <a href="#gl-salt">ソルト</a>、暗号化キー、その他の関連データへのアクセスを管理する一元的なサービスです。</dd>
-<dd>すべてのUID2 Service の概要は、<a href="../overviews/participants-overview#uid2-component-services">UID2 component services</a> を参照してください。</dd>
+<dd>UID2 Core Service は、UID2 エコシステムの秘密の <a href="#gl-salt">ソルト</a>、暗号化キー、その他の関連データへのアクセスを管理する一元的なサービスです。</dd>
+<dd>すべての UID2 Service の概要は、<a href="../overviews/participants-overview#uid2-component-services">UID2 component services</a> を参照してください。</dd>
 
 </dl>
 
@@ -252,7 +252,7 @@ import MdxJumpAnchor from '@site/src/components/MdxJumpAnchor';
 <dd>各 <a href="#gl-uid2-token">UID2 Token</a> は、リクエストしたパブリッシャーに固有の暗号化キーを使用して暗号化されます。このキーはパブリッシャーを識別し、トークンを復号化するために必要です。これにより、UID2 Token を不正な個人が復号化できないようになります。</dd>
 
 <dt><MdxJumpAnchor id="gl-environment"><a href="#gl-environment">Environment</a></MdxJumpAnchor></dt>
-<dd>UID2 は、インテグレーション環境と本番環境の2つの環境を提供しています。</dd>
+<dd>UID2 は、インテグレーション環境と本番環境の 2 つの環境を提供しています。</dd>
 <dd>両方を使用する場合は、それぞれの環境に対して別々の認証情報を取得する必要があります。</dd>
 <dd>詳細は、[Environments](../getting-started/gs-environments.md) を参照してください。</dd>
 
@@ -347,7 +347,7 @@ import MdxJumpAnchor from '@site/src/components/MdxJumpAnchor';
 <dd>Open Operator は、<a href="#gl-public-operator">Public Operator</a> の別名です。</dd>
 
 <dt><MdxJumpAnchor id="gl-operator">Operator</MdxJumpAnchor></dt>
-<dd>Operator とは、UID2 の <a href="#gl-operator-service">Operator Service</a> を運営する組織や団体のことです。UID2 Operatorは、UID2 エコシステムの API サーバーです。</dd>
+<dd>Operator とは、UID2 の <a href="#gl-operator-service">Operator Service</a> を運営する組織や団体のことです。UID2 Operator は、UID2 エコシステムの API サーバーです。</dd>
 <dd>Operators は、UID2 Core Service から <a href="#gl-encryption-key">暗号化キー</a> と秘密の <a href="#gl-salt">ソルト</a> を受け取り、個人に関するデータ (<Link href="#gl-dii">DII</Link>) をソルト化およびハッシュ化して raw UID2 を返し、raw UID2 を暗号化して UID2 Token を生成するなど、複数の機能を実行します。</dd>
 <dd>参加者は、UID2 API にアクセスし、プライベートインフラ内で raw UID2 と UID2 Token を生成するために、<a href="#gl-private-operator">Private Operator</a> になることも選択できます。</dd>
 <dd>詳細は <a href="../overviews/participants-overview">participants</a> と <a href="../ref-info/ref-operators-public-private">The UID2 Operator</a> を参照してください。</dd>
@@ -386,7 +386,7 @@ import MdxJumpAnchor from '@site/src/components/MdxJumpAnchor';
 <dd><a href="#gl-private-operator">Private Operator</a> が運用する Operator Service のインスタンスです。</dd>
 
 <dt><MdxJumpAnchor id="gl-public-key">Public key</MdxJumpAnchor></dt>
-<dd>Client-Side のパブリッシャーインテグレーションでは、パブリッシャーに発行される2つの値のうちの1つがアカウントを一意に識別する公開鍵です。詳細は <a href="../getting-started/gs-credentials#subscription-id-and-public-key">Subscription ID and public key</a> を参照してください。</dd>
+<dd>Client-Side のパブリッシャーインテグレーションでは、パブリッシャーに発行される 2 つの値のうちの 1 つがアカウントを一意に識別する公開鍵です。詳細は <a href="../getting-started/gs-credentials#subscription-id-and-public-key">Subscription ID and public key</a> を参照してください。</dd>
 <dd>UID2 のインテグレーションでは、この値はしばしば <b>serverPublicKey</b> として表されます。たとえば、<a href="../guides/integration-prebid-client-side">Client-side integration guide for Prebid.js</a>、<a href="../guides/integration-javascript-client-side">Client-side integration guide for JavaScript</a>、<a href="../guides/integration-mobile-client-side">Client-side integration guide for mobile</a> など。</dd>
 
 <dt><MdxJumpAnchor id="gl-public-operator">Public Operator</MdxJumpAnchor></dt>
@@ -400,7 +400,7 @@ import MdxJumpAnchor from '@site/src/components/MdxJumpAnchor';
 <dl>
 
 <dt><MdxJumpAnchor id="gl-raw-uid2">Raw UID2</MdxJumpAnchor></dt>
-<dd>UID2 API または SDK を通じて、ユーザーの <a href="#gl-dii">directly identifying information</a> (メールアドレスまたは電話番号) を入力として作成される、暗号化されていない英数字の識別子。raw UID2 を暗号化して UID2 Token を作成します。raw UID2 は一意な値であり、同じ UID2 は2つとありません。raw UID2 とそれに関連付けられた UID2 Token は、大文字と小文字を区別します。</dd>
+<dd>UID2 API または SDK を通じて、ユーザーの <a href="#gl-dii">directly identifying information</a> (メールアドレスまたは電話番号) を入力として作成される、暗号化されていない英数字の識別子。raw UID2 を暗号化して UID2 Token を作成します。raw UID2 は一意な値であり、同じ UID2 は 2 つとありません。raw UID2 とそれに関連付けられた UID2 Token は、大文字と小文字を区別します。</dd>
 <dd>詳細は <a href="uid-identifier-types">UID2 identifier types</a> を参照してください。</dd>
 
 <dt><MdxJumpAnchor id="gl-refresh-timestamp"><a href="#gl-refresh-timestamp">Refresh timestamp</a></MdxJumpAnchor></dt>
@@ -424,7 +424,7 @@ import MdxJumpAnchor from '@site/src/components/MdxJumpAnchor';
 
 <dt><MdxJumpAnchor id="gl-salt-bucket"><a href="#gl-salt-bucket">Salt bucket</a></MdxJumpAnchor></dt>
 <dd>ソルトバケットは、raw UID2 や UID2 Token を生成するために使用される秘密の<a href="#gl-salt">ソルト</a>値を、時間経過とともに管理するために使用されます。各バケットには単一の現在のソルト値が含まれており、一定期間アクティブな状態を維持した後、新しい値にローテーションされます。バケットは互いに独立して更新できます。</dd>
-<dd>100万個以上のソルトバケットが存在し、各メールアドレスまたは電話番号は決定論的な方法で特定のバケットに割り当てられます。ただし、この割り当ては永続的なものではなく、バケットの現在のソルトが新しい値にローテーションされると変更される可能性があります。</dd>
+<dd>100 万個以上のソルトバケットが存在し、各メールアドレスまたは電話番号は決定論的な方法で特定のバケットに割り当てられます。ただし、この割り当ては永続的なものではなく、バケットの現在のソルトが新しい値にローテーションされると変更される可能性があります。</dd>
 <dd>[POST /v3/identity/map](../endpoints/post-identity-map.md) エンドポイントのバージョン 3 以前では、ソルトバケットは <a href="#gl-salt-bucket-id">ソルトバケット ID</a> を使用して識別されます。バージョン 3 以降では、ソルトバケット情報は必要ありません。</dd>
 
 <dt><MdxJumpAnchor id="gl-salt-bucket-id"><a href="#gl-salt-bucket-id">Salt bucket ID</a></MdxJumpAnchor></dt>
@@ -439,8 +439,8 @@ import MdxJumpAnchor from '@site/src/components/MdxJumpAnchor';
 <dd><a href="#gl-client-secret">client secret</a> を参照してください。</dd>
 
 <dt><MdxJumpAnchor id="gl-secure-signals">Secure signals</MdxJumpAnchor></dt>
-<dd>Google Ad Managerの機能。セキュアシグナル機能 (旧称: Encrypted Signals for Publishers、略称: ESP)により、パブリッシャーは信頼できるサードパーティのバイイングパートナーとシグナルを安全に共有することができます。パブリッシャーは、<a href="https://admanager.google.com/home/">Google Ad Manager</a> と <a href="https://support.google.com/admanager/answer/6321605?hl=en">Google Ad Manager Ad Exchange (AdX)</a> を介して、Googleが承認した入札者に「暗号化された」ユーザーIDを渡すことができます。</dd>
-<dd>詳細は、<a href="https://blog.google/products/admanager/new-ways-for-publishers-to-manage-first-party-data/">Share secure signals with your trusted partners</a> (2番目のセクション) と <a href="https://support.google.com/admanager/answer/10488752?hl=en">Share secure signals with bidders</a> (いずれもGoogle) を参照してください。</dd>
+<dd>Google Ad Manager の機能。セキュアシグナル機能 (旧称: Encrypted Signals for Publishers、略称: ESP)により、パブリッシャーは信頼できるサードパーティのバイイングパートナーとシグナルを安全に共有することができます。パブリッシャーは、<a href="https://admanager.google.com/home/">Google Ad Manager</a> と <a href="https://support.google.com/admanager/answer/6321605?hl=en">Google Ad Manager Ad Exchange (AdX)</a> を介して、Google が承認した入札者に「暗号化された」ユーザー ID を渡すことができます。</dd>
+<dd>詳細は、<a href="https://blog.google/products/admanager/new-ways-for-publishers-to-manage-first-party-data/">Share secure signals with your trusted partners</a> (2 番目のセクション) と <a href="https://support.google.com/admanager/answer/10488752?hl=en">Share secure signals with bidders</a> (いずれも Google) を参照してください。</dd>
 <dd>Google Secure signals の UID2 サポートの詳細は、<a href="../guides/integration-google-ss">Google Ad Manager Secure Signals integration guide</a> を参照してください。</dd>
 
 <dt><MdxJumpAnchor id="gl-server-side"><a href="#gl-server-side">Server-side integration</a></MdxJumpAnchor></dt>
@@ -455,7 +455,7 @@ import MdxJumpAnchor from '@site/src/components/MdxJumpAnchor';
 <dd>詳細は <a href="https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf">https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf</a> (specification) を参照してください。</dd>
 
 <dt><MdxJumpAnchor id="gl-sharing"><a href="#gl-sharing">Sharing (in UID2)</a></MdxJumpAnchor></dt>
-<dd>UID2 のコンテキストでは、Sharing は、<a href="#gl-raw-uid2">raw UID2</a> を直接または <a href="#gl-uid2-token">UID2 Token</a> に暗号化して、1つの UID2 <a href="#gl-sharing-participant">sharing participant</a> から別の共有者に配布するプロセスです。</dd>
+<dd>UID2 のコンテキストでは、Sharing は、<a href="#gl-raw-uid2">raw UID2</a> を直接または <a href="#gl-uid2-token">UID2 Token</a> に暗号化して、1 つの UID2 <a href="#gl-sharing-participant">sharing participant</a> から別の共有者に配布するプロセスです。</dd>
 <dd>詳細は <a href="../getting-started/gs-sharing">UID2 sharing</a> を参照してください。</dd>
 
 <dt><MdxJumpAnchor id="gl-sharing-participant">Sharing participant</MdxJumpAnchor></dt>
@@ -469,7 +469,7 @@ import MdxJumpAnchor from '@site/src/components/MdxJumpAnchor';
 <dd><a href="#gl-sso">Single sign-on (SSO)</a> を参照してください。</dd>
 
 <dt><MdxJumpAnchor id="gl-subscription-id">Subscription ID</MdxJumpAnchor></dt>
-<dd>Client-Side のパブリッシャーインテグレーションでは、パブリッシャーに発行される2つの値のうちの1つがアカウントを一意に識別する公開鍵です。詳細は <a href="../getting-started/gs-credentials#subscription-id-and-public-key">Subscription ID and public key</a> を参照してください。</dd>
+<dd>Client-Side のパブリッシャーインテグレーションでは、パブリッシャーに発行される 2 つの値のうちの 1 つがアカウントを一意に識別する公開鍵です。詳細は <a href="../getting-started/gs-credentials#subscription-id-and-public-key">Subscription ID and public key</a> を参照してください。</dd>
 
 </dl>
 
@@ -489,7 +489,7 @@ import MdxJumpAnchor from '@site/src/components/MdxJumpAnchor';
 <dd>詳細は <a href="../sharing/sharing-tokenized-overview">Tokenized sharing overview</a> を参照してください。</dd>
 
 <dt><MdxJumpAnchor id="gl-transparency-and-control-portal">Transparency and Control Portal</MdxJumpAnchor></dt>
-<dd>UID2 Transparency and Control Portalは、ユーザー向けのウェブサイト <a href="https://www.transparentadvertising.com/">https://www.transparentadvertising.com/</a> で、消費者はいつでもここから UID2 の Opt-Out を選択することができます。</dd>
+<dd>UID2 Transparency and Control Portal は、ユーザー向けのウェブサイト <a href="https://www.transparentadvertising.com/">https://www.transparentadvertising.com/</a> で、消費者はいつでもここから UID2 の Opt-Out を選択することができます。</dd>
 
 </dl>
 
@@ -508,7 +508,7 @@ import MdxJumpAnchor from '@site/src/components/MdxJumpAnchor';
 <dd>UID2 と EUID の間には多くの類似点がありますが、両者は完全に別物であり、トークンに互換性はありません。</dd>
 
 <dt><MdxJumpAnchor id="gl-uid2-identifier">UID2 identifier</MdxJumpAnchor></dt>
-<dd>Unified ID 2.0 (UID2)識別子には、<a href="#gl-raw-uid2">raw UID2s</a> と <a href="#gl-uid2-token">UID2 tokens</a> (Advertising token とも呼ばれます) の2種類があります。</dd>
+<dd>Unified ID 2.0 (UID2)識別子には、<a href="#gl-raw-uid2">raw UID2s</a> と <a href="#gl-uid2-token">UID2 tokens</a> (Advertising token とも呼ばれます) の 2 種類があります。</dd>
 <dd>詳細は <a href="uid-identifier-types">UID2 identifier types</a> を参照してください。</dd>
 
 <dt><MdxJumpAnchor id="gl-uid2-portal">UID2 Portal</MdxJumpAnchor></dt>
@@ -521,7 +521,7 @@ import MdxJumpAnchor from '@site/src/components/MdxJumpAnchor';
 
 <dt><MdxJumpAnchor id="gl-uid2-token">UID2 Token (Advertising Token)</MdxJumpAnchor></dt>
 <dd>Unified ID 2.0 (UID2)Token は Advertising Token とも呼ばれ、<a href="#gl-raw-uid2">raw UID2</a> を暗号化したものです。</dd>
-<dd>UID2 Token は、ハッシュ化された、またはハッシュされていないメールアドレスや電話番号から生成され、raw UID2 に変換された後、暗号化されます。UID2 Token は一意な値であり、同じ UID2 Token は2つとありません。UID2 Token は大文字と小文字を区別します。</dd>
+<dd>UID2 Token は、ハッシュ化された、またはハッシュされていないメールアドレスや電話番号から生成され、raw UID2 に変換された後、暗号化されます。UID2 Token は一意な値であり、同じ UID2 Token は 2 つとありません。UID2 Token は大文字と小文字を区別します。</dd>
 <dd>トークンの値は不透明です。文字列のフォーマットや長さについて、推測してはなりません。</dd>
 <dd>トークンの寿命は限られていますが、<a href="#gl-refresh-token">refresh token</a> を使ってバックグラウンドでリフレッシュすることができます。</dd>
 <dd>パブリッシャーは、ビッドストリームに UID2 Token を送信します。</dd>
@@ -531,8 +531,8 @@ import MdxJumpAnchor from '@site/src/components/MdxJumpAnchor';
 <dd>"UID2" という用語は、<a href="#gl-uid2-framework">UID2 framework</a>、<a href="#gl-uid2-service">UID2 service</a>、<a href="#gl-raw-uid2">raw UID2</a>、または <a href="#gl-uid2-token">UID2 Token</a> (Advertising Token) の意味でも使われます。</dd>
 
 <dt><MdxJumpAnchor id="gl-unix-time"><a href="#gl-unix-time">Unix time</a></MdxJumpAnchor></dt>
-<dd>Unix time (エポックタイム) は、1970年1月1日木曜日の00:00:00 <a href="#gl-utc">UTC</a> からの経過秒数として定義されています。Unix time は、UID2 の一部のレスポンスメッセージで使用され、ミリ秒で表されます。たとえば、`POST /token/refresh` エンドポイントのレスポンス (<a href="../endpoints/post-token-refresh#successful-response-with-tokens">Successful response with tokens</a> を参照) においてです。</dd>
-<dd>例: 2024年1月1日午前9時00分00秒 GMT は、Unix time で `1704067200` と表されます。ミリ秒で表すと、`1704067200000` です。</dd>
+<dd>Unix time (エポックタイム) は、1970 年 1 月 1 日木曜日の 00:00:00 <a href="#gl-utc">UTC</a> からの経過秒数として定義されています。Unix time は、UID2 の一部のレスポンスメッセージで使用され、ミリ秒で表されます。たとえば、`POST /token/refresh` エンドポイントのレスポンス (<a href="../endpoints/post-token-refresh#successful-response-with-tokens">Successful response with tokens</a> を参照) においてです。</dd>
+<dd>例: 2024 年 1 月 1 日午前 9 時 00 分 00 秒 GMT は、Unix time で `1704067200` と表されます。ミリ秒で表すと、`1704067200000` です。</dd>
 
 <dt><MdxJumpAnchor id="gl-utc">UTC</MdxJumpAnchor></dt>
 <dd>UTC は協定世界時 (Coordinated Universal Time) の略称で、ズールー時間 (Zulu time) とも呼ばれ、一般に使用されている主要な時間基準です。UTC は基本的にグリニッジ標準時 (GMT) に相当しますが、科学的により正確です。</dd>
