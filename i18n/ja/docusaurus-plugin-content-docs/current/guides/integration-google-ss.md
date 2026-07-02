@@ -11,6 +11,7 @@ displayed_sidebar: docs
 import Link from '@docusaurus/Link';
 import SnptIntegratingWithSSO from '../snippets/_snpt-integrating-with-sso.mdx';
 import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emails-and-phone-numbers.mdx';
+import SnptUidVerifyInspect from '../snippets/_snpt-uid-verify-inspect.mdx';
 
 # Google Ad Manager Secure Signals integration guide
 
@@ -88,6 +89,10 @@ Prebid.js とセキュアシグナルを用いたサンプル実装も利用可�
 ## Integrating with single sign-on (SSO)
 
 <SnptIntegratingWithSSO />
+
+## Inspecting with UID Verify Chrome extension
+
+<SnptUidVerifyInspect />
 
 ## Preparing DII for processing
 
