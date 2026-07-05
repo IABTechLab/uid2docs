@@ -108,7 +108,7 @@ Client-Server または Server-Side の実装を使用している場合([Client
 - インテグレーション環境と本番環境の両方を使用する場合、環境ごとに個別の API Key を受け取ります。
 - Client Secret は特定の [environment](gs-environments.md) で有効です。インテグレーション環境と本番環境の両方を使っている場合、環境ごとに Client Secret を取得します。
 
-UID2 アカウントのセットアップの一環として、1つ以上の API Key が発行され、それぞれに対応する Client Secret が割り当てられます。連絡先の詳細は [Contact info](gs-account-setup.md#contact-info) を参照してください。
+UID2 アカウントのセットアップの一環として、1 つ以上の API Key が発行され、それぞれに対応する Client Secret が割り当てられます。連絡先の詳細は [Contact info](gs-account-setup.md#contact-info) を参照してください。
 
 ### Security of API key and client secret
 
@@ -118,7 +118,7 @@ UID2 アカウントのセットアップの一環として、1つ以上の API 
 - これらの値が保存され使用されているすべての場所を追跡しておき、キーをローテーションする必要がある場合にすぐに実行できるようにしておいてください。
 - 既存のキーとシークレットが漏洩した場合、新しいキーとシークレットに置き換えるプロセスを確立してください。
 
-API Key と Client Secret は、認証情報が漏洩するリスクを減らすために、定期的に(たとえば1年ごとに)更新することを推奨します。
+API Key と Client Secret は、認証情報が漏洩するリスクを減らすために、定期的に(たとえば 1 年ごとに)更新することを推奨します。
 
 ## Refreshing credentials
 

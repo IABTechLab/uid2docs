@@ -25,9 +25,9 @@ raw UID2 や UID2 Token を、UID2 の許可を受けた他のユーザーと安
 
 - コードでは、将来の拡張性を考慮して、以下を許容してください：
 
-  - raw UID2 の長さ: 100文字。
+  - raw UID2 の長さ: 100 文字。
 
-  - UID2 Token の長さ: 500文字。
+  - UID2 Token の長さ: 500 文字。
 
 - raw UID2 を他の承認された共有参加者と共有する前に、[POST&nbsp;/optout/status](../endpoints/post-optout-status.md) エンドポイントを使用して、raw UID2 のオプトアウトステータスを確認してください。オプトアウトされた raw UID2 を共有しないでください。
 

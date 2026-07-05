@@ -10,9 +10,9 @@ displayed_sidebar: docs
 
 import Link from '@docusaurus/Link';
 
-# UID2 mobile integration with Prebid Mobile SDK
+# Mobile integration with Prebid Mobile SDK
 
-UID2 の Prebid とのインテグレーションは、Prebid Mobile SDK オプションの UID2 インテグレーションを使用することで、Android と iOSの モバイルデバイスでもサポートされます。
+UID2 の Prebid とのインテグレーションは、Prebid Mobile SDK オプションの UID2 インテグレーションを使用することで、Android と iOS の モバイルデバイスでもサポートされます。
 
 詳細は以下のモバイルインテグレーションガイドのセクションを参照してください:
 

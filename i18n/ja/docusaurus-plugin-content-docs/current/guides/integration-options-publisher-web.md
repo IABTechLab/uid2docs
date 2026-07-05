@@ -7,6 +7,8 @@ displayed_sidebar: sidebarPublishers
 ---
 
 import Link from '@docusaurus/Link';
+import SnptIntegratingWithSSO from '../snippets/_snpt-integrating-with-sso.mdx';
+import SnptUidVerifyInspect from '../snippets/_snpt-uid-verify-inspect.mdx';
 import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emails-and-phone-numbers.mdx';
 
 # Publisher web integration overview
@@ -44,6 +46,14 @@ UID2 とインテグレーションするには、次の 3 つの主要なアク
 
 <!-- &#9989; = Supported | &#8212; = Not Supported -->
 
+## Integrating with single sign-on (SSO)
+
+<SnptIntegratingWithSSO />
+
+## Inspecting with UID Verify Chrome extension
+
+<SnptUidVerifyInspect />
+
 ## Preparing DII for processing
 
 <SnptPreparingEmailsAndPhoneNumbers />
@@ -61,7 +71,7 @@ UID2 とインテグレーションするには、次の 3 つの主要なアク
 
 ## Generate the UID2 token
 
-UID2 Token を生成するには、主に2つの方法があります。&#8212;UID2 Token 生成リクエストを選択することができます:
+UID2 Token を生成するには、主に 2 つの方法があります。&#8212;UID2 Token 生成リクエストを選択することができます:
 
 - Client-Side (ユーザーのブラウザ内): [Client-side integration options](#client-side-integration-options) を参照してください。
 - Server-Side: [Server-side integration options](#server-side-integration-options) を参照してください。

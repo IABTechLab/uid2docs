@@ -8,7 +8,7 @@ displayed_sidebar: docs
 
 import Link from '@docusaurus/Link';
 
-# UID2 IMA Plugin for Android integration guide
+# IMA Plugin for Android integration guide
 
 UID2 Interactive Media Ads (IMA) Plugin for Android は、[Google IMA SDK for Android](https://developers.google.com/interactive-media-ads/docs/sdks/android/client-side) を使用するパブリッシャーが、Android アプリからの広告リクエストで <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 Token</Link> を [Secure Signals](https://support.google.com/admob/answer/11556288) として送信できるようにします。これは自動的に行われるため、アプリ開発者が直接コーディングする必要はありません。
 
@@ -53,7 +53,7 @@ UID2 Portal で実行する手順は、実装が Client-Side、Client-Server、S
 
 前提条件: Google Interactive Media Ads SDK と SDK for Android をインストールします。
 
-SDK for Android と Google IMA SDK がインストールされている既存のアプリに、UID2 Android IMA Plugin をインストールします。インストールオプションは2つあります:
+SDK for Android と Google IMA SDK がインストールされている既存のアプリに、UID2 Android IMA Plugin をインストールします。インストールオプションは 2 つあります:
 
 - [Gradle](#gradle)
 - [Maven](#maven)

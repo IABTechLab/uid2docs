@@ -2,7 +2,7 @@
 title: Private Operator network egress
 sidebar_label: Private Operator network egress
 pagination_label: Private Operator network egress
-description: Outbound network destinations a Private Operator must reach, for configuring egress firewall allowlists.
+description: Egress ファイアウォールの許可リストを設定するために、Private Operator が到達する必要があるアウトバウンドのネットワーク送信先。
 hide_table_of_contents: false
 sidebar_position: 16
 displayed_sidebar: docs
@@ -12,28 +12,32 @@ import Link from '@docusaurus/Link';
 
 # Private Operator network egress
 
-A <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link> connects to the UID2 <Link href="../ref-info/glossary-uid#gl-core-service">Core</Link> and <Link href="../ref-info/glossary-uid#gl-opt-out-service">Opt-Out</Link> services, and downloads data files directly from AWS S3 using URLs that the Core service provides. For details, see [Private Operator workflow](../guides/integration-options-private-operator.md#private-operator-workflow).
+<Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link> は、UID2 の <Link href="../ref-info/glossary-uid#gl-core-service">Core</Link> Service と <Link href="../ref-info/glossary-uid#gl-opt-out-service">Opt-Out</Link> Service に接続し、Core Service が提供する URL を使用して AWS S3 からデータファイルを直接ダウンロードします。詳細については、[Private Operator workflow](../guides/integration-options-private-operator.md#private-operator-workflow) を参照してください。
 
-If your environment restricts outbound network traffic, you must allow outbound HTTPS (port 443) to all of the destinations below, or the operator cannot start.
+環境でアウトバウンドのネットワークトラフィックが制限されている場合、以下のすべての送信先に対してアウトバウンドの HTTPS（ポート 443）を許可する必要があります。許可しないと、Operator を起動できません。
 
 ## Integration
-The following table lists the hostnames you must allow for the integration environment.
-| Hostname | Purpose |
+
+次の表に、インテグレーション環境で許可する必要があるホスト名を示します。
+
+| ホスト名 | 用途 |
 | --- | --- |
-| `core-integ.uidapi.com` | Core Service (attestation, keys, salts, configuration) |
+| `core-integ.uidapi.com` | Core Service（証明、キー、ソルト、構成） |
 | `optout-integ.uidapi.com` | Opt-Out Service |
-| `uid2-core-integ-store.s3.us-east-2.amazonaws.com` | Core data storage |
-| `uid2-optout-integ-store.s3.us-east-2.amazonaws.com` | Opt-out data storage |
+| `uid2-core-integ-store.s3.us-east-2.amazonaws.com` | Core データストレージ |
+| `uid2-optout-integ-store.s3.us-east-2.amazonaws.com` | Opt-out データストレージ |
 
 ## Production
-The following table lists the hostnames you must allow for the production environment.
-| Hostname | Purpose |
-| --- | --- |
-| `core-prod.uidapi.com` | Core Service (attestation, keys, salts, configuration) |
-| `optout-prod.uidapi.com` | Opt-Out Service |
-| `uid2-core-prod-store.s3.us-east-2.amazonaws.com` | Core data storage |
-| `uid2-core-prod-store-replica.s3.us-west-2.amazonaws.com` | Core data storage (failover replica) |
-| `uid2-optout-prod-store.s3.us-east-2.amazonaws.com` | Opt-out data storage |
-| `uid2-optout-prod-store-replica.s3.us-west-2.amazonaws.com` | Opt-out data storage (failover replica) |
 
-Allow these by hostname rather than by IP address, because the underlying addresses might change.
+次の表に、本番環境で許可する必要があるホスト名を示します。
+
+| ホスト名 | 用途 |
+| --- | --- |
+| `core-prod.uidapi.com` | Core Service（証明、キー、ソルト、構成） |
+| `optout-prod.uidapi.com` | Opt-Out Service |
+| `uid2-core-prod-store.s3.us-east-2.amazonaws.com` | Core データストレージ |
+| `uid2-core-prod-store-replica.s3.us-west-2.amazonaws.com` | Core データストレージ（フェイルオーバーレプリカ） |
+| `uid2-optout-prod-store.s3.us-east-2.amazonaws.com` | Opt-out データストレージ |
+| `uid2-optout-prod-store-replica.s3.us-west-2.amazonaws.com` | Opt-out データストレージ（フェイルオーバーレプリカ） |
+
+IP アドレスではなくホスト名で許可してください。基盤となるアドレスは変更される可能性があります。

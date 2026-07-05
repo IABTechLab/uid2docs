@@ -17,10 +17,10 @@ UID2 のオプトアウトワークフローとユーザーがオプトアウト
 
 ## Version
 
-このドキュメントは、このエンドポイントのバージョン 2 のものであり、最新バージョンではありません。最新バージョン v3 の詳細は、[POST /v3/identity/map](post-identity-map.md) を参照してください。
+このドキュメントは、このエンドポイントのバージョン 2 のものです。最新バージョン v3 の詳細は、[POST /v3/identity/map](post-identity-map.md) を参照してください。
 
-:::note
-以前のバージョンを使用している場合は、改善点を活用するためにできるだけ早くアップグレードすることを推奨します。移行ガイダンスは、[Migration from POST /v2/identity/map](post-identity-map.md#migration-from-post-v2identitymap) を参照してください。廃止に関する情報は、[Deprecation schedule: Endpoint versions](../ref-info/deprecation-schedule.md#endpoint-versions) を参照してください。
+:::important
+このエンドポイントのこのバージョンは廃止予定です。バージョン 2 を使用している場合は、できるだけ早くアップグレードしてください。移行ガイダンスは、[Migration from POST /v2/identity/map](post-identity-map.md#migration-from-post-v2identitymap) を参照してください。廃止に関する情報は、[Deprecation schedule: Endpoint versions](../ref-info/deprecation-schedule.md#endpoint-versions) を参照してください。
 :::
 
 ## Batch size and request parallelization requirements
@@ -72,7 +72,7 @@ UID2 のオプトアウトワークフローとユーザーがオプトアウト
 
 ### Request examples
 
-以下は、各パラメータの暗号化されていない JSON リクエストボディの例です。このうちの 1 つを、`POST /identity/map` エンドポイントへのリクエストに含める必要があります:
+以下は、各パラメータの暗号化されていない JSON リクエストボディの例です。このうちの 1 つを、`POST /v2/identity/map` エンドポイントへのリクエストに含める必要があります:
 
 ```json
 {
@@ -107,7 +107,7 @@ UID2 のオプトアウトワークフローとユーザーがオプトアウト
 }
 ```
 
-以下は、電話番号に対する `POST /identity/map` エンドポイントへの暗号化リクエストの例です:
+以下は、電話番号に対する `POST /v2/identity/map` エンドポイントへの暗号化リクエストの例です:
 
 ```sh
 echo '{"phone": ["+12345678901", "+441234567890"]}' | python3 uid2_request.py https://prod.uidapi.com/v2/identity/map [Your-Client-API-Key] [Your-Client-Secret]
@@ -208,6 +208,6 @@ echo '{"phone": ["+12345678901", "+441234567890"]}' | python3 uid2_request.py ht
 | `success` | 200 | リクエストは成功しました。レスポンスは暗号化されています。 |
 | `client_error` | 400 | リクエストに不足している、または無効なパラメータがありました。 |
 | `unauthorized` | 401 | リクエストにベアラートークンが含まれていない、無効なベアラートークンが含まれている、またはリクエストされた操作を実行するのに許可されていないベアラートークンが含まれていました。 |
-| N/A | 429 | このエンドポイントへのリクエストが多すぎます。待ってからexponential backoffを使用して再試行してください。 |
+| N/A | 429 | このエンドポイントへのリクエストが多すぎます。待ってから exponential backoff を使用して再試行してください。 |
 
 `status` の値が `success` 以外であれば、`message` フィールドにその問題に関する追加情報が表示されます。Note: 429 のレスポンスには、JSON 形式のレスポンス本文が含まれていません。
