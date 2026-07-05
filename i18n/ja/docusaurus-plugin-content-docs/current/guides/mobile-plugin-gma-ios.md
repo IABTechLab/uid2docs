@@ -2,7 +2,6 @@
 title: GMA Plugin for iOS
 description: iOS アプリの広告リクエストに GMA を使用するパブリッシャーのためのガイド。
 hide_table_of_contents: false
-sidebar_position: 13
 displayed_sidebar: docs
 ---
 

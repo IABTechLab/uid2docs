@@ -2,7 +2,6 @@
 title: Normalization and encoding
 description: Learn how to normalize and encode information so it's secure and can be decoded.
 hide_table_of_contents: false
-sidebar_position: 13
 displayed_sidebar: docs
 ---
 

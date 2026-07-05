@@ -2,7 +2,6 @@
 title: POST /optout/status
 description: raw UID2 のオプトアウトステータスをチェック。
 hide_table_of_contents: false
-sidebar_position: 03
 displayed_sidebar: docs
 ---
 

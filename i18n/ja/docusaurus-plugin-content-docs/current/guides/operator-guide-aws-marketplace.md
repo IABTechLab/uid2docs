@@ -4,7 +4,6 @@ sidebar_label: AWS Marketplace
 pagination_label: Private Operator for AWS integration guide
 description: AWS の Private Operator インテグレーションに関する情報。
 hide_table_of_contents: false
-sidebar_position: 17
 displayed_sidebar: docs
 ---
 

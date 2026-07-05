@@ -3,7 +3,6 @@ title: UID2 glossary
 sidebar_label: Glossary
 description: UID2 に関する用語の定義。
 hide_table_of_contents: false
-sidebar_position: 10
 displayed_sidebar: docs
 ---
 

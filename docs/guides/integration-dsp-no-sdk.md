@@ -3,7 +3,6 @@ title: DSP direct integration instructions
 sidebar_label: DSP direct integration instructions
 description: Information for DSPs who are integrating with UID2 without using SDKs.
 hide_table_of_contents: false
-sidebar_position: 05
 displayed_sidebar: docs
 ---
 

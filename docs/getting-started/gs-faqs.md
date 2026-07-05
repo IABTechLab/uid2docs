@@ -2,7 +2,6 @@
 title: FAQs
 description: Common questions about implementing UID2.
 hide_table_of_contents: false
-sidebar_position: 20
 displayed_sidebar: docs
 ---
 

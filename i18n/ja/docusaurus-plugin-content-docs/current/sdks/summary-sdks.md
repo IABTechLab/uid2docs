@@ -4,7 +4,6 @@ sidebar_label: SDKs - summary
 pagination_label: SDKs - summary
 description: SDK ドキュメントの概要。
 hide_table_of_contents: false
-sidebar_position: 01
 displayed_sidebar: docs
 ---
 

@@ -4,7 +4,6 @@ sidebar_label: Summary
 pagination_label: Integration guides - summary
 description: Summary of all the integration guides available.
 hide_table_of_contents: false
-sidebar_position: 01
 displayed_sidebar: docs
 ---
 

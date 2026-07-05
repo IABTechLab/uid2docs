@@ -4,7 +4,6 @@ sidebar_label: Private Operator network egress
 pagination_label: Private Operator network egress
 description: Egress ファイアウォールの許可リストを設定するために、Private Operator が到達する必要があるアウトバウンドのネットワーク送信先。
 hide_table_of_contents: false
-sidebar_position: 16
 displayed_sidebar: docs
 ---
 

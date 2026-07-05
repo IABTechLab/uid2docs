@@ -2,7 +2,6 @@
 title: DSPs
 description: Information summary for demand-side platforms (DSPs).
 hide_table_of_contents: false
-sidebar_position: 06
 use_banner: true
 banner_title: UID2 overview for DSPs
 banner_description: Enable data strategies with a more durable identifier.

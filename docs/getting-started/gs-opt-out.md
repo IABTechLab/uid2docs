@@ -2,7 +2,6 @@
 title: User opt-out
 description: Information about user opt-out.
 hide_table_of_contents: false
-sidebar_position: 02
 displayed_sidebar: docs
 ---
 

@@ -4,7 +4,6 @@ sidebar_label: Snowflake
 pagination_label: Snowflake integration
 description: Snowflake の UID2 Share を通じて UID2 とインテグレーションする方法に関する情報。
 hide_table_of_contents: false
-sidebar_position: 04
 displayed_sidebar: docs
 ---
 

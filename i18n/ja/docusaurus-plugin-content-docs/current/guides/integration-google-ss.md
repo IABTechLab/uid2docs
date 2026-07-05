@@ -4,7 +4,6 @@ sidebar_label: GAM Secure Signals
 pagination_label: Google Ad Manager Secure Signals integration
 description: UID2 と Google Ad Manager **セキュアシグナル** 機能を使用するパブリッシャー向けのインテグレーション手順。
 hide_table_of_contents: false
-sidebar_position: 10
 displayed_sidebar: docs
 ---
 

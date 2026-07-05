@@ -3,7 +3,6 @@ title: UID2 workflows
 sidebar_label: Workflows
 description: A detailed summary of UID2 workflows.
 hide_table_of_contents: false
-sidebar_position: 01
 displayed_sidebar: docs
 ---
 

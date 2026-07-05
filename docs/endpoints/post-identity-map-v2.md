@@ -2,7 +2,6 @@
 title: POST /v2/identity/map
 description: Maps DII to raw UID2s and salt bucket IDs.
 hide_table_of_contents: false
-sidebar_position: 07
 ---
 
 import Link from '@docusaurus/Link';

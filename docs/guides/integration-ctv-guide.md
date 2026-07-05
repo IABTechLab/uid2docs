@@ -4,7 +4,6 @@ sidebar_label: CTV
 pagination_label: CTV integration guide
 description: Summary of options for UID2 mobile integration.
 hide_table_of_contents: false
-sidebar_position: 04
 displayed_sidebar: docs
 ---
 

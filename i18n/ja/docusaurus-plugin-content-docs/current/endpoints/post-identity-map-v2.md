@@ -2,7 +2,6 @@
 title: POST /v2/identity/map
 description: DII を raw UID2 とソルトバケット ID にマッピング。
 hide_table_of_contents: false
-sidebar_position: 07
 ---
 
 import Link from '@docusaurus/Link';

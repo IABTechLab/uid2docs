@@ -2,7 +2,6 @@
 title: DSPs
 description: デマンドサイドプラットフォーム (DSP) 向けの情報の概要。
 hide_table_of_contents: false
-sidebar_position: 06
 use_banner: true
 banner_title: DSP 向け UID2 概要
 banner_description: より耐久性のある識別子でデータ戦略を有効化。

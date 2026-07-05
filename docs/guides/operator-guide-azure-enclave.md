@@ -4,7 +4,6 @@ sidebar_label: Microsoft Azure
 pagination_label: Private Operator for Azure integration guide
 description: Integration information for Private Operator in Microsoft Azure.
 hide_table_of_contents: false
-sidebar_position: 18
 displayed_sidebar: docs
 ---
 

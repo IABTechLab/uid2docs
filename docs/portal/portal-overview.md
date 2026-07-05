@@ -2,7 +2,6 @@
 title: UID2 Portal overview
 description: General information about the UID2 Portal.
 hide_table_of_contents: false
-sidebar_position: 01
 displayed_sidebar: docs
 ---
 

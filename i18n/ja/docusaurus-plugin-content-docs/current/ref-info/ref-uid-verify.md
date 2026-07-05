@@ -2,7 +2,6 @@
 title: UID Verify Chrome extension
 description: UID Verify Chrome 拡張機能を使用して、任意の Web ページの UID2 インテグレーションをデバッグおよび検査する方法。
 hide_table_of_contents: false
-sidebar_position: 03
 displayed_sidebar: docs
 ---
 

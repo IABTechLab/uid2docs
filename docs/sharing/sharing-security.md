@@ -2,7 +2,6 @@
 title: Security requirements for UID2 sharing
 description: Information about UID2 security.
 hide_table_of_contents: false
-sidebar_position: 03
 displayed_sidebar: docs
 ---
 

@@ -2,7 +2,6 @@
 title: Environments
 description: Information about the environments for UID2.
 hide_table_of_contents: false
-sidebar_position: 07
 displayed_sidebar: docs
 ---
 

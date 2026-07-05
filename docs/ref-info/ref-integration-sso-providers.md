@@ -3,7 +3,6 @@ title: Publisher integration with SSO providers
 sidebar_label: Publisher SSO integration
 description: Information for publishers for using single sign-on (SSO) providers with UID2.
 hide_table_of_contents: false
-sidebar_position: 06
 displayed_sidebar: docs
 ---
 

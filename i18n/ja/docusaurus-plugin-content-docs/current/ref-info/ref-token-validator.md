@@ -2,7 +2,6 @@
 title: UID2 Token Validator
 description: UID2 Token Validator を使用して、UID2 Token をソースの DII に対して検証し、Token 生成ワークフローが正しいことを確認する方法。
 hide_table_of_contents: false
-sidebar_position: 02
 displayed_sidebar: docs
 ---
 
