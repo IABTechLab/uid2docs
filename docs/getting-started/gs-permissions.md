@@ -2,7 +2,6 @@
 title: API permissions
 description: Information about UID2 API permissions.
 hide_table_of_contents: false
-sidebar_position: 07
 displayed_sidebar: docs
 ---
 

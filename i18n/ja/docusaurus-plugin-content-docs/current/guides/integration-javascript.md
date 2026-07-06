@@ -4,7 +4,6 @@ sidebar_label: Integration overview for JavaScript
 pagination_label: Integration overview for JavaScript
 description: UID2 実装の一部として SDK for JavaScript とインテグレーションするためのオプションの概要。
 hide_table_of_contents: false
-sidebar_position: 04
 displayed_sidebar: docs
 ---
 

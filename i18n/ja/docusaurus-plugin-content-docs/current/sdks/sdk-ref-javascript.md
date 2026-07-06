@@ -3,7 +3,6 @@ title: SDK for JavaScript reference guide
 sidebar_label: SDK for JavaScript
 description: JavaScript Client-Side SDK に関するリファレンス情報。
 hide_table_of_contents: false
-sidebar_position: 02
 displayed_sidebar: docs
 ---
 

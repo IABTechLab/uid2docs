@@ -4,7 +4,6 @@ sidebar_label: Databricks
 pagination_label: Databricks integration
 description: Information about integrating with UID2 through Databricks. 
 hide_table_of_contents: false
-sidebar_position: 04
 displayed_sidebar: docs
 ---
 

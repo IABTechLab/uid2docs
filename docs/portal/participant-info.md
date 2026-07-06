@@ -2,7 +2,6 @@
 title: Participant information
 description: Configure your UID2 sharing participant profile.
 hide_table_of_contents: false
-sidebar_position: 06
 displayed_sidebar: docs
 ---
 

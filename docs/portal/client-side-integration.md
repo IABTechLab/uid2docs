@@ -2,7 +2,6 @@
 title: Client-side integration
 description: Set up and manage information needed for client-side integration.
 hide_table_of_contents: false
-sidebar_position: 09
 displayed_sidebar: docs
 ---
 

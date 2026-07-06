@@ -2,7 +2,6 @@
 title: GMA Plugin for Android
 description: A guide for publishers using GMA for ad requests on Android apps.
 hide_table_of_contents: false
-sidebar_position: 12
 displayed_sidebar: docs
 ---
 

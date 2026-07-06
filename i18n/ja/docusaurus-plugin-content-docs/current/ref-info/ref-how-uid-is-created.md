@@ -2,7 +2,6 @@
 title: How the UID2 token is created
 description: UID2 Token を作成する方法に関するリファレンス情報。
 hide_table_of_contents: false
-sidebar_position: 06
 displayed_sidebar: docs
 ---
 

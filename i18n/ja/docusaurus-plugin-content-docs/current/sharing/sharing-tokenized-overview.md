@@ -2,7 +2,6 @@
 title: Tokenized sharing overview
 description: Tokenized Sharing のオプションについて学ぶ。
 hide_table_of_contents: false
-sidebar_position: 04
 displayed_sidebar: docs
 ---
 

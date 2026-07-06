@@ -2,7 +2,6 @@
 title: SDK for Android
 description: Reference information about the Android SDK.
 hide_table_of_contents: false
-sidebar_position: 12
 displayed_sidebar: docs
 ---
 

@@ -2,7 +2,6 @@
 title: Data providers
 description: データプロバイダー向けの情報の概要。
 hide_table_of_contents: false
-sidebar_position: 08
 use_banner: true
 banner_title: データプロバイダー向け UID2 概要
 banner_description: 将来のための ID (Identity) ソリューション。

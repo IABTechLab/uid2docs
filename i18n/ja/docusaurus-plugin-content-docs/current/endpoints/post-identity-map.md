@@ -2,7 +2,6 @@
 title: POST /v3/identity/map
 description: DII を raw UID2 にマップします。
 hide_table_of_contents: false
-sidebar_position: 08
 displayed_sidebar: docs
 ---
 

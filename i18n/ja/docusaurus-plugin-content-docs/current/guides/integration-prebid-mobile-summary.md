@@ -4,7 +4,6 @@ sidebar_label: Mobile integration with Prebid Mobile SDK
 pagination_label: Mobile integration with Prebid Mobile SDK
 description: モバイルデバイスでの Prebid インテグレーションの設定に関する情報リソースのまとめ。
 hide_table_of_contents: false
-sidebar_position: 04
 displayed_sidebar: docs
 ---
 

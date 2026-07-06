@@ -4,7 +4,6 @@ sidebar_label: Azure Kubernetes Service (AKS)
 pagination_label: Private Operator for AKS integration guide
 description: Integration information for Private Operator in AKS.
 hide_table_of_contents: false
-sidebar_position: 18
 displayed_sidebar: docs
 ---
 

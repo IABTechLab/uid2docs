@@ -2,7 +2,6 @@
 title: The UID2 Operator
 description: Information about Public and Private Operators and the differences between them.
 hide_table_of_contents: false
-sidebar_position: 06
 displayed_sidebar: docs
 ---
 

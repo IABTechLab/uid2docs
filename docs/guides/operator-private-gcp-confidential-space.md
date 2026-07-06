@@ -4,7 +4,6 @@ sidebar_label: GCP Confidential Space
 pagination_label: Private Operator for GCP integration guide
 description: Integration information for Private Operator in GCP.
 hide_table_of_contents: false
-sidebar_position: 18
 displayed_sidebar: docs
 ---
 

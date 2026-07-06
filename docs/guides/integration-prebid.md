@@ -4,7 +4,6 @@ sidebar_label: Integration overview for Prebid
 pagination_label: Integration overview for Prebid
 description: Overview of options for integrating with Prebid as part of your UID2 implementation.
 hide_table_of_contents: false
-sidebar_position: 04
 displayed_sidebar: sidebarPublishers
 ---
 

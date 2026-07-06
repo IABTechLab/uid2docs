@@ -4,7 +4,6 @@ sidebar_label: Client-side integration for mobile
 pagination_label: Client-side integration guide for mobile
 description: Client-side でトークン生成とリフレッシュの両方を行うモバイルインテグレーションの設定。
 hide_table_of_contents: false
-sidebar_position: 04
 displayed_sidebar: docs
 ---
 

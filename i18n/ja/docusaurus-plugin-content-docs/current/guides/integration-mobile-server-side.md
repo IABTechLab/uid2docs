@@ -4,7 +4,6 @@ sidebar_label: Server-side integration for mobile
 pagination_label: Server-side integration guide for mobile
 description: Server-Side でのトークン生成とリフレッシュを行うモバイルインテグレーションの設定
 hide_table_of_contents: false
-sidebar_position: 04
 displayed_sidebar: docs
 ---
 

@@ -2,7 +2,6 @@
 title: Deprecation schedule
 description: UID2 API およびサービスのバージョンに関する廃止スケジュール
 hide_table_of_contents: false
-sidebar_position: 06
 displayed_sidebar: docs
 ---
 

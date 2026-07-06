@@ -2,7 +2,6 @@
 title: POST /identity/buckets
 description: Monitors rotated salt buckets.
 hide_table_of_contents: false
-sidebar_position: 07
 displayed_sidebar: docs
 ---
 

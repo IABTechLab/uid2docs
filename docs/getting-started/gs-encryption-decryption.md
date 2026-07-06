@@ -2,7 +2,6 @@
 title: Encryption and decryption
 description: Information about encrypting UID2 requests and decrypting responses.
 hide_table_of_contents: false
-sidebar_position: 11
 displayed_sidebar: docs
 ---
 

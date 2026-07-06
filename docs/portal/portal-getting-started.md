@@ -2,7 +2,6 @@
 title: Getting started
 description: Learn how to create an account in the UID2 Portal.
 hide_table_of_contents: false
-sidebar_position: 03
 displayed_sidebar: docs
 ---
 

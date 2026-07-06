@@ -2,7 +2,6 @@
 title: SDK for iOS
 description: Reference information about the iOS SDK.
 hide_table_of_contents: false
-sidebar_position: 14
 displayed_sidebar: docs
 ---
 

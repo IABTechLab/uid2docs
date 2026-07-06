@@ -2,7 +2,6 @@
 title: Server-side token generation
 description: Information for publishers about generating the token on the server side.
 hide_table_of_contents: false
-sidebar_position: 06
 displayed_sidebar: docs
 ---
 

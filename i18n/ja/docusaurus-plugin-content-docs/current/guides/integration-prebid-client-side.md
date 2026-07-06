@@ -4,7 +4,6 @@ sidebar_label: Client-side integration for Prebid.js
 pagination_label: Client-side integration guide for Prebid.js
 description: Client-Side での Prebid.js インテグレーションの設定に関する情報。
 hide_table_of_contents: false
-sidebar_position: 04
 displayed_sidebar: docs
 ---
 

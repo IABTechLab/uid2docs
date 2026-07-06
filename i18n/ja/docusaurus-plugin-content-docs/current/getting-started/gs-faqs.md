@@ -2,7 +2,6 @@
 title: FAQs
 description: UID2 の実装に関するよくある質問。
 hide_table_of_contents: false
-sidebar_position: 20
 displayed_sidebar: docs
 ---
 

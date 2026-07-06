@@ -2,7 +2,6 @@
 title: Normalization and encoding
 description: 情報を正規化およびエンコードして、安全にデコードできるようにする方法。
 hide_table_of_contents: false
-sidebar_position: 13
 displayed_sidebar: docs
 ---
 

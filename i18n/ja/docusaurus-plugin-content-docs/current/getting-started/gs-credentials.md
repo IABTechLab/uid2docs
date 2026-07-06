@@ -2,7 +2,6 @@
 title: UID2 credentials
 description: 必要な認証情報とその取得方法について。
 hide_table_of_contents: false
-sidebar_position: 03
 displayed_sidebar: docs
 ---
 

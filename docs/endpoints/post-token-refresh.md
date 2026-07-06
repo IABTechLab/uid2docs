@@ -2,7 +2,6 @@
 title: POST /token/refresh
 description: Uses the refresh token to generate an updated UID2 token.
 hide_table_of_contents: false
-sidebar_position: 04
 displayed_sidebar: docs
 ---
 

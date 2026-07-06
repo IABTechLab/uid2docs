@@ -2,7 +2,6 @@
 title: POST /token/generate
 description: Generates a UID2 token (advertising token) from DII. 
 hide_table_of_contents: false
-sidebar_position: 02
 displayed_sidebar: docs
 ---
 

@@ -4,7 +4,6 @@ sidebar_label: Integration overview for mobile
 pagination_label: Mobile integration overview for Android and iOS
 description: モバイルインテグレーションオプションの概要。
 hide_table_of_contents: false
-sidebar_position: 04
 displayed_sidebar: sidebarPublishers
 ---
 

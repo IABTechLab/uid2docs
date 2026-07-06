@@ -2,7 +2,6 @@
 title: GMA Plugin for iOS
 description: A guide for publishers using GMA for ad requests on iOS apps.
 hide_table_of_contents: false
-sidebar_position: 13
 displayed_sidebar: docs
 ---
 

@@ -4,7 +4,6 @@ sidebar_label: Private Operator network egress
 pagination_label: Private Operator network egress
 description: Outbound network destinations a Private Operator must reach, for configuring egress firewall allowlists.
 hide_table_of_contents: false
-sidebar_position: 16
 displayed_sidebar: docs
 ---
 

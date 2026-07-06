@@ -2,7 +2,6 @@
 title: UID2 Token Validator
 description: How to use the UID2 Token Validator to validate UID2 tokens against source DII and confirm that your token generation workflow is correct.
 hide_table_of_contents: false
-sidebar_position: 02
 displayed_sidebar: docs
 ---
 

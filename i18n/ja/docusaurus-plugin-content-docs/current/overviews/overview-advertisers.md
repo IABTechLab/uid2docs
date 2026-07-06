@@ -2,7 +2,6 @@
 title: Advertisers
 description: 広告主向けの情報の概要。
 hide_table_of_contents: false
-sidebar_position: 04
 use_banner: true
 banner_title: 広告主向け UID2 概要
 banner_description: Unified ID 2.0 でキャンペーンのアクティベーションをアップグレード。

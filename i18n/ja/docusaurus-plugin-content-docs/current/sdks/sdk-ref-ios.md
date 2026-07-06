@@ -2,7 +2,6 @@
 title: SDK for iOS
 description: iOS SDK のリファレンス情報。
 hide_table_of_contents: false
-sidebar_position: 14
 displayed_sidebar: docs
 ---
 
