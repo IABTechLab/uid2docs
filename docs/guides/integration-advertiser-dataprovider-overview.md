@@ -21,7 +21,7 @@ Within the ad tech industry, advertisers use identity to build audiences, track 
 There are other ways that you can use UID2, outside these use cases. These are just some examples.
 :::
 
-| Send/Receive? | Action | Advantage/Result |
+| Send/receive? | Action | Advantage/result |
 | --- | --- | --- |
 | Send in audiences | Send raw UID2s via API or pixels | Create audiences. |
 | Send&nbsp;in&nbsp;conversions | Send raw UID2s as conversion information | Use conversion information for measurement (attribution) or for retargeting via API or pixels. |
@@ -55,7 +55,7 @@ If your implementation uses a version of the [POST&nbsp;/identity/map](../endpoi
 
 The following table shows the implementation options that are available for advertisers and data providers, for each of the high-level steps. Some steps are managed solely as part of your own custom implementation; some steps can be managed by one or more of the UID2 implementation options available. For details, click the link on each step.
 
-| High-Level Step | Implementation Options |
+| High-level step | Implementation options |
 | --- | --- |
 | [1: Generate raw UID2s from DII](#1-generate-raw-uid2s-from-dii) | Use any of the following options to map DII to raw UID2s:<ul><li>One of these UID2 SDKs:<ul><li>Python SDK: [Map DII to raw UID2s](../sdks/sdk-ref-python.md#map-dii-to-raw-uid2s)</li><li>Java SDK: [Usage for advertisers/data providers](../sdks/sdk-ref-java.md#usage-for-advertisersdata-providers)</li></ul></li><li>Snowflake: [Map DII](integration-snowflake.md#map-dii)</li><li>Databricks: [Map DII](integration-databricks.md#map-dii)</li><li>AWS Entity Resolution: [AWS Entity Resolution integration guide](integration-aws-entity-resolution.md)</li><li>HTTP endpoints: [POST&nbsp;/identity/map](../endpoints/post-identity-map.md)</li></ul> |
 | [2: Store raw UID2s and refresh timestamps](#2-store-raw-uid2s-and-refresh-timestamps) | Custom (your choice). |

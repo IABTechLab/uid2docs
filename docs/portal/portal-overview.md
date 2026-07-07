@@ -11,17 +11,17 @@ import Link from '@docusaurus/Link';
 
 The UID2 Portal is your one-stop shop for setting up and configuring your UID2 account. In this self-serve portal, you can complete all basic setup steps for UID2 participation. Click through on the links for more information about each activity.
 
-| Activity | Documentation Link |
+| Activity | Documentation link |
 | :--- | :--- | 
 | Request an account, configure basic account information such as name and location, log in for the first time, and reset your password. | [Getting started with the UID2 Portal](portal-getting-started.md) |
 | Review your profile. | [Participant information](participant-info.md) |
-| Server-side or client-server integrations: Manage API keys for your account, including adding, modifying, or deleting keys. | [API keys](api-keys.md) |
-| Client-side integrations only: Set up and manage the values needed for generating UID2 tokens on the client side. | [Client-side integration](client-side-integration.md) |
-| Configure permissions for individual <Link href="../ref-info/glossary-uid#gl-sharing-participant">sharing participants</Link> or groups of sharing participants.<br/>NOTE: Use of sharing requires an API key (see [API keys](api-keys.md)) or client-side key pair (see [Client-side integration](client-side-integration.md)). Configure these values before setting up sharing permissions. | [Sharing permissions](sharing-permissions.md) |
+| Server-side or client-server integrations: manage API keys for your account, including adding, modifying, or deleting keys. | [API keys](api-keys.md) |
+| Client-side integrations only: set up and manage the values needed for generating UID2 tokens on the client side. | [Client-side integration](client-side-integration.md) |
+| Configure permissions for individual <Link href="../ref-info/glossary-uid#gl-sharing-participant">sharing participants</Link> or groups of sharing participants.<br/>note: use of sharing requires an API key (see [API keys](api-keys.md)) or client-side key pair (see [client-side integration](client-side-integration.md)). configure these values before setting up sharing permissions. | [Sharing permissions](sharing-permissions.md) |
 | Add team members who will have permission to manage your account. | [Team members](team-members.md) |
 | Set up designated email contacts who will be notified of news or updates. | [Email contacts](email-contacts.md) |
 | View a detailed log of all past actions performed by, or on behalf of, the current participant. | [Audit trail](audit-trail.md) |
-| Change password when required by the Portal. | [Password change requirement](portal-getting-started.md#password-change-requirement) |
+| Change password when required by the portal. | [Password change requirement](portal-getting-started.md#password-change-requirement) |
 
 ## Access the UID2 Portal
 

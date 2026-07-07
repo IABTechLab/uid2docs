@@ -10,7 +10,7 @@ displayed_sidebar: docs
 import Link from '@docusaurus/Link';
 import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emails-and-phone-numbers.mdx';
 
-# Databricks clean rooms integration guide
+# Databricks Clean Rooms integration guide
 
 This guide is for advertisers and data providers who want to convert their user data to raw UID2s in a Databricks environment.
 
@@ -30,7 +30,7 @@ When you've set up the Databricks Clean Rooms environment, you establish a trust
 
 The following table summarizes the functionality available with the UID2 Databricks integration.
 
-| Encrypt Raw UID2 to UID2 Token for Sharing | Decrypt UID2 Token to Raw UID2 | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to Raw UID2s |
+| Encrypt raw UID2 to UID2 token for sharing | Decrypt UID2 token to raw UID2 | Generate UID2 token from DII | Refresh UID2 token | Map DII to raw UID2s |
 | :--- | :--- | :--- | :--- | :--- |
 | &#8212; | &#8212; | &#8212; | &#8212; | &#9989; |
 
@@ -108,7 +108,7 @@ The notebook has two parameters, `input_schema` and `input_table`. Together, the
 
 For example, to map DII in the clean room table named `creator.default.emails`, set `input_schema` to `default` and `input_table` to `emails`.
 
-| Parameter Name | Description |
+| Parameter name | Description |
 | :--- | :--- |
 | `input_schema` | The schema containing the table or view. |
 | `input_table` | The name you specify for the table or view containing the DII to be mapped. |
@@ -117,7 +117,7 @@ For example, to map DII in the clean room table named `creator.default.emails`, 
 
 The input table or view must have the two columns shown in the following table. The table or view can have additional columns, but the notebook doesn't use any additional columns, only these two.
 
-| Column Name | Data Type | Description |
+| Column name | Data type | Description |
 | :--- | :--- | :--- |
 | `INPUT` | string | The DII to map. |
 | `INPUT_TYPE` | string | The type of DII to map. Allowed values: `email`, `email_hash`, `phone`, and `phone_hash`. |
@@ -139,7 +139,7 @@ For details, see [Overview of output tables](https://docs.databricks.com/aws/en/
 
 The following table provides information about the structure of the output data, including field names and values.
 
-| Column Name | Data Type | Description |
+| Column name | Data type | Description |
 | :--- | :--- | :--- |
 | `UID` | string | The value is one of the following:<ul><li>**DII was successfully mapped**: The UID2 associated with the DII.</li><li>**Otherwise**: `NULL`.</li></ul> |
 | `PREV_UID` | string | The value is one of the following:<ul><li>**DII was successfully mapped and the current raw UID2 was rotated in the last 90 days**: the previous raw UID2.</li><li>**Otherwise**: `NULL`.</li></ul> |
@@ -186,7 +186,7 @@ This section includes the following reference information:
 
 UID2 sharing identifiers can change. Before creating a new clean room, check this section to make sure you have the latest sharing identifier.
 
-| Environment | UID2 Sharing Identifier |
+| Environment | UID2 sharing identifier |
 | :--- | :--- |
 | Production | `aws:us-east-2:21149de7-a9e9-4463-b4e0-066f4b033e5d:673872910525611:010d98a6-8cf2-4011-8bf7-ca45940bc329` |
 | Integration | `aws:us-east-2:4651b4ea-b29c-42ec-aecb-2377de70bbd4:2366823546528067:c15e03bf-a348-4189-92e5-68b9a7fb4018` |

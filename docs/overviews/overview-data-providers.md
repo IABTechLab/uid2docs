@@ -76,11 +76,11 @@ To get started, follow these steps:
 
 The following documentation resources are available for advertisers and data providers to implement UID2.
 
-| Integration Type| Documentation | Content Description |
+| Integration type| Documentation | Content description |
 | :--- | :--- | :--- |
 | Overview of integration options for organizations that collect user data and push it to other UID2 participants | [Advertiser/data provider integration overview](../guides/integration-advertiser-dataprovider-overview.md) | This guide covers integration workflows for mapping identity for audience-building and targeting. |
 | Snowflake | [Snowflake integration guide](../guides/integration-snowflake.md) | This guide provides instructions for generating UID2s from emails or phone numbers within Snowflake. |
-| Databricks Clean Rooms | [Databricks clean rooms integration guide](../guides/integration-databricks.md) | This guide provides instructions for generating UID2s from emails or phone numbers in a Databricks Clean Rooms environment. |
+| Databricks Clean Rooms | [Databricks Clean Rooms integration guide](../guides/integration-databricks.md) | This guide provides instructions for generating UID2s from emails or phone numbers in a Databricks Clean Rooms environment. |
 | AWS Entity Resolution | [AWS Entity Resolution integration guide](../guides/integration-aws-entity-resolution.md) | This guide provides instructions for integrating with the UID2 framework using AWS Entity Resolution. |
 | Integration steps for organizations that collect user data and push it to other UID2 participants, using UID2 HTTP endpoints only | [Advertiser/data provider integration to HTTP endpoints](../guides/integration-advertiser-dataprovider-endpoints.md) | This guide covers integration steps for advertisers and data providers to integrate with UID2 by writing code to call UID2 HTTP endpoints, rather than using another implementation option such as an SDK, Snowflake, or AWS Entity Resolution. |
 | Integration steps for advertisers and data providers who want to use the client-side JavaScript SDK for adding a UID2 token to their tracking pixels. | [Client-side integration guide for JavaScript](../guides/integration-javascript-client-side.md) | This guide provides instructions for generating UID2 tokens (advertising tokens) using only JavaScript client-side changes.<!-- UID2_only: Not applicable for EUID --> |

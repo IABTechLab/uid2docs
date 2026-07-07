@@ -55,7 +55,7 @@ You have the option of writing your own code for encrypting requests, using a UI
 
 The following table describes the field layout for request encryption code.
 
-| Offset (Bytes) | Size (Bytes) | Description |
+| Offset (bytes) | Size (bytes) | Description |
 | :--- | :--- | :--- |
 | 0 | 8 | The <a href="../ref-info/glossary-uid#gl-unix-time">Unix</a> timestamp (in milliseconds) of the request, in int64 big endian format.<br/>When the server receives and decrypts the envelope, it checks the embedded timestamp. If the timestamp is older than 60 seconds, the request is considered stale and is rejected. |
 | 8 | 8 | Nonce: Random 64 bits of data used to help protect against replay attacks. The corresponding [Unencrypted response data envelope](#unencrypted-response-data-envelope) should contain the same nonce value for the response to be considered valid. |
@@ -65,7 +65,7 @@ The following table describes the field layout for request encryption code.
 
 The following table describes the field layout for request encryption code.
 
-| Offset (Bytes) | Size (Bytes) | Description |
+| Offset (bytes) | Size (bytes) | Description |
 | :--- | :--- | :--- |
 | 0 | 1 | The version of the envelope format. Must be `1`. |
 | 1 | 12 | 96-bit initialization vector (IV), which is used to randomize data encryption. |
@@ -84,7 +84,7 @@ The response is encrypted only if the service returns HTTP status code 200.
 
 The following table describes the field layout for response decryption code.
 
-| Offset (Bytes) | Size (Bytes) | Description |
+| Offset (bytes) | Size (bytes) | Description |
 | :--- | :--- | :--- |
 | 0 | 12 | 96-bit initialization vector (IV), which is used to randomize data encryption. |
 | 12 | N | Payload ([Unencrypted response data envelope](#unencrypted-response-data-envelope)) encrypted using the AES/GCM/NoPadding algorithm. |
@@ -94,7 +94,7 @@ The following table describes the field layout for response decryption code.
 
 The following table describes the field layout for response decryption code.
 
-| Offset (Bytes) | Size (Bytes) | Description |
+| Offset (bytes) | Size (bytes) | Description |
 | :--- | :--- | :--- |
 | 0 | 8 | The Unix timestamp (in milliseconds) of the response, in int64 big endian format. |
 | 8 | 8 | Nonce. For the response to be considered valid, this should match the nonce in the [unencrypted request data envelope](#unencrypted-request-data-envelope). |

@@ -32,18 +32,18 @@ The following table summarizes the functionality available with each SDK.
     <tr>
       <th colspan="2">Audience&nbsp;&nbsp;&gt;&nbsp;&gt;&nbsp;&gt;</th>
       <th colspan="2">Publisher</th>
-      <th colspan="2">Advertiser&nbsp;/ Data Provider</th>
+      <th colspan="2">Advertiser&nbsp;/ data provider</th>
       <th colspan="2">DSP</th>
     </tr>
     <tr>
       <th> SDK for...</th>
-      <th>Client-Side or Server-Side</th>
-      <th>Generate UID2 Token from DII</th>
-      <th>Refresh UID2 Token</th>
-      <th>Map DII to Raw UID2s&ast;</th>
-      <th>Monitor Rotated Salt Buckets&ast;&ast;</th>
-      <th>Encrypt Raw UID2 to UID2 Token for Sharing</th>
-      <th>Decrypt UID2 Token to Raw UID2</th>
+      <th>Client-side or server-side</th>
+      <th>Generate UID2 token from DII</th>
+      <th>Refresh UID2 token</th>
+      <th>Map DII to raw UID2s&ast;</th>
+      <th>Monitor rotated salt buckets&ast;&ast;</th>
+      <th>Encrypt raw UID2 to UID2 token for sharing</th>
+      <th>Decrypt UID2 token to raw UID2</th>
     </tr>
   </thead>
   <tbody>
@@ -130,7 +130,7 @@ The following table summarizes the functionality available with each SDK.
 
 The following SDK documentation is available for UID2 integration. Documentation links are in the first column.
 
-| SDK/Link&nbsp;to&nbsp;Guide | Description | Audience
+| SDK/link&nbsp;to&nbsp;guide | Description | Audience
 | :--- | :--- | :--- |
 | [SDK for JavaScript](sdk-ref-javascript.md) | Client-side JavaScript SDK that facilitates the process of establishing client identity using UID2 and retrieving UID2 tokens for publishers. | Publishers |
 | [SDK for Java](sdk-ref-java.md) | An SDK for audiences using Java server-side:<ul><li>Helps publishers to generate or refresh UID2 tokens from <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> ([POST&nbsp;/token/generate](../endpoints/post-token-generate)).</li><li>Helps UID2 sharers to encrypt or decrypt UID2 tokens ([Usage for UID2 sharers](sdk-ref-java.md#usage-for-uid2-sharers)).</li><li>Helps DSPs to decrypt UID2 tokens from bid requests ([Decrypt UID2 tokens for RTB use](guides/dsp-guide.md#decrypt-uid2-tokens-for-rtb-use)).</li></ul> | Publishers<br/>DSPs<br/>Advertisers<br/>Data&nbsp;Providers<br/>Sharers |

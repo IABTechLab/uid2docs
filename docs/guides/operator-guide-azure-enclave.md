@@ -32,7 +32,7 @@ UID2 Private Operator for Azure is not supported in these areas: Europe, China.
 
 The latest ZIP file is linked in the Azure Download column in the following table.
 
-| Version Name | Version Number  | Release Notes | Azure Download |  Date | Deprecation Date |
+| Version name | Version number  | Release notes | Azure download |  Date | Deprecation date |
 | ------- | ------ | ------ | ------ | ------ | ------ |
 | H1 2026 | v5.70.159 | [v5.70.159](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.70.159-r0) | [azure-cc-deployment-files-5.70.159-r0.zip](https://github.com/IABTechLab/uid2-operator/releases/download/v5.70.159-r0/azure-cc-deployment-files-5.70.159-r0.zip) | June 23, 2026 | June 30, 2027 |
 
@@ -325,7 +325,7 @@ To avoid passing certificates associated with your domain into the enclave, only
 
 The following table provides information about supported protocols.
 
-| Port Number | Direction | Protocol | Description |
+| Port number | Direction | Protocol | Description |
 | ----------- | --------- | -------- | ------ |
 | 80 | Inbound | HTTP | Serves all UID2 APIs, including the health check endpoint `/ops/healthcheck`.<br/>When everything is up and running, the endpoint returns HTTP 200 with a response body of `OK`. For details, see [Running the health check](#running-the-health-check). |
 | 9080 | Inbound | HTTP | Serves Prometheus metrics (`/metrics`). For details, see [Scraping metrics](#scraping-metrics). |
@@ -377,7 +377,7 @@ Error codes for Private Operator issues are applicable only to release v5.49.7 a
 
 The following errors might occur during operator startup:
 
-| Error Code | Issue | Steps to Resolve |
+| Error code | Issue | Steps to resolve |
 | :--- | :--- | :--- |
 | E02 | OperatorKeyNotFoundError | Make sure that the secret vault and secret name that store the operator key are correctly configured. Make sure they are set as `VAULT_NAME` and `OPERATOR_KEY_SECRET_NAME`. |
 | E03 | ConfigurationMissingError | Required attributes are missing in the configuration. Refer to the logs for details and update the missing attributes before running the Azure operator. |

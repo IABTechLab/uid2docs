@@ -24,7 +24,7 @@ For security reasons, the API key and secret used in token generation *must* be 
 
 Options are summarized in the following table.
 
-| Integration Solution | Generate Token | Refresh Token |
+| Integration solution | Generate token | Refresh token |
 | :--- | :--- | :--- |
 | [SDK for Java](../sdks/sdk-ref-java.md) | ✅ | ✅ |
 | [SDK for Python](../sdks/sdk-ref-python.md) | ✅ | ✅ |

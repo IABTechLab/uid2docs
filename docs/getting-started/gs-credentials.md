@@ -33,8 +33,8 @@ The following table shows how you get your credentials, for each [integration ap
   <thead>
     <tr>
       <th>Environment</th>
-      <th>Integration Type</th>
-      <th>Getting Credentials</th>
+      <th>Integration type</th>
+      <th>Getting credentials</th>
     </tr>
   </thead>
   <tbody>

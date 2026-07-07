@@ -34,7 +34,7 @@ Tokenized sharing in the bidstream is applicable to the following audiences:
 
 The following approaches are available for encrypting the DII directly into a UID2 token for sending in the bidstream.
 
-| Integration Option | Token Generated Client-Side or Server-Side? | Integration Guide |
+| Integration option | Token generated client-side or server-side? | Integration guide |
 | :--- | :--- | :--- |
 | Prebid.js | Client-Side | [Client-side integration guide for Prebid.js](../guides/integration-prebid-client-side.md) |
 | Prebid.js | Server-Side | [Client-server integration guide for Prebid.js](../guides/integration-prebid-client-server.md) |
@@ -54,7 +54,7 @@ For a complete SDK summary, see [SDK functionality](../sdks/summary-sdks.md#sdk-
 
 The following approaches are available for decrypting UID2 tokens.
 
-   | Scenario | Link to Doc |
+   | Scenario | Link to doc |
    | :--- | :--- |
    | Tokenized sharing from raw UID2s with SDK | [Implementing sharing encryption/decryption with an SDK](sharing-tokenized-from-raw.md#implementing-sharing-encryptiondecryption-with-an-sdk) |
    | Tokenized sharing from raw UID2s with Snowflake | [Implementing sharing encryption/decryption using Snowflake](sharing-tokenized-from-raw.md#implementing-sharing-encryptiondecryption-using-snowflake) |
@@ -117,8 +117,8 @@ Publishers convert the input email address or phone number directly to a UID2 to
   </colgroup>
 <thead>
 <tr>
-<th>Input Example</th>
-<th>Process/User</th>
+<th>Input example</th>
+<th>Process/user</th>
 <th >Result</th>
 </tr>
 </thead>

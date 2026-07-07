@@ -30,7 +30,7 @@ For a summary of all integration options and steps for advertisers and data prov
 
 The following table summarizes the functionality available with the UID2 Snowflake integration.
 
-| Encrypt Raw UID2 to UID2 Token for Sharing | Decrypt UID2 Token to Raw UID2 | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to Raw UID2s |
+| Encrypt raw UID2 to UID2 token for sharing | Decrypt UID2 token to raw UID2 | Generate UID2 token from DII | Refresh UID2 token | Map DII to raw UID2s |
 | :--- | :--- | :--- | :--- | :--- |
 | &#9989; | &#9989; | &#8212;* | &#8212; | &#9989; |
 
@@ -68,9 +68,9 @@ The following diagram and table illustrate the different parts of the UID2 integ
 
 ![Snowflake integration architecture](images/uid2-snowflake-integration-architecture-drawio.png)
 
-|Partner Snowflake Account|UID2 Snowflake Account|UID2 Core Opt-Out Cloud Setup|
+|Partner Snowflake account|UID2 Snowflake account|UID2 core opt-out cloud setup|
 | :--- | :--- | :--- |
-|As a partner, you set up a Snowflake account to host your data and engage in UID2 integration by consuming functions and views through the UID2 Share. | UID2 integration, hosted in a Snowflake account, grants you access to authorized functions and views that draw data from private tables. You can’t access the private tables. The UID2 Share reveals only essential data needed for you to perform UID2-related tasks.<br/>**NOTE**: We store <Link href="../ref-info/glossary-uid#gl-salt">salts</Link> and encryption keys in the private tables. No <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> is stored at any point. |ETL (Extract Transform Load) jobs constantly update the UID2 Core/Optout Snowflake storage with internal data that powers the UID2 Operator Web Services. The data used by the Operator Web Services is also available through the UID2 Share. |
+|As a partner, you set up a Snowflake account to host your data and engage in UID2 integration by consuming functions and views through the UID2 share. | UID2 integration, hosted in a Snowflake account, grants you access to authorized functions and views that draw data from private tables. You can’t access the private tables. The UID2 Share reveals only essential data needed for you to perform UID2-related tasks.<br/>**NOTE**: We store <Link href="../ref-info/glossary-uid#gl-salt">salts</Link> and encryption keys in the private tables. No <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> is stored at any point. |ETL (Extract Transform Load) jobs constantly update the UID2 Core/Optout Snowflake storage with internal data that powers the UID2 Operator Web Services. The data used by the Operator Web Services is also available through the UID2 Share. |
 |When you use shared functions and views, you pay Snowflake for transactional computation costs. |These private tables, secured in the UID2 Snowflake account, automatically synchronize with the UID2 Core/Optout Snowflake storage that holds internal data used to complete UID2-related tasks.  | |
 
 ## Access the UID2 share
@@ -132,7 +132,7 @@ select UID, BUCKET_ID, UNMAPPED from table({DATABASE_NAME}.{SCHEMA_NAME}.FN_T_ID
 
 All query examples use the following default values for each name variable:
 
-| Variable          | Default Value      | Comments                                                                                                                                  |
+| Variable          | Default value      | Comments                                                                                                                                  |
 |:------------------|:-------------------|:------------------------------------------------------------------------------------------------------------------------------------------|
 | `{DATABASE_NAME}` | `UID2_PROD_UID_SH` | If needed, you can change the default database name when creating a new database after you are granted access to the selected UID2 Share. |
 | `{SCHEMA_NAME}`   | `UID`              | This is an immutable name.                                                                                                                |
@@ -145,14 +145,14 @@ If the DII is an email address, the service normalizes the data using the UID2 [
 
 If the DII is a phone number, you must normalize it before sending it to the service, using the UID2 [Phone number normalization](../getting-started/gs-normalization-encoding.md#phone-number-normalization) rules.
 
-| Argument     | Data Type    | Description                                                                               |
+| Argument     | Data type    | Description                                                                               |
 |:-------------|:-------------|:------------------------------------------------------------------------------------------|
 | `INPUT`      | varchar(256) | The DII to map to the UID2 and salt bucket ID.                                            |
 | `INPUT_TYPE` | varchar(256) | The type of DII to map. Allowed values: `email`, `email_hash`, `phone`, and `phone_hash`. |
 
 A successful query returns the following information for the specified DII.
 
-| Column Name | Data Type | Description                                                                                                                                                                                                                                                                                                                       |
+| Column name | Data type | Description                                                                                                                                                                                                                                                                                                                       |
 |:------------|:----------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `UID`       | TEXT      | The value is one of the following:<ul><li>DII was successfully mapped: The UID2 associated with the DII.</li><li>DII was not successfully mapped: `NULL`.</li></ul>                                                                                                                                                               |
 | `BUCKET_ID` | TEXT      | The value is one of the following:<ul><li>DII was successfully mapped: The ID of the <Link href="../ref-info/glossary-uid#gl-salt-bucket">salt bucket</Link> used to generate the UID2. This ID maps to the bucket ID in the `SALT_BUCKETS` view.</li><li>DII was not successfully mapped: `NULL`.</li></ul>                                                                                  |
@@ -366,7 +366,7 @@ The `SALT_BUCKETS` view query returns the date and time when the salt buckets fo
 
 To determine which UID2s need regeneration, compare the timestamps of when they were generated to the most recent timestamp of the salt bucket update.
 
-| Column Name            | Data Type     | Description                                                                                                                                                                                                               |
+| Column name            | Data type     | Description                                                                                                                                                                                                               |
 |:-----------------------|:--------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `BUCKET_ID`            | TEXT          | The ID of the  salt bucket. This ID parallels the `BUCKET_ID` returned by the identity map function. Use the `BUCKET_ID` as the key to do a join query between the function call results and results from this view call. |
 | `LAST_SALT_UPDATE_UTC` | TIMESTAMP_NTZ | The last time the salt in the bucket was updated. This value is expressed in UTC.                                                                                                                                         |
@@ -433,13 +433,13 @@ The following activities support tokenized sharing:
 
 To encrypt raw UID2s to UID2 tokens, use the `FN_T_ENCRYPT` function.
 
-|Argument|Data Type|Description|
+|Argument|Data type|Description|
 | :--- | :--- | :--- |
 | `RAW_UID2` | varchar(128) | The raw UID2 to encrypt to a UID2 token. |
 
 A successful query returns the following information for the specified raw UID2.
 
-|Column Name|Data Type|Description|
+|Column name|Data type|Description|
 | :--- | :--- | :--- |
 | `UID_TOKEN` | TEXT | The value is one of the following:<ul><li>Encryption successful: The UID2 token containing the raw UID2.</li><li>Encryption not successful: `NULL`.</li></ul> |
 | `ENCRYPTION_STATUS` | TEXT | The value is one of the following:<ul><li>Encryption successful: `NULL`.</li><li>Encryption not successful: The reason why the raw UID2 was not encrypted. For example: `INVALID_RAW_UID2` or `INVALID NOT_AUTHORIZED_FOR_MASTER_KEY`.<br/>For details, see [Values for the ENCRYPTION_STATUS column](#values-for-the-encryption_status-column).</li></ul> |
@@ -501,13 +501,13 @@ The following table identifies each item in the response, including `NULL` value
 
 To decrypt UID2 tokens to raw UID2s, use the `FN_T_DECRYPT` function.
 
-| Argument    | Data Type    | Description                              |
+| Argument    | Data type    | Description                              |
 |:------------|:-------------|:-----------------------------------------|
 | `UID_TOKEN` | varchar(512) | The UID2 token to decrypt to a raw UID2. |
 
 A successful query returns the following information for the specified UID2 token.
 
-| Column Name         |Data Type|Description|
+| Column name         |Data type|Description|
 |:--------------------| :--- | :--- |
 | `UID`               | TEXT | The value is one of the following:<ul><li>Decryption successful: The raw UID2 corresponding to the UID2 token.</li><li>Decryption not successful: `NULL`.</li></ul> |
 | `SITE_ID`           | INT | The value is one of the following:<ul><li>Decryption successful: The identifier of the UID2 participant that encrypted the token.</li><li>Decryption not successful: `NULL`.</li></ul> |

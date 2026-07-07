@@ -34,7 +34,7 @@ When the attestation is successful, the UID2 Core Service provides seed informat
 
 The latest ZIP file is linked in the GCP Download column in the following table.
 
-| Version Name | Version&nbsp;#/Release&nbsp;Notes | GCP Download |  Date | Deprecation Date |
+| Version name | Version&nbsp;#/release&nbsp;notes | GCP download |  Date | Deprecation date |
 | ------- | ------ | ------ | ------ | ------ |
 | H1 2026 | [v5.70.159](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.70.159-r0) | [gcp-oidc-deployment-files-5.70.159-r0.zip](https://github.com/IABTechLab/uid2-operator/releases/download/v5.70.159-r0/gcp-oidc-deployment-files-5.70.159-r0.zip) | June 23, 2026 | June 30, 2027 | 
 
@@ -416,7 +416,7 @@ This section includes:
 
 Placeholder values are defined in the following table.
 
-| Placeholder | Actual Value |
+| Placeholder | Actual value |
 | :--- | :--- |
 | `{INSTANCE_NAME}` | Your own valid VM name. |
 | `{ZONE}` | The Google Cloud zone that the VM instance will be deployed on. |
@@ -557,7 +557,7 @@ Error codes for Private Operator issues are applicable only to release v5.49.7 a
 
 The following errors might occur during operator startup:
 
-| Error Code | Issue | Steps to Resolve |
+| Error code | Issue | Steps to resolve |
 | :--- | :--- | :--- |
 | E02 | OperatorKeyNotFoundError | Make sure that the secret name specified exists in GCP Secret Manager in the same project as the operator, and that the service account has permission to access the secret. Make sure it's set to: `tee-env-API_TOKEN_SECRET_NAME`. If needed, you can check the logs for the specific secret name. |
 | E03 | ConfigurationMissingError | Required attributes are missing in the configuration. Refer to the logs for details and update the missing attributes before running GCP operator. |

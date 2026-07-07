@@ -35,7 +35,7 @@ UID2 Private Operator for AKS is not supported in these areas: Europe, China.
 
 The latest ZIP file is linked in the AKS Download column in the following table.
 
-| AKS Version Name | Version&nbsp;#/Release&nbsp;Notes | AKS Download | Date | Deprecation Date |
+| AKS version name | Version&nbsp;#/release&nbsp;notes | AKS download | Date | Deprecation date |
 | ------- | ------ | ------ | ------ | ------ |
 | Q2 2025 | xxx | xxx | xxx | xxx |
 

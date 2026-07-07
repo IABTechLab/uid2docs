@@ -134,7 +134,7 @@ The following documentation resources are available for Private Operators to imp
 
 There is no functional difference between the Private Operator versions.
 
-| Integration Type| Documentation | Content Description |
+| Integration type| Documentation | Content description |
 | :--- | :--- | :--- |
 | AWS | [Private Operator for AWS integration guide](../guides/operator-guide-aws-marketplace.md) | Instructions for setting up a Private Operator service for AWS Marketplace. |
 | GCP Confidential Space | [Private Operator for GCP integration guide](../guides/operator-private-gcp-confidential-space.md) | Information for setting up the UID2 Operator Service in [Confidential Space](https://cloud.google.com/confidential-computing#confidential-space), a confidential computing option from [Google Cloud](https://cloud.google.com/docs/overview/) Platform. |

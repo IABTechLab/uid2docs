@@ -75,7 +75,7 @@ The following steps are for all sharing participants who are using an SDK to enc
 
 1. Decide which SDK to use, from the following options, and review the examples in the applicable sharing documentation to see what the sharing code might look like.
 
-   | SDK/Integration Tool | Link to Sharing Section |
+   | SDK/integration tool | Link to sharing section |
    | :--- | :--- | 
    | C# / .NET | [SDK for C# / .NET: Usage for UID2 sharers](../sdks/sdk-ref-csharp-dotnet.md#usage-for-uid2-sharers) |
    | C++ | [SDK for C++: Usage for UID2 sharers](../sdks/sdk-ref-cplusplus.md#usage-for-uid2-sharers) |

@@ -64,14 +64,14 @@ When you click **Validate Tokens**, the **Validation Results** table displays a 
 | Column | Description |
 |---|---|
 | Identifier | The DII you entered. |
-| Identifier Type | `email`, `phone`, `email_hash` or `phone_hash`. |
-| Normalized Hash | The Base64-encoded SHA-256 hash of the normalized DII. |
+| Identifier type | `email`, `phone`, `email_hash` or `phone_hash`. |
+| Normalized hash | The Base64-encoded SHA-256 hash of the normalized DII. |
 | Token | The token you submitted. |
 | Validation | The result of the validation. For details, see the following table. |
 
 The **Validation** column reflects the response from the [POST&nbsp;/token/validate](../endpoints/post-token-validate.md) endpoint.
 
-| Validation Result | Meaning |
+| Validation result | Meaning |
 |---|---|
 | `Token matches identifier` | The token matches the provided DII. This means that the token was generated from the correct normalized hash. |
 | `Failed: Token does not match identifier` | The token does not match the provided DII. The most likely cause is incorrect normalization or hashing. |

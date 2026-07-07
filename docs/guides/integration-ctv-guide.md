@@ -82,7 +82,7 @@ To implement using this approach, follow the instructions in the [Client-side in
 
 The following table shows supported operating systems, with links to applicable documentation resources.
 
-| Operating System | Integration Guide | Link to SDK Guide |
+| Operating system | Integration guide | Link to SDK guide |
 | :--- | :--- | :--- |
 | [Apple tvOS](https://developer.apple.com/tvos/) | [Client-side integration guide for mobile](../guides/integration-mobile-client-side.md) | [SDK for iOS reference guide](../sdks/sdk-ref-ios.md) |
 | [Android TV](https://www.android.com/tv/) | [Client-side integration guide for mobile](../guides/integration-mobile-client-side.md) | [SDK for Android reference guide](../sdks/sdk-ref-android.md) |
@@ -116,7 +116,7 @@ To implement using this approach, follow the instructions in the [Client-server 
 
 The following table shows supported operating systems, with links to applicable documentation resources.
 
-| Operating System | Integration Guide | Link to SDK Guide |
+| Operating system | Integration guide | Link to SDK guide |
 | :--- | :--- | :--- |
 | [Apple tvOS](https://developer.apple.com/tvos/) | [Client-server integration guide for mobile](../guides/integration-mobile-client-server.md) | [SDK for iOS reference guide](../sdks/sdk-ref-ios.md) |
 | [Android TV](https://www.android.com/tv/) | [Client-server integration guide for mobile](../guides/integration-mobile-client-server.md) | [SDK for Android reference guide](../sdks/sdk-ref-android.md) |

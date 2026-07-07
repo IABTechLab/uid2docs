@@ -15,11 +15,11 @@ These instructions are for client-side implementations. If your UID2 implementat
 
 In the UID2 Portal, if you want to use an implementation option that generates UID2 tokens on the client side, you'll need to define the following values that are applicable to your implementation type:
 
-| Value | Implementation Type | Details | Documentation Link |
+| Value | Implementation type | Details | Documentation link |
 | :--- | :--- | :---| :---|
 | Key pair | All (web or mobile) | At least one. In your implementation, you'll share the public key. | [Subscription ID and public key](../getting-started/gs-credentials.md#subscription-id-and-public-key) |
 | Domain | Web | At least one. Provide a complete list of your root-level domains. | [Client-side web integrations](../getting-started/gs-account-setup.md#client-side-web-integrations) |
-| Mobile App ID | Mobile | Any IDs that apply to your mobile apps, such as Android App ID, iOS/tvOS Bundle ID, or iOS App Store ID. | [Client-side mobile integrations](../getting-started/gs-account-setup.md#client-side-mobile-integrations) |
+| Mobile app ID | Mobile | Any IDs that apply to your mobile apps, such as Android App ID, iOS/tvOS Bundle ID, or iOS App Store ID. | [Client-side mobile integrations](../getting-started/gs-account-setup.md#client-side-mobile-integrations) |
 
 :::important
 It's important to provide a complete list of root-level domain names for your sites, and mobile app IDs for your apps. This is a security measure, for client-side implementation only. If a domain or app is not defined in the UID2 Portal, UID2 token requests from that domain or app will fail.
@@ -38,11 +38,11 @@ When you go into the Client-Side Integration page, you'll be prompted to provide
 
 Client-side implementation options are shown in the following table. The options available to you depend on your role.
 
-| Client-Side Implementation Option | Available For (Role) | Documentation Link |
+| Client-side implementation option | Available for (role) | Documentation link |
 | :--- | :--- | :---|
 | UID2 JavaScript SDK | Publishers, Advertisers | [Client-side integration guide for JavaScript](../guides/integration-javascript-client-side.md) |
 | Prebid.js client-side integration | Publishers only |[Client-side integration guide for Prebid.js](../guides/integration-prebid-client-side.md) |
-| UID2 Mobile SDK | Publishers only |[Client-side integration guide for mobile](../guides/integration-mobile-client-side.md) |
+| UID2 mobile SDK | Publishers only |[Client-side integration guide for mobile](../guides/integration-mobile-client-side.md) |
 
 ## Adding and managing key pairs
 

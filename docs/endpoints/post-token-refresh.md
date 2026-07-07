@@ -35,7 +35,7 @@ Here's what you need to know about this endpoint:
 
 ### Path parameters
 
-| Path Parameter | Data Type | Attribute | Description |
+| Path parameter | Data type | Attribute | Description |
 | :--- | :--- | :--- | :--- |
 | `{environment}` | string | Required | Testing (integration) environment: `https://operator-integ.uidapi.com`<br/>Production environment: The best choice depends on where your users are based. For information about how to choose the best URL for your use case, and a full list of valid base URLs, see [Environments](../getting-started/gs-environments.md).<br/>Notes:<ul><li>The `integ` environment and the `prod` environment require different <Link href="../ref-info/glossary-uid#gl-api-key">API keys</Link>.</li><li>Token expiration time is subject to change, but is always significantly shorter in the `integ` environment than it is in the `prod` environment.</li></ul> |
 
@@ -95,7 +95,7 @@ An error response might look like the following:
 
 The response body includes the properties shown in the following table.
 
-| Property | Data Type | Description |
+| Property | Data type | Description |
 | :--- | :--- | :--- |
 | `advertising_token` | string | The <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 token</Link> (also known as advertising token) for the user. |
 | `refresh_token` | string | An encrypted token that can be exchanged with the UID2 Service for the latest set of identity tokens. |
@@ -108,7 +108,7 @@ The response body includes the properties shown in the following table.
 
 The following table lists the `status` property values and their HTTP status code equivalents.
 
-| Status | HTTP Status Code | Description |
+| Status | HTTP status code | Description |
 | :--- | :--- | :--- |
 | `success` | 200 | The request was successful and a new UID2 token, with associated values, is returned in the response. The response is encrypted. |
 | `optout` | 200 | The user opted out. This status is returned only for authorized requests. The response is encrypted. |
