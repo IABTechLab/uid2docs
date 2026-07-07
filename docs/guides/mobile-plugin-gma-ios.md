@@ -75,7 +75,7 @@ In the Xcode user interface, under Package Dependencies, add the following entry
 
 | Name | Location | Dependency rule |
 | :--- | :--- | :--- |
-| UID2-iOS-plugin-Google-GMA | `git@github.com:IABTechLab/uid2-ios-plugin-google-gma.git` | Exact Version: 1.0.0 |
+| uid2-ios-plugin-google-gma | `git@github.com:IABTechLab/uid2-ios-plugin-google-gma.git` | Exact Version: 1.0.0 |
 
 ### Installing with CocoaPods
 
