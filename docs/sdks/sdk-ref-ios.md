@@ -100,7 +100,7 @@ In the Xcode user interface, under Package Dependencies, add the following entry
 
 | Name | Location | Dependency rule |
 | :--- | :--- | :--- |
-| UID2-iOS-SDK | `git@github.com:IABTechLab/uid2-ios-sdk.git` | Up to next major version: 2.0.0 < 3.0.0 |
+| uid2-ios-sdk | `git@github.com:IABTechLab/uid2-ios-sdk.git` | Up to next major version: 2.0.0 < 3.0.0 |
 
 ### Installing with CocoaPods
 
