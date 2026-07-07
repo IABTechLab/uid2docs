@@ -149,7 +149,7 @@ To create the matching workflow, first sign in to the AWS Management console, op
    - **Description**: An optional description for the matching workflow.
    - **Data input**: The source for your data in AWS. From the drop-down list, select an AWS Glue database, then the AWS Glue table, and then the schema mapping. You can specify more than one data input. In the following example, email is the only type of data input:
 
-     | UniqueId | Name   | Email            | Date of birth |
+     | UniqueId | Name   | Email            | Date of Birth |
      |----------|--------|------------------|---------------|
      | 0001     | Test 1 | test1@uidapi.com | 1/1/90        |
      | 0002     | Test 2 | test2@gmail.com  | 1/2/78        |
@@ -194,7 +194,7 @@ To create the matching workflow, first sign in to the AWS Management console, op
 
    - Select the input fields that you want to exclude from the output, and the fields that you want to hash in the output data, as shown in the following example.
    
-     | UniqueId | Name   | Email            | Date of birth | UID2_identifier  | UID2_advertising_id                            | UID2_bucket_id |
+     | UniqueId | Name   | Email            | Date of Birth | UID2_identifier  | UID2_advertising_id                            | UID2_bucket_id |
      |----------|--------|------------------|---------------|------------------|------------------------------------------------|----------------|
      | 0001     | Test 1 | test1@uidapi.com | 1/1/90        | test1@uidapi.com | Q4A5ZBuBCYfuV3Wd8Fdsx2+i33v7jyFcQbcMG/LH4eM=   | ad1ANEmVZ      |
      | 0002     | Test 2 | test2@gmail.com  | 1/2/78        | test2@gmail.com  | kds8hgBuBCYfuV3Wd8Fdsx2+i33v7jyFcQbcMG/jgksuh= | kd9ANE98d      |
