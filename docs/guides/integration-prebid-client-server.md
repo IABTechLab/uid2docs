@@ -328,7 +328,7 @@ The following parameters apply only to the UID2 Prebid User ID Module integratio
 
 In this table, CR = Client Refresh mode, SO = Server-Only mode, and N/A = not applicable.
 
-| Param under userSync.userIds[] | Mode/scope | Type | Description | Example |
+| Param under userSync.userIds[] | Mode or scope | Type | Description | Example |
 | --- | --- | --- | --- | --- |
 | name | CR: Required<br/>SO:&nbsp;Required | String | ID value for the UID2 module. Always `"uid2"`. | `"uid2"` |
 | value | CR: N/A<br/>SO: Optional | Object | An object containing the value for the advertising token. | See [Configuration parameter examples: Value](#configuration-parameter-examples-value) |
