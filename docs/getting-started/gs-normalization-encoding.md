@@ -65,7 +65,7 @@ The final value, the hex to Base64-encoded representation of the SHA-256 hash, i
 When applying Base64 encoding, be sure to Base64-encode the raw bytes of the hash or use a Base64 encoder that takes a hex-encoded value as input. If you use a function that takes text as input, the result is a longer string which is invalid for the purposes of UID2.
 :::
 
-| Type | Example | Comments and Usage |
+| Type | Example | Comments and usage |
 | :--- | :--- | :--- |
 | Raw email address | `USER@example.com` | N/A |
 | Normalized email address | `user@example.com` | Normalization is always the first step. |
@@ -87,8 +87,8 @@ In working with your own UID2s, always provide the final value, the Base64-encod
 <table>
   <thead>
     <tr>
-      <th>Original Value</th>
-      <th>Processing Steps and Resulting Values</th>
+      <th>Original value</th>
+      <th>Processing steps and resulting values</th>
     </tr>
   </thead>
   <tbody>
@@ -152,7 +152,7 @@ The final value, the hex to Base64-encoded representation of the SHA-256 hash, i
 When applying Base64 encoding, be sure to use a function that takes a hex value as input. If you use a function that takes text as input, the result is a longer string which is invalid for the purposes of UID2.
 :::
 
-| Type | Example | Comments and Usage |
+| Type | Example | Comments and usage |
 | :--- | :--- | :--- |
 | Raw phone number | `1 (234) 567-8901` | N/A |
 | Normalized phone number | `+12345678901` | Normalization is always the first step. |

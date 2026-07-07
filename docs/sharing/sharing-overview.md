@@ -25,7 +25,7 @@ There are several main sharing scenarios, summarized in the following table.
 
 For examples, see [Sharing UID2s: Use cases](sharing-use-cases.md).
 
-| Sharing Scenario | Sender | Receiver | Sharing Approach | Sharing Route | Link for Details
+| Sharing scenario | Sender | Receiver | Sharing approach | Sharing route | Link for details
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | Sharing in the bidstream | Publisher | DSP | Sharing UID2 tokens (tokenized sharing) | Publisher generates UID2 token and sends it into the <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link>.  | [Tokenized sharing in the bidstream](sharing-tokenized-from-data-bid-stream.md) |
 | Sharing via a pixel | Any authorized [participant](../ref-info/glossary-uid.md#gl-sharing-participant) | Any authorized [participant](../ref-info/glossary-uid.md#gl-sharing-participant) | Sharing UID2 tokens (tokenized sharing) | Sharing via any pixel, such as a tracking pixel or creative pixel. | [Tokenized sharing in pixels](sharing-tokenized-from-data-pixel.md) |

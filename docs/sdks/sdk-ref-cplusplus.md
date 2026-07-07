@@ -19,7 +19,7 @@ The functions outlined here define the information that you'll need to configure
 
 This SDK simplifies integration with UID2 for any DSPs or UID2 sharers who are using C++ for their server-side coding. The following table shows the functions it supports.
 
-| Encrypt Raw UID2 to UID2 Token for Sharing | Decrypt UID2 Token to Raw UID2 | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to Raw UID2s | Monitor Rotated Salt Buckets |
+| Encrypt raw UID2 to UID2 token for sharing | Decrypt UID2 token to raw UID2 | Generate UID2 token from DII | Refresh UID2 token | Map DII to raw UID2s | Monitor rotated salt buckets |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | &#9989; | &#9989; | &#8212; | &#8212; | &#8212; | &#8212; |
 
@@ -55,7 +55,7 @@ Release tags are available in the following GitHub location, but you must build 
 
 The initialization function configures the parameters necessary for the SDK to authenticate with the UID2 service. It also allows you to configure retry intervals in the event of errors.
 
-| Parameter | Description | Recommended Value |
+| Parameter | Description | Recommended value |
 | :--- | :--- | :--- |
 | `endpoint` | The endpoint for the UID2 service. | N/A |
 | `authKey` | The authentication token that belongs to the client. For access to UID2, see [Contact info](../getting-started/gs-account-setup.md#contact-info). | N/A |

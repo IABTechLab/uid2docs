@@ -40,7 +40,7 @@ The following documentation resources are available for publisher web integratio
 For a detailed summary of web integration options, see [Publisher web integration overview](integration-options-publisher-web.md).
 :::
 
-| Integration Guide | Content Description |
+| Integration guide | Content description |
 | :--- | :--- |
 | [Integration overview for Prebid](integration-prebid.md) | An overview of options for publishers who want to integrate with UID2 and generate <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> (advertising tokens) to be passed by Prebid.js and the Prebid Mobile SDK in the RTB <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link>. |
 | [Client-side integration guide for Prebid.js](integration-prebid-client-side.md) | An integration guide for publishers who want to integrate with UID2 and want Prebid.js to manage token generation and automatic token refresh as well as passing the tokens into the RTB bidstream. This guide is for publishers who want to request UID2 tokens client-side, which is the easiest implementation approach. |
@@ -55,7 +55,7 @@ For a detailed summary of web integration options, see [Publisher web integratio
 
 The following documentation resources are available for publishers integrating with Android or iOS devices.
 
-| Integration Guide | Content Description |
+| Integration guide | Content description |
 | :--- | :--- |
 | [Mobile integration overview for Android and iOS](integration-mobile-overview.md) | An overview of options for mobile app publishers who want to integrate with UID2 using the SDK for Android or the SDK for iOS. |
 | [Client-side integration guide for mobile](integration-mobile-client-side.md) | An integration guide for mobile app publishers who want to integrate with UID2 with changes only within the mobile app (no server-side changes). |
@@ -66,7 +66,7 @@ The following documentation resources are available for publishers integrating w
 
 The following documentation resources are available for publisher integrations supporting CTV.
 
-| Integration Guide | Content Description |
+| Integration guide | Content description |
 | :--- | :--- |
 | [CTV integration guide](integration-ctv-guide.md) | A summary of CTV integration options, with links to additional information and instructions. |
 
@@ -74,7 +74,7 @@ The following documentation resources are available for publisher integrations s
 
 The following resources are available for publishers integrating with Prebid.
 
-| Integration Guide | Content Description |
+| Integration guide | Content description |
 | :--- | :--- |
 | [Integration overview for Prebid](integration-prebid.md) | An overview of options for publishers who want to integrate with UID2 and generate UID2 tokens to be passed by Prebid.js or the Prebid Mobile SDK in the RTB bidstream. |
 | [Client-side integration guide for Prebid.js](integration-prebid-client-side.md) | An integration guide for publishers who want to integrate with UID2 and want Prebid.js to manage token generation and automatic token refresh as well as passing the tokens into the RTB bidstream. This guide is for publishers who want to request UID2 tokens client-side, which is the easiest implementation approach. |
@@ -85,7 +85,7 @@ The following resources are available for publishers integrating with Prebid.
 
 The following resources are available for publishers integrating with Google Ad Manager.
 
-| Integration Guide | Content Description |
+| Integration guide | Content description |
 | :--- | :--- |
 | [Google Ad Manager Secure Signals integration guide](integration-google-ss.md) | This integration guide covers the additional steps needed for publishers using UID2 with the Google Ad Manager Secure Signals feature (previously known as Encrypted Signals for Publishers, ESP). |
 | [GMA Plugin for Android integration guide](mobile-plugin-gma-android.md) | The UID2 Google Mobile Ads (GMA) Plugin for Android enables publishers that use the [Google GMA SDK](https://developers.google.com/ad-manager/mobile-ads-sdk) to send <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> as [secure signals](https://support.google.com/admob/answer/11556288) in ad requests from Android apps. |
@@ -97,11 +97,11 @@ The following resources are available for publishers integrating with Google Ad 
 
 The following documentation resources are available for advertisers and data providers integrating with UID2.
 
-| Integration Guide | Content Description |
+| Integration guide | Content description |
 | :--- | :--- |
 | [Advertiser/data provider overview](integration-advertiser-dataprovider-overview.md) | This guide provides an overview of integration options for organizations that collect user data and push it to other UID2 participants. |
 | [Snowflake integration guide](integration-snowflake.md) | Instructions for generating UID2s from emails or phone numbers within Snowflake. |
-| [Databricks clean rooms integration guide](integration-databricks.md) | Instructions for generating UID2s from emails or phone numbers in a Databricks Clean Rooms environment. |
+| [Databricks Clean Rooms integration guide](integration-databricks.md) | Instructions for generating UID2s from emails or phone numbers in a Databricks Clean Rooms environment. |
 | [AWS Entity Resolution integration guide](integration-aws-entity-resolution.md) | Instructions for integrating with the UID2 framework using AWS Entity Resolution. |
 | [Advertiser/data provider integration to HTTP endpoints](integration-advertiser-dataprovider-endpoints.md) | This guide covers integration steps for advertisers and data providers to integrate with UID2 by writing code to call UID2 HTTP endpoints, rather than using another implementation option such as an SDK, Snowflake, or AWS Entity Resolution. |
 | [Client-side integration guide for JavaScript](integration-javascript-client-side.md) | A guide for advertisers and data providers who want to use this SDK for adding a UID2 token to their tracking pixels.<!-- UID2_only: Not applicable for EUID --> |
@@ -110,7 +110,7 @@ The following documentation resources are available for advertisers and data pro
 
 The following documentation resources are available for DSPs integrating with UID2.
 
-| Integration Guide | Content Description |
+| Integration guide | Content description |
 | :--- | :--- |
 | [DSP integration guide](dsp-guide.md) | This integration guide for DSPs covers handling UID2s for bidding and honoring user opt-outs. |
 | [DSP direct integration instructions](integration-dsp-no-sdk.md) | Instructions for DSPs who prefer to integrate without using one of the UID2 SDKs. |
@@ -119,7 +119,7 @@ The following documentation resources are available for DSPs integrating with UI
 
 The following resources are available for <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link> integrations.
  
-| Integration Guide | Content Description |
+| Integration guide | Content description |
 | :--- | :--- |
 | [Private Operator for AWS](operator-guide-aws-marketplace.md) | Instructions for setting up a Private Operator service for AWS Marketplace. |
 | [Private Operator for GCP](operator-private-gcp-confidential-space.md) | Information for setting up the UID2 Operator Service in [Confidential Space](https://cloud.google.com/confidential-computing#confidential-space), a confidential computing option from [Google Cloud](https://cloud.google.com/docs/overview/) Platform. |

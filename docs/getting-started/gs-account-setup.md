@@ -21,10 +21,10 @@ If you have an existing relationship with The Trade Desk (the current UID2 Admin
 Contacting The Trade Desk for access is temporary. When the system is moved to independent governance, the governing organizations will manage access requests.
 :::
 
-| Your Role | Contact Email |
+| Your role | Contact email |
 | :--- | :--- |
-| Publisher, App Developer | [UID2publishers@thetradedesk.com](mailto:UID2publishers@thetradedesk.com) |
-| Agency, Brand, DSP, SSP, customer data platform (CDP), Data Provider | [UID2partners@thetradedesk.com](mailto:UID2partners@thetradedesk.com) |
+| Publisher, app developer | [UID2publishers@thetradedesk.com](mailto:UID2publishers@thetradedesk.com) |
+| Agency, brand, DSP, SSP, customer data platform (CDP), data provider | [UID2partners@thetradedesk.com](mailto:UID2partners@thetradedesk.com) |
 
 ## Account setup details
 

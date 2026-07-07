@@ -48,7 +48,7 @@ You must encrypt all requests using your secret. For details, and code examples 
 
 ### Path parameters
 
-| Path Parameter | Data Type | Attribute | Description |
+| Path parameter | Data type | Attribute | Description |
 | :--- | :--- | :--- | :--- |
 | `{environment}` | string | Required | Testing (integration) environment: `https://operator-integ.uidapi.com`<br/>Production environment: The best choice depends on where your users are based. For information about how to choose the best URL for your use case, and a full list of valid base URLs, see [Environments](../getting-started/gs-environments.md). |
 
@@ -62,7 +62,7 @@ The integration environment and the production environment require different <Li
 Include one or more of the following four parameters as key-value pairs in the JSON body of the request when encrypting it.
 :::
 
-| Body Parameter | Data Type                   | Attribute              | Description |
+| Body parameter | Data type                   | Attribute              | Description |
 |:---------------|:----------------------------|:-----------------------| :--- |
 | `email`        | string array | Conditionally Required | The list of email addresses to be mapped. |
 | `email_hash`   | string array | Conditionally Required | The list of [Base64-encoded SHA-256](../getting-started/gs-normalization-encoding.md#email-address-hash-encoding) hashes of [normalized](../getting-started/gs-normalization-encoding.md#email-address-normalization) email addresses to be mapped. |
@@ -166,7 +166,7 @@ Response:
 
 The response body includes one or more of the properties shown in the following table.
 
-| Body Parameter | Data Type                   | Description                                                                                     |
+| Body parameter | Data type                   | Description                                                                                     |
 |:---------------|:----------------------------|:------------------------------------------------------------------------------------------------|
 | `email`        | array of mapped DII objects | The list of mapped DII objects corresponding to the list of emails in the request.              |
 | `email_hash`   | array of mapped DII objects  | The list of mapped DII objects corresponding to the list of email hashes in the request.        |
@@ -176,7 +176,7 @@ The response body includes one or more of the properties shown in the following 
 
 For successfully mapped DII, the mapped object includes the properties shown in the following table.
 
-| Property | Data Type  | Description                                                                                                                           |
+| Property | Data type  | Description                                                                                                                           |
 |:---------|:-----------|:--------------------------------------------------------------------------------------------------------------------------------------|
 | `u`      | string     | The raw UID2 corresponding to the email or phone number provided in the request.                                                                     |
 | `p`      | string     | One of the following:<ul><li>If the current raw UID2 was rotated in the last 90 days: the previous raw UID2.</li><li>Otherwise: `null`.</li></ul> |
@@ -188,7 +188,7 @@ The raw UID2 does not change before the refresh timestamp. After the refresh tim
 
 For unsuccessfully mapped input values, the mapped object includes the properties shown in the following table.
 
-| Property | Data Type | Description                                                                                                      |
+| Property | Data type | Description                                                                                                      |
 |:---------|:----------|:-----------------------------------------------------------------------------------------------------------------|
 | `e`      | string    | The reason for being unable to map the DII to a raw UID2. One of two possible values:<ul><li>`optout`</li><li>`invalid identifier`</li></ul> |
 
@@ -196,7 +196,7 @@ For unsuccessfully mapped input values, the mapped object includes the propertie
 
 The following table lists the `status` property values and their HTTP status code equivalents.
 
-| Status | HTTP Status Code | Description |
+| Status | HTTP status code | Description |
 | :--- | :--- | :--- |
 | `success` | 200 | The request was successful. The response will be encrypted. |
 | `client_error` | 400 | The request had missing or invalid parameters. |
@@ -226,12 +226,12 @@ The following sections provide general information and guidance for migrating to
 
 The following table shows key differences between the versions.
 
-| Feature                        | v2 Implementation                           | v3 Implementation                          |
+| Feature                        | v2 implementation                           | v3 implementation                          |
 |:-------------------------------|:--------------------------------------------|:-------------------------------------------|
-| Endpoints Required         | `/v2/identity/map` + `/v2/identity/buckets` | `/v3/identity/map` only                    |
-| Identity Types per Request | Single identity type only                   | Multiple identity types                    |
-| Refresh Management         | Monitor salt bucket rotations via `/identity/buckets` endpoint              | Re-map when past `refresh_from` timestamps |
-| Previous UID2 Access       | Not available                               | Available for 90 days        |
+| Endpoints required         | `/v2/identity/map` + `/v2/identity/buckets` | `/v3/identity/map` only                    |
+| Identity types per request | Single identity type only                   | Multiple identity types                    |
+| Refresh management         | Monitor salt bucket rotations via `/identity/buckets` endpoint              | Re-map when past `refresh_from` timestamps |
+| Previous UID2 access       | Not available                               | Available for 90 days        |
 
 ### Required changes
 

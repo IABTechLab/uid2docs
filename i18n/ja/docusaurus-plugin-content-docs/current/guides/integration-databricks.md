@@ -10,7 +10,7 @@ displayed_sidebar: docs
 import Link from '@docusaurus/Link';
 import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emails-and-phone-numbers.mdx';
 
-# Databricks clean rooms integration guide
+# Databricks Clean Rooms integration guide
 
 このガイドは、Databricks 環境でユーザーデータを raw UID2 に変換したい広告主およびデータプロバイダーを対象としています。
 

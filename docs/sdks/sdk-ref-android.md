@@ -13,7 +13,7 @@ You can use the SDK for Android to facilitate the process of generating or estab
 
 The following Android-related plugins, and associated documentation, are also available.
 
-| Purpose | Product/Documentation |
+| Purpose | Product/documentation |
 | :--- | :--- |
 | To use the Google Mobile Ads (GMA) SDK to send <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> as [secure signals](https://support.google.com/admob/answer/11556288) in ad requests from Android apps | [GMA Plugin for Android integration guide](../guides/mobile-plugin-gma-android.md) |
 | To use the Google Interactive Media Ads (IMA) SDK for Android to send <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> as [secure signals](https://support.google.com/admob/answer/11556288) in ad requests from Android apps | [IMA Plugin for Android integration guide](../guides/mobile-plugin-ima-android.md) |
@@ -28,7 +28,7 @@ This SDK for Android can be used for non-mobile devices for Android platforms as
 
 This SDK simplifies integration with UID2 for any publishers who want to support UID2 for apps running on Android devices. The following table shows the functions it supports.
 
-| Encrypt Raw UID2 to UID2 Token for Sharing | Decrypt UID2 Token to Raw UID2 | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to Raw UID2s | Monitor Rotated Salt Buckets |
+| Encrypt raw UID2 to UID2 token for sharing | Decrypt UID2 token to raw UID2 | Generate UID2 token from DII | Refresh UID2 token | Map DII to raw UID2s | Monitor rotated salt buckets |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | &#8212; | &#8212; | &#9989; | &#9989; | &#8212; | &#8212; |
 

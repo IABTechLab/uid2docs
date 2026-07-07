@@ -15,7 +15,7 @@ Learn about the different environments available, and tips to reduce latency by 
 
 The following table lists all current integration (also known as testing) and production environments for UID2.
 
-| Environment | Cloud Region | Code | Base URL |
+| Environment | Cloud region | Code | Base URL |
 | :--- | :--- | :--- | :--- |
 | Integration (for testing) | AWS US East (Ohio) | `us-east-2` | `https://operator-integ.uidapi.com` |
 | Production | Automatically optimized region routing via the <a href='https://aws.amazon.com/global-accelerator/'>AWS Global Accelerator</a> | `n/a` | `https://global.prod.uidapi.com` |

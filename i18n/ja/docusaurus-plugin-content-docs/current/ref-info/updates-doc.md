@@ -88,7 +88,7 @@ December 2, 2025
 
 UID2 Databricks Clean Rooms インテグレーションガイドを追加しました。
 
-詳細は、[Databricks clean rooms integration guide](../guides/integration-databricks.md) を参照してください。
+詳細は、[Databricks Clean Rooms integration guide](../guides/integration-databricks.md) を参照してください。
 
 <!-- APIDOCS-2552 -->
 

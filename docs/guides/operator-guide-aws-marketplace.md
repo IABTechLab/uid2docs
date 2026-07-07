@@ -35,7 +35,7 @@ By subscribing to UID2 Private Operator for AWS, you gain access to the followin
 
 The latest ZIP file is linked in the Release Notes column in the following table.
 
-| Version Name | Version&nbsp;#/Release&nbsp;Notes | AWS Version |  Date |
+| Version name | Version&nbsp;#/release&nbsp;notes | AWS version |  Date |
 | ------- | ------ | ------ | ------ | 
 | H1 2026 | [v5.70.159](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.70.159-r0) | v5.70.159-r0 | June 23, 2026 |
 
@@ -149,7 +149,7 @@ Here's what you can customize during or after the [deployment](#deployment):
 To avoid passing certificates associated with your domain into the enclave, inbound HTTP is allowed instead of HTTPS. This also avoids the cost of a secure layer, if used in a private network that is internal to your organization.
 :::
 
-| Port Number | Direction | Protocol | Description |
+| Port number | Direction | Protocol | Description |
 | ----------- | --------- | -------- | ------ |
 | 80 | Inbound | HTTP | Serves all UID2 APIs, including the healthcheck endpoint `/ops/healthcheck`.<br/>When everything is up and running, the endpoint returns HTTP 200 with a response body of `OK`. For details, see [Checking UID2 Operator status](#checking-uid2-operator-status). |
 | 9080 | Inbound | HTTP | Serves Prometheus metrics (`/metrics`). |
@@ -386,7 +386,7 @@ Error codes for Private Operator issues are applicable only to release v5.49.7 a
 
 The following errors might occur during operator startup:
 
-| Error Code | Issue | Steps to Resolve |
+| Error code | Issue | Steps to resolve |
 | :--- | :--- | :--- |
 | E01 | InstanceProfileMissingError |  Attach an IAM instance profile to the EC2 instance with the required permissions. The UID2 Operator needs these permissions to access configurations from AWS Secrets Manager. |
 | E02 | OperatorKeyNotFoundError | Make sure that the secret referenced by the Private Operator exists in AWS Secrets Manager in the same region as the operator, and that the IAM instance profile has permission to access the secret. If needed, you can check the logs for the specific secret name and region. |

@@ -102,7 +102,7 @@ UID2 とインテグレーションする広告主やデータプロバイダー
 | [Advertiser/data provider integration overview](integration-advertiser-dataprovider-overview.md) | このガイドでは、ユーザーデータを収集し、他の UID2 参加者にプッシュする組織向けのインテグレーションオプションの概要を提供します。 |
 | [Snowflake integration guide](integration-snowflake.md) | Snowflake 内でメールアドレスから UID2 を生成する手順です。|
 | [AWS Entity Resolution integration guide](integration-aws-entity-resolution.md) | AWS Entity Resolution を使用して UID2 フレームワークとインテグレーションする手順です。 |
-| [Databricks clean rooms integration guide](integration-databricks.md) | Databricks Clean Rooms 環境でメールアドレスまたは電話番号から UID2 を生成する手順です。 |
+| [Databricks Clean Rooms integration guide](integration-databricks.md) | Databricks Clean Rooms 環境でメールアドレスまたは電話番号から UID2 を生成する手順です。 |
 | [Advertiser/data provider integration to HTTP endpoints](integration-advertiser-dataprovider-endpoints.md) | このガイドでは、広告主やデータプロバイダーが UID2 とインテグレーションするための手順を説明します。この手順では、SDK、Snowflake、AWS Entity Resolution、Databricks Clean Rooms などの他の実装オプションではなく、コードを書いて UID2 HTTP エンドポイントを呼び出す方法を説明します。 |
 | [Client-side integration guide for JavaScript](integration-javascript-client-side.md) | トラッキングピクセルに UID2 Token を追加するためにこの SDK を使用したい広告主やデータプロバイダー向けのガイドです。<!-- UID2_only: Not applicable for EUID --> |
 

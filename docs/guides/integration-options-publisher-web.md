@@ -32,7 +32,7 @@ The following table summarizes the solutions available for each integration step
 
 To accomplish all steps, you can combine solutions. For example, you could use the SDK for JavaScript, client-side, to generate and refresh the token, and Google Ad Manager Secure Signals to pass the token to the bidstream.
 
-| Integration Solution | Generate Token | Refresh Token |Pass Token to the Bidstream |
+| Integration solution | Generate token | Refresh token |Pass token to the bidstream |
 | :--- | :--- | :--- | :--- |
 | [Prebid.js client-side (8.21.0 or later)](integration-prebid-client-side.md) | &#9989; | &#9989; | &#9989; |
 | [Prebid.js client-server (7.53.0 or later)](integration-prebid-client-server.md) | &#8212; | &#9989; | &#9989; |

@@ -19,7 +19,7 @@ Tokens are generated in one of the following ways:
 
 In many scenarios, UID2 data is shared in the form of a <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 token</Link>. Key use cases are shown in the following table.
 
-| Scenario | Sender | Receiver | Sharing Approach |
+| Scenario | Sender | Receiver | Sharing approach |
 | :--- | :--- | :--- | :--- |
 | Sending a UID2 to the bidstream | Publisher | DSP | See [Tokenized sharing in the bidstream](sharing-tokenized-from-data-bid-stream.md) |
 | Sending a UID2 in a tracking pixel | Any sharing participant | Any sharing participant | See [Tokenized sharing in pixels](sharing-tokenized-from-data-pixel.md) |
@@ -33,7 +33,7 @@ Sharing UID2s with another sharing participant via <Link href="../ref-info/gloss
 
 Choose the integration option that's right for your implementation, and then click through for details.
 
-| Starting Point | Encryption Option/Scenario | Link to Details |
+| Starting point | Encryption option/scenario | Link to details |
 | :--- | :--- | :--- |
 | DII | Sharing UID2 tokens from DII  in the bidstream | [Tokenized sharing in the bidstream](sharing-tokenized-from-data-bid-stream.md) |
 | DII | Sharing UID2 tokens from DII in tracking pixels | [Workflow: Tokenized sharing in tracking pixels](sharing-tokenized-from-data-pixel.md#workflow-tokenized-sharing-in-tracking-pixels) |
@@ -51,7 +51,7 @@ We recommend decrypting the tokens as soon as possible after receiving them, to 
 
 The following implementation options are available for decrypting UID2 tokens.
 
-| Starting Point | Decryption Option/Scenario | Link to Details |
+| Starting point | Decryption option/scenario | Link to details |
 | :--- | :--- | :--- |
 | Token | C# / .NET SDK | [SDK for C# / .NET: Usage for UID2 sharers](../sdks/sdk-ref-csharp-dotnet.md#usage-for-uid2-sharers) |
 | Token | C++ SDK | [SDK for C++: Usage for UID2 sharers](../sdks/sdk-ref-cplusplus.md#usage-for-uid2-sharers) |
@@ -103,8 +103,8 @@ The following example shows sample values when converting input DII directly to 
   </colgroup>
 <thead>
 <tr>
-<th>Input Example</th>
-<th>Process/User</th>
+<th>Input example</th>
+<th>Process/user</th>
 <th >Result</th>
 </tr>
 </thead>
@@ -156,8 +156,8 @@ The following example shows sample values when converting input DII to a raw UID
 <thead>
 <tr>
 <th>Step</th>
-<th>Input Example</th>
-<th>Process/User</th>
+<th>Input example</th>
+<th>Process/user</th>
 <th >Result</th>
 </tr>
 </thead>

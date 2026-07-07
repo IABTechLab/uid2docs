@@ -118,7 +118,7 @@ The **Event History** tab shows a searchable, real-time log of UID2 SDK events a
 | Date | The date the event was recorded. |
 | Time | The time the event was recorded. |
 | Event | The event type (for example, `SdkLoaded`, `InitCompleted`, `TokenUpdated`). |
-| Advertising Token | The advertising token associated with the event, if present. |
+| Advertising token | The advertising token associated with the event, if present. |
 
 Use the search bar to filter by event type or token value.
 

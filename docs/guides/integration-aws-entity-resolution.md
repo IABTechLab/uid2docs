@@ -30,7 +30,7 @@ For a summary of all integration options and steps for advertisers and data prov
 
 The following table summarizes the functionality available with the AWS Entity Resolution integration.
 
-| Encrypt Raw UID2 to UID2 Token | Decrypt UID2 Token to Raw UID2 | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to Raw UID2s |
+| Encrypt raw UID2 to UID2 token | Decrypt UID2 token to raw UID2 | Generate UID2 token from DII | Refresh UID2 token | Map DII to raw UID2s |
 | :--- | :--- | :--- | :--- | :--- |
 | No | No | No | No | Yes |
 
@@ -38,7 +38,7 @@ The following table summarizes the functionality available with the AWS Entity R
 
 The following table summarizes the steps to integrate with UID2 using AWS Entity Resolution.
 
-| Step/Link | Details |
+| Step/link | Details |
 | --- | --- |
 | [Initial setup steps](#initial-setup-steps) | Create UID2 account, create AWS account, and link them:<ul><li>[Create UID2 account](#create-uid2-account)</li><li>[Create AWS account](#create-aws-account)</li><li>[Subscribe to UID2 on AWS data exchange](#subscribe-to-uid2-on-aws-data-exchange)</li></ul> |
 | [Configure AWS account](#configure-aws-account) | Set up IAM users, data tables, and schema mapping for your data. |

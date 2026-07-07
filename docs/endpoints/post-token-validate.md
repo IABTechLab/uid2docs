@@ -29,7 +29,7 @@ You must encrypt all requests using your secret key. For details, and code examp
 
 ### Path parameters
 
-| Path Parameter | Data Type | Attribute | Description |
+| Path parameter | Data type | Attribute | Description |
 | :--- | :--- | :--- | :--- |
 | `{environment}` | string | Required | Testing (integration) environment: `https://operator-integ.uidapi.com`<br/>Production environment: The best choice depends on where your users are based. For information about how to choose the best URL for your use case, and a full list of valid base URLs, see [Environments](../getting-started/gs-environments.md). |
 
@@ -44,7 +44,7 @@ Here are some key points about using this endpoint:
 - Include only one of the following four valid options, as listed in the Body Parameter table: `email`, `email_hash`, `phone`, or `phone_hash`.
 - Include the required body parameters as key-value pairs in the JSON body of the request when encrypting it.
 
-| Body Parameter | Data Type | Attribute | Description |
+| Body parameter | Data type | Attribute | Description |
 | :--- | :--- | :--- | :--- |
 | `token` | string | Required | The advertising token returned by the [POST&nbsp;/token/generate](post-token-generate.md) response.<br/>You can only validate an advertising token that has been generated with your own credentials.
 | `email` | string | Conditionally Required | The email address for token validation. You can use any valid email value, normalized or not. |
@@ -112,7 +112,7 @@ A successful decrypted response returns a boolean value that indicates the valid
 
 The following table provides information about the response body.
 
-| Property | Data Type | Description |
+| Property | Data type | Description |
 | :--- | :--- | :--- |
 | `body` | boolean | A value of `true` indicates that the email address, phone number, or the respective hash specified in the request is the same as the one used to generate the advertising token.<br/>A value of `false` indicates that the email address, phone number, or the respective hash specified in the request is not the same as the one used to generated the advertising token. |
 
@@ -120,7 +120,7 @@ The following table provides information about the response body.
 
 The following table lists the `status` property values and their HTTP status code equivalents.
 
-| Status | HTTP Status Code | Description |
+| Status | HTTP status code | Description |
 | :--- | :--- | :--- |
 | `success` | 200 | The request was successful. The response will be encrypted. |
 | `client_error` | 400 | The request had missing or invalid parameters. |

@@ -123,7 +123,7 @@ When you log in for the first time, you can complete the following configuration
 
 The following table includes details of the information you'll need, and a link to instructions.
 
-| Item | Details | Link to Instructions | 
+| Item | Details | Link to instructions | 
 | :--- | :--- | :--- |
 | Team member information | For each, provide the following:<br/>- First name<br/>- Last name<br/>- Email<br/>- Job function<br/>- Role | [Team members](team-members.md) |
 | Email contact information | For each, provide the following:<br/>- Email group name<br/>- Email alias<br/>- Contact type | [Email contacts](email-contacts.md) |

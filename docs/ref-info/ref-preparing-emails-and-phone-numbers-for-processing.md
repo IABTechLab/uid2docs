@@ -35,7 +35,7 @@ If you're using a UID2 SDK, or other integration solution such as the Prebid.js 
   <thead>
     <tr>
       <th>Type of DII</th>
-      <th>Input Format</th>
+      <th>Input format</th>
       <th>Instructions</th>
     </tr>
   </thead>

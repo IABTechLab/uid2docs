@@ -15,7 +15,7 @@ These instructions are for client-side implementations. If your UID2 implementat
 
 In the UID2 Portal, if you want to use an implementation option that generates UID2 tokens on the client side, you'll need to define the following values that are applicable to your implementation type:
 
-| Value | Implementation Type | Details | Documentation Link |
+| Value | Implementation type | Details | Documentation link |
 | :--- | :--- | :---| :---|
 | Key pair | All (web or mobile) | At least one. In your implementation, you'll share the public key. | [Subscription ID and public key](../getting-started/gs-credentials.md#subscription-id-and-public-key) |
 | Domain | Web | At least one. Provide a complete list of your root-level domains. | [Client-side web integrations](../getting-started/gs-account-setup.md#client-side-web-integrations) |
@@ -38,7 +38,7 @@ When you go into the Client-Side Integration page, you'll be prompted to provide
 
 Client-side implementation options are shown in the following table. The options available to you depend on your role.
 
-| Client-Side Implementation Option | Available For (Role) | Documentation Link |
+| Client-side implementation option | Available for (role) | Documentation link |
 | :--- | :--- | :---|
 | UID2 JavaScript SDK | Publishers, Advertisers | [Client-side integration guide for JavaScript](../guides/integration-javascript-client-side.md) |
 | Prebid.js client-side integration | Publishers only |[Client-side integration guide for Prebid.js](../guides/integration-prebid-client-side.md) |

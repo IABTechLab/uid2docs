@@ -15,7 +15,7 @@ You can use the SDK for Python on the server side to facilitate the process of g
 
 This SDK simplifies integration with UID2 for any DSPs or UID2 sharers who are using Python for their server-side coding. The following table shows the functions it supports.
 
-| Encrypt Raw UID2 to UID2 Token for Sharing | Decrypt UID2 Token to Raw UID2 | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to Raw UID2s | Monitor Rotated Salt Buckets&ast; |
+| Encrypt raw UID2 to UID2 token for sharing | Decrypt UID2 token to raw UID2 | Generate UID2 token from DII | Refresh UID2 token | Map DII to raw UID2s | Monitor rotated salt buckets&ast; |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | &#9989; | &#9989; | &#9989; | &#9989; | &#9989; | &#9989; | &#9989; |
 
@@ -70,10 +70,10 @@ pip install uid2-client
 
 The initialization step depends on the role, as shown in the following table.
 
-| Role	                    | Create Instance of Class	 | Link to Instructions                                                         |
+| Role	                    | Create instance of class	 | Link to instructions                                                         |
 |:-------------------------|:--------------------------|:-----------------------------------------------------------------------------|
 | Publisher                | `Uid2PublisherClient`     | [Usage for publishers](#usage-for-publishers)                                |
-| Advertiser/Data Provider | `IdentityMapV3Client`     | [Usage for advertisers/data providers](#usage-for-advertisersdata-providers) |
+| Advertiser/data provider | `IdentityMapV3Client`     | [Usage for advertisers/data providers](#usage-for-advertisersdata-providers) |
 | DSP                      | `BidstreamClient`         | [Usage for DSPs](#usage-for-dsps)                                            |
 | Sharer                   | `SharingClient`           | [Usage for sharers](#usage-for-uid2-sharers)                                 |
 

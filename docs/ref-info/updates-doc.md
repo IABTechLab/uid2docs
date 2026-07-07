@@ -88,7 +88,7 @@ December 2, 2025
 
 We've added an integration guide for the UID2 Databricks integration.
 
-For details, see [Databricks clean rooms integration guide](../guides/integration-databricks.md).
+For details, see [Databricks Clean Rooms integration guide](../guides/integration-databricks.md).
 
 <!-- APIDOCS-2552 -->
 

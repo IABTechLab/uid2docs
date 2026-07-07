@@ -13,7 +13,7 @@ For UID2 definitions, ID types, guiding principles, components, and other concep
 
 For details on using the API, see the following pages.
 
-| Documentation | Content Description |
+| Documentation | Content description |
 | :--- | :--- |
 | [Encrypting requests and decrypting responses](getting-started/gs-encryption-decryption.md) | The high-level request-response workflow for the UID2 APIs, requirements for encrypting requests and decrypting responses, and respective script examples in different programming languages. |
 | [Endpoints](endpoints/summary-endpoints.md) | The API reference for managing identity tokens and mapping email addresses, phone numbers, or hashes to their UID2s and salt bucket IDs used to generate the UID2s.<br/>NOTE: The integration environment and the production environment require different [API keys](ref-info/glossary-uid.md#gl-api-key). |
