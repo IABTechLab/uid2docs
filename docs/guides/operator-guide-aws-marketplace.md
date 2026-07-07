@@ -203,11 +203,11 @@ The following table explains the parameter values that you need to provide in st
 | :--- |:--- |
 |Stack name |Any name of your choice. |
 |OPERATOR_KEY |The Operator Key that you received from the UID2 Admin team. |
-|UID2 environment |Select `prod` for production environment or `integ` for the integration test environment. |
-|Instance type |`m5.2xlarge` is recommended. |
+|UID2 Environment |Select `prod` for production environment or `integ` for the integration test environment. |
+|Instance Type |`m5.2xlarge` is recommended. |
 |Instance root volume size |15 GB or more is recommended. |
-|Key name for SSH |Your EC2 key pair for SSH access to the deployed EC2 instances. |
-|Trusted network CIDR |The CIDR (Classless Inter-Domain Routing) value determines the IP address range that can access your operator service.<br/>To limit access to the UID2 Operators so that they can only be accessed through an internal network or a load balancer, specify an internal IP range as the CIDR value. |
+|Key Name for SSH |Your EC2 key pair for SSH access to the deployed EC2 instances. |
+|Trusted Network CIDR |The CIDR (Classless Inter-Domain Routing) value determines the IP address range that can access your operator service.<br/>To limit access to the UID2 Operators so that they can only be accessed through an internal network or a load balancer, specify an internal IP range as the CIDR value. |
 |VPC |The existing VPC ID. |
 |VpcSubnet1 |The existing VPC AZ1 Subnet ID. |
 |VpcSubnet2 |The existing VPC AZ2 Subnet ID. |

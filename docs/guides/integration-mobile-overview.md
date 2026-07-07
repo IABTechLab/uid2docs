@@ -127,7 +127,7 @@ The following table summarizes the options supported by UID2.
 | You want to use Google GMA to integrate video, banner, interstitial, or native ads into your iOS app | Both of the following, in this sequence:<ol><li>[GMA Plugin for iOS integration guide](../guides/mobile-plugin-gma-ios.md)</li><li>One of the following:<ul><li>Client-side: [Optional: GMA/IMA Plugin for GAM Secure Signals integration](../guides/integration-mobile-client-side.md#optional-gmaima-plugin-for-gam-secure-signals-integration)</li><li>Client-server: [Optional: GMA/IMA Plugin for GAM Secure Signals integration](../guides/integration-mobile-client-server.md#optional-gmaima-plugin-for-gam-secure-signals-integration)</li></ul></li></ol> |
 | You want to use Google IMA to integrate multimedia ads into your Android app | Both of the following, in this sequence:<ol><li>[IMA Plugin for Android integration guide](../guides/mobile-plugin-ima-android.md)</li><li>One of the following:<ul><li>Client-side: [Optional: GMA/IMA Plugin for GAM Secure Signals integration](../guides/integration-mobile-client-side.md#optional-gmaima-plugin-for-gam-secure-signals-integration)</li><li>Client-server: [Optional: GMA/IMA Plugin for GAM Secure Signals integration](../guides/integration-mobile-client-server.md#optional-gmaima-plugin-for-gam-secure-signals-integration)</li></ul></li></ol> |
 | You want to use Google IMA to integrate multimedia ads into your iOS app | Both of the following, in this sequence:<ol><li>[IMA Plugin for iOS integration guide](../guides/mobile-plugin-ima-ios.md)</li><li>One of the following:<ul><li>Client-side: [Optional: GMA/IMA Plugin for GAM Secure Signals integration](../guides/integration-mobile-client-side.md#optional-gmaima-plugin-for-gam-secure-signals-integration)</li><li>Client-server: [Optional: GMA/IMA Plugin for GAM Secure Signals integration](../guides/integration-mobile-client-server.md#optional-gmaima-plugin-for-gam-secure-signals-integration)</li></ul></li></ol> |
-| You want to use the Prebid Mobile SDK and Prebid server to send out ad requests from your Android or iOS app | One of the following:<ul><li>Client-side: [Optional: Integration with Prebid Mobile SDK](../guides/integration-mobile-client-side.md#optional-integration-with-prebid-mobile-sdk)</li><li>Client-server: [Optional: Integration with Prebid Mobile SDK](../guides/integration-mobile-client-server.md#optional-integration-with-prebid-mobile-sdk)</li></ul> |
+| You want to use the Prebid Mobile SDK and Prebid Server to send out ad requests from your Android or iOS app | One of the following:<ul><li>Client-side: [Optional: Integration with Prebid Mobile SDK](../guides/integration-mobile-client-side.md#optional-integration-with-prebid-mobile-sdk)</li><li>Client-server: [Optional: Integration with Prebid Mobile SDK](../guides/integration-mobile-client-server.md#optional-integration-with-prebid-mobile-sdk)</li></ul> |
 
 ### Functionality summary
 
@@ -139,10 +139,10 @@ All options support either client-side or server-side integration.
 | :--- | :--- | :--- | :--- | :--- |
 | UID2 SDK for Android | &#9989; | &#9989; | Android | &ast; |
 | UID2 SDK for iOS | &#9989;| &#9989; | iOS | &ast; |
-| GMA plugin for Android<br/>(requires UID2 SDK for Android) | &#8212; | &#8212; | Android | &#9989;&ast;&ast; |
-| GMA plugin for iOS<br/>(requires UID2 SDK for iOS) | &#8212; | &#8212; | iOS | &#9989;&ast;&ast; |
-| IMA plugin for Android <br/>(requires UID2 SDK for Android)| &#8212; | &#8212; | Android | &#9989;&ast;&ast; |
-| IMA plugin for iOS<br/>(requires UID2 SDK for iOS)| &#8212; | &#8212; | iOS | &#9989;&ast;&ast; |
+| GMA Plugin for Android<br/>(requires UID2 SDK for Android) | &#8212; | &#8212; | Android | &#9989;&ast;&ast; |
+| GMA Plugin for iOS<br/>(requires UID2 SDK for iOS) | &#8212; | &#8212; | iOS | &#9989;&ast;&ast; |
+| IMA Plugin for Android <br/>(requires UID2 SDK for Android)| &#8212; | &#8212; | Android | &#9989;&ast;&ast; |
+| IMA Plugin for iOS<br/>(requires UID2 SDK for iOS)| &#8212; | &#8212; | iOS | &#9989;&ast;&ast; |
 | UID2 integration with Prebid Mobile SDK | &#8212; | &#8212; | Either | &#9989;&ast;&ast;&ast; |
 
 &ast;You can combine the SDK with the IMA/GMA Plugin or the UID2 Integration with Prebid Mobile SDK to send the token to the bidstream via Google or Prebid Server, or you can retrieve the token manually from the SDK and pass it to the bidstream in another way, according to your preference.
