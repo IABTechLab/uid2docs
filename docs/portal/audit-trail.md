@@ -18,7 +18,7 @@ The Audit Trail log displays the types of information summarized in the followin
 | Date | Date/time that the action occurred. |
 | User | The user who performed the action. |
 | Event | The action performed. For a summary of possible values, see [Audit trail event types](#audit-trail-event-types). |
-| Event data | Details about the action. |
+| Event Data | Details about the action. |
 | Succeeded | Indicates whether or not the action was successful. |
 
 ## Audit trail event types

@@ -17,7 +17,7 @@ The UID2 Portal is your one-stop shop for setting up and configuring your UID2 a
 | Review your profile. | [Participant information](participant-info.md) |
 | Server-side or client-server integrations: Manage API keys for your account, including adding, modifying, or deleting keys. | [API keys](api-keys.md) |
 | Client-side integrations only: Set up and manage the values needed for generating UID2 tokens on the client side. | [Client-side integration](client-side-integration.md) |
-| Configure permissions for individual <Link href="../ref-info/glossary-uid#gl-sharing-participant">sharing participants</Link> or groups of sharing participants.<br/>NOTE: use of sharing requires an API key (see [API keys](api-keys.md)) or client-side key pair (see [Client-side integration](client-side-integration.md)). Configure these values before setting up sharing permissions. | [Sharing permissions](sharing-permissions.md) |
+| Configure permissions for individual <Link href="../ref-info/glossary-uid#gl-sharing-participant">sharing participants</Link> or groups of sharing participants.<br/>NOTE: Use of sharing requires an API key (see [API keys](api-keys.md)) or client-side key pair (see [Client-side integration](client-side-integration.md)). Configure these values before setting up sharing permissions. | [Sharing permissions](sharing-permissions.md) |
 | Add team members who will have permission to manage your account. | [Team members](team-members.md) |
 | Set up designated email contacts who will be notified of news or updates. | [Email contacts](email-contacts.md) |
 | View a detailed log of all past actions performed by, or on behalf of, the current participant. | [Audit trail](audit-trail.md) |
