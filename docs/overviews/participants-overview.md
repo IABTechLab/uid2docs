@@ -25,7 +25,7 @@ For a diagram of how the different services work together, see [UID2 workflows](
 
 | Participant | Role description |
 | :--- | :--- |
-| **Core administrator** | An organization (currently, The Trade Desk) that manages the UID2 Core Service and other component services. For example, it distributes encryption keys and salts to UID2 operators and sends user opt-out requests to operators and DSPs. |
+| **Core Administrator** | An organization (currently, The Trade Desk) that manages the UID2 Core Service and other component services. For example, it distributes encryption keys and salts to UID2 operators and sends user opt-out requests to operators and DSPs. |
 | **Operators** | Organizations that run the <Link href="../ref-info/glossary-uid#gl-operator-service">Operator Service</Link> (via the UID2 APIs). Operators periodically receive and store up-to-date encryption keys and salts from the UID2 Core Service, salt and hash <Link href="../ref-info/glossary-uid#gl-dii">directly identifying information (DII)</Link> to return raw UID2s, encrypt raw UID2s to generate UID2 tokens, and distribute UID2 token decryption keys.<br/>Public Operators (Open Operators) run public instances of the Operator Service. For example, The Trade Desk currently serves as a Public Operator for the UID2 framework, available to all participants. If other Public Operators are available, a participant can choose which operator to work with.<br/>Any participant can also choose to become a Private Operator to generate and manage UID2s. |
 
 ## UID2 external participants
