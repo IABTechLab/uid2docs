@@ -49,7 +49,11 @@ The UID2 service sends the following data within seconds of a user's opt-out, wh
 | Parameter | Description |
 | :--- | :--- |
 | `identity` | The raw UID2 for the user who opted out. |
-| `timestamp` | The time when the user opted out (for information only). |
+| `timestamp` | The time when the user opted out, as a <a href="../ref-info/glossary-uid#gl-unix-time">Unix</a> timestamp in **seconds** (for information only). |
+
+:::note
+The opt-out webhook `timestamp` is in **seconds**. This is different from the `opted_out_since` value returned by the [POST&nbsp;/optout/status](../endpoints/post-optout-status.md) endpoint, which is a Unix timestamp in **milliseconds**.
+:::
 
 The DSP must respond to the opt-out data with a 200 response code.
 
