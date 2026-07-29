@@ -280,7 +280,7 @@ az aks create \
     --resource-group ${RESOURCE_GROUP} \
     --name ${AKS_CLUSTER_NAME} \
     --location ${LOCATION} \
-    --kubernetes-version 1.33 \
+    --kubernetes-version 1.36 \
     --network-plugin azure \
     --network-policy calico \
     --vnet-subnet-id ${AKS_SUBNET_ID} \
@@ -297,7 +297,7 @@ az aks create \
     --os-sku Ubuntu
 ```
 :::note
-Be sure to use the latest supported Kubernetes version, using the `--kubernetes-version` flag. If you use an earlier version, you must enable Long-Term Support (LTS). For details, see [Long-term support for Azure Kubernetes Service (AKS) versions](https://learn.microsoft.com/en-us/azure/aks/long-term-support) in the Microsoft documentation.
+Be sure to use the latest supported Kubernetes version, using the `--kubernetes-version` flag. The version shown above is only an example: Azure moves each Kubernetes minor version out of standard support about 12 months after its release, and cluster creation then fails with `K8sVersionNotSupported`. To list the versions currently available in your region, run `az aks get-versions --location ${LOCATION}`. If you use a version that is no longer in standard support, you must enable Long-Term Support (LTS). For details, see [Long-term support for Azure Kubernetes Service (AKS) versions](https://learn.microsoft.com/en-us/azure/aks/long-term-support) in the Microsoft documentation.
 :::
 
 #### Get the principal ID of the managed identity
