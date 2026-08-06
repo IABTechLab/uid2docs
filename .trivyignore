@@ -3,3 +3,9 @@
 # for more details
 # e.g. 
 # CVE-2022-3996
+
+# CVE-2026-69152 — brace-expansion (npm) (HIGH).
+# Not exploitable here: package.json overrides brace-expansion@5=5.0.8; docusaurus static-site
+# generator. Build-time-only glob/minimatch dependency; no runtime pattern expansion.
+# See: UID2-7619
+CVE-2026-69152 exp:2026-09-06
