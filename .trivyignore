@@ -3,3 +3,16 @@
 # for more details
 # e.g. 
 # CVE-2022-3996
+
+# CVE-2026-18446 — fast-uri (transitive via ajv) (HIGH).
+# Not exploitable here: fast-uri 3.1.4 transitive via ajv (package-lock:5831), override at
+# package.json:71; zero require/import of fast-uri; build-time schema validation only
+# See: UID2-7633
+CVE-2026-18446 exp:2026-11-06
+
+# CVE-2026-69152 — brace-expansion (npm, transitive via minimatch) (HIGH).
+# Not exploitable here: package-lock.json:6291 brace-expansion@5.0.8 pulled only by
+# minimatch@10.2.4 (dependencies: brace-expansion ^5.0.2); Docusaurus build/lint tooling; no
+# brace-expansion/minimatch/glob import in src/
+# See: UID2-7619
+CVE-2026-69152 exp:2026-11-06
