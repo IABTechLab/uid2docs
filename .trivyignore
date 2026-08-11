@@ -16,3 +16,35 @@ CVE-2026-18446 exp:2026-11-06
 # brace-expansion/minimatch/glob import in src/
 # See: UID2-7619
 CVE-2026-69152 exp:2026-11-06
+
+# CVE-2025-71329 — image-size (npm, transitive via @docusaurus/mdx-loader) (HIGH).
+# Not exploitable here: package-lock.json:9929 pins image-size@2.0.2, pulled in only as a
+# transitive dep of @docusaurus/mdx-loader (line 3433); not a direct dependency in
+# package.json. Used at build time by `npm run build` (deploy.yml) to size images in markdown;
+# output is a static site deployed to GitHub Pages (no Node runtime/event loop in prod). No
+# .jxl/.heif/.heic assets exist and no src code calls image-size directly.
+# See: UID2-7653
+CVE-2025-71329 exp:2026-11-11
+
+# CVE-2025-71330 — image-size (npm, transitive via @docusaurus/mdx-loader) (HIGH).
+# Not exploitable here: package-lock.json:9929 pins image-size@2.0.2; declared only as a
+# dependency of @docusaurus/mdx-loader (package-lock.json:3433), not in package.json. Project
+# is a Docusaurus static site (package.json build script 'docusaurus build');
+# .github/workflows/deploy.yml runs npm ci + npm run build and uploads ./build to GitHub Pages
+# — no runtime Node service. No direct image-size import in src/ and no committed .icns files.
+# See: UID2-7654
+CVE-2025-71330 exp:2026-11-11
+
+# CVE-2026-67213 — nanoid (transitive via postcss) (HIGH).
+# Not exploitable here: nanoid 3.3.16 present once, transitively via postcss@8.5.18
+# (overridden). Docusaurus static-site build tooling; no nanoid import or
+# customAlphabet/customRandom call in any source file. Vulnerable path never invoked.
+# See: UID2-7658
+CVE-2026-67213 exp:2026-11-11
+
+# GHSA-5p4m-2wfm-xmqj — js-yaml (3.15.0 and 4.3.0, transitive npm dependency) (HIGH).
+# Not exploitable here: Docusaurus SSG; js-yaml reaches build via gray-matter (3.15.0) and
+# eslint (4.3.0). gray-matter parses the repo's own trusted markdown frontmatter at build time,
+# not untrusted runtime input, so the O(n^2) omap path is not attacker-reachable
+# See: UID2-7659
+GHSA-5p4m-2wfm-xmqj exp:2026-11-11
