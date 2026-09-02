@@ -48,3 +48,17 @@ CVE-2026-67213 exp:2026-11-11
 # not untrusted runtime input, so the O(n^2) omap path is not attacker-reachable
 # See: UID2-7659
 GHSA-5p4m-2wfm-xmqj exp:2026-11-11
+
+# CVE-2026-73088 — browserslist (HIGH).
+# Not exploitable here: browserslist appears only as transitive build dep in package-lock;
+# package.json holds a trusted query object; no stats json file and no --stats/opts.stats usage
+# found
+# See: UID2-7802
+CVE-2026-73088 exp:2026-12-02
+
+# CVE-2026-73089 — browserslist (HIGH).
+# Not exploitable here: package-lock.json:6315 browserslist@4.28.1; @docusaurus/core 3.9.2
+# static docs build. browserslist called only during docusaurus build with fixed config
+# queries; served output is static HTML, no runtime browserslist() call.
+# See: UID2-7803
+CVE-2026-73089 exp:2026-12-02
