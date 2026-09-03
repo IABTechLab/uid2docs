@@ -62,3 +62,32 @@ CVE-2026-73088 exp:2026-12-02
 # queries; served output is static HTML, no runtime browserslist() call.
 # See: UID2-7803
 CVE-2026-73089 exp:2026-12-02
+
+# CVE-2026-75899 — fast-uri (HIGH).
+# Not exploitable here: package-lock.json resolves fast-uri 3.1.4 only under node_modules/ajv-
+# formats/node_modules/fast-uri and node_modules/schema-utils/node_modules/fast-uri (Docusaurus
+# build tooling). fast-uri appears only in package.json overrides, lock, and .trivyignore — no
+# source import.
+# See: UID2-7812
+CVE-2026-75899 exp:2026-12-03
+
+# CVE-2026-75931 — fast-uri (HIGH).
+# Not exploitable here: fast-uri@3.1.4 appears only under node_modules/ajv-formats and
+# node_modules/schema-utils (transitive via ajv); overrides pin in package.json. Static
+# Docusaurus site; no source import of fast-uri/ajv, no fastify. Vulnerable resolve()/equal()
+# path not called by application code.
+# See: UID2-7813
+CVE-2026-75931 exp:2026-12-03
+
+# CVE-2026-75975 — fast-uri (HIGH).
+# Not exploitable here: fast-uri@3.1.4 only under ajv-formats/ajv and schema-utils/ajv in
+# lockfile; overrides ^3.1.4. Docusaurus docs site with no direct fast-uri/ajv usage in source.
+# See: UID2-7814
+CVE-2026-75975 exp:2026-12-03
+
+# CVE-2026-76172 — fast-uri (HIGH).
+# Not exploitable here: fast-uri@3.1.4 only under node_modules/ajv-formats/node_modules/ajv and
+# node_modules/schema-utils/node_modules/ajv (Docusaurus build). No direct fast-uri/ajv usage
+# in source; ajv runs at build time parsing JSON Schema URIs.
+# See: UID2-7815
+CVE-2026-76172 exp:2026-12-03
