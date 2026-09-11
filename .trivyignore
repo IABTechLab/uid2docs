@@ -91,3 +91,11 @@ CVE-2026-75975 exp:2026-12-03
 # in source; ajv runs at build time parsing JSON Schema URIs.
 # See: UID2-7815
 CVE-2026-76172 exp:2026-12-03
+
+# js-yaml is a build-time-only transitive dependency (Docusaurus/gray-matter/eslint); this is a static site with no runtime YAML parsing
+# See: UID2-7851
+CVE-2026-84375 exp:2026-10-10
+
+# svgo runs only at build time optimizing repo-owned static SVGs; no user-upload/sanitization path exists in this static docs site
+# See: UID2-7852
+CVE-2026-84370 exp:2026-10-10
