@@ -53,7 +53,7 @@ The following table shows the differences between the old and new identity mappi
 
 | Function | Version | Return fields | Key differences | Comments |
 | :-- | :-- | :-- | :-- | :-- |
-| `FN_T_IDENTITY_MAP` | Previous | `UID`, `BUCKET_ID`, `UNMAPPED` | Basic identity mapping with salt bucket tracking | Legacy function using salt bucket monitoring for refresh management. For details, see [Snowflake integration guide (pre-July 2025)](integration-snowflake-previous.md).|
+| `FN_T_IDENTITY_MAP` (deprecated) | Previous | `UID`, `BUCKET_ID`, `UNMAPPED` | Basic identity mapping with salt bucket tracking | Legacy function using salt bucket monitoring for refresh management. For details, see [Snowflake integration guide (pre-July 2025)](integration-snowflake-previous.md).|
 | `FN_T_IDENTITY_MAP_V3` | Current | `UID`, `PREV_UID`, `REFRESH_FROM`, `UNMAPPED` | Enhanced with previous UID2 access and refresh timestamps | Returns previous UID2 for 90 days after rotation and uses refresh timestamps instead of salt bucket monitoring. For details, see [Map DII](#map-dii).|
 
 ### Key benefits
@@ -122,12 +122,13 @@ You can map DII to UID2s by using the following function:
 
 - `FN_T_IDENTITY_MAP_V3` (for details, see [Map DII](#map-dii))
 
-The following function is deprecated in favor of `FN_T_IDENTITY_MAP_V3`. You can still use it if you are on the previous Snowflake version (see [Snowflake integration guide (pre-July 2025)](integration-snowflake-previous.md)), but we recommend upgrading as soon as possible:
+The following function and view are used with the previous Snowflake integration version (see [Snowflake integration guide (pre-July 2025)](integration-snowflake-previous.md)):
 
 - `FN_T_IDENTITY_MAP` (deprecated)
+- `SALT_BUCKETS` (deprecated)
 
-:::note
-If you are using the deprecated function, and need help migrating to the newer function, see [Migration guide](#migration-guide).
+:::important
+`FN_T_IDENTITY_MAP` and the `SALT_BUCKETS` view are scheduled for deprecation. If you're using them, you must upgrade to `FN_T_IDENTITY_MAP_V3` as soon as possible. If you need help migrating, see [Migration guide](#migration-guide). For deprecation information, see [Deprecation schedule: Snowflake function versions](../ref-info/deprecation-schedule.md#snowflake-function-versions).
 :::
 
 To identify the UID2s that you must regenerate, monitor the `REFRESH_FROM` timestamps returned by the `FN_T_IDENTITY_MAP_V3` function. For details, see [Monitor raw UID2 refresh and regenerate raw UID2s](#monitor-raw-uid2-refresh-and-regenerate-raw-uid2s).
