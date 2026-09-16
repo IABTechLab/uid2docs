@@ -16,7 +16,7 @@ Used by: This endpoint is used mainly by advertisers and data providers. For det
 :::important
 If you're using the latest version (v3) of `POST /v3/identity/map`, you don't need to use `POST /identity/buckets` at all. You only need to use it if you're using the earlier version (v2) of `POST /v2/identity/map`.
 
-If you're using the v2 version, we recommend that you upgrade as soon as possible, to take advantage of improvements. For migration guidance, see [Migration from POST /v2/identity/map](post-identity-map.md#migration-from-post-v2identitymap).
+This endpoint is scheduled for deprecation. If you're using the v2 version, you must upgrade as soon as possible. For migration guidance, see [Migration from POST /v2/identity/map](post-identity-map.md#migration-from-post-v2identitymap). For deprecation information, see [Deprecation schedule: Endpoint versions](../ref-info/deprecation-schedule.md#endpoint-versions).
 :::
 
 ## Request format

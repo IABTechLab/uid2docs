@@ -57,8 +57,8 @@ The following endpoints are part of the earlier identity map integration (versio
 
 | Endpoint | Description | Request encryption | Response decryption |
 | :--- | :--- | :--- | :--- |
-| [POST&nbsp;/identity/buckets](post-identity-buckets.md) | Monitors rotated salt buckets using their last updated timestamp. | Required | Required |
-| [POST&nbsp;/v2/identity/map](post-identity-map-v2.md) | Maps raw UID2s and salt bucket IDs for one or more email addresses, phone numbers, or their respective hashes.  | Required | Required |
+| [POST&nbsp;/identity/buckets](post-identity-buckets.md) (deprecated) | Monitors rotated salt buckets using their last updated timestamp. | Required | Required |
+| [POST&nbsp;/v2/identity/map](post-identity-map-v2.md) (deprecated) | Maps raw UID2s and salt bucket IDs for one or more email addresses, phone numbers, or their respective hashes.  | Required | Required |
 
 ## Opt-out status
 
