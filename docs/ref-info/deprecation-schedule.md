@@ -88,7 +88,7 @@ The latest ZIP file is linked in the Release Notes column in the following table
 ## Endpoint versions
 
 :::important
-After the deprecation date, these endpoints are no longer supported. We reserve the right to disable them at any time after that date; a specific disable date has not yet been determined.
+After the deprecation date, these endpoints are no longer supported. We reserve the right to disable them at any time after that date.
 :::
 
 Version 2 of the `POST /identity/map` endpoint has been superseded by version 3, which includes the additional advantages listed in [Version 3 improvements](../endpoints/post-identity-map.md#version-3-improvements).
@@ -105,7 +105,7 @@ Endpoint | Deprecation Date |
 ## Snowflake function versions
 
 :::important
-After the deprecation date, this function and view are no longer supported. We reserve the right to disable them at any time after that date; a specific disable date has not yet been determined.
+After the deprecation date, this function and view are no longer supported. We reserve the right to disable them at any time after that date.
 :::
 
 The `FN_T_IDENTITY_MAP` function has been superseded by `FN_T_IDENTITY_MAP_V3`, which includes the additional advantages listed in [Changes from previous version](../guides/integration-snowflake.md#changes-from-previous-version). With `FN_T_IDENTITY_MAP_V3`, the `SALT_BUCKETS` view is no longer needed for refresh management.
