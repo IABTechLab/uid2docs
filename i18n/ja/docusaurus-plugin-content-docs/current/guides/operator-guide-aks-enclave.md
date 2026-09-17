@@ -280,7 +280,7 @@ az aks create \
     --resource-group ${RESOURCE_GROUP} \
     --name ${AKS_CLUSTER_NAME} \
     --location ${LOCATION} \
-    --kubernetes-version 1.33 \
+    --kubernetes-version 1.36 \
     --network-plugin azure \
     --network-policy calico \
     --vnet-subnet-id ${AKS_SUBNET_ID} \
@@ -297,7 +297,7 @@ az aks create \
     --os-sku Ubuntu
 ```
 :::note
-必ず最新のサポートされている Kubernetes バージョンを使用してください。`--kubernetes-version` フラグを使用します。以前のバージョンを使用する場合は、長期サポート（LTS）を有効にする必要があります。詳細は、Microsoft ドキュメントの [Long-term support for Azure Kubernetes Service (AKS) versions](https://learn.microsoft.com/en-us/azure/aks/long-term-support) を参照してください。
+必ず最新のサポートされている Kubernetes バージョンを使用してください。`--kubernetes-version` フラグを使用します。上記のバージョンはあくまで一例です。Azure は、Kubernetes の各マイナーバージョンをリリースから約 12 ヶ月後に標準サポートの対象外とし、それ以降はクラスターの作成が `K8sVersionNotSupported` で失敗します。お使いのリージョンで現在利用可能なバージョンを一覧表示するには、`az aks get-versions --location ${LOCATION}` を実行してください。標準サポートの対象外となったバージョンを使用する場合は、長期サポート（LTS）を有効にする必要があります。詳細は、Microsoft ドキュメントの [Long-term support for Azure Kubernetes Service (AKS) versions](https://learn.microsoft.com/en-us/azure/aks/long-term-support) を参照してください。
 :::
 
 #### Get the principal ID of the managed identity
