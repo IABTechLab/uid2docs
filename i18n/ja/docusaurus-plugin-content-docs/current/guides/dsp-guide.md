@@ -49,7 +49,11 @@ UID2 Service は、ユーザーのオプトアウトから数秒以内に次の�
 | Parameter | Description |
 | :--- | :--- |
 | `identity` | オプトアウトしたユーザーの raw UID2。 |
-| `timestamp` | ユーザーがオプトアウトした時刻 (情報のみ)。 |
+| `timestamp` | ユーザーがオプトアウトした時刻を示す <a href="../ref-info/glossary-uid#gl-unix-time">Unix</a> タイムスタンプ (**秒** 単位) です (情報のみ)。 |
+
+:::note
+オプトアウト Webhook の `timestamp` は **秒** 単位です。これは、[POST&nbsp;/optout/status](../endpoints/post-optout-status.md) エンドポイントが返す `opted_out_since` の値が **ミリ秒** 単位の Unix タイムスタンプであるのとは異なります。
+:::
 
 DSP は、オプトアウトデータに 200 レスポンスコードでレスポンスする必要があります。
 

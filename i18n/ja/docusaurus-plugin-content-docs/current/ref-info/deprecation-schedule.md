@@ -87,6 +87,10 @@ The latest ZIP file is linked in the Release Notes column in the following table
 
 ## Endpoint versions
 
+:::important
+廃止日以降、これらのエンドポイントはサポートされなくなります。
+:::
+
 `POST /identity/map` エンドポイントのバージョン 2 は、バージョン 3 に置き換えられました。バージョン 3 では、[Version 3 improvements](../endpoints/post-identity-map.md#version-3-improvements)で説明されている追加の利点が含まれています。
 
 `POST /identity/map` エンドポイントのバージョン 3 では、`POST /identity/buckets` エンドポイントは完全に使用されなくなりました。
@@ -95,5 +99,20 @@ The latest ZIP file is linked in the Release Notes column in the following table
 
 Endpoint | Deprecation Date | 
 | ------- | ------ |
-| `POST /v2/identity/map` | September 30, 2026 |
-| `POST /v2/identity/buckets` | September 30, 2026 |
+| `POST /v2/identity/map` | December 31, 2026 |
+| `POST /v2/identity/buckets` | December 31, 2026 |
+
+## Snowflake function versions
+
+:::important
+廃止日以降、この関数とビューはサポートされなくなります。
+:::
+
+`FN_T_IDENTITY_MAP_V3` は `FN_T_IDENTITY_MAP` 関数に代わるもので、[Changes from previous version](../guides/integration-snowflake.md#changes-from-previous-version) で説明されている追加の利点が含まれています。`FN_T_IDENTITY_MAP_V3` では、リフレッシュ管理のために `SALT_BUCKETS` ビューを使用する必要がなくなりました。
+
+以下の表は、以前の ID マッピング関数で使用される Snowflake 関数とビューの廃止スケジュールを示しています。
+
+Function/View | Deprecation Date |
+| ------- | ------ |
+| `FN_T_IDENTITY_MAP` | December 31, 2026 |
+| `SALT_BUCKETS` | December 31, 2026 |
