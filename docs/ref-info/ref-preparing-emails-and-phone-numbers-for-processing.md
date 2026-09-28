@@ -47,7 +47,7 @@ If you're using a UID2 SDK, or other integration solution such as the Prebid.js 
     </tr>
     <tr>
       <td>Phone Number</td>
-      <td>Must be one of the following:<ul><li>Normalized, including country code</li><li>Normalized, then hashed, then base64-encoded</li></ul></td>
+      <td>Must be one of the following:<ul><li>Normalized raw phone number, including country code</li><li>Normalized, then hashed, then base64-encoded</li></ul></td>
       <td>[Phone number normalization](../getting-started/gs-normalization-encoding#phone-number-normalization)<br/>[Phone number hash encoding](../getting-started/gs-normalization-encoding#phone-number-hash-encoding)</td>
     </tr>
  </tbody>
