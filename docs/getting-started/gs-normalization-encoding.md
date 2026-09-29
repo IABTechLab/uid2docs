@@ -9,7 +9,7 @@ import Link from '@docusaurus/Link';
 
 # Normalization, hashing, and encoding
 
-This page provides information about normalizing, hashing, and encoding <Link href="../ref-info/glossary-uid#gl-dii">DII</Link>. It's important that, in working with UID2, normalizing and encoding are performed correctly.
+This page provides information about normalizing, hashing, and encoding <Link href="../ref-info/glossary-uid#gl-dii">DII</Link>. It's important that, in working with UID2, normalizing, hashing, and encoding are performed correctly.
 
 ## Introduction
 
