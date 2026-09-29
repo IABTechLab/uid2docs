@@ -805,8 +805,8 @@ We clarified the instructions for normalizing and encoding <Link href="../ref-in
 
 For details, see:
 
-- [Email address hash encoding](../getting-started/gs-normalization-encoding#email-address-hash-encoding)
-- [Phone number hash encoding](../getting-started/gs-normalization-encoding#phone-number-hash-encoding)
+- [Email address hashing and encoding](../getting-started/gs-normalization-encoding#email-address-hashing-and-encoding)
+- [Phone number hashing and encoding](../getting-started/gs-normalization-encoding#phone-number-hashing-and-encoding)
 
 </CustomTagsContainer>
 
