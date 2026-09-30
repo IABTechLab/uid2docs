@@ -805,8 +805,8 @@ September 7, 2023
 
 詳細は:
 
-- [Email address hash encoding](../getting-started/gs-normalization-encoding#email-address-hash-encoding)
-- [Phone number hash encoding](../getting-started/gs-normalization-encoding#phone-number-hash-encoding)
+- [Email address hashing and encoding](../getting-started/gs-normalization-encoding#email-address-hashing-and-encoding)
+- [Phone number hashing and encoding](../getting-started/gs-normalization-encoding#phone-number-hashing-and-encoding)
 
 </CustomTagsContainer>
 
