@@ -43,12 +43,12 @@ If you're using a UID2 SDK, or other integration solution such as the Prebid.js 
     <tr>
       <td>Email</td>
       <td>Must be one of the following:<ul><li>Raw email</li><li>Normalized email</li><li>Normalized, then hashed, then base64-encoded</li></ul></td>
-      <td>[Email address normalization](../getting-started/gs-normalization-encoding#email-address-normalization)<br/>[Email address hash encoding](../getting-started/gs-normalization-encoding#email-address-hash-encoding)</td>
+      <td>[Email address normalization](../getting-started/gs-normalization-encoding#email-address-normalization)<br/>[Email address hash encoding](../getting-started/gs-normalization-encoding#email-address-hashing-and-encoding)</td>
     </tr>
     <tr>
       <td>Phone Number</td>
       <td>Must be one of the following:<ul><li>Normalized raw phone number, including country code</li><li>Normalized, then hashed, then base64-encoded</li></ul></td>
-      <td>[Phone number normalization](../getting-started/gs-normalization-encoding#email-address-normalization)<br/>[Phone number hashing and encoding](../getting-started/gs-normalization-encoding#phone-number-hashing-and-encoding)</td>
+      <td>[Phone number normalization](../getting-started/gs-normalization-encoding#phone-number-normalization)<br/>[Phone number hashing and encoding](../getting-started/gs-normalization-encoding#phone-number-hashing-and-encoding)</td>
     </tr>
  </tbody>
 </table>
