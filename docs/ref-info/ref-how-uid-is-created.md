@@ -49,13 +49,13 @@ For an example with sample values, see [Creating a UID2 token&#8212;example](#cr
       <td>2</td>
       <td>Apply <Link href="../ref-info/glossary-uid#gl-sha-256">SHA-256</Link> hashing to the normalized email address.</td>
       <td>Publisher or UID2 Operator</td>
-      <td>[Email address hash encoding](../getting-started/gs-normalization-encoding.md#email-address-hash-encoding)<br/>[Phone number hash encoding](../getting-started/gs-normalization-encoding.md#phone-number-hash-encoding)</td>
+      <td>[Email address hashing and encoding](../getting-started/gs-normalization-encoding.md#email-address-hashing-and-encoding)<br/>[Phone number hashing and encoding](../getting-started/gs-normalization-encoding.md#phone-number-hashing-and-encoding)</td>
     </tr>
     <tr>
       <td>3</td>
       <td>Apply Base64 encoding to the SHA-256 hash.</td>
       <td>Publisher or UID2 Operator</td>
-      <td>[Email address hash encoding](../getting-started/gs-normalization-encoding.md#email-address-hash-encoding)<br/>[Phone number hash encoding](../getting-started/gs-normalization-encoding.md#phone-number-hash-encoding)</td>
+      <td>[Email address hashing and encoding](../getting-started/gs-normalization-encoding.md#email-address-hashing-and-encoding)<br/>[Phone number hashing and encoding](../getting-started/gs-normalization-encoding.md#phone-number-hash-encoding)</td>
     </tr>
     <tr>
       <td>4</td>
