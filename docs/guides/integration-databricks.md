@@ -141,6 +141,8 @@ The following table provides information about the structure of the output data,
 
 | Column name | Data type | Description |
 | :--- | :--- | :--- |
+| `INPUT` | string | The original DII, copied from the `INPUT` column of the input table or view. |
+| `INPUT_TYPE` | string | The type of DII, copied from the `INPUT_TYPE` column of the input table or view. |
 | `UID` | string | The value is one of the following:<ul><li>**DII was successfully mapped**: The UID2 associated with the DII.</li><li>**Otherwise**: `NULL`.</li></ul> |
 | `PREV_UID` | string | The value is one of the following:<ul><li>**DII was successfully mapped and the current raw UID2 was rotated in the last 90 days**: the previous raw UID2.</li><li>**Otherwise**: `NULL`.</li></ul> |
 | `REFRESH_FROM` | timestamp | The value is one of the following:<ul><li>**DII was successfully mapped**: The timestamp indicating when this UID2 should be refreshed.</li><li>**Otherwise**: `NULL`.</li></ul> |
