@@ -43,7 +43,7 @@ If you're using a UID2 SDK, or other integration solution such as the Prebid.js 
     <tr>
       <td>Email</td>
       <td>Must be one of the following:<ul><li>Raw email</li><li>Normalized email</li><li>Normalized, then hashed, then base64-encoded</li></ul></td>
-      <td>[Email address normalization](../getting-started/gs-normalization-encoding#email-address-normalization)<br/>[Email address hash encoding](../getting-started/gs-normalization-encoding#email-address-hashing-and-encoding)</td>
+      <td>[Email address normalization](../getting-started/gs-normalization-encoding#email-address-normalization)<br/>[Email address hashing and encoding](../getting-started/gs-normalization-encoding#email-address-hashing-and-encoding)</td>
     </tr>
     <tr>
       <td>Phone Number</td>
