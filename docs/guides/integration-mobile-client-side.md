@@ -562,7 +562,7 @@ Task<Void, Never> {
 
 In this scenario: 
 
-- The publisher is responsible for normalizing and hashing the phone number. For details, see [Phone number hash encoding](../getting-started/gs-normalization-encoding.md#phone-number-hashing-and-encoding).
+- The publisher is responsible for normalizing and hashing the phone number. For details, see [Phone number hashing and encoding](../getting-started/gs-normalization-encoding.md#phone-number-hashing-and-encoding).
 - The UID2 mobile SDK encrypts the hashed DII before sending it to the UID2 service.
 
 </TabItem>
