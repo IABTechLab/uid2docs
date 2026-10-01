@@ -103,5 +103,5 @@ CVE-2026-84370 exp:2026-10-10
 # CVE-2026-102276 — brace-expansion (HIGH). Vulnerable code path is not reachable in this
 # configuration.
 # See the ticket below for the assessment.
-# See: [TICKET]
+# See: UID2-8003
 CVE-2026-102276 exp:2027-01-01
