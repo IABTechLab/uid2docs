@@ -99,3 +99,9 @@ CVE-2026-84375 exp:2026-10-10
 # svgo runs only at build time optimizing repo-owned static SVGs; no user-upload/sanitization path exists in this static docs site
 # See: UID2-7852
 CVE-2026-84370 exp:2026-10-10
+
+# CVE-2026-102276 — brace-expansion (HIGH). Vulnerable code path is not reachable in this
+# configuration.
+# See the ticket below for the assessment.
+# See: UID2-8003
+CVE-2026-102276 exp:2027-01-01
