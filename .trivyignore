@@ -105,3 +105,7 @@ CVE-2026-84370 exp:2026-10-10
 # See the ticket below for the assessment.
 # See: UID2-8003
 CVE-2026-102276 exp:2027-01-01
+
+# CVE-2026-93687 — braces (HIGH). Required attack preconditions are absent in this configuration.
+# See: UID2-8026
+CVE-2026-93687 exp:2027-01-06
