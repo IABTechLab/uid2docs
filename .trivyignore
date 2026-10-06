@@ -105,3 +105,12 @@ CVE-2026-84370 exp:2026-10-10
 # See the ticket below for the assessment.
 # See: UID2-8003
 CVE-2026-102276 exp:2027-01-01
+
+# CVE-2026-93748 — http-cache-semantics (HIGH). Required attack preconditions are absent in this
+# configuration.
+# See: UID2-8027
+CVE-2026-93748 exp:2027-01-06
+
+# CVE-2026-85393 — node-forge (HIGH). Vulnerable code path is not reachable in this configuration.
+# See: UID2-8028
+CVE-2026-85393 exp:2027-01-06
