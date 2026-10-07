@@ -118,3 +118,28 @@ CVE-2026-85393 exp:2027-01-06
 # CVE-2026-93687 — braces (HIGH). Required attack preconditions are absent in this configuration.
 # See: UID2-8026
 CVE-2026-93687 exp:2027-01-06
+
+# CVE-2026-87776 — compression (HIGH). Required attack preconditions are absent in this
+# configuration.
+# See: UID2-8048
+CVE-2026-87776 exp:2027-01-07
+
+# CVE-2026-90711 — proxy-addr (CRITICAL). Required attack preconditions are absent in this
+# configuration.
+# See: UID2-8049
+CVE-2026-90711 exp:2027-01-07
+
+# CVE-2026-93749 — source-map-js (HIGH). Required attack preconditions are absent in this
+# configuration.
+# See: UID2-8051
+CVE-2026-93749 exp:2027-01-07
+
+# CVE-2026-104848 — tinypool (CRITICAL). Required attack preconditions are absent in this
+# configuration.
+# See: UID2-8052
+CVE-2026-104848 exp:2027-01-07
+
+# CVE-2026-104849 — tinypool (CRITICAL). Required attack preconditions are absent in this
+# configuration.
+# See: UID2-8053
+CVE-2026-104849 exp:2027-01-07
