@@ -13,6 +13,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import SnptIntegratingWithSSO from '../snippets/_snpt-integrating-with-sso.mdx';
 import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emails-and-phone-numbers.mdx';
+import SnptIos27WebkitNote from '../snippets/_snpt-ios27-webkit-note.mdx';
 
 # Client-Side Integration Guide for JavaScript
 
@@ -43,6 +44,8 @@ To implement, you'll need to complete the following steps:
 2. [Add SDK for JavaScript to your site](#add-sdk-for-javascript-to-your-site)
 3. [Configure the SDK for JavaScript](#configure-the-sdk-for-javascript)
 4. [Check that the token was successfully generated](#check-that-the-token-was-successfully-generated)
+
+<SnptIos27WebkitNote />
 
 ## SDK for JavaScript Version
 

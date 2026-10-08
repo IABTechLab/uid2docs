@@ -11,6 +11,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import SnptExampleUid2Cookie from '../snippets/_snpt-example-uid2-cookie.mdx';
 import SnptExampleJavaScriptInit from '../snippets/_snpt-example-javascript-init.mdx';
+import SnptIos27WebkitNote from '../snippets/_snpt-ios27-webkit-note.mdx';
 
 # SDK for JavaScript Reference Guide
 
@@ -25,6 +26,8 @@ If you're using Prebid.js with the UID2 Identity Module, or with another product
 For integration steps for publishers, refer to one of the following:
   - [Client-Side Integration Guide for JavaScript](../guides/integration-javascript-client-side.md)
   - [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md)
+
+<SnptIos27WebkitNote />
 
 ## SDK Version
 

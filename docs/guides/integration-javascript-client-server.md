@@ -12,6 +12,7 @@ import Link from '@docusaurus/Link';
 import SnptIntegratingWithSSO from '../snippets/_snpt-integrating-with-sso.mdx';
 import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emails-and-phone-numbers.mdx';
 import SnptExampleClientServerSendUid2ToSdk from '../snippets/_snpt-example-client-server-send-uid2-to-sdk.mdx'; 
+import SnptIos27WebkitNote from '../snippets/_snpt-ios27-webkit-note.mdx';
 
 # Client-Server Integration Guide for JavaScript
 
@@ -42,6 +43,8 @@ For integration scenarios for publishers that do not use the SDK for JavaScript,
 :::note
 If you are using Google Ad Manager and want to use the secure signals feature, first follow the steps in this guide and then follow the additional steps in the [Google Ad Manager Secure Signals Integration Guide](integration-google-ss.md).
 :::
+
+<SnptIos27WebkitNote />
 
 ## Integrating with Single Sign-On (SSO)
 

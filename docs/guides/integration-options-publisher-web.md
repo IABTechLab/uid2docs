@@ -44,6 +44,10 @@ To accomplish all steps, you can combine solutions. For example, you could use t
 
 <!-- &#9989; = Supported | &#8212; = Not Supported -->
 
+:::note
+On iOS 27+ and macOS 27+ (Safari), WebKit blocks browser requests to `uidapi.com`, so client-side token generation and refresh, and the SDK for JavaScript download, fail. Use a server-side solution to generate and refresh tokens. See [Publisher Integration Guide, Server-Side](integration-publisher-server-side.md).
+:::
+
 ## Preparing DII for Processing
 
 <SnptPreparingEmailsAndPhoneNumbers />
