@@ -19,6 +19,24 @@ Check out the latest updates to our UID2 documentation resources.
 Use the Tags toolbar to view a subset of documentation updates.
 :::
 
+## Q4 2026
+
+The following documents were released in the fourth quarter of 2026.
+
+<CustomTagsContainer tags="Guides, SDKs, Prebid.js">
+
+### iOS 27 and macOS 27 web integration limitations
+
+October 9, 2026
+
+Starting with iOS 27 and macOS 27, WebKit blocks client-side requests to `uidapi.com`. We've added notes to the web integration guides and the SDK for JavaScript reference explaining that, in affected browsers, the SDK can't be loaded from the UID2 CDN and tokens can't be generated or refreshed in the browser. The notes link to server-side alternatives.
+
+For details, see [Publisher integration guide, server-side](../guides/integration-publisher-server-side.md) and [SDK for JavaScript reference guide](../sdks/sdk-ref-javascript.md).
+
+<!-- UID2-8061 -->
+
+</CustomTagsContainer>
+
 ## Q2 2026
 
 The following documents were released in the second quarter of 2026.

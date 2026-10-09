@@ -12,6 +12,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import SnptIntegratingWithSSO from '../snippets/_snpt-integrating-with-sso.mdx';
 import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emails-and-phone-numbers.mdx';
+import SnptIos27WebkitNote from '../snippets/_snpt-ios27-webkit-note.mdx';
 import SnptUidVerifyInspect from '../snippets/_snpt-uid-verify-inspect.mdx';
 
 # Client-side integration guide for JavaScript
@@ -43,6 +44,12 @@ To implement, you'll need to complete the following steps:
 2. [Add SDK for JavaScript to your site](#add-sdk-for-javascript-to-your-site)
 3. [Configure the SDK for JavaScript](#configure-the-sdk-for-javascript)
 4. [Check that the token was successfully generated](#check-that-the-token-was-successfully-generated)
+
+:::note
+<SnptIos27WebkitNote />
+
+**Required action:** This client-side integration is not supported in affected browsers. Use a server-side integration to generate and refresh UID2 tokens. See [Publisher integration guide, server-side](integration-publisher-server-side.md).
+:::
 
 ## SDK for JavaScript version
 

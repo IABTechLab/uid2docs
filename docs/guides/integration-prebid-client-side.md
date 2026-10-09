@@ -12,6 +12,7 @@ import SnptIntegratingWithSSO from '../snippets/_snpt-integrating-with-sso.mdx';
 import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emails-and-phone-numbers.mdx';
 import SnptAddPrebidjsToYourSite from '../snippets/_snpt-prebid-add-prebidjs-to-your-site.mdx';
 import SnptStoreUID2TokenInBrowser from '../snippets/_snpt-prebid-storing-uid2-token-in-browser.mdx';
+import SnptIos27WebkitNote from '../snippets/_snpt-ios27-webkit-note.mdx';
 import SnptUidVerifyInspect from '../snippets/_snpt-uid-verify-inspect.mdx';
 
 # Client-side integration guide for Prebid.js
@@ -19,6 +20,12 @@ import SnptUidVerifyInspect from '../snippets/_snpt-uid-verify-inspect.mdx';
 This guide is for publishers who have access to <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> (email address or phone number) on the client side and want to integrate with UID2 and generate <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> (advertising tokens) to be passed by Prebid.js in the RTB <Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link>.
 
 To integrate with UID2 using Prebid.js, you'll need to make changes to the HTML and JavaScript on your site. No server-side work is required if you follow this guide.
+
+:::note
+<SnptIos27WebkitNote />
+
+**Required action:** This client-side integration is not supported in affected browsers. Use either the [Publisher integration guide, server-side](integration-publisher-server-side.md) or the [Client-server integration guide for Prebid.js](integration-prebid-client-server.md) in [server-only mode](integration-prebid-client-server.md#server-only-mode).
+:::
 
 ## Prebid.js version
 

@@ -8,6 +8,7 @@ displayed_sidebar: sidebarPublishers
 import Link from '@docusaurus/Link';
 import SnptIntegratingWithSSO from '../snippets/_snpt-integrating-with-sso.mdx';
 import SnptUidVerifyInspect from '../snippets/_snpt-uid-verify-inspect.mdx';
+import SnptIos27WebkitNote from '../snippets/_snpt-ios27-webkit-note.mdx';
 import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emails-and-phone-numbers.mdx';
 
 # Publisher web integration overview
@@ -44,6 +45,12 @@ To accomplish all steps, you can combine solutions. For example, you could use t
 | [Google Ad Manager Secure Signals](integration-google-ss.md) | &#8212; | &#8212; | &#9989; |
 
 <!-- &#9989; = Supported | &#8212; = Not Supported -->
+
+:::note
+<SnptIos27WebkitNote />
+
+**Required action:** On affected browsers, use a server-side solution to generate and refresh UID2 tokens. See [Publisher integration guide, server-side](integration-publisher-server-side.md).
+:::
 
 ## Integrating with single sign-on (SSO)
 
