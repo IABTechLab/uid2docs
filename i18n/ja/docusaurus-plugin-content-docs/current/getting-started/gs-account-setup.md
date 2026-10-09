@@ -1,18 +1,17 @@
 ---
-title: Account Setup
+title: Account setup
 description: UID2 アカウントの設定に関する情報。
 hide_table_of_contents: false
-sidebar_position: 02
 displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';
 
-# Account Setup
+# Account setup
 
 このページでは、UID2 でアカウントを設定するために必要な一般的な情報を提供します。
 
-## Contact Info
+## Contact info
 
 UID2 フレームワークにアクセスするには、以下の The Trade Desk の担当チームに連絡してください。
 
@@ -27,7 +26,7 @@ The Trade Desk (現在の UID2 Administrator) とすでに取引関係がある�
 | パブリッシャー、アプリ開発者 | [UID2publishers@thetradedesk.com](mailto:UID2publishers@thetradedesk.com) |
 | 代理店、ブランド、DSP、SSP、Customer Data Platform (CDP)、データプロバイダー | [UID2partners@thetradedesk.com](mailto:UID2partners@thetradedesk.com) |
 
-## Account Setup Details
+## Account setup details
 
 UID2 に関心を示すと、詳細を調整するために担当者から連絡があります。
 
@@ -40,7 +39,7 @@ UID2 に関心を示すと、詳細を調整するために担当者から連絡
   * メールアドレス
   * 役職
 
-### Client-Side Web Integrations
+### Client-side web integrations
 
 UID2 Token を [モバイル](../overviews/overview-publishers.md#mobile-integrations) アプリではなく [ウェブ](../overviews/overview-publishers.md#web-integrations) の Client-Side でリクエストする場合、サイトのドメイン名のリストも提供する必要があります。これは、Client-Side 実装のみのセキュリティ対策です。
 
@@ -48,7 +47,7 @@ UID2 Token を [モバイル](../overviews/overview-publishers.md#mobile-integra
 アカウント設定に必要なのは、ルートレベルのドメインだけです。たとえば、example.com、shop.example.com、example.org の Client-Side でトークンを生成するために UID2 を実装する場合、ドメイン名 example.com と example.org だけを提供します。
 :::
 
-### Client-Side Mobile Integrations
+### Client-side mobile integrations
 
 [モバイルアプリ](../guides/integration-mobile-client-side.md) で Client-Side から UID2 Token をリクエストする場合、すべてのモバイルアプリ ID の完全なリストを提供する必要があります:
 
@@ -59,6 +58,6 @@ UID2 Token を [モバイル](../overviews/overview-publishers.md#mobile-integra
 
 UID2 に参加するための契約に署名した後、[UID2 credentials](gs-credentials.md) と UID2 の運用開始に必要な追加情報を提供します。
 
-## API Version
+## API version
 
 UID2 API の現在のバージョンは v2 です。

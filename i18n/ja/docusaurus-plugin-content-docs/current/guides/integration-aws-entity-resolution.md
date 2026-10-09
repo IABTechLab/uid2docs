@@ -1,17 +1,16 @@
 ---
-title: AWS Entity Resolution Integration
+title: AWS Entity Resolution integration
 sidebar_label: AWS Entity Resolution
 pagination_label: AWS Entity Resolution
 description: AWS Entity Resolution とのインテグレーションに関する情報。
 hide_table_of_contents: false
-sidebar_position: 04
 displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';
 import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emails-and-phone-numbers.mdx';
 
-# AWS Entity Resolution Integration Guide
+# AWS Entity Resolution integration guide
 
 [AWS Entity Resolution](https://aws.amazon.com/entity-resolution/) は、Amazon Web Services が提供する ID ソリューションプロダクトで、AWS の顧客が UID2 フレームワークとインテグレーションすることを可能にします。このインテグレーションにより、UID2 Operator を直接呼び出したり、機密性の高いクライアント ID や秘密鍵の値を扱ったりすることなく、安全かつシームレスに UID2 を生成することができます。
 
@@ -24,7 +23,7 @@ import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emai
 AWS Entity Resolution を使用して UID2 とインテグレーションに関するビデオプレゼンテーションとデモは、YouTube の [Getting Started with AWS Entity Resolution Integration with Unified ID 2.0](https://www.youtube.com/watch?v=ORbSsKMgVj8) を参照してください。
 
 :::tip
-広告主とデータプロバイダー向けのすべてのインテグレーションオプションと手順の概要は、[Advertiser/Data Provider Integration Overview](integration-advertiser-dataprovider-overview.md) を参照してください。
+広告主とデータプロバイダー向けのすべてのインテグレーションオプションと手順の概要は、[Advertiser/data provider integration overview](integration-advertiser-dataprovider-overview.md) を参照してください。
 :::
 
 ## Functionality
@@ -35,22 +34,22 @@ AWS Entity Resolution を使用して UID2 とインテグレーションに関�
 | :--- | :--- | :--- | :--- | :--- |
 | No | No | No | No | Yes |
 
-## Integration Summary
+## Integration summary
 
 次の表は、AWS Entity Resolution を使用して UID2 とインテグレーションする手順をまとめたものです。
 
 | Step/Link | Details |
 | --- | --- |
-| [Initial Setup Steps](#initial-setup-steps) | UID2 アカウント、AWS アカウントを作成し、リンクします:<ul><li>[Create UID2 Account](#create-uid2-account)</li><li>[Create AWS Account](#create-aws-account)</li><li>[Subscribe to UID2 on AWS Data Exchange](#subscribe-to-uid2-on-aws-data-exchange)</li></ul> |
-| [Configure AWS Account](#configure-aws-account) | IAM ユーザー、データテーブル、データのスキーママッピングを設定します。 |
-| [Create a Matching Workflow](#create-a-matching-workflow) | 入力場所、適用するマッチング手法、出力場所など、データをマッチングするためのワークフローを作成します。 |
-| [Run the Matching Workflow](#run-the-matching-workflow) | 入力データを処理して raw UID2 を生成します。 |
+| [Initial setup steps](#initial-setup-steps) | UID2 アカウント、AWS アカウントを作成し、リンクします:<ul><li>[Create UID2 account](#create-uid2-account)</li><li>[Create AWS account](#create-aws-account)</li><li>[Subscribe to UID2 on AWS data exchange](#subscribe-to-uid2-on-aws-data-exchange)</li></ul> |
+| [Configure AWS account](#configure-aws-account) | IAM ユーザー、データテーブル、データのスキーママッピングを設定します。 |
+| [Create a matching workflow](#create-a-matching-workflow) | 入力場所、適用するマッチング手法、出力場所など、データをマッチングするためのワークフローを作成します。 |
+| [Run the matching workflow](#run-the-matching-workflow) | 入力データを処理して raw UID2 を生成します。 |
 
-## Workflow Diagram
+## Workflow diagram
 
 以下の図は、サービスへの登録から設定ステップを経て raw UID2 を受け取るまでの、エンドツーエンドの UID2 プロセスを示しています。
 
-![AWS Entity Resolution Workflow](images/integration-aws-entity-resolution.png)
+![AWS Entity Resolution workflow](images/integration-aws-entity-resolution.png)
 
 次の表は、図に示されたステップを示しています。
 
@@ -63,7 +62,7 @@ AWS Entity Resolution を使用して UID2 とインテグレーションに関�
 | 5 | Participant | 入力データを Amazon S3 バケットに格納します。 |
 | 6 | Participant | Entity Resolution を設定し、マッチングワークフローを作成します。 |
 | 7 | Participant | マッチングワークフローを実行します。 |
-| 8 | AWS Entity Resolution | S3バケットから入力データを読み込みます。 |
+| 8 | AWS Entity Resolution | S3 バケットから入力データを読み込みます。 |
 | 9 | AWS Entity Resolution | 入力データを `POST /SendApiAsset` を使って Amazon Data Exchange に送信します。 |
 | 10 | Amazon Data Exchange | `POST /uid2/assignment` を用いて API Gateway にデータを送信します。 |
 | 11 | API Gateway | `path=assignment` を使って Lambda にデータを送ります。 |
@@ -74,47 +73,47 @@ AWS Entity Resolution を使用して UID2 とインテグレーションに関�
 | 16 | Amazon Data Exchange | raw UID2 を AWS Entity Resolution に返します。 |
 | 17 | AWS Entity Resolution | raw UID2 を含む出力レコードを S3 バケットに書き込みます。 |
 
-## Preparing DII for Processing
+## Preparing DII for processing
 
 <SnptPreparingEmailsAndPhoneNumbers />
 
-## Initial Setup Steps
+## Initial setup steps
 
 以下は、AWS Entity Resolution で UID2 インテグレーションを設定するための初期手順です:
 
-- [Create AWS Account](#create-aws-account)
-- [Create UID2 Account](#create-uid2-account)
-- [Subscribe to UID2 on AWS Data Exchange](#subscribe-to-uid2-on-aws-data-exchange)
+- [Create AWS account](#create-aws-account)
+- [Create UID2 account](#create-uid2-account)
+- [Subscribe to UID2 on AWS data exchange](#subscribe-to-uid2-on-aws-data-exchange)
 
-### Create AWS Account
+### Create AWS account
 
 AWS アカウントにサインアップするか、既存のアカウントを使用します。
 
 詳細は AWS ドキュメントの [Getting started: Are you a first time AWS user?](https://docs.aws.amazon.com/accounts/latest/reference/welcome-first-time-user.html) を参照してください。
 
-### Create UID2 Account
+### Create UID2 account
 
-UID2 の連絡先に、あなたを UID2 参加者として登録するよう依頼します。依頼先がわからない場合は、[Contact Info](../getting-started/gs-account-setup.md#contact-info) を参照してください。
+UID2 の連絡先に、あなたを UID2 参加者として登録するよう依頼します。依頼先がわからない場合は、[Contact info](../getting-started/gs-account-setup.md#contact-info) を参照してください。
 
 UID2 の連絡先に、Entity Resolution での UID2 インテグレーションに使用する AWS アカウント ID を送信してください。
 
-### Subscribe to UID2 on AWS Data Exchange
+### Subscribe to UID2 on AWS data exchange
 
 AWS Data Exchange の [Unified ID 2.0 Identity Resolution](https://aws.amazon.com/marketplace/pp/prodview-66zqls7iqsm6o?sr=0-4&ref_=beagle&applicationId=AWSMPContessa#offers) ページにアクセスし、**Continue to Subscribe.** をクリックします。
 
-![AWS Data Exchange market place screenshot](images/integration-aws-entity-resolution-public-listing.png)
+![AWS data exchange market place screenshot](images/integration-aws-entity-resolution-public-listing.png)
 
 加入リクエストを受け取ると、UID2 チームは以下を行います:
 - サブスクリプションのリクエストを確認します。
-- リクエストを [Create UID2 Account](#create-uid2-account) で送信した AWS アカウント ID と照合します。
+- リクエストを [Create UID2 account](#create-uid2-account) で送信した AWS アカウント ID と照合します。
 - リクエストを承認します。
 
-## Configure AWS Account
+## Configure AWS account
 
-UID2 の参加者は AWS の S3 バケットにデータを保存し、AWS Entity Resolution とインテグレーションします。AWS アカウントを作成したら([Create AWS Account](#create-aws-account) を参照してください。)、基本的な手順は以下の通りです。
+UID2 の参加者は AWS の S3 バケットにデータを保存し、AWS Entity Resolution とインテグレーションします。AWS アカウントを作成したら([Create AWS account](#create-aws-account) を参照してください。)、基本的な手順は以下の通りです。
 
 :::note
-詳細な手順は、AWSドキュメントの [Setting up AWS Entity Resolution](https://docs.aws.amazon.com/entityresolution/latest/userguide/setting-up.html) を参照してください。
+詳細な手順は、AWS ドキュメントの [Setting up AWS Entity Resolution](https://docs.aws.amazon.com/entityresolution/latest/userguide/setting-up.html) を参照してください。
 :::
 
 1. [管理者ユーザーを作成します](https://docs.aws.amazon.com/entityresolution/latest/userguide/setting-up.html#setting-up-create-iam-user).
@@ -133,14 +132,14 @@ UID2 の参加者は AWS の S3 バケットにデータを保存し、AWS Entit
 
 5. データのスキーママッピングを作成します: AWS ドキュメントの [Creating a schema mapping](https://docs.aws.amazon.com/entityresolution/latest/userguide/create-schema-mapping.html) を参照してください。
 
-## Create a Matching Workflow
+## Create a matching workflow
 
 最初のアカウント作成とセットアップが完了したら、次のステップはデータのマッチングワークフローを作成することです。
 
 以下のステップは、AWS Entity Resolution ユーザーインターフェースで行うアクションの概要です。詳細と手順は、AWS Entity Resolution ドキュメントの [Creating a matching workflow with UID 2.0](https://docs.aws.amazon.com/entityresolution/latest/userguide/create-matching-workflow-provider.html#create-mw-uid) を参照してください。
 
 :::note
-UID2 は、UID2 生成のためにメールアドレスまたは電話番号のいずれかをサポートします。しかし、AWS Entity Resolution では、スキーママッピングに両方の値が存在する場合、ワークフローはメールアドレスを使用し、電話番号はパススルーフィールドとして扱います。もしデータにメールアドレスと電話番号が混在している場合、最適な方法は、スキーママッピングを別々にして、それぞれ別のワークフローを作成することです。このシナリオでは、以下のステップを2回行います&#8212;1つはメールアドレス用のワークフロー、もう1つは電話番号用のワークフローを作成します。
+UID2 は、UID2 生成のためにメールアドレスまたは電話番号のいずれかをサポートします。しかし、AWS Entity Resolution では、スキーママッピングに両方の値が存在する場合、ワークフローはメールアドレスを使用し、電話番号はパススルーフィールドとして扱います。もしデータにメールアドレスと電話番号が混在している場合、最適な方法は、スキーママッピングを別々にして、それぞれ別のワークフローを作成することです。このシナリオでは、以下のステップを 2 回行います&#8212;1 つはメールアドレス用のワークフロー、もう 1 つは電話番号用のワークフローを作成します。
 :::
 
 マッチングワークフローを作成するには、まず AWS Management コンソールにサインインし、**AWS Entity Resolution** ページを開き、**Workflows** > **Matching workflows** > **Create matching workflow** を選択します。次に、マッチングワークフローの以下のステップを完了します。
@@ -184,7 +183,7 @@ UID2 は、UID2 生成のためにメールアドレスまたは電話番号の�
    - 次に、**Partner services** で、**Unified ID2.0** を選択します。
    - **Next** をクリックします。
 
-     先のステップ、[Subscribe to UID2 on AWS Data Exchange](#subscribe-to-uid2-on-aws-data-exchange) を完了していれば、**Approved** のメッセージが表示されます。
+     先のステップ、[Subscribe to UID2 on AWS data exchange](#subscribe-to-uid2-on-aws-data-exchange) を完了していれば、**Approved** のメッセージが表示されます。
 
 3.  データの出力先を定義します:
    - **Data Output Destination** には、出力データに使用する S3 バケットの URI を指定します。データフォーマットを選択します: Normalized または Original を選択します。
@@ -204,7 +203,7 @@ UID2 は、UID2 生成のためにメールアドレスまたは電話番号の�
 
    一致するワークフローが作成され、確認メッセージが表示されます。
 
-## Run the Matching Workflow
+## Run the matching workflow
 
 以下の手順に従って、マッチングワークフローを実行し、結果を表示します。
 

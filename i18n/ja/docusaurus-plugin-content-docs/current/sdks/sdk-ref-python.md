@@ -2,19 +2,18 @@
 title: SDK for Python
 description: Python Server-Side SDK のリファレンス情報。
 hide_table_of_contents: false
-sidebar_position: 06
 displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';
 
-# SDK for Python Reference Guide
+# SDK for Python reference guide
 
 Server-Side で UID2 を使用してクライアント ID の生成や確立、Advertiser ID の取得、UID2 Token の自動リフレッシュを行うために、Python SDK を使用できます。適用可能な権限がある場合は、共有のための暗号化と復号化、DII の raw UID2s へのマッピングも行えます。
 
 ## Functionality
 
-この SDK は、Server-Sideのコーディングに Python を使用している DSP または UID2 Sharers のために、UID2 とのインテグレーションを簡素化します。次の表に、この SDK がサポートする機能を示します。
+この SDK は、Server-Side のコーディングに Python を使用している DSP または UID2 Sharers のために、UID2 とのインテグレーションを簡素化します。次の表に、この SDK がサポートする機能を示します。
 
 | Encrypt Raw UID2 to UID2 Token for Sharing | Decrypt UID2 Token to Raw UID2 | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to Raw UID2s | Monitor Rotated Salt Buckets&ast; |
 | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -22,17 +21,17 @@ Server-Side で UID2 を使用してクライアント ID の生成や確立、A
 
 &ast;この設定は、SDK のバージョンが `POST /identity/map` エンドポイントのバージョン 3 より前のバージョンを参照している場合にのみ適用されます。
 
-## UID2 Account Setup
+## UID2 account setup
 
-UID2 とインテグレーションするには、UID2 アカウントが必要です。アカウントを作成していない場合は、まず [Account Setup](../getting-started/gs-account-setup.md) ページの手順に従ってください。
+UID2 とインテグレーションするには、UID2 アカウントが必要です。アカウントを作成していない場合は、まず [Account setup](../getting-started/gs-account-setup.md) ページの手順に従ってください。
 
-## API Permissions
+## API permissions
 
 アカウントの初期設定が完了すると、パブリッシャー、広告主、またはデータプロバイダーの場合、[UID2 Portal](../portal/portal-overview.md) にアクセスするための手順とリンクが送信されます。以下の操作が可能です:
 - アカウント用の [credentials](../getting-started/gs-credentials.md) を生成します。
 - オプションとして、チームメンバーに関する情報を設定するなど、他の値を設定します。
 
-SDK が提供する特定の機能を使用する権限が与えられ、そのアクセスのための資格情報が提供されます。SDK には使用権限がない機能がある可能性があることに注意してください。詳細は、[API Permissions](../getting-started/gs-permissions.md) を参照してください。
+SDK が提供する特定の機能を使用する権限が与えられ、そのアクセスのための資格情報が提供されます。SDK には使用権限がない機能がある可能性があることに注意してください。詳細は、[API permissions](../getting-started/gs-permissions.md) を参照してください。
 
 DSP の場合は、資格情報を送信します。
 
@@ -45,7 +44,7 @@ version:
 - **v2.6.0**: Python 3.8 or higher  
 - **v2.5.0 and below**: Python 3.6 or higher
 
-## GitHub Repository/Package
+## GitHub repository/package
 
 この SDK は以下のオープンソースの GitHub リポジトリにあります:
 
@@ -55,7 +54,7 @@ version:
 
 - [https://pypi.org/project/uid2-client/](https://pypi.org/project/uid2-client/)
 
-## Release Notes
+## Release notes
 
 各リリースの変更点、バグ修正、新機能の詳細については、[release notes on GitHub](https://github.com/IABTechLab/uid2-client-python/releases) を参照してください。
 
@@ -73,10 +72,10 @@ pip install uid2-client
 
 | Role | Create Instance of Class | Link to Instructions |
 | :--- | :--- | :---|
-| Publisher | `Uid2PublisherClient` | [Usage for Publishers](#usage-for-publishers) |
-| Advertiser/Data Provider | `IdentityMapV3Client` | [Usage for Advertisers/Data Providers](#usage-for-advertisersdata-providers) |
+| Publisher | `Uid2PublisherClient` | [Usage for publishers](#usage-for-publishers) |
+| Advertiser/Data Provider | `IdentityMapV3Client` | [Usage for advertisers/data providers](#usage-for-advertisersdata-providers) |
 | DSP | `BidstreamClient` | [Usage for DSPs](#usage-for-dsps) |
-| Sharer | `SharingClient` | [Usage for Sharers](#usage-for-uid2-sharers) |
+| Sharer | `SharingClient` | [Usage for sharers](#usage-for-uid2-sharers) |
 
 
 
@@ -85,14 +84,14 @@ SDK が　UID2 Service と通信するために必要な値を提供する必要
 | Parameter | Description |
 | :--- | :--- |
 | `base_url`   | UID2 Service のエンドポイント。[Environments](../getting-started/gs-environments) を参照してください。 |
-| `auth_key`   | API Key。[UID2 Credentials](../getting-started/gs-credentials) を参照してください。 |
-| `secret_key` | Client Secret。[UID2 Credentials](../getting-started/gs-credentials) を参照してください。 |
+| `auth_key`   | API Key。[UID2 credentials](../getting-started/gs-credentials) を参照してください。 |
+| `secret_key` | Client Secret。[UID2 credentials](../getting-started/gs-credentials) を参照してください。 |
 
 ## Interface 
 
 `BidstreamClient` クラスを利用すると UID2 Token を raw UID2 に復号化できます。
 
-ユーザーのオプトアウトを処理する入札ロジックの詳細は [DSP Integration Guide](../guides/dsp-guide.md) を参照してください。
+ユーザーのオプトアウトを処理する入札ロジックの詳細は [DSP integration guide](../guides/dsp-guide.md) を参照してください。
 
 `SharingClient` クラスを利用すると、raw UID2 を UID2 Token に暗号化し、UID2 Token を raw UID2 に復号化することができます。
 
@@ -101,16 +100,16 @@ SDK が　UID2 Service と通信するために必要な値を提供する必要
 SDK を使用すると、復号化キーを保存または管理する必要がありません。
 :::
 
-### Encryption Response Content
+### Encryption response content
 
 `SharingClient` を使用して暗号化すると、SDK が次の表に示す情報を返します。
 
 | Property | Description |
 | :--- | :--- |
-| `status` | 暗号化結果のステータス。取り得る値のリストと定義は、[Encryption Response Statuses](#encryption-response-statuses) を参照してください。 |
+| `status` | 暗号化結果のステータス。取り得る値のリストと定義は、[Encryption response statuses](#encryption-response-statuses) を参照してください。 |
 | `encrypted_data` | 暗号化された UID2 Token。 |
 
-### Encryption Response Statuses
+### Encryption response statuses
 
 暗号化のレスポンスコードとその意味は、次の表に示します。
 
@@ -123,17 +122,17 @@ SDK を使用すると、復号化キーを保存または管理する必要が�
 | `KEYS_NOT_SYNCED` | クライアントが UID2 Service からの鍵の同期に失敗しました。 |
 | `ENCRYPTION_FAILURE` | 一般的な暗号化に失敗しました。 |
 
-### Decryption Response Content
+### Decryption response content
 
 `BidstreamClient` または `SharingClient` を使用して復号化すると、SDK が次の表に示す情報を返します。
 
 | Property | Description |
 | :--- | :--- |
-| `status` | 復号結果のステータス。取り得る値のリストと定義につては、[Decryption Response Statuses](#decryption-response-statuses) を参照してください。 |
+| `status` | 復号結果のステータス。取り得る値のリストと定義につては、[Decryption response statuses](#decryption-response-statuses) を参照してください。 |
 | `uid` | UID2 Token に対応する raw UID2。 |
 | `established` | ユーザーがパブリッシャーと最初に UID2 を確立した時のタイムスタンプ。 |
 
-### Decryption Response Statuses
+### Decryption response statuses
 
 復号化のレスポンスコードとその意味を次の表に示します。
 
@@ -149,7 +148,7 @@ SDK を使用すると、復号化キーを保存または管理する必要が�
 | `DOMAIN_NAME_CHECK_FAILED` | ドメイン名が暗号化されたトークンのドメインと一致しません。 |
 | `INVALID_TOKEN_LIFETIME` | トークンのタイムスタンプが無効です。 |
 
-## Usage for Publishers
+## Usage for publishers
 
 1. `Uid2PublisherClient` のインスタンスを作成します:
    ```py
@@ -163,9 +162,9 @@ SDK を使用すると、復号化キーを保存または管理する必要が�
 
 <!-- uid2_euid_diff: admonition re legal basis (in EUID not in UID2)-->
 
-### Client-Server Integration
+### Client-server integration
 
-Client-Server インテグレーションを使用している場合 (詳細は [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md) を参照):
+Client-Server インテグレーションを使用している場合 (詳細は [Client-server integration guide for JavaScript](../guides/integration-javascript-client-server.md) を参照):
 
 * Identity を JSON 文字列としてクライアントに返します (Client-Side で使用するための [identity field](../sdks/sdk-ref-javascript.md#initopts-object-void) で使用) するには、次の手順に従います:
 
@@ -177,9 +176,9 @@ Client-Server インテグレーションを使用している場合 (詳細は 
   ユーザーがオプトアウトしている場合、このメソッドは None を返します。その場合は、適切に処理してください。
   :::
 
-### Server-Side Integration
+### Server-side integration
 
-Server-Side インテグレーションを使用している場合 (詳細は [Publisher Integration Guide, Server-Side](../guides/integration-publisher-server-side.md) を参照):
+Server-Side インテグレーションを使用している場合 (詳細は [Publisher integration guide, server-side](../guides/integration-publisher-server-side.md) を参照):
 
 1. `token_generate_response.get_identity_json_string()` 関数を使用して、ユーザーのセッションに JSON 文字列としてこの Identity を保存します。
 
@@ -221,13 +220,13 @@ Server-Side インテグレーションを使用している場合 (詳細は [P
 
    ユーザーがオプトアウトしている場合、このメソッドは `None` を返します。ユーザーがオプトアウトしていることを確認するには、`token_refresh_response.is_optout()` 関数を使用できます。
 
-## Usage for Advertisers/Data Providers
+## Usage for advertisers/data providers
 
 以下の手順は、最新バージョンの `POST /identity/map` エンドポイントを使用して、DII を raw UID2 にマッピングする方法の例を示しています。
 
-以前のバージョンについては、[Previous Version (v2 Identity Map)](#previous-version-v2-identity-map) を参照してください。最新バージョンへの移行手順は、[Migration From Version Using v2 Identity Map](#migration-from-version-using-v2-identity-map) を参照してください。
+以前のバージョンについては、[Previous version (POST /v2/identity/map)](#previous-version-post-v2identitymap) を参照してください。最新バージョンへの移行手順は、[Migration from version using POST /v2/identity/map](#migration-from-version-using-post-v2identitymap) を参照してください。
 
-### Map DII to Raw UID2s
+### Map DII to raw UID2s
 
 DII を raw UID2s にマッピングするには、次の手順に従います:
 
@@ -280,7 +279,7 @@ DII を raw UID2s にマッピングするには、次の手順に従います:
    raw UID2 は、リフレッシュタイムスタンプの前では変化しません。リフレッシュタイムスタンプの後、DII を再マッピングすると新しいリフレッシュタイムスタンプが返されますが、raw UID2 は変化する場合もあれば変化しない場合もあります。raw UID2 が複数のリフレッシュ間隔にわたって変化しない可能性もあります。
    :::
 
-#### Usage Example
+#### Usage example
 
 ```py
 client = IdentityMapV3Client(UID2_BASE_URL, UID2_API_KEY, UID2_SECRET_KEY)
@@ -309,15 +308,15 @@ mixed_input = IdentityMapV3Input()
 mixed_response = client.generate_identity_map(mixed_input)
 ```
 
-## Migration From Version Using v2 Identity Map
+## Migration from version using POST /v2/identity/map
 
 以下は、`POST /identity/map` バージョン 3 を参照する最新バージョンの SDK への移行に関する一般的な情報とガイダンスです:
 
-- [Version 3 Improvements](#version-3-improvements)
-- [Upgrading Client Version](#upgrading-client-version)
-- [Updating DII Mapping](#updating-dii-mapping)
+- [Version 3 improvements](#version-3-improvements)
+- [Upgrading client version](#upgrading-client-version)
+- [Updating DII mapping](#updating-dii-mapping)
 
-### Version 3 Improvements
+### Version 3 improvements
 
 `POST /v3/identity/map` は v2 に比べて以下の改善点を提供します:
 
@@ -327,7 +326,7 @@ mixed_response = client.generate_identity_map(mixed_input)
 - **Multiple Identity Types in One Request**: メールアドレスと電話番号の両方を単一のリクエストで処理できます。
 - **Improved Performance**: 更新されたバージョンは、同じ量の DII を処理するために必要な帯域幅を大幅に削減します。
 
-### Upgrading Client Version
+### Upgrading client version
 
 クライアントを最新バージョン (version 3) にアップグレードするには、以下の手順に従ってください:
 
@@ -350,7 +349,7 @@ mixed_response = client.generate_identity_map(mixed_input)
    from uid2_client import IdentityMapV3Client, IdentityMapV3Input, IdentityMapV3Response, UnmappedIdentityReason
    ```
 
-### Updating DII Mapping
+### Updating DII mapping
 
 `POST /identity/map` エンドポイントの version 2 から version 3 への DII マッピングの更新手順は以下の通りです:
 
@@ -397,14 +396,14 @@ mixed_response = client.generate_identity_map(mixed_input)
    raw_reason = unmapped.raw_reason
    ```
 
-### Previous Version (v2 Identity Map)
+### Previous version (POST /v2/identity/map)
 
 :::note
 v2 の Identity Map SDK は、後方互換性のために維持されている以前のバージョンです。パフォーマンスの向上、複数のアイデンティティタイプのサポート、および UID2 ローテーション管理の改善のために、現在の SDK に移行してください。
 
 新しいインテグレーションはこのバージョンを使用しないでください。
 
-手順は、[Migration From Version Using v2 Identity Map](#migration-from-version-using-v2-identity-map) を参照してください。
+手順は、[Migration from version using POST /v2/identity/map](#migration-from-version-using-post-v2identitymap) を参照してください。
 :::
 
 メールアドレス、電話番号、またはそれらのハッシュを raw UID2s およびソルトバケット ID にマッピングするには、`POST /identity/map` version 2 を使用している以前の SDK バージョンを使用している場合は、以下の手順に従ってください。
@@ -440,11 +439,11 @@ v2 の Identity Map SDK は、後方互換性のために維持されている�
         reason = unmapped_identity.get_reason()
    ```
 
-#### Monitor Rotated Salt Buckets
+#### Monitor rotated salt buckets
 
 ソルトバケットを監視するには、以下の手順に従ってください。
 
-1. `IdentityMapClient` のインスタンスをインスタンス変数として作成、または [Map DII to Raw UID2s](#map-dii-to-raw-uid2s) から再利用します:
+1. `IdentityMapClient` のインスタンスをインスタンス変数として作成、または [Map DII to raw UID2s](#map-dii-to-raw-uid2s) から再利用します:
 
    ```py
    client = IdentityMapClient(base_url, api_key, client_secret)
@@ -497,21 +496,21 @@ client.refresh()
 decrypted = client.decrypt_token_into_raw_uid(uid_token, domainOrAppName)
 # If decryption succeeded, use the raw UID2.
 if decrypted.success:
-    #  Use decrypted.uid
+    # Use decrypted.uid
 else:
    # Check decrypted.status for the failure reason.
 ```
 
 詳細な例は、[examples/sample_bidstream_client.py](https://github.com/IABTechLab/uid2-client-python/blob/main/examples/sample_bidstream_client.py) の `sample_bidstream_client.py` を参照してください。
 
-## Usage for UID2 Sharers
+## Usage for UID2 sharers
 
 UID2 <Link href="../ref-info/glossary-uid#gl-sharing-participant">sharing participant</Link> は、送信者または受信者として共有に参加し、他の参加者と UID2 を共有する組織です。
 
-広告主とデータプロバイダーは、この SDK を使用して、他の許可された UID2 共有参加者 (<Link href="../ref-info/glossary-uid#gl-tokenized-sharing">tokenized sharing</Link>) と UID2 を共有できます。彼らは [raw UID2](../ref-info/glossary-uid#gl-raw-uid2) を <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 Tokens</Link> に暗号化し、それを共有のために別の参加者に送信することができます (詳細は [Tokenized Sharing in Pixels](../sharing/sharing-tokenized-from-data-pixel.md) を参照)。ピクセルでデータを送信しない場合でも、[Security Requirements for UID2 Sharing](../sharing/sharing-security.md) に記載されている要件に従う限り、UID2 共有に参加できます。
+広告主とデータプロバイダーは、この SDK を使用して、他の許可された UID2 共有参加者 (<Link href="../ref-info/glossary-uid#gl-tokenized-sharing">tokenized sharing</Link>) と UID2 を共有できます。彼らは [raw UID2](../ref-info/glossary-uid#gl-raw-uid2) を <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 Tokens</Link> に暗号化し、それを共有のために別の参加者に送信することができます (詳細は [Tokenized sharing in pixels](../sharing/sharing-tokenized-from-data-pixel.md) を参照)。ピクセルでデータを送信しない場合でも、[Security requirements for UID2 sharing](../sharing/sharing-security.md) に記載されている要件に従う限り、UID2 共有に参加できます。
 
 :::important
-このプロセスで生成される UID2 Token は共有専用です。&#8212;ビッドストリームで使用することはできません。ビッドストリーム用のトークンを生成するための異なるワークフローがあります: [Tokenized Sharing in the Bidstream](../sharing/sharing-tokenized-from-data-bid-stream.md) を参照してください。
+このプロセスで生成される UID2 Token は共有専用です。&#8212;ビッドストリームで使用することはできません。ビッドストリーム用のトークンを生成するための異なるワークフローがあります: [Tokenized sharing in the bidstream](../sharing/sharing-tokenized-from-data-bid-stream.md) を参照してください。
 :::
 
 以下の手順は、SDK for Python を使用して、送信者または受信者として共有を実装する方法の例を示しています。
@@ -544,7 +543,7 @@ else:
 decrypted = client.decrypt_token_into_raw_uid(uid_token)
 # If decryption succeeded, use the raw UID2.
 if decrypted.success:
-    #  Use decrypted.uid
+    # Use decrypted.uid
 else:
     # Check decrypted.status for the failure reason.
 ```
@@ -555,10 +554,10 @@ else:
 
 以下の手順は、開発時に役立つかもしれません:
 
-- [Example Usage](#example-usage)
+- [Example usage](#example-usage)
 - [Running tests](#running-tests)
 
-### Example Usage
+### Example usage
 [examples](https://github.com/IABTechLab/uid2-client-python/blob/main/examples) ディレクトリにある例を実行できます。
 
 ```py

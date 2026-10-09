@@ -7,7 +7,7 @@ dependencies = [
     "uid2-client>=3.0.0a1",
     "pytest>=7.0.0",
     "python-dotenv>=1.0.0",
-    "urllib3>=2.6.3",
+    "urllib3>=2.7.0",
 ]
 
 [project.optional-dependencies]

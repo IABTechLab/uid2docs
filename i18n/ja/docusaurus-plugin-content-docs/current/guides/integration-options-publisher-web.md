@@ -1,21 +1,22 @@
 ---
-title: Publisher Web Integration Overview
+title: Publisher web integration overview
 description: UID2 Web インテグレーションにおけるパブリッシャーオプションの概要。
 hide_table_of_contents: false
-sidebar_position: 02
 displayed_sidebar: sidebarPublishers
 ---
 
 import Link from '@docusaurus/Link';
+import SnptIntegratingWithSSO from '../snippets/_snpt-integrating-with-sso.mdx';
+import SnptUidVerifyInspect from '../snippets/_snpt-uid-verify-inspect.mdx';
 import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emails-and-phone-numbers.mdx';
 
-# Publisher Web Integration Overview
+# Publisher web integration overview
 
 パブリッシャーとして、UID2 とインテグレーションして ID トークンを生成し、ウェブページのコンテキストで RTB <Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link>に渡す方法はたくさんあります。
 
 このページでは、インテグレーションステップとインテグレーションオプションの概要と、各オプションの追加情報へのリンクを紹介します。
 
-## Key Integration Steps
+## Key integration steps
 
 UID2 とインテグレーションするには、次の 3 つの主要なアクティビティを実装します。
 
@@ -25,7 +26,7 @@ UID2 とインテグレーションするには、次の 3 つの主要なアク
 
 これらの重要なステップを達成する方法はたくさんあります。最もシンプルで高速な実装は、Prebid.js 8.21.0 以降を使用した完全な Client-Side の実装です。
 
-## Integration Options Summary
+## Integration options summary
 
 次の表は、インテグレーションステップごとに利用可能なソリューションをまとめたものです。
 
@@ -44,27 +45,35 @@ UID2 とインテグレーションするには、次の 3 つの主要なアク
 
 <!-- &#9989; = Supported | &#8212; = Not Supported -->
 
-## Preparing DII for Processing
+## Integrating with single sign-on (SSO)
+
+<SnptIntegratingWithSSO />
+
+## Inspecting with UID Verify Chrome extension
+
+<SnptUidVerifyInspect />
+
+## Preparing DII for processing
 
 <SnptPreparingEmailsAndPhoneNumbers />
 
-## Publisher Web Options Workflow
+## Publisher web options workflow
 
 実装を選択し、開始するには、以下の手順に従ってください:
 
 1. UID2 Token を生成するオプションの概要を確認します:
-   - [Client-Side Integration Options](#client-side-integration-options)
-   - [Server-Side Integration Options](#server-side-integration-options)
-1. [UID2 Token をリフレッシュする](#refresh-the-uid2-token) オプションを確認します。
+   - [Client-side integration options](#client-side-integration-options)
+   - [Server-side integration options](#server-side-integration-options)
+1. [UID2 token をリフレッシュする](#refresh-the-uid2-token) オプションを確認します。
 1. [トークンをビッドストリームに渡す](#pass-the-uid2-token-into-the-bidstream) オプションを確認します。
 1. 最適なオプションを選択し、実装ドキュメントをクリックしてください。
 
-## Generate the UID2 Token
+## Generate the UID2 token
 
-UID2 Token を生成するには、主に2つの方法があります。&#8212;UID2 Token 生成リクエストを選択することができます:
+UID2 Token を生成するには、主に 2 つの方法があります。&#8212;UID2 Token 生成リクエストを選択することができます:
 
-- Client-Side (ユーザーのブラウザ内): [Client-Side Integration Options](#client-side-integration-options) を参照してください。
-- Server-Side: [Server-Side Integration Options](#server-side-integration-options) を参照してください。
+- Client-Side (ユーザーのブラウザ内): [Client-side integration options](#client-side-integration-options) を参照してください。
+- Server-Side: [Server-side integration options](#server-side-integration-options) を参照してください。
 
 それぞれのオプションには利点があります。最も簡単で高速なインテグレーションオプションとして、Prebid.js 8.21.0 以降を使用した Client-Side インテグレーションを推奨します。
 
@@ -72,23 +81,23 @@ UID2 Token を生成するには、主に2つの方法があります。&#8212;U
 すべてのインテグレーションオプションで、UID2 Token をローカルストレージまたはクッキーストレージに保存することを選択できます。
 :::
 
-### Client-Side Integration Options
+### Client-side integration options
 
 Client-Side で UID2 Token を生成することには、次のような利点があります:
 
 - コードは消費者のウェブページ上の Client-Side で実行され、Server-Side のコーディングは必要ありません。
 - Prebid.js のインテグレーションにより、すべての機能が処理されます&#8212;トークンの生成、トークンのリフレッシュ、トークンのビッドストリームへの受け渡しなど。Prebid.js 8.21.0 以降を使用している場合、これが最もシンプルで高速な実装オプションです。
 
-Client-Side のインテグレーションを選択した場合、アカウント設定の一環として、セキュリティのためにルートレベルドメインのリストを提供する必要があります。詳細は、アカウント設定ページの [Client-Side Web Integrations](../getting-started/gs-account-setup.md#client-side-web-integrations) を参照してください。
+Client-Side のインテグレーションを選択した場合、アカウント設定の一環として、セキュリティのためにルートレベルドメインのリストを提供する必要があります。詳細は、アカウント設定ページの [Client-side web integrations](../getting-started/gs-account-setup.md#client-side-web-integrations) を参照してください。
 
 次の表は、Client-Side で UID2 Token を生成したいパブリッシャーが、ウェブページから UID2 Token を生成するためのオプションと、それに対応するドキュメントリソースをまとめたものです。
 
 | Option | Documentation |
 | :--- | :--- |
-| Prebid.js client-side implementation (8.21.0 or later) | [UID2 Client-Side Integration Guide for Prebid.js](integration-prebid-client-side.md) |
-| SDK for JavaScript, client-side implementation | [Client-Side Integration Guide for JavaScript](integration-javascript-client-side.md) |
+| Prebid.js client-side implementation (8.21.0 or later) | [Client-side integration guide for Prebid.js](integration-prebid-client-side.md) |
+| SDK for JavaScript, client-side implementation | [Client-side integration guide for JavaScript](integration-javascript-client-side.md) |
 
-### Server-Side Integration Options
+### Server-side integration options
 
 Server-Side で UID2 Token を生成することには、次のような利点があります:
 
@@ -100,12 +109,12 @@ Server-Side で UID2 Token を生成することには、次のような利点�
 
 | Option | Documentation |
 | :--- | :--- |
-| SDK for JavaScript, client-server implementation | [Client-Server Integration Guide for JavaScript](integration-javascript-client-server.md) |
-| SDK for Java | - [Publisher Integration Guide, Server-Side](integration-publisher-server-side.md)<br/>- [SDK for Java](../sdks/sdk-ref-java.md) |
-| SDK for Python | - [Publisher Integration Guide, Server-Side](integration-publisher-server-side.md)<br/>- [SDK for Python](../sdks/sdk-ref-python.md)  |
-| Direct integration (API endpoints) | [Publisher Integration Guide, Server-Side](integration-publisher-server-side.md) |
+| SDK for JavaScript, client-server implementation | [Client-server integration guide for JavaScript](integration-javascript-client-server.md) |
+| SDK for Java | - [Publisher integration guide, server-side](integration-publisher-server-side.md)<br/>- [SDK for Java](../sdks/sdk-ref-java.md) |
+| SDK for Python | - [Publisher integration guide, server-side](integration-publisher-server-side.md)<br/>- [SDK for Python](../sdks/sdk-ref-python.md)  |
+| Direct integration (API endpoints) | [Publisher integration guide, server-side](integration-publisher-server-side.md) |
 
-## Refresh the UID2 Token
+## Refresh the UID2 token
 
 セキュリティ上の理由から、UID2 Token の寿命は限られていますが、トークンをリフレッシュするメカニズムが組み込まれているので、続けて使用することができます。
 
@@ -115,15 +124,15 @@ Server-Side で UID2 Token を生成することには、次のような利点�
 
 | Option | Documentation |
 | :--- | :--- |
-| Prebid.js client-side implementation (8.21.0 or later) | [UID2 Client-Side Integration Guide for Prebid.js](integration-prebid-client-side.md) |
-| Prebid.js client-server implementation (7.53.0 or later) | [UID2 Client-Server Integration Guide for Prebid.js](integration-prebid-client-server.md) |
-| SDK for JavaScript, client-side implementation | [Client-Side Integration Guide for JavaScript](integration-javascript-client-side.md) |
-| SDK for JavaScript, client-server implementation | [Client-Server Integration Guide for JavaScript](integration-javascript-client-server.md) |
-| SDK for Java | - [Publisher Integration Guide, Server-Side](integration-publisher-server-side.md)<br/>- [SDK for Java](../sdks/sdk-ref-java.md) |
-| SDK for Python | - [Publisher Integration Guide, Server-Side](integration-publisher-server-side.md)<br/>- [SDK for Python](../sdks/sdk-ref-python.md)  |
-| Direct integration (API endpoints) | [Publisher Integration Guide, Server-Side](integration-publisher-server-side.md) |
+| Prebid.js client-side implementation (8.21.0 or later) | [Client-side integration guide for Prebid.js](integration-prebid-client-side.md) |
+| Prebid.js client-server implementation (7.53.0 or later) | [Client-server integration guide for Prebid.js](integration-prebid-client-server.md) |
+| SDK for JavaScript, client-side implementation | [Client-side integration guide for JavaScript](integration-javascript-client-side.md) |
+| SDK for JavaScript, client-server implementation | [Client-server integration guide for JavaScript](integration-javascript-client-server.md) |
+| SDK for Java | - [Publisher integration guide, server-side](integration-publisher-server-side.md)<br/>- [SDK for Java](../sdks/sdk-ref-java.md) |
+| SDK for Python | - [Publisher integration guide, server-side](integration-publisher-server-side.md)<br/>- [SDK for Python](../sdks/sdk-ref-python.md)  |
+| Direct integration (API endpoints) | [Publisher integration guide, server-side](integration-publisher-server-side.md) |
 
-## Pass the UID2 Token Into the Bidstream
+## Pass the UID2 token into the bidstream
 
 パブリッシャーは、DII (メールアドレスや電話番号) を UID2 Token に暗号化し、UID2 Token をビッドストリームに送信することで UID2 を使用します。
 
@@ -131,9 +140,9 @@ Server-Side で UID2 Token を生成することには、次のような利点�
 
 | Option | Documentation |
 | :--- | :--- |
-| Prebid.js client-side implementation (8.21.0 or later) | [UID2 Client-Side Integration Guide for Prebid.js](integration-prebid-client-side.md) |
-| Prebid.js client-server implementation (7.53.0 or later) | [UID2 Client-Server Integration Guide for Prebid.js](integration-prebid-client-server.md) |
-| Google Ad Manager Secure Signals| [Google Ad Manager Secure Signals Integration Guide](integration-google-ss.md) |
+| Prebid.js client-side implementation (8.21.0 or later) | [Client-side integration guide for Prebid.js](integration-prebid-client-side.md) |
+| Prebid.js client-server implementation (7.53.0 or later) | [Client-server integration guide for Prebid.js](integration-prebid-client-server.md) |
+| Google Ad Manager Secure Signals| [Google Ad Manager Secure Signals integration guide](integration-google-ss.md) |
 
 :::note
 トークンを生成し、それをリフレッシュし続ける限り、UID2 Token をビッドストリームに渡すために他のオプションを使用することもできます。

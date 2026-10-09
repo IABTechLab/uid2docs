@@ -2,7 +2,6 @@
 title: The UID2 Operator
 description: Information about Public and Private Operators and the differences between them.
 hide_table_of_contents: false
-sidebar_position: 06
 displayed_sidebar: docs
 ---
 
@@ -25,7 +24,7 @@ A UID2 Operator is an organization that runs the Operator Service. Operators per
 - Encrypt raw UID2s to generate UID2 tokens.
 - Distribute UID2 token decryption keys to server-side SDKs (see [SDKs: Summary](../sdks/summary-sdks.md)).
 - Download the latest user opt-out information from the UID2 <a href="glossary-uid#gl-opt-out-service">Opt-Out Service</a>.
-- Support a number of UID2 endpoints. For details, see [UID2 Endpoints: Summary](../endpoints/summary-endpoints.md).
+- Support a number of UID2 endpoints. For details, see [Endpoints: Summary](../endpoints/summary-endpoints.md).
 
 UID2 Operators fall into two categories:
 
@@ -48,7 +47,7 @@ When you use a Public Operator, there is no additional work for you to do to hos
 
 There is no cost, to the participant, for using a Public Operator.
 
-The participant must sign a contract (see [Account Setup](../getting-started/gs-account-setup.md)) to get the applicable credentials (see [UID2 Credentials](../getting-started/gs-credentials.md)) to use the UID2 APIs hosted on the Public Operator.
+The participant must sign a contract (see [Account setup](../getting-started/gs-account-setup.md)) to get the applicable credentials (see [UID2 credentials](../getting-started/gs-credentials.md)) to use the UID2 APIs hosted on the Public Operator.
 
 :::note
 With a Public Operator, data leaves the participant's infrastructure and is sent to the Operator. Rigorous security measures are in place to help protect the data within the Public Operator.
@@ -60,7 +59,7 @@ A Private Operator is a private instance of the UID2 Operator. This means that a
 
 Any participant can also choose to become a Private Operator to generate and manage their UID2s. However, becoming a Private Operator includes several additional steps, and uses resources that the participant must provide.
 
-For details, see [UID2 Private Operator Integration Overview](../guides/integration-options-private-operator.md).
+For details, see [Private Operator integration overview](../guides/integration-options-private-operator.md).
 
 ## Summary
 

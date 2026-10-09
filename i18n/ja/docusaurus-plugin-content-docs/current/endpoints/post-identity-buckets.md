@@ -2,7 +2,6 @@
 title: POST /identity/buckets
 description: ソルトバケットのローテーションをモニター。
 hide_table_of_contents: false
-sidebar_position: 07
 displayed_sidebar: docs
 ---
 
@@ -12,35 +11,35 @@ import Link from '@docusaurus/Link';
 
 <Link href="../ref-info/glossary-uid#gl-salt-bucket">ソルトバケット</Link> のローテーションをモニターします。
 
-Used by: このエンドポイントは、主に広告主とデータプロバイダーによって使用されます。詳細は [Advertiser/Data Provider Integration Overview](../guides/integration-advertiser-dataprovider-overview.md) を参照してください。
+Used by: このエンドポイントは、主に広告主とデータプロバイダーによって使用されます。詳細は [Advertiser/data provider integration overview](../guides/integration-advertiser-dataprovider-overview.md) を参照してください。
 
 :::important
 最新バージョン (v3) の `POST /v3/identity/map` を使用している場合は、`POST /identity/buckets` を使用する必要はありません。以前のバージョン (v2) の `POST /v2/identity/map` を使用している場合にのみ必要です。
 
-v2 バージョンを使用している場合は、改善点を活用するためにできるだけ早くアップグレードすることをお勧めします。移行ガイダンスは、[Migration from v2 Identity Map](post-identity-map.md#migration-from-v2-identity-map) を参照してください。
+v2 バージョンを使用している場合は、改善点を活用するためにできるだけ早くアップグレードすることをお勧めします。移行ガイダンスは、[Migration from POST /v2/identity/map](post-identity-map.md#migration-from-post-v2identitymap) を参照してください。
 :::
 
-## Request Format
+## Request format
 
 `POST '{environment}/v2/identity/buckets'`
 
-認証の詳細は、 [Authentication and Authorization](../getting-started/gs-auth.md) を参照してください。
+認証の詳細は、 [Authentication and authorization](../getting-started/gs-auth.md) を参照してください。
 
 :::important
-すべてのリクエストを秘密鍵で暗号化する必要があります。詳細といくつかのプログラミング言語でのコードの例は、[Encrypting Requests and Decrypting Responses](../getting-started/gs-encryption-decryption.md) を参照してください。
+すべてのリクエストを秘密鍵で暗号化する必要があります。詳細といくつかのプログラミング言語でのコードの例は、[Encrypting requests and decrypting responses](../getting-started/gs-encryption-decryption.md) を参照してください。
 :::
 
-### Path Parameters
+### Path parameters
 
 | Path Parameter | Data Type | Attribute | Description |
 | :--- | :--- | :--- | :--- |
 | `{environment}` | string | 必須 | テスト (インテグレーション) 環境: `https://operator-integ.uidapi.com`<br/>本番環境: `https://prod.uidapi.com`<br/>リージョンごとのオペレーターを含む全リストは [Environments](../getting-started/gs-environments.md) を参照してください。 |
 
 :::note
-インテグレーション環境と本番環境では、異なる <Link href="../ref-info/glossary-uid#gl-api-key">API Key</Link> が必要です。各環境の認証情報を取得する方法は、[Getting Your Credentials](../getting-started/gs-credentials.md#getting-your-credentials) を参照してください。
+インテグレーション環境と本番環境では、異なる <Link href="../ref-info/glossary-uid#gl-api-key">API Key</Link> が必要です。各環境の認証情報を取得する方法は、[Getting your credentials](../getting-started/gs-credentials.md#getting-your-credentials) を参照してください。
 :::
 
-### Unencrypted JSON Body Parameters
+### Unencrypted JSON body parameters
 
 :::important
 暗号化する際には、リクエストの JSON ボディに以下のパラメータを key-value ペアとして含める必要があります。
@@ -50,7 +49,7 @@ v2 バージョンを使用している場合は、改善点を活用するた�
 | :--- | :--- | :--- | :--- | :--- |
 | `since_timestamp` | date-time or integer | 必須 | バケットの最終更新 UTC タイムスタンプを比較する日時を指定します。 | ISO 8601 形式:<br/>`YYYY-MM-DDThh:mm:ss` |
 
-### Request Examples
+### Request examples
 
 以下は、暗号化されていない JSON リクエストボディの例で、ID バケットのローテーションリクエストに含める必要があります:
 
@@ -65,9 +64,9 @@ v2 バージョンを使用している場合は、改善点を活用するた�
 echo '{"since_timestamp": "2023-04-19T13:00:00"}' | python3 uid2_request.py https://prod.uidapi.com/v2/identity/buckets [Your-Client-API-Key] [Your-Client-Secret]
 ```
 
-詳細といくつかのプログラミング言語でのコードの例は、[Encrypting Requests and Decrypting Responses](../getting-started/gs-encryption-decryption.md) を参照してください。
+詳細といくつかのプログラミング言語でのコードの例は、[Encrypting requests and decrypting responses](../getting-started/gs-encryption-decryption.md) を参照してください。
 
-## Decrypted JSON Response Format
+## Decrypted JSON response format
 
 :::note
 レスポンスは、HTTP ステータスコードが 200 の場合のみ暗号化されます。それ以外の場合、レスポンスは暗号化されません。
@@ -94,7 +93,7 @@ echo '{"since_timestamp": "2023-04-19T13:00:00"}' | python3 uid2_request.py http
   "status": "success"
 }
 ```
-### Response Body Properties
+### Response body properties
 
 レスポンスボディには、次の表に示すプロパティが含まれます。
 
@@ -103,7 +102,7 @@ echo '{"since_timestamp": "2023-04-19T13:00:00"}' | python3 uid2_request.py http
 | `bucket_id` | string | ソルトバケット ID です。 |
 | `last_updated` | date-time | ソルトバケットが最後にローテーションされた UTC タイムスタンプです。 |
 
-### Response Status Codes
+### Response status codes
 
 次の表は、`status` プロパティの値と、それに対応する HTTP ステータスコードの一覧です。
 

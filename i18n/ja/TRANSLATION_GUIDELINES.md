@@ -1,4 +1,4 @@
-# 翻訳ガイドライン (Translation Guidelines)
+# 翻訳ガイドライン (translation guidelines)
 
 This document outlines the rules for style, tone, and terminology unification for translating UID2 documentation into Japanese.
 このドキュメントは、UID2 ドキュメントの日本語翻訳における、スタイル、トーン、用語の統一ルールをまとめたものです。
@@ -19,7 +19,10 @@ This document outlines the rules for style, tone, and terminology unification fo
     *   **理由 1 (参照性)**: 技術用語や固有名詞が多く、英語のままの方が参照しやすいこと、また既存ドキュメントとの統一性を保つため。
     *   **理由 2 (リンク維持)**: 見出しが他のドキュメントからのリンク（アンカー）のターゲットになっている場合、見出しを翻訳すると自動生成されるアンカー ID が変化し、リンク切れの原因となります。 Docusaurus の仕様上、明示的なアンカー ID (`{#...}`) を付与してもリンク切れが発生するケースがあるため、見出しテキスト自体を英語のまま維持することを強く推奨します。
     *   **例外**: FAQ の質問文など、翻訳しなければ意味が通じにくい箇所については翻訳を検討しますが、その場合もリンク切れのリスクを考慮してください。
-    *   例: `## Benefits of UID2 for Publishers` (「パブリッシャーにとっての UID2 のメリット」とはしない)
+*   **英語見出しは sentence case** を使用します（最初の単語と固有名詞のみ大文字、それ以外は小文字）。
+    *   例: `## Benefits of UID2 for publishers` (「パブリッシャーにとっての UID2 のメリット」とはしない。`Publishers` は固有名詞でないため小文字)
+    *   例: `## Getting started`（title case の `Getting Started` としない）
+    *   固有名詞（UID2, Private Operator, DSP, SDK 等）は sentence case でも常に大文字を維持します。
 
 ## 3. 固有名詞・専門用語の扱い
 
@@ -75,6 +78,11 @@ This document outlines the rules for style, tone, and terminology unification fo
     *   例: `DII (Directly Identifying Information)` — DII は英語略語のため、展開形も英語。
     *   例: `DSP (デマンドサイドプラットフォーム)` — 用語集の定義に従いカッコ内は日本語。
 
+*   **英語のままのリンクテキストも sentence case** に従います。
+    *   例: `[Getting started](...)` （`[Getting Started]` としない）
+    *   例: `[Advertiser/data provider integration overview](...)` （`[Advertiser/Data Provider Integration Overview]` としない）
+    *   固有名詞・製品名はリンクテキスト内でも大文字を維持します（例: `[UID2 token]`、`[Private Operator]`）。
+
 *   **結果として**: 同じページ内でリンクテキストが英語のものと日本語のものが混在することがあります。これは不整合ではなく、各用語が用語集の定義に従った結果です。
 
 ## 5. 箇条書き
@@ -103,6 +111,6 @@ This document outlines the rules for style, tone, and terminology unification fo
 
 *   **相対パスの使用**: サイト内の別ドキュメントへのリンクは、可能な限り相対パスを使用してください。
     *   絶対パス (例: `/docs/intro`) を使用すると、言語を切り替えた際（日本語版閲覧時など）に、常にデフォルト言語（英語）のページに遷移してしまう問題が発生するためです。
-    *   例: `[Getting Started](getting-started/gs-account-setup.md)`
+    *   例: `[Getting started](getting-started/gs-account-setup.md)`
 
 詳細は、別途 `TRANSLATION_GLOSSARY.md` を参照してください。

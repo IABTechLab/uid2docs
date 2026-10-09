@@ -2,26 +2,25 @@
 title: FAQs
 description: UID2 の実装に関するよくある質問。
 hide_table_of_contents: false
-sidebar_position: 20
 displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';
 import SnptExampleTokenInBidstream from '../snippets/_snpt-example-token-in-bidstream.mdx';
 
-# Frequently Asked Questions
+# Frequently asked questions
 
 このドキュメントの UID2 に関するよくある質問は、オーディエンスごとにグループ化され、以下の一般的なカテゴリに分類されています:
 
-- [FAQs&#8212;General](#faqsgeneral)
-- [FAQs for Publishers](#faqs-for-publishers)
-- [FAQs for Advertisers and Data Providers](#faqs-for-advertisers-and-data-providers)
+- [FAQs&#8212;general](#faqsgeneral)
+- [FAQs for publishers](#faqs-for-publishers)
+- [FAQs for advertisers and data providers](#faqs-for-advertisers-and-data-providers)
 - [FAQs for DSPs](#faqs-for-dsps)
 
 パブリッシャー向けの以下の追加の FAQ 情報も利用可能です:
-- [FAQs for Mobile Integrations](../guides/integration-mobile-overview.md#faqs-for-mobile-integrations)
+- [FAQs for mobile integrations](../guides/integration-mobile-overview.md#faqs-for-mobile-integrations)
 
-## FAQs&#8212;General
+## FAQs&#8212;general
 
 UID2 フレームワークに関するよくある質問を紹介します。
 
@@ -32,7 +31,7 @@ UID2 フレームワークに関するよくある質問を紹介します。
 - [パブリックオペレーターとプライベートオペレーターのどちらを使用すべきですか？](#should-i-use-a-public-operator-or-a-private-operator)
 
 :::note
-モバイルパブリッシャーインテグレーションに関する FAQs は、[FAQs for Mobile Integrations](../guides/integration-mobile-overview.md#faqs-for-mobile-integrations) を参照してください。
+モバイルパブリッシャーインテグレーションに関する FAQs は、[FAQs for mobile integrations](../guides/integration-mobile-overview.md#faqs-for-mobile-integrations) を参照してください。
 :::
 
 #### Will all integration partners in the EUID infrastructure (SSPs, third-party data providers, measurement providers) be automatically integrated with UID2?
@@ -66,21 +65,21 @@ UID2 は HIPAA で規制されているデータの処理を許可しますか�
 
 1. [The UID2 Operator](../ref-info/ref-operators-public-private.md)
 
-1. [UID2 Private Operator Integration Overview](../guides/integration-options-private-operator.md)
+1. [Private Operator integration overview](../guides/integration-options-private-operator.md)
 
-## FAQs for Publishers
+## FAQs for publishers
 
 UID2 フレームワークを使用するパブリッシャーからのよくある質問です。
 
 - [送信した DII と返されたトークンが一致していることをテストするにはどうすればよいですか？](#how-can-i-test-that-the-dii-sent-and-the-returned-token-match-up)
 - [トークンを復号化する必要がありますか？](#do-i-need-to-decrypt-tokens)
 - [ユーザーのオプトアウトはどのように通知されますか？](#how-will-i-be-notified-of-user-opt-out)
-- [トークン生成の呼び出しは、Server-Side と Client-Side のどちらで行うべきですか？](#where-should-i-make-token-generation-callsfrom-the-server-side-or-the-client-side)
-- [Client-Side からトークンのリフレッシュを呼び出すことはできますか？](#can-i-make-token-refresh-calls-from-the-client-side)
+- [トークン生成の呼び出しは、server-side と client-side のどちらで行うべきですか？](#where-should-i-make-token-generation-callsfrom-the-server-side-or-the-client-side)
+- [Client-side からトークンのリフレッシュを呼び出すことはできますか？](#can-i-make-token-refresh-calls-from-the-client-side)
 - [トークンを手動でリフレッシュする場合、リフレッシュのタイミングをどう判断すればよいですか？](#if-i-choose-to-manually-refresh-the-token-how-will-i-know-when-to-refresh-the-token)
-- [Refresh Token のワークフローをテストするにはどうすればよいですか？](#how-can-i-test-the-refresh-token-workflow)
-- [UID2 Token の一意性とローテーションポリシーは何ですか？](#what-is-the-uniqueness-and-rotation-policy-for-uid2-tokens)
-- [UID2 Token は、ビッドストリームではどのように見えますか？](#what-does-a-uid2-token-look-like-in-the-bidstream)
+- [Refresh token のワークフローをテストするにはどうすればよいですか？](#how-can-i-test-the-refresh-token-workflow)
+- [UID2 token の一意性とローテーションポリシーは何ですか？](#what-is-the-uniqueness-and-rotation-policy-for-uid2-tokens)
+- [UID2 token は、ビッドストリームではどのように見えますか？](#what-does-a-uid2-token-look-like-in-the-bidstream)
 - [UID2 をシングルサインオン (SSO) とインテグレーションすることはできますか？](#can-i-integrate-uid2-with-single-sign-on-sso)
 - [Prebid をモバイル SDK と一緒に使用しています&#8212;atype 値は何を使用すればよいですか？](#im-using-prebid-with-a-mobile-sdkwhat-atype-value-should-i-use)
 
@@ -89,7 +88,7 @@ UID2 フレームワークを使用するパブリッシャーからのよくあ
 
 [POST&nbsp;/token/validate](../endpoints/post-token-validate.md) エンドポイントを使用して、[POST&nbsp;/token/generate](../endpoints/post-token-generate.md) で送信している <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> が有効かどうかをチェックできます。`POST /token/validate` は主にテスト目的で使用されます。
 
-詳細は [Using POST&nbsp;/token/validate to Test](../endpoints/post-token-validate.md#using-post-tokenvalidate-to-test) を参照してください。
+詳細は [Using POST&nbsp;/token/validate to test](../endpoints/post-token-validate.md#using-post-tokenvalidate-to-test) を参照してください。
 
 #### Do I need to decrypt tokens?
 トークンを復号化する必要がありますか？
@@ -106,10 +105,10 @@ UID2 フレームワークを使用するパブリッシャーからのよくあ
 #### Where should I make token generation calls&#8212;from the server side or the client side?
 トークン生成の呼び出しは、Server-Side と Client-Side のどちらで行うべきですか？
 
-UID2 Token は、Client-Side、Server-Sideのどちらでも生成できます。詳細は、以下を参照してください:
-- Prebid.js を使用して Client-Side からトークンを生成します: [UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md).
-- Prebid.js を使用して Server-Side からトークンを生成します: [UID2 Client-Server Integration Guide for Prebid.js](../guides/integration-prebid-client-server.md).
-- その他の Server-Side オプション: [Publisher Integrations](../guides/summary-guides.md#publisher-integrations).
+UID2 Token は、Client-Side、Server-Side のどちらでも生成できます。詳細は、以下を参照してください:
+- Prebid.js を使用して Client-Side からトークンを生成します: [Client-side integration guide for Prebid.js](../guides/integration-prebid-client-side.md).
+- Prebid.js を使用して Server-Side からトークンを生成します: [Client-server integration guide for Prebid.js](../guides/integration-prebid-client-server.md).
+- その他の Server-Side オプション: [Publisher integrations](../guides/summary-guides.md#publisher-integrations).
 
 #### Can I make token refresh calls from the client side?
 Client-Side からトークンのリフレッシュを呼び出すことはできますか？
@@ -121,11 +120,11 @@ Client-Side からトークンのリフレッシュを呼び出すことはで�
 
 推奨されるリフレッシュ間隔は 1 時間です。
 
-リフレッシュのタイミングを決定するには、[POST&nbsp;/token/generate](../endpoints/post-token-generate.md) エンドポイントのレスポンスの `refresh_from` フィールドのタイムスタンプを使用します(詳細は [Successful Response](../endpoints/post-token-generate.md#successful-response) を参照)。または、[POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) エンドポイントのレスポンスの `refresh_from` フィールドのタイムスタンプを使用します(詳細は [Successful Response With Tokens](../endpoints/post-token-refresh.md#successful-response-with-tokens) を参照)。
+リフレッシュのタイミングを決定するには、[POST&nbsp;/token/generate](../endpoints/post-token-generate.md) エンドポイントのレスポンスの `refresh_from` フィールドのタイムスタンプを使用します(詳細は [Successful response](../endpoints/post-token-generate.md#successful-response) を参照)。または、[POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) エンドポイントのレスポンスの `refresh_from` フィールドのタイムスタンプを使用します(詳細は [Successful response with tokens](../endpoints/post-token-refresh.md#successful-response-with-tokens) を参照)。
 
 <a href="../ref-info/glossary-uid#gl-token-refresh">Token Refresh</a>が必要かどうかを確認する機能を持つ SDK のいずれかを使用することもできます。
 
-詳細は、[Recommended Token Refresh Frequency](../ref-info/ref-tokens.md#recommended-token-refresh-frequency) および [Managing Token Refresh with an SDK](../ref-info/ref-tokens.md#managing-token-refresh-with-an-sdk) を参照してください。
+詳細は、[Recommended token refresh frequency](../ref-info/ref-tokens.md#recommended-token-refresh-frequency) および [Managing token refresh with an SDK](../ref-info/ref-tokens.md#managing-token-refresh-with-an-sdk) を参照してください。
 
 #### How can I test the refresh token workflow?
 Refresh Token のワークフローをテストするにはどうすればよいですか？
@@ -133,10 +132,10 @@ Refresh Token のワークフローをテストするにはどうすればよい
 `refresh-optout@example.com` のメールアドレスまたは `+00000000002` の電話番号を使用して、トークンリフレッシュのワークフローをテストすることができます。どちらかのパラメータ値をリクエストに使用すると、常に `refresh_token` を含む identity レスポンスが生成され、ログアウトレスポンスが返されます。
 
 :::tip
-メールアドレスの正規化、ハッシュ化、Base64 エンコードされたハッシュ値、または、電話番号のハッシュ化、Base64 エンコードされたハッシュ値を取得するには、ハッシングツールを使用できます。詳細は、[UID2 Hashing Tool](gs-normalization-encoding.md#uid2-hashing-tool) を参照してください。
+メールアドレスの正規化、ハッシュ化、Base64 エンコードされたハッシュ値、または、電話番号のハッシュ化、Base64 エンコードされたハッシュ値を取得するには、ハッシングツールを使用できます。詳細は、[UID2 hashing tool](gs-normalization-encoding.md#uid2-hashing-tool) を参照してください。
 :::
 
-SDKを使うかどうかで手順は少し異なります。
+SDK を使うかどうかで手順は少し異なります。
 
 ##### With SDK:
 
@@ -171,13 +170,13 @@ UID2 実装のアプローチにはさまざまな方法があります。以下
 
 <SnptExampleTokenInBidstream />
 
-#### Can I integrate UID2 with Single Sign-On (SSO)?
+#### Can I integrate UID2 with single sign-on (SSO)?
 UID2 をシングルサインオン (SSO) とインテグレーションすることはできますか？
 
 はい。Google、Facebook ログイン、Apple ログイン、または OpenPass などの人気のある SSO インテグレーションオプションを使用すると、メールアドレスを取得して UID2 を生成できます。
-詳細は、[Publisher Integration with SSO Providers](../ref-info/ref-integration-sso-providers.md) を参照してください。
+詳細は、[Publisher integration with SSO providers](../ref-info/ref-integration-sso-providers.md) を参照してください。
 
-#### I'm using Prebid with a Mobile SDK&#8212;what atype value should I use?
+#### I'm using Prebid with a mobile SDK&#8212;what atype value should I use?
 Prebid をモバイル SDK と一緒に使用しています&#8212;atype 値は何を使用すればよいですか？
 
 IAB のドキュメントによると、`atype` (Agent Type) 値は、マッチがどのタイプのユーザーエージェントからのものであるかを示します。IAB はこのプロパティを定義することを推奨しています。
@@ -188,7 +187,7 @@ Prebid を [SDK for Android](../sdks/sdk-ref-android.md) または [SDK for iOS]
 - [Object: Extended Identifier UIDs](https://github.com/InteractiveAdvertisingBureau/AdCOM/blob/main/AdCOM%20v1.0%20FINAL.md#object_eid_uids)
 - [List: Agent Types](https://github.com/InteractiveAdvertisingBureau/AdCOM/blob/main/AdCOM%20v1.0%20FINAL.md#list_agenttypes)
 
-## FAQs for Advertisers and Data Providers
+## FAQs for advertisers and data providers
 
 UID2 フレームワークを使用する広告主やデータプロバイダーによくある質問を紹介します。
 
@@ -198,7 +197,7 @@ UID2 フレームワークを使用する広告主やデータプロバイダー
 - [メールアドレス、電話番号、または対応するハッシュと raw UID2 のマッピングを、自身のデータセットに保存すべきでしょうか？](#should-i-store-mapping-of-email-addresses-phone-numbers-or-corresponding-hashes-to-raw-uid2s-in-my-own-datasets)
 - [ユーザーのオプトアウトはどのように処理すればよいですか？](#how-should-i-handle-user-opt-outs)
 - [同じ DII は常に同じ raw UID2 になりますか？](#does-the-same-dii-always-result-in-the-same-raw-uid2)
-- [2 つの Operator が同じ DII を処理した場合、結果は同じになりますか？](#if-two-operators-process-the-same-dii-are-the-results-the-same)
+- [2 つの operator が同じ DII を処理した場合、結果は同じになりますか？](#if-two-operators-process-the-same-dii-are-the-results-the-same)
 - [ソルトバケットのローテーションによって UID2 をリフレッシュするタイミングを知るには？](#how-do-i-know-when-to-refresh-the-uid2-due-to-salt-bucket-rotation)
 - [更新されたメールアドレスは、以前関連付けられていたバケットと同じバケットに割り当てられますか？](#do-refreshed-emails-get-assigned-to-the-same-bucket-that-they-were-previously-associated-with)
 
@@ -221,9 +220,9 @@ raw UID2 は、リフレッシュタイムスタンプの前では変化しま�
 
 インクリメンタルアップデートの場合、オーディエンスの更新は毎日行うことを推奨します。
 
-特定のユーザーの raw UID2 は、およそ年に 1 回変化します。[POST /identity/map](../endpoints/post-identity-map.md) エンドポイントの最新バージョンでは、各 raw UID2 がリフレッシュされる可能性のある時点を示すリフレッシュタイムスタンプが提供されます。オーディエンスターゲティングのために raw UID2 を最新かつ有効な状態に保つために、これらのタイムスタンプを毎日確認することを推奨します。
+特定のユーザーの raw UID2 は、およそ年に 1 回変化します。[POST&nbsp;/identity/map](../endpoints/post-identity-map.md) エンドポイントの最新バージョンでは、各 raw UID2 がリフレッシュされる可能性のある時点を示すリフレッシュタイムスタンプが提供されます。オーディエンスターゲティングのために raw UID2 を最新かつ有効な状態に保つために、これらのタイムスタンプを毎日確認することを推奨します。
 
-このエンドポイントの以前のバージョン ([POST /identity/map (v2)](../endpoints/post-identity-map-v2.md)) を参照する実装の場合:
+このエンドポイントの以前のバージョン ([POST /v2/identity/map](../endpoints/post-identity-map-v2.md)) を参照する実装の場合:
 
 各 <Link href="../ref-info/glossary-uid#gl-salt-bucket">ソルトバケット</Link> はおよそ年に 1 回更新されますが、個々のバケットの更新は年間を通じて分散されています。つまり、全バケットの約 1/365 が毎日ローテーションされます。忠実度が重要な場合は、[POST /identity/buckets](../endpoints/post-identity-buckets.md) エンドポイントをより頻繁に（例：1 時間ごと）呼び出すことを検討してください。
 
@@ -236,10 +235,6 @@ raw UID2 は、リフレッシュタイムスタンプの前では変化しま�
 メールアドレス、電話番号、または対応するハッシュと raw UID2 のマッピングを、自身のデータセットに保存すべきでしょうか？
 
 はい。何百万ものメールアドレスや電話番号をマッピングする必要がある場合、マッピングを保存しないことで処理時間が大幅に増加する可能性があります。しかし、実際に更新が必要なマッピングだけを再計算すると、毎日更新する必要があるのは UID2 の約 365 分の 1 なので、総処理時間が短縮されます。
-
-:::important
-<Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link> を使用していない場合は、単一の HTTP 接続を使用して、バッチあたり最大 5,000 アイテムのバッチサイズで、メールアドレス、電話番号、またはハッシュを連続してマッピングする必要があります。つまり、複数の並行接続を作成せずにマッピングを行ってください。
-:::
 
 #### How should I handle user opt-outs?
 ユーザーのオプトアウトはどのように処理すればよいですか？
@@ -257,7 +252,7 @@ raw UID2 は、リフレッシュタイムスタンプの前では変化しま�
 
 ただし、raw UID2 の生成に使用される秘密の [ソルト](../ref-info/glossary-uid.md#gl-salt) 値という可変要素があります。ソルト値は定期的にローテーションされます(詳細は [How often should raw UID2s be refreshed for incremental updates?](#how-often-should-raw-uid2s-be-refreshed-for-incremental-updates)) を参照)。あるリクエストと別のリクエストの間でソルト値が変化する場合、DII が同じであっても、これら 2 つのリクエストは 2 つの異なる raw UID2 になります。
 
-詳細は、*Advertiser/Data Provider Integration Guide*の [Monitor for Raw UID2 Refresh](../guides/integration-advertiser-dataprovider-overview.md#5-monitor-for-raw-uid2-refresh)  を参照してください。
+詳細は、*Advertiser/data provider integration guide*の [Monitor for raw UID2 refresh](../guides/integration-advertiser-dataprovider-overview.md#5-monitor-for-raw-uid2-refresh)  を参照してください。
 
 #### If two operators process the same DII, are the results the same?
 2 つの Operator が同じ DII を処理した場合、結果は同じになりますか？
@@ -303,7 +298,7 @@ demand-side platform (DSP) に関するよくある質問を紹介します。
 - [DSP は、すでに保存している UID2 についてのみオプトアウトシグナルを処理することを期待されているのか？](#is-the-dsp-expected-to-handle-opt-out-signals-only-for-the-uid2s-that-they-already-store)
 - [DSP はオプトアウトリストをどれくらいの期間保管すべきですか？](#how-long-should-the-dsp-keep-the-opt-out-list)
 - [オプトアウトされたユーザーの UID2 は、暗号化された形式でオプトアウトエンドポイントに送信されますか？](#is-the-uid2-of-an-opted-out-user-sent-to-the-opt-out-endpoint-in-an-encrypted-form)
-- [オプトアウトされたユーザーの UID2 は、どのような形式で Webhook に送信されますか？](#in-what-format-is-the-uid2-of-an-opted-out-user-sent-to-the-webhook)
+- [オプトアウトされたユーザーの UID2 は、どのような形式で webhook に送信されますか？](#in-what-format-is-the-uid2-of-an-opted-out-user-sent-to-the-webhook)
 - [オプトアウトはどのリクエストタイプを使いますか？](#what-request-type-do-opt-outs-use)
 - [オプトアウトに応じるための条件はどの程度厳しいのですか？](#how-strict-are-the-requirements-for-honoring-opt-outs)
 - [ユーザーがオプトアウトしたかどうかを確認するにはどうすればよいですか？](#how-can-i-check-if-a-user-has-opted-out)
@@ -327,7 +322,7 @@ Server-Side SDK のいずれか([SDK](../sdks/summary-sdks.md) を参照) を使
 #### How do I know when to refresh mapped raw UID2s?
 マップされた raw UID2 を更新するタイミングを知るには？
 
-[Advertisers and Data Providers](gs-faqs.md#faqs-for-advertisers-and-data-providers) の FAQ の [raw UID2 をリフレッシュするタイミングはどのように判断すればよいですか？](#how-do-i-know-when-to-refresh-a-raw-uid2) を参照してください。
+[Advertisers and data providers](gs-faqs.md#faqs-for-advertisers-and-data-providers) の FAQ の [raw UID2 をリフレッシュするタイミングはどのように判断すればよいですか？](#how-do-i-know-when-to-refresh-a-raw-uid2) を参照してください。
 
 #### How do I know if/when the raw UID2 has rotated?
 raw UID2 がローテーションしたか、またローテーション時期を確認するには？
@@ -352,7 +347,7 @@ UID2 は、クッキーと同じように古くなる可能性があります。
 #### Is the DSP expected to handle opt-out signals only for the UID2s that they already store?
 DSP は、すでに保存している UID2 についてのみオプトアウトシグナルを処理することを期待されているのか？
 
-場合によっては、DSP は、オプトアウトタイムスタンプ以前に生成された、新たに保管された UID2 に対する UID2 Token を受け取ることがあります。DSP はこのようなトークンに入札することはできません。したがって、対応する UID2 が現在 DSP によって保存されているかどうかにかかわらず、すべてのオプトアウトシグナルを保存することが推奨されます。詳細は [Bidding Opt-Out Logic](../guides/dsp-guide.md#bidding-opt-out-logic) の図を参照してください。
+場合によっては、DSP は、オプトアウトタイムスタンプ以前に生成された、新たに保管された UID2 に対する UID2 Token を受け取ることがあります。DSP はこのようなトークンに入札することはできません。したがって、対応する UID2 が現在 DSP によって保存されているかどうかにかかわらず、すべてのオプトアウトシグナルを保存することが推奨されます。詳細は [Bidding opt-out logic](../guides/dsp-guide.md#bidding-opt-out-logic) の図を参照してください。
 
 #### How long should the DSP keep the opt-out list?
 DSP はオプトアウトリストをどれくらいの期間保管すべきですか？
@@ -369,7 +364,7 @@ DSP はオプトアウトリストをどれくらいの期間保管すべきで�
 
 ユーザーがオプトアウトした場合、UID2 Operator は raw UID2 を URL エンコードされたクエリパラメータとして返します。
 
-DSP のオプトアウトプロセスの詳細は [Honor User Opt-Outs](../guides/dsp-guide.md#honor-user-opt-outs) を参照してください。
+DSP のオプトアウトプロセスの詳細は [Honor user opt-outs](../guides/dsp-guide.md#honor-user-opt-outs) を参照してください。
 
 #### What request type do opt-outs use? 
 オプトアウトはどのリクエストタイプを使いますか？

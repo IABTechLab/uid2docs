@@ -1,17 +1,16 @@
 ---
-title: Client-Side Integration
+title: Client-side integration
 description: Client-Side インテグレーションに必要な情報の設定と管理。
 hide_table_of_contents: false
-sidebar_position: 09
 displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';
 
-# Client-Side Integration
+# Client-side integration
 
 :::note
-これらの手順は Client-Side の実装向けです。UID2 の実装が Client-Server または Server-Side である場合は、異なる値を設定する必要があります。詳細は、[API Keys](api-keys.md) を参照してください。
+これらの手順は Client-Side の実装向けです。UID2 の実装が Client-Server または Server-Side である場合は、異なる値を設定する必要があります。詳細は、[API keys](api-keys.md) を参照してください。
 :::
 
 UID2 Portal では、Client-Side でトークンを生成する実装オプションを使用する場合、実装タイプに該当する以下の値を定義する必要があります:
@@ -19,33 +18,33 @@ UID2 Portal では、Client-Side でトークンを生成する実装オプシ�
 | Value | Implementation Type | Details | Documentation Link |
 | :--- | :--- | :---| :---|
 | Key pair | すべて (Web または Mobile) | 少なくとも 1 つ。実装では、公開鍵を共有します。 | [Subscription ID と公開鍵](../getting-started/gs-credentials.md#subscription-id-and-public-key) |
-| Domain | Web | 少なくとも 1 つ。提供する必要があるのは、ルートレベルドメインの完全なリストです。 | [Client-Side Web Integrations](../getting-started/gs-account-setup.md#client-side-web-integrations) |
-| Mobile App ID | Mobile | Android App ID、iOS/tvOS Bundle ID、iOS App Store ID など、モバイルアプリに適用される ID。 | [Client-Side Mobile Integrations](../getting-started/gs-account-setup.md#client-side-mobile-integrations) |
+| Domain | Web | 少なくとも 1 つ。提供する必要があるのは、ルートレベルドメインの完全なリストです。 | [Client-side web integrations](../getting-started/gs-account-setup.md#client-side-web-integrations) |
+| Mobile App ID | Mobile | Android App ID、iOS/tvOS Bundle ID、iOS App Store ID など、モバイルアプリに適用される ID。 | [Client-side mobile integrations](../getting-started/gs-account-setup.md#client-side-mobile-integrations) |
 
 :::important
 サイトのルートレベルドメインとモバイルアプリ ID の完全なリストを提供することが重要です。これは Client-Side の実装にのみ関連するセキュリティ対策です。UID2 Portal で定義されていないドメインやアプリからの UID2 Token リクエストは失敗します。
 :::
 
 Client-Side インテグレーションページでは、これらの値を設定および管理するためのすべてのアクティビティを実行できます。次の内容が含まれます:
-- [Adding and Managing Key Pairs](#adding-and-managing-key-pairs)
-- [Adding and Managing Root-Level Domains](#adding-and-managing-root-level-domains)
-- [Adding and Managing Mobile App IDs](#adding-and-managing-mobile-app-ids)
+- [Adding and managing key pairs](#adding-and-managing-key-pairs)
+- [Adding and managing root-level domains](#adding-and-managing-root-level-domains)
+- [Adding and managing mobile app IDs](#adding-and-managing-mobile-app-ids)
 
 :::note
 Client-Side インテグレーションページに移動すると、少なくとも 1 つのキーペアと、少なくとも 1 つのルートレベルドメインまたはモバイルアプリ ID を作成していない場合、不足している構成項目を提供するよう促されます。
 :::
 
-## Client-Side Implementation Options
+## Client-side implementation options
 
 Client-Side の実装オプションは、次の表に示すとおりです。利用可能なオプションは、役割によって異なります。
 
 | Client-Side Implementation Option | Available For (Role) | Documentation Link |
 | :--- | :--- | :--- |
-| UID2 JavaScript SDK | パブリッシャー、広告主 | [Client-Side Integration Guide for JavaScript](../guides/integration-javascript-client-side.md) |
-| Prebid.js client-side integration | パブリッシャーのみ |[UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md) |
-| UID2 Mobile SDK | パブリッシャーのみ |[UID2 Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side.md) |
+| UID2 JavaScript SDK | パブリッシャー、広告主 | [Client-side integration guide for JavaScript](../guides/integration-javascript-client-side.md) |
+| Prebid.js client-side integration | パブリッシャーのみ |[Client-side integration guide for Prebid.js](../guides/integration-prebid-client-side.md) |
+| UID2 Mobile SDK | パブリッシャーのみ |[Client-side integration guide for mobile](../guides/integration-mobile-client-side.md) |
 
-## Adding and Managing Key Pairs
+## Adding and managing key pairs
 
 :::note
 このキーペアによって UID2 Service に識別されますが、その値は秘密ではありません。このキーペアは安全に保管する必要はなく、共有することも可能です。これは Client-Side での実装での使用を目的としているためです。
@@ -53,16 +52,16 @@ Client-Side の実装オプションは、次の表に示すとおりです。�
 
 Client-Side インテグレーションページでは、キーペアを設定および管理するための次のアクティビティを実行できます:
 
-- [Adding a Key Pair](#adding-a-key-pair)
-- [Copying or Viewing a Public Key](#copying-or-viewing-a-public-key)
-- [Changing the Name of a Key Pair](#changing-the-name-of-a-key-pair)
-- [Deleting a Key Pair](#deleting-a-key-pair)
+- [Adding a key pair](#adding-a-key-pair)
+- [Copying or viewing a public key](#copying-or-viewing-a-public-key)
+- [Changing the name of a key pair](#changing-the-name-of-a-key-pair)
+- [Deleting a key pair](#deleting-a-key-pair)
 
 :::important
 キーペアを作成する際には、ルートレベルのドメイン名またはモバイルアプリ ID を追加する必要があります。順序は問いません。キーペアを最初に作成しても問題ありませんが、Client-Side のインテグレーションを構成するには、両方の手順を完了する必要があります。
 :::
 
-### Adding a Key Pair
+### Adding a key pair
 
 キーペアを追加するには、次の手順を実行します:
 
@@ -72,9 +71,9 @@ Client-Side インテグレーションページでは、キーペアを設定�
 
    キーペアは自動的に生成されます。**Client-Side Integration** ページで、新しいキーペアが名前、Subscription ID、Public Key、作成日付とともに表示されます。次の例を参照してください。
 
-   ![Client-Side Integration page, Key Pairs](images/portal-client-side-integration-key-pairs.png)
+   ![Client-side integration page, key pairs](images/portal-client-side-integration-key-pairs.png)
 
-### Copying or Viewing a Public Key
+### Copying or viewing a public key
 
 Client-Side インテグレーションページでキーペアを作成すると、公開鍵を共有できます。UID2 Service は、メッセージを認証するために、対応する秘密鍵と他の値を使用します。
 
@@ -83,12 +82,12 @@ Public Key を表示またはコピーするには、次の手順を実行しま
 1. UID2 Portal で、**Client-Side Integration** ページに移動します。
 1. リストでキーペアを見つけ、次のいずれかを実行します:
 
-   - **Public Key** 列の ![View Public Key icon](images/icon-eye-solid.png) (View Public Key アイコン) をクリックして、ポップアップでキーを表示します。
+   - **Public Key** 列の ![View public key icon](images/icon-eye-solid.png) (View Public Key アイコン) をクリックして、ポップアップでキーを表示します。
    - **Public Key** 列の ![Copy icon](images/icon-copy-solid.png) (Copy Public Key to Clipboard アイコン) をクリックします。
 
      公開鍵を安全な場所に保存します。
 
-### Changing the Name of a Key Pair
+### Changing the name of a key pair
 
 キーペアを作成した後は、名前のみを変更できます。値を変更するには、新しいキーペアを作成する必要があります。
 
@@ -99,7 +98,7 @@ Public Key を表示またはコピーするには、次の手順を実行しま
 1. **Actions** 列で ![the Edit icon](images/icon-pencil-solid.png) (Edit アイコン) をクリックします。
 1. 名前を更新し、**Save Key Pair** をクリックします。
 
-### Deleting a Key Pair
+### Deleting a key pair
 
 キーペアを削除するには、次の手順を実行します:
 
@@ -110,16 +109,16 @@ Public Key を表示またはコピーするには、次の手順を実行しま
    キーペアはリストから削除され、有効ではなくなります。
 
 
-## Adding and Managing Root-Level Domains
+## Adding and managing root-level domains
 
 Client-Side インテグレーションページでは、次のアクティビティを実行して、ドメインを設定および管理できます:
 
-- [Adding Domains](#adding-domains)
-- [Updating a Domain](#updating-a-domain)
-- [Deleting a Domain](#deleting-a-domain)
-- [Deleting Multiple Domains](#deleting-multiple-domains)
+- [Adding domains](#adding-domains)
+- [Updating a domain](#updating-a-domain)
+- [Deleting a domain](#deleting-a-domain)
+- [Deleting multiple domains](#deleting-multiple-domains)
 
-### Adding Domains
+### Adding domains
 
 ルートレベルのドメイン名の完全なリストを提供することが重要です。UID2 Token リクエストは、UID2 Portal で設定されたドメインからのみ受け付けられます。
 
@@ -140,7 +139,7 @@ Client-Side インテグレーションページでは、次のアクティビ�
    
       **Client-Side Integration** ページが更新されます。
 
-### Updating a Domain
+### Updating a domain
 
 リスト上のドメイン名を更新するには、次の手順を実行します:
 
@@ -149,7 +148,7 @@ Client-Side インテグレーションページでは、次のアクティビ�
 1. Actions 列で ![the Edit icon](images/icon-pencil-solid.png) (Edit アイコン) をクリックします。
 1. 名前を更新し、**Save Domain** をクリックします。
 
-### Deleting a Domain
+### Deleting a domain
 
 ドメインをドメインリストから削除するには、次の手順を実行します:
 
@@ -160,12 +159,12 @@ Client-Side インテグレーションページでは、次のアクティビ�
 
    ドメインはドメインリストから削除されます。
 
-### Deleting Multiple Domains
+### Deleting multiple domains
 
 一度に複数のドメインを削除するには、次の 2 つの方法があります:
 
 - リストから複数の個々の値を選択して、選択したドメインを削除します。
-- 追加する更新されたリストで既存のリストを置き換えます。[Adding Domains](#adding-domains) を参照してください。
+- 追加する更新されたリストで既存のリストを置き換えます。[Adding domains](#adding-domains) を参照してください。
 
 複数のドメインを削除するには:
 
@@ -174,7 +173,7 @@ Client-Side インテグレーションページでは、次のアクティビ�
 
    削除アイコンが表示され、すべてのドメインが削除対象として選択されます。
 
-   ![Domains Multi-Select Checkbox](images/portal-client-side-integration-domains-multiselect.png)
+   ![Domains multi-select checkbox](images/portal-client-side-integration-domains-multiselect.png)
 
 1. 条件付き: いくつかのドメインを保持する場合は、それらのドメインのチェックボックスをクリアします。
 
@@ -184,16 +183,16 @@ Client-Side インテグレーションページでは、次のアクティビ�
 
    ドメインはドメインリストから削除されます。
 
-## Adding and Managing Mobile App IDs
+## Adding and managing mobile app IDs
 
 Client-Side インテグレーションページでは、モバイルアプリ ID を設定および管理するための次のアクティビティを実行できます:
 
-- [Adding Mobile App IDs](#adding-mobile-app-ids)
-- [Updating a Mobile App ID](#updating-a-mobile-app-id)
-- [Deleting a Mobile App ID](#deleting-a-mobile-app-id)
-- [Deleting Multiple Mobile App IDs](#deleting-multiple-mobile-app-ids)
+- [Adding mobile app IDs](#adding-mobile-app-ids)
+- [Updating a mobile app ID](#updating-a-mobile-app-id)
+- [Deleting a mobile app ID](#deleting-a-mobile-app-id)
+- [Deleting multiple mobile app IDs](#deleting-multiple-mobile-app-ids)
 
-### Adding Mobile App IDs
+### Adding mobile app IDs
 
 すべてのモバイルアプリ ID の完全なリストを提供することが重要です。これには、以下が含まれます。
 - Android App ID: 該当するもの。
@@ -216,7 +215,7 @@ UID2 Token リクエストは、UID2 Portal に該当する ID が追加され�
 
    **Client-Side Integration** ページでリストが更新されます。
 
-### Updating a Mobile App ID
+### Updating a mobile app ID
 
 リスト上のモバイルアプリ ID の名前を変更するには、次の手順を実行します:
 
@@ -225,7 +224,7 @@ UID2 Token リクエストは、UID2 Portal に該当する ID が追加され�
 1. Actions 列で ![the Edit icon](images/icon-pencil-solid.png) (Edit アイコン) をクリックします。
 1. 名前を更新し、**Save Mobile App ID** をクリックします。
 
-### Deleting a Mobile App ID
+### Deleting a mobile app ID
 
 リストからモバイルアプリ ID を削除するには、次の手順を実行します:
 
@@ -236,12 +235,12 @@ UID2 Token リクエストは、UID2 Portal に該当する ID が追加され�
 
    エントリはモバイルアプリ ID リストから削除されます。
 
-### Deleting Multiple Mobile App IDs
+### Deleting multiple mobile app IDs
 
 一度に複数のモバイルアプリ ID を削除するには、次の 2 つの方法があります:
 
 - リストから複数の個々の値を選択して、選択したモバイルアプリ ID を削除します。
-- 追加する更新されたリストで既存のリストを置き換えます。[Adding Mobile App IDs](#adding-mobile-app-ids) を参照してください。
+- 追加する更新されたリストで既存のリストを置き換えます。[Adding mobile app IDs](#adding-mobile-app-ids) を参照してください。
 
 複数のモバイルアプリ ID を削除するには:
 
@@ -250,7 +249,7 @@ UID2 Token リクエストは、UID2 Portal に該当する ID が追加され�
 
    削除アイコンが表示され、すべてのモバイルアプリ ID が削除対象として選択されます。
 
-   ![Multi-Select Checkbox](images/portal-client-side-integration-multiselect.png)
+   ![Multi-select checkbox](images/portal-client-side-integration-multiselect.png)
 
 1. 条件付き: いくつかのモバイルアプリ ID を保持する場合は、それらのエントリのチェックボックスをクリアします。
 

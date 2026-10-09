@@ -2,7 +2,6 @@
 title: DSPs
 description: デマンドサイドプラットフォーム (DSP) 向けの情報の概要。
 hide_table_of_contents: false
-sidebar_position: 06
 use_banner: true
 banner_title: DSP 向け UID2 概要
 banner_description: より耐久性のある識別子でデータ戦略を有効化。
@@ -24,7 +23,7 @@ import Link from '@docusaurus/Link';
 UID2 を採用する DSP のためのメリット、ワークフロー、ドキュメント、およびその他のリソースと、開始するための手順について説明します。
 
 :::note
-左側のサイドバーで UID2 ドキュメントの全セットにアクセスしたい場合は、[Unified ID 2.0 Overview](../intro.md) を参照してください。
+左側のサイドバーで UID2 ドキュメントの全セットにアクセスしたい場合は、[Unified ID 2.0 overview](../intro.md) を参照してください。
 :::
 
 ## Benefits of UID2 for DSPs
@@ -56,55 +55,42 @@ UID2 を使用する DSP のメリットの一部を次に示します。以下�
    - UID2 Token を復号して raw UID2 にします。
    - ユーザーがオプトアウトしたかどうかを確認し、オプトアウトした場合は入札を行いません。
    - raw UID2 をオーディエンスセグメントにマッチさせます。 
-4. DSP は UID2 Token を付加したビッドレスポンス (入札レスポンス) をビッドストリームに送信します。
+4. DSP は UID2 Token を付加したビッドレスポンス (ビッドレスポンス) をビッドストリームに送信します。
 
-![Buy-Side Workflow](images/UID2BuySIdeDSPWorkflow.jpg)
+![Buy-side workflow](images/UID2BuySIdeDSPWorkflow.jpg)
 
-## Getting Started
+## Getting started
 
 開始するには、以下の手順に従ってください:
 
-1. [Request Access](/request-access) ページのフォームに記入して、UID2 へのアクセスをリクエストします。
+1. [Request access](/request-access) ページのフォームに記入して、UID2 へのアクセスをリクエストします。
 2. UID2 のオプトアウト情報を受け取るための Webhook を実装し、Webhook を UID2 administrator と共有します。
 3. Webhook 経由でオプトアウトフィードを受信していることを確認します。
 
-    Webhook が設置されたら、認証情報を受け取ります ([UID2 Credentials](../getting-started/gs-credentials.md) を参照)。
+    Webhook が設置されたら、認証情報を受け取ります ([UID2 credentials](../getting-started/gs-credentials.md) を参照)。
 4. どの実装オプションを使用するかを決定します。
 5. SDK を使用している場合は、SDK をダウンロードします。該当する SDK のガイドを参照してください。
 6. 選択したオプションの実装ガイドに記載されている手順に従います。
 
    :::note
-   UID2 へのリクエストメッセージは必ず暗号化してください。詳細は [Encrypting Requests and Decrypting Responses](../getting-started/gs-encryption-decryption.md) を参照してください。
+   UID2 へのリクエストメッセージは必ず暗号化してください。詳細は [Encrypting requests and decrypting responses](../getting-started/gs-encryption-decryption.md) を参照してください。
    :::
-7. (条件付き) CRM オンボーディングソリューションを実装する場合は、データプロバイダーワークフローのための別の認証情報セットをリクエストします。[UID2 Credentials](../getting-started/gs-credentials.md) を参照してください。
+7. (条件付き) CRM オンボーディングソリューションを実装する場合は、データプロバイダーワークフローのための別の認証情報セットをリクエストします。[UID2 credentials](../getting-started/gs-credentials.md) を参照してください。
 8. テストします。
 9. 本番稼働します。
 
-## Implementation Resources
+## Implementation resources
 
 UID2 を実装する DSP 向けに、以下のドキュメントリソースが用意されています。
 
 | Type| Documentation | Content Description |
 | :--- | :--- | :--- |
-|SDK for Java | [SDK for Java Reference Guide](../sdks/sdk-ref-java.md) | Java Server-Side を使用し、UID2 Advertising Token を復号化して raw UID2 にアクセスしたい利用者のための SDK。|
-|SDK for Python | [SDK for Python Reference Guide](../sdks/sdk-ref-python.md) | Python Server-Side を使用し、UID2 Advertising Token を復号化して raw UID2 にアクセスしたい利用者のための SDK。|
-|SDK for C# / .NET | [SDK for C# / .NET Reference Guide](../sdks/sdk-ref-csharp-dotnet.md) | .NET Server-Side を使用し、UID2 Advertising Token を復号化して raw UID2 にアクセスしたい利用者のための SDK。|
-|SDK for C++ | [SDK for C++ Reference Guide](../sdks/sdk-ref-cplusplus.md) | C++ Server-Side を使用し、UID2 Advertising Token を復号化して raw UID2 にアクセスしたい利用者のための SDK。|
-| Integration Guide | [DSP Integration Guide](../guides/dsp-guide.md) | DSP 向けのこのインテグレーションガイドでは、入札のための UID2 の取り扱いと、ユーザーのオプトアウトの受け入れについて説明します。 |
-| DSP Direct Integration Instructions | [DSP Direct Integration Tips](../guides/integration-dsp-no-sdk.md) | UID2 SDK のいずれも使用せずにインテグレーションすることを希望する DSP 向けの手順。 |
-
-<!-- ## Integration Requirements
- 
-To integrate with UID2 to receive UID2s from brands (as first-party data) and data providers (as third-party data) and leverage them to inform bidding on UID2s in the bidstream, the buy-side participants must meet the following requirements:
- 
-- Accept data in the form of UID2s
-- Bid on data in the form of UID2s
-- Build a webhook for honoring opt-out requests
-- Sync <a href="../ref-info/glossary-uid#gl-encryption-key">encryption keys</a> daily with the UID2 Administrator
- 
-For details, see [DSP Integration Guide](../guides/dsp-guide.md).
- 
-Optionally, if DSPs want to generate UID2s themselves from DII, they can also follow the [Third-Party Data Provider Workflow](overview-data-providers.md#workflow-for-data-providers). -->
+| SDK for Java | [SDK for Java reference guide](../sdks/sdk-ref-java.md) | Java Server-Side を使用し、UID2 Advertising Token を復号化して raw UID2 にアクセスしたい利用者のための SDK。|
+| SDK for Python | [SDK for Python reference guide](../sdks/sdk-ref-python.md) | Python Server-Side を使用し、UID2 Advertising Token を復号化して raw UID2 にアクセスしたい利用者のための SDK。|
+| SDK for C# / .NET | [SDK for C# / .NET reference guide](../sdks/sdk-ref-csharp-dotnet.md) | .NET Server-Side を使用し、UID2 Advertising Token を復号化して raw UID2 にアクセスしたい利用者のための SDK。|
+| SDK for C++ | [SDK for C++ reference guide](../sdks/sdk-ref-cplusplus.md) | C++ Server-Side を使用し、UID2 Advertising Token を復号化して raw UID2 にアクセスしたい利用者のための SDK。|
+| Integration guide | [DSP integration guide](../guides/dsp-guide.md) | DSP 向けのこのインテグレーションガイドでは、入札のための UID2 の取り扱いと、ユーザーのオプトアウトの受け入れについて説明します。 |
+| DSP direct integration instructions | [DSP direct integration tips](../guides/integration-dsp-no-sdk.md) | UID2 SDK のいずれも使用せずにインテグレーションすることを希望する DSP 向けの手順。 |
 
 ## FAQs for DSPs
 

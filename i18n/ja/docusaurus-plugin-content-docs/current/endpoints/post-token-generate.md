@@ -2,7 +2,6 @@
 title: POST /token/generate
 description: DII から UID2 Token (Advertising Token) を生成。 
 hide_table_of_contents: false
-sidebar_position: 02
 displayed_sidebar: docs
 ---
 
@@ -20,26 +19,26 @@ Used by: このエンドポイントは、主にパブリッシャーが使用�
 このエンドポイントを直接呼び出すのではなく、UID2 SDK を使って管理することもできます。オプションの概要は、[SDKs: Summary](../sdks/summary-sdks.md) を参照してください。
 
 :::important
-どのオプションを使用する場合でも、UID2 を生成するために送信するデータは、送信前に正規化、ハッシュ化、およびエンコードする必要があります。詳細については、[Normalization and Encoding](../getting-started/gs-normalization-encoding.md) を参照してください。
+どのオプションを使用する場合でも、UID2 を生成するために送信するデータは、送信前に正規化、ハッシュ化、およびエンコードする必要があります。詳細については、[Normalization and encoding](../getting-started/gs-normalization-encoding.md) を参照してください。
 :::
 
-## Request Format 
+## Request format 
 
 `POST '{environment}/v2/token/generate'`
 
-認証の詳細は、 [Authentication and Authorization](../getting-started/gs-auth.md) を参照してください。
+認証の詳細は、 [Authentication and authorization](../getting-started/gs-auth.md) を参照してください。
 
 このエンドポイントリクエストについて知っておくべきことは、以下のとおりです:
 - サービスにアクセスする際に使用する <Link href="../ref-info/glossary-uid#gl-api-key">API key</Link> を秘密にするため、UID2 Token は認証後に Server-Side でのみ生成する必要があります。
-- すべてのリクエストを秘密鍵で暗号化する必要があります。詳細といくつかのプログラミング言語でのコードの例は [Encrypting Requests and Decrypting Responses](../getting-started/gs-encryption-decryption.md) を参照してください。
+- すべてのリクエストを秘密鍵で暗号化する必要があります。詳細といくつかのプログラミング言語でのコードの例は [Encrypting requests and decrypting responses](../getting-started/gs-encryption-decryption.md) を参照してください。
 
-### Path Parameters
+### Path parameters
 
 | Path Parameter | Data Type | Attribute | Description |
 | :--- | :--- | :--- | :--- |
 | `{environment}` | string | 必須 | テスト (インテグレーション) 環境: `https://operator-integ.uidapi.com`<br/>本番環境: ユーザーの所在地に応じて最適な URL が異なります。ユースケースに最適な URL の選択方法および有効なベース URL の全リストは、[Environments](../getting-started/gs-environments.md) を参照してください。<br/>Notes:<ul><li>`integ` 環境と `prod` 環境では、異なる <Link href="../ref-info/glossary-uid#gl-api-key">API Key</Link> が必要です。</li><li>トークンの有効期限は変更される可能性がありますが、`integ` 環境では常に `prod` 環境よりも大幅に短くなります。</li></ul> |
 
-### Unencrypted JSON Body Parameters
+### Unencrypted JSON body parameters
 
 :::important
 リクエストを暗号化するときには、以下の 4 つの条件付きパラメータのうち **1 つ** のみを JSON ボディのキーと値のペアとして含める必要があります。
@@ -52,10 +51,10 @@ Used by: このエンドポイントは、主にパブリッシャーが使用�
 | `phone` | string | 条件付きで必須 | トークンを生成する [正規化](../getting-started/gs-normalization-encoding.md#phone-number-normalization) 済み電話番号です。 |
 | `phone_hash` | string | 条件付きで必須 | [SHA-256 ハッシュし、Base64 エンコード](../getting-started/gs-normalization-encoding.md#phone-number-hash-encoding) した、[正規化](../getting-started/gs-normalization-encoding.md#phone-number-normalization) 済み電話番号です。 |
 
-### Request Examples
+### Request examples
 
 :::important
-サービスへのアクセスに使用する API キーを秘密にしておくため、[POST /token/generate](post-token-generate.md) エンドポイントは、[POST /token/refresh](post-token-refresh.md) とは異なり、Server-Side から呼び出す必要があります。Client-Side でトークンを生成する場合は、[Client-Side Integration Options](../guides/integration-options-publisher-web.md#client-side-integration-options) (Web ベースの実装) または [UID2 Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side.md) を参照してください。
+サービスへのアクセスに使用する API キーを秘密にしておくため、[POST /token/generate](post-token-generate.md) エンドポイントは、[POST /token/refresh](post-token-refresh.md) とは異なり、Server-Side から呼び出す必要があります。Client-Side でトークンを生成する場合は、[Client-side integration options](../guides/integration-options-publisher-web.md#client-side-integration-options) (Web ベースの実装) または [Client-side integration guide for mobile](../guides/integration-mobile-client-side.md) を参照してください。
 :::
 
 以下は、各パラメータの暗号化されていない JSON リクエストボディの例で、このうちの 1 つはトークン生成リクエストに含める必要があります:
@@ -86,9 +85,9 @@ Used by: このエンドポイントは、主にパブリッシャーが使用�
 ```sh
 echo '{"email_hash": "tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ="}' | python3 uid2_request.py https://prod.uidapi.com/v2/token/generate [Your-Client-API-Key] [Your-Client-Secret]
 ```
-詳細といくつかのプログラミング言語でのコードの例は、[Encrypting Requests and Decrypting Responses](../getting-started/gs-encryption-decryption.md) を参照してください。
+詳細といくつかのプログラミング言語でのコードの例は、[Encrypting requests and decrypting responses](../getting-started/gs-encryption-decryption.md) を参照してください。
 
-## Decrypted JSON Response Format 
+## Decrypted JSON response format 
 
 :::note
 レスポンスは、HTTP ステータスコードが 200 の場合のみ暗号化されます。それ以外の場合、レスポンスは暗号化されません。
@@ -96,10 +95,10 @@ echo '{"email_hash": "tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ="}' | python3 
 
 このセクションには、次のサンプルレスポンスが含まれています:
 
-- [Successful Response](#successful-response)
+- [Successful response](#successful-response)
 - [Optout](#optout)
 
-#### Successful Response
+#### Successful response
 
 復号化に成功すると、指定されたメールアドレス、電話番号、またはそれぞれのハッシュに対するユーザーの Advertising Token および Refresh Token が返されます。
 
@@ -115,7 +114,7 @@ echo '{"email_hash": "tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ="}' | python3 
 }
 ```
 
-### Response Body Properties
+### Response body properties
 
 レスポンスボディには、次の表に示すプロパティが含まれます。
 
@@ -128,7 +127,7 @@ echo '{"email_hash": "tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ="}' | python3 
 | `refresh_expires` | number | Refresh Token の有効期限を示す Unix タイムスタンプ (ミリ秒単位) です。 |
 | `refresh_response_key` | string | [POST&nbsp;/token/refresh](post-token-refresh.md) リクエストでレスポンス復号化のために使用される鍵です。 |
 
-### Response Status Codes
+### Response status codes
 
 次の表は、`status` プロパティの値と、それに対応する HTTP ステータスコードの一覧です。
 
@@ -141,7 +140,7 @@ echo '{"email_hash": "tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ="}' | python3 
 
 `status` の値が `success` 以外であれば、`message` フィールドにその問題に関する追加情報が表示されます。
 
-## Test Identities
+## Test identities
 
 | Type  | Identity                     | Purpose                                                                                                                                       | Next Endpoint                                       |
 | :---- | :--------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------------- |

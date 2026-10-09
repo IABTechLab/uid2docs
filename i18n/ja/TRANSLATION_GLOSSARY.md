@@ -1,4 +1,4 @@
-# 翻訳用語集 (Translation Glossary)
+# 翻訳用語集 (translation glossary)
 
 This glossary defines standard Japanese translations for technical terms used in UID2 documentation.
 この用語集は、UID2 ドキュメントで使用される専門用語の標準的な日本語訳を定義するものです。

@@ -2,7 +2,6 @@
 title: POST /token/refresh
 description: Refresh Token を使用して、更新された UID2 Token を生成。
 hide_table_of_contents: false
-sidebar_position: 04
 displayed_sidebar: docs
 ---
 
@@ -21,7 +20,7 @@ Used by: このエンドポイントは、主にパブリッシャーが使用�
 このエンドポイントを直接呼び出す代わりに、UID2 SDK のいずれかを使用して管理することができます。オプションの概要は、[SDKs: Summary](../sdks/summary-sdks.md) を参照してください。
 :::
 
-## Request Format 
+## Request format 
 
 `POST '{environment}/v2/token/refresh'`
 
@@ -34,24 +33,24 @@ Used by: このエンドポイントは、主にパブリッシャーが使用�
 - 成功したレスポンスは、そのレスポンスに新しいトークンまたはオプトアウト情報が含まれているかどうかにかかわらず暗号化されます。エラーレスポンスは暗号化されません。
 - レスポンスを復号化するには、このトークンに対する最新の `refresh_response_key` 値を使用します。`refresh_response_key` の値は、[POST&nbsp;/token/generate](post-token-generate.md) と `POST /token/refresh` のレスポンスで返されます。トークンがリフレッシュされるたびに、新しい `refresh_response_key` が返されます。現在のレスポンスを復号化するには、必ず最新のものを使用してください。
 
-### Path Parameters
+### Path parameters
 
 | Path Parameter | Data Type | Attribute | Description |
 | :--- | :--- | :--- | :--- |
 | `{environment}` | string | 必須 | テスト (インテグレーション) 環境: `https://operator-integ.uidapi.com`<br/>本番環境: `https://prod.uidapi.com`<br/>リージョンごとのオペレーターを含む全リストは、[Environments](../getting-started/gs-environments.md) を参照してください。<br/>Notes:<ul><li>`integ` 環境と `prod` 環境は異なる <Link href="../ref-info/glossary-uid#gl-api-key">API Key</Link> を必要とします。</li><li>トークンの有効期限は変更される可能性がありますが、`integ` 環境では常に `prod` 環境よりも大幅に短くなります。</li></ul> |
 
-#### Testing Notes
+#### Testing notes
 
 [POST&nbsp;/token/generate](post-token-generate.md) リクエストで以下のパラメータのいずれかを使用すると、常に `refresh_token` による ID レスポンスが生成され、`POST /token/refresh` エンドポイントと共に使用するとログアウトレスポンスとなります。
 
 - メールアドレス `refresh-optout@example.com`
 - 電話番号 `+00000000002`
 
-### Request Example
+### Request example
 
-詳細といくつかのプログラミング言語でのコードの例は、[Encrypting Requests and Decrypting Responses](../getting-started/gs-encryption-decryption.md) を参照してください。
+詳細といくつかのプログラミング言語でのコードの例は、[Encrypting requests and decrypting responses](../getting-started/gs-encryption-decryption.md) を参照してください。
 
-## Decrypted JSON Response Format
+## Decrypted JSON response format
 
 復号化された成功したレスポンスには、ユーザーの新しい UID2 Token (`advertising_token`) と関連する値が含まれるか、ユーザーがオプトアウトしたことを示します。
 
@@ -61,17 +60,17 @@ Used by: このエンドポイントは、主にパブリッシャーが使用�
 
 このセクションには、次のサンプルレスポンスが含まれています:
 
-- [Successful Response With Tokens](#successful-response-with-tokens)
-- [Successful Response With Opt-Out](#successful-response-with-opt-out)
-- [Error Response](#error-response)
+- [Successful response with tokens](#successful-response-with-tokens)
+- [Successful response with opt-out](#successful-response-with-opt-out)
+- [Error response](#error-response)
 
-#### Successful Response With Tokens
+#### Successful response with tokens
 
 すべての値が有効で、ユーザーがオプトアウトしていない場合、レスポンスは成功し、新しい UID2 Token が関連する値とともに返されます。以下の例は、トークンを含む成功したレスポンスを復号したものです:
 
 <SnptIdentityGenerateResponse />
 
-#### Successful Response With Opt-Out
+#### Successful response with opt-out
 
 ユーザーがオプトアウトした場合、レスポンスは成功しますが、新しい UID2 Token は返されません。以下の例は、復号化されたオプトアウトレスポンスを示しています:
 
@@ -81,7 +80,7 @@ Used by: このエンドポイントは、主にパブリッシャーが使用�
 }
 ```
 
-#### Error Response
+#### Error response
 
 エラーレスポンスは以下のようなものになる可能性があります:
 
@@ -92,7 +91,7 @@ Used by: このエンドポイントは、主にパブリッシャーが使用�
 }
 ```
 
-### Response Body Properties
+### Response body properties
 
 レスポンスボディには、次の表に示すプロパティが含まれます。
 
@@ -101,11 +100,11 @@ Used by: このエンドポイントは、主にパブリッシャーが使用�
 | `advertising_token` | string | ユーザーの <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 Token</Link> (Advertising Token とも呼ばれます) です。 |
 | `refresh_token` | string | UID2 Service と最新の ID トークンのセットを交換できる暗号化されたトークンです。 |
 | `identity_expires` | number | UID2 Token の有効期限を示す <a href="../ref-info/glossary-uid#gl-unix-time">Unix</a> タイムスタンプ (ミリ秒単位) です。 |
-| `refresh_from` | number | SDK for JavaScript ([SDK for JavaScript Reference Guide](../sdks/sdk-ref-javascript.md) を参照) が UID2 Token のリフレッシュを開始するタイミングを示す Unix タイムスタンプ (ミリ秒単位)。<br/>TIP: SDK を使用していない場合は、このタイムスタンプから Advertising Token もリフレッシュすることを検討してください。 |
+| `refresh_from` | number | SDK for JavaScript ([SDK for JavaScript reference guide](../sdks/sdk-ref-javascript.md) を参照) が UID2 Token のリフレッシュを開始するタイミングを示す Unix タイムスタンプ (ミリ秒単位)。<br/>TIP: SDK を使用していない場合は、このタイムスタンプから Advertising Token もリフレッシュすることを検討してください。 |
 | `refresh_expires` | number | Refresh Token の有効期限を示す Unix タイムスタンプ (ミリ秒単位)。  |
 | `refresh_response_key` | string | [POST&nbsp;/token/refresh](post-token-refresh.md) リクエストでレスポンス復号化のために使用される鍵です。|
 
-### Response Status Codes
+### Response status codes
 
 次の表は、`status` プロパティの値と、それに対応する HTTP ステータスコードの一覧です。
 

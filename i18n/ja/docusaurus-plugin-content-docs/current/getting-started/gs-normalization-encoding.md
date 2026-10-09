@@ -1,14 +1,13 @@
 ---
-title: Normalization and Encoding
+title: Normalization and encoding
 description: 情報を正規化およびエンコードして、安全にデコードできるようにする方法。
 hide_table_of_contents: false
-sidebar_position: 13
 displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';
 
-# Normalization and Encoding
+# Normalization and encoding
 
 このページでは、<Link href="../ref-info/glossary-uid#gl-dii">DII</Link> の正規化とエンコードに関する情報を提供します。UID2 を使用する際には、正規化とエンコードが正しく行われることが重要です。
 
@@ -21,13 +20,13 @@ import Link from '@docusaurus/Link';
 - 必須のステップを一つでも省略した場合（例えば、正規化せずにハッシュ化した場合）、入力データに対して正しい UID2 値は生成されません。<br/>たとえば、データ提供者が `JANESaoirse@gmail.com` というメールアドレスから UID2 を生成したいとします。このメールアドレスは、正規化されると `janesaoirse@gmail.com` となり、ハッシュ化されて Base64 でエンコードされた値は `ku4mBX7Z3qJTXWyLFB1INzkyR2WZGW4ANSJUiW21iI8=` となります。<br/>一方で、同じメールアドレスを持つパブリッシャーが、誤って正規化をせずに処理したとします。正規化されていないメールアドレス`JANESaoirse@gmail.com` をそのままハッシュ化して Base64 でエンコードすると、`VpLXEp5N1bj/V1WzjgZsC+FfuYdntAOywSVIO00FD/E=` という値になります。この 2 つの異なる値からは、それぞれ異なる UID2 が生成されてしまいます。正しく処理された最初の UID2 は、同じ元のデータから生成された他の UID2 と一致しますが、誤って処理された 2 番目の UID2 は一致しません。<br/>この場合、UID2 が同じユーザーの他のインスタンスと一致しないため、パブリッシャーはターゲティング広告の恩恵を受ける機会を逃してしまいます。
 :::
 
-## Types of Directly Identifying Information
+## Types of directly identifying information
 
 UID2 は、次の種類の Directly Identifying Information (DII) をサポートしています。
 - メールアドレス
 - 電話番号
 
-## Email Address Normalization
+## Email address normalization
 
 UID2 <Link href="../ref-info/glossary-uid#gl-operator-service">Operator Service</Link> にメールアドレスをハッシュ化せずに送信すると、サービスはメールアドレスを正規化してからハッシュ化します。メールアドレスを送信する前に自分でハッシュ化したい場合は、ハッシュ化する前にメールアドレスを正規化する必要があります。
 
@@ -52,37 +51,37 @@ UID2 <Link href="../ref-info/glossary-uid#gl-operator-service">Operator Service<
 正規化されたメールアドレスが UTF-8 であることを確認してください。他のエンコーディングシステム（例: UTF-16）ではありません。
 :::
 
-様々なシナリオの例は、[Normalization Examples for Email](#normalization-examples-for-email) を参照してください。
+様々なシナリオの例は、[Normalization examples for email](#normalization-examples-for-email) を参照してください。
 
-## Email Address Hash Encoding
+## Email address hash encoding
 
-メールアドレスのハッシュは、正規化されたメールアドレスの Base64 エンコードされた <Link href="../ref-info/glossary-uid#gl-sha-256">SHA-256</Link> ハッシュです。メールアドレスは最初に正規化され、次に SHA-256 ハッシュアルゴリズムを使用してハッシュ化され、最後にハッシュ値のバイトを Base64 エンコードします。Base64 エンコードは、ハッシュ値のバイトに適用され、16進数でエンコードされた文字列表現ではないことに注意してください。
+メールアドレスのハッシュは、正規化されたメールアドレスの Base64 エンコードされた <Link href="../ref-info/glossary-uid#gl-sha-256">SHA-256</Link> ハッシュです。メールアドレスは最初に正規化され、次に SHA-256 ハッシュアルゴリズムを使用してハッシュ化され、最後にハッシュ値のバイトを Base64 エンコードします。Base64 エンコードは、ハッシュ値のバイトに適用され、16 進数でエンコードされた文字列表現ではないことに注意してください。
 
 以下の表は、シンプルな入力メールアドレスと、各手順を適用して安全で不透明な値に到達する結果を示しています。
 
-最終的な値、すなわちSHA-256ハッシュの16進数からBase64エンコードされた表現が、UID2 Operator endpoint に提供する値となります。
+最終的な値、すなわち SHA-256 ハッシュの 16 進数から Base64 エンコードされた表現が、UID2 Operator endpoint に提供する値となります。
 
 :::warning
-Base64エンコーディングを適用する際は、ハッシュの生のバイト列をBase64エンコードするか、16進数エンコードされた値を入力として受け取るBase64エンコーダーを使用してください。テキストを入力として受け取る関数を使用すると、結果として得られる文字列が長くなり、UID2の目的では無効となります。
+Base64 エンコーディングを適用する際は、ハッシュの生のバイト列を Base64 エンコードするか、16 進数エンコードされた値を入力として受け取る Base64 エンコーダーを使用してください。テキストを入力として受け取る関数を使用すると、結果として得られる文字列が長くなり、UID2 の目的では無効となります。
 :::
 
 | Type | Example | Comments and Usage |
 | :--- | :--- | :--- |
 | 元のメールアドレス | `USER@example.com` | N/A |
 | 正規化されたメールアドレス | `user@example.com` | 正規化は常に最初のステップです。 |
-| 正規化されたメールアドレスの SHA-256 ハッシュ| `b4c9a289323b21a01c3e940f150eb9b8c542587f1abfd8f0e1cc1ffc5e475514` | これは、32 バイトの SHA-256 の16進数エンコードされた表現です。 |
-| SHA-256 ハッシュの16進数から Base64 へのエンコード | `tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ=` | この 44 文字の文字列は、32 バイトの SHA-256 の Base64 エンコードされた表現です。<br/>SHA-256 ハッシュの文字列は、ハッシュ値の 16 進数エンコードされた表現であることに注意してください。ハッシュの生のバイトを Base64 エンコードするか、16 進数エンコードされた値を入力として受け取る Base64 エンコーダーを使用する必要があります。<br/>このエンコードをリクエストボディで送信される `email_hash` 値に使用します。 |
+| 正規化されたメールアドレスの SHA-256 ハッシュ| `b4c9a289323b21a01c3e940f150eb9b8c542587f1abfd8f0e1cc1ffc5e475514` | これは、32 バイトの SHA-256 の 16 進数エンコードされた表現です。 |
+| SHA-256 ハッシュの 16 進数から Base64 へのエンコード | `tMmiiTI7IaAcPpQPFQ65uMVCWH8av9jw4cwf/F5HVRQ=` | この 44 文字の文字列は、32 バイトの SHA-256 の Base64 エンコードされた表現です。<br/>SHA-256 ハッシュの文字列は、ハッシュ値の 16 進数エンコードされた表現であることに注意してください。ハッシュの生のバイトを Base64 エンコードするか、16 進数エンコードされた値を入力として受け取る Base64 エンコーダーを使用する必要があります。<br/>このエンコードをリクエストボディで送信される `email_hash` 値に使用します。 |
 
-その他の例は、[Normalization Examples for Email](#normalization-examples-for-email) を参照してください。
+その他の例は、[Normalization examples for email](#normalization-examples-for-email) を参照してください。
 
-## Normalization Examples for Email
+## Normalization examples for email
 
 以下の表は、元のメールアドレスと正規化された値およびハッシュ値の例を示しています。
 
 いくつかの例では、プラス記号（+）を含むメールアドレスと異なるドメインが示されています。`gmail` アドレスの場合、プラス記号とその後の文字は、`@` 記号まで無視されます。他のドメインでは、これらの文字は正規化された値に含まれます。
 
 :::important
-自身のUID2を扱う際には、常に最終値（Base64エンコードされた値）を UID2 Operator endpoint に提供してください。
+自身の UID2 を扱う際には、常に最終値（Base64 エンコードされた値）を UID2 Operator endpoint に提供してください。
 :::
 
 <table>
@@ -120,7 +119,7 @@ Base64エンコーディングを適用する際は、ハッシュの生のバ�
  </tbody>
 </table>
 
-## Phone Number Normalization
+## Phone number normalization
 
 :::important
 UID2 Operator Service へのリクエストで電話番号を送信する前に、**必ず**電話番号を正規化してください。ハッシュ化とエンコードを適用するかどうかに関係なく、正規化が必要です。
@@ -141,35 +140,35 @@ UID2 Operator Service へのリクエストで電話番号を送信する前に�
 正規化された電話番号が UTF-8 であることを確認してください。他のエンコーディングシステム（例: UTF-16）ではありません。
 :::
 
-## Phone Number Hash Encoding
+## Phone number hash encoding
 
-電話番号のハッシュは、正規化された電話番号の Base64 エンコードされた SHA-256 ハッシュです。電話番号は最初に正規化し、次に SHA-256 ハッシュアルゴリズムを使用してハッシュ化し、最後にハッシュ値のバイトを Base64 エンコードします。Base64 エンコードは、ハッシュ値のバイトに適用され、16進数でエンコードされた文字列表現ではないことに注意してください。
+電話番号のハッシュは、正規化された電話番号の Base64 エンコードされた SHA-256 ハッシュです。電話番号は最初に正規化し、次に SHA-256 ハッシュアルゴリズムを使用してハッシュ化し、最後にハッシュ値のバイトを Base64 エンコードします。Base64 エンコードは、ハッシュ値のバイトに適用され、16 進数でエンコードされた文字列表現ではないことに注意してください。
 
 以下の表は、単純な入力電話番号の例と、各ステップを適用して安全で不透明な URL-safe な値にする結果を示しています。
 
-最終値、すなわち SHA-256 ハッシュの 16進数から Base64 エンコードされた表現は、UID2 Operator endpoint に提供する値となります。
+最終値、すなわち SHA-256 ハッシュの 16 進数から Base64 エンコードされた表現は、UID2 Operator endpoint に提供する値となります。
 
 :::warning
-Base64 エンコーディングを適用する際は、ハッシュの生のバイト列を Base64 エンコードするか、16進数エンコードされた値を入力として受け取る Base64 エンコーダーを使用してください。テキストを入力として受け取る関数を使用すると、結果として得られる文字列が長くなり、UID2 の目的では無効となります。
+Base64 エンコーディングを適用する際は、ハッシュの生のバイト列を Base64 エンコードするか、16 進数エンコードされた値を入力として受け取る Base64 エンコーダーを使用してください。テキストを入力として受け取る関数を使用すると、結果として得られる文字列が長くなり、UID2 の目的では無効となります。
 :::
 
 | Type | Example | Comments and Usage |
 | :--- | :--- | :--- |
 | 元の電話番号 | `1 (234) 567-8901` | N/A |
 | 正規化された電話番号 | `+12345678901` | 正規化は常に最初のステップです。 |
-| 正規化された電話番号の SHA-256 ハッシュ | `10e6f0b47054a83359477dcb35231db6de5c69fb1816e1a6b98e192de9e5b9ee` | この 64 文字の文字列は、32 バイト SHA-256 の16進数エンコードされた表現です。 |
-| SHA-256 ハッシュの 16進数から Base64 へのエンコード | `EObwtHBUqDNZR33LNSMdtt5cafsYFuGmuY4ZLenlue4=` | この 44 文字の文字列は、32 バイト SHA-256 の Base64 エンコードされた表現です。<br/>注: SHA-256 ハッシュは16進数の値です。16進数の値を入力として受け取る Base64 エンコーダーを使用する必要があります。このエンコードは、リクエストボディに送信される `phone_hash` 値に使用します。 |
+| 正規化された電話番号の SHA-256 ハッシュ | `10e6f0b47054a83359477dcb35231db6de5c69fb1816e1a6b98e192de9e5b9ee` | この 64 文字の文字列は、32 バイト SHA-256 の 16 進数エンコードされた表現です。 |
+| SHA-256 ハッシュの 16 進数から Base64 へのエンコード | `EObwtHBUqDNZR33LNSMdtt5cafsYFuGmuY4ZLenlue4=` | この 44 文字の文字列は、32 バイト SHA-256 の Base64 エンコードされた表現です。<br/>注: SHA-256 ハッシュは 16 進数の値です。16 進数の値を入力として受け取る Base64 エンコーダーを使用する必要があります。このエンコードは、リクエストボディに送信される `phone_hash` 値に使用します。 |
 
-## Example Code
+## Example code
 
-メールアドレスや電話番号のハッシュを生成する方法の例は、[Example Code: Hashing and Base-64 Encoding](../guides/integration-javascript-client-side#example-code-hashing-and-base-64-encoding) を参照してください。
+メールアドレスや電話番号のハッシュを生成する方法の例は、[Example code: Hashing and Base64 encoding](../guides/integration-javascript-client-side#example-code-hashing-and-base64-encoding) を参照してください。
 
-## UID2 Hashing Tool
+## UID2 hashing tool
 
 正規化、ハッシュ化、エンコードが正しく行われているかを確認するには、[UID2 hashing tool](https://hashing-tool.samples.uidapi.com/) を使用できます。
 
 :::note
-UID2 ハッシュツールは、以前の場所 `https://unifiedid.com/examples/hashing-tool/` から移動しました。ハッシュツールへの保存済みリンクがある場合は、必ず最新のURLに更新してください。
+UID2 ハッシュツールは、以前の場所 `https://unifiedid.com/examples/hashing-tool/` から移動しました。ハッシュツールへの保存済みリンクがある場合は、必ず最新の URL に更新してください。
 :::
 
 Email または Phone Number を選択し、値を入力または貼り付けてから **Enter** をクリックします。
@@ -195,7 +194,7 @@ Email または Phone Number を選択し、値を入力または貼り付けて
 ## UID2 Token Validator
 
 :::note
-このセクションはパブリッシャー向けです。パブリッシャーは、直接識別可能な情報（DII）を使用して [UID2 Token](../ref-info/glossary-uid.md#gl-uid2-token) を生成する唯一の参加者です。
+このセクションはパブリッシャー向けです。パブリッシャーは、直接識別可能な情報 (DII) を使用して [UID2 token](../ref-info/glossary-uid.md#gl-uid2-token) を生成する唯一の参加者です。
 :::
 
 エンドツーエンドで完全なトークン生成パイプラインを検証し、正規化、ハッシュ化、およびエンコードされた値から生成された <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 Token</Link> が正しいことを確認するには、[UID2 Token Validator](../ref-info/ref-token-validator.md) を使用してください。
@@ -209,9 +208,9 @@ Email または Phone Number を選択し、値を入力または貼り付けて
 - **Phone numbers**: 最初のステップとして、正規化を確実に行うこと&#8212;正しく正規化すること&#8212;が重要です。
 
   このサービスはメールアドレスを正規化しますが、電話番号の正規化はできません。例えば、国コードが欠落している場合の値を判断できません。以下のリソースを利用してください。
-  - 正規化手順:  [Phone Number Normalization](#phone-number-normalization).
+  - 正規化手順:  [Phone number normalization](#phone-number-normalization).
   - 照合ツール: [UID2 hashing tool](https://hashing-tool.samples.uidapi.com/).
 
-- **Use the Base64-encoded value**: このプロセスには、ハッシュ値のバイト列を正規化、ハッシュ化、Base64エンコードする手順が含まれます。UID2 を生成する際の入力は、このBase64エンコードされた値です。必ずこの44文字の文字列値を使用してください。
+- **Use the Base64-encoded value**: このプロセスには、ハッシュ値のバイト列を正規化、ハッシュ化、Base64 エンコードする手順が含まれます。UID2 を生成する際の入力は、この Base64 エンコードされた値です。必ずこの 44 文字の文字列値を使用してください。
 
-- 以下のエラーメッセージが表示される場合があります：「The hashing value must be 44 characters. (ハッシュ値は44文字でなければなりません）」。この場合、使用しているハッシュ関数に問題があります。SHA-256ハッシュの16進数からBase64へのエンコードを使用してください。詳細は[Email Address Hash Encoding](#email-address-hash-encoding)または[Phone Number Hash Encoding](#phone-number-hash-encoding)を参照してください。確認のため、[UID2 hashing tool](https://hashing-tool.samples.uidapi.com/) でテストしてください。
+- 以下のエラーメッセージが表示される場合があります：「The hashing value must be 44 characters. (ハッシュ値は 44 文字でなければなりません）」。この場合、使用しているハッシュ関数に問題があります。SHA-256 ハッシュの 16 進数から Base64 へのエンコードを使用してください。詳細は[Email address hash encoding](#email-address-hash-encoding)または[Phone number hash encoding](#phone-number-hash-encoding)を参照してください。確認のため、[UID2 hashing tool](https://hashing-tool.samples.uidapi.com/) でテストしてください。

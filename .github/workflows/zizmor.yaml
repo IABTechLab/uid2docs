@@ -1,0 +1,16 @@
+name: Zizmor Scan
+
+on:
+  pull_request:
+    # Must cover everywhere scannable files live; the scan covers the whole repo.
+    paths:
+      - '.github/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  zizmor:
+    # Bare call: severity floors come from the shared workflow's defaults.
+    uses: IABTechLab/uid2-shared-actions/.github/workflows/shared-zizmor-scan.yaml@v3

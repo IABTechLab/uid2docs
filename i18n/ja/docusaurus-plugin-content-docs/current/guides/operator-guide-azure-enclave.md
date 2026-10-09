@@ -1,10 +1,9 @@
 ---
-title: UID2 Private Operator for Azure Integration Guide
+title: Private Operator for Azure integration guide
 sidebar_label: Microsoft Azure
-pagination_label: UID2 Private Operator for Azure Integration Guide
+pagination_label: Private Operator for Azure integration guide
 description: Microsoft Azure の Private Operator インテグレーション情報。
 hide_table_of_contents: false
-sidebar_position: 18
 displayed_sidebar: docs
 ---
 
@@ -15,7 +14,7 @@ import SnptAttestFailure from '../snippets/_snpt-private-operator-attest-failure
 import SnptRotatingTheKeys from '../snippets/_snpt-private-operator-rotating-the-keys.mdx';
 import SnptRuntimeErrors from '../snippets/_snpt-private-operator-runtime-errors.mdx';
 
-# UID2 Private Operator for Azure Integration Guide
+# Private Operator for Azure integration guide
 
 UID2 Operator は、UID2 エコシステム内の API サーバーです。詳細は、[UID2 Operator](../ref-info/ref-operators-public-private.md) を参照してください。
 
@@ -29,19 +28,19 @@ UID2 Operator Confidential Containers インスタンスの Docker コンテナ�
 UID2 Private Operator for Azure は、次の地域ではサポートされていません: ヨーロッパ、中国。
 :::
 
-## Operator Version
+## Operator version
 
 最新の ZIP ファイルは、次の表の Azure Download 列にリンクされています。
 
 | Version Name | Version Number  | Release Notes | Azure Download |  Date | Deprecation Date |
 | ------- | ------ | ------ | ------ | ------ | ------ |
-| Q4 2025 | v5.62.24 | [v5.62.24](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.62.24-r2) | [azure-cc-deployment-files-5.62.24-r2.zip](https://github.com/IABTechLab/uid2-operator/releases/download/v5.62.24-r2/azure-cc-deployment-files-5.62.24-r2.zip) | January 15, 2026 | January 15, 2027 |
+| H1 2026 | v5.70.159 | [v5.70.159](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.70.159-r7) | [azure-cc-deployment-files-5.70.159-r7.zip](https://github.com/IABTechLab/uid2-operator/releases/download/v5.70.159-r7/azure-cc-deployment-files-5.70.159-r7.zip) | September 9, 2026 | June 30, 2027 |
 
 :::note
-サポートされているバージョンと非推奨日については、[Private Operator Versions](../ref-info/deprecation-schedule.md#private-operator-versions) を参照してください。
+サポートされているバージョンと非推奨日については、[Private Operator versions](../ref-info/deprecation-schedule.md#private-operator-versions) を参照してください。
 :::
 
-## Private Operator Upgrade Policy
+## Private Operator upgrade policy
 
 <SnptUpgradePolicy />
 
@@ -49,13 +48,13 @@ UID2 Private Operator for Azure は、次の地域ではサポートされてい
 
 Azure に UID2 Private Operator をデプロイする前に、次の前提条件を満たす必要があります:
 
-- [Set Up UID2 Operator Account](#set-up-uid2-operator-account)
+- [Set up UID2 Operator account](#set-up-uid2-operator-account)
 - [Install Azure CLI](#install-azure-cli)
-- [Get the Required Azure Permissions](#get-the-required-azure-permissions)
+- [Get the required Azure permissions](#get-the-required-azure-permissions)
 
-### Set Up UID2 Operator Account
+### Set up UID2 Operator account
 
-UID2 Private Operator をデプロイする前に、UID2 Service の Private Operator として登録する必要があります。UID2 Private Operator として登録するには、UID2 連絡先に組織を UID2 Operator として登録するよう依頼します。誰に依頼すればよいかわからない場合は、[Contact Info](../getting-started/gs-account-setup.md#contact-info) を参照してください。
+UID2 Private Operator をデプロイする前に、UID2 Service の Private Operator として登録する必要があります。UID2 Private Operator として登録するには、UID2 連絡先に組織を UID2 Operator として登録するよう依頼します。誰に依頼すればよいかわからない場合は、[Contact info](../getting-started/gs-account-setup.md#contact-info) を参照してください。
 
 登録プロセスが完了すると、UID2 Service から UID2 Private Operator としての専用の Operator Key が送信されます。このキーは、UID2 Service との通信に使用されるもので、UID2 Service において Private Operator としてあなたを識別します。構成時に、このキーを `OPERATOR_KEY` の値として使用します。この値は、あなたの固有の識別子であり、パスワードでもあります。安全に保管し、共有しないでください。
 
@@ -67,7 +66,7 @@ UID2 Private Operator をデプロイする前に、UID2 Service の Private Ope
 
 Azure CLI をインストールします。詳細は、Azure ドキュメントの [Azure CLI のインストール方法](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli) を参照してください。
 
-### Get the Required Azure Permissions
+### Get the required Azure permissions
 
 リソースグループを作成するには、サブスクリプション所有者の権限が必要です。
 
@@ -77,11 +76,11 @@ Azure CLI をインストールします。詳細は、Azure ドキュメント�
 
 前提条件のすべての手順が完了したら、UID2 Private Operator をデプロイする準備が整います。[Deployment](#deployment) を参照してください。
 
-## Preparing DII for Processing
+## Preparing DII for processing
 
 <SnptPreparingEmailsAndPhoneNumbers />
 
-## Deployment Environments
+## Deployment environments
 
 以下の環境が利用可能です。ベストプラクティスとして、本番環境にデプロイする前に、インテグレーション環境で実装をテストして検証することを推奨します。
 
@@ -98,14 +97,14 @@ Azure CLI をインストールします。詳細は、Azure ドキュメント�
 
 新しい UID2 Private Operator for Azure をデプロイするには、次の手順を完了する必要があります:
 
-- [Download ZIP File and Extract Files](#download-zip-file-and-extract-files)
-- [Create Resource Group](#create-resource-group)
-- [Complete Key Vault and Managed Identity Setup](#complete-key-vault-and-managed-identity-setup)
-- [Set Up the VPC Network](#set-up-the-vpc-network)
-- [Complete the UID2 Private Operator Setup](#complete-the-uid2-private-operator-setup)
-- [Set Up the Gateway Load Balancer](#set-up-the-gateway-load-balancer)
+- [Download ZIP file and extract files](#download-zip-file-and-extract-files)
+- [Create resource group](#create-resource-group)
+- [Complete key vault and managed identity setup](#complete-key-vault-and-managed-identity-setup)
+- [Set up the VPC network](#set-up-the-vpc-network)
+- [Complete the UID2 Private Operator setup](#complete-the-uid2-private-operator-setup)
+- [Set up the Gateway Load Balancer](#set-up-the-gateway-load-balancer)
 
-### Download ZIP File and Extract Files
+### Download ZIP file and extract files
 
 最初に、デプロイメントに必要なファイルを取得します:
 
@@ -118,7 +117,7 @@ Azure CLI をインストールします。詳細は、Azure ドキュメント�
    - `operator.json` and `operator.parameters.json`
    - `gateway.json` and `gateway.parameters.json`
 
-### Create Resource Group
+### Create resource group
 
 Azure で UID2 Operator を実行するためのリソースグループを作成するには、次のコマンドを実行します:
 
@@ -141,7 +140,7 @@ az group create --name {RESOURCE_GROUP_NAME} --location {LOCATION}
 az account list-locations -o table
 ```
 
-### Complete Key Vault and Managed Identity Setup
+### Complete key vault and managed identity setup
 
 次のステップは、[key vault](https://learn.microsoft.com/en-us/azure/key-vault/general/overview) を設定し、Operator Key を保存することです。
 
@@ -156,7 +155,7 @@ Key Vault を作成したら、[managed identity](https://learn.microsoft.com/en
    | Parameter | Description |
    | :--- | :--- |
    | `vaultName` | Operator Key シークレットをホストするための Key Vault の名前。選択する名前はグローバルに一意である必要があります。 |
-   | `operatorKeyValue` | アカウント設定の一環として UID チームから受け取った `OPERATOR_KEY` シークレット値 ([Set Up UID2 Operator Account](#set-up-uid2-operator-account) を参照)。この値はあなたに固有であり、パスワードとして機能します。安全で秘密に保つ必要があります。 |
+   | `operatorKeyValue` | アカウント設定の一環として UID チームから受け取った `OPERATOR_KEY` シークレット値 ([Set up UID2 Operator account](#set-up-uid2-operator-account) を参照)。この値はあなたに固有であり、パスワードとして機能します。安全で秘密に保つ必要があります。 |
 
 2. (オプション) デフォルトを受け入れたくない場合は、`vault.parameters.json` ファイルを次の値で更新します。これらのパラメータはデフォルト値を受け入れたくない場合にのみ更新する必要があります。
 
@@ -171,13 +170,13 @@ Key Vault を作成したら、[managed identity](https://learn.microsoft.com/en
    az deployment group create --name vault --resource-group {RESOURCE_GROUP_NAME} --parameters vault.parameters.json  --template-file vault.json
    ```
 
-### Set Up the VPC Network
+### Set up the VPC network
 
 次のステップは、VPC ネットワークを設定することです。
 
 Microsoft Azure で UID2 Private Operator をホストする Virtual Private Cloud (VPC) を示す次の図を参照してください。
 
-![VPC Network](images/operator-azure-drawio.png)
+![VPC network](images/operator-azure-drawio.png)
 
 次の手順に従います:
 
@@ -198,7 +197,7 @@ Microsoft Azure で UID2 Private Operator をホストする Virtual Private Clo
    az deployment group create --name vnet --resource-group {RESOURCE_GROUP_NAME} --parameters vnet.parameters.json  --template-file vnet.json
    ```
 
-### Complete the UID2 Private Operator Setup
+### Complete the UID2 Private Operator setup
 
 次のステップは、VPC サブネットで複数の Azure Container Instances (ACIs) を起動することです。
 
@@ -208,17 +207,17 @@ Microsoft Azure で UID2 Private Operator をホストする Virtual Private Clo
 
    | Parameter | Description |
    | :--- | :--- |
-   | `vaultName` | Operator Key シークレットをホストするための Key Vault の名前。[Complete Key Vault and Managed Identity Setup](#complete-key-vault-and-managed-identity-setup) で作成した名前と一致している必要があります。 |
-   | `deploymentEnvironment` | デプロイ先の環境を示します: `integ` または `prod`。詳細は [Deployment Environments](#deployment-environments) を参照してください。 |
+   | `vaultName` | Operator Key シークレットをホストするための Key Vault の名前。[Complete key vault and managed identity setup](#complete-key-vault-and-managed-identity-setup) で作成した名前と一致している必要があります。 |
+   | `deploymentEnvironment` | デプロイ先の環境を示します: `integ` または `prod`。詳細は [Deployment environments](#deployment-environments) を参照してください。 |
 
 2. (オプション) デフォルトを受け入れたくない場合は、`operator.parameters.json` ファイルを次の値で更新します。これらのパラメータはデフォルト値を受け入れたくない場合にのみ更新する必要があります。
 
     Parameter | Description |
    | :--- | :--- |
-   | `operatorKeyName` | Operator Key シークレット名。値は [Complete Key Vault and Managed Identity Setup](#complete-key-vault-and-managed-identity-setup) で指定した値と一致する必要があります。デフォルト値を受け入れた場合、値は `operator-key` です。 |
-   | `operatorIdentifier` | コンテナを起動するマネージド ID の名前。値は [Complete Key Vault and Managed Identity Setup](#complete-key-vault-and-managed-identity-setup) で指定した値と一致する必要があります。デフォルト値を受け入れた場合、値は `uid-operator` です。 |
-   | `vnetName` | Virtual Network 名。値は [Set Up the VPC Network](#set-up-the-vpc-network) で指定した値と一致する必要があります。デフォルト値を受け入れた場合、値は `unified-id-network` です。 |
-   | `computeSubnetName` | UID2 Operator を実行するサブネットの名前。値は [Set Up the VPC Network](#set-up-the-vpc-network) で指定した値と一致する必要があります。デフォルト値を受け入れた場合、値は `unified-id-subnet-operators` です。 |
+   | `operatorKeyName` | Operator Key シークレット名。値は [Complete key vault and managed identity setup](#complete-key-vault-and-managed-identity-setup) で指定した値と一致する必要があります。デフォルト値を受け入れた場合、値は `operator-key` です。 |
+   | `operatorIdentifier` | コンテナを起動するマネージド ID の名前。値は [Complete key vault and managed identity setup](#complete-key-vault-and-managed-identity-setup) で指定した値と一致する必要があります。デフォルト値を受け入れた場合、値は `uid-operator` です。 |
+   | `vnetName` | Virtual Network 名。値は [Set up the VPC network](#set-up-the-vpc-network) で指定した値と一致する必要があります。デフォルト値を受け入れた場合、値は `unified-id-network` です。 |
+   | `computeSubnetName` | UID2 Operator を実行するサブネットの名前。値は [Set up the VPC network](#set-up-the-vpc-network) で指定した値と一致する必要があります。デフォルト値を受け入れた場合、値は `unified-id-subnet-operators` です。 |
    | `count` | 起動するインスタンス数のカウント。デフォルトは `2` です。 |
 
 3. 次のコマンドを実行してデプロイメントをトリガーします:
@@ -239,7 +238,7 @@ Microsoft Azure で UID2 Private Operator をホストする Virtual Private Clo
    { "ipAddress": { "type": "Array", "value": [ "10.0.0.5", "10.0.0.4" ] } }
    ```
 
-### Set Up the Gateway Load Balancer
+### Set up the Gateway Load Balancer
 
 次のステップは、[Gateway Load Balancer](https://learn.microsoft.com/en-us/azure/load-balancer/gateway-overview) を設定し、作成した ACI のプライベート IP アドレスを使用して [backend pool](https://learn.microsoft.com/en-us/azure/load-balancer/backend-pool-management) として使用することです。
 
@@ -249,7 +248,7 @@ Microsoft Azure で UID2 Private Operator をホストする Virtual Private Clo
 
    | Parameter | Description |
    | :--- | :--- |
-   | `containerGroupIPs` | 作成した ACI インスタンスの IP アドレス。[Complete the UID2 Private Operator Setup](#complete-the-uid2-private-operator-setup) Step 4 の出力値として出力される値を使用します。 |
+   | `containerGroupIPs` | 作成した ACI インスタンスの IP アドレス。[Complete the UID2 Private Operator setup](#complete-the-uid2-private-operator-setup) Step 4 の出力値として出力される値を使用します。 |
 
    たとえば、更新されたファイルは次のようになります:
    
@@ -266,8 +265,8 @@ Microsoft Azure で UID2 Private Operator をホストする Virtual Private Clo
 
     Parameter | Description |
    | :--- | :--- |
-   | `vnetName` | Virtual Network 名。値は [Set Up the VPC Network](#set-up-the-vpc-network) で指定した値と一致する必要があります。デフォルト値を受け入れた場合、値は `unified-id-network` です。 |
-   | `gatewaySubnetName` | UID2 Gateway を実行するサブネットの名前。値は [Set Up the VPC Network](#set-up-the-vpc-network) で指定した値と一致する必要があります。デフォルト値を受け入れた場合、値は `unified-id-subnet-gateway` です。 |
+   | `vnetName` | Virtual Network 名。値は [Set up the VPC network](#set-up-the-vpc-network) で指定した値と一致する必要があります。デフォルト値を受け入れた場合、値は `unified-id-network` です。 |
+   | `gatewaySubnetName` | UID2 Gateway を実行するサブネットの名前。値は [Set up the VPC network](#set-up-the-vpc-network) で指定した値と一致する必要があります。デフォルト値を受け入れた場合、値は `unified-id-subnet-gateway` です。 |
 
 3. 次のコマンドを実行してデプロイメントをトリガーします:
 
@@ -295,7 +294,7 @@ Microsoft Azure で UID2 Private Operator をホストする Virtual Private Clo
 この例では、HTTP を使用して Gateway Load Balancer をデプロイします。SSL を設定することを強く推奨します。手順は、Azure ドキュメントの [Tutorial: Configure an Application Gateway with TLS termination using the Azure portal](https://learn.microsoft.com/en-us/azure/application-gateway/create-ssl-portal) を参照してください。
 :::
 
-## Running the Health Check
+## Running the health check
 
 実装のヘルスチェックをテストするために、ヘルスチェックエンドポイントを呼び出します。
 
@@ -303,20 +302,38 @@ Microsoft Azure で UID2 Private Operator をホストする Virtual Private Clo
 
 次の手順に従います:
 
-1. Gateway Load Balancer のパブリック IP アドレスを取得します。これは、[Set Up the Gateway Load Balancer](#set-up-the-gateway-load-balancer) Step 4 の出力値です。
+1. Gateway Load Balancer のパブリック IP アドレスを取得します。これは、[Set up the Gateway Load Balancer](#set-up-the-gateway-load-balancer) Step 4 の出力値です。
 
 2. オペレーターステータスをテストするために、ブラウザでヘルスチェックエンドポイントに移動します: `http://{LB_IP}/ops/healthcheck`。
 
    HTTP 200 と `OK` というレスポンス本文が表示された場合、正常な状態です。
 
-### Private Operator Attestation Failure
+### Private Operator attestation failure
 
 <SnptAttestFailure />
 
-### Scraping Metrics
+### Scraping metrics
 Azure の Private Operator は、ポート 9080 で `/metrics` エンドポイントを介して [Prometheus 形式のメトリクス](https://prometheus.io/docs/concepts/data_model/) を公開します。これらのメトリクスを収集して集計するには、Prometheus 互換のスクレイパーを使用できます。
 
 スクレイパーは、Private Operator が実行されている VNet にアクセスできる必要があります。ロードバランサーに `/metrics` エンドポイントへのアクセスを許可することは推奨しません。
+
+## Network security group policy
+
+:::note
+ドメインに関連付けられた証明書がエンクレーブに渡されるのを防ぐため、許可されるのはインバウンド HTTP のみです。インバウンド HTTPS は許可されません。これにより、すでに組織内のプライベートネットワークである環境において、追加のセキュリティ層を導入することによる余分な負荷も回避できます。
+:::
+
+以下の表は、サポートされているプロトコルに関する情報を提供します。
+
+| Port Number | Direction | Protocol | Description |
+| ----------- | --------- | -------- | ------ |
+| 80 | Inbound | HTTP | ヘルスチェックエンドポイント `/ops/healthcheck` を含むすべての UID2 API を提供します。<br/>すべてが正常に稼働している場合、エンドポイントは HTTP 200 とレスポンス本文 `OK` を返します。詳細は [Running the Health Check](#running-the-health-check) を参照してください。 |
+| 9080 | Inbound | HTTP | Prometheus メトリックを提供します (`/metrics`)。詳細は [Scraping Metrics](#scraping-metrics) を参照してください。 |
+| 443 | Outbound | HTTPS | UID2 Core Service と Azure Blob Storage への呼び出し、オプトアウトデータとキーストアのファイルをダウンロードします。 |
+
+:::note
+アウトバンドのネットワークが制限されている場合は、[Private Operator network egress](../ref-info/operator-private-network-requirements.md) に記載されている宛先へのアウトバウンドアクセスを許可する必要があります。
+:::
 
 ## Upgrading
 
@@ -324,11 +341,11 @@ UID2 Azure Confidential Containers の新しいバージョンがリリースさ
 
 アップグレードするには、次の手順を完了します:
 
-1. [Download ZIP File and Extract Files](#download-zip-file-and-extract-files) の手順に従って、新しいバージョンのデプロイメントファイルをダウンロードし、解凍します。
+1. [Download ZIP file and extract files](#download-zip-file-and-extract-files) の手順に従って、新しいバージョンのデプロイメントファイルをダウンロードし、解凍します。
 
-2. [Complete the UID2 Private Operator Setup](#complete-the-uid2-private-operator-setup) の手順に従って、新しいバージョンのファイルを使用して ACI をデプロイします。
+2. [Complete the UID2 Private Operator setup](#complete-the-uid2-private-operator-setup) の手順に従って、新しいバージョンのファイルを使用して ACI をデプロイします。
 
-3. [Set Up the Gateway Load Balancer](#set-up-the-gateway-load-balancer) の手順に従って、新しい ACI を Gateway Load Balancer に追加します。
+3. [Set up the Gateway Load Balancer](#set-up-the-gateway-load-balancer) の手順に従って、新しい ACI を Gateway Load Balancer に追加します。
 
 4. 新しい ACI のヘルスチェックを確認し、ステータスが healthy であることを確認します:
 
@@ -336,7 +353,7 @@ UID2 Azure Confidential Containers の新しいバージョンがリリースさ
    az network application-gateway show-backend-health --resource-group {RESOURCE_GROUP_NAME} --name uid-operator-gateway
    ```
 
-5. Gateway Load Balancer から古い ACI を削除します。[Set Up the Gateway Load Balancer](#set-up-the-gateway-load-balancer) の手順に従って、古い ACI をバックエンドプールから削除します。
+5. Gateway Load Balancer から古い ACI を削除します。[Set up the Gateway Load Balancer](#set-up-the-gateway-load-balancer) の手順に従って、古い ACI をバックエンドプールから削除します。
 
 6. 以下のコマンドを実行して、古い ACI をシャットダウンします:
 
@@ -344,11 +361,11 @@ UID2 Azure Confidential Containers の新しいバージョンがリリースさ
    for i in {0..COUNT}; az container delete --name uid-operator-OLD-VERSION-$i --resource-group {RESOURCE_GROUP} --yes
    ```
 
-## Keeping the Operator Key Secure
+## Keeping the operator key secure
 
 <SnptRotatingTheKeys />
 
-## UID2 Operator Error Codes
+## UID2 Operator error codes
 
 以下のセクションでは、Private Operator の起動時またはランタイム中に発生する可能性のあるエラーコードを一覧表示しています。
 
@@ -356,7 +373,7 @@ UID2 Azure Confidential Containers の新しいバージョンがリリースさ
 Private Operator 起動時のエラーコードは、リリース v5.49.7 以降のバージョンに適用されます。
 :::
 
-### Startup Errors
+### Startup errors
 
 起動時に発生する可能性のあるエラーを次に示します:
 
@@ -369,7 +386,7 @@ Private Operator 起動時のエラーコードは、リリース v5.49.7 以降
 | E06 | UID2ServicesUnreachableError | UID2 Core Service および Opt-Out Service の IP アドレスをアウトバウンドファイアウォールで許可します。IP アドレスと DNS の詳細は、ログを参照してください。 |
 | E08 | OperatorKeyPermissionError | コンテナを起動するマネージド ID (operatorIdentifier パラメータで指定) は、 Operator Key が格納されている Key Vault へのアクセス権を持っている必要があります。`operatorIdentifier` の値は、すべての構成 JSON ファイルで同じである必要があります。 |
 
-### Runtime Errors
+### Runtime errors
 
 ランタイム中に発生する可能性のあるエラーを次に示します:
 

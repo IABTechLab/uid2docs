@@ -1,10 +1,9 @@
 ---
-title: UID2 Private Operator for AWS Integration Guide
+title: Private Operator for AWS integration guide
 sidebar_label: AWS Marketplace
-pagination_label: UID2 Private Operator for AWS Integration Guide
+pagination_label: Private Operator for AWS integration guide
 description: AWS の Private Operator インテグレーションに関する情報。
 hide_table_of_contents: false
-sidebar_position: 17
 displayed_sidebar: docs
 ---
 
@@ -15,7 +14,7 @@ import SnptAttestFailure from '../snippets/_snpt-private-operator-attest-failure
 import SnptRotatingTheKeys from '../snippets/_snpt-private-operator-rotating-the-keys.mdx';
 import SnptRuntimeErrors from '../snippets/_snpt-private-operator-runtime-errors.mdx';
 
-# UID2 Private Operator for AWS Integration Guide
+# Private Operator for AWS integration guide
 
 UID2 Operator は、UID2 エコシステム内の API サーバーです。詳細は、[UID2 Operator](../ref-info/ref-operators-public-private.md) を参照してください。
 
@@ -32,19 +31,19 @@ UID2 Private Operator for AWS を契約することで、以下を利用でき�
 - [CloudFormation](https://aws.amazon.com/cloudformation/) template:<br/>
   このテンプレートでは、UID2 Operator AMI がデプロイ展開されます。
 
-## Operator Version
+## Operator version
 
 最新の ZIP ファイルは、次の表の Release Notes 欄にリンクされています。
 
 | Version Name | Version&nbsp;#/Release&nbsp;Notes | AWS Version |  Date |
 | ------- | ------ | ------ | ------ | 
-| Q4 2025 | [v5.62.24](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.62.24-r2) | v5.62.24-r2 | January 15, 2026 |
+| H1 2026 | [v5.70.159](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.70.159-r0) | v5.70.159-r0 | June 23, 2026 |
 
 :::note
-For information about supported versions and deprecation dates, see [Private Operator Versions](../ref-info/deprecation-schedule.md#private-operator-versions).
+For information about supported versions and deprecation dates, see [Private Operator versions](../ref-info/deprecation-schedule.md#private-operator-versions).
 :::
 
-## Private Operator Upgrade Policy
+## Private Operator upgrade policy
 
 <SnptUpgradePolicy />
 
@@ -55,7 +54,7 @@ AWS で 1 つまたは複数の UID2 Operator をサブスクライブしてデ�
 1. UID2 Operator としてあなたの組織を登録します。
 2. [最小限の権限](#minimal-iam-role-privileges) を持つ[IAM](https://aws.amazon.com/iam/)ロールで AWS アカウントを作成します。
 
-#### Minimal IAM Role Privileges
+#### Minimal IAM role privileges
 
 ワンクリックデプロイを成功させるためには、AWS アカウントに以下のアクションを実行する権限が必要です:
 
@@ -120,22 +119,22 @@ AWS で 1 つまたは複数の UID2 Operator をサブスクライブしてデ�
 }
 ```
 
-### Resources Created
+### Resources created
 
 次の表は、[deployment](#deployment) 中に作成されるすべてのリソースの一覧です。
 
 | Name | Type | Description |
 |:------|:------|:-------------|
-| `KMSKey` | `AWS::KMS::Key` | AWS Secrets Managerで秘密暗号化に使う Custom KMS key です。 |
+| `KMSKey` | `AWS::KMS::Key` | AWS Secrets Manager で秘密暗号化に使う Custom KMS key です。 |
 | `SSMKeyAlias` | `AWS::KMS::Alias` | [KMS](https://aws.amazon.com/kms/)キーに簡単にアクセスする方法を提供するエイリアスです。 |
 | `TokenSecret` | `AWS::SecretsManager::Secret` | Operator Key を保存するための Secrets Manager のシークレットです。 |
 | `WorkerRole` | `AWS::IAM::Role` | UID2 Operator が実行する IAM ロールです。このロールで AWS Secrets Manager にアクセスして Operator Key を取得できます。 |
 | `WorkerInstanceProfile` | `AWS::IAM::InstanceProfile` | Operator EC2 インスタンスにアタッチする Worker Role を持つインスタンスプロファイルです。 |
-| `SecurityGroup` | `AWS::EC2::SecurityGroup` | オペレーターインスタンスに対するルールを提供するセキュリティグループポリシーです。[Security Group Policy](#security-group-policy) を参照してください。|
+| `SecurityGroup` | `AWS::EC2::SecurityGroup` | オペレーターインスタンスに対するルールを提供するセキュリティグループポリシーです。[Security group policy](#security-group-policy) を参照してください。|
 | `LaunchTemplate` | `AWS::EC2::LaunchTemplate` | すべての設定が配置された起動テンプレートです。このテンプレートから新しい UID2 Operator インスタンスを起動できます。|
 | `AutoScalingGroup` | `AWS::AutoScaling::AutoScalingGroup` | 起動テンプレートがアタッチされている Auto Scaling Group(ASG)。必要であれば、これを使用して後でインスタンスの必要数を更新できます。 |
 
-### Customization Options
+### Customization options
 
 以下は、[デプロイ](#deployment) の実行中または実行後にカスタマイズできる内容です。
 
@@ -144,7 +143,7 @@ AWS で 1 つまたは複数の UID2 Operator をサブスクライブしてデ�
 - SSH キー: UID2 Operator の EC2 インスタンスにアクセスする際に使用する SSH キーです。
 - [Instance type](https://aws.amazon.com/ec2/instance-types/): m5.2xlarge、m5.4xlarge、といった具合です。カスタマイズがない場合は、デフォルト値の m5.2xlarge を推奨します。
 
-### Security Group Policy
+### Security group policy
 
 :::note
 ドメインに関連する証明書をエンクレーブに渡すのを避けるため、HTTPS の代わりにインバウンド HTTP が許可されています。これは、組織内部のプライベートネットワークで使用する場合、セキュアレイヤーのコストを回避することにもなります。
@@ -152,17 +151,21 @@ AWS で 1 つまたは複数の UID2 Operator をサブスクライブしてデ�
 
 | Port Number | Direction | Protocol | Description |
 | ----------- | --------- | -------- | ------ |
-| 80 | Inbound | HTTP | Healthcheck エンドポイント `/ops/healthcheck` を含むすべての UID2 API を提供します。<br/>すべてが稼働している場合、エンドポイントは HTTP 200 を返し、レスポンスボディは `OK` となります。詳細は、[Checking UID2 Operator Status](#checking-uid2-operator-status) を参照してください。 |
+| 80 | Inbound | HTTP | Healthcheck エンドポイント `/ops/healthcheck` を含むすべての UID2 API を提供します。<br/>すべてが稼働している場合、エンドポイントは HTTP 200 を返し、レスポンスボディは `OK` となります。詳細は、[Checking UID2 Operator status](#checking-uid2-operator-status) を参照してください。 |
 | 9080 | Inbound | HTTP | Prometheus metrics サービス (`/metrics`)。 |
 | 443 | Outbound | HTTPS | UID2 Core Service、AWS S3 を呼び出し、オプトアウトデータとキーストア用のファイルをダウンロードします。 |
 
-### VPC Chart
+:::note
+アウトバンドのネットワークが制限されている場合は、[Private Operator network egress](../ref-info/operator-private-network-requirements.md) に記載されている宛先へのアウトバウンドアクセスを許可する必要があります。
+:::
+
+### VPC chart
 
 次の図は、Private Operator をホストする仮想プライベートクラウドを示したものです。
 
-![EUID Operator VPC Chart](images/aws-vpc-chart-uid2.png)
+![EUID Operator VPC chart](images/aws-vpc-chart-uid2.png)
 
-## Preparing DII for Processing
+## Preparing DII for processing
 
 <SnptPreparingEmailsAndPhoneNumbers />
 
@@ -173,7 +176,7 @@ UID2 Operator を AWS Marketplace にデプロイするには、以下の手順�
 1. [Unified ID 2.0 Operator on AWS Marketplace](https://aws.amazon.com/marketplace/pp/prodview-wdbccsarov5la) をサブスクライブします。AWS がサブスクライブが完了するまで数分かかる場合があります。
 2. **Configuration** をクリックし、構成値を指定します。
 
-   ソフトウェアバージョンは、[Operator Version](#operator-version) を参照し、AWS Version 列で値を選択します。
+   ソフトウェアバージョンは、[Operator version](#operator-version) を参照し、AWS Version 列で値を選択します。
 3. Configuration ページで **Launch** をクリックし、**Launch CloudFormation** アクションを選択します。
 4. スタック作成ウィザードでテンプレートを指定し、**Next** をクリックします。テンプレートファイルの S3 パスが自動的に入力されます。
 5. [スタックの詳細](#stack-details) を入力し、**Next** をクリックします。
@@ -184,15 +187,15 @@ UID2 Operator を AWS Marketplace にデプロイするには、以下の手順�
 
 スタックの作成には数分かかります。Auto Scaling Group (ASG) が作成されたら、選択して EC2 インスタンスを確認できます。デフォルトでは、最初は 1 つのインスタンスのみが起動します。
 
-### Stack Details
+### Stack details
 
 以下の画像は、スタックの作成ウィザード ([デプロイ](#deployment) Step 5) の**Specify stack details**ページを示しています。次の表は、パラメータ値のリファレンスを提供します。
 
-![Application Configuration](images/cloudformation-step-2.png)
+![Application configuration](images/cloudformation-step-2.png)
 
 下段です:
 
-![Infrastructure Configuration](images/cloudformation-step-2-2.png)
+![Infrastructure configuration](images/cloudformation-step-2-2.png)
 
 次の表は、[デプロイ](#deployment) の Step 5 で指定するパラメータ値について説明したものです。
 
@@ -209,11 +212,11 @@ UID2 Operator を AWS Marketplace にデプロイするには、以下の手順�
 | VpcSubnet1 | 既存の VPC AZ1 サブネット ID。 |
 | VpcSubnet2 | 既存の VPC AZ2 サブネット ID。 |
 
-### Stack Configuration Options
+### Stack configuration options
 
 次の図は、スタックの作成ウィザード ([Deployment](#deployment) Step 6) の**スタックオプションの設定**ページを示しています。
 
-![Configure Stack Options](images/cloudformation-step-3.png)
+![Configure stack options](images/cloudformation-step-3.png)
 
 次の表は、[Deployment](#deployment) の Step 6 で指定するパラメータ値について説明したものです。
 
@@ -224,15 +227,15 @@ UID2 Operator を AWS Marketplace にデプロイするには、以下の手順�
 | Stack failure options | デプロイメントに失敗したときの処理を選択します。`Roll back all stack resources (すべてのスタックリソースをロールバックする)` オプションを推奨します。 |
 | Advanced options | これらはオプションです。 |
 
-## Creating a Load Balancer
+## Creating a load balancer
 
 ロードバランサーとターゲットオペレーターのオートスケーリンググループを作成するには、次の手順を実行します:
 
 1. AWS コンソールで EC2 ダッシュボードに移動し、`Load Balancer` を検索します。
 2. **Create Load Balancer** をクリックします。
-3. Load balancer typesページの **Application Load Balancer** セクションで、**Create** をクリックします。
+3. Load balancer types ページの **Application Load Balancer** セクションで、**Create** をクリックします。
 4. UID2 **Load balancer name** を入力します。パブリックインターネットから UID2 API にアクセスする必要があるかどうかに応じて、**Internet-facing** または **Internal** スキームを選択します。
-5. CloudFormation スタックを作成する際に使用した **VPC** を選択し、少なくとも2つのサブネットを選択します。
+5. CloudFormation スタックを作成する際に使用した **VPC** を選択し、少なくとも 2 つのサブネットを選択します。
 6. **Security groups** の下にある **Create new security group** をクリックし、以下を実行します:
     1. `UID2SGALB` を **Security group name** として入力し、関連する **Description** も入力します。
     2. **Inbound rules** の下で、**Add rule** をクリックし、要件に応じて **HTTPS** タイプと適切な **Source** を選択します。
@@ -248,16 +251,16 @@ UID2 Operator を AWS Marketplace にデプロイするには、以下の手順�
 10. ロードバランサーのページに戻り、**Listeners and routing** の下にある、`UID2ALBTG` をデフォルトのアクションとして転送するターゲットグループとして選択します。新しく作成したターゲットグループが表示されるように、ターゲットグループをリフレッシュする必要があるかもしれないことに注意してください。リスナーの **Port** を `443` に変更します。
 11. [AWS user guide](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html) の指示に従って、HTTPS リスナーをセットアップします。
 12. **Create load balancer** をクリックします。
-13. ロードバランサーのステータスを確認するには、以下のセクションに進んでください: [Checking UID2 Operator Status](#checking-uid2-operator-status)
+13. ロードバランサーのステータスを確認するには、以下のセクションに進んでください: [Checking UID2 Operator status](#checking-uid2-operator-status)
 
-## Checking UID2 Operator Status
+## Checking UID2 Operator status
 
 ロードバランサー配下の UID2 Operator のステータスを確認するには、次の手順を実行します:
 
 1. **EC2 > Load balancers** で、ロードバランサーの **DNS name** 列を見て、ロードバランサーの DNS 名を特定します。
 2. ブラウザで、`https://{dns-name-of-your-load-balancer}/ops/healthcheck` にアクセスします。`OK` のレスポンスであれば、Operator のステータスは良好です。
 
-### Private Operator Attestation Failure
+### Private Operator attestation failure
 
 <SnptAttestFailure />
 
@@ -268,36 +271,36 @@ UID2 Operator を AWS Marketplace にデプロイするには、以下の手順�
 ここでは、アップグレードについて紹介します:
 
 - 新しいバージョンの提供に関する情報は、[UID2 Operator on AWS Marketplace](https://aws.amazon.com/marketplace/pp/prodview-wdbccsarov5la) のページで提供されます。
-- UID2 Operator をアップグレードするには、新しい CloudFormation スタックを作成します。詳細は、[デプロイ](#deployment) を参照してください。
+- UID2 Operator をアップグレードするには、[AWS Marketplace](https://aws.amazon.com/marketplace/pp/prodview-wdbccsarov5la) から新しいインスタンスを起動します。詳細は、[Deployment](#deployment) を参照してください。
 
 :::tip
 スムーズな移行を行うには、まず新しいスタックを作成します。新しいスタックが起動し、サービスを提供する準備ができたら、古いスタックを削除してください。ロードバランサーを使用している場合は、まず新しいインスタンスを立ち上げて実行してから、DNS 名を以前のものから新しいものに変換してください。
 :::
 
-## Managing the Logs
+## Managing the logs
 以下のセクションは、ログを最大限に活用するためのヒントを提供します:
 
-- [Where to Read Logs](#where-to-read-logs)
-- [Default Log Settings](#default-log-settings)
-- [Changing the Log Rotation Schedule](#changing-the-log-rotation-schedule)
-- [Additional Commands for Logging](#additional-commands-for-logging)
+- [Where to read logs](#where-to-read-logs)
+- [Default log settings](#default-log-settings)
+- [Changing the log rotation schedule](#changing-the-log-rotation-schedule)
+- [Additional commands for logging](#additional-commands-for-logging)
 
-### Where to Read Logs
+### Where to read logs
 ログにアクセスするには、EC2 インスタンスに SSH でログインします。ログは `/var/logs/` にあり、`operator.log-<timestamp rotated>` の形式です。
 
-### Default Log Settings
+### Default log settings
 UID2 system はログの生成に `syslog-ng` を使用し、ログのサイズが過大にならないようにログのローテーションと管理を行うために `logrotate` と cron ジョブを使用しています。以下のセクションでは、デフォルト設定とその背後にある理由について説明し、特定の要件に合わせてログローテーション設定をカスタマイズするためのガイダンスを提供します:
 
-- [Log Rotation Configuration](#log-rotation-configuration)
-- [Log Rotation Default Settings](#log-rotation-default-settings)
-- [cronjob Configuration](#cronjob-configuration)
+- [Log rotation configuration](#log-rotation-configuration)
+- [Log rotation default settings](#log-rotation-default-settings)
+- [cronjob configuration](#cronjob-configuration)
 
-#### Log Rotation Configuration
+#### Log rotation configuration
 Operator インスタンスがデプロイされると、デフォルトのログローテーション設定が適用されます:
-- ログは毎日ローテーションされ、30個のログエントリが保持されるため、ログ履歴はログエントリが異常に大きくない限り30日分のデータに相当します。
-- ログエントリが非常に大きい場合、ログサイズが24時間以内に30MBに達した場合、その時点でログがローテーションされます。
+- ログは毎日ローテーションされ、30 個のログエントリが保持されるため、ログ履歴はログエントリが異常に大きくない限り 30 日分のデータに相当します。
+- ログエントリが非常に大きい場合、ログサイズが 24 時間以内に 30MB に達した場合、その時点でログがローテーションされます。
 
-#### Log Rotation Default Settings
+#### Log rotation default settings
 
 以下はデフォルトの logrotate の設定です。`/etc/logrotate.d/operator-logrotate.conf` に定義されています:
 
@@ -318,7 +321,8 @@ Operator インスタンスがデプロイされると、デフォルトのロ�
 
 この設定の詳細は [logrotate(8) - Linux man page](https://linux.die.net/man/8/logrotate) を参照するか、Linux 環境で `man logrotate` を実行してください。
 
-#### cronjob Configuration
+#### cronjob configuration
+
 logrotate は、デフォルトで `/etc/cron.daily` に次のスクリプトを生成します:
 
 ```
@@ -346,7 +350,7 @@ MAILTO=root
 - スクリプトは `maxsize` 条件が頻繁にチェックされるようにします。
 - コマンドは `/var/lib/logrotate/logrotate.status` を参照してログのステータスをチェックし、ログがローテーション条件に達したかどうかを確認して、`logrotate` が毎分実行されたときにも余分なローテーションが行われないようにします。
 
-### Changing the Log Rotation Schedule
+### Changing the log rotation schedule
 
 ログローテーションスケジュールを変更するには、`/etc/logrotate.d/uid2operator.conf` ファイルを更新します。
 
@@ -356,21 +360,21 @@ logrotate のドキュメントに従って指示に従ってください: [logr
 変更を反映するためにサービスを再起動する必要はありません。
 :::
 
-### Additional Commands for Logging
+### Additional commands for logging
 
 次の表は、ログを管理するために役立つ追加のコマンドを示しています。
 
 | Action | Command |
 | :--- | :--- |
 | 何がローテーションされるかの詳細を提供します。 | `sudo logrotate -f /etc/logrotate.conf --debug` |
-| スケジュールされた間隔を変更することなく、手動で `logrotate` を1回実行します。 | `sudo logrotate -f /etc/logrotate.conf --force` |
+| スケジュールされた間隔を変更することなく、手動で `logrotate` を 1 回実行します。 | `sudo logrotate -f /etc/logrotate.conf --force` |
 | `syslog-ng` をリロードします。 | `sudo /usr/sbin/syslog-ng-ctl reload` |
 
-## Keeping the Operator Key Secure
+## Keeping the operator key secure
 
 <SnptRotatingTheKeys />
 
-## UID2 Operator Error Codes
+## UID2 Operator error codes
 
 以下の表は、Private Operator の起動シーケンス中に発生する可能性のあるエラーを示しています。
 
@@ -378,7 +382,7 @@ logrotate のドキュメントに従って指示に従ってください: [logr
 Private Operator 起動時のエラーコードは、リリース v5.49.7 以降のバージョンに適用されます。
 :::
 
-### Startup Errors
+### Startup errors
 
 Operator 起動時に以下のエラーが発生する可能性があります:
 
@@ -387,16 +391,16 @@ Operator 起動時に以下のエラーが発生する可能性があります:
 | E01 | InstanceProfileMissingError | EC2 インスタンスに、必要な権限が付与された IAM インスタンスプロファイルをアタッチします。UID2 Operator は、AWS Secrets Manager から設定にアクセスするためにこれらの権限が必要です。 |
 | E02 | OperatorKeyNotFoundError | Private Operator が参照するシークレットが、オペレーターと同じリージョンにある AWS Secrets Manager に存在することを確認し、IAM インスタンス プロファイルがシークレットにアクセスする権限を持っていることを確認してください。必要に応じて、特定のシークレット名とリージョンに関するログを確認できます。 |
 | E03 | ConfigurationMissingError | 構成に必須の属性が不足しています。詳細はログを確認し、Secrets Manager で不足している属性を更新してください。 |
-| E04 | ConfigurationValueError | 構成値が無効です。AWS Secrets Manager内の構成値が、必要な形式と環境と一致していることを確認してください。Note： `debug_mode = true` は `integ` 環境でのみ許可されています。詳細はログを確認してください。 |
+| E04 | ConfigurationValueError | 構成値が無効です。AWS Secrets Manager 内の構成値が、必要な形式と環境と一致していることを確認してください。Note： `debug_mode = true` は `integ` 環境でのみ許可されています。詳細はログを確認してください。 |
 | E05 | OperatorKeyValidationError | Operator Key が環境に適しており、提供されたものと一致していることを確認してください。 |
 | E06 | UID2ServicesUnreachableError | UID2 Core Service および Opt-Out Service の IP アドレスをアウトバウンドファイアウォールで許可します。IP アドレスおよび DNS の詳細は、ログを参照してください。 |
 
-### Runtime Errors
+### Runtime errors
 
 Operator の実行中に以下のエラーが発生する可能性があります:
 
 <SnptRuntimeErrors />
 
-## Technical Support
+## Technical support
 
 製品のサブスクリプションやデプロイに問題がある場合は、[contact us](mailto:aws-mktpl-uid@thetradedesk.com) にお問い合わせください。

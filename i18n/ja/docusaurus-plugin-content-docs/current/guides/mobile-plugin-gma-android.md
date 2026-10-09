@@ -1,14 +1,13 @@
 ---
-title: UID2 GMA Plugin for Android
+title: GMA Plugin for Android
 description: Android アプリの広告リクエストに GMA を使用するパブリッシャーのためのガイド。
 hide_table_of_contents: false
-sidebar_position: 12
 displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';
 
-# UID2 GMA Plugin for Android Integration Guide
+# GMA Plugin for Android integration guide
 
 UID2 Google Mobile Ads (GMA) Plugin for Android は、[Google Mobile Ads (GMA) SDK](https://developers.google.com/ad-manager/mobile-ads-sdk) を使用するパブリッシャーが、Android アプリからの広告リクエストで <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 Token</Link> を [secure signals](https://support.google.com/admob/answer/11556288?hl=en-GB) として送信できるようにします。これは自動的に行われるため、アプリ開発者が直接コーディングする必要はありません。
 
@@ -22,19 +21,19 @@ UID2 Google Mobile Ads (GMA) Plugin for Android は、[Google Mobile Ads (GMA) S
 
 このドキュメントは、UID2 GMA Plugin for Android バージョン 2.0.0 以降用です。
 
-## GitHub Repository
+## GitHub repository
 
 このプラグインは以下のオープンソースの GitHub リポジトリにあります:
 
 - [https://github.com/IABTechLab/uid2-android-sdk/tree/main/securesignals-gma](https://github.com/IABTechLab/uid2-android-sdk/tree/main/securesignals-gma)
 
-## Complete UID2 Account Setup and Configure Account
+## Complete UID2 account setup and configure account
 
-UID2 とインテグレーションするには、UID2 アカウントが必要です。アカウントを作成していない場合は、まず [Account Setup](../getting-started/gs-account-setup.md) ページの手順に従ってください。
+UID2 とインテグレーションするには、UID2 アカウントが必要です。アカウントを作成していない場合は、まず [Account setup](../getting-started/gs-account-setup.md) ページの手順に従ってください。
 
-アカウントの初期設定が完了すると、[UID2 Portal](../portal/portal-overview.md) にアクセスするための手順とリンクが送信されます。ここで、本番環境用の [credentials](../getting-started/gs-credentials.md) を作成し、必要に応じて追加の値を設定できます。詳細は、[Getting Started with the UID2 Portal](../portal/portal-getting-started.md) を参照してください。
+アカウントの初期設定が完了すると、[UID2 Portal](../portal/portal-overview.md) にアクセスするための手順とリンクが送信されます。ここで、本番環境用の [credentials](../getting-started/gs-credentials.md) を作成し、必要に応じて追加の値を設定できます。詳細は、[Getting started with the UID2 Portal](../portal/portal-getting-started.md) を参照してください。
 
-UID2 Portal で実行する手順は、実装が Client-Side、Client-Server、Server-Side のいずれであるかによって異なります。各実装ガイドに具体的な手順が記載されています。概要は、[Client-Side, Client-Server, or Server-Side Integration?](integration-mobile-overview#client-side-client-server-or-server-side-integration) を参照してください。
+UID2 Portal で実行する手順は、実装が Client-Side、Client-Server、Server-Side のいずれであるかによって異なります。各実装ガイドに具体的な手順が記載されています。概要は、[Client-side, client-server, or server-side integration?](integration-mobile-overview#client-side-client-server-or-server-side-integration) を参照してください。
 
 ## Requirements 
 
@@ -45,9 +44,9 @@ UID2 Portal で実行する手順は、実装が Client-Side、Client-Server、S
    - [Release notes](https://developers.google.com/admob/android/rel-notes)
 1. SDK for Android 2.0.0 or later:
    - [SDK](https://central.sonatype.com/artifact/com.uid2/uid2-android-sdk)
-   - [SDK for Android Reference Guide](../sdks/sdk-ref-android.md)
+   - [SDK for Android reference guide](../sdks/sdk-ref-android.md)
 1. [UID2 Android GMA Plugin v2.0.0](https://central.sonatype.com/artifact/com.uid2/uid2-android-sdk-gma/)
-1. R8 または Proguard を使用している場合は、[Notes for Using R8 or ProGuard](#notes-for-using-r8-or-proguard) に指定された適用オプションを追加します。
+1. R8 または Proguard を使用している場合は、[Notes for using R8 or ProGuard](#notes-for-using-r8-or-proguard) に指定された適用オプションを追加します。
 
 ## Installation
 
@@ -78,7 +77,7 @@ Maven でインストールするには、`pom.xml` ファイルに依存関係�
 </dependency>
 ```
 
-## Notes for Using R8 or ProGuard
+## Notes for using R8 or ProGuard
 
 R8 を使用している場合、縮小と難読化のルールは自動的に含まれます。
 

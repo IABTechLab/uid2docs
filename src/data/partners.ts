@@ -314,6 +314,11 @@ export const partnersData: PartnersDataType = [
     order: 19,
   },
   {
+    name: "Fetch",
+    logo: "fetch-logo.png",
+    type: ["Data"],
+  },
+  {
     name: "Fluct",
     logo: "Fluct_logo-580x250.png",
     type: ["DSP"],
@@ -705,7 +710,7 @@ export const partnersData: PartnersDataType = [
   },
   {
     name: "Open X",
-    logo: "PartnerLogo_OpenX_580x250.png",
+    logo: "OpenX.png",
     type: ["DSP"],
   },
   {

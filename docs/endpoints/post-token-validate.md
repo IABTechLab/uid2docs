@@ -2,7 +2,6 @@
 title: POST /token/validate
 description: Validates an advertising token (for testing purposes). 
 hide_table_of_contents: false
-sidebar_position: 03
 displayed_sidebar: docs
 ---
 
@@ -18,42 +17,42 @@ Used by: This endpoint is used mainly by publishers.
 This endpoint is intended primarily for testing and troubleshooting new integrations.
 :::
 
-## Request Format 
+## Request format 
 
 `POST '{environment}/v2/token/validate'`
 
-For authentication details, see [Authentication and Authorization](../getting-started/gs-auth.md).
+For authentication details, see [Authentication and authorization](../getting-started/gs-auth.md).
 
 :::important
-You must encrypt all requests using your secret key. For details, and code examples in different programming languages, see [Encrypting Requests and Decrypting Responses](../getting-started/gs-encryption-decryption.md).
+You must encrypt all requests using your secret key. For details, and code examples in different programming languages, see [Encrypting requests and decrypting responses](../getting-started/gs-encryption-decryption.md).
 :::
 
-### Path Parameters
+### Path parameters
 
-| Path Parameter | Data Type | Attribute | Description |
+| Path parameter | Data type | Attribute | Description |
 | :--- | :--- | :--- | :--- |
 | `{environment}` | string | Required | Testing (integration) environment: `https://operator-integ.uidapi.com`<br/>Production environment: The best choice depends on where your users are based. For information about how to choose the best URL for your use case, and a full list of valid base URLs, see [Environments](../getting-started/gs-environments.md). |
 
 :::note
-The integration environment and the production environment require different <Link href="../ref-info/glossary-uid#gl-api-key">API keys</Link>. For information about getting credentials for each environment, see [Getting Your Credentials](../getting-started/gs-credentials.md#getting-your-credentials).
+The integration environment and the production environment require different <Link href="../ref-info/glossary-uid#gl-api-key">API keys</Link>. For information about getting credentials for each environment, see [Getting your credentials](../getting-started/gs-credentials.md#getting-your-credentials).
 :::
 
-### Unencrypted JSON Body Parameters
+### Unencrypted JSON body parameters
 
 Here are some key points about using this endpoint:
 
 - Include only one of the following four valid options, as listed in the Body Parameter table: `email`, `email_hash`, `phone`, or `phone_hash`.
 - Include the required body parameters as key-value pairs in the JSON body of the request when encrypting it.
 
-| Body Parameter | Data Type | Attribute | Description |
+| Body parameter | Data type | Attribute | Description |
 | :--- | :--- | :--- | :--- |
 | `token` | string | Required | The advertising token returned by the [POST&nbsp;/token/generate](post-token-generate.md) response.<br/>You can only validate an advertising token that has been generated with your own credentials.
 | `email` | string | Conditionally Required | The email address for token validation. You can use any valid email value, normalized or not. |
-| `email_hash` | string | Conditionally Required | The [Base64-encoded SHA-256](../getting-started/gs-normalization-encoding.md#email-address-hash-encoding) hash of any valid [normalized](../getting-started/gs-normalization-encoding.md#email-address-normalization) email address. |
+| `email_hash` | string | Conditionally Required | The [Base64-encoded SHA-256](../getting-started/gs-normalization-encoding.md#email-address-hashing-and-encoding) hash of any valid [normalized](../getting-started/gs-normalization-encoding.md#email-address-normalization) email address. |
 | `phone` | string | Conditionally Required | The phone number for token validation. You can use any valid phone number value, but it must be [normalized](../getting-started/gs-normalization-encoding.md#phone-number-normalization). |
-| `phone_hash` | string | Conditionally Required | The [Base64-encoded SHA-256](../getting-started/gs-normalization-encoding.md#phone-number-hash-encoding) hash of any valid [normalized](../getting-started/gs-normalization-encoding.md#phone-number-normalization) phone number. |
+| `phone_hash` | string | Conditionally Required | The [Base64-encoded SHA-256](../getting-started/gs-normalization-encoding.md#phone-number-hashing-and-encoding) hash of any valid [normalized](../getting-started/gs-normalization-encoding.md#phone-number-normalization) phone number. |
 
-### Request Examples
+### Request examples
 
 The following are unencrypted JSON request body examples for each parameter, which you need to include in your token validation requests:
 
@@ -92,9 +91,9 @@ Here's an encrypted token validation request example for an email hash:
 echo '{"token": "AdvertisingTokenmZ4dZgeuXXl6DhoXqbRXQbHlHhA96leN94U1uavZVspwKXlfWETZ3b%2FbesPFFvJxNLLySg4QEYHUAiyUrNncgnm7ppu0mi6wU2CW6hssiuEkKfstbo9XWgRUbWNTM%2BewMzXXM8G9j8Q%3D", "email_hash": "LdhtUlMQ58ZZy5YUqGPRQw5xUMS5dXG5ocJHYJHbAKI="}' | python3 uid2_request.py https://prod.uidapi.com/v2/token/validate [Your-Client-API-Key] [Your-Client-Secret]
 ```
 
-For details, and code examples in different programming languages, see [Encrypting Requests and Decrypting Responses](../getting-started/gs-encryption-decryption.md).
+For details, and code examples in different programming languages, see [Encrypting requests and decrypting responses](../getting-started/gs-encryption-decryption.md).
 
-## Decrypted JSON Response Format
+## Decrypted JSON response format
 
 :::note
 The response is encrypted only if the HTTP status code is 200. Otherwise, the response is not encrypted.
@@ -109,19 +108,19 @@ A successful decrypted response returns a boolean value that indicates the valid
 }
 ```
 
-## Body Response Properties
+## Body response properties
 
 The following table provides information about the response body.
 
-| Property | Data Type | Description |
+| Property | Data type | Description |
 | :--- | :--- | :--- |
 | `body` | boolean | A value of `true` indicates that the email address, phone number, or the respective hash specified in the request is the same as the one used to generate the advertising token.<br/>A value of `false` indicates that the email address, phone number, or the respective hash specified in the request is not the same as the one used to generated the advertising token. |
 
-### Response Status Codes
+### Response status codes
 
 The following table lists the `status` property values and their HTTP status code equivalents.
 
-| Status | HTTP Status Code | Description |
+| Status | HTTP status code | Description |
 | :--- | :--- | :--- |
 | `success` | 200 | The request was successful. The response will be encrypted. |
 | `client_error` | 400 | The request had missing or invalid parameters. |
@@ -129,7 +128,7 @@ The following table lists the `status` property values and their HTTP status cod
 
 If the `status` value is anything other than `success`, the `message` field provides additional information about the issue.
 
-## Using POST /token/validate to Test
+## Using POST /token/validate to test
 
 You can use this endpoint to test whether the <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> that you are sending through [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) is valid. Follow these steps.
 

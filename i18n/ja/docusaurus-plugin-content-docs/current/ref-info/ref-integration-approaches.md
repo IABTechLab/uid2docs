@@ -1,14 +1,13 @@
 ---
-title: Integration Approaches
+title: Integration approaches
 description: UID2 インテグレーションに利用可能なアプローチに関する情報。
 hide_table_of_contents: false
-sidebar_position: 06
 displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';
 
-# Integration Approaches
+# Integration approaches
 
 パブリッシャーがワークフローに UID2 をインテグレーションする場合、または広告主が UID2 サポートをインテグレーションする場合、3 つの広範なインテグレーションアプローチがあります。UID2 インテグレーションは、Client-Side で完全に実装される場合、Server-Side で完全に実装される場合、または Client-Side と Server-Side の両方で部分的に実装される場合 (Client-Server) があります。
 
@@ -18,7 +17,7 @@ import Link from '@docusaurus/Link';
 - [Client-server integration](#client-server-integration)
 - [Server-side integration](#server-side-integration)
 
-## Client-Side Integration
+## Client-side integration
 
 Client-Side インテグレーションでは、UID2 Token は Client-Side で生成およびリフレッシュされます。
 
@@ -29,26 +28,26 @@ Client-Side インテグレーションでは、UID2 Token は Client-Side で�
 
 パブリッシャーの Client-Side インテグレーションの例:
 
-- [UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md)
-- [Client-Side Integration Guide for JavaScript](../guides/integration-javascript-client-side.md)
-- [UID2 Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side.md)
+- [Client-side integration guide for Prebid.js](../guides/integration-prebid-client-side.md)
+- [Client-side integration guide for JavaScript](../guides/integration-javascript-client-side.md)
+- [Client-side integration guide for mobile](../guides/integration-mobile-client-side.md)
 
 Client-Side でインテグレーションする広告主は、JavaScript SDK を使用できます:
 
-- [Client-Side Integration Guide for JavaScript](../guides/integration-javascript-client-side.md)
+- [Client-side integration guide for JavaScript](../guides/integration-javascript-client-side.md)
 
-### Client-Side Integration: Security Values
+### Client-side integration: Security values
 
 Client-Side インテグレーションを選択する場合、UID2 サーバーに対してあなたを識別する 2 つの値からなる Client Key ペアが提供されます: **Subscription ID** と **Public Key**。
 
-詳細は[Subscription ID and Public Key](../getting-started/gs-credentials.md#subscription-id-and-public-key)を参照してください。
+詳細は[Subscription ID and public key](../getting-started/gs-credentials.md#subscription-id-and-public-key)を参照してください。
 
 追加のセキュリティを提供するため、ルートレベルのドメインまたはアプリのリストを提供する必要があります。詳細は以下を参照してください:
 
-- ウェブサイトの場合: [Client-Side Web Integrations](../getting-started/gs-account-setup.md#client-side-web-integrations)。
-- モバイルアプリの場合: [Client-Side Mobile Integrations](../getting-started/gs-account-setup.md#client-side-mobile-integrations)。
+- ウェブサイトの場合: [Client-side web integrations](../getting-started/gs-account-setup.md#client-side-web-integrations)。
+- モバイルアプリの場合: [Client-side mobile integrations](../getting-started/gs-account-setup.md#client-side-mobile-integrations)。
 
-## Client-Server Integration
+## Client-server integration
 
 Client-Server インテグレーションでは、一部のインテグレーションステップが Client-Side で実装され、他のステップが Server-Side で実装されます。
 
@@ -56,11 +55,11 @@ Client-Server インテグレーションでは、一部のインテグレーシ
 
 パブリッシャーの Client-Server インテグレーションの例:
 
-- [UID2 Client-Server Integration Guide for Prebid.js](../guides/integration-prebid-client-server.md)
-- [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md)
-- [UID2 Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server.md)
+- [Client-server integration guide for Prebid.js](../guides/integration-prebid-client-server.md)
+- [Client-server integration guide for JavaScript](../guides/integration-javascript-client-server.md)
+- [Client-server integration guide for mobile](../guides/integration-mobile-client-server.md)
 
-### Client-Server Integration: Credentials
+### Client-server integration: Credentials
 
 Client-Server インテグレーションを選択する場合、**API key** と **client secret** が必要です。これらの値は安全に保管する必要があります。
 
@@ -68,9 +67,9 @@ Client-Server インテグレーションを選択する場合、**API key** と
 認証情報を Web ページ、モバイルアプリソースコード、または他の情報が漏洩する可能性のある場所に埋め込まないでください。セキュリティ上の理由から、サーバーに安全に保存してください。
 :::
 
-詳細は [API Key and Client Secret](../getting-started/gs-credentials.md#api-key-and-client-secret) を参照してください。
+詳細は [API key and client secret](../getting-started/gs-credentials.md#api-key-and-client-secret) を参照してください。
 
-## Server-Side Integration
+## Server-side integration
 
 完全に Server-Side でインテグレーションすることも選択できます。
 
@@ -81,9 +80,9 @@ Server-Side インテグレーションでは、Server-Side で raw UID2 また�
 - パブリッシャーは、ビッドストリームで使用するために UID2 Token を Server-Side で生成します。
 - 広告主は、オーディエンスターゲティングのために raw UID2 を Server-Side で生成します。
 
-パブリッシャーの Server-Side インテグレーションの例として [Publisher Integration Guide, Server-Side](../guides/integration-publisher-server-side.md) があります。
+パブリッシャーの Server-Side インテグレーションの例として [Publisher integration guide, server-side](../guides/integration-publisher-server-side.md) があります。
 
-### Server-Side Integration: Credentials
+### Server-side integration: Credentials
 
 Server-Side インテグレーションを選択する場合、**API key** と **client secret** が必要です。これらの値は安全に保管する必要があります。
 
@@ -91,4 +90,4 @@ Server-Side インテグレーションを選択する場合、**API key** と *
 認証情報を Web ページ、モバイルアプリソースコード、または他の情報が漏洩する可能性のある場所に埋め込まないでください。セキュリティ上の理由から、サーバーに安全に保存してください。
 :::
 
-詳細は [API Key and Client Secret](../getting-started/gs-credentials.md#api-key-and-client-secret) を参照してください。
+詳細は [API key and client secret](../getting-started/gs-credentials.md#api-key-and-client-secret) を参照してください。

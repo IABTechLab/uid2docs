@@ -1,10 +1,9 @@
 ---
-title: UID2 Client-Side Integration Guide for Prebid.js
-sidebar_label: Client-Side Integration for Prebid.js
-pagination_label: UID2 Client-Side Integration for Prebid.js
+title: Client-side integration guide for Prebid.js
+sidebar_label: Client-side integration for Prebid.js
+pagination_label: Client-side integration guide for Prebid.js
 description: Client-Side での Prebid.js インテグレーションの設定に関する情報。
 hide_table_of_contents: false
-sidebar_position: 04
 displayed_sidebar: docs
 ---
 
@@ -13,30 +12,35 @@ import SnptIntegratingWithSSO from '../snippets/_snpt-integrating-with-sso.mdx';
 import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emails-and-phone-numbers.mdx';
 import SnptAddPrebidjsToYourSite from '../snippets/_snpt-prebid-add-prebidjs-to-your-site.mdx';
 import SnptStoreUID2TokenInBrowser from '../snippets/_snpt-prebid-storing-uid2-token-in-browser.mdx';
+import SnptUidVerifyInspect from '../snippets/_snpt-uid-verify-inspect.mdx';
 
-# UID2 Client-Side Integration Guide for Prebid.js
+# Client-side integration guide for Prebid.js
 
 このガイドは、Client-Side で <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> (メールアドレスまたは電話番号) にアクセスでき、UID2 とインテグレーションして、RTB <Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link>で Prebid.js によって渡される <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 Token</Link> (Advertising Token) を生成したいパブリッシャー向けのものです。
 
 Prebid.js を使用して UID2 とインテグレーションするには、サイトの HTML と JavaScript を変更する必要があります。このガイドに従う場合、Server-Side の作業は必要ありません。
 
-## Prebid.js Version
+## Prebid.js version
 
 この実装には、Prebid.js バージョン 8.21.0 以降が必要です。バージョン情報については、[https://github.com/prebid/Prebid.js/releases](https://github.com/prebid/Prebid.js/releases) を参照してください。
 
 <!-- Diff in Prebid.js supported version for UID2/EUID is fine: verif SS 11/19/24 -->
 
-以前のバージョンの Prebid.js を使用する必要がある場合は、代わりに [UID2 Client-Server Integration Guide for Prebid.js](integration-prebid-client-server.md) で説明している実装ソリューションを使用してください。
+以前のバージョンの Prebid.js を使用する必要がある場合は、代わりに [Client-server integration guide for Prebid.js](integration-prebid-client-server.md) で説明している実装ソリューションを使用してください。
 
-## Integrating with Single Sign-On (SSO)
+## Integrating with single sign-on (SSO)
 
 <SnptIntegratingWithSSO />
 
-## Preparing DII for Processing
+## Inspecting with UID Verify Chrome extension
+
+<SnptUidVerifyInspect />
+
+## Preparing DII for processing
 
 <SnptPreparingEmailsAndPhoneNumbers />
 
-## Integration Overview: High-Level Steps
+## Integration overview: High-level steps
 
 以下のステップを完了する必要があります:
 
@@ -44,31 +48,31 @@ Prebid.js を使用して UID2 とインテグレーションするには、サ�
 2. [Add Prebid.js to your site](#add-prebidjs-to-your-site)
 3. [Configure the UID2 module](#configure-the-uid2-module)
 
-### Complete UID2 Account Setup and Configure Account
+### Complete UID2 account setup and configure account
 
-UID2 とインテグレーションするには、UID2 アカウントが必要です。アカウントをまだ作成していない場合は、まず [Account Setup](../getting-started/gs-account-setup.md) ページの手順に従ってください。
+UID2 とインテグレーションするには、UID2 アカウントが必要です。アカウントをまだ作成していない場合は、まず [Account setup](../getting-started/gs-account-setup.md) ページの手順に従ってください。
 
-アカウントの初期設定が完了すると、[UID2 Portal](../portal/portal-overview.md) にアクセスするための手順とリンクが送信されます。そこで本番 [環境](../getting-started/gs-environments.md) 用の [credentials](../getting-started/gs-credentials.md) を作成し、提供が必要な追加の値を設定できます。詳細は [Getting Started with the UID2 Portal](../portal/portal-getting-started.md) を参照してください。
+アカウントの初期設定が完了すると、[UID2 Portal](../portal/portal-overview.md) にアクセスするための手順とリンクが送信されます。そこで本番 [環境](../getting-started/gs-environments.md) 用の [credentials](../getting-started/gs-credentials.md) を作成し、提供が必要な追加の値を設定できます。詳細は [Getting started with the UID2 Portal](../portal/portal-getting-started.md) を参照してください。
 
-Client-Side インテグレーションの場合、UID2 Portal の [Client-Side Integration](../portal/client-side-integration.md) ページで以下の値を設定する必要があります:
+Client-Side インテグレーションの場合、UID2 Portal の [Client-side integration](../portal/client-side-integration.md) ページで以下の値を設定する必要があります:
 
-- Subscription ID と Public Key: [Adding and Managing Key Pairs](../portal/client-side-integration.md#adding-and-managing-key-pairs) を参照してください。
+- Subscription ID と Public Key: [Adding and managing key pairs](../portal/client-side-integration.md#adding-and-managing-key-pairs) を参照してください。
 
-- Prebid.js を使用するサイトの **ドメイン名** のリスト: [Adding and Managing Root-Level Domains](../portal/client-side-integration.md#adding-and-managing-root-level-domains) を参照してください。
+- Prebid.js を使用するサイトの **ドメイン名** のリスト: [Adding and managing root-level domains](../portal/client-side-integration.md#adding-and-managing-root-level-domains) を参照してください。
 
 <!-- (earlier instructions, no-portal, for EUID)
-When account setup is complete, you'll receive a client keypair consisting of two values that identify you to the UID2 servers: Subscription ID and public key. These values are unique to you, and you'll use them to configure the UID2 module. For details, see [Subscription ID and Public Key](../getting-started/gs-credentials.md#subscription-id-and-public-key). 
+When account setup is complete, you'll receive a client keypair consisting of two values that identify you to the UID2 servers: Subscription ID and public key. These values are unique to you, and you'll use them to configure the UID2 module. For details, see [Subscription ID and public key](../getting-started/gs-credentials.md#subscription-id-and-public-key). 
 -->
 
 :::tip
 アカウント設定に必要なのはルートレベルのドメインのみです。たとえば、example.com、shop.example.com、example.org で Prebid.js とともに UID2 を使用する場合、提供する必要があるドメイン名は example.com と example.org のみです。
 :::
 
-### Add Prebid.js to Your Site
+### Add Prebid.js to your site
 
 <SnptAddPrebidjsToYourSite />
 
-### Configure the UID2 Module
+### Configure the UID2 module
 
 UID2 モジュールを設定するには、アカウント設定中に受け取った **Public Key** と **Subscription ID**、およびユーザーのハッシュ化された、またはハッシュ化されていないメールアドレスまたは電話番号を含むオブジェクトを指定して `pbjs.setConfig` を呼び出します。
 
@@ -89,11 +93,11 @@ UID2 モジュールを設定するには、アカウント設定中に受け取
   1. 次に、SHA-256 ハッシュアルゴリズムを使用して結果をハッシュ化します。
   1. 次に、ハッシュ値の結果のバイトを Base64 エンコーディングを使用してエンコードします。
   
-  詳細については、[Normalization and Encoding](../getting-started/gs-normalization-encoding.md) を参照してください。例については、[Configuring the UID2 Module: Code Example](#configuring-the-uid2-module-code-example) を参照してください。
+  詳細については、[Normalization and encoding](../getting-started/gs-normalization-encoding.md) を参照してください。例については、[Configuring the UID2 module: Code example](#configuring-the-uid2-module-code-example) を参照してください。
 - UID2 モジュールは、UID2 Service に送信する前に、ハッシュ化された DII を暗号化します。
 - モジュールが複数回設定された場合は、最新の設定値が使用されます。
 
-#### Configuring the UID2 Module: Code Example
+#### Configuring the UID2 module: Code example
 
 以下のコードスニペットは、UID2 モジュールを設定するさまざまな方法を示しています。
 
@@ -117,14 +121,14 @@ const baseConfig = {
 ```
 
 :::note
-この例では、UID2 本番環境を使用していることを前提としています。インテグレーションテスト中は、`params.uid2ApiBase` を `'https://operator-integ.uidapi.com'` に設定して UID2 インテグレーション環境を使用してください。UID2 インテグレーション環境からのトークンは、ビッドストリームに渡すためには無効です。インテグレーション環境の場合は、別途 **Subscription ID** と **Public Key** の値をリクエストする必要があります。これらは UID2 Portal では作成できません。詳細については、[Getting Your Credentials](../getting-started/gs-credentials.md#getting-your-credentials) を参照してください。
+この例では、UID2 本番環境を使用していることを前提としています。インテグレーションテスト中は、`params.uid2ApiBase` を `'https://operator-integ.uidapi.com'` に設定して UID2 インテグレーション環境を使用してください。UID2 インテグレーション環境からのトークンは、ビッドストリームに渡すためには無効です。インテグレーション環境の場合は、別途 **Subscription ID** と **Public Key** の値をリクエストする必要があります。これらは UID2 Portal では作成できません。詳細については、[Getting your credentials](../getting-started/gs-credentials.md#getting-your-credentials) を参照してください。
 :::
 
-## Storing the UID2 Token in the Browser
+## Storing the UID2 token in the browser
 
 <SnptStoreUID2TokenInBrowser />
 
-## When to Pass DII to the UID2 Module
+## When to pass DII to the UID2 module
 
 UID2 モジュールが設定されると、ユーザーのブラウザ内に既存の UID2 Token があるかを確認します。同じ DII から生成されたトークンが存在し、それがまだ有効であるか、リフレッシュ可能である場合、モジュールはそれを使用し、必要に応じてリフレッシュします。
 
@@ -180,7 +184,7 @@ pbjs.setConfig({
 }
 ```
 
-## Checking the Integration
+## Checking the integration
 
 UID2 モジュールが正常に UID2 Token を生成したことを確認するには、`pbjs.getUserIds().uid2` を呼び出します。値が返された場合、有効な UID2 Token が UID2 モジュールに存在します。
 
@@ -189,7 +193,7 @@ UID2 モジュールが正常に UID2 Token を生成したことを確認する
 - ブラウザのコンソールログを確認してください。
 - **Subscription ID** (**subscriptionId** の値) と **Public Key** (**serverPublicKey** の値) を確認してください:
   - UID2 チームから受け取った値と完全に同じであることを確認してください。
-  - 使用している環境に対して正しい値を持っていることを確認してください。環境ごとに異なる **Subscription ID** と **Public Key** の値があります。[Getting Your Credentials](../getting-started/gs-credentials.md#getting-your-credentials) を参照してください。
+  - 使用している環境に対して正しい値を持っていることを確認してください。環境ごとに異なる **Subscription ID** と **Public Key** の値があります。[Getting your credentials](../getting-started/gs-credentials.md#getting-your-credentials) を参照してください。
 - アカウント設定時に、サイトのドメイン名を UID2 チームに提供したことを確認してください。必要に応じて、UID2 の連絡先に確認してください。
 - ブラウザの開発者ツールを使用して、UID2 サービスへの API 呼び出しを検査してください。
 
@@ -200,7 +204,7 @@ Prebid.js の設定を検証およびデバッグするためのツールの例�
 - Chrome ウェブストアのダウンロード場所: [Professor Prebid](https://chromewebstore.google.com/detail/professor-prebid/kdnllijdimhbledmfdbljampcdphcbdc)
 - prebid.org のドキュメント: [Professor Prebid User Guide](https://docs.prebid.org/tools/professor-prebid.html)
 
-## Optional: Specifying the API Base URL to Reduce Latency
+## Optional: Specifying the API base URL to reduce latency
 
 デフォルトでは、UID2 モジュールは米国の UID2 本番環境サーバーへの呼び出しを行います。
 
@@ -222,7 +226,7 @@ pbjs.setConfig({
 }); 
 ```
 
-## Optional: Deferred Client-Side UID2 Configuration with mergeConfig
+## Optional: Deferred client-side UID2 configuration with mergeConfig
 
 すでに Prebid.js を設定しているが、初期設定に UID2 を含めなかった場合でも、Prebid.js が提供する 2 つの関数を使用して UID2 モジュールを追加できます:
 
@@ -260,18 +264,18 @@ await pbjs.refreshUserIds({ submoduleNames: ['uid2'] });
 UID2 SDK を個別に管理している場合は、`window.__uid2.disconnect()` を使用してください。これは、ページのリフレッシュを必要とせずに、すべてのログアウト機能 (メモリとストレージの両方のクリア) を処理します。
 :::
 
-遅延設定 (Deferred configuration) の実装サンプルも利用可能です。詳細については、[Sample Implementations](#sample-implementations) を参照してください。
+遅延設定 (Deferred configuration) の実装サンプルも利用可能です。詳細については、[Sample implementations](#sample-implementations) を参照してください。
 
-## Optional: Prebid.js Integration with Google Secure Signals
+## Optional: Prebid.js integration with Google Secure Signals
 
 Prebid.js を使用しており、Google Secure Signals を使用して Google に UID2 Token を渡す予定の場合は、いくつかの追加の設定手順があります:
 
-- Google Ad Manager アカウントで、暗号化されたシグナルがサードパーティのビダーと適切に共有されていることを確認してください: [Allow Secure Signals Sharing](integration-google-ss.md#allow-secure-signals-sharing) を参照してください。
+- Google Ad Manager アカウントで、暗号化されたシグナルがサードパーティのビダーと適切に共有されていることを確認してください: [Allow Secure Signals sharing](integration-google-ss.md#allow-secure-signals-sharing) を参照してください。
 - Prebid.js の設定を更新してください: [Optional: Enable Secure Signals in Prebid.js](integration-google-ss.md#optional-enable-secure-signals-in-prebidjs) を参照してください。
 
-Secure Signals を使用した Prebid.js の実装サンプルも利用可能です。詳細については、[Sample Implementations](#sample-implementations) を参照してください。
+Secure Signals を使用した Prebid.js の実装サンプルも利用可能です。詳細については、[Sample implementations](#sample-implementations) を参照してください。
 
-## Sample Implementations
+## Sample implementations
 
 UID2 を Client-Side で Prebid.js とインテグレーションする方法を示すために、以下の実装サンプルが利用可能です:
 

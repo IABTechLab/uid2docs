@@ -1,10 +1,9 @@
 ---
-title: UID2 Private Operator for AKS Integration Guide
+title: Private Operator for AKS integration guide
 sidebar_label: Azure Kubernetes Service (AKS)
-pagination_label: UID2 Private Operator for AKS Integration Guide
+pagination_label: Private Operator for AKS integration guide
 description: AKS を使用した Private Operator のインテグレーション情報
 hide_table_of_contents: false
-sidebar_position: 18
 displayed_sidebar: docs
 ---
 
@@ -14,12 +13,12 @@ import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emai
 import SnptAttestFailure from '../snippets/_snpt-private-operator-attest-failure.mdx';
 import SnptRotatingTheKeys from '../snippets/_snpt-private-operator-rotating-the-keys.mdx';
 
-# UID2 Private Operator for AKS Integration Guide
+# Private Operator for AKS integration guide
 
 UID2 Operator は UID2 エコシステムの API サーバーです。詳細は、[The UID2 Operator](../ref-info/ref-operators-public-private.md) を参照してください。
 
 :::note
-AKS の Private Operator をセットアップしたい場合は、UID2 の連絡先にお問い合わせください。詳細は、[Contact Info](../getting-started/gs-account-setup.md#contact-info) を参照してください。
+AKS の Private Operator をセットアップしたい場合は、UID2 の連絡先にお問い合わせください。詳細は、[Contact info](../getting-started/gs-account-setup.md#contact-info) を参照してください。
 :::
 
 このガイドでは、Azure Kubernetes Service（<Link href="../ref-info/glossary-uid#gl-aks">AKS</Link>） クラスター上で Azure Container Instances（ACI） の仮想ノード上で実行される UID2 Operator Service を <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link> として設定する方法について説明します。[Azure Container Instances 上の仮想ノード](https://learn.microsoft.com/ja-jp/azure/container-instances/container-instances-virtual-nodes)を使用することで、ハードウェアでバックアップされた Trusted Execution Environment （TEE） で実行される機密コンテナの機能を活用できます。この TEE は、データ整合性、データ機密性、コード整合性などの内在的な機能を提供します。
@@ -41,10 +40,10 @@ The latest ZIP file is linked in the AKS Download column in the following table.
 | Q2 2025 | xxx | xxx | xxx | xxx |
 
 :::note
-For information about supported versions and deprecation dates, see [Private Operator Versions](../ref-info/deprecation-schedule.md#private-operator-versions).
+For information about supported versions and deprecation dates, see [Private Operator versions](../ref-info/deprecation-schedule.md#private-operator-versions).
 ::: -->
 
-## Private Operator Upgrade Policy
+## Private Operator upgrade policy
 
 <SnptUpgradePolicy />
 
@@ -52,15 +51,15 @@ For information about supported versions and deprecation dates, see [Private Ope
 
 AKS の UID2 Private Operator をデプロイする前に、次の前提条件を完了してください:
 
-- [Set Up the UID2 Operator Account](#set-up-the-uid2-operator-account)
+- [Set up the UID2 Operator account](#set-up-the-uid2-operator-account)
 - [Install the Azure CLI](#install-the-azure-cli)
-- [Get the Required Azure Permissions](#get-the-required-azure-permissions)
+- [Get the required Azure permissions](#get-the-required-azure-permissions)
 - [Install the kubectl CLI](#install-the-kubectl-cli)
 - [Install the Helm CLI](#install-the-helm-cli)
 
-### Set Up the UID2 Operator Account
+### Set up the UID2 Operator account
 
-UID2 の連絡先に、組織を UID2 Operator として登録するよう依頼してください。誰に聞けばよいかわからない場合は、[Contact Info](../getting-started/gs-account-setup.md#contact-info) を参照してください。
+UID2 の連絡先に、組織を UID2 Operator として登録するよう依頼してください。誰に聞けばよいかわからない場合は、[Contact info](../getting-started/gs-account-setup.md#contact-info) を参照してください。
 
 登録プロセスが完了すると、UID2 Service に対して Private Operator として識別する、あなた専用の operator key が届きます。構成中は、これを `OPERATOR_KEY` の値として使用します。この値は、あなたのためのユニークな識別子であり、パスワードでもあります。安全に保管し、共有しないでください。
 
@@ -72,7 +71,7 @@ UID2 の連絡先に、組織を UID2 Operator として登録するよう依頼
 
 Azure コマンドラインインターフェイスをインストールします。詳細は、Azure ドキュメントの [How to install the Azure CLI](https://learn.microsoft.com/ja-jp/cli/azure/install-azure-cli) を参照してください。
 
-### Get the Required Azure Permissions
+### Get the required Azure permissions
 
 リソースグループを作成するには、サブスクリプションの所有者権限が必要です。
 
@@ -84,17 +83,17 @@ Azure コマンドラインインターフェイスをインストールしま�
 
 ### Install the kubectl CLI
 
-Kubernetesの `kubectl` コマンドラインインターフェイスをインストールします。詳細は、Kubernetes ドキュメントの [Install Tools](https://kubernetes.io/docs/tasks/tools/) を参照してください。
+Kubernetes の `kubectl` コマンドラインインターフェイスをインストールします。詳細は、Kubernetes ドキュメントの [Install Tools](https://kubernetes.io/docs/tasks/tools/) を参照してください。
 
 ### Install the Helm CLI
 
 `helm` コマンドラインインターフェイスをインストールします。詳細は、[Installing Helm](https://helm.sh/docs/intro/install/) を参照してください。
 
-## Preparing DII for Processing
+## Preparing DII for processing
 
 <SnptPreparingEmailsAndPhoneNumbers />
 
-## Deployment Environments
+## Deployment environments
 
 以下の環境が利用可能です。ベストプラクティスとして、テスト環境で実装をテストして検証してから、本番環境にデプロイすることをお勧めします。
 
@@ -111,14 +110,14 @@ Kubernetesの `kubectl` コマンドラインインターフェイスをイン�
 
 AKS の新しい UID2 Private Operator をデプロイするには、次の主要な手順を完了する必要があります:
 
-- [Download ZIP File and Extract Files](#download-zip-file-and-extract-files)
-- [Prepare Environment Variables](#prepare-environment-variables)
-- [Set Up AKS and Node Pool](#set-up-aks-and-node-pool)
-- [Set Up AKS Cluster](#set-up-aks-cluster)
-- [Complete Key Vault and Managed Identity Setup](#complete-key-vault-and-managed-identity-setup)
-- [Complete the UID2 Private Operator Setup](#complete-the-uid2-private-operator-setup)
+- [Download ZIP file and extract files](#download-zip-file-and-extract-files)
+- [Prepare environment variables](#prepare-environment-variables)
+- [Set up AKS and node pool](#set-up-aks-and-node-pool)
+- [Set up AKS cluster](#set-up-aks-cluster)
+- [Complete key vault and managed identity setup](#complete-key-vault-and-managed-identity-setup)
+- [Complete the UID2 Private Operator setup](#complete-the-uid2-private-operator-setup)
 
-### Download ZIP File and Extract Files
+### Download ZIP file and extract files
 
 インストールファイルをセットアップするには、次の手順に従ってください:
 
@@ -126,13 +125,7 @@ AKS の新しい UID2 Private Operator をデプロイするには、次の主�
 
 1. ダウンロードし、解凍します。
 
-<!-- Download the ZIP file linked in the following table, AKS Download column, for the latest version. 
-
-1. Unzip the ZIP file to extract the following files, needed for the deployment:
-
-   - `operator.yaml` -->
-
-### Prepare Environment Variables
+### Prepare environment variables
 
 以下のコマンドを実行して、後で使用する環境変数を準備します。変数名は必要に応じて選択してください。
 
@@ -151,22 +144,22 @@ export SUBSCRIPTION_ID="$(az account show --query id --output tsv)"
 export DEPLOYMENT_ENV="integ"
 ```
 
-### Set Up AKS and Node Pool
+### Set up AKS and node pool
 
 AKS とノードプールをセットアップするには、次の手順を完了します:
 
-- [Create Resource Group](#create-resource-group)
-- [Create Virtual Network](#create-virtual-network)
-- [Create Subnets](#create-subnets)
-- [Create Public IP Address](#create-public-ip-address)
-- [Create NAT Gateway](#create-nat-gateway)
-- [Configure NAT Service for Source Subnet](#configure-nat-service-for-source-subnet)
+- [Create resource group](#create-resource-group)
+- [Create virtual network](#create-virtual-network)
+- [Create subnets](#create-subnets)
+- [Create public IP address](#create-public-ip-address)
+- [Create NAT gateway](#create-nat-gateway)
+- [Configure NAT service for source subnet](#configure-nat-service-for-source-subnet)
 - [Get the AKS Subnet ID](#get-the-aks-subnet-id)
-- [Create an AKS Service](#create-an-aks-service)
-- [Get the Principal ID of the Managed Identity](#get-the-principal-id-of-the-managed-identity)
-- [Create Contributor Role for the Two Resource Groups](#create-contributor-role-for-the-two-resource-groups)
+- [Create an AKS service](#create-an-aks-service)
+- [Get the principal ID of the managed identity](#get-the-principal-id-of-the-managed-identity)
+- [Create contributor role for the two resource groups](#create-contributor-role-for-the-two-resource-groups)
 
-#### Create Resource Group
+#### Create resource group
 Azure で、UID2 Private Operator を実行するリソースグループを作成するには、次のコマンドを実行します:
 
 ```
@@ -188,7 +181,7 @@ az group create --name "${RESOURCE_GROUP}" --location "${LOCATION}"
    az account list-locations -o table
    ```
 
-#### Create Virtual Network
+#### Create virtual network
 
 仮想ネットワークを作成するには、次のコマンドを実行します:
 
@@ -200,7 +193,7 @@ az network vnet create \
     --address-prefixes 10.0.0.0/8
 ```
 
-#### Create Subnets
+#### Create subnets
 
 サブネットを作成するには、次のコマンドを実行します:
 
@@ -228,7 +221,7 @@ az network vnet subnet create \
     --delegations Microsoft.ContainerInstance/containerGroups
 ```
 
-#### Create Public IP Address
+#### Create public IP address
 
 パブリック IP アドレスを作成するには、次のコマンドを実行します:
 
@@ -236,7 +229,7 @@ az network vnet subnet create \
 az network public-ip create --name ${PUBLIC_IP_ADDRESS_NAME} --resource-group ${RESOURCE_GROUP} --sku standard --allocation static
 ```
 
-#### Create NAT Gateway
+#### Create NAT gateway
 
 [Azure NAT Gateway](https://learn.microsoft.com/ja-jp/azure/nat-gateway/nat-overview) を作成するには、次のコマンドを実行します:
 
@@ -248,7 +241,7 @@ az network nat gateway create \
     --idle-timeout 4
 ```
 
-#### Configure NAT Service for Source Subnet
+#### Configure NAT service for source subnet
 
 NAT サービスを構成するには、次のコマンドを実行します:
 
@@ -259,6 +252,10 @@ az network vnet subnet update \
     --name cg \
     --nat-gateway ${NAT_GATEWAY_NAME}
 ```
+
+:::note
+アウトバンドのネットワークが制限されている場合は、[Private Operator network egress](../ref-info/operator-private-network-requirements.md) に記載されている宛先へのアウトバウンドアクセスを許可する必要があります。
+:::
 
 #### Get the AKS Subnet ID
 
@@ -273,7 +270,7 @@ export AKS_SUBNET_ID=$(az network vnet subnet show \
     --output tsv)
 ```
 
-#### Create an AKS Service
+#### Create an AKS service
 
 AKS サービスを作成するには、次のコマンドを実行します:
 
@@ -283,7 +280,7 @@ az aks create \
     --resource-group ${RESOURCE_GROUP} \
     --name ${AKS_CLUSTER_NAME} \
     --location ${LOCATION} \
-    --kubernetes-version 1.33 \
+    --kubernetes-version 1.36 \
     --network-plugin azure \
     --network-policy calico \
     --vnet-subnet-id ${AKS_SUBNET_ID} \
@@ -300,12 +297,12 @@ az aks create \
     --os-sku Ubuntu
 ```
 :::note
-必ず最新のサポートされている Kubernetes バージョンを使用してください。`--kubernetes-version` フラグを使用します。以前のバージョンを使用する場合は、長期サポート（LTS）を有効にする必要があります。詳細は、Microsoft ドキュメントの [Long-term support for Azure Kubernetes Service (AKS) versions](https://learn.microsoft.com/en-us/azure/aks/long-term-support) を参照してください。
+必ず最新のサポートされている Kubernetes バージョンを使用してください。`--kubernetes-version` フラグを使用します。上記のバージョンはあくまで一例です。Azure は、Kubernetes の各マイナーバージョンをリリースから約 12 ヶ月後に標準サポートの対象外とし、それ以降はクラスターの作成が `K8sVersionNotSupported` で失敗します。お使いのリージョンで現在利用可能なバージョンを一覧表示するには、`az aks get-versions --location ${LOCATION}` を実行してください。標準サポートの対象外となったバージョンを使用する場合は、長期サポート（LTS）を有効にする必要があります。詳細は、Microsoft ドキュメントの [Long-term support for Azure Kubernetes Service (AKS) versions](https://learn.microsoft.com/en-us/azure/aks/long-term-support) を参照してください。
 :::
 
-#### Get the Principal ID of the Managed Identity
+#### Get the principal ID of the managed identity
 
-Principal ID を取得するには、次のコマンドを実行します:
+principal ID を取得するには、次のコマンドを実行します:
 
 ```
 export MANAGED_IDENTITY_PRINCIPAL_ID="$(az aks show --resource-group ${RESOURCE_GROUP} --name ${AKS_CLUSTER_NAME} --query "identityProfile.kubeletidentity.clientId" --output tsv)"
@@ -313,7 +310,7 @@ export MANAGED_IDENTITY_PRINCIPAL_ID="$(az aks show --resource-group ${RESOURCE_
 
 詳細は、Microsoft Azure ドキュメントの [Get the principal ID of the system-assigned managed identity](https://learn.microsoft.com/en-us/azure/aks/use-managed-identity#get-the-principal-id-of-the-system-assigned-managed-identity) を参照してください。
 
-#### Create Contributor Role for the Two Resource Groups
+#### Create contributor role for the two resource groups
 
 各グループに対してコントリビューターロールを作成するには、次のコマンドを実行します:
 
@@ -333,7 +330,7 @@ az role assignment create \
 - [Tutorial: Deploy virtual nodes on Azure Container Instances in your Azure Kubernetes Service cluster](https://learn.microsoft.com/ja-jp/azure/container-instances/container-instances-tutorial-virtual-nodes-helm)
 - [Setting up a virtual node Environment](https://github.com/microsoft/VirtualNodesOnAzureContainerInstances?tab=readme-ov-file#setting-up-a-virtual-node-environment)
 
-### Set Up AKS Cluster
+### Set up AKS cluster
 
 AKS クラスターをセットアップするには、次のコマンドを実行します:
 
@@ -350,7 +347,7 @@ helm install virtualnode virtualnodesOnAzureContainerInstances/Helm/virtualnode
 kubectl get nodes
 ```
 
-### Complete Key Vault and Managed Identity Setup
+### Complete key vault and managed identity setup
 
 次のステップは、[Key Vault](https://learn.microsoft.com/ja-jp/azure/key-vault/general/overview) をセットアップし、Operator Key を保存することです。Key Vault を作成したら、[Managed Identity](https://learn.microsoft.com/ja-jp/entra/identity/managed-identities-azure-resources/overview) を作成し、Key Vault へのアクセス権を付与できます。
 
@@ -372,14 +369,14 @@ export IDENTITY_PRINCIPAL_ID="$(az identity show --name "${MANAGED_IDENTITY}" --
 az role assignment create --assignee-object-id "${IDENTITY_PRINCIPAL_ID}" --role "Key Vault Secrets User" --scope "${KEYVAULT_RESOURCE_ID}" --assignee-principal-type ServicePrincipal
 ```
 
-### Complete the UID2 Private Operator Setup
+### Complete the UID2 Private Operator setup
 
 Private Operator のセットアップを完了するには、次の手順に従ってください:
 
-- [Update Placeholder Values](#update-placeholder-values)
-- [Deploy Operator](#deploy-operator)
+- [Update placeholder values](#update-placeholder-values)
+- [Deploy operator](#deploy-operator)
 
-#### Update Placeholder Values
+#### Update placeholder values
 
 前のステップを完了した後、プレースホルダ値を更新するには、次の手順に従ってください:
 
@@ -423,7 +420,7 @@ Private Operator のセットアップを完了するには、次の手順に従
    ```
 
 
-#### Deploy Operator
+#### Deploy operator
 
 以下の手順に従って、Private Operator をデプロイします:
 
@@ -439,7 +436,7 @@ Private Operator のセットアップを完了するには、次の手順に従
    kubectl apply -f operator.yaml
    ```
 
-## Running the Health Check
+## Running the health check
 
 ヘルスチェックエンドポイントを呼び出して、実装のヘルスチェックをテストします。
 
@@ -457,7 +454,7 @@ Private Operator のセットアップを完了するには、次の手順に従
 
    HTTP 200 とレスポンスボディ `OK` が表示される場合、ステータスは正常です。
 
-### Private Operator Attestation Failure
+### Private Operator attestation failure
 
 <SnptAttestFailure />
 
@@ -467,9 +464,9 @@ AKS 用の UID2 Private Operator の新しいバージョンがリリースさ�
 
 アップグレードするには、次の手順を完了します:
 
-1. [Download ZIP File and Extract Files](#download-zip-file-and-extract-files) を参照して、新しいバージョンのデプロイメントファイルをダウンロードし、解凍します。
+1. [Download ZIP file and extract files](#download-zip-file-and-extract-files) を参照して、新しいバージョンのデプロイメントファイルをダウンロードし、解凍します。
 
-2. [Complete the UID2 Private Operator Setup](#complete-the-uid2-private-operator-setup) の手順に従い、新しいファイルを使用して AKS 実装を新しいバージョンでデプロイします。
+2. [Complete the UID2 Private Operator setup](#complete-the-uid2-private-operator-setup) の手順に従い、新しいファイルを使用して AKS 実装を新しいバージョンでデプロイします。
 
 3. 新しい AKS デプロイメントのヘルスを確認し、ステータスが正常であることを確認します。
 
@@ -479,6 +476,6 @@ AKS 用の UID2 Private Operator の新しいバージョンがリリースさ�
    kubectl get pods
    ```
 
-## Keeping the Operator Key Secure
+## Keeping the operator key secure
 
 <SnptRotatingTheKeys />

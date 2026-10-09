@@ -2,13 +2,12 @@
 title: SDK for C++
 description: C++ Server-Side SDK のリファレンス情報。
 hide_table_of_contents: false
-sidebar_position: 10
 displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';
 
-# SDK for C++ Reference Guide
+# SDK for C++ reference guide
 
 UID2 Server-Side SDK を使用すると、UID2 Token を復号化して raw UID2 にアクセスしやすくなります。
 
@@ -18,23 +17,23 @@ UID2 Server-Side SDK を使用すると、UID2 Token を復号化して raw UID2
 
 ## Functionality
 
-このSDKは、Server-Sideのコーディングに C++ を使用している DSP または UID2 Sharers のために、UID2 とのインテグレーションを簡素化します。次の表に、この SDK がサポートする機能を示します。
+この SDK は、Server-Side のコーディングに C++ を使用している DSP または UID2 Sharers のために、UID2 とのインテグレーションを簡素化します。次の表に、この SDK がサポートする機能を示します。
 
 | Encrypt Raw UID2 to UID2 Token for Sharing | Decrypt UID2 Token to Raw UID2 | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to Raw UID2s | Monitor Rotated Salt Buckets |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | &#9989; | &#9989; | &#8212; | &#8212; | &#8212; | &#8212; |
 
-## UID2 Account Setup
+## UID2 account setup
 
-UID2 とインテグレーションするには、UID2 アカウントが必要です。アカウントを作成していない場合は、まず [Account Setup](../getting-started/gs-account-setup.md) ページの手順に従ってください。
+UID2 とインテグレーションするには、UID2 アカウントが必要です。アカウントを作成していない場合は、まず [Account setup](../getting-started/gs-account-setup.md) ページの手順に従ってください。
 
-## API Permissions
+## API permissions
 
 アカウントの初期設定が完了すると、パブリッシャー、広告主、またはデータプロバイダーの場合、[UID2 Portal](../portal/portal-overview.md) にアクセスするための手順とリンクが送信されます。以下の操作が可能です:
 - アカウント用の [credentials](../getting-started/gs-credentials.md) を生成します。
 - オプションとして、チームメンバーに関する情報を設定するなど、他の値を設定します。
 
-SDK が提供する特定の機能を使用する権限が与えられ、そのアクセスのための資格情報が提供されます。SDK には使用権限がない機能がある可能性があることに注意してください。詳細は、[API Permissions](../getting-started/gs-permissions.md) を参照してください。
+SDK が提供する特定の機能を使用する権限が与えられ、そのアクセスのための資格情報が提供されます。SDK には使用権限がない機能がある可能性があることに注意してください。詳細は、[API permissions](../getting-started/gs-permissions.md) を参照してください。
 
 DSP の場合は、資格情報を送信します。
 
@@ -42,7 +41,7 @@ DSP の場合は、資格情報を送信します。
 
 この SDK には C++ version 11 が必要です。
 
-## GitHub Repository/Binary
+## GitHub repository/binary
 
 この SDK は以下のオープンソースの GitHub リポジトリにあります:
 
@@ -54,12 +53,12 @@ Release tags は以下の GitHub で入手できますが、バイナリーは�
 
 ## Initialization
 
-初期化関数は、SDKが UID2 Service で認証するために必要なパラメータを設定します。また、エラー発生時の再試行間隔を設定することもできます。
+初期化関数は、SDK が UID2 Service で認証するために必要なパラメータを設定します。また、エラー発生時の再試行間隔を設定することもできます。
 
 | Parameter | Description | Recommended Value |
 | :--- | :--- | :--- |
 | `endpoint` | UID2 Service のエンドポイント。 | N/A |
-| `authKey` | クライアントに付与された認証トークン。UID2 へのアクセスは [Contact Info](../getting-started/gs-account-setup.md#contact-info) を参照してください。 | N/A |
+| `authKey` | クライアントに付与された認証トークン。UID2 へのアクセスは [Contact info](../getting-started/gs-account-setup.md#contact-info) を参照してください。 | N/A |
 
 ## Interface 
 
@@ -69,7 +68,7 @@ Release tags は以下の GitHub で入手できますが、バイナリーは�
 SDK を使用する際に、復号鍵を保存したり管理したりする必要はありません。
 :::
 
-DSP の場合は、入札のために UID2 Advertising Token を復号化して UID2 を返すインターフェースを呼び出します。ユーザーのオプトアウトを処理する入札ロジックの詳細は [DSP Integration Guide](../guides/dsp-guide.md) を参照してください。
+DSP の場合は、入札のために UID2 Advertising Token を復号化して UID2 を返すインターフェースを呼び出します。ユーザーのオプトアウトを処理する入札ロジックの詳細は [DSP integration guide](../guides/dsp-guide.md) を参照してください。
 
 以下は、C++ での decrypt メソッド呼び出しです:
 
@@ -82,17 +81,17 @@ client->Refresh(); //Note that Refresh() should be called once after create(), a
 const auto result = client->Decrypt(adToken);
 ```
 
-### Response Content
+### Response content
 
 SDK から返される利用可能な情報の概要を次の表に示します。
 
 | Function | Description |
 | :--- | :--- |
-| `GetStatus()` | 復号結果のステータス。指定可能な値の一覧と定義は、[Response Statuses](#response-statuses) を参照してください。 |
+| `GetStatus()` | 復号結果のステータス。指定可能な値の一覧と定義は、[Response statuses](#response-statuses) を参照してください。 |
 | `GetUid()` | UID2 Advertising Token に対応する raw UID2。 |
 | `GetEstablished()` | ユーザーがパブリッシャーと最初に UID2 を確立した時を示すタイムスタンプ。 |
 
-### Response Statuses
+### Response statuses
 
 | Value | Description |
 | :--- | :--- |
@@ -104,14 +103,14 @@ SDK から返される利用可能な情報の概要を次の表に示します�
 | `KeysNotSynced` | クライアントは UID2 Service からの鍵の同期に失敗しました。|
 | `VersionNotSupported` | クライアントライブラリが暗号化トークンのバージョンをサポートしていません。|
 
-## Usage for UID2 Sharers
+## Usage for UID2 sharers
 
 UID2 <Link href="../ref-info/glossary-uid#gl-sharing-participant">Sharing Participant</Link> は、送信者または受信者として共有に参加し、他の参加者と UID2 を共有する企業です。
 
-広告主やデータプロバイダは、この SDK を使用して他の認証された UID2 共有参加者と UID2 を共有できます (<Link href="../ref-info/glossary-uid#gl-tokenized-sharing">Tokenized Sharing</Link>)。彼らは [raw UID2s](../ref-info/glossary-uid#gl-raw-uid2) を <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> に暗号化し、それを他の参加者に送信して共有できます (詳細は [Tokenized Sharing in Pixels](../sharing/sharing-tokenized-from-data-pixel.md) を参照)。データをピクセルで送信していない場合でも、[Security Requirements for UID2 Sharing](../sharing/sharing-security.md) で示されている要件に従えば、UID2 共有に参加できます。
+広告主やデータプロバイダは、この SDK を使用して他の認証された UID2 共有参加者と UID2 を共有できます (<Link href="../ref-info/glossary-uid#gl-tokenized-sharing">Tokenized Sharing</Link>)。彼らは [raw UID2s](../ref-info/glossary-uid#gl-raw-uid2) を <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> に暗号化し、それを他の参加者に送信して共有できます (詳細は [Tokenized sharing in pixels](../sharing/sharing-tokenized-from-data-pixel.md) を参照)。データをピクセルで送信していない場合でも、[Security requirements for UID2 sharing](../sharing/sharing-security.md) で示されている要件に従えば、UID2 共有に参加できます。
 
 :::important
-このプロセスで生成される UID2 Token は共有専用です&#8212;<Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link>では使用できません。ビッドストリーム用のトークン生成には別のワークフローがあります: [Tokenized Sharing in the Bidstream](../sharing/sharing-tokenized-from-data-bid-stream.md) を参照してください。
+このプロセスで生成される UID2 Token は共有専用です&#8212;<Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link>では使用できません。ビッドストリーム用のトークン生成には別のワークフローがあります: [Tokenized sharing in the bidstream](../sharing/sharing-tokenized-from-data-bid-stream.md) を参照してください。
 :::
 
  使用例は [com.uid2.client.test.IntegrationExamples](https://github.com/IABTechLab/uid2-client-java/blob/master/src/test/java/com/uid2/client/test/IntegrationExamples.java) (`runSharingExample` メソッド) を参照してください。
@@ -123,7 +122,7 @@ UID2 <Link href="../ref-info/glossary-uid#gl-sharing-participant">Sharing Partic
     ```cpp
    const auto client = UID2ClientFactory::Create(baseUrl, apiKey, secretKey);
     ```
-2. 起動時に一度リフレッシュし、その後定期的にリフレッシュします (推奨リフレッシュ間隔は1時間毎):
+2. 起動時に一度リフレッシュし、その後定期的にリフレッシュします (推奨リフレッシュ間隔は 1 時間毎):
 
     ```cpp
    client->Refresh();
@@ -153,7 +152,7 @@ UID2 <Link href="../ref-info/glossary-uid#gl-sharing-participant">Sharing Partic
       DecryptionResult decrypted = client->Decrypt(uidToken);
       ```
  
-   2. 復号化に成功した場合は、raw UID2を使用します:
+   2. 復号化に成功した場合は、raw UID2 を使用します:
 
       ```cpp    
       if (decrypted.IsSuccess())

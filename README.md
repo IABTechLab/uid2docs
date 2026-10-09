@@ -1,4 +1,4 @@
-# UID2 Documentation
+# UID2 documentation
 
 > Note: The new location for viewing UID2 documentation content is on the Unified ID website: [Unified ID 2.0 Overview](https://unifiedid.com/docs/intro).
 

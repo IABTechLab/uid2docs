@@ -2,13 +2,12 @@
 title: SDK for C# / .NET
 description: C# / .NET SDK のリファレンス情報。
 hide_table_of_contents: false
-sidebar_position: 08
 displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';
 
-# SDK for C# / .NET Reference Guide
+# SDK for C# / .NET reference guide
 
 Server-Side では、C# / .NET SDK を使用して、raw UID2 を暗号化して UID2 Token を生成し、UID2 Token を復号して raw UID2 にアクセスすることができます。
 
@@ -18,23 +17,23 @@ Server-Side では、C# / .NET SDK を使用して、raw UID2 を暗号化して
 
 ## Functionality
 
-この SDK は、Server-Sideのコーディングに C# / .NET を使用している DSP または UID2 sharer のために、UID2 とのインテグレーションを簡素化します。次の表は、この SDK がサポートする機能を示しています。
+この SDK は、Server-Side のコーディングに C# / .NET を使用している DSP または UID2 sharer のために、UID2 とのインテグレーションを簡素化します。次の表は、この SDK がサポートする機能を示しています。
 
 | Encrypt Raw UID2 to UID2 Token for Sharing | Decrypt UID2 Token to Raw UID2 | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to Raw UID2s | Monitor Rotated Salt Buckets |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | &#9989; | &#9989; | &#8212; | &#8212; | &#8212; | &#8212; |
 
-## UID2 Account Setup
+## UID2 account setup
 
-UID2 とインテグレーションするには、UID2 アカウントが必要です。アカウントを作成していない場合は、まず [Account Setup](../getting-started/gs-account-setup.md) ページの手順に従ってください。
+UID2 とインテグレーションするには、UID2 アカウントが必要です。アカウントを作成していない場合は、まず [Account setup](../getting-started/gs-account-setup.md) ページの手順に従ってください。
 
-## API Permissions
+## API permissions
 
 アカウントの初期設定が完了すると、パブリッシャー、広告主、またはデータプロバイダーの場合、[UID2 Portal](../portal/portal-overview.md) にアクセスするための手順とリンクが送信されます。以下の操作が可能です:
 - アカウント用の [credentials](../getting-started/gs-credentials.md) を生成します。
 - オプションとして、チームメンバーに関する情報を設定するなど、他の値を設定します。
 
-SDK が提供する特定の機能を使用する権限が与えられ、そのアクセスのための資格情報が提供されます。SDK には使用権限がない機能がある可能性があることに注意してください。詳細は、[API Permissions](../getting-started/gs-permissions.md) を参照してください。
+SDK が提供する特定の機能を使用する権限が与えられ、そのアクセスのための資格情報が提供されます。SDK には使用権限がない機能がある可能性があることに注意してください。詳細は、[API permissions](../getting-started/gs-permissions.md) を参照してください。
 
 DSP の場合は、資格情報を送信します。
 
@@ -42,7 +41,7 @@ DSP の場合は、資格情報を送信します。
 
 このライブラリは、.NET Standard 2.1. のユニットテストを使用しています。サンプルアプリは .NET 5.0 を使用しています。
 
-## GitHub Repository/Binary
+## GitHub repository/binary
 
 この SDK は以下のオープンソースの GitHub リポジトリにあります:
 
@@ -61,31 +60,31 @@ SDK が UID2 Service で認証するために必要な値を提供する必要�
 | Parameter | Description |
 | :--- | :--- |
 | `endpoint` | UID2 Service のエンドポイント。[Environments](../getting-started/gs-environments) を参照してください。 |
-| `authKey` | API Key。[UID2 Credentials](../getting-started/gs-credentials) を参照してください |
-| `secretKey` | Client Secret 。[UID2 Credentials](../getting-started/gs-credentials) を参照してください。 |
+| `authKey` | API Key。[UID2 credentials](../getting-started/gs-credentials) を参照してください |
+| `secretKey` | Client Secret 。[UID2 credentials](../getting-started/gs-credentials) を参照してください。 |
 
 ## Interface
 
 `BidstreamClient` クラスを使用すると、UID2 Token を raw UID2 に復号することができます。
 
-ユーザーのオプトアウトを処理する入札ロジックの詳細は [DSP Integration Guide](../guides/dsp-guide.md) を参照してください。
+ユーザーのオプトアウトを処理する入札ロジックの詳細は [DSP integration guide](../guides/dsp-guide.md) を参照してください。
 
-`SharingClient` クラスを使うと、raw UID2 を暗号化して UID2 Token に変換したり、UID2 Token を復号してraw UID2 に変換したりすることができます。
+`SharingClient` クラスを使うと、raw UID2 を暗号化して UID2 Token に変換したり、UID2 Token を復号して raw UID2 に変換したりすることができます。
 
 :::note
 SDK を使用する場合、復号鍵を保存したり管理したりする必要はありません。
 :::
 
-### Encryption Response Content
+### Encryption response content
 
-`SharingClient`で暗号化する場合、SDKは以下の情報を返します：
+`SharingClient`で暗号化する場合、SDK は以下の情報を返します：
 
 | Property | Description |
 | :--- | :--- |
-| `Status` | 暗号化結果のステータス。取り得る値のリストと定義は [Encryption Response Statuses](#encryption-response-statuses) を参照してください。 |
+| `Status` | 暗号化結果のステータス。取り得る値のリストと定義は [Encryption response statuses](#encryption-response-statuses) を参照してください。 |
 | `EncryptedData` | 暗号化された UID2 Token。 |
 
-### Encryption Response Statuses
+### Encryption response statuses
 
 | Value | Description |
 | :--- | :--- |
@@ -98,17 +97,17 @@ SDK を使用する場合、復号鍵を保存したり管理したりする必�
 | `EncryptionFailure` | 一般的な暗号化に失敗しました。 |
 <!-- `TokenDecryptFailure` intentionally omitted. Does not seem to be used by SharingClient. -->
 
-### Decryption Response Content
+### Decryption response content
 
 `BidstreamClient`、`SharingClient` いずれでも、SDK は以下の情報を返します:
 
 | Property | Description |
 | :--- | :--- |
-| `Status` | 復号結果のステータス。取り得る値のリストと定義は [Decryption Response Statuses](#decryption-response-statuses) を参照してください。 |
+| `Status` | 復号結果のステータス。取り得る値のリストと定義は [Decryption response statuses](#decryption-response-statuses) を参照してください。 |
 | `Uid` | UID2 Token に対応する raw UID2。 |
 | `Established` | ユーザーがパブリッシャーと最初に UID2 を確立した時のタイムスタンプ。 |
 
-### Decryption Response Statuses
+### Decryption response statuses
 
 | Value | Description |
 | :--- | :--- |
@@ -130,7 +129,7 @@ SDK を使用する場合、復号鍵を保存したり管理したりする必�
 var client = new BidstreamClient(UID2_BASE_URL, UID2_API_KEY, UID2_SECRET_KEY);
 ```
 
-2. 起動時に一度リフレッシュし、その後定期的にリフレッシュします(推奨リフレッシュ間隔は1時間毎):
+2. 起動時に一度リフレッシュし、その後定期的にリフレッシュします(推奨リフレッシュ間隔は 1 時間毎):
 
 ```cs
 client.Refresh();
@@ -157,14 +156,14 @@ else
 
 完全な例は、[SampleApp/Program.cs](https://github.com/IABTechLab/uid2-client-net/blob/main/src/SampleApp/Program.cs) の `ExampleBidStreamClient` メソッドを参照してください。
 
-## Usage for UID2 Sharers
+## Usage for UID2 sharers
 
 UID2 <Link href="../ref-info/glossary-uid#gl-sharing-participant">Sharing Participant</Link> は、送信者または受信者として共有に参加し、他の参加者と UID2 を共有する企業です。
 
-広告主やデータプロバイダは、この SDK を使用して他の認証された UID2 共有参加者と UID2 を共有できます (<Link href="../ref-info/glossary-uid#gl-tokenized-sharing">Tokenized Sharing</Link>)。彼らは [raw UID2s](../ref-info/glossary-uid#gl-raw-uid2) を <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> に暗号化し、それを他の参加者に送信して共有できます (詳細は [Tokenized Sharing in Pixels](../sharing/sharing-tokenized-from-data-pixel.md) を参照)。データをピクセルで送信していない場合でも、[Security Requirements for UID2 Sharing](../sharing/sharing-security.md) で示されている要件に従えば、UID2 共有に参加できます。
+広告主やデータプロバイダは、この SDK を使用して他の認証された UID2 共有参加者と UID2 を共有できます (<Link href="../ref-info/glossary-uid#gl-tokenized-sharing">Tokenized Sharing</Link>)。彼らは [raw UID2s](../ref-info/glossary-uid#gl-raw-uid2) を <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 tokens</Link> に暗号化し、それを他の参加者に送信して共有できます (詳細は [Tokenized sharing in pixels](../sharing/sharing-tokenized-from-data-pixel.md) を参照)。データをピクセルで送信していない場合でも、[Security requirements for UID2 sharing](../sharing/sharing-security.md) で示されている要件に従えば、UID2 共有に参加できます。
 
 :::important
-このプロセスで生成される UID2 Token は共有専用です&#8212;<Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link>では使用できません。ビッドストリーム用のトークン生成には別のワークフローがあります: [Tokenized Sharing in the Bidstream](../sharing/sharing-tokenized-from-data-bid-stream.md) を参照してください。
+このプロセスで生成される UID2 Token は共有専用です&#8212;<Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link>では使用できません。ビッドストリーム用のトークン生成には別のワークフローがあります: [Tokenized sharing in the bidstream](../sharing/sharing-tokenized-from-data-bid-stream.md) を参照してください。
 :::
 
 以下は、SDK for C# / .NET を使用して、送信側または受信側として共有を実装する方法の例です。
@@ -175,7 +174,7 @@ UID2 <Link href="../ref-info/glossary-uid#gl-sharing-participant">Sharing Partic
 var client = new SharingClient(UID2_BASE_URL, UID2_API_KEY, UID2_SECRET_KEY);
 ```
 
-2. 起動時に一度リフレッシュし、その後定期的にリフレッシュします(推奨リフレッシュ間隔は1時間毎):
+2. 起動時に一度リフレッシュし、その後定期的にリフレッシュします(推奨リフレッシュ間隔は 1 時間毎):
 
 ```cs
 client.Refresh();

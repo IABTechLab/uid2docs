@@ -1,14 +1,13 @@
 ---
-title: Getting Started
+title: Getting started
 description: UID2 Portal のアカウント作成方法。
 hide_table_of_contents: false
-sidebar_position: 03
 displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';
 
-# Getting Started with the UID2 Portal
+# Getting started with the UID2 Portal
 
 UID2 Portal アカウントをリクエストする際には、自分自身と会社に関する情報を UID2 の担当者に提供する必要があります。
 
@@ -16,13 +15,13 @@ UID2 Portal アカウントをリクエストする際には、自分自身と�
 
 最初に、次の手順を実行します:
 
-- [Request an Account](#request-an-account)
-- [Log In for the First Time](#log-in-for-the-first-time)
-- [Change Your Password](#change-your-password)
+- [Request an account](#request-an-account)
+- [Log in for the first time](#log-in-for-the-first-time)
+- [Change your password](#change-your-password)
 
 オンボーディングプロセスでサポートが必要な場合は、UID2 の担当者にお問い合わせください。
 
-## Request an Account
+## Request an account
 
 UID2 の担当者にアカウントのリクエストを行う際には、情報を提供する必要があります。次の表に示す詳細情報を含めてください。
 
@@ -35,22 +34,22 @@ UID2 の担当者がまだいない場合は、[UID2 へのアクセスリクエ
 | Information about yourself | 次の情報を提供してください。<br/>- 名<br/>- 姓<br/>- メールアドレス<br/>- 職務 |
 | Information about your company | 次の情報を提供してください。<br/>- 参加者名（会社名）<br/>- 参加者タイプ（パブリッシャー、広告主、DSP、またはデータプロバイダー） |
 
-## Account Approval
+## Account approval
 
 アクセスをリクエストした後、UID2 の担当者がリクエストを処理します。承認プロセスが完了し、アカウントが作成されると、UID2 Portal にログインするためのリンクが記載された確認メールが送信されます。
 
-## Prepare Setup Information
+## Prepare setup information
 
 アカウントが作成された後、設定を行うために必要な情報があります。設定手順は、役割と実装シナリオによって異なります。準備が整うよう、以下のセクションを確認し、必要な情報を準備してください:
 
-- [Determine Integration Path](#determine-integration-path)
+- [Determine integration path](#determine-integration-path)
 
   :::tip
   Client-Side 実装の場合、ルートレベルドメインの完全なリストが必要です。
   :::
-- [Set Up Team Members and Email Contacts](#set-up-team-members-and-email-contacts)
+- [Set up team members and email contacts](#set-up-team-members-and-email-contacts)
 
-## Determine Integration Path
+## Determine integration path
 
 UID2 Service を使用するには、キーのセットが必要です。Client-Side または Server-Side でインテグレーションを行うかによって、キーの種類が異なります。会社のアカウントにアクセスできると、UID2 Portal を使用してキーを取得できます。
 
@@ -58,21 +57,21 @@ UID2 Service を使用するには、キーのセットが必要です。Client-
 
 | Integration | Examples | Instructions |
 | :--- | :--- | :--- |
-| Client-Side インテグレーション | **広告主** はトラッキングピクセル用に Client-Side で UID2 Token を生成します。<br/>**パブリッシャー** は<Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link>用に Client-Side で UID2 Token を生成します。| **Client-Side Integration** ページに移動し、キーペアとルートレベルドメインを設定します。<br/>詳細は [Client-Side Integration](client-side-integration.md) を参照してください。 |
-| Server-Side インテグレーション | **広告主** はオーディエンスターゲティングのために配信される raw UID2 を生成します。<br/>**パブリッシャー** は<Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link>のために Server-Side で UID2 Token を生成します。| **API Keys** ページに移動し、少なくとも 1 組の認証情報を生成します。API Key を追加すると、シークレットとキーの 2 つの値が割り当てられます。<br/>詳細は [API Keys](api-keys.md) を参照してください。 |
+| Client-Side インテグレーション | **広告主** はトラッキングピクセル用に Client-Side で UID2 Token を生成します。<br/>**パブリッシャー** は<Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link>用に Client-Side で UID2 Token を生成します。| **Client-Side Integration** ページに移動し、キーペアとルートレベルドメインを設定します。<br/>詳細は [Client-side integration](client-side-integration.md) を参照してください。 |
+| Server-Side インテグレーション | **広告主** はオーディエンスターゲティングのために配信される raw UID2 を生成します。<br/>**パブリッシャー** は<Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link>のために Server-Side で UID2 Token を生成します。| **API Keys** ページに移動し、少なくとも 1 組の認証情報を生成します。API Key を追加すると、シークレットとキーの 2 つの値が割り当てられます。<br/>詳細は [API keys](api-keys.md) を参照してください。 |
 
-Client-Side と Server-Side の両方のインテグレーションを使用する参加者もいます。たとえば、広告主はピクセルのために Client-Side で UID2 Token を生成 ([Client-Side Integration](client-side-integration.md)) し、raw UID2 の生成は Server-Side でインテグレーションします ([API Keys](api-keys.md))。
+Client-Side と Server-Side の両方のインテグレーションを使用する参加者もいます。たとえば、広告主はピクセルのために Client-Side で UID2 Token を生成 ([Client-side integration](client-side-integration.md)) し、raw UID2 の生成は Server-Side でインテグレーションします ([API keys](api-keys.md))。
 
-## Log In for the First Time
+## Log in for the first time
 
 確認メールが届いたら、メールに記載されている **Accept Invitation** リンクをクリックし、続けて以下のタスクを完了してください:
 - [Change your password](#change-your-password)
-- [Log In](#log-in)
+- [Log in](#log-in)
 - [Configure unique account values](#configure-unique-account-values)
 
 新しいパスワードを作成し、UID2 Portal にログインします。
 
-## Change Your Password
+## Change your password
 
 **Accept Invitation** リンクをクリックすると、**Set Password** ページに移動します。
 
@@ -84,7 +83,7 @@ Client-Side と Server-Side の両方のインテグレーションを使用す�
 
 アカウントが承認されたことを知らせるメッセージが表示され、**Log In** ボタンが表示されます。
 
-## Log In
+## Log in
 
 ログインの準備が整いました。
 
@@ -98,24 +97,24 @@ Client-Side と Server-Side の両方のインテグレーションを使用す�
 
 次のステップは、アカウントの設定です。
 
-## Configure Unique Account Values
+## Configure unique account values
 
 アカウントの設定手順は、シナリオによって異なります。以下は、推奨される順序です。
 
-1. 重要な最初のステップとして、インテグレーションパスを決定します。[Determine Integration Path](#determine-integration-path) を参照してください。
+1. 重要な最初のステップとして、インテグレーションパスを決定します。[Determine integration path](#determine-integration-path) を参照してください。
 
 1. アカウントに固有の値を設定します。適用可能なページで値を構成できます&#8212;以下のいずれかです:
 
-    - [Client-Side Integration](client-side-integration.md)
-    - [API Keys](api-keys.md)
+    - [Client-side integration](client-side-integration.md)
+    - [API keys](api-keys.md)
 
 1. アカウントに固有の値を設定すると、[共有権限](sharing-permissions.md) を設定できます。
 
-1. チームメンバーを追加すると、チーム全体での作業負荷が分散されるため、効果的です。[Team Members](team-members.md) を参照してください。
+1. チームメンバーを追加すると、チーム全体での作業負荷が分散されるため、効果的です。[Team members](team-members.md) を参照してください。
 
-1. プロジェクトに関わるすべての人が通知を受けるようにするために、メール連絡先を追加することも役立ちます。[Email Contacts](email-contacts.md) を参照してください。
+1. プロジェクトに関わるすべての人が通知を受けるようにするために、メール連絡先を追加することも役立ちます。[Email contacts](email-contacts.md) を参照してください。
 
-## Set Up Team Members and Email Contacts
+## Set up team members and email contacts
 
 初回ログイン時に、以下の設定手順を完了できます:
 
@@ -126,21 +125,21 @@ Client-Side と Server-Side の両方のインテグレーションを使用す�
 
 | Item | Details | Link to Instructions | 
 | :--- | :--- | :--- |
-| Team member information | 以下を提供してください。<br/>- 名<br/>- 姓<br/>- メールアドレス<br/>- 職務<br/>- 役割 | [Team Members](team-members.md) |
-| Email contact information | 以下を提供してください。<br/>- メールグループ名<br/>- メールエイリアス<br/>- 連絡先タイプ | [Email Contacts](email-contacts.md) |
+| Team member information | 以下を提供してください。<br/>- 名<br/>- 姓<br/>- メールアドレス<br/>- 職務<br/>- 役割 | [Team members](team-members.md) |
+| Email contact information | 以下を提供してください。<br/>- メールグループ名<br/>- メールエイリアス<br/>- 連絡先タイプ | [Email contacts](email-contacts.md) |
 
-## Reset Password
+## Reset password
 
 パスワードを忘れた場合は、ログインページの **Forgot Password** リンクをクリックします。メールアドレスを提供し、メールアカウントでパスワードリセットメッセージを確認してください。
 
-## Log Out
+## Log out
 
 アカウントの更新が完了したら、ログアウトすることを忘れないでください。
 
 1. 右上の自分の名前をクリックします。
 1. ドロップダウンリストから **Log Out** をクリックします。
 
-## Password Change Requirement
+## Password change requirement
 
 場合によっては、パスワードを変更する必要があるかもしれません。たとえば、パスワードの要件が変更され、現在のパスワードが新しい要件を満たさない場合は、新しいパスワードを選択する必要があります。
 

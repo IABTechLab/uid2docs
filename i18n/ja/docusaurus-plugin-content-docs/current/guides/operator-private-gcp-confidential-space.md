@@ -1,10 +1,9 @@
 ---
-title: UID2 Private Operator for GCP Integration Guide
+title: Private Operator for GCP integration guide
 sidebar_label: GCP Confidential Space
-pagination_label: UID2 Private Operator for GCP Integration Guide
+pagination_label: Private Operator for GCP integration guide
 description: GCP の Private Operator のインテグレーション情報。
 hide_table_of_contents: false
-sidebar_position: 18
 displayed_sidebar: docs
 ---
 
@@ -15,7 +14,7 @@ import SnptAttestFailure from '../snippets/_snpt-private-operator-attest-failure
 import SnptRotatingTheKeys from '../snippets/_snpt-private-operator-rotating-the-keys.mdx';
 import SnptRuntimeErrors from '../snippets/_snpt-private-operator-runtime-errors.mdx';
 
-# UID2 Private Operator for GCP Integration Guide
+# Private Operator for GCP integration guide
 
 UID2 Operator は、UID2 エコシステムの API サーバーです。詳細は、[UID2 Operator](../ref-info/ref-operators-public-private.md) を参照してください。
 
@@ -31,23 +30,23 @@ UID2 Operator Confidential Space 用の Docker コンテナが起動すると、
 
 認証が成功すると、UID2 Core Service は、UID2 Operator をセキュアな Confidential Space コンテナ内でブートストラップするためのソルトやキーなどのシード情報を提供します。
 
-## Operator Version
+## Operator version
 
 最新の ZIP ファイルは、次の表の GCP ダウンロード列にリンクされています。
 
 | Version Name | Version&nbsp;#/Release&nbsp;Notes | GCP Download |  Date | Deprecation Date |
 | ------- | ------ | ------ | ------ | ------ |
-| Q4 2025 | [v5.62.24](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.62.24-r2) | [gcp-oidc-deployment-files-5.62.24-r2.zip](https://github.com/IABTechLab/uid2-operator/releases/download/v5.62.24-r2/gcp-oidc-deployment-files-5.62.24-r2.zip) | January 15, 2026 | January 15, 2027 | 
+| H1 2026 | [v5.70.159](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.70.159-r0) | [gcp-oidc-deployment-files-5.70.159-r0.zip](https://github.com/IABTechLab/uid2-operator/releases/download/v5.70.159-r0/gcp-oidc-deployment-files-5.70.159-r0.zip) | June 23, 2026 | June 30, 2027 | 
 
 :::note
-サポートされているバージョンと非推奨日については、[Private Operator Versions](../ref-info/deprecation-schedule.md#private-operator-versions) を参照してください。
+サポートされているバージョンと非推奨日については、[Private Operator versions](../ref-info/deprecation-schedule.md#private-operator-versions) を参照してください。
 :::
 
-## Private Operator Upgrade Policy
+## Private Operator upgrade policy
 
 <SnptUpgradePolicy />
 
-## Setup Overview
+## Setup overview
 
 セットアップは、次の手順で行います:
 
@@ -59,10 +58,10 @@ UID2 Operator Confidential Space 用の Docker コンテナが起動すると、
    
       Terraform テンプレートオプションを推奨します。
 1. 選択したデプロイメントオプションに従って、適用可能な手順に従います:
-   - [Terraform Template](#deployterraform-template)
+   - [Terraform template](#deployterraform-template)
    - [gcloud CLI](#deploygcloud-cli)
 1. 必要であれば、エグレスルールを有効にします。
-   - 詳細は [Confidential Space Account Setup](#confidential-space-account-setup)、Step 4 を参照してください。
+   - 詳細は [Confidential Space account setup](#confidential-space-account-setup)、Step 4 を参照してください。
 
 すべての手順が完了すると、実装が稼働するようになります。
 
@@ -70,10 +69,10 @@ UID2 Operator Confidential Space 用の Docker コンテナが起動すると、
 
 Google Cloud Platform で Confidential Space を使用して UID2 Operator Service を設定する前に、次の前提条件を満たす必要があります:
 
-- [Confidential Space Account Setup](#confidential-space-account-setup)
-- [UID2 Operator Account Setup](#uid2-operator-account-setup)
+- [Confidential Space account setup](#confidential-space-account-setup)
+- [UID2 Operator account setup](#uid2-operator-account-setup)
 
-### Confidential Space Account Setup
+### Confidential Space account setup
 
 UID2 Operator Service は、任意の GCP アカウントとプロジェクトで実行できます。ただし、認証をサポートするためには、Confidential Space 仮想マシン（VM）を実行するために使用できるサービスアカウントを作成する必要があります。
 
@@ -90,9 +89,11 @@ UID2 Operator Service は、任意の GCP アカウントとプロジェクト�
 
 1. エグレスルールを有効にします。VPC インフラストラクチャが既知のエンドポイントへのイグレスのみを許可する場合、オペレーターが認証に必要な証明書を取得できるようにエグレスルールを有効にする必要があります。これを有効にするには、Google のこのドキュメントに従ってください: [VPC Service Controls](https://cloud.google.com/vpc-service-controls/docs/supported-products#table_confidential_space)。
 
-### UID2 Operator Account Setup
+また、アウトバンドのネットワークが制限されている場合は、[Private Operator network egress](../ref-info/operator-private-network-requirements.md) に記載されている宛先へのアウトバウンドアクセスを許可する必要があります。
 
-UID2 の連絡先に、あなたの組織を UID2 Operator として登録するよう依頼してください。誰に依頼すればよいかわからない場合は、[Contact Info](../getting-started/gs-account-setup.md#contact-info) を参照してください。
+### UID2 Operator account setup
+
+UID2 の連絡先に、あなたの組織を UID2 Operator として登録するよう依頼してください。誰に依頼すればよいかわからない場合は、[Contact info](../getting-started/gs-account-setup.md#contact-info) を参照してください。
 
 :::tip
 新しいバージョンやその他の技術的な通知や要求について知らせておくべき人の社内メール配信リストを設定し、そのメールアドレスを提供しておくとよいでしょう。
@@ -109,11 +110,11 @@ UID2 アカウント登録が完了し、gcloud CLI をインストールした�
 - [deployment environments](#deployment-environments) に関する情報を確認します。
 - 利用可能な[deployment options](#deployment-options) に関する情報を確認し、それぞれの利点を比較して、使用するオプションを決定します。
 
-## Preparing DII for Processing
+## Preparing DII for processing
 
 <SnptPreparingEmailsAndPhoneNumbers />
 
-## Deployment Environments
+## Deployment environments
 
 以下の環境が利用可能で、[deployment options](#deployment-options) の両方が両方の環境をサポートしています。
 
@@ -126,24 +127,24 @@ UID2 アカウント登録が完了し、gcloud CLI をインストールした�
 | Environment | Details |
 | :--- | :--- |
 | Integration (`integ`) | テスト専用。デバッグモードはインテグレーション環境で使用できます。 |
-| Production (`prod`) | 本番トラフィックの管理用。この環境では、Terraform テンプレート経由で、ロードバランシングを行い、HTTPS を有効にしてデプロイすることを推奨します。[Deployment Options](#deployment-options) を参照してください。 |
+| Production (`prod`) | 本番トラフィックの管理用。この環境では、Terraform テンプレート経由で、ロードバランシングを行い、HTTPS を有効にしてデプロイすることを推奨します。[Deployment options](#deployment-options) を参照してください。 |
 
-## Deployment Options
+## Deployment options
 
-デプロイメントオプションは次の2つがあります:
+デプロイメントオプションは次の 2 つがあります:
 
 | Option | Details |
 | :--- | :--- |
 | [Terraform template](#deployterraform-template) | このオプションは:<ul><li>手動でサービスアカウントを設定する必要はありません。設定はとても簡単です。</li><li>ロードバランサーとスケーリンググループでスタック全体を立ち上げます。</li><li>`gcloud` オプションよりも保守・運用が簡単です。</li><li>アップグレードはとても簡単です。</li><li>推奨するデプロイオプションです。</li></ul> |
-| [gcloud CLI](#deploygcloud-cli) | このオプションは:<ul><li>パブリック IP アドレスを持つ VM インスタンスを1つ起動します。</li><li>素早く実験・評価を行うことができます。</li><li>複数のインスタンスを使用する場合は、コマンドを複数回実行して各インスタンスを手動で立ち上げる必要があります。</li><li>ロードバランサーを手動で設定する必要があります。</li><li>手作業が増えるため、アップグレードはより複雑になります。</li></ul> |
+| [gcloud CLI](#deploygcloud-cli) | このオプションは:<ul><li>パブリック IP アドレスを持つ VM インスタンスを 1 つ起動します。</li><li>素早く実験・評価を行うことができます。</li><li>複数のインスタンスを使用する場合は、コマンドを複数回実行して各インスタンスを手動で立ち上げる必要があります。</li><li>ロードバランサーを手動で設定する必要があります。</li><li>手作業が増えるため、アップグレードはより複雑になります。</li></ul> |
 
 どちらのデプロイメントオプションも、両方のデプロイメント環境をサポートしています。
 
 次のステップを決定するには、使用するデプロイオプションを選択してください。次に、該当する手順に従ってください:
-- [Deploy&#8212;Terraform Template](#deployterraform-template)
+- [Deploy&#8212;Terraform template](#deployterraform-template)
 - [Deploy&#8212;gcloud CLI](#deploygcloud-cli)
 
-### Deploy&#8212;Terraform Template
+### Deploy&#8212;Terraform template
 
 デプロイとアップグレードを容易にするために、Terraform テンプレートを使用して、ロードバランシングと自動スケーリング機能を備えた UID2 Private Operator 実装をデプロイできます。このシナリオでは、すべての VM インスタンスが Confidential Space VM で実行され、複数の可用性ゾーン（AZ）にデプロイされます。
 
@@ -159,29 +160,29 @@ Terraform テンプレートは次の操作を行います:
 - HTTPS が有効になっている場合、Terraform に HTTPS 証明書を提供します。
 
 :::note
-Terraform テンプレートは、[Confidential Space Account Setup](#confidential-space-account-setup) Step 3 でインストールした gcloud CLI を使用します。
+Terraform テンプレートは、[Confidential Space account setup](#confidential-space-account-setup) Step 3 でインストールした gcloud CLI を使用します。
 :::
 
 新しい UID2 Operator を GCP Confidential Space Enclave にデプロイするための Terraform テンプレートを使用する手順は次のとおりです:
 
 1. [Install Terraform](#install-terraform)
-1. [Set Up the Terraform Environment](#set-up-the-terraform-environment)
-1. [Download the Template Files](#download-the-template-files)
-1. [Provide Input Values](#provide-input-values)
+1. [Set up the Terraform environment](#set-up-the-terraform-environment)
+1. [Download the template files](#download-the-template-files)
+1. [Provide input values](#provide-input-values)
 1. [Run Terraform](#run-terraform)
-1. [Test Terraform Using the Health Check Endpoint](#test-terraform-using-the-health-check-endpoint)
+1. [Test Terraform using the health check endpoint](#test-terraform-using-the-health-check-endpoint)
 
 詳細は次のとおりです:
-- [Delete All Created Resources](#delete-all-created-resources)
+- [Delete all created resources](#delete-all-created-resources)
 - [Outputs](#outputs)
 
 #### Install Terraform
 
 Terraform がインストールされていない場合は、[terraform.io](https://www.terraform.io/) を参照してインストールしてください。
 
-#### Set Up the Terraform Environment
+#### Set up the Terraform environment
 
-1. 新しいプロジェクトを作成するか、既存のプロジェクトを選択します。プロジェクト ID の `{PROJECT_ID}` プレースホルダを自分のプロジェクト ID に置き換えてください（[Confidential Space Account Setup](#confidential-space-account-setup) を参照）:
+1. 新しいプロジェクトを作成するか、既存のプロジェクトを選択します。プロジェクト ID の `{PROJECT_ID}` プレースホルダを自分のプロジェクト ID に置き換えてください（[Confidential Space account setup](#confidential-space-account-setup) を参照）:
 
    ```
    gcloud config set project {PROJECT_ID}
@@ -193,9 +194,9 @@ Terraform がインストールされていない場合は、[terraform.io](http
    gcloud auth application-default login
    ```
 
-#### Download the Template Files
+#### Download the template files
 
-[Operator Version](#operator-version) の GCP ダウンロード列にある ZIP ファイルをダウンロードします。最新バージョンを選択してください。ファイルを便利な場所に解凍します。次の表に示すファイルが生成されます。
+[Operator version](#operator-version) の GCP ダウンロード列にある ZIP ファイルをダウンロードします。最新バージョンを選択してください。ファイルを便利な場所に解凍します。次の表に示すファイルが生成されます。
 
 | File | Details |
 | :--- | :--- |
@@ -204,7 +205,7 @@ Terraform がインストールされていない場合は、[terraform.io](http
 | `outputs.tf` | 出力定義です。 |
 | `terraform.tfvars` | テンプレート入力変数の値です。 |
 
-#### Provide Input Values
+#### Provide input values
 
 入力パラメータの値を提供するために、ダウンロードした `terraform.tfvars` ファイルに入力します。必要なものとオプションの両方があります。
 
@@ -215,7 +216,7 @@ Terraform がインストールされていない場合は、[terraform.io](http
    | `project_id` | `string` | `uid2-test` | yes | UID2 Operator を実行する GCP プロジェクトの ID。たとえば、`UID2-Operator-Production`。 |
    | `service_account_name` | `string` | `tf-test` | yes | GCP Confidential Space の UID2 Operator インスタンスに使用するサービスアカウントの名前。 |
    | `uid_operator_image` | `string` | `us-docker.pkg.dev/uid2-prod-project/iabtechlab/uid2-operator:{version_number}` | yes | コンフィギュレーションで使用する UID2 Private Operator for GCP の Docker イメージ URL。バージョン番号は、デプロイされるバージョンによって変わります。 |
-   | `uid_operator_key` | `string` | n/a | yes | UID2 Operator Key は、[UID2 Operator Account Setup](#uid2-operator-account-setup) で受け取ったものです。 |
+   | `uid_operator_key` | `string` | n/a | yes | UID2 Operator Key は、[UID2 Operator account setup](#uid2-operator-account-setup) で受け取ったものです。 |
    | `uid_operator_key_secret_name` | `string` | `secret-operator-key` | yes | Secret Manager で作成するキーの名前。 |
    | `uid_deployment_env` | `string` | `integ` | yes | 有効な値: `integ` はインテグレーション環境、`prod` は本番環境。<br/>マシンタイプはデプロイ環境によって決まります。`integ` は `n2d-standard-2` を使用し、`prod` は `n2d-standard-16` を使用します。 |
    | `debug_mode` | `bool` | `true` | yes | より多くの診断情報を有効にするには `true` に設定します。本番環境では `false` に設定しなければなりません。 |
@@ -235,7 +236,7 @@ Terraform がインストールされていない場合は、[terraform.io](http
    | `region` | `string` | `us-east1` | no | デプロイ先のリージョン。有効なリージョンの一覧は、Google Cloud ドキュメントの [Available regions and zones](https://cloud.google.com/compute/docs/regions-zones#available) を参照してください。<br/>注意: GCP Confidential Space 用の UID2 Private Operator の実装は、次の地域ではサポートされていません: ヨーロッパ、中国。 |
    | `network_name` | `string` | `uid-operator` | no | VPC リソース名（ルール/インスタンスタグにも使用されます）。 |
    | `min_replicas` | `number` | `1` | no | デプロイする最小レプリカ数を示します。 |
-   | `max_replicas` | `number` | `5` | no | デプロイする最大レプリカ数を示します。 |
+   | `max_replicas` | `number` | `1` | no | デプロイする最大レプリカ数を示します。 |
    | `uid_operator_key_secret_name` | `string` | `"secret-operator-key"` | no | Operator Key のシークレットの名前を指定します。Terraform テンプレートは、GCP Secret Manager に `uid_operator_key` 値を保持するためのシークレットを作成します。名前を定義できます。例: `uid2-operator-operator-key-secret-integ`。 |
    | `debug_mode` | `bool`  | `false` | no | UID2 チームと協力して問題をデバッグする場合を除き、`true` に設定しないでください。それ以外の場合、このフラグを `true` に設定すると、認証が失敗します。 |
 
@@ -253,13 +254,13 @@ terraform apply
 Terraform の `state` ファイルに関する推奨に従ってください: デプロイされたインフラストラクチャを維持するために必要であり、機密情報を含む可能性があります。詳細は、Terraform ドキュメントの [state](https://developer.hashicorp.com/terraform/language/state) を参照してください。
 :::
 
-#### Test Terraform Using the Health Check Endpoint
+#### Test Terraform using the health check endpoint
 
 実装のヘルスをテストするために、ヘルスチェックエンドポイントを使用します。ヘルスチェックの期待される結果は、HTTP 200 で、レスポンスボディが `OK` です。
 
-手順は、[Health Check&#8212;Terraform Template](#health-checkterraform-template) を参照してください。
+手順は、[Health check&#8212;Terraform template](#health-checkterraform-template) を参照してください。
 
-#### Delete All Created Resources
+#### Delete all created resources
 
 クリーンアップを行いたい場合は、Terraform によって作成されたリソースを削除できます。たとえば、`integ` をテストしたい場合、後でスタック全体を削除することができます。
 
@@ -285,17 +286,17 @@ gcloud CLI を使用して GCP Confidential Space Enclave に新しい UID2 Oper
 本番環境へのデプロイメントにはこのオプションを使用しないことを推奨します。本番環境へのデプロイメントには、Terraform テンプレートを使用し、ロードバランシングを行い、HTTPS を有効にすることを推奨します。
 :::
 
-   1. [Set Up Service Account Rules and Permissions](#set-up-service-account-rules-and-permissions)
-   1. [Create Secret for the Operator Key in Secret Manager](#create-secret-for-the-operator-key-in-secret-manager)
-   1. [Update the Script with Valid Values](#update-the-script-with-valid-values)
-   1. [Run the Script](#run-the-script)
-   1. [Test gcloud Using the Health Check Endpoint](#test-gcloud-using-the-health-check-endpoint)
+   1. [Set up service account rules and permissions](#set-up-service-account-rules-and-permissions)
+   1. [Create secret for the operator key in Secret Manager](#create-secret-for-the-operator-key-in-secret-manager)
+   1. [Update the script with valid values](#update-the-script-with-valid-values)
+   1. [Run the script](#run-the-script)
+   1. [Test gcloud using the health check endpoint](#test-gcloud-using-the-health-check-endpoint)
 
-#### Set Up Service Account Rules and Permissions
+#### Set up service account rules and permissions
 
 gcloud CLI を使用して、UID2 Operator Service を実行するためのサービスアカウントを設定するには、次の手順に従います。プレースフォルダー値を自分の有効な値に置き換えてください。
 
-1. 作成したプロジェクトに切り替えます（[Confidential Space Account Setup](#confidential-space-account-setup) で作成したプロジェクト）:
+1. 作成したプロジェクトに切り替えます（[Confidential Space account setup](#confidential-space-account-setup) で作成したプロジェクト）:
     ```
     $ gcloud config set project {PROJECT_ID}
     ```
@@ -368,11 +369,11 @@ gcloud CLI を使用して、UID2 Operator Service を実行するためのサ�
 `source-ranges` は、クライアントが Private Operator を呼び出すために使用する IP アドレスの範囲を指定します。CIDR 表記であり、複数の範囲を提供するためにカンマ区切りの値を使用できます。例: `--source-ranges="10.0.0.0/8,10.10.0.0/16"`。範囲が正確であり、自分のものである IP アドレスのみが含まれていることを確認してください。
 :::
 
-#### Create Secret for the Operator Key in Secret Manager
+#### Create secret for the operator key in Secret Manager
 
-UID2 Operator には、Operator Key が必要です。UID2 アカウントの設定（[UID2 Operator Account Setup](#uid2-operator-account-setup) を参照）の一環として、各環境の Operator Key を受け取ります。
+UID2 Operator には、Operator Key が必要です。UID2 アカウントの設定（[UID2 Operator account setup](#uid2-operator-account-setup) を参照）の一環として、各環境の Operator Key を受け取ります。
 
-次のステップは、`{OPERATOR_KEY}` 値を GCP Secret Manager に保存し、それに対する完全なシークレット名を取得し、それをデプロイメントスクリプト内の `{OPERATOR_KEY_SECRET_FULL_NAME}` プレースホルダで置き換えることです ([Update the Script with Valid Values](#update-the-script-with-valid-values) を参照)。
+次のステップは、`{OPERATOR_KEY}` 値を GCP Secret Manager に保存し、それに対する完全なシークレット名を取得し、それをデプロイメントスクリプト内の `{OPERATOR_KEY_SECRET_FULL_NAME}` プレースホルダで置き換えることです ([Update the script with valid values](#update-the-script-with-valid-values) を参照)。
 
 次の手順に従います:
  1. 次のスクリプトを実行して、新しいシークレットを作成します。最初に、自分の値でカスタマイズしてください:
@@ -401,17 +402,17 @@ UID2 Operator には、Operator Key が必要です。UID2 アカウントの設
 
 この例では、完全なシークレット名は次のようになります: `projects/111111111111/secrets/uid2-operator-operator-key-secret-integ/versions/1`。これは、次のセクションの `{OPERATOR_KEY_SECRET_FULL_NAME}` プレースホルダを置き換えるために使用する値です。
 
-#### Update the Script with Valid Values
+#### Update the script with valid values
 
 サンプルスクリプトを更新して、プレースホルダ値を自分の有効な値に置き換えます。
 
 このセクションには次の内容が含まれます:
 
-- [Placeholder Values and Definitions](#placeholder-values-and-definitions)
-- [Sample Deployment Script&#8212;Integ](#sample-deployment-scriptinteg)
-- [Sample Deployment Script&#8212;Prod](#sample-deployment-scriptprod)
+- [Placeholder values and definitions](#placeholder-values-and-definitions)
+- [Sample deployment script&#8212;integ](#sample-deployment-scriptinteg)
+- [Sample deployment script&#8212;prod](#sample-deployment-scriptprod)
 
-##### Placeholder Values and Definitions
+##### Placeholder values and definitions
 
 プレースホルダ値は、次の表に定義されています。
 
@@ -420,11 +421,11 @@ UID2 Operator には、Operator Key が必要です。UID2 アカウントの設
 | `{INSTANCE_NAME}` | 有効な VM の名前。 |
 | `{ZONE}` | VM インスタンスがデプロイされる Google Cloud ゾーン。 |
 | `{IMAGE_FAMILY}` | `confidential-space` はインテグレーションと本番で使用し、`confidential-space-debug` はインテグレーションでのみデバッグ用に使用します。`confidential-space-debug` は本番では動作しないことに注意してください。 |
-| `{SERVICE_ACCOUNT}` | アカウント作成時に作成したサービスアカウントのメールアドレス: `{SERVICE_ACCOUNT_NAME}@{PROJECT_ID}.iam.gserviceaccount.com`.<br/>詳細は [Set Up Service Account Rules and Permissions](#set-up-service-account-rules-and-permissions) (Step 4) を参照してください。|
-| `{OPERATOR_IMAGE}` | コンフィギュレーションで使用する UID2 Private Operator for GCP の Docker イメージ URL。<br/>これは、GCP ダウンロードファイルの `terraform.tfvars` ファイルにあります。([Operator Version](#operator-version) を参照) |
-| `{OPERATOR_KEY_SECRET_FULL_NAME}` | Operator Key secret に指定したフルネーム ([Create Secret for the Operator Key in Secret Manager](#create-secret-for-the-operator-key-in-secret-manager) を参照)。パスを含め `projects/<project_id>/secrets/<secret_id>/versions/<version>` の形式でしています。たとえば: `projects/111111111111/secrets/uid2-operator-operator-key-secret-integ/versions/1` |
+| `{SERVICE_ACCOUNT}` | アカウント作成時に作成したサービスアカウントのメールアドレス: `{SERVICE_ACCOUNT_NAME}@{PROJECT_ID}.iam.gserviceaccount.com`.<br/>詳細は [Set up service account rules and permissions](#set-up-service-account-rules-and-permissions) (Step 4) を参照してください。|
+| `{OPERATOR_IMAGE}` | コンフィギュレーションで使用する UID2 Private Operator for GCP の Docker イメージ URL。<br/>これは、GCP ダウンロードファイルの `terraform.tfvars` ファイルにあります。([Operator version](#operator-version) を参照) |
+| `{OPERATOR_KEY_SECRET_FULL_NAME}` | Operator Key secret に指定したフルネーム ([Create secret for the operator key in Secret Manager](#create-secret-for-the-operator-key-in-secret-manager) を参照)。パスを含め `projects/<project_id>/secrets/<secret_id>/versions/<version>` の形式でしています。たとえば: `projects/111111111111/secrets/uid2-operator-operator-key-secret-integ/versions/1` |
 
-##### Sample Deployment Script&#8212;Integ
+##### Sample deployment script&#8212;integ
 
 インテグレーション環境のデプロイメントスクリプトの例は、次のプレースホルダ値を使用しています。
 
@@ -442,7 +443,7 @@ $ gcloud compute instances create {INSTANCE_NAME} \
   --metadata ^~^tee-image-reference={OPERATOR_IMAGE}~tee-container-log-redirect=true~tee-restart-policy=Never~tee-env-DEPLOYMENT_ENVIRONMENT=integ~tee-env-API_TOKEN_SECRET_NAME={OPERATOR_KEY_SECRET_FULL_NAME}~tee-env-CORE_BASE_URL=https://core-integ.uidapi.com~tee-env-OPTOUT_BASE_URL=https://optout-integ.uidapi.com
 ```
 
-##### Sample Deployment Script&#8212;Prod
+##### Sample deployment script&#8212;prod
 
 本番環境のデプロイメントスクリプトの例は、次のプレースホルダ値を使用しています。
 
@@ -464,17 +465,17 @@ $ gcloud compute instances create {INSTANCE_NAME} \
   --metadata ^~^tee-image-reference={OPERATOR_IMAGE}~tee-container-log-redirect=true~tee-restart-policy=Never~tee-env-DEPLOYMENT_ENVIRONMENT=prod~tee-env-API_TOKEN_SECRET_NAME={OPERATOR_KEY_SECRET_FULL_NAME}~tee-env-CORE_BASE_URL=https://core-prod.uidapi.com~tee-env-OPTOUT_BASE_URL=https://optout-prod.uidapi.com
 ```
 
-#### Run the Script
+#### Run the script
 
 スクリプトの準備ができたら、追加の有効な値を含むスクリプトを実行します。
 
-#### Test gcloud Using the Health Check Endpoint
+#### Test gcloud using the health check endpoint
 
 ヘルスチェックエンドポイントを呼び出して、実装の健全性をテストします。期待される結果は、HTTP 200 で、レスポンスボディが `OK` です。
 
-手順は、[Health Check&#8212;gcloud CLI](#health-checkgcloud-cli) を参照してください。
+手順は、[Health check&#8212;gcloud CLI](#health-checkgcloud-cli) を参照してください。
 
-## Running the Health Check
+## Running the health check
 
 ヘルスチェックエンドポイントを呼び出して、実装の健全性をテストします。
 
@@ -482,10 +483,10 @@ $ gcloud compute instances create {INSTANCE_NAME} \
 
 選択したデプロイメントオプションに応じて、適用される手順に従ってください:
 
-- [Health Check&#8212;Terraform Template](#health-checkterraform-template)
-- [Health Check&#8212;gcloud CLI](#health-checkgcloud-cli)
+- [Health check&#8212;Terraform template](#health-checkterraform-template)
+- [Health check&#8212;gcloud CLI](#health-checkgcloud-cli)
 
-### Health Check&#8212;Terraform Template
+### Health check&#8212;Terraform template
 
 次の例は、Terraform テンプレートオプションのヘルスチェックを示しています:
 
@@ -500,7 +501,7 @@ $ gcloud compute instances create {INSTANCE_NAME} \
    HTTP 200 とレスポンスボディが `OK` の場合、健全な状態です。
 
 
-### Health Check&#8212;gcloud CLI
+### Health check&#8212;gcloud CLI
 次の例は、`gcloud` コマンドラインオプションのヘルスチェックを示しています:
 
 1. デプロイされたインスタンスのパブリック IP アドレスを取得します:
@@ -514,7 +515,7 @@ $ gcloud compute instances create {INSTANCE_NAME} \
 
    HTTP 200 とレスポンスボディが `OK` の場合、健全な状態です。
 
-### Private Operator Attestation Failure
+### Private Operator attestation failure
 
 <SnptAttestFailure />
 
@@ -524,10 +525,10 @@ UID2 Google Cloud Platform Confidential Space の新しいバージョンがリ�
 
 新しいバージョンにアップグレードする場合、アップグレードプロセスは選択したデプロイメントオプションに依存します。該当する手順に従ってください:
 
-- [Upgrading&#8212;Terraform Template](#upgradingterraform-template)
+- [Upgrading&#8212;Terraform template](#upgradingterraform-template)
 - [Upgrading&#8212;gcloud CLI](#upgradinggcloud-cli)
 
-### Upgrading&#8212;Terraform Template
+### Upgrading&#8212;Terraform template
 
 Terraform テンプレートを使用してデプロイした場合、アップグレードするには、新しい `{OPERATOR_IMAGE}` を使用してデプロイメントを更新するだけです。
 
@@ -537,14 +538,14 @@ gcloud CLI を使用してデプロイした場合、アップグレードする
 
 手動でロードバランサーを設定した場合、ロードバランサーのマッピングも更新する必要があります。
 
-## Scraping Metrics
+## Scraping metrics
 GCP の Private Operator は、ポート 9080 の `/metrics` エンドポイントで [Prometheus 形式のメトリクス](https://prometheus.io/docs/concepts/data_model/) を公開します。Prometheus 互換のスクレイパーを使用して、これらのメトリクスを収集して集計できます。
 
-## Keeping the Operator Key Secure
+## Keeping the operator key secure
 
 <SnptRotatingTheKeys />
 
-## UID2 Operator Error Codes
+## UID2 Operator error codes
 
 以下の表は、Private Operator 起動シーケンス中に発生する可能性のあるエラーを一覧表示しています。
 
@@ -552,7 +553,7 @@ GCP の Private Operator は、ポート 9080 の `/metrics` エンドポイン�
 Private Operator 起動時のエラーコードは、リリース v5.49.7 以降のバージョンに適用されます。
 :::
 
-### Startup Errors
+### Startup errors
 
 オペレータの起動時に以下のエラーが発生する可能性があります：
 
@@ -565,7 +566,7 @@ Private Operator 起動時のエラーコードは、リリース v5.49.7 以降
 | E06 | UID2ServicesUnreachableError | UID2 Core Service および Opt-Out Service の IP アドレスをアウトバウンドファイアウォールで許可します。IP アドレスと DNS の詳細は、ログを参照してください。 |
 | E08 | OperatorKeyPermissionError | Compute Engine インスタンステンプレートにサービスアカウントをアタッチします。UID2 Operator は、GCP Secret Manager から Operator Key にアクセスするためにこれらの権限が必要です。 |
 
-### Runtime Errors
+### Runtime errors
 
 オペレータの実行中に以下のエラーが発生する可能性があります:
 

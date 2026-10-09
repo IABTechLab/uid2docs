@@ -1,91 +1,90 @@
 ---
-title: Advertiser/Data Provider Integration to HTTP Endpoints
-sidebar_label: HTTP Endpoints
+title: Advertiser/data provider integration to HTTP endpoints
+sidebar_label: HTTP endpoints
 description: ユーザーデータを収集し、他の参加者にプッシュする組織向けのインテグレーション。SDK や Snowflake ではなく、HTTP エンドポイントへのコーディングを行います。
 hide_table_of_contents: false
-sidebar_position: 07
 displayed_sidebar: sidebarAdvertisers
 ---
 
 import Link from '@docusaurus/Link';
 import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emails-and-phone-numbers.mdx';
 
-# Advertiser/Data Provider Integration to HTTP Endpoints
+# Advertiser/data provider integration to HTTP endpoints
 
 このガイドでは、広告主やデータプロバイダーが UID2 HTTP エンドポイントを呼び出すコードを記述して、SDK、Snowflake、Databricks、または AWS Entity Resolution などの他の実装オプションを使用するのではなく、UID2 とインテグレーションする手順について説明します。
 
 :::tip
-広告主及びデータプロバイダー向けのインテグレーションオプションと手順の概要は、[Advertiser/Data Provider Integration Overview](integration-advertiser-dataprovider-overview.md) を参照してください。
+広告主及びデータプロバイダー向けのインテグレーションオプションと手順の概要は、[Advertiser/data provider integration overview](integration-advertiser-dataprovider-overview.md) を参照してください。
 :::
 
-## Complete UID2 Account Setup and Configure Account
+## Complete UID2 account setup and configure account
 
-UID2 とインテグレーションするには、UID2 アカウントが必要です。まだアカウントを作成していない場合は、まず [Account Setup](../getting-started/gs-account-setup.md) ページに記載されている手順に従ってください。
+UID2 とインテグレーションするには、UID2 アカウントが必要です。まだアカウントを作成していない場合は、まず [Account setup](../getting-started/gs-account-setup.md) ページに記載されている手順に従ってください。
 
-初期アカウント設定が完了すると、[UID2 Portal](../portal/portal-overview.md) にアクセスするための指示とリンクが送信されます。ここで、[credentials](../getting-started/gs-credentials.md) を作成し、必要に応じて追加の値を構成できます。詳細は、[Getting Started with the UID2 Portal](../portal/portal-getting-started.md) を参照してください。
+初期アカウント設定が完了すると、[UID2 Portal](../portal/portal-overview.md) にアクセスするための指示とリンクが送信されます。ここで、[credentials](../getting-started/gs-credentials.md) を作成し、必要に応じて追加の値を構成できます。詳細は、[Getting started with the UID2 Portal](../portal/portal-getting-started.md) を参照してください。
 
-UID2 Portal の [API Keys](../portal/api-keys.md) ページで、次の値を設定する必要があります:
+UID2 Portal の [API keys](../portal/api-keys.md) ページで、次の値を設定する必要があります:
 
 - <Link href="../ref-info/glossary-uid#gl-api-key">API Key</Link> (Client Key とも呼ばれます)
 - <Link href="../ref-info/glossary-uid#gl-client-secret">Client Secret</Link> (参加者と UID2 Service のみが知る値です)
 
 :::important
-これらの値を安全に保管することが非常に重要です。詳細は、[Security of API Key and Client Secret](../getting-started/gs-credentials.md#security-of-api-key-and-client-secret) を参照してください。
+これらの値を安全に保管することが非常に重要です。詳細は、[Security of API key and client secret](../getting-started/gs-credentials.md#security-of-api-key-and-client-secret) を参照してください。
 :::
 
-## Preparing DII for Processing
+## Preparing DII for processing
 
 <SnptPreparingEmailsAndPhoneNumbers />
 
-## High-Level Steps
+## High-level steps
 
 UID2 とインテグレーションするための広告主やデータプロバイダー向けの手順は、以下のとおりです:
 
-1. [Generate Raw UID2s from DII](#1-generate-raw-uid2s-from-dii)
+1. [Generate raw UID2s from DII](#1-generate-raw-uid2s-from-dii)
 
-2. [Store Raw UID2s and Refresh Timestamps](#2-store-raw-uid2s-and-refresh-timestamps)
+2. [Store raw UID2s and refresh timestamps](#2-store-raw-uid2s-and-refresh-timestamps)
 
-3. [Manipulate or Combine Raw UID2s](#3-manipulate-or-combine-raw-uid2s)
+3. [Manipulate or combine raw UID2s](#3-manipulate-or-combine-raw-uid2s)
 
-4. [Send Stored Raw UID2s to DSPs to Create Audiences or Conversions](#4-send-stored-raw-uid2s-to-dsps-to-create-audiences-or-conversions)
+4. [Send stored raw UID2s to DSPs to create audiences or conversions](#4-send-stored-raw-uid2s-to-dsps-to-create-audiences-or-conversions)
 
-5. [Monitor for Raw UID2 Refresh](#5-monitor-for-raw-uid2-refresh)
+5. [Monitor for raw UID2 refresh](#5-monitor-for-raw-uid2-refresh)
 
-6. [Monitor for Opt-Out Status](#6-monitor-for-opt-out-status)
+6. [Monitor for opt-out status](#6-monitor-for-opt-out-status)
 
-## Integration Diagram
+## Integration diagram
 
 次の図は、オーディエンスの構築とターゲティングのために、DII を raw UID2 にマッピングするためにデータ収集者が行わなければならない手順です。
 
 DII は、ユーザーの正規化されたメールアドレスまたは電話番号、または正規化および SHA-256 ハッシュ化されたメールアドレスまたは電話番号を指します。
 
-![Advertiser Flow](images/advertiser-flow-endpoints-mermaid-v3.png)
+![Advertiser flow](images/advertiser-flow-endpoints-mermaid-v3.png)
 
 <!-- diagram source: resource/advertiser-flow-endpoints-v3-mermaid.mermaid -->
 
-### 1: Generate Raw UID2s from DII
+### 1: Generate raw UID2s from DII
 
 | Step | Endpoint | Description |
 | --- | --- | --- |
-| 1-a | [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) request | DII を含むリクエストを Identity Map エンドポイントに送信します。 |
-| 1-b | [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) response | レスポンスで返される raw UID2 (`u` フィールド) は、関連する DSP でオーディエンスをターゲティングするために使用できます。<br/>レスポンスは、ユーザーの raw UID2 (`u`)、リフレッシュタイムスタンプ (`r`)、およびオプションで、現在の UID2 が過去 90 日以内にローテーションされた場合の以前の raw UID2 (`p`) を返します。リフレッシュタイムスタンプを使用して、UID2 を更新するタイミングを判断します。詳細は、[5: Monitor for Raw UID2 Refresh](#5-monitor-for-raw-uid2-refresh) を参照してください。 |
+| 1-a | [POST&nbsp;/v3/identity/map](../endpoints/post-identity-map.md) request | DII を含むリクエストを Identity Map エンドポイントに送信します。 |
+| 1-b | [POST&nbsp;/v3/identity/map](../endpoints/post-identity-map.md) response | レスポンスで返される raw UID2 (`u` フィールド) は、関連する DSP でオーディエンスをターゲティングするために使用できます。<br/>レスポンスは、ユーザーの raw UID2 (`u`)、リフレッシュタイムスタンプ (`r`)、およびオプションで、現在の UID2 が過去 90 日以内にローテーションされた場合の以前の raw UID2 (`p`) を返します。リフレッシュタイムスタンプを使用して、UID2 を更新するタイミングを判断します。詳細は、[5: Monitor for raw UID2 refresh](#5-monitor-for-raw-uid2-refresh) を参照してください。 |
 
-### 2: Store Raw UID2s and Refresh Timestamps
+### 2: Store raw UID2s and refresh timestamps
 
-Step 1、[Generate Raw UID2s from DII](#1-generate-raw-uid2s-from-dii) のレスポンスには、マッピング情報が含まれています。以下の情報を保存することを推奨します:
+Step 1、[Generate raw UID2s from DII](#1-generate-raw-uid2s-from-dii) のレスポンスには、マッピング情報が含まれています。以下の情報を保存することを推奨します:
 
 - DII と raw UID2 (`u` フィールド) のマッピングをキャッシュします。
 - raw UID2 がいつリフレッシュされるかを知るために、リフレッシュタイムスタンプ (`r` フィールド) を保存します。
 - 過去 90 日以内にローテーションされた場合の以前の raw UID2 (`p` フィールド) をオプションで保存します。
 
-### 3: Manipulate or Combine Raw UID2s
+### 3: Manipulate or combine raw UID2s
 
 Step 1 で受け取った UID2 を使用します。例えば、以下のような操作を行うことができます:
 
 - いくつかの操作を行います:たとえば、DII から生成した raw UID2 と、広告主やデータプロバイダーなどの別の参加者から受け取った raw UID2 を結合します。
 - 新しい raw UID2 を既存のオーディエンスに追加します。
 
-### 4: Send Stored Raw UID2s to DSPs to Create Audiences or Conversions
+### 4: Send stored raw UID2s to DSPs to create audiences or conversions
 
 raw UID2 は、以下のような目的で使用できます:
 
@@ -96,7 +95,7 @@ raw UID2 は、以下のような目的で使用できます:
 
 API またはピクセルを介してコンバージョン情報を送信し、測定（アトリビューション）やリターゲティングに使用することもできます。
 
-### 5: Monitor for Raw UID2 Refresh
+### 5: Monitor for raw UID2 refresh
 
 raw UID2 は、特定の時点でのユーザーの識別子です。特定のユーザーの raw UID2 は、UID2 リフレッシュプロセスの一環として、およそ 1 年に 1 回変更されます。
 
@@ -108,36 +107,36 @@ raw UID2 は、更新タイムスタンプ以降の時間には変更されま�
 
 | Step | Action | Description |
 | :--- | :--- | :--- |
-| 5-a | ローカルでのタイムスタンプチェック | 現在の時刻と、以前に [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) レスポンスから保存したリフレッシュタイムスタンプ (`r` フィールド) を比較します。 |
-| 5-b | [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) | 現在の時刻がリフレッシュタイムスタンプ以降である場合、同じ DII で Identity Map エンドポイントを再度呼び出して raw UID2 を再生成します。 |
+| 5-a | ローカルでのタイムスタンプチェック | 現在の時刻と、以前に [POST&nbsp;/v3/identity/map](../endpoints/post-identity-map.md) レスポンスから保存したリフレッシュタイムスタンプ (`r` フィールド) を比較します。 |
+| 5-b | [POST&nbsp;/v3/identity/map](../endpoints/post-identity-map.md) | 現在の時刻がリフレッシュタイムスタンプ以降である場合、同じ DII で Identity Map エンドポイントを再度呼び出して raw UID2 を再生成します。 |
 | 5-c | ローカルストレージの更新 | レスポンスから返された新しい raw UID2 (`u` フィールド)、リフレッシュタイムスタンプ (`r` フィールド)、およびオプションで前の UID2 (`p` フィールド) を保存します。 |
 
 #### Determine whether to refresh a raw UID2
 
 raw UID2 をリフレッシュする必要があるかを判断するには、以下の手順に従います:
 
-1.  現在の時刻と、[POST&nbsp;/identity/map](../endpoints/post-identity-map.md) のレスポンスから保存したリフレッシュタイムスタンプ（`r` フィールド）を比較します。
+1.  現在の時刻と、[POST&nbsp;/v3/identity/map](../endpoints/post-identity-map.md) のレスポンスから保存したリフレッシュタイムスタンプ（`r` フィールド）を比較します。
 
-2. 現在の時刻がリフレッシュタイムスタンプ以降である場合、同じ DII で [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) を再度呼び出して raw UID2 を再生成します。
+2. 現在の時刻がリフレッシュタイムスタンプ以降である場合、同じ DII で [POST&nbsp;/v3/identity/map](../endpoints/post-identity-map.md) を再度呼び出して raw UID2 を再生成します。
 
 このアプローチにより、raw UID2 が最新の状態で、オーディエンスターゲティングや測定に有効であることが保証されます。
 
-### 6: Monitor for Opt-Out Status
+### 6: Monitor for opt-out status
 
 ユーザーのオプトアウトステータスを受け入れることは重要です。定期的にオプトアウトステータスを監視し、最近オプトアウトしたユーザーの raw UID2 を引き続き使用しないようにすることが重要です。
 
 UID2 <Link href="../ref-info/glossary-uid#gl-operator-service">Operator Service</Link> を使用して、最新のオプトアウト情報を取得する方法は 2 つあります:
 
-- [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) エンドポイントを呼び出してオプトアウトを確認します。DII がオプトアウトされている場合、raw UID2 は生成されません。
+- [POST&nbsp;/v3/identity/map](../endpoints/post-identity-map.md) エンドポイントを呼び出してオプトアウトを確認します。DII がオプトアウトされている場合、raw UID2 は生成されません。
 
 - [POST&nbsp;/optout/status](../endpoints/post-optout-status.md) エンドポイントを使用して raw UID2 のオプトアウトステータスを確認します。
 
-UID2 のオプトアウト手順の詳細と、ユーザーがどのようにオプトアウトできるかは、[User Opt-Out](../getting-started/gs-opt-out.md) を参照してください。
+UID2 のオプトアウト手順の詳細と、ユーザーがどのようにオプトアウトできるかは、[User opt-out](../getting-started/gs-opt-out.md) を参照してください。
 
-## Using POST /identity/map Version 2
+## Using POST /v2/identity/map
 
 :::note
-以下の情報は、`POST /identity/map` エンドポイントのバージョン 2 またはそれ以前を使用している場合にのみ関連し、参照用に提供されています。新しい実装では最新バージョンを使用する必要があります。手順は、[High-Level Steps](#high-level-steps) を参照してください。
+以下の情報は、`POST /identity/map` エンドポイントのバージョン 2 またはそれ以前を使用している場合にのみ関連し、参照用に提供されています。新しい実装では最新バージョンを使用する必要があります。手順は、[High-level steps](#high-level-steps) を参照してください。
 :::
 
 v2 Identity Map API の使用時との主な違いは以下の通りです:
@@ -145,17 +144,17 @@ v2 Identity Map API の使用時との主な違いは以下の通りです:
 - **Step 2**: リフレッシュタイムスタンプの代わりにソルトバケット ID を保存します。
 - **Step 5**: リフレッシュタイムスタンプの代わりにソルトバケットのローテーションを監視します。
 
-その他の Step (1, 3, 4, 6) は、v3 実装で説明されている内容と同じです: [High-Level Steps](#high-level-steps) を参照してください。
+その他の Step (1, 3, 4, 6) は、v3 実装で説明されている内容と同じです: [High-level steps](#high-level-steps) を参照してください。
 
-### Integration Diagram (v2)
+### Integration diagram (v2)
 
 次の図は、v2 インテグレーションフローを示しています。違いは Step 2（ソルトバケット ID の保存）と Step 5（ソルトバケットのローテーションの監視）です。
 
-![Advertiser Flow](images/advertiser-flow-endpoints-mermaid.png)
+![Advertiser flow](images/advertiser-flow-endpoints-mermaid.png)
 
 <!-- diagram source: resource/advertiser-flow-endpoints-v2-mermaid.md.bak -->
 
-### Store Raw UID2s and Salt Bucket IDs (v2)
+### Store raw UID2s and salt bucket IDs (v2)
 
 :::note
 このステップは、v3 実装の Step 2 を置き換えます。
@@ -166,7 +165,7 @@ Step 1 のレスポンスには、マッピング情報が含まれています�
 - DII (`identifier`)、raw UID2 (`advertising_id`)、およびソルトバケット (`bucket_id`) のマッピングをキャッシュします。
 - レスポンスデータを受信した時刻のタイムスタンプを保存します。後で、このタイムスタンプを Step 5 で返される `last_updated` タイムスタンプと比較できます。
 
-### Monitor for Salt Bucket Rotations for Your Stored Raw UID2s (v2)
+### Monitor for salt bucket rotations for your stored raw UID2s (v2)
 
 :::note
 このステップは、v3 実装の Step 5 を置き換えます。
@@ -184,8 +183,8 @@ raw UID2 は、特定の時点におけるユーザーを識別する ID です�
 | --- | --- | --- |
 | 5-a | [POST&nbsp;/identity/buckets](../endpoints/post-identity-buckets.md) | 特定のタイムスタンプ以降に変更されたすべてのソルトバケットについて、`POST /identity/buckets` エンドポイントにリクエストを送信します。 |
 | 5-b | [POST&nbsp;/identity/buckets](../endpoints/post-identity-buckets.md) | UID2 Service: `POST /identity/buckets` エンドポイントは、`bucket_id` と `last_updated` タイムスタンプのリストを返します。 |
-| 5-c | [POST&nbsp;/identity/map](../endpoints/post-identity-map-v2.md) | 返された `bucket_id` をキャッシュしている raw UID2 のソルトバケットと比較します。<br/>1 つ以上の raw UID2 のソルトバケットが更新されている場合は、DII を `POST /identity/map` エンドポイントに再送信して新しい raw UID2 を取得します。 | |
-| 5-d | [POST&nbsp;/identity/map](../endpoints/post-identity-map-v2.md) | 返された `advertising_id` と `bucket_id` の新しい値を保存します。 |
+| 5-c | [POST&nbsp;/v2/identity/map](../endpoints/post-identity-map-v2.md) | 返された `bucket_id` をキャッシュしている raw UID2 のソルトバケットと比較します。<br/>1 つ以上の raw UID2 のソルトバケットが更新されている場合は、DII を `POST /v2/identity/map` エンドポイントに再送信して新しい raw UID2 を取得します。 | |
+| 5-d | [POST&nbsp;/v2/identity/map](../endpoints/post-identity-map-v2.md) | 返された `advertising_id` と `bucket_id` の新しい値を保存します。 |
 
 ##### Determine whether the salt bucket has been rotated
 
@@ -197,4 +196,4 @@ raw UID2 は、特定の時点におけるユーザーを識別する ID です�
 
     - 同じ `bucket_id` の raw UID2 生成時のタイムスタンプ。これはステップ 1 で返され、ステップ 2 で保存されました。
 
-1. `last_updated` タイムスタンプが以前のタイムスタンプよりも新しい場合、ソルトバケットがローテーションされています。そのため、この `bucket_id` に関連付けられた raw UID2 を再生成する必要があります。Step 1 の [Generate Raw UID2s from DII](#1-generate-raw-uid2s-from-dii) に従ってください。
+1. `last_updated` タイムスタンプが以前のタイムスタンプよりも新しい場合、ソルトバケットがローテーションされています。そのため、この `bucket_id` に関連付けられた raw UID2 を再生成する必要があります。Step 1 の [Generate raw UID2s from DII](#1-generate-raw-uid2s-from-dii) に従ってください。

@@ -2,13 +2,12 @@
 title: SDK for iOS
 description: iOS SDK のリファレンス情報。
 hide_table_of_contents: false
-sidebar_position: 14
 displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';
 
-# SDK for iOS Reference Guide
+# SDK for iOS reference guide
 
 iOS SDK を使用すると、UID2 を使用したクライアント ID の生成または確立、<Link href="../ref-info/glossary-uid#gl-bidstream">bidstream</Link> 用の Advertising Token の取得、および UID2 Token の自動リフレッシュを容易に行うことができます。
 
@@ -16,11 +15,12 @@ iOS SDK を使用すると、UID2 を使用したクライアント ID の生成
 
 | Purpose | Product/Documentation |
 | :--- | :--- |
-| Google Mobile Ads (GMA) SDK を使用して iOS/tvOS アプリから広告リクエストで [secure signals](https://support.google.com/admob/answer/11556288) として <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 Token</Link> を送信する | [UID2 GMA Plugin for iOS Integration Guide](../guides/mobile-plugin-gma-ios.md) |
-| Google Interactive Media Ads SDK for iOS を使用して iOS/tvOS アプリから広告リクエストで [secure signals](https://support.google.com/admob/answer/11556288) として <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 Token</Link> を送信する | [UID2 IMA Plugin for iOS Integration Guide](../guides/mobile-plugin-ima-ios.md) |
+| Google Mobile Ads (GMA) SDK を使用して iOS/tvOS アプリから広告リクエストで [secure signals](https://support.google.com/admob/answer/11556288) として <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 Token</Link> を送信する | [GMA Plugin for iOS integration guide](../guides/mobile-plugin-gma-ios.md) |
+| Google Interactive Media Ads SDK for iOS を使用して iOS/tvOS アプリから広告リクエストで [secure signals](https://support.google.com/admob/answer/11556288) として <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 Token</Link> を送信する | [IMA Plugin for iOS integration guide](../guides/mobile-plugin-ima-ios.md) |
 
-## tvOS Support
-このページは iOS 用 SDK について説明していますが、この SDK は tvOS もサポートしています。必要な tvOS バージョンについては、[Minimum Requirements](#minimum-requirements) を参照してください。
+## tvOS support
+
+このページは iOS 用 SDK について説明していますが、この SDK は tvOS もサポートしています。必要な tvOS バージョンについては、[Minimum requirements](#minimum-requirements) を参照してください。
 
 ## Functionality
 
@@ -32,24 +32,24 @@ iOS SDK を使用すると、UID2 を使用したクライアント ID の生成
 
 SDK for iOS は、iOS アプリケーションに代わって UID2 ID を生成または管理するように設計されています。プラットフォームネイティブの暗号化ツールを使って ID をデバイスに安全に保存することで、UID2 ID をアプリのライフサイクル全体にわたって持続させることができます。
 
-デフォルトでは、SDK は有効期限に基づいて UID2 ID を自動的にリフレッシュします。ただし、これを無効にして、アプリが UID2 IDのライフサイクルを手動で管理できるように実装することもできます。
+デフォルトでは、SDK は有効期限に基づいて UID2 ID を自動的にリフレッシュします。ただし、これを無効にして、アプリが UID2 ID のライフサイクルを手動で管理できるように実装することもできます。
 
-## UID2 Account Setup
+## UID2 account setup
 
-UID2 とインテグレーションするには、UID2 アカウントが必要です。アカウントを作成していない場合は、まず [Account Setup](../getting-started/gs-account-setup.md) ページの手順に従ってください。
+UID2 とインテグレーションするには、UID2 アカウントが必要です。アカウントを作成していない場合は、まず [Account setup](../getting-started/gs-account-setup.md) ページの手順に従ってください。
 
-## API Permissions
+## API permissions
 
 初期アカウント設定が完了すると、[UID2 Portal](../portal/portal-overview.md) にアクセスするための手順とリンクが送信されます。以下の操作が可能です:
 - アカウント用の [credentials](../getting-started/gs-credentials.md) を生成します。
 - オプション: Client-Side の実装の場合、ドメイン名やモバイルアプリ ID などの設定値を設定します。
 - オプションとして、チームメンバーに関する情報を設定するなど、他の値を設定します。
 
-UID2 Portal で実行する手順は、実装が Client-Side、Client-Server、Server-Side のいずれであるかによって異なります。モバイルインテグレーションのオプションの概要は、[Client-Side, Client-Server, or Server-Side Integration?](../guides/integration-mobile-overview#client-side-client-server-or-server-side-integration) を参照してください。
+UID2 Portal で実行する手順は、実装が Client-Side、Client-Server、Server-Side のいずれであるかによって異なります。モバイルインテグレーションのオプションの概要は、[Client-side, client-server, or server-side integration?](../guides/integration-mobile-overview#client-side-client-server-or-server-side-integration) を参照してください。
 
 <!-- You'll be granted permission to use specific functions offered by the SDK, and given credentials for that access. -->
 
-## SDK Version
+## SDK version
 
 <!-- As of 2025-08-07 -->
 
@@ -57,13 +57,13 @@ UID2 Portal で実行する手順は、実装が Client-Side、Client-Server、S
 
 リリースノートの情報は、[https://github.com/IABTechLab/uid2-ios-sdk/releases](https://github.com/IABTechLab/uid2-ios-sdk/releases) を参照してください。
 
-## GitHub Open-Source Repository
+## GitHub open-source repository
 
 この SDK は以下のオープンソースの GitHub リポジトリにあります:
 
 - [https://github.com/IABTechLab/uid2-ios-sdk](https://github.com/IABTechLab/uid2-ios-sdk)
 
-## Minimum Requirements
+## Minimum requirements
 
 この SDK の最小要件は以下の通りです:
 
@@ -78,7 +78,7 @@ UID2 Portal で実行する手順は、実装が Client-Side、Client-Server、S
 
 ## Installation
 
-Swift Package Manager (SPM) を使って iOS SDK をインストールします。2つのインストールオプションがあります:
+Swift Package Manager (SPM) を使って iOS SDK をインストールします。2 つのインストールオプションがあります:
 
 -   [Package.swift](#installing-with-packageswift)
 -   [Xcode](#installing-with-xcode)
@@ -110,26 +110,26 @@ dependencies: [
 pod 'UID2', '~> 2.0'
 ```
 
-## Usage Guidelines
+## Usage guidelines
 
 **UID2Manager** シングルトンは、SDK for iOS の主要な開発者 API です。UID2 Token を含む UID2 Identity の保存、リフレッシュ、取得を行います。
 
 iOS の場合、`UID2Manager` は初めてアクセスされたときに自動的に初期化されます。自動または手動のリフレッシュ機能をサポートするように設定できます。
 
-UID2 Identity を確立する方法は2つあります:
+UID2 Identity を確立する方法は 2 つあります:
 
-1. DII を使用して UID2 ID を生成します&#8212;メール (ハッシュ化または非ハッシュ化) または電話番号 (ハッシュ化または非ハッシュ化) を使用します。インテグレーション手順は、[Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side.md) を参照してください。
+1. DII を使用して UID2 ID を生成します&#8212;メール (ハッシュ化または非ハッシュ化) または電話番号 (ハッシュ化または非ハッシュ化) を使用します。インテグレーション手順は、[Client-side integration guide for mobile](../guides/integration-mobile-client-side.md) を参照してください。
 
-2. Server-Side で UID2 ID を生成し、それを UID2 SDK に渡します。インテグレーション手順は、[Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server.md) を参照してください。
+2. Server-Side で UID2 ID を生成し、それを UID2 SDK に渡します。インテグレーション手順は、[Client-server integration guide for mobile](../guides/integration-mobile-client-server.md) を参照してください。
 
 UID2 Mobile SDK は、UID2 identifier が確立された後に UID2 identities をリフレッシュできます。これは、リフレッシュ機能が UID2 Identity の一部である Refresh Token に依存しているためです。
 
 
-## Code Samples
+## Code samples
 
 以下のコードサンプルは、iOS SDK を使用して UID2 を管理する特定のアクティビティを実行する例を示します。
 
-初期の UID2 Identity を生成します (手順は、[Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side#configure-the-uid2-mobile-sdk) を参照):
+初期の UID2 Identity を生成します (手順は、[Client-side integration guide for mobile](../guides/integration-mobile-client-side#configure-the-uid2-mobile-sdk) を参照):
 
 ```js
 UID2Manager.shared.generateIdentity(
@@ -139,7 +139,7 @@ UID2Manager.shared.generateIdentity(
     appName: String? = nil
 )
 ```
-初期 UID2 Identity を設定します (手順は、[Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server#configure-the-uid2-mobile-sdk) を参照):
+初期 UID2 Identity を設定します (手順は、[Client-server integration guide for mobile](../guides/integration-mobile-client-server#configure-the-uid2-mobile-sdk) を参照):
 
 ``` javascript
 UID2Manager.shared.setIdentity(_ identity: UID2Identity)
@@ -153,7 +153,7 @@ UID2Manager.shared.getAdvertisingToken()
 
 ## UID2Manager API
 
-このセクションには、UID2Manager APIの一部である関数と変数が含まれています。
+このセクションには、UID2Manager API の一部である関数と変数が含まれています。
 
 ### Functions
 
@@ -167,11 +167,11 @@ UID2Manager API の一部として利用可能な関数は次のとおりです:
 
 #### generateIdentity()
 
-<Link href="../ref-info/glossary-uid#gl-dii">直接識別情報 (DII)</Link> を使用して UID2 Identity を生成します。詳細は、*Client-Side Integration Guide for Mobile* の [Configure the UID2 Mobile SDK](../guides/integration-mobile-client-side.md#configure-the-uid2-mobile-sdk) を参照してください。
+<Link href="../ref-info/glossary-uid#gl-dii">直接識別情報 (DII)</Link> を使用して UID2 Identity を生成します。詳細は、*Client-side integration guide for mobile* の [Configure the UID2 mobile SDK](../guides/integration-mobile-client-side.md#configure-the-uid2-mobile-sdk) を参照してください。
 
 #### setIdentity()
 
-SDK が管理する、Server-Side で作成された UID2 Identity を設定します。詳細は、*Client-Server Integration Guide for Mobile* の [Configure the UID2 Mobile SDK](../guides/integration-mobile-client-server.md#configure-the-uid2-mobile-sdk) を参照してください。
+SDK が管理する、Server-Side で作成された UID2 Identity を設定します。詳細は、*Client-server integration guide for mobile* の [Configure the UID2 mobile SDK](../guides/integration-mobile-client-server.md#configure-the-uid2-mobile-sdk) を参照してください。
 
 #### resetIdentity()
 
@@ -191,7 +191,7 @@ SDK が管理している UID2 Identity を手動でリフレッシュします�
 
 ### Variables
 
-UID2Manager APIでは、以下の変数を使用できます:
+UID2Manager API では、以下の変数を使用できます:
 
 - [identity](#identity)
 - [identityStatus](#identitystatus)
@@ -202,4 +202,4 @@ Identity 変数は、SDK によって管理されている現在の UID2Identity
 
 #### identityStatus
 
-identityStatus変数は、SDKが管理している現在のUID2 Identityのステータスを格納し、返します。
+identityStatus 変数は、SDK が管理している現在の UID2 Identity のステータスを格納し、返します。

@@ -1,10 +1,9 @@
 ---
-title: UID2 Integration Overview for Prebid
-sidebar_label: UID2 Integration Overview for Prebid
-pagination_label: UID2 Integration Overview for Prebid
+title: Integration overview for Prebid
+sidebar_label: Integration overview for Prebid
+pagination_label: Integration overview for Prebid
 description: UID2 実装の一部として Prebid とインテグレーションするためのオプションの概要。
 hide_table_of_contents: false
-sidebar_position: 04
 displayed_sidebar: sidebarPublishers
 ---
 
@@ -13,19 +12,19 @@ import SnptIntegratingWithSSO from '../snippets/_snpt-integrating-with-sso.mdx';
 import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emails-and-phone-numbers.mdx';
 import SnptStoreUID2TokenInBrowser from '../snippets/_snpt-prebid-storing-uid2-token-in-browser.mdx';
 
-# UID2 Integration Overview for Prebid
+# Integration overview for Prebid
 
 このガイドは、UID2 とインテグレーションし、RTB <Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link>で Prebid.js によって渡される <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 Token</Link> (Advertising Token) を生成したいパブリッシャー向けのインテグレーションオプションの概要です。
 
-## Integrating with Single Sign-On (SSO)
+## Integrating with single sign-on (SSO)
 
 <SnptIntegratingWithSSO />
 
-## Preparing DII for Processing
+## Preparing DII for processing
 
 <SnptPreparingEmailsAndPhoneNumbers />
 
-## Prebid.js Support for Web
+## Prebid.js support for web
 
 UID2 は、以下をサポートする Prebid.js module を提供しています:
 
@@ -42,37 +41,37 @@ UID2 は <Link href="../ref-info/glossary-uid#gl-gdpr">GDPR</Link> が適用さ�
 
 <!-- GDPR statement difference for UID2/EUID | UID2 is not designed to be used where GDPR applies | EUID is designed to be used only where GDPR applies. -->
 
-### Generating the UID2 Token
+### Generating the UID2 token
 
-DII へのアクセスに応じて、Prebid.js で使用する UID2 Token を生成する方法は次の表のように2種類あります。
+DII へのアクセスに応じて、Prebid.js で使用する UID2 Token を生成する方法は次の表のように 2 種類あります。
 
 どの方法が最適かを判断し、該当するインテグレーションガイドに従ってください。
 
 | Scenario | Integration Guide |
 | :--- | :--- |
-| Client-Side で DII にアクセスでき、フロントエンドの開発のみを行いたい。 | [UID2 Client-Side Integration Guide for Prebid.js](integration-prebid-client-side.md) |
-| Server-Side で DII にアクセスし、Server-Side の開発ができる。 | [UID2 Client-Server Integration Guide for Prebid.js](integration-prebid-client-server.md) |
+| Client-Side で DII にアクセスでき、フロントエンドの開発のみを行いたい。 | [Client-side integration guide for Prebid.js](integration-prebid-client-side.md) |
+| Server-Side で DII にアクセスし、Server-Side の開発ができる。 | [Client-server integration guide for Prebid.js](integration-prebid-client-server.md) |
 
-### Refreshing the UID2 Token
+### Refreshing the UID2 token
 
-Prebid.js UID2 Module は、UID2 Token を自動的にリフレッシュすることができます。Prebid.js の外部で手動リフレッシュを実装したい場合は、Server-Side インテグレーションガイドの [Refreshing a UID2 Token](integration-prebid-client-server.md#refreshing-a-uid2-token) を参照してください。Client-Side のインテグレーションソリューションには、トークンの自動リフレッシュが含まれています。
+Prebid.js UID2 Module は、UID2 Token を自動的にリフレッシュすることができます。Prebid.js の外部で手動リフレッシュを実装したい場合は、Server-Side インテグレーションガイドの [Refreshing a UID2 token](integration-prebid-client-server.md#refreshing-a-uid2-token) を参照してください。Client-Side のインテグレーションソリューションには、トークンの自動リフレッシュが含まれています。
 
-### Storing the UID2 Token in the Browser
+### Storing the UID2 token in the browser
 
 <SnptStoreUID2TokenInBrowser />
 
-### Passing the UID2 Token to the Bidstream
+### Passing the UID2 token to the bidstream
 
 UID2 module を設定するには `pbjs.setConfig` を呼び出します。サポートされているパラメータの詳細は、実装に適用されるガイドを参照してください:
 
-- [UID2 Client-Side Integration Guide for Prebid.js](integration-prebid-client-side.md)
-- [UID2 Client-Server Integration Guide for Prebid.js](integration-prebid-client-server.md)
+- [Client-side integration guide for Prebid.js](integration-prebid-client-side.md)
+- [Client-server integration guide for Prebid.js](integration-prebid-client-server.md)
 
 UID2 module が設定されると、ユーザーの UID2 Token を管理し、ユーザーのブラウザに保存します。
 
-Client-Side または Server-Side でクライアントリフレッシュモードを使用してトークンを生成する場合、ユーザーのブラウザでサイトが開いている間は、モジュールが自動的にトークンをリフレッシュします。しかし、Server-Side でトークンのリフレッシュを管理するオプションもあります。詳細は、Server-Side インテグレーションガイドの [Refreshing a UID2 Token](integration-prebid-client-server.md#refreshing-a-uid2-token) を参照してください。Client-Side のインテグレーションソリューションには、トークンの自動リフレッシュが含まれています。
+Client-Side または Server-Side でクライアントリフレッシュモードを使用してトークンを生成する場合、ユーザーのブラウザでサイトが開いている間は、モジュールが自動的にトークンをリフレッシュします。しかし、Server-Side でトークンのリフレッシュを管理するオプションもあります。詳細は、Server-Side インテグレーションガイドの [Refreshing a UID2 token](integration-prebid-client-server.md#refreshing-a-uid2-token) を参照してください。Client-Side のインテグレーションソリューションには、トークンの自動リフレッシュが含まれています。
 
-### Integration Overview: High-Level Steps
+### Integration overview: High-level steps
 
 Prebid.js を使ってサイトを UID2 とインテグレーションするには、以下のステップを完了する必要があります:
 
@@ -82,9 +81,9 @@ Prebid.js を使ってサイトを UID2 とインテグレーションするに�
 
 詳細な手順は、以下のインテグレーションガイドのいずれかを参照してください:
 
-- [UID2 Client-Side Integration Guide for Prebid.js](integration-prebid-client-side.md)
-- [UID2 Client-Server Integration Guide for Prebid.js](integration-prebid-client-server.md)
+- [Client-side integration guide for Prebid.js](integration-prebid-client-side.md)
+- [Client-server integration guide for Prebid.js](integration-prebid-client-server.md)
 
-## UID2 Integration with Prebid Mobile SDK for Mobile Devices
+## UID2 integration with Prebid Mobile SDK for mobile devices
 
-UID2 と Prebid のインテグレーションは、Android および iOS モバイルデバイスで [UID2 Mobile Integration with Prebid Mobile SDK](integration-prebid-mobile-summary.md) を使用してサポートされています。
+UID2 と Prebid のインテグレーションは、Android および iOS モバイルデバイスで [Mobile integration with Prebid Mobile SDK](integration-prebid-mobile-summary.md) を使用してサポートされています。

@@ -2,7 +2,6 @@
 title: POST /optout/status
 description: raw UID2 のオプトアウトステータスをチェック。
 hide_table_of_contents: false
-sidebar_position: 03
 displayed_sidebar: docs
 ---
 
@@ -10,44 +9,44 @@ import Link from '@docusaurus/Link';
 
 # POST /optout/status
 
-<Link href="../ref-info/glossary-uid#gl-raw-uid2">raw UID2</Link> のオプトアウトステータスを確認します。指定された raw UID2 のリストを使用して、このエンドポイントはオプトアウトした raw UID2 とそのオプトアウトが行われた時刻を返します。詳細は [User Opt-Out](../getting-started/gs-opt-out.md) を参照してください。
+<Link href="../ref-info/glossary-uid#gl-raw-uid2">raw UID2</Link> のオプトアウトステータスを確認します。指定された raw UID2 のリストを使用して、このエンドポイントはオプトアウトした raw UID2 とそのオプトアウトが行われた時刻を返します。詳細は [User opt-out](../getting-started/gs-opt-out.md) を参照してください。
 
 Used by: このエンドポイントは、主に広告主、データプロバイダー、DSP、Sharer（共有参加者）によって使用されます。一般的には、元のメールアドレスや電話番号にアクセスできないが、オプトアウトステータスを知りたい参加者向けです。
 
 詳細は、役割に応じて以下のドキュメントを参照してください:
 
-- [Advertiser/Data Provider Integration Overview](../guides/integration-advertiser-dataprovider-overview.md)
-- [DSP Integration Guide](../guides/dsp-guide.md)
-- [UID2 Sharing: Overview](../sharing/sharing-overview)
+- [Advertiser/data provider integration overview](../guides/integration-advertiser-dataprovider-overview.md)
+- [DSP integration guide](../guides/dsp-guide.md)
+- [UID2 sharing: Overview](../sharing/sharing-overview)
 
-## Batch Size and Request Parallelization Requirements
+## Batch size and request parallelization requirements
 
 このエンドポイントへのリクエストのバッチを管理するための主要なガイドラインは次のとおりです:
 
 - 多数の UID2 のオプトアウトステータスを確認するには、1 バッチあたりのバッチサイズが最大 5,000 件となるように、順次バッチを送信してください。
 - <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link> を使用している場合を除き、バッチを並行して送信しないでください。つまり、複数の並列接続を作成せず、単一の HTTP 接続を使用して、連続して raw UID2 のバッチを送信してください。
 
-## Request Format
+## Request format
 
 `POST '{environment}/v2/optout/status'`
 
-認証の詳細は、 [Authentication and Authorization](../getting-started/gs-auth.md) を参照してください。
+認証の詳細は、 [Authentication and authorization](../getting-started/gs-auth.md) を参照してください。
 
 :::important
-すべてのリクエストを秘密鍵で暗号化する必要があります。詳細といくつかのプログラミング言語でのコードの例は、[Encrypting Requests and Decrypting Responses](../getting-started/gs-encryption-decryption.md) を参照してください。
+すべてのリクエストを秘密鍵で暗号化する必要があります。詳細といくつかのプログラミング言語でのコードの例は、[Encrypting requests and decrypting responses](../getting-started/gs-encryption-decryption.md) を参照してください。
 :::
 
-### Path Parameters
+### Path parameters
 
 | Path Parameter | Data Type | Attribute | Description |
 | :--- | :--- | :--- | :--- |
 | `{environment}` | string | 必須 | テスト (インテグレーション) 環境: `https://operator-integ.uidapi.com`<br/>本番環境: `https://prod.uidapi.com`<br/>リージョンごとのオペレーターを含む全リストは [Environments](../getting-started/gs-environments.md) を参照してください。 |
 
 :::note
-インテグレーション環境と本番環境では、異なる <Link href="../ref-info/glossary-uid#gl-api-key">API Key</Link> が必要です。各環境の認証情報を取得する方法は、[Getting Your Credentials](../getting-started/gs-credentials.md#getting-your-credentials) を参照してください。
+インテグレーション環境と本番環境では、異なる <Link href="../ref-info/glossary-uid#gl-api-key">API Key</Link> が必要です。各環境の認証情報を取得する方法は、[Getting your credentials](../getting-started/gs-credentials.md#getting-your-credentials) を参照してください。
 :::
 
-### Unencrypted JSON Body Parameters
+### Unencrypted JSON body parameters
 
 ボディパラメータは 1 つだけです。
 
@@ -55,7 +54,7 @@ Used by: このエンドポイントは、主に広告主、データプロバ�
 | :--- | :--- | :--- | :--- |
 | `advertising_ids` | string array | 必須 | オプトアウトのステータスをチェックしたい raw UID2 のリスト。<br/>1 回の API 呼び出しで最大 5,000 件のエントリー。 |
 
-### Request Example
+### Request example
 
 以下は、暗号化されていない JSON リクエストボディの例です:
 
@@ -75,9 +74,9 @@ Used by: このエンドポイントは、主に広告主、データプロバ�
 echo '{"advertising_ids": ["ufv1uGRovNiJNbJqiE/xzM+aKE7jP69MgspOZoEQ3xc="]}' | python3 uid2_request.py https://prod.uidapi.com/v2/optout/status [Your-Client-API-Key] [Your-Client-Secret]
 ```
 
-詳細と、さまざまなプログラミング言語でのコード例は、[Encrypting Requests and Decrypting Responses](../getting-started/gs-encryption-decryption.md) を参照してください。
+詳細と、さまざまなプログラミング言語でのコード例は、[Encrypting requests and decrypting responses](../getting-started/gs-encryption-decryption.md) を参照してください。
 
-## Decrypted JSON Response Format
+## Decrypted JSON response format
 
 :::note
 レスポンスは、HTTP ステータスコードが 200 の場合のみ暗号化されます。それ以外の場合、レスポンスは暗号化されません。
@@ -103,7 +102,7 @@ echo '{"advertising_ids": ["ufv1uGRovNiJNbJqiE/xzM+aKE7jP69MgspOZoEQ3xc="]}' | p
 }
 ```
 
-### Response Body Properties
+### Response body properties
 
 レスポンスボディには、次のプロパティが含まれます。
 
@@ -112,7 +111,7 @@ echo '{"advertising_ids": ["ufv1uGRovNiJNbJqiE/xzM+aKE7jP69MgspOZoEQ3xc="]}' | p
 | `advertising_id`  | string | <Link href="../ref-info/glossary-uid#gl-advertising-id">Advertising ID</Link> (raw UID2). |
 | `opted_out_since` | number | raw UID2 がいつオプトアウトされたかを示す <a href="../ref-info/glossary-uid#gl-unix-time">Unix</a> タイムスタンプ (ミリ秒単位)。 |
 
-### Response Status Codes
+### Response status codes
 
 ステータスプロパティの値と、HTTP ステータスコードに対応する値は次の表の通りです。
 

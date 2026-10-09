@@ -1,14 +1,13 @@
 ---
-title: Publisher Integration Resources
+title: Publisher integration resources
 description: Overview of the resources available for publishers integrating with UID2.
 hide_table_of_contents: false
-sidebar_position: 02
 displayed_sidebar: sidebarPublishers
 ---
 
 import Link from '@docusaurus/Link';
 import SnptPublisherImplementationResources from '../snippets/_snpt-publisher-implementation-resources.mdx';
 
-# Publisher Integration Resources
+# Publisher integration resources
 
 <SnptPublisherImplementationResources />

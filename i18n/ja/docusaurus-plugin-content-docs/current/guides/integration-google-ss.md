@@ -1,23 +1,23 @@
 ---
-title: Google Ad Manager Secure Signals Integration
+title: Google Ad Manager Secure Signals integration
 sidebar_label: GAM Secure Signals
-pagination_label: Google Ad Manager Secure Signals Integration
+pagination_label: Google Ad Manager Secure Signals integration
 description: UID2 と Google Ad Manager **セキュアシグナル** 機能を使用するパブリッシャー向けのインテグレーション手順。
 hide_table_of_contents: false
-sidebar_position: 10
 displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';
 import SnptIntegratingWithSSO from '../snippets/_snpt-integrating-with-sso.mdx';
 import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emails-and-phone-numbers.mdx';
+import SnptUidVerifyInspect from '../snippets/_snpt-uid-verify-inspect.mdx';
 
-# Google Ad Manager Secure Signals Integration Guide
+# Google Ad Manager Secure Signals integration guide
 
 このガイドでは、UID2 を Google Ad Manager のセキュアシグナル機能 (旧称: Encrypted Signals for Publishers、ESP) で使用するパブリッシャー向けのインテグレーション手順について説明します。
 
 :::note
-UID2 Google Ad Manager セキュアシグナルインテグレーションを使用するには、SDK を使用している場合、UID2 インテグレーションがすでに設定されている必要があります。サーバーのみのインテグレーションを使用している場合は、この限りではありません。使用可能なすべてのインテグレーションオプションの概要は、[UID2 Integration Guides: Summary](summary-guides.md) を参照してください。
+UID2 Google Ad Manager セキュアシグナルインテグレーションを使用するには、SDK を使用している場合、UID2 インテグレーションがすでに設定されている必要があります。サーバーのみのインテグレーションを使用している場合は、この限りではありません。使用可能なすべてのインテグレーションオプションの概要は、[Integration guides: Summary](summary-guides.md) を参照してください。
 :::
 
 ## Overview
@@ -30,27 +30,27 @@ Google secure signals は、パブリッシャーが [Google Ad Manager](https:/
 2. セキュアシグナル機能は、Client-Side でそれらをキャッシュし、Google Ad Manager に透過的に渡します。
 3. Google Ad Manager は UID2 Token を使ってビッドリクエストを行い、パブリッシャーの設定に基づき Google AdX 内の承認済み入札者にトークンを転送します。
 
-## Complete UID2 Account Setup and Configure Account
+## Complete UID2 account setup and configure account
 
-UID2 とインテグレーションするには、UID2 アカウントが必要です。アカウントをまだ作成していない場合は、まず [Account Setup](../getting-started/gs-account-setup.md) ページの手順に従ってください。
+UID2 とインテグレーションするには、UID2 アカウントが必要です。アカウントをまだ作成していない場合は、まず [Account setup](../getting-started/gs-account-setup.md) ページの手順に従ってください。
 
-アカウントの初期設定が完了すると、[UID2 Portal](../portal/portal-overview.md) にアクセスするための手順とリンクが送信されます。ここで、本番環境用の [credentials](../getting-started/gs-credentials.md) を作成し、提供する必要がある追加の値を設定できます。詳細は、[Getting Started with the UID2 Portal](../portal/portal-getting-started.md) を参照してください。
+アカウントの初期設定が完了すると、[UID2 Portal](../portal/portal-overview.md) にアクセスするための手順とリンクが送信されます。ここで、本番環境用の [credentials](../getting-started/gs-credentials.md) を作成し、提供する必要がある追加の値を設定できます。詳細は、[Getting started with the UID2 Portal](../portal/portal-getting-started.md) を参照してください。
 
-設定する値は、選択した [Publisher Integration Options](#publisher-integration-options) によって異なります:
+設定する値は、選択した [Publisher integration options](#publisher-integration-options) によって異なります:
 
-- Client-Server または Server-Side の実装の場合、UID2 Portal の [API Keys](../portal/api-keys.md) ページで次の値を設定する必要があります:
+- Client-Server または Server-Side の実装の場合、UID2 Portal の [API keys](../portal/api-keys.md) ページで次の値を設定する必要があります:
   - <Link href="../ref-info/glossary-uid#gl-api-key">API Key</Link>、Client Key とも呼ばれます。
   - <Link href="../ref-info/glossary-uid#gl-client-secret">Client Secret</Link>、参加者と UID2 Service のみが知っている値。
 
     :::important
-    これらの値を安全に保管することが非常に重要です。詳細は、[Security of API Key and Client Secret](../getting-started/gs-credentials.md#security-of-api-key-and-client-secret) を参照してください。
+    これらの値を安全に保管することが非常に重要です。詳細は、[Security of API key and client secret](../getting-started/gs-credentials.md#security-of-api-key-and-client-secret) を参照してください。
     :::
-- Client-Side の実装の場合、UID2 Portal の [Client-Side Integration](../portal/client-side-integration.md) ページで次の値を設定する必要があります:
-  - Subscription ID と Public Key: [Adding and Managing Key Pairs](../portal/client-side-integration.md#adding-and-managing-key-pairs) を参照してください。
-  - この SDK を使用するサイトの **domain names** のリスト: [Adding and Managing Root-Level Domains](../portal/client-side-integration.md#adding-and-managing-root-level-domains) を参照してください。
-  - モバイルアプリ ID (適用される場合): [Adding and Managing Mobile App IDs](../portal/client-side-integration.md#adding-and-managing-mobile-app-ids) を参照してください。
+- Client-Side の実装の場合、UID2 Portal の [Client-side integration](../portal/client-side-integration.md) ページで次の値を設定する必要があります:
+  - Subscription ID と Public Key: [Adding and managing key pairs](../portal/client-side-integration.md#adding-and-managing-key-pairs) を参照してください。
+  - この SDK を使用するサイトの **domain names** のリスト: [Adding and managing root-level domains](../portal/client-side-integration.md#adding-and-managing-root-level-domains) を参照してください。
+  - モバイルアプリ ID (適用される場合): [Adding and managing mobile app IDs](../portal/client-side-integration.md#adding-and-managing-mobile-app-ids) を参照してください。
 
-## Allow Secure Signals Sharing
+## Allow Secure Signals sharing
 
 Google Ad Manager アカウントで暗号化 UID2 Token を受け取るには、暗号化されたシグナルが Google Ad Manager アカウントで第三者の入札者と適切に共有されていることを確認する必要があります。
 
@@ -83,17 +83,21 @@ Prebid.js で Secure Signals を使用する場合は、UID2 が正しく処理�
 
    詳細は、Prebid ドキュメントの [ESP Configurations](https://docs.prebid.org/dev-docs/modules/userId.html#esp-configurations) を参照してください。
 
-Prebid.js とセキュアシグナルを用いたサンプル実装も利用可能です。詳細は[Sample Implementations](#sample-implementations)を 参照してください。
+Prebid.js とセキュアシグナルを用いたサンプル実装も利用可能です。詳細は[Sample implementations](#sample-implementations)を 参照してください。
 
-## Integrating with Single Sign-On (SSO)
+## Integrating with single sign-on (SSO)
 
 <SnptIntegratingWithSSO />
 
-## Preparing DII for Processing
+## Inspecting with UID Verify Chrome extension
+
+<SnptUidVerifyInspect />
+
+## Preparing DII for processing
 
 <SnptPreparingEmailsAndPhoneNumbers />
 
-## Publisher Integration
+## Publisher integration
 
 暗号化されたシグナルがキャッシュされると、セキュアシグナル機能は、新しいシグナルを生成するためのハンドラを実行しません。このため、データキャプチャの前後にキャッシュをクリアする必要があります。
 
@@ -110,18 +114,18 @@ window.googletag.cmd.push(function () {
 });
 ```
 
-## Publisher Integration Options
+## Publisher integration options
 
 Google Secure Signals パブリッシャーインテグレーションには、UID2 との 3 つのインテグレーションオプションがあります:
-- [Server-Side Integration](#server-side-integration)
-- [SDK for JavaScript Client-Server Integration](#sdk-for-javascript-client-server-integration)
-- [SDK for JavaScript Client-Side Integration](#sdk-for-javascript-client-side-integration)
+- [Server-side integration](#server-side-integration)
+- [SDK for JavaScript client-server integration](#sdk-for-javascript-client-server-integration)
+- [SDK for JavaScript client-side integration](#sdk-for-javascript-client-side-integration)
 
-### Server-Side Integration
+### Server-side integration
 
 暗号化されたシグナルを共有できるように、ホストされ、自動ロードされたセキュアシグナルスクリプトは `window.getUid2AdvertisingToken` 関数を非同期に呼び出し、そのレスポンスとして `advertising_token` を文字列として受け取れるようにしなければなりません。
 
-ID トークンがフレッシュであることを確認することが重要です。Server-Sideのインテグレーションでは、[POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) というエンドポイントを呼び出し、JSON レスポンスから新しい [Advertising Token](../endpoints/post-token-refresh.md#decrypted-json-response-format) を取得することが推奨されます。
+ID トークンがフレッシュであることを確認することが重要です。Server-Side のインテグレーションでは、[POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) というエンドポイントを呼び出し、JSON レスポンスから新しい [Advertising token](../endpoints/post-token-refresh.md#decrypted-json-response-format) を取得することが推奨されます。
 
 次のコードは、その例です。
 
@@ -133,31 +137,31 @@ window.getUid2AdvertisingToken = async () => {
 }
 ```
 
-詳細は、[Server-Only UID2 Integration Guide](integration-publisher-server-side.md) を参照してください。
+詳細は、[Server-only UID2 integration guide](integration-publisher-server-side.md) を参照してください。
 
-Server Only インテグレーションのためのサンプルアプリケーションも用意されています。[Sample Implementations](#sample-implementations) を参照してください。
+Server Only インテグレーションのためのサンプルアプリケーションも用意されています。[Sample implementations](#sample-implementations) を参照してください。
 
-### SDK for JavaScript Client-Server Integration
+### SDK for JavaScript client-server integration
 
 Javascript SDK Version 3.0.0 以降を使用している場合、UID2 セキュアシグナルスクリプトは、SDK で提供されている `getAdvertisingTokenAsync` 関数を使用して新しい Advertising Token を取得し、そのトークンを Google Ad Manager にプッシュします。
 
 このスクリプトは CDN でホストされており、GPT はセキュアシグナル機能で自動的にロードします。
 
-詳細は、[Client-Server Integration Guide for JavaScript](integration-javascript-client-server.md) を参照してください。
+詳細は、[Client-server integration guide for JavaScript](integration-javascript-client-server.md) を参照してください。
 
-JavaScript SDK を使用したインテグレーションのためのサンプルアプリケーションも用意されています。[Sample Implementations](#sample-implementations) を参照してください。
+JavaScript SDK を使用したインテグレーションのためのサンプルアプリケーションも用意されています。[Sample implementations](#sample-implementations) を参照してください。
 
-### SDK for JavaScript Client-Side Integration
+### SDK for JavaScript client-side integration
 
-SDK for JavaScript バージョン 3.0.0 以降を使用している場合、UID2 セキュアシグナルスクリプトは、SDKで提供されている `getAdvertisingTokenAsync` 関数を使用して新しい Advertising Token を取得し、そのトークンを Google Ad Manager にプッシュします。
+SDK for JavaScript バージョン 3.0.0 以降を使用している場合、UID2 セキュアシグナルスクリプトは、SDK で提供されている `getAdvertisingTokenAsync` 関数を使用して新しい Advertising Token を取得し、そのトークンを Google Ad Manager にプッシュします。
 
 このスクリプトは CDN でホストされており、GPT はセキュアシグナル機能で自動的にロードします。
 
-詳しくは [Client-Side Integration Guide for JavaScript](integration-javascript-client-side.md) を参照してください。
+詳しくは [Client-side integration guide for JavaScript](integration-javascript-client-side.md) を参照してください。
 
-<!--  A sample implementation is also available for integration using the SDK for JavaScript. See [Sample Implementations](#sample-implementations). [sample integration to come Jan 2025-->
+<!--  A sample implementation is also available for integration using the SDK for JavaScript. See [Sample implementations](#sample-implementations). [sample integration to come Jan 2025-->
 
-## Sample Implementations
+## Sample implementations
 
 Google Ad Manager のセキュアシグナル機能との連携方法は、以下のサンプルアプリケーションを参照してください:
 
@@ -191,4 +195,4 @@ Google Ad Manager で Secure Signals を有効にした後、Google を介して
 
 UID2 が Google を介して渡されない場合は、セットアップ時に正しい **Web Signal Deployment Method** を選択したことを確認してください。
 
-詳細は、[Allow Secure Signals Sharing](#allow-secure-signals-sharing) の **Important** ノートを参照してください。
+詳細は、[Allow Secure Signals sharing](#allow-secure-signals-sharing) の **Important** ノートを参照してください。

@@ -19,3 +19,6 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .aider*
+
+# Temporary exclusion for Claude project 4/10/26
+# md-sentence-case*

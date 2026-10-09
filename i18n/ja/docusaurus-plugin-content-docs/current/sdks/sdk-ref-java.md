@@ -2,14 +2,13 @@
 title: SDK for Java
 description: Java Server-Side SDK のリファレンス情報。
 hide_table_of_contents: false
-sidebar_position: 04
 displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';
 import SnptPOSTIdentityMapImprovements from '../snippets/_snpt-post-identity-map-improvements-v3.mdx';
 
-# SDK for Java Reference Guide
+# SDK for Java reference guide
 
 Server-Side で Java SDK を使用すると、UID2 を使用してクライアント ID を生成または確立し、ビッドストリームで使用する Advertising Token を取得し、UID2 Token を自動的にリフレッシュするプロセスを簡素化できます。適用可能な権限がある場合、共有のために暗号化および復号化し、DII を raw UID2 にマップすることもできます。
 
@@ -21,17 +20,17 @@ Server-Side で Java SDK を使用すると、UID2 を使用してクライア�
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | &#9989; | &#9989; | &#9989; | &#9989; | &#9989; | &#8212; |
 
-## UID2 Account Setup
+## UID2 account setup
 
-UID2 とインテグレーションするには、UID2 アカウントが必要です。アカウントをまだ作成していない場合は、最初に [Account Setup](../getting-started/gs-account-setup.md) ページの手順に従ってください。
+UID2 とインテグレーションするには、UID2 アカウントが必要です。アカウントをまだ作成していない場合は、最初に [Account setup](../getting-started/gs-account-setup.md) ページの手順に従ってください。
 
-## API Permissions
+## API permissions
 
 アカウントの初期設定が完了すると、パブリッシャー、広告主、またはデータプロバイダーの場合、[UID2 Portal](../portal/portal-overview.md) にアクセスするための手順とリンクが送信されます。以下の操作が可能です:
 - アカウント用の [credentials](../getting-started/gs-credentials.md) を生成します。
 - オプションとして、チームメンバーに関する情報を設定するなど、他の値を設定します。
 
-SDK が提供する特定の機能を使用する権限が与えられ、そのアクセスのための資格情報が提供されます。SDK には使用権限がない機能がある可能性があることに注意してください。詳細は、[API Permissions](../getting-started/gs-permissions.md) を参照してください。
+SDK が提供する特定の機能を使用する権限が与えられ、そのアクセスのための資格情報が提供されます。SDK には使用権限がない機能がある可能性があることに注意してください。詳細は、[API permissions](../getting-started/gs-permissions.md) を参照してください。
 
 DSP の場合は、資格情報を送信します。
 
@@ -39,7 +38,7 @@ DSP の場合は、資格情報を送信します。
 
 この SDK には Java version 1.8 以降が必要です。
 
-## GitHub Repository/Binary
+## GitHub repository/binary
 
 この SDK は以下のオープンソースの GitHub リポジトリにあります:
 
@@ -55,24 +54,24 @@ DSP の場合は、資格情報を送信します。
 
 | Role | Create Instance of Class | Link to Instructions |
 | :--- | :--- | :--- |
-| Publisher | `PublisherUid2Client` | [Usage for Publishers](#usage-for-publishers) |
-| Advertiser/Data Provider | `IdentityMapClient` | [Usage for Advertisers/Data Providers](#usage-for-advertisersdata-providers) |
+| Publisher | `PublisherUid2Client` | [Usage for publishers](#usage-for-publishers) |
+| Advertiser/Data Provider | `IdentityMapClient` | [Usage for advertisers/data providers](#usage-for-advertisersdata-providers) |
 | DSP | `BidstreamClient` | [Usage for DSPs](#usage-for-dsps) |
-| Sharer | `SharingClient` | [Usage for UID2 Sharers](#usage-for-uid2-sharers) |
+| Sharer | `SharingClient` | [Usage for UID2 sharers](#usage-for-uid2-sharers) |
 
 SDK が UID2 Service で認証するために必要な値を提供する必要があります。
 
 | Parameter | Description | 
 | :--- | :--- |
 | `baseUrl/uid2BaseUrl` | The endpoint for the UID2 service. See [Environments](../getting-started/gs-environments). |
-| `clientApiKey` | The API key. See [UID2 Credentials](../getting-started/gs-credentials). |
-| `base64SecretKey` | The client secret. See [UID2 Credentials](../getting-started/gs-credentials). |
+| `clientApiKey` | The API key. See [UID2 credentials](../getting-started/gs-credentials). |
+| `base64SecretKey` | The client secret. See [UID2 credentials](../getting-started/gs-credentials). |
 
 ### Interface 
 
 `BidstreamClient` クラスを利用すると UID2 Token を raw UID2 に復号化できます。
 
-ユーザーのオプトアウトを処理する入札ロジックの詳細は [DSP Integration Guide](../guides/dsp-guide.md) を参照してください。
+ユーザーのオプトアウトを処理する入札ロジックの詳細は [DSP integration guide](../guides/dsp-guide.md) を参照してください。
 
 `SharingClient` クラスを利用すると、raw UID2 を UID2 Token に暗号化し、UID2 Token を raw UID2 に復号化することができます。
 
@@ -80,16 +79,16 @@ SDK が UID2 Service で認証するために必要な値を提供する必要�
 SDK を使用する際に、復号鍵を保存したり管理したりする必要はありません。
 :::
 
-### Encryption Response Content
+### Encryption response content
 
 `SharingClient` クラスで暗号化する場合、SDK は次の表に示す情報を返します。
 
 | Method | Description |
 | :--- | :--- |
-| `getStatus()` | 暗号化結果のステータス。取り得る値のリストと定義は、[Encryption Response Statuses](#encryption-response-statuses) を参照してください。 |
+| `getStatus()` | 暗号化結果のステータス。取り得る値のリストと定義は、[Encryption response statuses](#encryption-response-statuses) を参照してください。 |
 | `getEncryptedData()` | 暗号化された UID2 token。 |
 
-### Encryption Response Statuses
+### Encryption response statuses
 
 暗号化レスポンスコードとその意味は次の表の通りです。
 
@@ -102,23 +101,23 @@ SDK を使用する際に、復号鍵を保存したり管理したりする必�
 | `KEYS_NOT_SYNCED` | クライアントが UID2 Service との鍵の同期に失敗しました。 |
 | `ENCRYPTION_FAILURE` | 一般的な暗号化に失敗しました。 |
 
-### Decryption Response Content
+### Decryption response content
 
 `BidstreamClient` クラスと `SharingClient` クラスのどちらで復号化しても、SDK は次の表に示す情報を返します。
 
 | Methods | Description |
 | :--- | :--- |
-| `getStatus()` | 復号結果のステータス。取り得る値のリストと定義は、[Decryption Response Statuses](#decryption-response-statuses) を参照してください。 |
+| `getStatus()` | 復号結果のステータス。取り得る値のリストと定義は、[Decryption response statuses](#decryption-response-statuses) を参照してください。 |
 | `getUid()`    | UID2 Token に対応する raw UID2  |
 | `getEstablished()` | ユーザーがパブリッシャーと最初に UID2 を確立した時のタイムスタンプ。 |
 
-### Decryption Response Statuses
+### Decryption response statuses
 
 復号化レスポンスコードとその意味は次の表の通りです。
 
 | Value | Description |
 | :--- | :--- |
-| `SUCCESS` | UID2 Token は正常に復号化され、raw UID2が返されました。 |
+| `SUCCESS` | UID2 Token は正常に復号化され、raw UID2 が返されました。 |
 | `NOT_AUTHORIZED_FOR_KEY` | 呼び出し元はこの UID2 Token を復号化する権限を持っていません。 |
 | `NOT_INITIALIZED` | クライアントライブラリは初期化待ちです。 |
 | `INVALID_PAYLOAD` | 受信した UID2 Token は有効なペイロードではありません。 |
@@ -127,15 +126,15 @@ SDK を使用する際に、復号鍵を保存したり管理したりする必�
 | `VERSION_NOT_SUPPORTED` | クライアントライブラリが暗号化トークンのバージョンをサポートしていません。 |
 | `INVALID_TOKEN_LIFETIME` | トークンのタイムスタンプが無効です。 |
 
-## Usage for Publishers
+## Usage for publishers
 
 パブリッシャーとして、SDK for Java を使用するには 2 つの方法があります: 
-1. [**Basic Usage**](#basic-usage) は、この SDK の HTTP 実装 (synchronous [OkHttp](https://square.github.io/okhttp/)) を使いたいパブリッシャー向けです。
-2. [**Advanced Usage**](#advanced-usage) は、独自の HTTP ライブラリを使用したいパブリッシャー向けです。
+1. [Basic usage](#basic-usage) は、この SDK の HTTP 実装 (synchronous [OkHttp](https://square.github.io/okhttp/)) を使いたいパブリッシャー向けです。
+2. [Advanced usage](#advanced-usage) は、独自の HTTP ライブラリを使用したいパブリッシャー向けです。
 
 Basic と Advanced 両方の使い方を示すサンプルアプリケーションは、[Java UID2 Integration Example](https://github.com/UnifiedID2/uid2-examples/tree/main/publisher/uid2-java-test-site#readme) を参照してください。
 
-### Basic Usage
+### Basic usage
 
 SDK の HTTP 実装を使用している場合は、以下の手順に従ってください。
 
@@ -152,9 +151,9 @@ SDK の HTTP 実装を使用している場合は、以下の手順に従って�
 
 <!-- uid2_euid_diff: admonition re legal basis (in EUID not in UID2)-->
 
-#### Basic Usage, Client-Server Integration
+#### Basic usage, client-server integration
 
-Standard Integration (Client and Server) を使用している場合([Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md) を参照)、このステップに従ってください：
+Standard Integration (Client and Server) を使用している場合([Client-server integration guide for JavaScript](../guides/integration-javascript-client-server.md) を参照)、このステップに従ってください：
 
 * この ID を JSON 文字列としてクライアントに送り返します ([identity field](../sdks/sdk-ref-javascript.md#initopts-object-void) で使用するため):
 
@@ -166,9 +165,9 @@ Standard Integration (Client and Server) を使用している場合([Client-Ser
    ユーザーがオプトアウトした場合、このメソッドは `null` を返しますので、必ず処理してください。
    :::
 
-#### Basic Usage, Server-Side Integration
+#### Basic usage, server-side integration
 
-Server-Side Integration ([Publisher Integration Guide, Server-Side](../guides/integration-publisher-server-side.md) を参照) を使用している場合は、以下の手順に従ってください:
+Server-Side Integration ([Publisher integration guide, server-side](../guides/integration-publisher-server-side.md) を参照) を使用している場合は、以下の手順に従ってください:
 
 1. `tokenGenerateResponse.getIdentityJsonString()` 関数を使用して、この ID をユーザーのセッションに JSON 文字列として格納します。
 
@@ -208,7 +207,7 @@ Server-Side Integration ([Publisher Integration Guide, Server-Side](../guides/in
 
    ユーザーがオプトアウトした場合、このメソッドは `null` を返し、ユーザーの ID をセッションから削除する必要があることを示します。オプトアウトを確認するには、`tokenRefreshResponse.isOptout()` 関数を使用します。
 
-### Advanced Usage
+### Advanced usage
 
 1. インスタンス変数として `PublisherUid2Helper` のインスタンスを作成します:
 
@@ -229,15 +228,15 @@ Server-Side Integration ([Publisher Integration Guide, Server-Side](../guides/in
 
 <!-- uid2_euid_diff: admonition re legal basis (in EUID not in UID2)-->
 
-4. HTTP レスポンスステータスコードが 200 でない場合は、[Response Status Codes](../endpoints/post-token-generate.md#response-status-codes) を参照して次のステップを決定します。そうでない場合は、UID2 ID レスポンスの内容を `TokenGenerateResponse` オブジェクトに変換します:
+4. HTTP レスポンスステータスコードが 200 でない場合は、[Response status codes](../endpoints/post-token-generate.md#response-status-codes) を参照して次のステップを決定します。そうでない場合は、UID2 ID レスポンスの内容を `TokenGenerateResponse` オブジェクトに変換します:
 
    ```java
    TokenGenerateResponse tokenGenerateResponse = publisherUid2Helper.createTokenGenerateResponse({response body}, envelope);
    ```
 
-#### Advanced Usage, Client-Server Integration
+#### Advanced usage, client-server integration
 
-Standard Integration (client and server) を使用している場合 ([Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md) を参照)、以下の手順に従ってください:
+Standard Integration (client and server) を使用している場合 ([Client-server integration guide for JavaScript](../guides/integration-javascript-client-server.md) を参照)、以下の手順に従ってください:
 
 * この ID を JSON 文字列としてクライアントに送り返します ([identity field](../sdks/sdk-ref-javascript.md#initopts-object-void) で使用するため):
 
@@ -249,9 +248,9 @@ Standard Integration (client and server) を使用している場合 ([Client-Se
     ユーザーがオプトアウトした場合、このメソッドは `null` を返しますので、必ず処理してください。
     :::
 
-#### Advanced Usage, Server-Side Integration
+#### Advanced usage, server-side integration
 
-Server-Side Integration ([Publisher Integration Guide, Server-Side](../guides/integration-publisher-server-side.md) を参照) を使用している場合は、以下の手順に従ってください:
+Server-Side Integration ([Publisher integration guide, server-side](../guides/integration-publisher-server-side.md) を参照) を使用している場合は、以下の手順に従ってください:
 
 1. `tokenGenerateResponse.getIdentityJsonString()` を使用して、この ID をユーザーのセッションに JSON 文字列として保存します。
 
@@ -282,7 +281,7 @@ Server-Side Integration ([Publisher Integration Guide, Server-Side](../guides/in
       if (identity.isDueForRefresh()) {..}
       ```
 4. リフレッシュが必要な場合は、[POST token/refresh](../endpoints/post-token-refresh.md)エンドポイントを、以下のように呼び出します:
-   1. Headers: HTTPライブラリによっては、次のようになります:
+   1. Headers: HTTP ライブラリによっては、次のようになります:
     
       `.putHeader("Authorization", "Bearer " + UID2_API_KEY)`  
       `.putHeader("X-UID2-Client-Version", PublisherUid2Helper.getVersionHttpHeader())`. 
@@ -296,11 +295,11 @@ Server-Side Integration ([Publisher Integration Guide, Server-Side](../guides/in
 
    ユーザーがオプトアウトした場合、このメソッドは `null` を返し、ユーザーの ID をセッションから削除する必要があることを示します。オプトアウトを確認するには、`tokenRefreshResponse.isOptout()` 関数を使用します。
 
-## Usage for Advertisers/Data Providers
+## Usage for advertisers/data providers
 
 以下の手順は、最新バージョンの `POST /identity/map` エンドポイントを使用して DII を raw UID2 にマップする方法の例です。
 
-以前のバージョンを使用する場合は、[Previous SDK Version (using POST /identity/map v2)](#previous-sdk-version-using-post-identitymap-v2) を参照してください。最新バージョンへの移行手順については、[Migration From Version Using v2 Identity Map](#migration-from-version-using-v2-identity-map) を参照してください。
+以前のバージョンを使用する場合は、[Previous SDK version (using POST /v2/identity/map)](#previous-sdk-version-using-post-v2identitymap) を参照してください。最新バージョンへの移行手順については、[Migration from version using POST /v2/identity/map](#migration-from-version-using-post-v2identitymap) を参照してください。
 
 1. IdentityMapClient のインスタンスをインスタンス変数として作成します:
    ```java
@@ -353,7 +352,7 @@ Server-Side Integration ([Publisher Integration Guide, Server-Side](../guides/in
    raw UID2 は、リフレッシュタイムスタンプの前では変化しません。リフレッシュタイムスタンプの後、DII を再マッピングすると新しいリフレッシュタイムスタンプが返されますが、raw UID2 は変化する場合もあれば変化しない場合もあります。raw UID2 が複数のリフレッシュ間隔にわたって変化しない可能性もあります。
    :::
 
-### Usage Example
+### Usage example
 
 ```java
 IdentityMapV3Client client = new IdentityMapV3Client(UID2_BASE_URL, UID2_API_KEY, UID2_SECRET_KEY);
@@ -386,19 +385,19 @@ IdentityMapV3Input mixedInput = new IdentityMapV3Input()
 IdentityMapV3Response mixedResponse = client.generateIdentityMap(mixedInput);
 ```
 
-## Migration From Version Using v2 Identity Map
+## Migration from version using POST /v2/identity/map
 
 以下のセクションでは、この SDK の最新バージョンへの移行に関する一般的な情報とガイダンスを提供します。最新バージョンは `POST /identity/map` バージョン 3 を参照しています:
 
-- [Version 3 Improvements](#version-3-improvements)
-- [Required Changes](#required-changes)
-- [Recommended Changes](#recommended-changes)
+- [Version 3 improvements](#version-3-improvements)
+- [Required changes](#required-changes)
+- [Recommended changes](#recommended-changes)
 
-### Version 3 Improvements
+### Version 3 improvements
 
 <SnptPOSTIdentityMapImprovements />
 
-### Required Changes
+### Required changes
 
 アップグレードするには、以下の手順に従ってください:
 
@@ -441,7 +440,7 @@ import com.uid2.client.IdentityMapV3Response;
 import com.uid2.client.UnmappedIdentityReason;
 ```
 
-### Recommended Changes
+### Recommended changes
 
 以下の変更は**オプション**ですが、新しい v3 機能を活用できます。[必須の変更](#required-changes) で基本的な機能は十分ですが、これらの推奨される変更により、機能が向上します。
 
@@ -487,11 +486,11 @@ import com.uid2.client.UnmappedIdentityReason;
    String rawReason = unmapped.getRawReason();
    ```
 
-## Previous SDK Version (using POST /identity/map v2)
+## Previous SDK version (using POST /v2/identity/map)
 
 :::note
 下位互換性のために、`POST /identity/map` v2 エンドポイントを参照する SDK for Java の以前のバージョンも利用可能です。パフォーマンスの向上、複数の ID タイプのサポート、UID ローテーション管理の改善のために、現在の SDK に移行してください。新しいインテグレーションではこのバージョンを使用しないでください。
-詳細は [Migration From Version Using v2 Identity Map](#migration-from-version-using-v2-identity-map) を参照してください。
+詳細は [Migration from version using POST /v2/identity/map](#migration-from-version-using-post-v2identitymap) を参照してください。
 :::
 
 以前のバージョンを使用するには、以下の手順に従ってください。
@@ -561,14 +560,14 @@ else
 
 詳細な例は、[test/IntegrationExamples.java](https://github.com/IABTechLab/uid2-client-java/blob/main/src/test/java/com/uid2/client/test/IntegrationExamples.java) を参照してください。
 
-## Usage for UID2 Sharers
+## Usage for UID2 sharers
 
 UID2 <Link href="../ref-info/glossary-uid#gl-sharing-participant">共有参加者</Link>は、送信者または受信者として共有に参加し、他の参加者と UID2 を共有する企業です。
 
-広告主およびデータプロバイダーは、この SDK を使用して、他の承認された UID2 共有参加者と UID2 を共有できます (<Link href="../ref-info/glossary-uid#gl-tokenized-sharing">Tokenized Sharing</Link>)。彼らは [raw UID2](../ref-info/glossary-uid#gl-raw-uid2) を <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 Token</Link> に暗号化し、それを共有のために別の参加者に送信できます (詳細は [Tokenized Sharing in Pixels](../sharing/sharing-tokenized-from-data-pixel.md) を参照)。ピクセルでデータを送信しない場合は、[Security Requirements for UID2 Sharing](../sharing/sharing-security.md)に記載されている要件に従う限り、UID2 共有に参加できます。
+広告主およびデータプロバイダーは、この SDK を使用して、他の承認された UID2 共有参加者と UID2 を共有できます (<Link href="../ref-info/glossary-uid#gl-tokenized-sharing">Tokenized Sharing</Link>)。彼らは [raw UID2](../ref-info/glossary-uid#gl-raw-uid2) を <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 Token</Link> に暗号化し、それを共有のために別の参加者に送信できます (詳細は [Tokenized sharing in pixels](../sharing/sharing-tokenized-from-data-pixel.md) を参照)。ピクセルでデータを送信しない場合は、[Security requirements for UID2 sharing](../sharing/sharing-security.md)に記載されている要件に従う限り、UID2 共有に参加できます。
 
 :::important
-このプロセスで生成される UID2 Token は共有専用であり、ビッドストリームでは使用できません。ビッドストリーム用のトークンを生成するための別のワークフローがあります: [Tokenized Sharing in the Bidstream](../sharing/sharing-tokenized-from-data-bid-stream.md)を参照してください。
+このプロセスで生成される UID2 Token は共有専用であり、ビッドストリームでは使用できません。ビッドストリーム用のトークンを生成するための別のワークフローがあります: [Tokenized sharing in the bidstream](../sharing/sharing-tokenized-from-data-bid-stream.md)を参照してください。
 :::
 
 以下の手順は、SDK for Java を使用して、送信者または受信者として共有を実装する方法の例を示しています。

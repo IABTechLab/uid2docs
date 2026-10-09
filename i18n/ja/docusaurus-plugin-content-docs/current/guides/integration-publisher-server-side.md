@@ -1,10 +1,9 @@
 ---
-title: Publisher Integration Guide, Server-Side
-sidebar_label: Server-Side
-pagination_label: Publisher Integration Guide, Server-Side
+title: Publisher integration guide, server-side
+sidebar_label: Server-side
+pagination_label: Publisher integration guide, server-side
 description: UID2 対応シングルサインオンや ID プロバイダーではなく、UID2 と直接インテグレーションを行いながら、RTB ビッドストリーム用に UID2 を使用して ID トークンを生成する方法。
 hide_table_of_contents: false
-sidebar_position: 03
 displayed_sidebar: docs
 ---
 
@@ -12,22 +11,22 @@ import Link from '@docusaurus/Link';
 import SnptIntegratingWithSSO from '../snippets/_snpt-integrating-with-sso.mdx';
 import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emails-and-phone-numbers.mdx';
 
-# Publisher Integration Guide, Server-Side
+# Publisher integration guide, server-side
 
 このガイドは、<Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 Token</Link> (Advertising Token) を RTB <Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link> 用に生成するために、UID2 と直接インテグレーションを行いながら、UID2 対応シングルサインオンや ID プロバイダーではなく、すべてのインテグレーションを Server-Side で行うパブリッシャー向けのガイドです。
 
 パブリッシャーが UID2 と Server-Side でインテグレーションするには、以下のオプションが利用可能です:
 
-- SDK for Java (see [Usage for Publishers](../sdks/sdk-ref-java.md#usage-for-publishers) section).
-- SDK for Python (see [Usage for Publishers](../sdks/sdk-ref-python.md#usage-for-publishers) section).
+- SDK for Java (see [Usage for publishers](../sdks/sdk-ref-java.md#usage-for-publishers) section).
+- SDK for Python (see [Usage for publishers](../sdks/sdk-ref-python.md#usage-for-publishers) section).
 - Custom server code to generate and refresh the UID2 token by calling the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) and [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) endpoints.
 
-ワークフローをデモするサンプルアプリケーションもあります。[Sample Implementation](#sample-implementation) を参照してください。
+ワークフローをデモするサンプルアプリケーションもあります。[Sample implementation](#sample-implementation) を参照してください。
 
-パブリッシャーインテグレーションオプションの完全な概要は、[Publisher Integrations](summary-guides.md#publisher-integrations) を参照してください。
+パブリッシャーインテグレーションオプションの完全な概要は、[Publisher integrations](summary-guides.md#publisher-integrations) を参照してください。
 
 :::tip
-UID2 と UID2 Token を使用してクライアントのアイデンティティを確立し、UID2 Token を取得するプロセスを容易にするために、SDK for JavaScript を使用することを検討してください。詳細は [Client-Server Integration Guide for JavaScript](integration-javascript-client-server.md) を参照してください。
+UID2 と UID2 Token を使用してクライアントのアイデンティティを確立し、UID2 Token を取得するプロセスを容易にするために、SDK for JavaScript を使用することを検討してください。詳細は [Client-server integration guide for JavaScript](integration-javascript-client-server.md) を参照してください。
 :::
 
 ## Introduction
@@ -42,36 +41,36 @@ UID2 と UID2 Token を使用してクライアントのアイデンティティ
 
 [FAQs](#faqs) も参照してください。
 
-## Integrating with Single Sign-On (SSO)
+## Integrating with single sign-on (SSO)
 
 <SnptIntegratingWithSSO />
 
-## Preparing DII for Processing
+## Preparing DII for processing
 
 <SnptPreparingEmailsAndPhoneNumbers />
 
-## Complete UID2 Account Setup and Configure Account
+## Complete UID2 account setup and configure account
 
-UID2 とインテグレーションするには、UID2 アカウントが必要です。アカウントをまだ作成していない場合は、まず [Account Setup](../getting-started/gs-account-setup.md) ページの手順に従ってください。
+UID2 とインテグレーションするには、UID2 アカウントが必要です。アカウントをまだ作成していない場合は、まず [Account setup](../getting-started/gs-account-setup.md) ページの手順に従ってください。
 
-アカウントの初期設定が完了すると、UID2 Portal にアクセスするための手順とリンクが送信されます。UID2 Portal では、本番環境のための [credentials](../getting-started/gs-credentials.md) を作成し、提供する必要がある追加の値を設定できます。詳細は、[Getting Started with the UID2 Portal](../portal/portal-getting-started.md) を参照してください。
+アカウントの初期設定が完了すると、UID2 Portal にアクセスするための手順とリンクが送信されます。UID2 Portal では、本番環境のための [credentials](../getting-started/gs-credentials.md) を作成し、提供する必要がある追加の値を設定できます。詳細は、[Getting started with the UID2 Portal](../portal/portal-getting-started.md) を参照してください。
 
-Server-Side インテグレーションの場合、UID2 Portal の [API Keys](../portal/api-keys.md) ページで以下の値を設定する必要があります:
+Server-Side インテグレーションの場合、UID2 Portal の [API keys](../portal/api-keys.md) ページで以下の値を設定する必要があります:
 
 - <Link href="../ref-info/glossary-uid#gl-api-key">API Key</Link>、Client Key とも呼ばれます。
 - <Link href="../ref-info/glossary-uid#gl-client-secret">Client Secret</Link>、参加者と UID2 Service のみが知る値。
 
 :::important
-これらの値を安全に保管することが非常に重要です。詳細は、[Security of API Key and Client Secret](../getting-started/gs-credentials.md#security-of-api-key-and-client-secret) を参照してください。
+これらの値を安全に保管することが非常に重要です。詳細は、[Security of API key and client secret](../getting-started/gs-credentials.md#security-of-api-key-and-client-secret) を参照してください。
 :::
 
-## Integration Steps
+## Integration steps
 
 以下の図は、ユーザーがパブリッシャーと UID2 Token を確立するために必要なステップと、UID2 Token が RTB ビッドストリームとどのようにインテグレーションされるかを概説したものです。
 
 Server-Side SDK を使用している場合、SDK はエンドポイントに関連するすべてのステップを処理します。たとえば、Step 1-d では、発行者はユーザーの DII をトークン生成サービスに送信します。
 
-![Publisher Flow](images/integration-publisher-server-side-mermaid.png)
+![Publisher flow](images/integration-publisher-server-side-mermaid.png)
 
 <!-- diagram source: resource/integration-publisher-server-side-mermaid.md.bak -->
 
@@ -80,9 +79,9 @@ Server-Side SDK を使用している場合、SDK はエンドポイントに関
 1. [Establish identity: capture user data](#establish-identity-capture-user-data)
 2. [Bid using a UID2 token](#bid-using-a-uid2-token)
 3. [Refresh a UID2 token](#refresh-a-uid2-token)
-4. [Clear Identity: user logout](#clear-identity-user-logout)
+4. [Clear identity: user logout](#clear-identity-user-logout)
 
-### Establish Identity: Capture User Data
+### Establish identity: Capture user data
 
 Step 1-c で認証が行われ、パブリッシャーがユーザーのメールアドレスや電話番号を検証した後、パブリッシャーは Server-Side で UID2 Token を生成するリクエストを送信することができます。次の表は、トークン生成ステップの詳細です。
 
@@ -96,7 +95,7 @@ Step 1-c で認証が行われ、パブリッシャーがユーザーのメー�
 | 1-e  | [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) | ユーザーのメールアドレス、電話番号、またはそれぞれのハッシュからと、Refresh Token などの関連値から生成された UID2 Token を返します。 |
 | 1-f  | N/A                                                         | 返された `advertising_token` と `refresh_token` は、ユーザーに紐づくストレージに保存します。ファーストパーティクッキーのような Client-Side のストレージや、Server-Side のストレージを検討するとよいでしょう。|
 
-### Bid Using a UID2 Token
+### Bid using a UID2 token
 
 UID2 ID 情報をどのように管理し、ターゲティング広告に使用したいかを検討する必要があります。たとえば、返された UID2 Token を SSP に渡す等。
 
@@ -105,14 +104,14 @@ UID2 ID 情報をどのように管理し、ターゲティング広告に使用
 | 2-a  | N/A      | Step [1-e](#establish-identity-capture-user-data) の `advertising_token` を入札のために SSP に送信します。そのままの値を送信します。 |
 
 :::note
-UID2 Token が SSP から DSP に送信されるとき、ビッドストリーム内でどのように見えるかの例は、[ビッドストリームで UID2 Token はどのように見えますか？](../getting-started/gs-faqs.md#what-does-a-uid2-token-look-like-in-the-bidstream) を参照してください。
+UID2 Token が SSP から DSP に送信されるとき、ビッドストリーム内でどのように見えるかの例は、[ビッドストリームで UID2 token はどのように見えますか？](../getting-started/gs-faqs.md#what-does-a-uid2-token-look-like-in-the-bidstream) を参照してください。
 :::
 
-### Refresh a UID2 Token
+### Refresh a UID2 token
 
 `POST /token/refresh` エンドポイントを使用して、常に有効で最新の UID2 Token を持つようにします。UID2 ローテーションと同期させるには、UID2 Token をリフレッシュする必要があります。さらに、トークンリフレッシュプロセスではユーザーのオプトアウトステータスをチェックし、ユーザーがオプトアウトしている場合は新しいトークンを送信しません。これによりトークンリフレッシュチェーンが終了します。その UID2 Token を二度と使用してはなりません。
 
-UID2 のオプトアウトワークフローとユーザーがオプトアウトする方法の詳細は、[User Opt-Out](../getting-started/gs-opt-out.md) を参照してください。
+UID2 のオプトアウトワークフローとユーザーがオプトアウトする方法の詳細は、[User opt-out](../getting-started/gs-opt-out.md) を参照してください。
 
 | Step | Endpoint | Description |
 | :--- | :--- | :--- |
@@ -125,7 +124,7 @@ UID2 のオプトアウトワークフローとユーザーがオプトアウト
 [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) または [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) エンドポイントによって返された ID の `refresh_from` タイムスタンプからトークンのリフレッシュを始めてください。
 :::
 
-### Clear Identity: User Logout
+### Clear identity: User logout
 
 ユーザーがログアウトした場合は、UID2 Token を使用しないでください。
 
@@ -134,7 +133,7 @@ UID2 のオプトアウトワークフローとユーザーがオプトアウト
 | 4-a  | N/A | ユーザーがパブリッシャーアセットからログアウトしました。|
 | 4-b  | N/A | そのユーザー用に保存してある UID2 Token を削除します。UID2 Service とのやりとりは必要ありません。 |
 
-## Sample Implementation
+## Sample implementation
 
 Server-only のインテグレーションのためのサンプルアプリケーションがあります。以下を参照してください:
 
@@ -143,4 +142,4 @@ Server-only のインテグレーションのためのサンプルアプリケ�
 
 ## FAQs
 
-パブリッシャー向けのよくある質問は、[FAQs for Publishers](../getting-started/gs-faqs.md#faqs-for-publishers) を参照してください。
+パブリッシャー向けのよくある質問は、[FAQs for publishers](../getting-started/gs-faqs.md#faqs-for-publishers) を参照してください。

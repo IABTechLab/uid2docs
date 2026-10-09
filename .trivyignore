@@ -3,3 +3,143 @@
 # for more details
 # e.g. 
 # CVE-2022-3996
+
+# CVE-2026-18446 — fast-uri (transitive via ajv) (HIGH).
+# Not exploitable here: fast-uri 3.1.4 transitive via ajv (package-lock:5831), override at
+# package.json:71; zero require/import of fast-uri; build-time schema validation only
+# See: UID2-7633
+CVE-2026-18446 exp:2026-11-06
+
+# CVE-2026-69152 — brace-expansion (npm, transitive via minimatch) (HIGH).
+# Not exploitable here: package-lock.json:6291 brace-expansion@5.0.8 pulled only by
+# minimatch@10.2.4 (dependencies: brace-expansion ^5.0.2); Docusaurus build/lint tooling; no
+# brace-expansion/minimatch/glob import in src/
+# See: UID2-7619
+CVE-2026-69152 exp:2026-11-06
+
+# CVE-2025-71329 — image-size (npm, transitive via @docusaurus/mdx-loader) (HIGH).
+# Not exploitable here: package-lock.json:9929 pins image-size@2.0.2, pulled in only as a
+# transitive dep of @docusaurus/mdx-loader (line 3433); not a direct dependency in
+# package.json. Used at build time by `npm run build` (deploy.yml) to size images in markdown;
+# output is a static site deployed to GitHub Pages (no Node runtime/event loop in prod). No
+# .jxl/.heif/.heic assets exist and no src code calls image-size directly.
+# See: UID2-7653
+CVE-2025-71329 exp:2026-11-11
+
+# CVE-2025-71330 — image-size (npm, transitive via @docusaurus/mdx-loader) (HIGH).
+# Not exploitable here: package-lock.json:9929 pins image-size@2.0.2; declared only as a
+# dependency of @docusaurus/mdx-loader (package-lock.json:3433), not in package.json. Project
+# is a Docusaurus static site (package.json build script 'docusaurus build');
+# .github/workflows/deploy.yml runs npm ci + npm run build and uploads ./build to GitHub Pages
+# — no runtime Node service. No direct image-size import in src/ and no committed .icns files.
+# See: UID2-7654
+CVE-2025-71330 exp:2026-11-11
+
+# CVE-2026-67213 — nanoid (transitive via postcss) (HIGH).
+# Not exploitable here: nanoid 3.3.16 present once, transitively via postcss@8.5.18
+# (overridden). Docusaurus static-site build tooling; no nanoid import or
+# customAlphabet/customRandom call in any source file. Vulnerable path never invoked.
+# See: UID2-7658
+CVE-2026-67213 exp:2026-11-11
+
+# GHSA-5p4m-2wfm-xmqj — js-yaml (3.15.0 and 4.3.0, transitive npm dependency) (HIGH).
+# Not exploitable here: Docusaurus SSG; js-yaml reaches build via gray-matter (3.15.0) and
+# eslint (4.3.0). gray-matter parses the repo's own trusted markdown frontmatter at build time,
+# not untrusted runtime input, so the O(n^2) omap path is not attacker-reachable
+# See: UID2-7659
+GHSA-5p4m-2wfm-xmqj exp:2026-11-11
+
+# CVE-2026-73088 — browserslist (HIGH).
+# Not exploitable here: browserslist appears only as transitive build dep in package-lock;
+# package.json holds a trusted query object; no stats json file and no --stats/opts.stats usage
+# found
+# See: UID2-7802
+CVE-2026-73088 exp:2026-12-02
+
+# CVE-2026-73089 — browserslist (HIGH).
+# Not exploitable here: package-lock.json:6315 browserslist@4.28.1; @docusaurus/core 3.9.2
+# static docs build. browserslist called only during docusaurus build with fixed config
+# queries; served output is static HTML, no runtime browserslist() call.
+# See: UID2-7803
+CVE-2026-73089 exp:2026-12-02
+
+# CVE-2026-75899 — fast-uri (HIGH).
+# Not exploitable here: package-lock.json resolves fast-uri 3.1.4 only under node_modules/ajv-
+# formats/node_modules/fast-uri and node_modules/schema-utils/node_modules/fast-uri (Docusaurus
+# build tooling). fast-uri appears only in package.json overrides, lock, and .trivyignore — no
+# source import.
+# See: UID2-7812
+CVE-2026-75899 exp:2026-12-03
+
+# CVE-2026-75931 — fast-uri (HIGH).
+# Not exploitable here: fast-uri@3.1.4 appears only under node_modules/ajv-formats and
+# node_modules/schema-utils (transitive via ajv); overrides pin in package.json. Static
+# Docusaurus site; no source import of fast-uri/ajv, no fastify. Vulnerable resolve()/equal()
+# path not called by application code.
+# See: UID2-7813
+CVE-2026-75931 exp:2026-12-03
+
+# CVE-2026-75975 — fast-uri (HIGH).
+# Not exploitable here: fast-uri@3.1.4 only under ajv-formats/ajv and schema-utils/ajv in
+# lockfile; overrides ^3.1.4. Docusaurus docs site with no direct fast-uri/ajv usage in source.
+# See: UID2-7814
+CVE-2026-75975 exp:2026-12-03
+
+# CVE-2026-76172 — fast-uri (HIGH).
+# Not exploitable here: fast-uri@3.1.4 only under node_modules/ajv-formats/node_modules/ajv and
+# node_modules/schema-utils/node_modules/ajv (Docusaurus build). No direct fast-uri/ajv usage
+# in source; ajv runs at build time parsing JSON Schema URIs.
+# See: UID2-7815
+CVE-2026-76172 exp:2026-12-03
+
+# js-yaml is a build-time-only transitive dependency (Docusaurus/gray-matter/eslint); this is a static site with no runtime YAML parsing
+# See: UID2-7851
+CVE-2026-84375 exp:2026-10-10
+
+# svgo runs only at build time optimizing repo-owned static SVGs; no user-upload/sanitization path exists in this static docs site
+# See: UID2-7852
+CVE-2026-84370 exp:2026-10-10
+
+# CVE-2026-102276 — brace-expansion (HIGH). Vulnerable code path is not reachable in this
+# configuration.
+# See the ticket below for the assessment.
+# See: UID2-8003
+CVE-2026-102276 exp:2027-01-01
+
+# CVE-2026-93748 — http-cache-semantics (HIGH). Required attack preconditions are absent in this
+# configuration.
+# See: UID2-8027
+CVE-2026-93748 exp:2027-01-06
+
+# CVE-2026-85393 — node-forge (HIGH). Vulnerable code path is not reachable in this configuration.
+# See: UID2-8028
+CVE-2026-85393 exp:2027-01-06
+
+# CVE-2026-93687 — braces (HIGH). Required attack preconditions are absent in this configuration.
+# See: UID2-8026
+CVE-2026-93687 exp:2027-01-06
+
+# CVE-2026-87776 — compression (HIGH). Required attack preconditions are absent in this
+# configuration.
+# See: UID2-8048
+CVE-2026-87776 exp:2027-01-07
+
+# CVE-2026-90711 — proxy-addr (CRITICAL). Required attack preconditions are absent in this
+# configuration.
+# See: UID2-8049
+CVE-2026-90711 exp:2027-01-07
+
+# CVE-2026-93749 — source-map-js (HIGH). Required attack preconditions are absent in this
+# configuration.
+# See: UID2-8051
+CVE-2026-93749 exp:2027-01-07
+
+# CVE-2026-104848 — tinypool (CRITICAL). Required attack preconditions are absent in this
+# configuration.
+# See: UID2-8052
+CVE-2026-104848 exp:2027-01-07
+
+# CVE-2026-104849 — tinypool (CRITICAL). Required attack preconditions are absent in this
+# configuration.
+# See: UID2-8053
+CVE-2026-104849 exp:2027-01-07

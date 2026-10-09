@@ -1,8 +1,7 @@
 ---
-title: SDK for JavaScript v3
+title: SDK for JavaScript (v3)
 description: JavaScript Client-Side SDK に関するリファレンス情報。
 hide_table_of_contents: false
-sidebar_position: 02
 displayed_sidebar: docs
 ---
 
@@ -24,7 +23,7 @@ export const Deprecated3100 = () => (
   <span className='pill'>Deprecated in version 3.10.0</span>
 );
 
-# SDK for JavaScript Reference Guide (v3)
+# SDK for JavaScript reference guide (v3)
 
 :::important
 このドキュメントは、SDK for JavaScript のバージョン 3 用で最新バージョンではありません。このバージョンを使用している場合は、アップグレードを推奨します。移行ガイドが含まれている [SDK for JavaScript リファレンスガイド](sdk-ref-javascript.md) を参照してください。
@@ -35,14 +34,14 @@ export const Deprecated3100 = () => (
 以下のセクションでは、UID2 ID の確立のための高レベルな [ワークフロー](#workflow-overview)、SDK [API リファレンス](#api-reference)、および UID2 [ストレージフォーマット](#uid2-storage-format) を説明します。
 
 :::tip
-UID2 Identify Module、または UID2 サポートのある他の製品と Prebid.js を使用している場合、SDK を使用する必要はありません。Prebid.js モジュールがすべてを管理します。詳細は、[UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md) を参照してください。
+UID2 Identify Module、または UID2 サポートのある他の製品と Prebid.js を使用している場合、SDK を使用する必要はありません。Prebid.js モジュールがすべてを管理します。詳細は、[Client-side integration guide for Prebid.js](../guides/integration-prebid-client-side.md) を参照してください。
 :::
 
 このページでは、SDK のバージョン 3 について説明します。以前のバージョンを使用している場合は、[移行ガイド](#migration-guide) を使用してインテグレーションをアップグレードすることを推奨します。必要に応じて、[SDK の以前のバージョン](./sdk-ref-javascript-v2.md) のドキュメントも利用できます。
 
 コンテンツパブリッシャー向けのインテグレーション手順は、以下のガイドを参照してください:
-  - [Client-Side Integration Guide for JavaScript](../guides/integration-javascript-client-side.md)
-  - [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md)
+  - [Client-side integration guide for JavaScript](../guides/integration-javascript-client-side.md)
+  - [Client-server integration guide for JavaScript](../guides/integration-javascript-client-server.md)
 
 ## Functionality
 
@@ -52,11 +51,11 @@ UID2 Identify Module、または UID2 サポートのある他の製品と Prebi
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | &#8212; | &#8212; | &#9989; | &#9989; | &#8212; | &#8212; |
 
-## UID2 Account Setup
+## UID2 account setup
 
-UID2 とインテグレーションするには、UID2 アカウントが必要です。アカウントをまだ作成していない場合は、まず [Account Setup](../getting-started/gs-account-setup.md) ページに記載されている手順に従ってください。
+UID2 とインテグレーションするには、UID2 アカウントが必要です。アカウントをまだ作成していない場合は、まず [Account setup](../getting-started/gs-account-setup.md) ページに記載されている手順に従ってください。
 
-## API Permissions
+## API permissions
 
 アカウントの初期設定が完了すると、[UID2 Portal](../portal/portal-overview.md) にアクセスするための手順とリンクが提供されます。以下の操作を行うことができます:
 - アカウントの [credentials](../getting-started/gs-credentials.md) を生成します。
@@ -65,17 +64,17 @@ UID2 とインテグレーションするには、UID2 アカウントが必要�
 
 SDK が提供する特定の機能の使用権限が付与され、そのアクセスに必要な資格情報が提供されます。
 
-## SDK Version
+## SDK version
 
 このドキュメントは SDK for JavaScript version 3 用です。
 
-## GitHub Repository
+## GitHub repository
 
 この SDK のソースは、以下のオープンソースの GitHub リポジトリにあります:
 
 - [https://github.com/iabtechlab/uid2-web-integrations](https://github.com/iabtechlab/uid2-web-integrations)
 
-## SDK Distribution
+## SDK distribution
 
 この SDK は、以下のロケーションに公開されています:
 
@@ -98,10 +97,10 @@ SDK が提供する特定の機能の使用権限が付与され、そのアク�
 このドキュメントでは、以下の用語が使われます:
 - **ID** とは、[POST&nbsp;/token/generate](../endpoints/post-token-generate.md) または [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) エンドポイントによって返される、UID2 Token、Refresh Token、および Timestamp などの関連値を含む値のパッケージを指します。
 - **Advertising Token** は UID2 Token を指します。
-- **Callback function**は、本 SDK の現在のバージョン用に構築され、[Array Push Pattern](#array-push-pattern) を使用して登録されたコールバック関数を指します。
+- **Callback function**は、本 SDK の現在のバージョン用に構築され、[Array push pattern](#array-push-pattern) を使用して登録されたコールバック関数を指します。
 - **Legacy callback function** は、この SDK のバージョン 1.x または 2.x 用に構築され、`init` の呼び出しで登録されたコールバック関数を指します。
 
-## Include the SDK Script
+## Include the SDK script
 
 UID2 をターゲティング広告に使用したいすべてのページに、以下の SDK スクリプトを含めます:
 
@@ -109,13 +108,13 @@ UID2 をターゲティング広告に使用したいすべてのページに、
 <script src="https://cdn.prod.uidapi.com/uid2-sdk-3.4.5.js" type="text/javascript"></script> 
 ```
 
-### Async or Defer Loading the SDK Script
+### Async or defer loading the SDK script
 
 Version 3 以降の SDK は、`async` または `defer` スクリプトローディングとともに使用することができます。
 
 サイトで `async` または `defer` スクリプトのロードを使用している場合は、次のようにしてください:
 - (必須) `SdkLoaded` イベントを受信したときに、[callback function](#callback-function) から `__uid2.init` を呼び出していることを確認します。
-- (必須) Scriptタグに関連する属性を追加します。
+- (必須) Script タグに関連する属性を追加します。
 - (推奨) 以下の例のように、Script タグがページの `<head>` 部分にあることを確認してください:
 
    ```html
@@ -126,11 +125,11 @@ Version 3 以降の SDK は、`async` または `defer` スクリプトローデ
    </head>
    ```
 
-## Workflow Overview
+## Workflow overview
 
 SDK を使用して UID2 ID を確立するための Client-Side ワークフローは、以下の Step で構成されます:
 
-1. [Array Push Pattern](#array-push-pattern) を使ってコールバック関数を登録します。
+1. [Array push pattern](#array-push-pattern) を使ってコールバック関数を登録します。
 2. コールバックが `SdkLoaded` イベントを受信したら、[init](#initopts-object-void) 関数を使用して SDK を初期化します。
 3. イベントリスナーが `InitCompleted` イベントを受信するのを待ちます。イベントデータは ID が利用可能かどうかを示します:
 	- ID が利用可能な場合、その ID がイベントペイロードに返されます。SDK は [background token auto-refresh](#background-token-auto-refresh) を設定します。
@@ -142,35 +141,35 @@ SDK を使用して UID2 ID を確立するための Client-Side ワークフロ
 	- Advertising Token が利用可能な場合、それを使用してターゲティング広告のリクエストを開始します。
 	- Advertising Token が利用可能でない場合は、ターゲティング広告を使用しないか、同意フォームでユーザーをデータキャプチャにリダイレクトします。
 
-より詳細な Web インテグレーションの手順は、[Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md) を参照してください。
+より詳細な Web インテグレーションの手順は、[Client-server integration guide for JavaScript](../guides/integration-javascript-client-server.md) を参照してください。
 
-### Background Token Auto-Refresh
+### Background token auto-refresh
 
-SDKの [initialization](#initopts-object-void) の一部として、ID の Token Auto-refresh が設定され、ID の Timestamp または断続的なエラーによるリフレッシュの失敗によってバックグラウンドでトリガーされます。
+SDK の [initialization](#initopts-object-void) の一部として、ID の Token Auto-refresh が設定され、ID の Timestamp または断続的なエラーによるリフレッシュの失敗によってバックグラウンドでトリガーされます。
 
 Token の Auto-refresh について知っておくべきことは以下のとおりです:
 
 - 一度にアクティブにできる Token refresh call は 1 つだけです。
-- [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) レスポンスが、ユーザーがオプトアウトしたため、あるいは Refresh Token の有効期限が切れたために失敗した場合、バックグラウンドでの自動更新処理を一時停止します。UID2ベースのターゲティング広告を再び使用するには、ユーザーからメールアドレスまたは電話番号を取得する必要があります（[isLoginRequired()](#isloginrequired-boolean)は`true`を返します）。
+- [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) レスポンスが、ユーザーがオプトアウトしたため、あるいは Refresh Token の有効期限が切れたために失敗した場合、バックグラウンドでの自動更新処理を一時停止します。UID2 ベースのターゲティング広告を再び使用するには、ユーザーからメールアドレスまたは電話番号を取得する必要があります（[isLoginRequired()](#isloginrequired-boolean)は`true`を返します）。
 - SDK の初期化時に指定された [callback function](#callback-function) は、以下の場合に呼び出されます:
 	- リフレッシュが成功するたびに呼び出されます。
-	- ユーザがオプトアウトした場合など、IDが無効になった場合。<br/>NOTE: ID が一時的に使用できなくなり、自動リフレッシュに失敗し続けた場合、コールバックは呼び出されません。この場合、SDK は有効期限が切れていない限り、既存の Advertising Token を使用し続けます。
+	- ユーザがオプトアウトした場合など、ID が無効になった場合。<br/>NOTE: ID が一時的に使用できなくなり、自動リフレッシュに失敗し続けた場合、コールバックは呼び出されません。この場合、SDK は有効期限が切れていない限り、既存の Advertising Token を使用し続けます。
 - [disconnect()](#disconnect-void) 呼び出しはアクティブなタイマーをキャンセルします。
 
-### Callback Function
+### Callback function
 
-[Array Push Pattern](#array-push-pattern) を使用して、UID2 SDK からイベントを受信する関数を登録できます。現在利用可能なイベントはいくつかあります:
+[Array push pattern](#array-push-pattern) を使用して、UID2 SDK からイベントを受信する関数を登録できます。現在利用可能なイベントはいくつかあります:
 - `SdkLoaded` は SDK がパースされ、グローバルな `__uid2` オブジェクトが構築された後に発生します。これは `init()` を呼び出す際に便利で、特にスクリプトのロード順序が保証されていない場合に便利です (例えば、スクリプトのロードに `async` や `defer` を使用している場合など)。
 - `init()` が終了し、SDK を使用できる状態になると `InitCompleted` が発生します。`init` 呼び出しで ID が提供された場合、または SDK が以前に提供された ID をロードできた場合、その ID がペイロードに含まれます。
-- `IdentityUpdated` は、新しいIDが利用可能になるか、既存の ID が利用できなくなるたびに発生します。
+- `IdentityUpdated` は、新しい ID が利用可能になるか、既存の ID が利用できなくなるたびに発生します。
 
 :::tip
 コールバック関数はいくつでも用意でき、どこからでも登録できます。これにより、サイトにとって意味のある方法でコードを分割することができます。
 :::
 
-#### Callback Function Signature
+#### Callback function signature
 
-コールバック関数は、イベントタイプとペイロードの2つのパラメータを受け取る必要があります。ペイロードのタイプはイベントのタイプにより異なります。
+コールバック関数は、イベントタイプとペイロードの 2 つのパラメータを受け取る必要があります。ペイロードのタイプはイベントのタイプにより異なります。
 
 次の例のコールバックは `SdkLoaded` イベントを処理して init を呼び出し、`init` が完了した後に ID が利用できない場合は `InitCompleted` イベントを使用して ID を提供します。
 
@@ -213,7 +212,7 @@ Token の Auto-refresh について知っておくべきことは以下のとお
 </TabItem>
 </Tabs>
 
-#### Event Types and Payload Details
+#### Event types and payload details
 
 <div className='no-wrap-table-code'>
 
@@ -227,7 +226,7 @@ Token の Auto-refresh について知っておくべきことは以下のとお
 
 `Identity` 型は `init()` を呼び出す時に指定できる ID と同じ型です。
 
-#### Array Push Pattern
+#### Array push pattern
 
 順番にロードされることが保証されていないスクリプトタグ (例えば、`async` や `defer` スクリプトタグを使用している場合など) を最適にサポートするために、コールバックを登録するには以下のパターンを使用します:
 
@@ -242,27 +241,27 @@ window.__uid2.callbacks.push(callbackFunction);
 - あなたのコードより先に SDK が実行された場合、`__uid2` オブジェクトや `callbacks` 配列は上書きされません。
 - このパターンを使用して複数のコールバックが登録された場合、それらは互いに上書きされません。
 
-### Provide an Identity to the SDK
+### Provide an identity to the SDK
 
 SDK がローカルストレージまたはクッキーから以前に保存された ID をロードできる場合を除き、SDK に ID を提供する必要があります。これにはいくつかの方法があります:
 
-- [Provide an Identity by Setting a First-Party Cookie](#provide-an-identity-by-setting-a-first-party-cookie)
-- [Provide an Identity in the Call to `init`](#provide-an-identity-in-the-call-to-init)
-- [Provide an Identity by Calling `setIdentity`](#provide-an-identity-by-calling-setidentity)
+- [Provide an identity by setting a first-party cookie](#provide-an-identity-by-setting-a-first-party-cookie)
+- [Provide an identity in the call to `init`](#provide-an-identity-in-the-call-to-init)
+- [Provide an identity by calling `setIdentity`](#provide-an-identity-by-calling-setidentity)
 
-#### Provide an Identity by Setting a First-Party Cookie
+#### Provide an identity by setting a first-party cookie
 
 [storage format section](#uid2-storage-format) で説明されているように、ファーストパーティクッキーを保存していて、その値がローカルストレージで利用可能な値よりも新しい場合、SDK はその値をクッキーからロードします。もし `useCookie` init オプションを `true` に設定した場合、SDK は常にこの値をロードし、ローカルストレージをチェックしません。[init parameters](#init-parameters) を使用して、クッキーに関することを制御できます。
 
-#### Provide an Identity in the Call to `init`
+#### Provide an identity in the call to `init`
 
 [`init`](#initopts-object-void) を呼び出す時に、新しい ID を指定できます。
 
-#### Provide an Identity by Calling `setIdentity`
+#### Provide an identity by calling `setIdentity`
 
 `init` が完了したら、いつでも [`setIdentity`](#setidentityidentity-identity-void) を呼び出して、SDK に新しい ID を渡すことができます。
 
-## API Reference
+## API reference
 
 SDK for JavaScript とのすべてのインストラクションは、グローバルな `__uid2` オブジェクトを介して行われます。このオブジェクトは `UID2` クラスのインスタンスであり、以下の JavaScript 関数はすべて `UID2` クラスのメンバーです:
 
@@ -293,11 +292,11 @@ SDK を初期化し、ターゲティング広告用のユーザー ID を確立
 
 この関数について知っておくべきことは以下のとおりです:
 
-- `init()` は SDK がロードされた後であれば、いつでも呼び出すことができます。これを行うには、[Array Push Pattern](#array-push-pattern) を使用して `SdkLoaded` イベントを処理するコールバック関数を登録することを推奨します。このパターンを使うことで、スクリプトのロード順序に関係なくコードが動作し、スクリプトタグで `async` や `defer` を使っても UID2 SDK のエラーが発生しないようにすることができます。
+- `init()` は SDK がロードされた後であれば、いつでも呼び出すことができます。これを行うには、[Array push pattern](#array-push-pattern) を使用して `SdkLoaded` イベントを処理するコールバック関数を登録することを推奨します。このパターンを使うことで、スクリプトのロード順序に関係なくコードが動作し、スクリプトタグで `async` や `defer` を使っても UID2 SDK のエラーが発生しないようにすることができます。
 - `init()` 呼び出しの `identity` プロパティは、[POST&nbsp;/token/generate](../endpoints/post-token-generate.md) または [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) 呼び出しが成功したときに返されるレスポンス JSON オブジェクトの `body` プロパティを参照します。Server-side のインテグレーションで常に現在のトークンを使用できるようにしていて、JavaScript を使用して ID を提供するほうが便利な場合は、この方法を使用するとよいでしょう。
 - `init()` 呼び出しの `identity` プロパティが不正な場合、SDK はローカルストレージまたはクッキーから ID をロードしようとします。
   - `init()` が完了すると、すべてのコールバックは `InitCompleted` イベントを受信します。このイベントのペイロードの `identity` プロパティが null の場合、ID をロードできなかったことになるので、[provide an identity to the SDK](#provide-an-identity-to-the-sdk) する必要があります。これは、Server-side のインテグレーションによって常に現在の ID が利用可能であることが保証されておらず、必要な場合にのみサーバーから ID を要求する必要がある場合に推奨される ID の提供方法です。
-  - 渡された UID2 情報をセッションに保存するためにファーストパーティクッキー ([UID2 Storage Format](#uid2-storage-format) を参照) を使用している場合、異なるドメインのページから `init()` を呼び出すと、そのクッキーにアクセスできないことがあります。`cookieDomain` オプションと `cookiePath` オプションで、クッキーに使用する設定を調整することができます。
+  - 渡された UID2 情報をセッションに保存するためにファーストパーティクッキー ([UID2 storage format](#uid2-storage-format) を参照) を使用している場合、異なるドメインのページから `init()` を呼び出すと、そのクッキーにアクセスできないことがあります。`cookieDomain` オプションと `cookiePath` オプションで、クッキーに使用する設定を調整することができます。
 - 特定の動作を調整するために、初期化呼び出しにはオプションの設定 [init prarmeters](#init-parameters) を含めることができます。
 
 以下は、Server-side で生成された ID を含むコールバックを使った `init()` 呼び出しの例です。
@@ -318,38 +317,38 @@ SDK を初期化し、ターゲティング広告用のユーザー ID を確立
 </script>
 ```
 
-#### Init Parameters
+#### Init parameters
 
 `opts` オブジェクトは、以下のプロパティをサポートしています。
 
 | Property | Data Type | Attribute | Description | Default Value |
 | :--- | :--- | :--- | :--- | :--- |
 | `identity` | object | オプション | [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) または [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) 呼び出しが成功したときの `body` プロパティ値です。<br/>[ファーストパーティクッキー](sdk-ref-javascript-v2.md#uid2-cookie-format) からの ID を使用するには、このプロパティを空にしておきます。 | N/A |
-| `baseUrl` | string | オプション | [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) エンドポイントを呼び出す際に使用する UID2 Operator のカスタム Base URLです。<br/>例えば: `https://my.operator.com`.  | `https://prod.uidapi.com`. |
+| `baseUrl` | string | オプション | [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) エンドポイントを呼び出す際に使用する UID2 Operator のカスタム Base URL です。<br/>例えば: `https://my.operator.com`.  | `https://prod.uidapi.com`. |
 | `refreshRetryPeriod` | number | オプション | 断続的なエラーが発生した場合に、トークンのリフレッシュを再試行するミリ秒数です。<br/>この値は 1000 以上でなければなりません。 | 5000 |
 | `cookieDomain` | string | オプション | [UID2 cookie](sdk-ref-javascript-v2.md#uid2-cookie-format) に適用するドメイン名文字列です。<br/>例えば、`baseUrl` が `https://my.operator.com` の場合、`cookieDomain` の値は `operator.com` となります。 | `undefined` |
 | `cookiePath` | string | オプション | [UID2 cookie](sdk-ref-javascript-v2.md#uid2-cookie-format) に適用する Path 文字列です。 | `/` |
-| `useCookie` | `boolean` | オプション | この値を `true` に設定すると、SDK はローカルストレージではなくクッキーに ID を保存します。この値がfalseであるか、提供されていない場合でも、ファーストパーティクッキーを使用して ID を提供することができます。 | 
+| `useCookie` | `boolean` | オプション | この値を `true` に設定すると、SDK はローカルストレージではなくクッキーに ID を保存します。この値が false であるか、提供されていない場合でも、ファーストパーティクッキーを使用して ID を提供することができます。 | 
 | `callback` | `function(object): void` | 非推奨 | 渡された ID を検証した後に SDK が呼び出す関数です。新しいインテグレーションには使用しないでください。 | N/A |
 
-#### Multiple Init Calls
+#### Multiple init calls
 
 `init()` 関数は何度でも呼び出すことができます。ほとんどの場合、特定の [init parameter](#init-parameters) の最新の値を受け入れます。例えば、`baseUrl` が 2 回呼び出され、それぞれ異なる `baseUrl` が渡された場合、`baseUrl` 変数は 2 回目の呼び出しからの値に更新されます。
 
 この機能には 2 つの例外があります:
 
 1. 新しい identity が提供され、新しい identity が現在の identity よりも早く失効する場合、新しい identity は現在の identity を置き換えません。
-2. 移行、渡されたコールバック関数のすべてに対し、[Array Push Pattern](#array-push-pattern) を使用して既存のコールバック配列に関数が追加されます。
+2. 移行、渡されたコールバック関数のすべてに対し、[Array push pattern](#array-push-pattern) を使用して既存のコールバック配列に関数が追加されます。
 
 :::note
 `useCookie` が更新されると、identity の場所が変わります。例えば、値が `true` から `false` に更新されると、ファーストパーティクッキーが削除され、identity がローカルストレージに追加されます。
 :::
 
-### Init Config
+### Init config
 
 `init()` を呼び出すと、初期設定がファーストパーティクッキーまたはローカルストレージに保存されます。この設定には、`baseUrl`、`useCookie`、`refreshRetryPeriod`、`cookiePath`、`cookieDomain` が含まれる場合があります。この設定は [bootstrap init](#self-bootstrap) に使用され、その後のページロードでの読み込み時間を短縮します。`init()` に対する後続の呼び出しは、最新のパラメータで設定を更新します。
 
-### Self Bootstrap
+### Self bootstrap
 
 コンストラクタが完了し、SDK が window オブジェクトに配置されると、コードはローカルストレージとクッキーストレージをチェックして、保存された [init config](#init-config) を取得します。Condig が存在する場合、`init()` は自動的にその config のパラメータで呼び出され、その結果、`init()` が必要な関数を使用できるようになります。
 
@@ -362,11 +361,11 @@ SDK を初期化し、ターゲティング広告用のユーザー ID を確立
 | `TypeError` | 次のいずれかの問題が発生しました:<ul><li>`opts` の値がオブジェクトではありません。</li><li>レガシーコールバックが提供されているが、関数ではありません。</li><li>`refreshRetryPeriod` が提供されているが、数値ではありません。</li></ul> |
 | `RangeError` | リフレッシュの再試行期間が 1000 未満である。 |
 
-#### Legacy Callback Function
+#### Legacy callback function
 
-これは後方互換性のためだけに提供されています。新しいインテグレーションでは、新しいスタイルの [callback function](#callback-function) を使う必要があります。レガシーコールバックは [Array Push Pattern](#array-push-pattern) を使って登録することができません。また、新スタイルのコールバックは `init` に渡すことができません。
+これは後方互換性のためだけに提供されています。新しいインテグレーションでは、新しいスタイルの [callback function](#callback-function) を使う必要があります。レガシーコールバックは [Array push pattern](#array-push-pattern) を使って登録することができません。また、新スタイルのコールバックは `init` に渡すことができません。
 
-詳細は、以前のバージョンの SDK のドキュメントの[Legacy Callback Function](./sdk-ref-javascript-v2#callback-function) を参照してください。
+詳細は、以前のバージョンの SDK のドキュメントの[Legacy callback function](./sdk-ref-javascript-v2#callback-function) を参照してください。
 
 すでにレガシーコールバック関数を使用してインテグレーションを構築している場合は、現在のバージョンの SDK で変更なく使用できます。ただし、この機能は SDK の将来のバージョンで削除される予定です。新しいスタイルの [callback function](#callback-function) を使用するようにインテグレーションを更新することを強く推奨します。
 
@@ -427,7 +426,7 @@ UID2 ログイン [POST&nbsp;/token/generate](../endpoints/post-token-generate.
 </script>
 ```
 
-#### Return Values
+#### Return values
 
 | Value | Description |
 | :--- | :--- |
@@ -447,7 +446,7 @@ Identity が利用可能かどうかを判断します。たとえば、ロー�
   __uid2.isIdentityAvailable();
 </script>
 ```
-#### Return Values
+#### Return values
 
 | Value | Description |
 | :--- | :--- |
@@ -484,7 +483,7 @@ SDK が正しいクッキーにアクセスするために `cookieDomain` また
 
 ### callbacks
 
-これは、登録されたコールバックをすべて格納する配列です。[Array Push Pattern](#array-push-pattern) を使ってのみ、この配列とやりとりする必要があります。
+これは、登録されたコールバックをすべて格納する配列です。[Array push pattern](#array-push-pattern) を使ってのみ、この配列とやりとりする必要があります。
 
 ### setIdentity(identity: Identity): void
 
@@ -510,13 +509,13 @@ UID2 SDK に新しい ID を提供するには、この関数を使用します�
 
 `init()` が一度も呼び出されたことがない場合、false を返します。
 
-## UID2 Storage Format
+## UID2 storage format
 
 SDK はユーザーの ID を保存するのに、ローカルストレージかファーストパーティクッキーのどちらかを使用します。デフォルトではローカルストレージを使用しますが、[init parameter](#init-parameters) を使用して変更できます。
 
-ローカルストレージを使用する場合でも、SDK はファーストパーティクッキーに利用可能な新しい ID があるかどうかを確認します。これにより、SDK はローカルストレージを利用しながら、ファーストパーティクッキーを設定することでIDを提供することができます。
+ローカルストレージを使用する場合でも、SDK はファーストパーティクッキーに利用可能な新しい ID があるかどうかを確認します。これにより、SDK はローカルストレージを利用しながら、ファーストパーティクッキーを設定することで ID を提供することができます。
 
-### UID2 Cookie Properties
+### UID2 cookie properties
 
 クッキーが使用されている場合、クッキーは次の表のプロパティを使用します。
 
@@ -527,9 +526,9 @@ SDK はユーザーの ID を保存するのに、ローカルストレージか
 | `Path` | `/` | 別の値を使用したい場合は、SDK の初期化時に `cookiePath` [init() parameter](#init-parameters) を使用して設定することができます。 |
 | `Domain` | `undefined` | 別の値を使用したい場合は、SDK の初期化時に `cookieDomain` [init() parameter](#init-parameters) を使用して設定することができます。 |
 
-### Contents Structure
+### Contents structure
 
-UID2 Cookie の内容は、[POST&nbsp;/token/generate](../endpoints/post-token-generate.md) または [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) レスポンスの `body` プロパティと同じ構造を持つ JSON オブジェクトを、`private` オブジェクトを除いてURI エンコードした文字列表現です。
+UID2 Cookie の内容は、[POST&nbsp;/token/generate](../endpoints/post-token-generate.md) または [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) レスポンスの `body` プロパティと同じ構造を持つ JSON オブジェクトを、`private` オブジェクトを除いて URI エンコードした文字列表現です。
 
 以下は UID2 cookie 構造の例です:
 
@@ -539,16 +538,16 @@ UID2 Cookie の内容は、[POST&nbsp;/token/generate](../endpoints/post-token-g
 `private` オブジェクトの内容は明示的に指定されておらず、SDK が解釈するようになっています。このオブジェクトの構造、セマンティクス、互換性について、いかなる仮定もしないでください。クッキーの更新はその構造を保持しなければなりません。
 :::
 
-## Migration Guide
+## Migration guide
 
 このセクションには、以前のバージョンの SDK for JavaScript から現在のバージョンである v3 にアップグレードするために必要な情報がすべて含まれています:
 
-- [Benefits of Migrating](#benefits-of-migrating)
-- [Required Changes](#required-changes)
-- [Recommended Changes](#recommended-changes)
-- [Optional Changes](#optional-changes)
+- [Benefits of migrating](#benefits-of-migrating)
+- [Required changes](#required-changes)
+- [Recommended changes](#recommended-changes)
+- [Optional changes](#optional-changes)
 
-### Benefits of Migrating
+### Benefits of migrating
 
 既存のインテグレーションが SDK の version 1.x または 2.x を使用している場合、version 3 は完全に下位互換性があります。新しい URL を参照するようにスクリプトタグを変更するだけで、SDK を version 3 に更新できます。こうすることで、次のような利点があります:
 
@@ -572,33 +571,33 @@ Version 1.x と 2.x の機能の一部は非推奨となっており、将来の
 
   これにより、SDK はシングルページのアプリシナリオで使いやすくなりました。
 
-### Required Changes
+### Required changes
 
 #### Update your script URL
 
 [Version 3 CDN URL](#include-the-sdk-script) から SDK をロードするようにスクリプトタグを更新します。
 
-### Recommended Changes
+### Recommended changes
 
 SDK の version 3 の利点を得るために、以下の変更を実施することを強く推奨します:
 
-- [Migrate to the Version 3 Callback System](#migrate-to-the-version-3-callback-system)
+- [Migrate to the version 3 callback system](#migrate-to-the-version-3-callback-system)
 - [Take advantage of `setIdentity` and other new features](#take-advantage-of-setidentity-and-other-new-features)
 - [Change how you call init](#change-how-you-call-init)
 
-#### Migrate to the Version 3 Callback System
+#### Migrate to the version 3 callback system
 
-以前のバージョンでは、コールバックは `advertisingToken`、`status`、`statusText` プロパティを持つ単一のオブジェクトをパラメータとして受け取っていました。Version 3 では、この関数を新しい [Callback Function Signature](#callback-function-signature) を使用するように変更してください。
+以前のバージョンでは、コールバックは `advertisingToken`、`status`、`statusText` プロパティを持つ単一のオブジェクトをパラメータとして受け取っていました。Version 3 では、この関数を新しい [Callback function signature](#callback-function-signature) を使用するように変更してください。
 
 元のコールバックには、おそらく `status` の異なる値を処理するためのロジックがあると思われます。以前のシステムでは、`EXPIRED`、`REFRESHED`、`NO_IDENTITY` などのさまざまなステータス値を扱うことができました。その代わり、新しいシステムには 3 つのイベントタイプしかありません: `SdkLoaded`、`InitCompleted`、`IdentityUpdated` です。
 
-[Callback Function](#callback-function) のセクションを確認し、新しいシステムを使用してあなたの要求を実装するための最良の方法を検討する必要があります。しかし、参考になる一般的なガイドラインがいくつかあります:
+[Callback function](#callback-function) のセクションを確認し、新しいシステムを使用してあなたの要求を実装するための最良の方法を検討する必要があります。しかし、参考になる一般的なガイドラインがいくつかあります:
 - `event` パラメータをチェックしてください。値が `SdkLoaded` の場合は、すぐにリターンします。
 - そうでなければ、`payload` パラメータに `identity` プロパティがあるかどうかを確認します。
   - `identity` プロパティにオブジェクトがない場合、UID2 ID は利用できません。同じような状況では、前のコールバックが行った処理を呼び出す必要があります。
   - そうでない場合、`identity` プロパティは `advertising_token` という名前の `string` プロパティを持つオブジェクトとなります。これは、以前のコールバックと同じように使用する必要があります。
 
-古いコールバックを `init` 呼び出しから削除し、更新したコールバック関数を [Array Push Pattern](#array-push-pattern) を使用して SDK に提供します:
+古いコールバックを `init` 呼び出しから削除し、更新したコールバック関数を [Array push pattern](#array-push-pattern) を使用して SDK に提供します:
 
 ```
 window.__uid2 = window.__uid2 || {};
@@ -612,7 +611,7 @@ window.__uid2.callbacks.push(callbackFunction);
 
 #### Change how you call init
 
-`init` を呼び出すには、[Array Push Pattern](#array-push-pattern) を使用することを推奨します。既存の `init` 呼び出しは、次の例に示すように、`SdkLoaded` イベントのみを処理するコールバックハンドラ内に移動する必要があります:
+`init` を呼び出すには、[Array push pattern](#array-push-pattern) を使用することを推奨します。既存の `init` 呼び出しは、次の例に示すように、`SdkLoaded` イベントのみを処理するコールバックハンドラ内に移動する必要があります:
 
 ```
 window.__uid2 = window.__uid2 || {};
@@ -627,7 +626,7 @@ window.__uid2.callbacks.push((eventType) => {
 });
 ```
 
-### Optional Changes
+### Optional changes
 
 #### Add `async` or `defer` to your script tag
 

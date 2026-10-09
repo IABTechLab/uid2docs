@@ -1,8 +1,7 @@
 ---
-title: Encryption and Decryption
+title: Encryption and decryption
 description: UID2 リクエストの暗号化とレスポンスの復号化に関する情報。
 hide_table_of_contents: false
-sidebar_position: 11
 displayed_sidebar: docs
 ---
 
@@ -11,10 +10,10 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import SnptIdentityGenerateResponse from '../snippets/_snpt-example-identity-generate-response.mdx';
 
-# Encrypting Requests and Decrypting Responses
+# Encrypting requests and decrypting responses
 
 :::note
-パブリッシャーの場合、Client-Side に UID2 を実装しているなら、暗号化と復号化は、Prebid.js ([UID2 Client-Side Integration Guide for Prebid.js](../guides/integration-prebid-client-side.md) を参照) や JavaScript SDK ([Client-Side Integration Guide for JavaScript](../guides/integration-javascript-client-side.md) を参照) などの実装によって自動的に管理されます。
+パブリッシャーの場合、Client-Side に UID2 を実装しているなら、暗号化と復号化は、Prebid.js ([Client-side integration guide for Prebid.js](../guides/integration-prebid-client-side.md) を参照) や JavaScript SDK ([Client-side integration guide for JavaScript](../guides/integration-javascript-client-side.md) を参照) などの実装によって自動的に管理されます。
 :::
 
 ほとんどすべての UID2 [endpoints](../endpoints/summary-endpoints.md) では、エンドポイントに送られるリクエストは [暗号化](#encrypting-requests) され、エンドポイントからのレスポンスは [復号化](#decrypting-responses) する必要があります。
@@ -24,7 +23,7 @@ import SnptIdentityGenerateResponse from '../snippets/_snpt-example-identity-gen
 UID2 API リクエストの暗号化と各レスポンスの復号化について知っておく必要があるのは、以下のとおりです:
 
 - API を使用するには、クライアントの API Key に加えて、 Client Secret が必要です。
-- 独自のコードを書くことも、提供されているコード例の一つを使うこともできます: [Encryption and Decryption Code Examples](#encryption-and-decryption-code-examples) を参照してください。
+- 独自のコードを書くことも、提供されているコード例の一つを使うこともできます: [Encryption and decryption code examples](#encryption-and-decryption-code-examples) を参照してください。
 - リクエストとレスポンスには、96 ビットの初期化ベクトルと 128 ビットの認証タグを持つ AES/GCM/NoPadding 暗号化アルゴリズムが使用されます。
 - リクエストの暗号化されていない JSON ボディは、バイナリの [暗号化前リクエストデータエンベローブ](#unencrypted-request-data-envelope) にラップされ、その後 [暗号化リクエストエンベローブ](#encrypted-request-envelope) に従って暗号化とフォーマットが行われます。
 - レスポンス JSON ボディはバイナリの [復号化済みレスポンスデータエンベローブ](#unencrypted-response-data-envelope) にラップされ、[暗号化レスポンスエンベローブ](#encrypted-response-envelope) に従って暗号化・整形されます。
@@ -48,11 +47,11 @@ UID2 API のリクエストレスポンスワークフローは、以下のス�
 
 各 UID2 [endpoints](../endpoints/summary-endpoints.md) では、JSON ボディのフォーマットの要件とパラメータを説明し、呼び出し例を含め、復号化されたレスポンスを示しています。以下のセクションでは、暗号化と復号化のコード例、フィールドレイアウトの要件、リクエストとレスポンスの例を示します。
 
-## Encrypting Requests
+## Encrypting requests
 
-リクエストを暗号化するコードを自分で書くか、UID2 SDK を使うか、提供されているコード例のいずれかを使うかの選択肢があります([Encryption and Decryption Code Examples](#encryption-and-decryption-code-examples) を参照)。自分でコードを書く場合は、[unencrypted request data envelope](#unencrypted-request-data-envelope) と [Encrypted Request Envelope](#encrypted-request-envelope) に記載されているフィールドレイアウトの要件に従うようにしてください。
+リクエストを暗号化するコードを自分で書くか、UID2 SDK を使うか、提供されているコード例のいずれかを使うかの選択肢があります([Encryption and decryption code examples](#encryption-and-decryption-code-examples) を参照)。自分でコードを書く場合は、[unencrypted request data envelope](#unencrypted-request-data-envelope) と [Encrypted request envelope](#encrypted-request-envelope) に記載されているフィールドレイアウトの要件に従うようにしてください。
 
-### Unencrypted Request Data Envelope
+### Unencrypted request data envelope
 
 次の表に、リクエスト暗号化コードのフィールドレイアウトを示します。
 
@@ -62,7 +61,7 @@ UID2 API のリクエストレスポンスワークフローは、以下のス�
 | 8 | 8 | Nonce: リプレイ攻撃から保護するために使用されるランダムな 64 ビットのデータです。対応する [復号化済みレスポンスデータエンベローブ](#unencrypted-response-data-envelope) には、レスポンスが有効とみなされるために同じ nonce 値が含まれていなければなりません。 |
 | 16 | N | UTF-8 エンコーディングでシリアライズされたリクエスト JSON ドキュメントをペイロードとします。 |
 
-### Encrypted Request Envelope
+### Encrypted request envelope
 
 次の表は、リクエスト暗号化コードのフィールドレイアウトを説明するものです。
 
@@ -73,15 +72,15 @@ UID2 API のリクエストレスポンスワークフローは、以下のス�
 | 13 | N | ペイロード([暗号化前リクエストデータエンベローブ](#unencrypted-request-data-envelope)) は AES/GCM/NoPadding アルゴリズムで暗号化されます。 |
 | 13 + N | 16 | データの整合性を確認するために使用される 128 ビット GCM 認証タグです。 |
 
-## Decrypting Responses
+## Decrypting responses
 
-レスポンスを復号化するコードを自分で書くか、UID2 SDKを使うか、提供されているコード例のいずれかを使うかの選択肢があります([Encryption and Decryption Code Examples](#encryption-and-decryption-code-examples) を参照)。独自のコードを書く場合は、[Encrypted Response Envelope](#encrypted-response-envelope) および [Encrypted Response Envelope](#unencrypted-response-data-envelope) に記載されているフィールドレイアウトの要件に従うようにしてください。
+レスポンスを復号化するコードを自分で書くか、UID2 SDK を使うか、提供されているコード例のいずれかを使うかの選択肢があります([Encryption and decryption code examples](#encryption-and-decryption-code-examples) を参照)。独自のコードを書く場合は、[Encrypted response envelope](#encrypted-response-envelope) および [Encrypted response envelope](#unencrypted-response-data-envelope) に記載されているフィールドレイアウトの要件に従うようにしてください。
 
 :::note
 レスポンスは、サービスが HTTP ステータスコード 200 を返す場合のみ、暗号化されます。
 :::
 
-### Encrypted Response Envelope
+### Encrypted response envelope
 
 次の表は、レスポンス復号化コードのフィールドレイアウトを説明するものです。
 
@@ -91,7 +90,7 @@ UID2 API のリクエストレスポンスワークフローは、以下のス�
 | 12 | N | ペイロード([復号化済みレスポンスデータエンベローブ](#unencrypted-response-data-envelope)) は、AES/GCM/NoPadding アルゴリズムで暗号化されています。 |
 | 12 + N | 16 | データの整合性を確認するために使用される 128 ビット GCM 認証タグ。 |
 
-### Unencrypted Response Data Envelope
+### Unencrypted response data envelope
 
 次の表は、レスポンス復号化コードのフィールドレイアウトを説明するものです。
 
@@ -101,13 +100,13 @@ UID2 API のリクエストレスポンスワークフローは、以下のス�
 | 8 | 8 | Nonce: レスポンスが有効であるとみなされるためには、これは [暗号化前リクエストデータエンベローブ](#unencrypted-request-data-envelope) の nonce と一致する必要があります。 |
 | 16  | N | UTF-8 エンコーディングでシリアライズされたレスポンス JSON ドキュメントをペイロードとします。 |
 
-### Response Example
+### Response example
 
 たとえば、前の例のメールアドレスに対する [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) リクエストに対する復号されたレスポンスは、次のようになります:
 
 <SnptIdentityGenerateResponse />
 
-## Encryption and Decryption Code Examples
+## Encryption and decryption code examples
 
 このセクションには、さまざまなプログラミング言語による暗号化と復号化のコード例が示されています。
 
@@ -117,7 +116,7 @@ UID2 API のリクエストレスポンスワークフローは、以下のス�
 Windows の場合、PowerShell の代わりに Windows コマンドプロンプトを使用している場合は、JSON を囲むシングルクォートも削除する必要があります。たとえば、`echo {"email": "test@example.com"}` とします。
 :::
 
-### Prerequisites and Notes
+### Prerequisites and notes
 
 コードサンプルを使用する前に、使用している言語の前提条件と注意事項を確認してください。
 
@@ -127,7 +126,7 @@ Windows の場合、PowerShell の代わりに Windows コマンドプロンプ�
 以下のコードサンプルは Python を使ってリクエストを暗号化し、レスポンスを復号化します。必要なパラメータはコード例の一番上に示されており、 `python3 uid2_request.py` を実行することで得ることができます。
 
 :::note
-Windowsの場合は `python3` を `python` に置き換えてください。
+Windows の場合は `python3` を `python` に置き換えてください。
 :::
 
 Python のコードには `pycryptodomex` と `requests` パッケージが必要です。これらは以下のようにしてインストールできます:
@@ -205,7 +204,7 @@ Maven を使用している場合は、以下の最小限の `pom.xml` を使用
 
 以下のコードサンプルは、C# を使用してリクエストを暗号化し、レスポンスを復号化します。必要なパラメータはファイルの先頭に記載されています。また、`.\uid2_request` をビルドして実行することでも確認できます。
 
-このファイルには.NET 7.0が必要です。必要であれば、それ以前のバージョンを使用することもできますが、.NET Core 3.0以降でなければなりません。バージョンを変更するには、[top-level statements](https://learn.microsoft.com/ja-jp/dotnet/csharp/fundamentals/program-structure/top-level-statements) を Main メソッドに、[using 宣言](https://learn.microsoft.com/ja-jp/cpp/cpp/using-declaration?view=msvc-170) を [using ステートメント](https://learn.microsoft.com/ja-jp/dotnet/csharp/language-reference/proposals/csharp-8.0/using) に置き換えてください。
+このファイルには .NET 7.0 が必要です。必要であれば、それ以前のバージョンを使用することもできますが、.NET Core 3.0 以降でなければなりません。バージョンを変更するには、[top-level statements](https://learn.microsoft.com/ja-jp/dotnet/csharp/fundamentals/program-structure/top-level-statements) を Main メソッドに、[using 宣言](https://learn.microsoft.com/ja-jp/cpp/cpp/using-declaration?view=msvc-170) を [using ステートメント](https://learn.microsoft.com/ja-jp/dotnet/csharp/language-reference/proposals/csharp-8.0/using) に置き換えてください。
 
 </TabItem>
 <TabItem value='go' label='Go'>
@@ -215,9 +214,9 @@ Maven を使用している場合は、以下の最小限の `pom.xml` を使用
 </TabItem>
 </Tabs>
 
-### Code Example
+### Code example
 
-使いたいコードサンプルを選んでください。[Prerequisites and Notes](#prerequisites-and-notes) を忘れずに確認してください。
+使いたいコードサンプルを選んでください。[Prerequisites and notes](#prerequisites-and-notes) を忘れずに確認してください。
 
 <Tabs groupId="language-selection">
 <TabItem value='py' label='Python'>

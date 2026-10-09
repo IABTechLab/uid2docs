@@ -1,10 +1,9 @@
 ---
-title: CTV Integration Guide
+title: CTV integration guide
 sidebar_label: CTV
-pagination_label: CTV Integration Guide
+pagination_label: CTV integration guide
 description: UID2 モバイルインテグレーションオプションのまとめ。
 hide_table_of_contents: false
-sidebar_position: 04
 displayed_sidebar: docs
 ---
 
@@ -13,64 +12,64 @@ import SnptIntegratingWithSSO from '../snippets/_snpt-integrating-with-sso.mdx';
 import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emails-and-phone-numbers.mdx';
 import SnptPrivateOperatorOption from '../snippets/_snpt-private-operator-option.mdx';
 
-# CTV Integration Guide
+# CTV integration guide
 
 Connected TV (CTV) パブリッシャーであれば、UID2 とインテグレーションして、CTV アプリのコンテキストで RTB ビッドストリームに渡す ID トークンを生成およびリフレッシュする方法がいくつかあります。
 
-## Key Integration Steps
+## Key integration steps
 UID2 とインテグレーションするには、次の 3 つの主要なステップを実装します:
 
 1. UID2 Token を生成します。
 1. UID2 Token を頻繁に更新または再生成し、トークンが最新の状態を維持するようにしてください。
 
-   詳細については、[Keeping the Token Current](../ref-info/ref-tokens.md#keeping-the-token-current) と [Recommended Token Refresh Frequency](../ref-info/ref-tokens.md#recommended-token-refresh-frequency) を参照してください。
+   詳細については、[Keeping the token current](../ref-info/ref-tokens.md#keeping-the-token-current) と [Recommended token refresh frequency](../ref-info/ref-tokens.md#recommended-token-refresh-frequency) を参照してください。
 1. UID2 Token をビッドストリームに渡します。
 
-これらのステップをどのように実装するかを決定するには、[CTV Integration Options](#ctv-integration-options) から選択してください。
+これらのステップをどのように実装するかを決定するには、[CTV integration options](#ctv-integration-options) から選択してください。
 
-## Integrating with Single Sign-On (SSO)
+## Integrating with single sign-on (SSO)
 
 <SnptIntegratingWithSSO />
 
-## Preparing DII for Processing
+## Preparing DII for processing
 
 <SnptPreparingEmailsAndPhoneNumbers />
 
-## Private Operator Option
+## Private Operator option
 
 <SnptPrivateOperatorOption />
 
-## Complete UID2 Account Setup and Configure Account
+## Complete UID2 account setup and configure account
 
-UID2 とインテグレーションするには、UID2 のアカウントが必要です。まだアカウントを作成していない場合は、最初に [Account Setup](../getting-started/gs-account-setup.md) ページの手順に従ってください。
+UID2 とインテグレーションするには、UID2 のアカウントが必要です。まだアカウントを作成していない場合は、最初に [Account setup](../getting-started/gs-account-setup.md) ページの手順に従ってください。
 
 アカウントの初期設定が完了すると、本番環境用の [credentials](../getting-started/gs-credentials.md) を作成し、必要に応じて追加の値を設定できる [UID2 Portal](../portal/portal-overview.md) にアクセスするための手順とリンクが送信されます。詳細は、[UID2 Portal での開始](../portal/portal-getting-started.md) を参照してください。
 
 設定する具体的な値は、[CTV integration options](#ctv-integration-options) で選択したオプションによって異なります:
 
-- Client-Server または Server-Side の実装の場合、UID2 Portal の [API Keys](../portal/api-keys.md) ページで次の値を設定する必要があります:
+- Client-Server または Server-Side の実装の場合、UID2 Portal の [API keys](../portal/api-keys.md) ページで次の値を設定する必要があります:
   - <Link href="../ref-info/glossary-uid#gl-api-key">API Key</Link>、Client Key とも呼ばれます。
   - <Link href="../ref-info/glossary-uid#gl-client-secret">Client Secret</Link>、参加者と UID2 Service のみが知る値です。
 
     :::important
-    これらの値を安全に保管することは非常に重要です。詳細は、[Security of API Key and Client Secret](../getting-started/gs-credentials.md#security-of-api-key-and-client-secret) を参照してください。
+    これらの値を安全に保管することは非常に重要です。詳細は、[Security of API key and client secret](../getting-started/gs-credentials.md#security-of-api-key-and-client-secret) を参照してください。
     :::
-- Client-Side の実装には、UID2 Portal の [Client-Side Integration](../portal/client-side-integration.md) ページで次の値を設定する必要があります:
-  - Subscription ID と Public Key: [Adding and Managing Key Pairs](../portal/client-side-integration.md#adding-and-managing-key-pairs) を参照してください。
-  - この SDK を使用するすべてのサイトの **domain names** のリスト: [Adding and Managing Root-Level Domains](../portal/client-side-integration.md#adding-and-managing-root-level-domains) を参照してください。
+- Client-Side の実装には、UID2 Portal の [Client-side integration](../portal/client-side-integration.md) ページで次の値を設定する必要があります:
+  - Subscription ID と Public Key: [Adding and managing key pairs](../portal/client-side-integration.md#adding-and-managing-key-pairs) を参照してください。
+  - この SDK を使用するすべてのサイトの **domain names** のリスト: [Adding and managing root-level domains](../portal/client-side-integration.md#adding-and-managing-root-level-domains) を参照してください。
   - モバイルアプリ ID (適用される場合): [モバイルアプリ ID の追加と管理](../portal/client-side-integration.md#adding-and-managing-mobile-app-ids) を参照してください。
 
-## CTV Integration Options
+## CTV integration options
 
 UID2 Token の生成とリフレッシュをどこで行うかに基づいて、最適なインテグレーションオプションを選択できます。以下の表に示すように、3 つのオプションがあります:
 
 | Option | Details |
 | :--- | :--- |
-| [Client-Side Integration](#client-side-integration-for-ctv-apps) | トークンは Client-Side で生成され、リフレッシュされます。 |
-| [Server-Side Integration](#server-side-integration-for-ctv-apps) | トークンは Server-Side で生成され、リフレッシュされます。 |
-| [Client-Server Integration](#client-server-integration-for-ctv-apps) | トークンは Server-Side で生成され、Client-Side でリフレッシュされます。 |
+| [Client-side integration](#client-side-integration-for-ctv-apps) | トークンは Client-Side で生成され、リフレッシュされます。 |
+| [Server-side integration](#server-side-integration-for-ctv-apps) | トークンは Server-Side で生成され、リフレッシュされます。 |
+| [Client-server integration](#client-server-integration-for-ctv-apps) | トークンは Server-Side で生成され、Client-Side でリフレッシュされます。 |
 
-### Client-Side Integration for CTV Apps
+### Client-side integration for CTV apps
 
 Client-Side オプションは、UID2 Token を完全に Client-Side で管理したいパブリッシャー向けです:
 
@@ -79,16 +78,16 @@ Client-Side オプションは、UID2 Token を完全に Client-Side で管理�
 
 このセットアップでは、すべてのコード変更が CTV アプリ内で行う必要があります。
 
-この方法で実装するには、[UID2 Client-Side Integration Guide for Mobile](integration-mobile-client-side.md) の手順に従ってください。
+この方法で実装するには、[Client-side integration guide for mobile](integration-mobile-client-side.md) の手順に従ってください。
 
 次の表は、対応するオペレーティングシステムと、関連するドキュメントリソースへのリンクを示しています。
 
 | Operating System | Integration Guide | Link to SDK Guide |
 | :--- | :--- | :--- |
-| [Apple tvOS](https://developer.apple.com/tvos/) | [UID2 Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side.md) | [SDK for iOS Reference Guide](../sdks/sdk-ref-ios.md) |
-| [Android TV](https://www.android.com/tv/) | [UID2 Client-Side Integration Guide for Mobile](../guides/integration-mobile-client-side.md) | [SDK for Android Reference Guide](../sdks/sdk-ref-android.md) |
+| [Apple tvOS](https://developer.apple.com/tvos/) | [Client-side integration guide for mobile](../guides/integration-mobile-client-side.md) | [SDK for iOS reference guide](../sdks/sdk-ref-ios.md) |
+| [Android TV](https://www.android.com/tv/) | [Client-side integration guide for mobile](../guides/integration-mobile-client-side.md) | [SDK for Android reference guide](../sdks/sdk-ref-android.md) |
 
-### Server-Side Integration for CTV Apps
+### Server-side integration for CTV apps
 
 Server-Side オプションは、UID2 Token を完全に Server-Side で管理したいパブリッシャー向けです:
 
@@ -99,30 +98,30 @@ Server-Side オプションは、UID2 Token を完全に Server-Side で管理�
 
 この方法の利点の 1 つは、複数のプラットフォーム (Web / CTV / モバイル) に対処する場合、すべてを Server-Side で行うことで、プラットフォーム固有の作業を減らすことができることです。
 
-この方法で実装するには、[Publisher Integration Guide, Server-Side](integration-publisher-server-side.md) の手順に従ってください。
+この方法で実装するには、[Publisher integration guide, server-side](integration-publisher-server-side.md) の手順に従ってください。
 
 Server-Side コードが Java または Python である場合、UID2 SDK のいずれかを使用して、UID2 への HTTP リクエストを行うことができます。自分でソースコードを書く代わりに、次のいずれかの SDK ガイドを参照してください:
 
-- [SDK for Java Reference Guide: Usage for Publishers](../sdks/sdk-ref-java.md#usage-for-publishers)
-- [SDK for Python Reference Guide: Usage for Publishers](../sdks/sdk-ref-python.md#usage-for-publishers)
+- [SDK for Java reference guide: Usage for publishers](../sdks/sdk-ref-java.md#usage-for-publishers)
+- [SDK for Python reference guide: Usage for publishers](../sdks/sdk-ref-python.md#usage-for-publishers)
 
-### Client-Server Integration for CTV Apps
+### Client-server integration for CTV apps
 
 このオプションは UID2 Token を Client-Server で管理したいパブリッシャー向けです:
 
 - トークンは Server-Side で生成されます。
 - トークンは CTV アプリ内から必要に応じて Client-Side でリフレッシュされます。
 
-この方法で実装するには、[UID2 Client-Server Integration Guide for Mobile](integration-mobile-client-server.md) の手順に従ってください。
+この方法で実装するには、[Client-server integration guide for mobile](integration-mobile-client-server.md) の手順に従ってください。
 
 次の表は、対応するオペレーティングシステムと、関連するドキュメントリソースへのリンクを示しています。
 
 | Operating System | Integration Guide | Link to SDK Guide |
 | :--- | :--- | :--- |
-| [Apple tvOS](https://developer.apple.com/tvos/) | [UID2 Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server.md) | [SDK for iOS Reference Guide](../sdks/sdk-ref-ios.md) |
-| [Android TV](https://www.android.com/tv/) | [UID2 Client-Server Integration Guide for Mobile](../guides/integration-mobile-client-server.md) | [SDK for Android Reference Guide](../sdks/sdk-ref-android.md) |
+| [Apple tvOS](https://developer.apple.com/tvos/) | [Client-server integration guide for mobile](../guides/integration-mobile-client-server.md) | [SDK for iOS reference guide](../sdks/sdk-ref-ios.md) |
+| [Android TV](https://www.android.com/tv/) | [Client-server integration guide for mobile](../guides/integration-mobile-client-server.md) | [SDK for Android reference guide](../sdks/sdk-ref-android.md) |
 
-## Best Practices
+## Best practices
 
 CTV インテグレーションのベストプラクティスは次のとおりです:
 

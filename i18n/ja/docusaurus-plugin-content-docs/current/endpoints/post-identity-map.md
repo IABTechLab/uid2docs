@@ -1,58 +1,62 @@
 ---
-title: POST /identity/map
+title: POST /v3/identity/map
 description: DII を raw UID2 にマップします。
 hide_table_of_contents: false
-sidebar_position: 08
 displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';
 import SnptPOSTIdentityMapImprovements from '../snippets/_snpt-post-identity-map-improvements-v3.mdx';
 
-# POST /identity/map
+# POST /v3/identity/map
 
 複数のメールアドレス、電話番号、またはそれぞれのハッシュを、raw UID2 にマッピングします。このエンドポイントを使用して、オプトアウト情報の更新をチェックしたり、raw UID2 の更新が可能な時期を確認したり、現在の raw UID2 が発行されてから 90 日未満の場合に前の UID2 を表示することもできます。
 
-Used by: このエンドポイントは、主に広告主とデータプロバイダーによって使用されます。詳細は、[Advertiser/Data Provider Integration Overview](../guides/integration-advertiser-dataprovider-overview.md) を参照してください。
+Used by: このエンドポイントは、主に広告主とデータプロバイダーによって使用されます。詳細は、[Advertiser/data provider integration overview](../guides/integration-advertiser-dataprovider-overview.md) を参照してください。
 
-UID2 のオプトアウト手順とユーザーがオプトアウトする方法は、[User Opt-Out](../getting-started/gs-opt-out.md) を参照してください。
+UID2 のオプトアウト手順とユーザーがオプトアウトする方法は、[User opt-out](../getting-started/gs-opt-out.md) を参照してください。
 
 ## Version
 
 このドキュメントは、エンドポイントの最新版であるバージョン 3 を対象としています。
 
-必要に応じて、以前のバージョンのドキュメントも利用可能です: [POST /identity/map (v2)](post-identity-map-v2.md) を参照してください。
+必要に応じて、以前のバージョンのドキュメントも利用可能です: [POST /v2/identity/map](post-identity-map-v2.md) を参照してください。
 
-## Batch Size and Request Parallelization Requirements
+## Batch size and request parallelization requirements
 
 以下が必要な情報です:
 
 - 最大リクエストサイズは 1MB です。
-- 大量のメールアドレス、電話番号、またはそれぞれのハッシュをマッピングする場合は、1 バッチあたり最大 5,000 アイテムの *順次* バッチで送信します。
-- <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link> を使用していない限り、バッチを並行して送信しないでください。つまり、単一の HTTP 接続を使用し、ハッシュ化またはハッシュされていない <Link href="../ref-info/glossary-uid#gl-dii">Directly Identifying Information (DII)</Link> 値のバッチを連続して送信し、複数の並行接続を作成しないでください。
-- メールアドレス、電話番号、またはそれぞれのハッシュのマッピングを必ず保存してください。<br/>マッピングを保存しないと、数百万のメールアドレスや電話番号をマッピングする際に処理時間が大幅に増加する可能性があります。ただし、実際に更新が必要なマッピングのみを再計算すると、UID2 の約 1/365 が毎日更新されるため、総処理時間が短縮されます。詳細は、[Advertiser/Data Provider Integration Overview](../guides/integration-advertiser-dataprovider-overview.md) と [FAQs for Advertisers and Data Providers](../getting-started/gs-faqs.md#faqs-for-advertisers-and-data-providers) を参照してください。
+- 大量のメールアドレス、電話番号、またはそれぞれのハッシュをマップするには、1 バッチあたり最大 5,000 アイテムで送信してください。同時に送信するバッチは 20 件以内にすることを勧めます。
+- メールアドレス、電話番号、またはそれぞれのハッシュのマッピングを必ず保存してください。<br/>マッピングを保存しないと、数百万のメールアドレスや電話番号をマッピングする際に処理時間が大幅に増加する可能性があります。ただし、実際に更新が必要なマッピングのみを再計算すると、UID2 の約 1/365 が毎日更新されるため、総処理時間が短縮されます。詳細は、[Advertiser/data provider integration overview](../guides/integration-advertiser-dataprovider-overview.md) と [FAQs for advertisers and data providers](../getting-started/gs-faqs.md#faqs-for-advertisers-and-data-providers) を参照してください。
 
-## Request Format
+## Rate limiting
+
+公正な使用とプラットフォームの安定性を確保するために、`POST /v3/identity/map` エンドポイントは、急激なトラフィックの増加から保護するためにレート制限を適用しています。短時間に多数のリクエストを送信すると、`429` エラー応答が返される可能性があります。
+
+レート制限エラーを適切に処理するには、リクエストを再試行する際に [exponential backoff](https://en.wikipedia.org/wiki/Exponential_backoff) とランダムジッターを実装することを勧めます。制限内でスループットを最大化するには、多数の小さなリクエストを送信するのではなく、リクエストごとに最大バッチサイズの 5,000 アイテムを使用してください。
+
+## Request format
 
 `POST '{environment}/v3/identity/map'`
 
-認証の詳細は、[Authentication and Authorization](../getting-started/gs-auth.md) を参照してください。
+認証の詳細は、[Authentication and authorization](../getting-started/gs-auth.md) を参照してください。
 
 :::important
-すべてのリクエストをシークレットを使用して暗号化する必要があります。詳細は、[Encrypting Requests and Decrypting Responses](../getting-started/gs-encryption-decryption.md) を参照してください。
+すべてのリクエストをシークレットを使用して暗号化する必要があります。詳細は、[Encrypting requests and decrypting responses](../getting-started/gs-encryption-decryption.md) を参照してください。
 :::
 
-### Path Parameters
+### Path parameters
 
 | Path Parameter | Data Type | Attribute | Description |
 | :--- | :--- | :--- | :--- |
 | `{environment}` | string | 必須 | テスト（インテグレーション）環境: `https://operator-integ.uidapi.com`<br/>本番環境: 最適な選択は、ユーザーの所在地によって異なります。ユースケースに適した URL の選択方法や、有効なベース URL の一覧は、[Environments](../getting-started/gs-environments.md) を参照してください。 |
 
 :::note
-インテグレーション環境と本番環境では、異なる <Link href="../ref-info/glossary-uid#gl-api-key">API Key</Link> が必要です。各環境の認証情報の取得方法は、[Getting Your Credentials](../getting-started/gs-credentials.md#getting-your-credentials) を参照してください。
+インテグレーション環境と本番環境では、異なる <Link href="../ref-info/glossary-uid#gl-api-key">API Key</Link> が必要です。各環境の認証情報の取得方法は、[Getting your credentials](../getting-started/gs-credentials.md#getting-your-credentials) を参照してください。
 :::
 
-### Unencrypted JSON Body Parameters
+### Unencrypted JSON body parameters
 
 :::important
 暗号化を行う際には、リクエストの JSON 本文に次の 4 つのパラメータのうち、**いずれか 1 つ** をキーと値のペアとして含めてください。
@@ -66,9 +70,9 @@ UID2 のオプトアウト手順とユーザーがオプトアウトする方法
 | `phone_hash`   | string array | 条件付きで必須 | マッピングする [正規化済み](../getting-started/gs-normalization-encoding.md#phone-number-normalization) 電話番号の [Base64 エンコードされた SHA-256](../getting-started/gs-normalization-encoding.md#phone-number-hash-encoding) ハッシュのリスト。 |
 
 
-### Request Examples
+### Request examples
 
-以下の例は、`POST /identity/map` エンドポイントへの暗号化されていない JSON リクエスト本文の例です:
+以下の例は、`POST /v3/identity/map` エンドポイントへの暗号化されていない JSON リクエスト本文の例です:
 
 ```json
 {
@@ -96,15 +100,15 @@ UID2 のオプトアウト手順とユーザーがオプトアウトする方法
 }
 ```
 
-以下は、電話番号の `POST /identity/map` エンドポイントへの暗号化されたリクエストの例です:
+以下は、電話番号の `POST /v3/identity/map` エンドポイントへの暗号化されたリクエストの例です:
 
 ```sh
 echo '{"phone": ["+12345678901", "+441234567890"]}' | python3 uid2_request.py https://prod.uidapi.com/v3/identity/map [YOUR_CLIENT_API_KEY] [YOUR_CLIENT_SECRET]
 ```
 
-詳細および異なるプログラミング言語でのコード例は、[Encrypting Requests and Decrypting Responses](../getting-started/gs-encryption-decryption.md) を参照してください。
+詳細および異なるプログラミング言語でのコード例は、[Encrypting requests and decrypting responses](../getting-started/gs-encryption-decryption.md) を参照してください。
 
-## Decrypted JSON Response Format
+## Decrypted JSON response format
 
 :::note
 HTTP ステータスコードが 200 の場合、レスポンスは暗号化されます。それ以外の場合、レスポンスは暗号化されません。
@@ -140,12 +144,12 @@ Response:
             {
                 "u": "AdvIvSiaum0P5s3X/7X8h8sz+OhF2IG8DNbEnkWSbYM=",
                 "p": "EObwtHBUqDNZR33LNSMdtt5cafsYFuGmuY4ZLenlue4=",
-                "r": 1735689600000
+                "r": 1735689600
             },
             {
                 "u": "IbW4n6LIvtDj/8fCESlU0QG9K/fH63UdcTkJpAG8fIQ=",
                 "p": null,
-                "r": 1735862400000
+                "r": 1735862400
             },
             { "e": "invalid identifier" },
             { "e": "optout" }
@@ -158,7 +162,7 @@ Response:
 }
 ```
 
-### Response Body Properties
+### Response body properties
 
 レスポンス本文には、以下の表に示すプロパティのいずれかが含まれます。
 
@@ -176,7 +180,7 @@ DII が正常にマッピングされた場合、マッピングされたオブ�
 | :------- | :-------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `u`      | string    | リクエストで提供されたメールアドレスまたは電話番号に対応する raw UID2。                                                                                             |
 | `p`      | string    | 以下のいずれか:<ul><li>現在の raw UID2 が過去 90 日以内にローテーションされた場合: 以前の raw UID2。</li><li>それ以外の場合: `null`。</li></ul>                     |
-| `r`      | number    | raw UID2 を更新する可能性がある時刻を示す Unix タイムスタンプ（ミリ秒）。raw UID2 はこのタイムスタンプまで有効です。 |
+| `r`      | number    | raw UID2 を更新する可能性がある時刻を示す Unix タイムスタンプ（秒）。raw UID2 はこのタイムスタンプまで有効です。 |
 
 :::note
 raw UID2 はリフレッシュタイムスタンプの前では変化しません。リフレッシュタイムスタンプの後、DII を再マッピングすると新しいリフレッシュタイムスタンプが返されますが、raw UID2 は変化する場合もあれば変化しない場合もあります。raw UID2 が複数のリフレッシュ間隔にわたって変化しない可能性もあります。
@@ -188,7 +192,7 @@ raw UID2 はリフレッシュタイムスタンプの前では変化しませ�
 | :------- | :-------- | :--------------------------------------------------------------------------------------------------- |
 | `e`      | string    | マッピングできなかった理由。次のいずれかの値:<ul><li>`optout`</li><li>`invalid identifier`</li></ul> |
 
-### Response Status Codes
+### Response status codes
 
 以下の表は、`status` プロパティの値とその HTTP ステータスコードの対応を示しています。
 
@@ -197,23 +201,28 @@ raw UID2 はリフレッシュタイムスタンプの前では変化しませ�
 | `success` | 200 | リクエストは成功しました。レスポンスは暗号化されます。 |
 | `client_error` | 400 | リクエストに欠落または無効なパラメーターが含まれていました。 |
 | `unauthorized` | 401  | リクエストにベアラートークンが含まれていない、無効なベアラートークンが含まれている、またはリクエストされた操作を実行する権限のないベアラートークンが含まれていました。 |
+| N/A | 429 | このエンドポイントへのリクエストが多すぎます。待ってから exponential backoff を使用して再試行してください。 |
 
-`status` プロパティの値が `success` 以外の場合、`message` フィールドには問題に関する追加情報が提供されます。
+`status` の値が `success` 以外であれば、`message` フィールドにその問題に関する追加情報が表示されます。Note: 429 のレスポンスには、JSON 形式のレスポンス本文が含まれていません。
 
-## Migration from v2 Identity Map
+:::note
+429 のレスポンスには、JSON 形式のレスポンスボディが含まれていません。
+:::
+
+## Migration from POST /v2/identity/map
 
 以下のセクションでは、以前のバージョンからバージョン 3 への移行に関する一般的な情報とガイダンスを提供します:
 
-- [Version 3 Improvements](#version-3-improvements)
-- [Key Differences Between v2 and v3](#key-differences-between-v2-and-v3)
-- [Required Changes](#required-changes)
-- [Additional Resources](#additional-resources)
+- [Version 3 improvements](#version-3-improvements)
+- [Key differences between v2 and v3](#key-differences-between-v2-and-v3)
+- [Required changes](#required-changes)
+- [Additional resources](#additional-resources)
 
-### Version 3 Improvements
+### Version 3 improvements
 
 <SnptPOSTIdentityMapImprovements />
 
-### Key Differences Between v2 and v3
+### Key differences between v2 and v3
 
 以下の表は、バージョン間の主な違いを示しています。
 
@@ -224,15 +233,15 @@ raw UID2 はリフレッシュタイムスタンプの前では変化しませ�
 | リフレッシュ管理                       | `/identity/buckets` エンドポイントを介してソルトバケットのローテーションをモニター | `refresh_from` タイムスタンプを過ぎたときに再マッピング |
 | 前の UID2 アクセス                     | 利用不可                                                                           | 90 日間利用可能                                         |
 
-### Required Changes
+### Required changes
 
 以前のバージョンからバージョン 3 へのアップグレードは、以下の手順に従ってください。
 
-1. [Update Endpoint URL](#1-update-endpoint-url)
-2. [Update v3 Response Parsing Logic](#2-update-v3-response-parsing-logic)
-3. [Replace Salt Bucket Monitoring with Refresh Timestamp Logic](#3-replace-salt-bucket-monitoring-with-refresh-timestamp-logic)
+1. [Update endpoint URL](#1-update-endpoint-url)
+2. [Update v3 response parsing logic](#2-update-v3-response-parsing-logic)
+3. [Replace salt bucket monitoring with refresh timestamp logic](#3-replace-salt-bucket-monitoring-with-refresh-timestamp-logic)
 
-#### 1. Update Endpoint URL
+#### 1. Update endpoint URL
 
 エンドポイント URL を更新して、/v3/ 実装を参照するようにしてください。以下の例を参照してください。
 
@@ -244,7 +253,7 @@ url = '/v2/identity/map'
 url = '/v3/identity/map'
 ```
 
-#### 2. Update v3 Response Parsing Logic
+#### 2. Update v3 response parsing logic
 
 以下の例に従って、レスポンスの解析ロジックを更新してください。
 
@@ -275,7 +284,7 @@ for index, item in enumerate(response['body']['email']):
         handle_unmapped(original_email, item['e'])
 ```
 
-#### 3. Replace Salt Bucket Monitoring with Refresh Timestamp Logic
+#### 3. Replace salt bucket monitoring with refresh timestamp logic
 
 ソルトバケットのモニタリングを更新して、`refresh_from` タイムスタンプをチェックし、raw UID2 の更新が必要なものを判断するコードに置き換えます。
 
@@ -285,7 +294,7 @@ for index, item in enumerate(response['body']['email']):
 import time
 
 def is_refresh_needed(mapping):
-    now = int(time.time() * 1000)  # Convert to milliseconds
+    now = int(time.time())  # Current time in seconds
     return now >= mapping['refresh_from']
 
 # Check individual mappings for refresh needs
@@ -293,12 +302,12 @@ to_remap = [mapping for mapping in mappings if is_refresh_needed(mapping)]
 remap_identities(to_remap)
 ```
 
-### Additional Resources
+### Additional resources
 
-アイデンティティマッピングの一般的な情報については、[Advertiser/Data Provider Integration Overview](../guides/integration-advertiser-dataprovider-overview.md) を参照してください。
+アイデンティティマッピングの一般的な情報については、[Advertiser/data provider integration overview](../guides/integration-advertiser-dataprovider-overview.md) を参照してください。
 
 特定の SDK の移行ガイダンスについては、以下を参照してください:
-- SDK for Python Reference Guide, [Usage for Advertisers/Data Providers](../sdks/sdk-ref-python.md#usage-for-advertisersdata-providers) セクション
-- SDK for Java Reference Guide, [Usage for Advertisers/Data Providers](../sdks/sdk-ref-java.md#usage-for-advertisersdata-providers) セクション
+- SDK for Python reference guide, [Usage for advertisers/data providers](../sdks/sdk-ref-python.md#usage-for-advertisersdata-providers) セクション
+- SDK for Java reference guide, [Usage for advertisers/data providers](../sdks/sdk-ref-java.md#usage-for-advertisersdata-providers) セクション
 
-Snowflake に関する情報は、[Snowflake Integration Guide](../guides/integration-snowflake.md) を参照してください。
+Snowflake に関する情報は、[Snowflake integration guide](../guides/integration-snowflake.md) を参照してください。

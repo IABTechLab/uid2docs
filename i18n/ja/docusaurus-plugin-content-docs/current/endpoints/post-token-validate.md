@@ -2,7 +2,6 @@
 title: POST /token/validate
 description: Advertising Token を検証 (テスト目的)。
 hide_table_of_contents: false
-sidebar_position: 03
 displayed_sidebar: docs
 ---
 
@@ -18,27 +17,27 @@ Used by: このエンドポイントは、主にパブリッシャーが使用�
 このエンドポイントは、主に新しいインテグレーションのテストとトラブルシューティングのために用意されています。
 :::
 
-## Request Format 
+## Request format 
 
 `POST '{environment}/v2/token/validate'`
 
-認証の詳細は、 [Authentication and Authorization](../getting-started/gs-auth.md) を参照してください。
+認証の詳細は、 [Authentication and authorization](../getting-started/gs-auth.md) を参照してください。
 
 :::important
-すべてのリクエストを秘密鍵で暗号化する必要があります。詳細といくつかのプログラミング言語でのコードの例は、[Encrypting Requests and Decrypting Responses](../getting-started/gs-encryption-decryption.md) を参照してください。
+すべてのリクエストを秘密鍵で暗号化する必要があります。詳細といくつかのプログラミング言語でのコードの例は、[Encrypting requests and decrypting responses](../getting-started/gs-encryption-decryption.md) を参照してください。
 :::
 
-### Path Parameters
+### Path parameters
 
 | Path Parameter | Data Type | Attribute | Description |
 | :--- | :--- | :--- | :--- |
 | `{environment}` | string | 必須 | テスト (インテグレーション) 環境: `https://operator-integ.uidapi.com`<br/>本番環境: `https://prod.uidapi.com`<br/>リージョンごとのオペレーターを含む全リストは [Environments](../getting-started/gs-environments.md) を参照してください。 |
 
 :::note
-インテグレーション環境と本番環境では、異なる <Link href="../ref-info/glossary-uid#gl-api-key">API Key</Link> が必要です。各環境の認証情報を取得する方法は、[Getting Your Credentials](../getting-started/gs-credentials.md#getting-your-credentials) を参照してください。
+インテグレーション環境と本番環境では、異なる <Link href="../ref-info/glossary-uid#gl-api-key">API Key</Link> が必要です。各環境の認証情報を取得する方法は、[Getting your credentials](../getting-started/gs-credentials.md#getting-your-credentials) を参照してください。
 :::
 
-### Unencrypted JSON Body Parameters
+### Unencrypted JSON body parameters
 
 このエンドポイントの使用に関する主なポイントは以下の通りです。
 
@@ -53,7 +52,7 @@ Used by: このエンドポイントは、主にパブリッシャーが使用�
 | `phone` | string | 条件付きで必須 | トークン検証用の電話番号です。有効な電話番号値を使用できますが、[正規化](../getting-started/gs-normalization-encoding.md#phone-number-normalization)されている必要があります。 |
 | `phone_hash` | string | 条件付きで必須 | 有効な [正規化された](../getting-started/gs-normalization-encoding.md#phone-number-normalization) 電話番号の [Base64-encoded SHA-256](../getting-started/gs-normalization-encoding.md#phone-number-hash-encoding) ハッシュです。 |
 
-### Request Examples
+### Request examples
 
 以下は、各パラメータの暗号化されていない JSON リクエストボディの例で、トークン検証のリクエストに含める必要があります:
 
@@ -92,9 +91,9 @@ Used by: このエンドポイントは、主にパブリッシャーが使用�
 echo '{"token": "AdvertisingTokenmZ4dZgeuXXl6DhoXqbRXQbHlHhA96leN94U1uavZVspwKXlfWETZ3b%2FbesPFFvJxNLLySg4QEYHUAiyUrNncgnm7ppu0mi6wU2CW6hssiuEkKfstbo9XWgRUbWNTM%2BewMzXXM8G9j8Q%3D", "email_hash": "LdhtUlMQ58ZZy5YUqGPRQw5xUMS5dXG5ocJHYJHbAKI="}' | python3 uid2_request.py https://prod.uidapi.com/v2/token/validate [Your-Client-API-Key] [Your-Client-Secret]
 ```
 
-詳細といくつかのプログラミング言語でのコードの例は、[Encrypting Requests and Decrypting Responses](../getting-started/gs-encryption-decryption.md) を参照してください。
+詳細といくつかのプログラミング言語でのコードの例は、[Encrypting requests and decrypting responses](../getting-started/gs-encryption-decryption.md) を参照してください。
 
-## Decrypted JSON Response Format
+## Decrypted JSON response format
 
 :::note
 レスポンスは、HTTP ステータスコードが 200 の場合のみ暗号化されます。それ以外の場合、レスポンスは暗号化されません。
@@ -109,7 +108,7 @@ echo '{"token": "AdvertisingTokenmZ4dZgeuXXl6DhoXqbRXQbHlHhA96leN94U1uavZVspwKXl
 }
 ```
 
-## Body Response Properties
+## Body response properties
 
 以下の表は、レスポンスボディに関する情報を提供します。
 
@@ -117,7 +116,7 @@ echo '{"token": "AdvertisingTokenmZ4dZgeuXXl6DhoXqbRXQbHlHhA96leN94U1uavZVspwKXl
 | :--- | :--- | :--- |
 | `body` | boolean | `true` の値は、リクエストで指定されたメールアドレス、電話番号、またはそれぞれのハッシュが、Advertising Token を生成するために使用されたものと同じであることを示します。<br/>`false` の値は、リクエストで指定されたメールアドレス、電話番号、またはそれぞれのハッシュが、Advertising Token を生成するために使用されたものと同じではないことを示します。 |
 
-### Response Status Codes
+### Response status codes
 
 次の表は、`status` プロパティの値と、それに対応する HTTP ステータスコードの一覧です。
 
@@ -129,7 +128,7 @@ echo '{"token": "AdvertisingTokenmZ4dZgeuXXl6DhoXqbRXQbHlHhA96leN94U1uavZVspwKXl
 
 `status` の値が `success` 以外であれば、`message` フィールドにその問題に関する追加情報が表示されます。
 
-## Using POST /token/validate to Test
+## Using POST /token/validate to test
 
 このエンドポイントを使用して、[POST&nbsp;/token/generate](../endpoints/post-token-generate.md) で送信する <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> が有効かどうかをテストできます。以下の手順に従ってください。
 
