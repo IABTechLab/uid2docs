@@ -47,7 +47,7 @@ If you are using Google Ad Manager and want to use the secure signals feature, f
 :::note
 <SnptIos27WebkitNote />
 
-**Required action:** On these browsers the SDK for JavaScript can't be downloaded and tokens can't be refreshed from the browser, so this integration no longer works there. Generate and refresh tokens on your server instead. See [Publisher integration guide, server-side](integration-publisher-server-side.md).
+**Required action:** On these browsers the SDK for JavaScript can't be loaded from the UID2 CDN and tokens can't be refreshed from the browser, so this integration no longer works there. Generate and refresh tokens on your server instead. See [Publisher integration guide, server-side](integration-publisher-server-side.md).
 :::
 
 ## Integrating with single sign-on (SSO)
