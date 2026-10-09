@@ -45,7 +45,11 @@ To implement, you'll need to complete the following steps:
 3. [Configure the SDK for JavaScript](#configure-the-sdk-for-javascript)
 4. [Check that the token was successfully generated](#check-that-the-token-was-successfully-generated)
 
+:::note
 <SnptIos27WebkitNote />
+
+**Required action:** The SDK for JavaScript no longer works on these browsers, so this integration can't generate or refresh tokens there. Use a server-side integration instead. See [Publisher Integration Guide, Server-Side](integration-publisher-server-side.md).
+:::
 
 ## SDK for JavaScript Version
 

@@ -1,4 +1,3 @@
-:::note
 **iOS 27+ and macOS 27+ (Safari): impact on web integrations.** Starting with iOS 27 and macOS 27, WebKit blocks browser requests to `uidapi.com`. This affects all browsers on iOS 27+ (including Safari and Chrome) and Safari on macOS 27+.
 
 On affected browsers, the following operations fail:
@@ -7,8 +6,3 @@ On affected browsers, the following operations fail:
 - Refreshing UID2 tokens from the browser
 - The Prebid.js [Client-Side integration](/docs/guides/integration-prebid-client-side)
 - Token refresh in the Prebid.js [Client-Server integration](/docs/guides/integration-prebid-client-server)
-
-**Required actions:**
-- **SDK for JavaScript (Client-Side and Client-Server integrations):** Use a server-side integration to generate and refresh tokens. See [Publisher Integration Guide, Server-Side](/docs/guides/integration-publisher-server-side).
-- **Prebid.js:** Generate UID2 tokens on your server and use the Client-Server integration in [server-only mode](/docs/guides/integration-prebid-client-server#server-only-mode).
-:::

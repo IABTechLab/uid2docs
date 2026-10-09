@@ -21,7 +21,11 @@ This guide is for publishers who have access to <Link href="../ref-info/glossary
 
 To integrate with UID2 using Prebid.js, you'll need to make changes to the HTML and JavaScript on your site. No server-side work is required if you follow this guide.
 
+:::note
 <SnptIos27WebkitNote />
+
+**Required action:** This integration no longer works on these browsers. Consider a server-side integration (see [Publisher Integration Guide, Server-Side](integration-publisher-server-side.md)), or generate tokens on your server and use the [UID2 Client-Server Integration Guide for Prebid.js](integration-prebid-client-server.md) in [server-only mode](integration-prebid-client-server.md#server-only-mode).
+:::
 
 ## Prebid.js Version
 

@@ -27,7 +27,11 @@ For integration steps for publishers, refer to one of the following:
   - [Client-Side Integration Guide for JavaScript](../guides/integration-javascript-client-side.md)
   - [Client-Server Integration Guide for JavaScript](../guides/integration-javascript-client-server.md)
 
+:::note
 <SnptIos27WebkitNote />
+
+**Required action:** The SDK for JavaScript no longer works on these browsers. Use a server-side integration to generate and refresh tokens instead. See [Publisher Integration Guide, Server-Side](../guides/integration-publisher-server-side.md).
+:::
 
 ## SDK Version
 
