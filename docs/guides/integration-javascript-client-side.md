@@ -48,7 +48,7 @@ To implement, you'll need to complete the following steps:
 :::note
 <SnptIos27WebkitNote />
 
-**Required action:** The SDK for JavaScript no longer works on these browsers, so this integration can't generate or refresh tokens there. Use a server-side integration instead. See [Publisher integration guide, server-side](integration-publisher-server-side.md).
+**Required action:** This client-side integration is not supported in affected browsers. Use a server-side integration to generate and refresh UID2 tokens. See [Publisher integration guide, server-side](integration-publisher-server-side.md).
 :::
 
 ## SDK for JavaScript version

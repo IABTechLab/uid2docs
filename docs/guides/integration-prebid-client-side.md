@@ -24,7 +24,7 @@ To integrate with UID2 using Prebid.js, you'll need to make changes to the HTML 
 :::note
 <SnptIos27WebkitNote />
 
-**Required action:** This integration no longer works on these browsers. Consider a server-side integration (see [Publisher integration guide, server-side](integration-publisher-server-side.md)), or generate tokens on your server and use the [Client-server integration guide for Prebid.js](integration-prebid-client-server.md) in [server-only mode](integration-prebid-client-server.md#server-only-mode).
+**Required action:** This client-side integration is not supported in affected browsers. Use either the [Publisher integration guide, server-side](integration-publisher-server-side.md) or the [Client-server integration guide for Prebid.js](integration-prebid-client-server.md) in [server-only mode](integration-prebid-client-server.md#server-only-mode).
 :::
 
 ## Prebid.js version
