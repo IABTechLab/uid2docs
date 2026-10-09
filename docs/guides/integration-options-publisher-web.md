@@ -46,7 +46,7 @@ To accomplish all steps, you can combine solutions. For example, you could use t
 <!-- &#9989; = Supported | &#8212; = Not Supported -->
 
 :::note
-On iOS 27+ and macOS 27+ (Safari), WebKit blocks browser requests to `uidapi.com`, so client-side token generation and refresh, and the SDK for JavaScript download, fail. Use a server-side solution to generate and refresh tokens. See [Publisher integration guide, server-side](integration-publisher-server-side.md).
+On iOS 27+ and macOS 27+ (Safari), WebKit blocks browser requests to `uidapi.com`, so client-side token generation and refresh, and loading the SDK for JavaScript from the UID2 CDN, fail. Use a server-side solution to generate and refresh tokens. See [Publisher integration guide, server-side](integration-publisher-server-side.md).
 :::
 
 ## Integrating with single sign-on (SSO)
