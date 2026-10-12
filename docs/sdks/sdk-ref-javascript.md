@@ -30,7 +30,7 @@ For integration steps for publishers, refer to one of the following:
 :::note
 <SnptIos27WebkitNote />
 
-**Required action:** The SDK for JavaScript no longer works on these browsers. Use a server-side integration to generate and refresh tokens instead. See [Publisher integration guide, server-side](../guides/integration-publisher-server-side.md).
+**Action required**: The SDK for JavaScript is no longer supported in affected browsers. Use a server-side integration to generate and refresh UID2 tokens instead. For details, see [Publisher integration guide, server-side](../guides/integration-publisher-server-side.md).
 :::
 
 ## SDK version

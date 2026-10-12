@@ -48,7 +48,7 @@ To implement, you'll need to complete the following steps:
 :::note
 <SnptIos27WebkitNote />
 
-**Required action:** This client-side integration is not supported in affected browsers. Use a server-side integration to generate and refresh UID2 tokens. See [Publisher integration guide, server-side](integration-publisher-server-side.md).
+**Action required**: This client-side integration is no longer supported in affected browsers (any browser on iOS 27 or later, and Safari on macOS 27 or later). Use a server-side integration to generate and refresh UID2 tokens. For details, see [Publisher integration guide, server-side](integration-publisher-server-side.md).
 :::
 
 ## SDK for JavaScript version

@@ -49,7 +49,7 @@ To accomplish all steps, you can combine solutions. For example, you could use t
 :::note
 <SnptIos27WebkitNote />
 
-**Required action:** On affected browsers, use a server-side solution to generate and refresh UID2 tokens. See [Publisher integration guide, server-side](integration-publisher-server-side.md).
+**Action required**: On affected browsers, use a server-side integration to generate and refresh UID2 tokens. For details, see [Publisher integration guide, server-side](integration-publisher-server-side.md).
 :::
 
 ## Integrating with single sign-on (SSO)

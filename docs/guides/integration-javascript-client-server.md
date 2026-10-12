@@ -47,7 +47,7 @@ If you are using Google Ad Manager and want to use the secure signals feature, f
 :::note
 <SnptIos27WebkitNote />
 
-**Required action:** On affected browsers, generate and refresh UID2 tokens on your server. See [Publisher integration guide, server-side](integration-publisher-server-side.md).
+**Action required**: On affected browsers, generate and refresh UID2 tokens on your server. For details, see [Publisher integration guide, server-side](integration-publisher-server-side.md).
 :::
 
 ## Integrating with single sign-on (SSO)
