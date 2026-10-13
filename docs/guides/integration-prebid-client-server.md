@@ -112,6 +112,10 @@ There are two ways to refresh a UID2 token, as shown in the following table.
 
 ### Client Refresh mode
 
+:::note
+Client Refresh mode is not supported in all browsers on iOS 27 or later or in Safari on macOS 27 or later because Prebid.js cannot refresh UID2 tokens in the browser. Use [server-only mode](#server-only-mode) instead.
+:::
+
 You must provide the Prebid module with the full JSON response body from the applicable endpoint:
 
 - [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) for a new UID2 token.
@@ -191,6 +195,10 @@ If the refresh token expires, you'll need to supply a new token response so that
 For information on how to determine if you need to provide a new token, see [Determining whether the module has a valid token](#determining-whether-the-module-has-a-valid-token).
 
 ### Server-only mode
+
+:::note
+Use this mode for all browsers on iOS 27 or later and Safari on macOS 27 or later. Generate and refresh UID2 tokens on your server.
+:::
 
 In server-only mode, only the advertising token is provided to the module. The module cannot refresh the token. You are responsible for implementing a way to refresh the token.
 

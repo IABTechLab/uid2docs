@@ -11,6 +11,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import SnptExampleUid2Cookie from '../snippets/_snpt-example-uid2-cookie.mdx';
 import SnptExampleJavaScriptInit from '../snippets/_snpt-example-javascript-init.mdx';
+import SnptIos27WebkitNote from '../snippets/_snpt-ios27-webkit-note.mdx';
 
 # SDK for JavaScript reference guide
 
@@ -25,6 +26,12 @@ If you're using Prebid.js with the UID2 Identity Module, or with another product
 For integration steps for publishers, refer to one of the following:
   - [Client-side integration guide for JavaScript](../guides/integration-javascript-client-side.md)
   - [Client-server integration guide for JavaScript](../guides/integration-javascript-client-server.md)
+
+:::note
+<SnptIos27WebkitNote />
+
+**Action required**: The SDK for JavaScript is no longer supported in affected browsers. Use a server-side integration to generate and refresh UID2 tokens instead. For details, see [Publisher integration guide, server-side](../guides/integration-publisher-server-side.md).
+:::
 
 ## SDK version
 
