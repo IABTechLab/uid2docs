@@ -57,7 +57,7 @@ curl -X POST '{environment}/v2/token/refresh' -d '{refresh_token}'
 For example, using the integration environment:
 
 ```sh
-curl -X POST 'https://operator-integ.uidapi.com/v2/token/refresh' -d 'AAAAAxxx...refresh-token...xxx='
+curl -X POST 'https://operator-integ.uidapi.com/v2/token/refresh' -d 'AAAAAGYzgUszke2sV9CxXnxyFfUU+KDCJUCXNbj1/FVcCjvR7K07jYaWe44wxM6SOTwG7WQB4XfIcquMqH57iHUnAu1zacYf9g58BtbhKCYWTwrdpB0fSqTANBXOYy+yBnl6tLRwVv32LqRCj76D8meO4tw+MKlUAc2EoFzFNPSfZLpA3Jk4q68vH6VJH/WIuu1tulrVm5J8RZAZnmTlEcsPdjoOC6X4w3aAwiwtbeGw7yOO0immpVoC5KaXnT9olRPTlrt8F9SvebLIcqkYhvRMPpl1S89yeneyGo++RnD9qSHIrfu9To3VwYW018QuvyA15uv4No4BoAzyPuHqzQ8gAs6csWwZ7VwfYD7DSJXlQiIpwzjA2Hl8mgg/5fcXwKEJ'
 ```
 
 Notes:
