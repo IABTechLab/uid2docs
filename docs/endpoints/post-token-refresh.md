@@ -48,7 +48,25 @@ Using either of the following parameters in a [POST&nbsp;/token/generate](post-t
 
 ### Request example
 
-For details, and code examples in different programming languages, see [Encrypting requests and decrypting responses](../getting-started/gs-encryption-decryption.md).
+The following example refreshes a token with `curl`. Replace `{environment}` with the base URL for your environment, and `{refresh_token}` with the `refresh_token` value from the previous [POST&nbsp;/token/generate](post-token-generate.md) or `POST /token/refresh` response:
+
+```sh
+curl -X POST '{environment}/v2/token/refresh' -d '{refresh_token}'
+```
+
+For example, using the integration environment:
+
+```sh
+curl -X POST 'https://operator-integ.uidapi.com/v2/token/refresh' -d 'AAAAAxxx...refresh-token...xxx='
+```
+
+Notes:
+
+- The request needs no `Authorization` header (API key) and no encrypted request envelope. The POST body is the refresh token only, not JSON.
+- A successful response (HTTP status code 200) is a base64-encoded encrypted string, so `curl` cannot show you its contents. To decrypt it, use the `refresh_response_key` value that was returned with the refresh token. See [Encrypting requests and decrypting responses](../getting-started/gs-encryption-decryption.md).
+- An error response (for example, HTTP status code 400) is not encrypted, so `curl` shows the error. A 200 status code confirms that the operator is reachable and accepted the refresh token, even if you do not decrypt the response.
+
+For code examples in different programming languages, see [Encrypting requests and decrypting responses](../getting-started/gs-encryption-decryption.md).
 
 ## Decrypted JSON response format
 
