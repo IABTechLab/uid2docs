@@ -273,7 +273,7 @@ Prebid の実施を計画する際には、以下を考慮してください:
 
 - インテグレーションテストでは、`params.uid2ApiBase` を `"https://operator-integ.uidapi.com"` に設定します。トークンの生成に使用する環境(本番環境またはインテグレーション環境)と同じ値に設定する必要があります(認証情報については、[Getting your credentials](../getting-started/gs-credentials.md#getting-your-credentials) を参照)。
 
-- Prebid.js client-server インテグレーションの場合、クライアントサイドインテグレーション機能を無効にして、より小さな Prebid.js ビルドを作成できます。これを行うには、`--disable UID2_CSTG` フラグを渡します:
+- Prebid.js client-server インテグレーションの場合、Client-Side インテグレーション機能を無効にして、より小さな Prebid.js ビルドを作成できます。これを行うには、`--disable UID2_CSTG` フラグを渡します:
 
 ```
     $ gulp build --modules=uid2IdSystem --disable UID2_CSTG

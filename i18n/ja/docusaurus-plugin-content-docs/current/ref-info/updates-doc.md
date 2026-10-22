@@ -490,7 +490,7 @@ May 6, 2024
 
 UID2 Portal のドキュメントに新しいページ、[Client-side integration](../portal/client-side-integration.md) を追加しました。
 
-UID2 Portal の Client-Side Integration ページでは、ドメインなど、クライアントサイドで UID2 Token を生成する場合に必要な値を設定・管理できます。
+UID2 Portal の Client-Side Integration ページでは、ドメインなど、Client-Side で UID2 Token を生成する場合に必要な値を設定・管理できます。
 
 <!-- APIDOCS-2120 -->
 

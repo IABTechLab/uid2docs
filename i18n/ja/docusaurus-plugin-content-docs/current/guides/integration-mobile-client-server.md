@@ -22,7 +22,7 @@ import SnptErrorResponseStates from '../snippets/_snpt-mobile-docs-error-respons
 
 このガイドは、<Link href="../ref-info/glossary-uid#gl-public-operator">Public Operator</Link> または <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link> を介して Server-Side で UID2 Token を生成し、そのトークンとユーザー ID をモバイルアプリに渡して UID2 とインテグレーションしたいモバイルアプリパブリッシャー向けです。モバイルアプリは、そのトークンを <Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link> に使用するために渡します。
 
-これは Client-Server インテグレーションと呼ばれます。これは、いくつかのインテグレーションステップがクライアントサイドで行われ、いくつかがサーバーサイドで行われるためです。
+これは Client-Server インテグレーションと呼ばれます。これは、いくつかのインテグレーションステップが Client-Side で行われ、いくつかが　Server-Side で行われるためです。
 
 Client-Side のみの変更で UID2 とインテグレーションしたい場合 (つまり、すべてのインテグレーション変更がモバイルアプリ内で行われる場合) は、代わりに [Client-side integration guide for mobile](integration-mobile-client-side.md) を参照してください。
 
