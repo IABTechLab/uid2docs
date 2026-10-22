@@ -143,3 +143,11 @@ CVE-2026-104848 exp:2027-01-07
 # configuration.
 # See: UID2-8053
 CVE-2026-104849 exp:2027-01-07
+
+# CVE-2026-112942 — launch-editor (HIGH). Not vulnerable.
+# See: UID2-8126
+CVE-2026-112942
+
+# GHSA-6q48-6c7w-9gw2 — certifi (CRITICAL). Not vulnerable.
+# See: UID2-8127
+GHSA-6q48-6c7w-9gw2
