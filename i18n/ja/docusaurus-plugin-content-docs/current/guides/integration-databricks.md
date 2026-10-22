@@ -141,6 +141,8 @@ Databricks Clean Rooms の `identity_map_v3` [ノートブック](https://docs.d
 
 | Column Name | Data Type | Description |
 | :--- | :--- | :--- |
+| `INPUT` | string | 入力テーブルまたはビューの `INPUT` カラムからコピーされた元の DII。 |
+| `INPUT_TYPE` | string | 入力テーブルまたはビューの `INPUT_TYPE` カラムからコピーされた DII の型。 |
 | `UID` | string | 値は以下のいずれかです。<ul><li>**DII が正常にマッピングされた場合**: DII に関連付けられた UID2。</li><li>**それ以外の場合**: `NULL`。</li></ul> |
 | `PREV_UID` | string | 値は以下のいずれかです。<ul><li>**DII が正常にマッピングされ、現在の raw UID2 が過去 90 日以内にローテーションされた場合**: 以前の raw UID2。</li><li>**それ以外の場合**: `NULL`。</li></ul> |
 | `REFRESH_FROM` | timestamp | 値は以下のいずれかです。<ul><li>**DII が正常にマッピングされた場合**: この UID2 をリフレッシュすべき日時を示すタイムスタンプ。</li><li>**それ以外の場合**: `NULL`。</li></ul> |
