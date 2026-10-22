@@ -64,6 +64,8 @@ As a starting point, create a Databricks Clean Rooms environment&#8212;a secure 
 Follow the steps in [Create clean rooms](https://docs.databricks.com/aws/en/clean-rooms/create-clean-room) in the Databricks documentation. Use the correct sharing identifier based on the [UID2 environment](../getting-started/gs-environments) you want to connect to: see [UID2 sharing identifiers](#uid2-sharing-identifiers).
 
 :::important
+Create the clean room from a Databricks workspace that has no compliance security profile (CSP). A clean room that is created from a workspace with a CSP might not work with this integration.
+
 After you've created a clean room, you cannot change its collaborators. If you have the option to set clean room collaborator aliases&#8212;for example, if you’re using the Databricks Python SDK to create the clean room&#8212;your collaborator alias must be `creator` and the UID2 collaborator alias must be `collaborator`. If you’re creating the clean room using the Databricks web UI, the correct collaborator aliases are set for you.
 :::
 
