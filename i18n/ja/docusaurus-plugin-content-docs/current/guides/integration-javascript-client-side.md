@@ -12,6 +12,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import SnptIntegratingWithSSO from '../snippets/_snpt-integrating-with-sso.mdx';
 import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emails-and-phone-numbers.mdx';
+import SnptIos27WebkitNote from '../snippets/_snpt-ios27-webkit-note.mdx';
 import SnptUidVerifyInspect from '../snippets/_snpt-uid-verify-inspect.mdx';
 
 # Client-side integration guide for JavaScript
@@ -43,6 +44,12 @@ UID2 は JavaScript 用の SDK (詳細は [SDK for JavaScript reference guide](.
 2. [Add SDK for JavaScript to your site](#add-sdk-for-javascript-to-your-site)
 3. [Configure the SDK for JavaScript](#configure-the-sdk-for-javascript)
 4. [Check that the token was successfully generated](#check-that-the-token-was-successfully-generated)
+
+:::note
+<SnptIos27WebkitNote />
+
+**Action required**: 影響を受けるブラウザでは、Client-Side で UID2 Token を生成およびリフレッシュすることはできません。Server-Side で UID2 Token を生成およびリフレッシュする必要があります。詳細は、[Publisher integration guide, server-side](integration-publisher-server-side.md) を参照してください。
+:::
 
 ## SDK for JavaScript version
 

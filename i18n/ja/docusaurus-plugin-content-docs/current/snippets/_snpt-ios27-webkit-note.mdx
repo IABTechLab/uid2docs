@@ -1,0 +1,7 @@
+**iOS 27 および macOS 27 での Web インテグレーションの制限。** iOS 27 および macOS 27 以降では、WebKit が `uidapi.com` へのクライアント側リクエストをブロックします。これにより、iOS 27 以降のすべてのブラウザ（Safari および Chrome を含む）および macOS 27 以降の Safari に影響します。
+
+その結果、影響を受けるブラウザでは以下のことができません：
+
+- UID2 CDN から JavaScript 用の UID2 SDK を読み込むこと
+- ブラウザ内で UID2 Token を生成すること
+- ブラウザ内で UID2 Token を更新すること

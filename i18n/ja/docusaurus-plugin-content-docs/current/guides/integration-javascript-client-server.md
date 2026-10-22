@@ -10,7 +10,8 @@ displayed_sidebar: docs
 import Link from '@docusaurus/Link';
 import SnptIntegratingWithSSO from '../snippets/_snpt-integrating-with-sso.mdx';
 import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emails-and-phone-numbers.mdx';
-import SnptExampleClientServerSendUid2ToSdk from '../snippets/_snpt-example-client-server-send-uid2-to-sdk.mdx'; 
+import SnptExampleClientServerSendUid2ToSdk from '../snippets/_snpt-example-client-server-send-uid2-to-sdk.mdx';
+import SnptIos27WebkitNote from '../snippets/_snpt-ios27-webkit-note.mdx';
 import SnptUidVerifyInspect from '../snippets/_snpt-uid-verify-inspect.mdx';
 
 # Client-server integration guide for JavaScript
@@ -41,6 +42,12 @@ SDK for JavaScript を使用しないパブリッシャーのインテグレー�
 
 :::note
 Google Ad Manager を使用していて、セキュアシグナル機能を使用したい場合は、まずこのガイドの手順に従った後、[Google Ad Manager Secure Signals integration guide](integration-google-ss.md) の追加手順に従ってください。
+:::
+
+:::note
+<SnptIos27WebkitNote />
+
+**Action required**: 影響を受けるブラウザでは、Server-Side で UID2 Token を生成およびリフレッシュする必要があります。詳細は、[Publisher integration guide, server-side](integration-publisher-server-side.md) を参照してください。
 :::
 
 ## Integrating with single sign-on (SSO)

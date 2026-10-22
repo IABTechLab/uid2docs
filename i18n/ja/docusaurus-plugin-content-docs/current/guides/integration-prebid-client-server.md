@@ -112,6 +112,10 @@ UID2 Token をリフレッシュするには、次の表に示すように 2 つ
 
 ### Client Refresh mode
 
+:::note
+Prebid.js の Client Refresh mode は、iOS 27 以降のすべてのブラウザや、macOS 27 以降の Safari ではサポートされていません。Prebid.js はブラウザ内で UID2 R¥Token をリフレッシュできないためです。代わりに [Server-only mode](#server-only-mode) を使用してください。
+:::
+
 該当するエンドポイントからの完全な JSON レスポンスボディを Prebid module に提供する必要があります:
 
 - 新しい UID2 Token を取得するには、[POST&nbsp;/token/generate](../endpoints/post-token-generate.md)。
@@ -191,6 +195,10 @@ Refresh Token の有効期限が切れた場合は、新しい Advertising Token
 新しいトークンを提供する必要があるかどうかを判断する方法は、[Determining whether the module has a valid token](#determining-whether-the-module-has-a-valid-token) を参照してください。
 
 ### Server-only mode
+
+:::note
+このモードは、iOS 27 以降のすべてのブラウザや、macOS 27 以降の Safari で使用してください。UID2 Token をサーバー上で生成およびリフレッシュします。
+:::
 
 Server-Only Mode では、Advertising Token のみがモジュールに提供されます。モジュールはトークンをリフレッシュできません。トークンをリフレッシュする方法を実装する責任があります。
 
