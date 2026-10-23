@@ -19,6 +19,26 @@ UID2 ドキュメントリソースの最新アップデートを確認してく
 タグツールバーを使用して、ドキュメントの更新の一部を表示できます。
 :::
 
+## Q4 2026
+
+2026 年第 4 四半期にリリースされたドキュメントは以下の通りです。
+
+<CustomTagsContainer tags="Guides, SDKs, Prebid.js">
+
+### iOS 27 and macOS 27 web integration limitations
+
+October 9, 2026
+
+iOS 27 および macOS 27 以降では、WebKit が `uidapi.com` へのブラウザリクエストをブロックします。iOS 27 以降の任意のブラウザ、および macOS 27 以降の Safari では、SDK for JavaScript は UID2 CDN からロードできず、ブラウザでトークンを生成または更新できません。これにより、Prebid.js の Client-Side および Client-Server のリフレッシュフローにも影響します。
+
+この件に関する注意事項を、Web インテグレーションガイド、Prebid.js ガイド、および SDK for JavaScript リファレンスに追加しました。影響を受けるブラウザでは、Server-Side のインテグレーションを使用して UID2 Token を生成および更新してください。
+
+詳細は、[Publisher integration guide, server-side](../guides/integration-publisher-server-side.md)、[Client-server integration guide for Prebid.js](../guides/integration-prebid-client-server.md)、および [SDK for JavaScript reference guide](../sdks/sdk-ref-javascript.md) を参照してください。
+
+<!-- UID2-8061 -->
+
+</CustomTagsContainer>
+
 ## Q2 2026
 
 2026 年第 2 四半期にリリースされたドキュメントは以下の通りです。
@@ -470,7 +490,7 @@ May 6, 2024
 
 UID2 Portal のドキュメントに新しいページ、[Client-side integration](../portal/client-side-integration.md) を追加しました。
 
-UID2 Portal の Client-Side Integration ページでは、ドメインなど、クライアントサイドで UID2 Token を生成する場合に必要な値を設定・管理できます。
+UID2 Portal の Client-Side Integration ページでは、ドメインなど、Client-Side で UID2 Token を生成する場合に必要な値を設定・管理できます。
 
 <!-- APIDOCS-2120 -->
 
@@ -805,8 +825,8 @@ September 7, 2023
 
 詳細は:
 
-- [Email address hash encoding](../getting-started/gs-normalization-encoding#email-address-hash-encoding)
-- [Phone number hash encoding](../getting-started/gs-normalization-encoding#phone-number-hash-encoding)
+- [Email address hashing and encoding](../getting-started/gs-normalization-encoding#email-address-hashing-and-encoding)
+- [Phone number hashing and encoding](../getting-started/gs-normalization-encoding#phone-number-hashing-and-encoding)
 
 </CustomTagsContainer>
 

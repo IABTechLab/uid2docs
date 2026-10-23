@@ -1,6 +1,6 @@
 ---
 title: Server-side token generation
-description: パブリッシャー向けのサーバーサイドでのトークン生成に関する情報。
+description: パブリッシャー向けの Server-Side でのトークン生成に関する情報。
 hide_table_of_contents: false
 displayed_sidebar: docs
 ---

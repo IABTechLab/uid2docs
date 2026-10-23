@@ -190,7 +190,7 @@ import MdxJumpAnchor from '@site/src/components/MdxJumpAnchor';
 
 <dt><MdxJumpAnchor id="gl-client-side"><a href="#gl-client-side">Client-side integration</a></MdxJumpAnchor></dt>
 <dd>UID2 の <a href="#gl-integration-approaches">インテグレーションアプローチ</a> の 1 つは、完全に Client-Side でインテグレーションする方法です。</dd>
-<dd>Client-Side インテグレーションでは、UID2 Token はクライアントサイドで生成およびリフレッシュされます。</dd>
+<dd>Client-Side インテグレーションでは、UID2 Token は Client-Side で生成およびリフレッシュされます。</dd>
 <dd>たとえば、広告主は、トラッキングピクセルのために Client-Side で UID2 Token を生成し、パブリッシャーは、ビッドストリームのために Client-Side で UID2 Token を生成し、トークンをリフレッシュします。</dd>
 <dd>パブリッシャーの Client-Side インテグレーションに関するドキュメントの例: <a href="../guides/integration-prebid-client-side">Client-side integration guide for Prebid.js</a>, <a href="../guides/integration-javascript-client-side">Client-side integration guide for JavaScript</a>, <a href="../guides/integration-mobile-client-side">Client-side integration guide for mobile</a>.</dd>
 
@@ -444,9 +444,9 @@ import MdxJumpAnchor from '@site/src/components/MdxJumpAnchor';
 
 <dt><MdxJumpAnchor id="gl-server-side"><a href="#gl-server-side">Server-side integration</a></MdxJumpAnchor></dt>
 <dd>UID2 の <a href="#gl-integration-approaches">インテグレーションアプローチ</a> の一つは、完全に Server-Side でインテグレーションすることです。</dd>
-<dd>Server-Side インテグレーションでは、raw UID2 または UID2 Token がサーバーサイドで生成およびリフレッシュされます。</dd>
+<dd>Server-Side インテグレーションでは、raw UID2 または UID2 Token が Server-Side で生成およびリフレッシュされます。</dd>
 <dd>たとえば、Server-Side インテグレーションでは、広告主は、広告ターゲティングのために Server-Side で raw UID2 を生成し、パブリッシャーは、ビッドストリームのために Server-Side で UID2 Token を生成し、リフレッシュします。</dd>
-<dd>パブリッシャーサーバーサイドのインテグレーションに関するドキュメントの例は、<a href="../guides/integration-publisher-server-side">Publisher integration guide, server-side</a> です。</dd>
+<dd>パブリッシャー Server-Side のインテグレーションに関するドキュメントの例は、<a href="../guides/integration-publisher-server-side">Publisher integration guide, server-side</a> です。</dd>
 
 <dt><MdxJumpAnchor id="gl-sha-256">SHA-256</MdxJumpAnchor></dt>
 <dd>SHA-256 (SHA256 とも呼ばれます) は、UID2 が使用する安全なハッシュアルゴリズムです。</dd>
