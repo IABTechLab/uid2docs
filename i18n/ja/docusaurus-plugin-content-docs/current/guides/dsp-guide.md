@@ -44,7 +44,7 @@ UID2 のオプトアウトワークフローとユーザーがどのようにオ
 
 UID2 Service からユーザーオプトアウトを受け取り、それを受け入れるために DSP が事前に設定されたインターフェース (オプトアウト Webhook/API エンドポイント) を確立し、オンボーディング中に UID2 Service に提供します。ユーザーがオプトアウトすると、UID2 Service はユーザーの raw UID2 と対応するオプトアウトタイムスタンプを事前に設定されたインターフェースに送信します。
 
-UID2 Service は、ユーザーのオプトアウトから数秒以内に次のデータを送信し、DSP は [Decrypt UID2 tokens for RTB use](#decrypt-uid2-tokens-for-rtb-use) で定義された入札ロジックを使用します。
+UID2 Service は、通常、ユーザーのオプトアウトから数分以内に以下のデータを送信し、DSP は [Decrypt UID2 tokens for RTB use](#decrypt-uid2-tokens-for-rtb-use) で定義された入札ロジックを使用します。
 
 | Parameter | Description |
 | :--- | :--- |
