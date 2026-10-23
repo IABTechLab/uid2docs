@@ -49,13 +49,13 @@ import Link from '@docusaurus/Link';
       <td>2</td>
       <td>正規化されたメールアドレスに <Link href="../ref-info/glossary-uid#gl-sha-256">SHA-256</Link> ハッシュを適用</td>
       <td>パブリッシャーまたは UID2 Operator</td>
-      <td>[Email address hash encoding](../getting-started/gs-normalization-encoding.md#email-address-hash-encoding)<br/>[Phone number hash encoding](../getting-started/gs-normalization-encoding.md#phone-number-hash-encoding)</td>
+      <td>[Email address hashing and encoding](../getting-started/gs-normalization-encoding.md#email-address-hashing-and-encoding)<br/>[Phone number hashing and encoding](../getting-started/gs-normalization-encoding.md#phone-number-hashing-and-encoding)</td>
     </tr>
     <tr>
       <td>3</td>
       <td>SHA-256 ハッシュに Base64 エンコーディングを適用</td>
       <td>パブリッシャーまたは UID2 Operator</td>
-      <td>[Email address hash encoding](../getting-started/gs-normalization-encoding.md#email-address-hash-encoding)<br/>[Phone number hash encoding](../getting-started/gs-normalization-encoding.md#phone-number-hash-encoding)</td>
+      <td>[Email address hashing and encoding](../getting-started/gs-normalization-encoding.md#email-address-hashing-and-encoding)<br/>[Phone number hashing and encoding](../getting-started/gs-normalization-encoding.md#phone-number-hashing-and-encoding)</td>
     </tr>
     <tr>
       <td>4</td>

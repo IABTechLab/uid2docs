@@ -42,13 +42,13 @@ UID2 SDK、または Prebid.js インテグレーション、Android/iOS イン�
   <tbody>
     <tr>
       <td>Email</td>
-      <td>以下のいずれかでなければなりません:<ul><li>生のメールアドレス</li><li>正規化されたメールアドレス</li><li>正規化され、ハッシュ化され、Base64 エンコードされたもの</li></ul></td>
-      <td>[Email address normalization](../getting-started/gs-normalization-encoding#email-address-normalization)<br/>[Email address hash encoding](../getting-started/gs-normalization-encoding#email-address-hash-encoding)</td>
+      <td>以下のいずれかでなければなりません:<ul><li>平文（ハッシュ化・エンコードされていない状態）のメールアドレス</li><li>正規化されたメールアドレス</li><li>正規化され、ハッシュ化され、Base64 エンコードされたもの</li></ul></td>
+      <td>[Email address normalization](../getting-started/gs-normalization-encoding#email-address-normalization)<br/>[Email address hashing and encoding](../getting-started/gs-normalization-encoding#email-address-hashing-and-encoding)</td>
     </tr>
     <tr>
-      <td>Phone Number</td>
-      <td>以下のいずれかでなければなりません:<ul><li>国番号を含む正規化されたもの</li><li>正規化され、ハッシュ化され、Base64 エンコードされたもの</li></ul></td>
-      <td>[Phone number normalization](../getting-started/gs-normalization-encoding#phone-number-normalization)<br/>[Phone number hash encoding](../getting-started/gs-normalization-encoding#phone-number-hash-encoding)</td>
+      <td>Phone Number</td>      
+      <td>以下のいずれかでなければなりません：<ul><li>国番号を含む正規化された平文（ハッシュ化・エンコードされていない状態）の電話番号</li><li>正規化され、ハッシュ化され、さらにBase64エンコードされたもの</li></ul></td>
+      <td>[Phone number normalization](../getting-started/gs-normalization-encoding#phone-number-normalization)<br/>[Phone number hashing and encoding](../getting-started/gs-normalization-encoding#phone-number-hashing-and-encoding)</td>
     </tr>
  </tbody>
 </table>
