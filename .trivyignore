@@ -151,3 +151,11 @@ CVE-2026-112942
 # GHSA-6q48-6c7w-9gw2 — certifi (CRITICAL). Not vulnerable.
 # See: UID2-8127
 GHSA-6q48-6c7w-9gw2
+
+# CVE-2026-111181 — body-parser (HIGH). Not vulnerable.
+# See: UID2-8175
+CVE-2026-111181
+
+# CVE-2023-54404 — zod (HIGH). Not vulnerable.
+# See: UID2-8176
+CVE-2023-54404 exp:2027-04-26
