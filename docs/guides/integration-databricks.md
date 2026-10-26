@@ -50,24 +50,24 @@ Here are some key benefits of integrating with Databricks for your UID2 processi
 
 ## Integration steps
 
-At a high level, the following are the steps to set up your Databricks integration and process your data:
+To set up the Databricks integration and process your data, follow these steps:
 
 1. [Create a clean room for UID2 collaboration](#create-clean-room-for-uid2-collaboration).
 1. [Send your Databricks sharing identifier to your UID2 contact](#send-sharing-identifier-to-uid2-contact).
 1. [Add data to the clean room](#add-data-to-the-clean-room).
 1. [Map DII](#map-dii) by running the clean room notebook.
 
-### Create clean room for UID2 collaboration
+### Create a clean room for UID2 collaboration
 
-As a starting point, create a Databricks Clean Rooms environment&#8212;a secure environment for you to collaborate with UID2 to process your data.
+Create a clean room in Databricks Clean Rooms. A clean room is a secure environment where you collaborate with UID2 to process your data.
 
 Follow the steps in [Create clean rooms](https://docs.databricks.com/aws/en/clean-rooms/create-clean-room) in the Databricks documentation. Use the correct sharing identifier based on the [UID2 environment](../getting-started/gs-environments) you want to connect to: see [UID2 sharing identifiers](#uid2-sharing-identifiers).
 
 :::important
-Create the clean room from a Databricks workspace that has no compliance security profile (CSP). A clean room that is created from a workspace with a CSP might not work with this integration.
-
-After you've created a clean room, you cannot change its collaborators. If you have the option to set clean room collaborator aliases&#8212;for example, if you’re using the Databricks Python SDK to create the clean room&#8212;your collaborator alias must be `creator` and the UID2 collaborator alias must be `collaborator`. If you’re creating the clean room using the Databricks web UI, the correct collaborator aliases are set for you.
+Create the clean room from a Databricks workspace that has no compliance security profile (CSP). A clean room created from a workspace with a CSP might not work with this integration.
 :::
+
+You can't change a clean room's collaborators after you create it. The clean room must use the alias `creator` for your collaborator and the alias `collaborator` for the UID2 collaborator. These are the default values. If the method you use to create the clean room lets you set aliases, make sure you set them to these values.
 
 ### Send sharing identifier to UID2 contact
 
