@@ -1,0 +1,4 @@
+# Python sample tests run only locally (uv run pytest); nothing in CI or the published site uses them.
+scan:
+  skip-dirs:
+    - test/python

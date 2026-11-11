@@ -1,16 +1,15 @@
 ---
-title: Normalization and encoding
-description: Learn how to normalize and encode information so it's secure and can be decoded.
+title: Normalization, hashing, and encoding
+description: Instructions for normalizing, hashing, and encoding email addresses and phone numbers.
 hide_table_of_contents: false
-sidebar_position: 13
 displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';
 
-# Normalization and encoding
+# Normalization, hashing, and encoding
 
-This page provides information about normalizing and encoding <Link href="../ref-info/glossary-uid#gl-dii">DII</Link>. It's important that, in working with UID2, normalizing and encoding are performed correctly.
+This page provides information about normalizing, hashing, and encoding <Link href="../ref-info/glossary-uid#gl-dii">DII</Link>. It's important that, in working with UID2, normalizing, hashing, and encoding are performed correctly.
 
 ## Introduction
 
@@ -54,7 +53,7 @@ Make sure that the normalized email is UTF-8, not another encoding system such a
 
 For examples of various scenarios, see [Normalization examples for email](#normalization-examples-for-email).
 
-## Email address hash encoding
+## Email address hashing and encoding
 
 An email hash is a Base64-encoded <Link href="../ref-info/glossary-uid#gl-sha-256">SHA-256</Link> hash of a normalized email address. The email address is first normalized, then hashed using the SHA-256 hashing algorithm, and then the resulting bytes of the hash value are encoded using Base64 encoding. Note that the Base64 encoding is applied to the bytes of the hash value, not the hex-encoded string representation.
 
@@ -66,7 +65,7 @@ The final value, the hex to Base64-encoded representation of the SHA-256 hash, i
 When applying Base64 encoding, be sure to Base64-encode the raw bytes of the hash or use a Base64 encoder that takes a hex-encoded value as input. If you use a function that takes text as input, the result is a longer string which is invalid for the purposes of UID2.
 :::
 
-| Type | Example | Comments and Usage |
+| Type | Example | Comments and usage |
 | :--- | :--- | :--- |
 | Raw email address | `USER@example.com` | N/A |
 | Normalized email address | `user@example.com` | Normalization is always the first step. |
@@ -88,8 +87,8 @@ In working with your own UID2s, always provide the final value, the Base64-encod
 <table>
   <thead>
     <tr>
-      <th>Original Value</th>
-      <th>Processing Steps and Resulting Values</th>
+      <th>Original value</th>
+      <th>Processing steps and resulting values</th>
     </tr>
   </thead>
   <tbody>
@@ -141,7 +140,7 @@ Here's what you need to know about phone number normalization rules:
 Make sure that the normalized phone number is UTF-8, not another encoding system such as UTF-16.
 :::
 
-## Phone number hash encoding
+## Phone number hashing and encoding
 
 A phone number hash is a Base64-encoded SHA-256 hash of a normalized phone number. The phone number is first normalized, then hashed using the SHA-256 hashing algorithm, and then the resulting bytes of the hash value are encoded using Base64 encoding. Note that the Base64 encoding is applied to the bytes of the hash value, not the hex-encoded string representation. 
 
@@ -153,7 +152,7 @@ The final value, the hex to Base64-encoded representation of the SHA-256 hash, i
 When applying Base64 encoding, be sure to use a function that takes a hex value as input. If you use a function that takes text as input, the result is a longer string which is invalid for the purposes of UID2.
 :::
 
-| Type | Example | Comments and Usage |
+| Type | Example | Comments and usage |
 | :--- | :--- | :--- |
 | Raw phone number | `1 (234) 567-8901` | N/A |
 | Normalized phone number | `+12345678901` | Normalization is always the first step. |
@@ -214,4 +213,4 @@ If you're having trouble or getting errors, or if you just want to be sure you'r
 
 - **Use the Base64-encoded value**: The process includes normalizing, then hashing, then Base64-encoding the bytes of the hash value. When generating UID2s, the input is the Base64-encoded value. Make sure you're using this 44-character string value.
 
-- You might see the following error message: "The hashing value must be 44 characters." In this scenario, there is an error with the hashing function you're using. Use the hex to Base64 encoding of the SHA-256 hash. For details, see [Email address hash encoding](#email-address-hash-encoding) or [Phone number hash encoding](#phone-number-hash-encoding). To cross-check, test using the [UID2 hashing tool](https://hashing-tool.samples.uidapi.com/).
+- You might see the following error message: "The hashing value must be 44 characters." In this scenario, there is an error with the hashing function you're using. Use the hex to Base64 encoding of the SHA-256 hash. For details, see [Email address hashing and encoding](#email-address-hashing-and-encoding) or [Phone number hashing and encoding](#phone-number-hashing-and-encoding). To cross-check, test using the [UID2 hashing tool](https://hashing-tool.samples.uidapi.com/).

@@ -4,7 +4,6 @@ sidebar_label: GCP Confidential Space
 pagination_label: Private Operator for GCP integration guide
 description: Integration information for Private Operator in GCP.
 hide_table_of_contents: false
-sidebar_position: 18
 displayed_sidebar: docs
 ---
 
@@ -35,9 +34,9 @@ When the attestation is successful, the UID2 Core Service provides seed informat
 
 The latest ZIP file is linked in the GCP Download column in the following table.
 
-| Version Name | Version&nbsp;#/Release&nbsp;Notes | GCP Download |  Date | Deprecation Date |
+| Version name | Version&nbsp;#/release&nbsp;notes | GCP download |  Date | Deprecation date |
 | ------- | ------ | ------ | ------ | ------ |
-| Q4 2025 | [v5.62.24](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.62.24-r2) | [gcp-oidc-deployment-files-5.62.24-r2.zip](https://github.com/IABTechLab/uid2-operator/releases/download/v5.62.24-r2/gcp-oidc-deployment-files-5.62.24-r2.zip) | January 15, 2026 | January 15, 2027 | 
+| H1 2026 | [v5.70.159](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.70.159-r0) | [gcp-oidc-deployment-files-5.70.159-r0.zip](https://github.com/IABTechLab/uid2-operator/releases/download/v5.70.159-r0/gcp-oidc-deployment-files-5.70.159-r0.zip) | June 23, 2026 | June 30, 2027 | 
 
 :::note
 For information about supported versions and deprecation dates, see [Private Operator versions](../ref-info/deprecation-schedule.md#private-operator-versions).
@@ -89,6 +88,8 @@ Before choosing your deployment option, complete these Google Cloud setup steps:
 1. Install the gcloud CLI, required by both deployment options. Follow the instructions provided by Google: [Install the gcloud CLI](https://cloud.google.com/sdk/docs/install).
 
 1. Enable egress rule. If your VPC infrastructure only allows egress to known endpoints, you will need to enable an egress rule to allow the operator to retrieve the certificates required for attestation. To enable this, follow the details in this document from Google: [VPC Service Controls](https://cloud.google.com/vpc-service-controls/docs/supported-products#table_confidential_space).
+
+   You must also allow outbound access to the UID2 service and storage destinations that the operator depends on. For the full list, see [Private Operator network egress](../ref-info/operator-private-network-requirements.md).
 
 ### UID2 Operator account setup
 
@@ -415,7 +416,7 @@ This section includes:
 
 Placeholder values are defined in the following table.
 
-| Placeholder | Actual Value |
+| Placeholder | Actual value |
 | :--- | :--- |
 | `{INSTANCE_NAME}` | Your own valid VM name. |
 | `{ZONE}` | The Google Cloud zone that the VM instance will be deployed on. |
@@ -556,7 +557,7 @@ Error codes for Private Operator issues are applicable only to release v5.49.7 a
 
 The following errors might occur during operator startup:
 
-| Error Code | Issue | Steps to Resolve |
+| Error code | Issue | Steps to resolve |
 | :--- | :--- | :--- |
 | E02 | OperatorKeyNotFoundError | Make sure that the secret name specified exists in GCP Secret Manager in the same project as the operator, and that the service account has permission to access the secret. Make sure it's set to: `tee-env-API_TOKEN_SECRET_NAME`. If needed, you can check the logs for the specific secret name. |
 | E03 | ConfigurationMissingError | Required attributes are missing in the configuration. Refer to the logs for details and update the missing attributes before running GCP operator. |

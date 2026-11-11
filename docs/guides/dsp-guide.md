@@ -3,7 +3,6 @@ title: DSP integration guide
 sidebar_label: DSP integration guide
 description: A guide for DSPs who transact on UID2s in the bidstream.
 hide_table_of_contents: false
-sidebar_position: 05
 displayed_sidebar: docs
 ---
 
@@ -45,12 +44,16 @@ For details about the UID2 opt-out workflow and how users can opt out, see [User
 
 To receive and honor user opt-outs from the UID2 service, the DSP establishes a pre-configured interface (an opt-out webhook/API endpoint) and provides it to the UID2 service during onboarding. When a user opts out, the UID2 service sends the user's raw UID2 and the corresponding opt-out timestamp to the pre-configured interface.
 
-The UID2 service sends the following data within seconds of a user's opt-out, which the DSP records and uses the bidding logic defined in [Decrypt UID2 tokens for RTB use](#decrypt-uid2-tokens-for-rtb-use).
+The UID2 service sends the following data, typically within a few minutes of a user's opt-out. The DSP records it and applies the bidding logic defined in [Decrypt UID2 tokens for RTB use](#decrypt-uid2-tokens-for-rtb-use).
 
 | Parameter | Description |
 | :--- | :--- |
 | `identity` | The raw UID2 for the user who opted out. |
-| `timestamp` | The time when the user opted out (for information only). |
+| `timestamp` | The time when the user opted out, as a <a href="../ref-info/glossary-uid#gl-unix-time">Unix</a> timestamp in **seconds** (for information only). |
+
+:::note
+The opt-out webhook `timestamp` is in **seconds**. This is different from the `opted_out_since` value returned by the [POST&nbsp;/optout/status](../endpoints/post-optout-status.md) endpoint, which is a Unix timestamp in **milliseconds**.
+:::
 
 The DSP must respond to the opt-out data with a 200 response code.
 

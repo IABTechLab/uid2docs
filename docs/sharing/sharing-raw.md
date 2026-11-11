@@ -2,7 +2,6 @@
 title: Raw UID2 sharing
 description: Learn about sharing raw UID2s with other trusted sharing participants.
 hide_table_of_contents: false
-sidebar_position: 08
 displayed_sidebar: docs
 ---
 

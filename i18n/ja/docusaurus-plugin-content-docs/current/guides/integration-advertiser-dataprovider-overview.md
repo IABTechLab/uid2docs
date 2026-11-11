@@ -3,7 +3,6 @@ title: Advertiser/data provider integration overview
 sidebar_label: Advertiser/data provider integration overview
 description: ユーザーデータを収集し、他の参加者に送信する組織向けのインテグレーションオプションの概要。
 hide_table_of_contents: false
-sidebar_position: 07
 displayed_sidebar: sidebarAdvertisers
 ---
 
@@ -49,7 +48,7 @@ UID2 とインテグレーションする広告主とデータプロバイダー
 6. [Monitor for opt-out status](#6-monitor-for-opt-out-status)
 
 :::note
-[POST&nbsp;/v3/identity/map](../endpoints/post-identity-map.md) エンドポイントのバージョン 3 より前のバージョンを使用している場合は、[Using POST /v2/identity/map](#using-post-v2identitymap) を参照してください。このバージョンを使用している場合は、強化された機能を利用するためにできるだけ早くアップグレードすることを推奨します。
+[POST&nbsp;/identity/map](../endpoints/post-identity-map.md) エンドポイントのバージョン 3 より前のバージョンを使用している場合は、[Using POST /v2/identity/map](#using-post-v2identitymap) を参照してください。このバージョンを使用している場合は、強化された機能を利用するためにできるだけ早くアップグレードすることを推奨します。
 :::
 
 ## Summary of implementation options
@@ -58,11 +57,11 @@ UID2 とインテグレーションする広告主とデータプロバイダー
 
 | High-Level Step | Implementation Options |
 | --- | --- |
-| [1: Generate raw UID2s from DII](#1-generate-raw-uid2s-from-dii) | DII を raw UID2 にマップするには、次のいずれかのオプションを利用します:<ul><li>UID2 SDK のいずれか:<ul><li>Python SDK: [Map DII to raw UID2s](../sdks/sdk-ref-python.md#map-dii-to-raw-uid2s)</li><li>Java SDK: [Usage for advertisers/data providers](../sdks/sdk-ref-java.md#usage-for-advertisersdata-providers)</li></ul></li><li>Snowflake: [Map DII](integration-snowflake.md#map-dii)</li><li>Databricks: [Map DII](integration-databricks.md#map-dii)</li><li>AWS Entity Resolution: [AWS Entity Resolution integration guide](integration-aws-entity-resolution.md)</li><li>HTTP endpoints: [POST&nbsp;/v3/identity/map](../endpoints/post-identity-map.md)</li></ul> |
+| [1: Generate raw UID2s from DII](#1-generate-raw-uid2s-from-dii) | DII を raw UID2 にマップするには、次のいずれかのオプションを利用します:<ul><li>UID2 SDK のいずれか:<ul><li>Python SDK: [Map DII to raw UID2s](../sdks/sdk-ref-python.md#map-dii-to-raw-uid2s)</li><li>Java SDK: [Usage for advertisers/data providers](../sdks/sdk-ref-java.md#usage-for-advertisersdata-providers)</li></ul></li><li>Snowflake: [Map DII](integration-snowflake.md#map-dii)</li><li>Databricks: [Map DII](integration-databricks.md#map-dii)</li><li>AWS Entity Resolution: [AWS Entity Resolution integration guide](integration-aws-entity-resolution.md)</li><li>HTTP endpoints: [POST&nbsp;/identity/map](../endpoints/post-identity-map.md)</li></ul> |
 | [2: Store raw UID2s and refresh timestamps](#2-store-raw-uid2s-and-refresh-timestamps) | カスタム（必要に応じて） |
 | [3: Manipulate or combine raw UID2s](#3-manipulate-or-combine-raw-uid2s) | カスタム（必要に応じて） |
 | [4: Send stored raw UID2s to DSPs to create audiences or conversions](#4-send-stored-raw-uid2s-to-dsps-to-create-audiences-or-conversions) | カスタム（必要に応じて） |
-| [5: Monitor for raw UID2 refresh](#5-monitor-for-raw-uid2-refresh) | [POST&nbsp;/v3/identity/map](../endpoints/post-identity-map.md) エンドポイントから返されるリフレッシュタイムスタンプ（`r` フィールド）を使用して、raw UID2 を更新するタイミングを判断します。 |
+| [5: Monitor for raw UID2 refresh](#5-monitor-for-raw-uid2-refresh) | [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) エンドポイントから返されるリフレッシュタイムスタンプ（`r` フィールド）を使用して、raw UID2 を更新するタイミングを判断します。 |
 | [6: Monitor for opt-out status](#6-monitor-for-opt-out-status) | [POST /optout/status](../endpoints/post-optout-status.md) エンドポイントへの API コール。 |
 
 ## Integration diagram
@@ -96,7 +95,7 @@ raw UID2 を生成するには、次のいずれかのオプションを使用�
 
 - AWS Entity Resolution: [AWS Entity Resolution integration guide](integration-aws-entity-resolution.md) を参照してください。
 
-- HTTP endpoints: [POST&nbsp;/v3/identity/map](../endpoints/post-identity-map.md) を参照してください。詳細は、[Advertiser/data provider integration to HTTP endpoints](integration-advertiser-dataprovider-endpoints.md#1-generate-raw-uid2s-from-dii) を参照してください。
+- HTTP endpoints: [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) を参照してください。詳細は、[Advertiser/data provider integration to HTTP endpoints](integration-advertiser-dataprovider-endpoints.md#1-generate-raw-uid2s-from-dii) を参照してください。
 
 ### 2: Store raw UID2s and refresh timestamps
 
@@ -134,9 +133,9 @@ raw UID2 は、更新タイムスタンプ以降の時間には変更されま�
 
 リフレッシュのタイミングを毎日確認することを推奨します。raw UID2 をリフレッシュするかどうかを判断するには、次の手順に従います:
 
-1. 現在の時刻と[POST&nbsp;/v3/identity/map](../endpoints/post-identity-map.md) レスポンスから保存したリフレッシュタイムスタンプ (`r` フィールド) を比較します。
+1. 現在の時刻と[POST&nbsp;/identity/map](../endpoints/post-identity-map.md) レスポンスから保存したリフレッシュタイムスタンプ (`r` フィールド) を比較します。
 
-2. 現在の時刻がリフレッシュタイムスタンプ以降である場合、同じ DII で [POST&nbsp;/v3/identity/map](../endpoints/post-identity-map.md) を再度呼び出して raw UID2 を再生成します。
+2. 現在の時刻がリフレッシュタイムスタンプ以降である場合、同じ DII で [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) を再度呼び出して raw UID2 を再生成します。
 
 このアプローチにより、raw UID2 が最新かつ有効であり、オーディエンスのターゲティングや測定に使用できることが保証されます。
 
@@ -146,7 +145,7 @@ raw UID2 は、更新タイムスタンプ以降の時間には変更されま�
 
 UID2 <Link href="../ref-info/glossary-uid#gl-operator-service">Operator Service</Link> で最新のオプトアウト情報を確認するには、次の 2 つの方法があります:
 
-- [POST&nbsp;/v3/identity/map](../endpoints/post-identity-map.md) エンドポイントを呼び出してオプトアウトを確認します。DII がオプトアウトされている場合、raw UID2 は生成されません。
+- [POST&nbsp;/identity/map](../endpoints/post-identity-map.md) エンドポイントを呼び出してオプトアウトを確認します。DII がオプトアウトされている場合、raw UID2 は生成されません。
 
 - [POST&nbsp;/optout/status](../endpoints/post-optout-status.md) エンドポイントを使用して raw UID2 のオプトアウトステータスを確認します。
 

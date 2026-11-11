@@ -10,7 +10,7 @@ import SnptUpgradePolicy from '../snippets/_snpt-private-operator-upgrade-policy
 import SnptRotatingTheKeys from '../snippets/_snpt-private-operator-rotating-the-keys.mdx';
 import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emails-and-phone-numbers.mdx';
 
-# UID2 Private Operator integration overview
+# Private Operator integration overview
 
 <Link href="../ref-info/glossary-uid#gl-private-operator">Private Operator</Link> をホストする UID2 参加者は、自身のローカル UID2 <Link href="../ref-info/glossary-uid#gl-operator">Operator</Link> サービスに、自社のファーストパーティ <Link href="../ref-info/glossary-uid#gl-dii">directly identifying information (DII)</Link> を送信します。この Operator は、プライベート環境で実行されます。
 
@@ -61,7 +61,7 @@ Private Operator を選択する場合、いくつかの実装オプションが
 
 Private Operator の基本的なワークフローは次のとおりです:
 
-1. 起動時に Private Operatorは、<a href="../ref-info/glossary-uid#gl-core-service">Core</a> service　との認証プロセスを実行します。認証プロセスは、Operator が安全な信頼された実行環境 (TEE) で実行されていること、およびその環境が改ざんされていないことを検証します。
+1. 起動時に Private Operator は、<a href="../ref-info/glossary-uid#gl-core-service">Core</a> service　との認証プロセスを実行します。認証プロセスは、Operator が安全な信頼された実行環境 (TEE) で実行されていること、およびその環境が改ざんされていないことを検証します。
 
 1. Operator が認証プロセスに合格すると、Core Service は、起動に必要な情報を取得するための安全な S3 URL を Private Operator に提供します。
 
@@ -80,6 +80,10 @@ Private Operator の基本的なワークフローは次のとおりです:
 - S3 から取得された情報は、保存中および転送中に TLS によって暗号化されています。さらに、アクセスは正しく認証された Private Operator にのみ制限されています。
 - 起動時に取得された情報は、いかなる時点でもローカルに保存されません。情報は常にメモリに保持され、Private Operator は、Operator を実行している人 (管理者など) および外部の関係者がメモリ内のデータを見ることが困難な保護された環境で実行されています。
 - Private Operator は、処理のために送信された <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> (メールアドレスや電話番号) を保存しません。データは UID2 を生成するために enclave 内でのみ使用され、処理後すぐに破棄されます。
+
+:::note
+すべての Private Operator は、[Private Operator network egress](../ref-info/operator-private-network-requirements.md) に記載されている宛先にアクセスできる必要があります。組織がファイアウォールまたはプロキシで保護されている場合、これらのドメインを許可リストに追加する必要があります。
+:::
 
 ## Private Operator limitations
 

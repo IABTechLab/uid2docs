@@ -4,7 +4,6 @@ sidebar_label: GCP Confidential Space
 pagination_label: Private Operator for GCP integration guide
 description: GCP の Private Operator のインテグレーション情報。
 hide_table_of_contents: false
-sidebar_position: 18
 displayed_sidebar: docs
 ---
 
@@ -15,7 +14,7 @@ import SnptAttestFailure from '../snippets/_snpt-private-operator-attest-failure
 import SnptRotatingTheKeys from '../snippets/_snpt-private-operator-rotating-the-keys.mdx';
 import SnptRuntimeErrors from '../snippets/_snpt-private-operator-runtime-errors.mdx';
 
-# UID2 Private Operator for GCP integration guide
+# Private Operator for GCP integration guide
 
 UID2 Operator は、UID2 エコシステムの API サーバーです。詳細は、[UID2 Operator](../ref-info/ref-operators-public-private.md) を参照してください。
 
@@ -37,7 +36,7 @@ UID2 Operator Confidential Space 用の Docker コンテナが起動すると、
 
 | Version Name | Version&nbsp;#/Release&nbsp;Notes | GCP Download |  Date | Deprecation Date |
 | ------- | ------ | ------ | ------ | ------ |
-| Q4 2025 | [v5.62.24](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.62.24-r2) | [gcp-oidc-deployment-files-5.62.24-r2.zip](https://github.com/IABTechLab/uid2-operator/releases/download/v5.62.24-r2/gcp-oidc-deployment-files-5.62.24-r2.zip) | January 15, 2026 | January 15, 2027 | 
+| H1 2026 | [v5.70.159](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.70.159-r0) | [gcp-oidc-deployment-files-5.70.159-r0.zip](https://github.com/IABTechLab/uid2-operator/releases/download/v5.70.159-r0/gcp-oidc-deployment-files-5.70.159-r0.zip) | June 23, 2026 | June 30, 2027 | 
 
 :::note
 サポートされているバージョンと非推奨日については、[Private Operator versions](../ref-info/deprecation-schedule.md#private-operator-versions) を参照してください。
@@ -90,6 +89,8 @@ UID2 Operator Service は、任意の GCP アカウントとプロジェクト�
 
 1. エグレスルールを有効にします。VPC インフラストラクチャが既知のエンドポイントへのイグレスのみを許可する場合、オペレーターが認証に必要な証明書を取得できるようにエグレスルールを有効にする必要があります。これを有効にするには、Google のこのドキュメントに従ってください: [VPC Service Controls](https://cloud.google.com/vpc-service-controls/docs/supported-products#table_confidential_space)。
 
+また、アウトバンドのネットワークが制限されている場合は、[Private Operator network egress](../ref-info/operator-private-network-requirements.md) に記載されている宛先へのアウトバウンドアクセスを許可する必要があります。
+
 ### UID2 Operator account setup
 
 UID2 の連絡先に、あなたの組織を UID2 Operator として登録するよう依頼してください。誰に依頼すればよいかわからない場合は、[Contact info](../getting-started/gs-account-setup.md#contact-info) を参照してください。
@@ -130,12 +131,12 @@ UID2 アカウント登録が完了し、gcloud CLI をインストールした�
 
 ## Deployment options
 
-デプロイメントオプションは次の2つがあります:
+デプロイメントオプションは次の 2 つがあります:
 
 | Option | Details |
 | :--- | :--- |
 | [Terraform template](#deployterraform-template) | このオプションは:<ul><li>手動でサービスアカウントを設定する必要はありません。設定はとても簡単です。</li><li>ロードバランサーとスケーリンググループでスタック全体を立ち上げます。</li><li>`gcloud` オプションよりも保守・運用が簡単です。</li><li>アップグレードはとても簡単です。</li><li>推奨するデプロイオプションです。</li></ul> |
-| [gcloud CLI](#deploygcloud-cli) | このオプションは:<ul><li>パブリック IP アドレスを持つ VM インスタンスを1つ起動します。</li><li>素早く実験・評価を行うことができます。</li><li>複数のインスタンスを使用する場合は、コマンドを複数回実行して各インスタンスを手動で立ち上げる必要があります。</li><li>ロードバランサーを手動で設定する必要があります。</li><li>手作業が増えるため、アップグレードはより複雑になります。</li></ul> |
+| [gcloud CLI](#deploygcloud-cli) | このオプションは:<ul><li>パブリック IP アドレスを持つ VM インスタンスを 1 つ起動します。</li><li>素早く実験・評価を行うことができます。</li><li>複数のインスタンスを使用する場合は、コマンドを複数回実行して各インスタンスを手動で立ち上げる必要があります。</li><li>ロードバランサーを手動で設定する必要があります。</li><li>手作業が増えるため、アップグレードはより複雑になります。</li></ul> |
 
 どちらのデプロイメントオプションも、両方のデプロイメント環境をサポートしています。
 
@@ -235,7 +236,7 @@ Terraform がインストールされていない場合は、[terraform.io](http
    | `region` | `string` | `us-east1` | no | デプロイ先のリージョン。有効なリージョンの一覧は、Google Cloud ドキュメントの [Available regions and zones](https://cloud.google.com/compute/docs/regions-zones#available) を参照してください。<br/>注意: GCP Confidential Space 用の UID2 Private Operator の実装は、次の地域ではサポートされていません: ヨーロッパ、中国。 |
    | `network_name` | `string` | `uid-operator` | no | VPC リソース名（ルール/インスタンスタグにも使用されます）。 |
    | `min_replicas` | `number` | `1` | no | デプロイする最小レプリカ数を示します。 |
-   | `max_replicas` | `number` | `5` | no | デプロイする最大レプリカ数を示します。 |
+   | `max_replicas` | `number` | `1` | no | デプロイする最大レプリカ数を示します。 |
    | `uid_operator_key_secret_name` | `string` | `"secret-operator-key"` | no | Operator Key のシークレットの名前を指定します。Terraform テンプレートは、GCP Secret Manager に `uid_operator_key` 値を保持するためのシークレットを作成します。名前を定義できます。例: `uid2-operator-operator-key-secret-integ`。 |
    | `debug_mode` | `bool`  | `false` | no | UID2 チームと協力して問題をデバッグする場合を除き、`true` に設定しないでください。それ以外の場合、このフラグを `true` に設定すると、認証が失敗します。 |
 

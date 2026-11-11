@@ -2,7 +2,6 @@
 title: Authentication and authorization
 description: Authentication requirements for the UID2 endpoints.
 hide_table_of_contents: false
-sidebar_position: 05
 displayed_sidebar: docs
 ---
 

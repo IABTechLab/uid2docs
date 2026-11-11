@@ -2,7 +2,6 @@
 title: Email contacts
 description: Set up and manage contacts for UID2 updates.
 hide_table_of_contents: false
-sidebar_position: 09
 displayed_sidebar: docs
 ---
 

@@ -4,7 +4,6 @@ sidebar_label: Client-server integration for JavaScript
 pagination_label: Client-server integration guide for JavaScript
 description: SDK for JavaScript を使用し、Server-Side でトークンを生成してパブリッシャーの Web ページに渡す必要がある標準的な Web インテグレーションシナリオをカバーするパブリッシャー向けの情報。
 hide_table_of_contents: false
-sidebar_position: 02
 displayed_sidebar: docs
 ---
 
@@ -12,6 +11,7 @@ import Link from '@docusaurus/Link';
 import SnptIntegratingWithSSO from '../snippets/_snpt-integrating-with-sso.mdx';
 import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emails-and-phone-numbers.mdx';
 import SnptExampleClientServerSendUid2ToSdk from '../snippets/_snpt-example-client-server-send-uid2-to-sdk.mdx'; 
+import SnptUidVerifyInspect from '../snippets/_snpt-uid-verify-inspect.mdx';
 
 # Client-server integration guide for JavaScript
 
@@ -46,6 +46,10 @@ Google Ad Manager を使用していて、セキュアシグナル機能を使�
 ## Integrating with single sign-on (SSO)
 
 <SnptIntegratingWithSSO />
+
+## Inspecting with UID Verify Chrome extension
+
+<SnptUidVerifyInspect />
 
 ## Preparing DII for processing
 
@@ -165,7 +169,7 @@ UID2 Token が SSP から DSP に送信されるとき、ビッドストリー�
 | Step | Endpoint/SDK | Description |
 | :--- | :--- | :--- |
 | 4-a | N/A | ユーザーはパブリッシャーのアセットからログアウトします。 |
-| 4-b | [SDK for JavaScript](../sdks/sdk-ref-javascript.md) | SDKは、以下に示すように、[disconnect() 関数](../sdks/sdk-ref-javascript.md#disconnect-void) を使用して、ファーストパーティクッキーから UID2 ID をクリアし、クライアントのライフサイクルを切断します。|
+| 4-b | [SDK for JavaScript](../sdks/sdk-ref-javascript.md) | SDK は、以下に示すように、[disconnect() 関数](../sdks/sdk-ref-javascript.md#disconnect-void) を使用して、ファーストパーティクッキーから UID2 ID をクリアし、クライアントのライフサイクルを切断します。|
 
 
 ```html

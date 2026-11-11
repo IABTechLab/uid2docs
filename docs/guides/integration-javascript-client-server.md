@@ -4,7 +4,6 @@ sidebar_label: Client-server integration for JavaScript
 pagination_label: Client-server integration guide for JavaScript
 description: Information for publishers about using UID2 to generate identity tokens for the RTB bidstream, generating tokens on the server side and refreshing on the client side.
 hide_table_of_contents: false
-sidebar_position: 02
 displayed_sidebar: docs
 ---
 
@@ -12,6 +11,8 @@ import Link from '@docusaurus/Link';
 import SnptIntegratingWithSSO from '../snippets/_snpt-integrating-with-sso.mdx';
 import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emails-and-phone-numbers.mdx';
 import SnptExampleClientServerSendUid2ToSdk from '../snippets/_snpt-example-client-server-send-uid2-to-sdk.mdx'; 
+import SnptIos27WebkitNote from '../snippets/_snpt-ios27-webkit-note.mdx';
+import SnptUidVerifyInspect from '../snippets/_snpt-uid-verify-inspect.mdx';
 
 # Client-server integration guide for JavaScript
 
@@ -43,9 +44,19 @@ For integration scenarios for publishers that do not use the SDK for JavaScript,
 If you are using Google Ad Manager and want to use the secure signals feature, first follow the steps in this guide and then follow the additional steps in the [Google Ad Manager Secure Signals integration guide](integration-google-ss.md).
 :::
 
+:::note
+<SnptIos27WebkitNote />
+
+**Action required**: On affected browsers, generate and refresh UID2 tokens on your server. For details, see [Publisher integration guide, server-side](integration-publisher-server-side.md).
+:::
+
 ## Integrating with single sign-on (SSO)
 
 <SnptIntegratingWithSSO />
+
+## Inspecting with UID Verify Chrome extension
+
+<SnptUidVerifyInspect />
 
 ## Preparing DII for processing
 

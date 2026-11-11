@@ -2,7 +2,6 @@
 title: Client-side integration
 description: Client-Side インテグレーションに必要な情報の設定と管理。
 hide_table_of_contents: false
-sidebar_position: 09
 displayed_sidebar: docs
 ---
 

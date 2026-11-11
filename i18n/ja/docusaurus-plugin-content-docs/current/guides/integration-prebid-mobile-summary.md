@@ -4,15 +4,14 @@ sidebar_label: Mobile integration with Prebid Mobile SDK
 pagination_label: Mobile integration with Prebid Mobile SDK
 description: モバイルデバイスでの Prebid インテグレーションの設定に関する情報リソースのまとめ。
 hide_table_of_contents: false
-sidebar_position: 04
 displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';
 
-# UID2 mobile integration with Prebid Mobile SDK
+# Mobile integration with Prebid Mobile SDK
 
-UID2 の Prebid とのインテグレーションは、Prebid Mobile SDK オプションの UID2 インテグレーションを使用することで、Android と iOSの モバイルデバイスでもサポートされます。
+UID2 の Prebid とのインテグレーションは、Prebid Mobile SDK オプションの UID2 インテグレーションを使用することで、Android と iOS の モバイルデバイスでもサポートされます。
 
 詳細は以下のモバイルインテグレーションガイドのセクションを参照してください:
 

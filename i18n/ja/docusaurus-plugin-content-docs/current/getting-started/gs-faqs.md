@@ -2,7 +2,6 @@
 title: FAQs
 description: UID2 の実装に関するよくある質問。
 hide_table_of_contents: false
-sidebar_position: 20
 displayed_sidebar: docs
 ---
 
@@ -106,7 +105,7 @@ UID2 フレームワークを使用するパブリッシャーからのよくあ
 #### Where should I make token generation calls&#8212;from the server side or the client side?
 トークン生成の呼び出しは、Server-Side と Client-Side のどちらで行うべきですか？
 
-UID2 Token は、Client-Side、Server-Sideのどちらでも生成できます。詳細は、以下を参照してください:
+UID2 Token は、Client-Side、Server-Side のどちらでも生成できます。詳細は、以下を参照してください:
 - Prebid.js を使用して Client-Side からトークンを生成します: [Client-side integration guide for Prebid.js](../guides/integration-prebid-client-side.md).
 - Prebid.js を使用して Server-Side からトークンを生成します: [Client-server integration guide for Prebid.js](../guides/integration-prebid-client-server.md).
 - その他の Server-Side オプション: [Publisher integrations](../guides/summary-guides.md#publisher-integrations).
@@ -221,7 +220,7 @@ raw UID2 は、リフレッシュタイムスタンプの前では変化しま�
 
 インクリメンタルアップデートの場合、オーディエンスの更新は毎日行うことを推奨します。
 
-特定のユーザーの raw UID2 は、およそ年に 1 回変化します。[POST /v3/identity/map](../endpoints/post-identity-map.md) エンドポイントの最新バージョンでは、各 raw UID2 がリフレッシュされる可能性のある時点を示すリフレッシュタイムスタンプが提供されます。オーディエンスターゲティングのために raw UID2 を最新かつ有効な状態に保つために、これらのタイムスタンプを毎日確認することを推奨します。
+特定のユーザーの raw UID2 は、およそ年に 1 回変化します。[POST&nbsp;/identity/map](../endpoints/post-identity-map.md) エンドポイントの最新バージョンでは、各 raw UID2 がリフレッシュされる可能性のある時点を示すリフレッシュタイムスタンプが提供されます。オーディエンスターゲティングのために raw UID2 を最新かつ有効な状態に保つために、これらのタイムスタンプを毎日確認することを推奨します。
 
 このエンドポイントの以前のバージョン ([POST /v2/identity/map](../endpoints/post-identity-map-v2.md)) を参照する実装の場合:
 

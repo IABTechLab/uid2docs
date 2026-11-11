@@ -4,14 +4,13 @@ sidebar_label: Databricks
 pagination_label: Databricks integration
 description: Databricks を使用した UID2 とのインテグレーションに関する情報。
 hide_table_of_contents: false
-sidebar_position: 04
 displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';
 import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emails-and-phone-numbers.mdx';
 
-# Databricks clean rooms integration guide
+# Databricks Clean Rooms integration guide
 
 このガイドは、Databricks 環境でユーザーデータを raw UID2 に変換したい広告主およびデータプロバイダーを対象としています。
 

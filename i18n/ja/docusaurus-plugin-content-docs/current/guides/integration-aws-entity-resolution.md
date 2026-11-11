@@ -4,7 +4,6 @@ sidebar_label: AWS Entity Resolution
 pagination_label: AWS Entity Resolution
 description: AWS Entity Resolution とのインテグレーションに関する情報。
 hide_table_of_contents: false
-sidebar_position: 04
 displayed_sidebar: docs
 ---
 
@@ -63,7 +62,7 @@ AWS Entity Resolution を使用して UID2 とインテグレーションに関�
 | 5 | Participant | 入力データを Amazon S3 バケットに格納します。 |
 | 6 | Participant | Entity Resolution を設定し、マッチングワークフローを作成します。 |
 | 7 | Participant | マッチングワークフローを実行します。 |
-| 8 | AWS Entity Resolution | S3バケットから入力データを読み込みます。 |
+| 8 | AWS Entity Resolution | S3 バケットから入力データを読み込みます。 |
 | 9 | AWS Entity Resolution | 入力データを `POST /SendApiAsset` を使って Amazon Data Exchange に送信します。 |
 | 10 | Amazon Data Exchange | `POST /uid2/assignment` を用いて API Gateway にデータを送信します。 |
 | 11 | API Gateway | `path=assignment` を使って Lambda にデータを送ります。 |
@@ -114,7 +113,7 @@ AWS Data Exchange の [Unified ID 2.0 Identity Resolution](https://aws.amazon.co
 UID2 の参加者は AWS の S3 バケットにデータを保存し、AWS Entity Resolution とインテグレーションします。AWS アカウントを作成したら([Create AWS account](#create-aws-account) を参照してください。)、基本的な手順は以下の通りです。
 
 :::note
-詳細な手順は、AWSドキュメントの [Setting up AWS Entity Resolution](https://docs.aws.amazon.com/entityresolution/latest/userguide/setting-up.html) を参照してください。
+詳細な手順は、AWS ドキュメントの [Setting up AWS Entity Resolution](https://docs.aws.amazon.com/entityresolution/latest/userguide/setting-up.html) を参照してください。
 :::
 
 1. [管理者ユーザーを作成します](https://docs.aws.amazon.com/entityresolution/latest/userguide/setting-up.html#setting-up-create-iam-user).
@@ -140,7 +139,7 @@ UID2 の参加者は AWS の S3 バケットにデータを保存し、AWS Entit
 以下のステップは、AWS Entity Resolution ユーザーインターフェースで行うアクションの概要です。詳細と手順は、AWS Entity Resolution ドキュメントの [Creating a matching workflow with UID 2.0](https://docs.aws.amazon.com/entityresolution/latest/userguide/create-matching-workflow-provider.html#create-mw-uid) を参照してください。
 
 :::note
-UID2 は、UID2 生成のためにメールアドレスまたは電話番号のいずれかをサポートします。しかし、AWS Entity Resolution では、スキーママッピングに両方の値が存在する場合、ワークフローはメールアドレスを使用し、電話番号はパススルーフィールドとして扱います。もしデータにメールアドレスと電話番号が混在している場合、最適な方法は、スキーママッピングを別々にして、それぞれ別のワークフローを作成することです。このシナリオでは、以下のステップを2回行います&#8212;1つはメールアドレス用のワークフロー、もう1つは電話番号用のワークフローを作成します。
+UID2 は、UID2 生成のためにメールアドレスまたは電話番号のいずれかをサポートします。しかし、AWS Entity Resolution では、スキーママッピングに両方の値が存在する場合、ワークフローはメールアドレスを使用し、電話番号はパススルーフィールドとして扱います。もしデータにメールアドレスと電話番号が混在している場合、最適な方法は、スキーママッピングを別々にして、それぞれ別のワークフローを作成することです。このシナリオでは、以下のステップを 2 回行います&#8212;1 つはメールアドレス用のワークフロー、もう 1 つは電話番号用のワークフローを作成します。
 :::
 
 マッチングワークフローを作成するには、まず AWS Management コンソールにサインインし、**AWS Entity Resolution** ページを開き、**Workflows** > **Matching workflows** > **Create matching workflow** を選択します。次に、マッチングワークフローの以下のステップを完了します。

@@ -4,7 +4,6 @@ sidebar_label: Client-server integration for mobile
 pagination_label: Client-server integration guide for mobile
 description: Setting up a mobile integration with token generate on server and refresh on client.
 hide_table_of_contents: false
-sidebar_position: 04
 displayed_sidebar: docs
 ---
 

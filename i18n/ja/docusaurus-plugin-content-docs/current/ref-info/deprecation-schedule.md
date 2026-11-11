@@ -2,7 +2,6 @@
 title: Deprecation schedule
 description: UID2 API およびサービスのバージョンに関する廃止スケジュール
 hide_table_of_contents: false
-sidebar_position: 06
 displayed_sidebar: docs
 ---
 
@@ -35,6 +34,7 @@ import SnptUpgradePolicy from '../snippets/_snpt-private-operator-upgrade-policy
 
 | Version Name | Version&nbsp;#/Release&nbsp;Notes | AWS Version | Date | Deprecation Date |
 | ------- | ------ | ------ | ------ | ------ |
+| H1 2026 | [v5.70.159](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.70.159-r0) | v5.70.159-r0 | June 23, 2026 | June 30, 2027 |
 | Q4 2025 | [v5.62.24](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.62.24-r2) | v5.62.24-r2 | January 15, 2026 | January 15, 2027 |
 | Q2 2025 | [v5.55.9](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.55.9-r1) | v5.55.9-r1 | July 1, 2025 | July 1, 2026 |
 | Q1 2025 | [v5.49.7](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.49.7) | 5.49.7 | Mar 19, 2025 | Mar 31, 2026 |
@@ -50,6 +50,7 @@ import SnptUpgradePolicy from '../snippets/_snpt-private-operator-upgrade-policy
 
 | Version Name | Version&nbsp;#/Release&nbsp;Notes | GCP Download | Date | Deprecation Date |
 | ------- | ------ | ------ | ------ | ------ |
+| H1 2026 | [v5.70.159](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.70.159-r0) | [gcp-oidc-deployment-files-5.70.159-r0.zip](https://github.com/IABTechLab/uid2-operator/releases/download/v5.70.159-r0/gcp-oidc-deployment-files-5.70.159-r0.zip) | June 23, 2026 | June 30, 2027 |
 | Q4 2025 | [v5.62.24](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.62.24-r2) | [gcp-oidc-deployment-files-5.62.24-r2.zip](https://github.com/IABTechLab/uid2-operator/releases/download/v5.62.24-r2/gcp-oidc-deployment-files-5.62.24-r2.zip) | January 15, 2026 | January 15, 2027 |
 | Q2 2025 | [v5.55.9](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.55.9-r1) | [gcp-oidc-deployment-files-5.55.9-r1.zip](https://github.com/IABTechLab/uid2-operator/releases/download/v5.55.9-r1/gcp-oidc-deployment-files-5.55.9-r1.zip) | July 1, 2025 | July 1, 2026 | 
 | Q1 2025 | [v5.49.7](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.49.7) | [gcp-oidc-deployment-files-5.49.7.zip](https://github.com/IABTechLab/uid2-operator/releases/download/v5.49.7/gcp-oidc-deployment-files-5.49.7.zip) | Mar 19, 2025 | Mar 31, 2026 |
@@ -65,6 +66,7 @@ import SnptUpgradePolicy from '../snippets/_snpt-private-operator-upgrade-policy
 
 | Version Name | Version&nbsp;#/Release&nbsp;Notes | Azure Download | Date | Deprecation Date |
 | ------- | ------ | ------ | ------ | ------ |
+| H1 2026 | [v5.70.159](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.70.159-r7) | [azure-cc-deployment-files-5.70.159-r7.zip](https://github.com/IABTechLab/uid2-operator/releases/download/v5.70.159-r7/azure-cc-deployment-files-5.70.159-r7.zip) | September 9, 2026 | June 30, 2027 |
 | Q4 2025 | [v5.62.24](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.62.24-r2) | [azure-cc-deployment-files-5.62.24-r2.zip](https://github.com/IABTechLab/uid2-operator/releases/download/v5.62.24-r2/azure-cc-deployment-files-5.62.24-r2.zip) | January 15, 2026 | January 15, 2027 |
 | Q2 2025 | [v5.55.9](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.55.9-r1) | [azure-cc-deployment-files-5.55.9-r1.zip](https://github.com/IABTechLab/uid2-operator/releases/download/v5.55.9-r1/azure-cc-deployment-files-5.55.9-r1.zip) | July 1, 2025 | July 1, 2026 |
 | Q1 2025 | [v5.49.7](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.49.7) | [azure-cc-deployment-files-5.49.7.zip](https://github.com/IABTechLab/uid2-operator/releases/download/v5.49.7/azure-cc-deployment-files-5.49.7.zip) | Mar 19, 2025 | Mar 31, 2026 |
@@ -85,6 +87,10 @@ The latest ZIP file is linked in the Release Notes column in the following table
 
 ## Endpoint versions
 
+:::important
+廃止日以降、これらのエンドポイントはサポートされなくなります。
+:::
+
 `POST /identity/map` エンドポイントのバージョン 2 は、バージョン 3 に置き換えられました。バージョン 3 では、[Version 3 improvements](../endpoints/post-identity-map.md#version-3-improvements)で説明されている追加の利点が含まれています。
 
 `POST /identity/map` エンドポイントのバージョン 3 では、`POST /identity/buckets` エンドポイントは完全に使用されなくなりました。
@@ -93,5 +99,20 @@ The latest ZIP file is linked in the Release Notes column in the following table
 
 Endpoint | Deprecation Date | 
 | ------- | ------ |
-| `POST /v2/identity/map` | June 30, 2026 |
-| `POST /v2/identity/buckets` | June 30, 2026 |
+| `POST /v2/identity/map` | December 31, 2026 |
+| `POST /v2/identity/buckets` | December 31, 2026 |
+
+## Snowflake function versions
+
+:::important
+廃止日以降、この関数とビューはサポートされなくなります。
+:::
+
+`FN_T_IDENTITY_MAP_V3` は `FN_T_IDENTITY_MAP` 関数に代わるもので、[Changes from previous version](../guides/integration-snowflake.md#changes-from-previous-version) で説明されている追加の利点が含まれています。`FN_T_IDENTITY_MAP_V3` では、リフレッシュ管理のために `SALT_BUCKETS` ビューを使用する必要がなくなりました。
+
+以下の表は、以前の ID マッピング関数で使用される Snowflake 関数とビューの廃止スケジュールを示しています。
+
+Function/View | Deprecation Date |
+| ------- | ------ |
+| `FN_T_IDENTITY_MAP` | December 31, 2026 |
+| `SALT_BUCKETS` | December 31, 2026 |

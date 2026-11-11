@@ -4,7 +4,6 @@ sidebar_label: Microsoft Azure
 pagination_label: Private Operator for Azure integration guide
 description: Integration information for Private Operator in Microsoft Azure.
 hide_table_of_contents: false
-sidebar_position: 18
 displayed_sidebar: docs
 ---
 
@@ -33,9 +32,9 @@ UID2 Private Operator for Azure is not supported in these areas: Europe, China.
 
 The latest ZIP file is linked in the Azure Download column in the following table.
 
-| Version Name | Version Number  | Release Notes | Azure Download |  Date | Deprecation Date |
+| Version name | Version number  | Release notes | Azure download |  Date | Deprecation date |
 | ------- | ------ | ------ | ------ | ------ | ------ |
-| Q4 2025 | v5.62.24 | [v5.62.24](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.62.24-r2) | [azure-cc-deployment-files-5.62.24-r2.zip](https://github.com/IABTechLab/uid2-operator/releases/download/v5.62.24-r2/azure-cc-deployment-files-5.62.24-r2.zip) | January 15, 2026 | January 15, 2027 |
+| H1 2026 | v5.70.159 | [v5.70.159](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.70.159-r15) | [azure-cc-deployment-files-5.70.159-r15.zip](https://github.com/IABTechLab/uid2-operator/releases/download/v5.70.159-r15/azure-cc-deployment-files-5.70.159-r15.zip) | November 5, 2026 | June 30, 2027 |
 
 :::note
 For information about supported versions and deprecation dates, see [Private Operator versions](../ref-info/deprecation-schedule.md#private-operator-versions).
@@ -326,11 +325,15 @@ To avoid passing certificates associated with your domain into the enclave, only
 
 The following table provides information about supported protocols.
 
-| Port Number | Direction | Protocol | Description |
+| Port number | Direction | Protocol | Description |
 | ----------- | --------- | -------- | ------ |
 | 80 | Inbound | HTTP | Serves all UID2 APIs, including the health check endpoint `/ops/healthcheck`.<br/>When everything is up and running, the endpoint returns HTTP 200 with a response body of `OK`. For details, see [Running the health check](#running-the-health-check). |
 | 9080 | Inbound | HTTP | Serves Prometheus metrics (`/metrics`). For details, see [Scraping metrics](#scraping-metrics). |
-| 443 | Outbound | HTTPS | Calls the UID2 Core Service and Azure Blob Storage, to download files for opt-out data and key store. |
+| 443 | Outbound | HTTPS | Calls the UID2 Core Service and AWS S3, to download files for opt-out data and key store. |
+
+:::note
+If your environment restricts outbound network traffic, you must allow outbound access to the destinations listed in [Private Operator network egress](../ref-info/operator-private-network-requirements.md).
+:::
 
 ## Upgrading
 
@@ -374,7 +377,7 @@ Error codes for Private Operator issues are applicable only to release v5.49.7 a
 
 The following errors might occur during operator startup:
 
-| Error Code | Issue | Steps to Resolve |
+| Error code | Issue | Steps to resolve |
 | :--- | :--- | :--- |
 | E02 | OperatorKeyNotFoundError | Make sure that the secret vault and secret name that store the operator key are correctly configured. Make sure they are set as `VAULT_NAME` and `OPERATOR_KEY_SECRET_NAME`. |
 | E03 | ConfigurationMissingError | Required attributes are missing in the configuration. Refer to the logs for details and update the missing attributes before running the Azure operator. |

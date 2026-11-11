@@ -2,7 +2,6 @@
 title: Documentation updates
 description: A summary of significant UID2 documentation updates.
 hide_table_of_contents: false
-sidebar_position: 06
 displayed_sidebar: docs
 ---
 
@@ -19,6 +18,26 @@ Check out the latest updates to our UID2 documentation resources.
 :::tip
 Use the Tags toolbar to view a subset of documentation updates.
 :::
+
+## Q4 2026
+
+The following documents were released in the fourth quarter of 2026.
+
+<CustomTagsContainer tags="Guides, SDKs, Prebid.js">
+
+### iOS 27 and macOS 27 web integration limitations
+
+October 9, 2026
+
+Starting with iOS 27 and macOS 27, WebKit blocks browser requests to `uidapi.com`. In any browser on iOS 27 or later, and in Safari on macOS 27 or later, the SDK for JavaScript can't load from the UID2 CDN, and tokens can't be generated or refreshed in the browser. This also affects the client-side and client-server refresh flows in Prebid.js.
+
+We've added notes about this to the web integration guides, the Prebid.js guides, and the SDK for JavaScript reference. In affected browsers, use a server-side integration to generate and refresh UID2 tokens.
+
+For details, see [Publisher integration guide, server-side](../guides/integration-publisher-server-side.md), [Client-server integration guide for Prebid.js](../guides/integration-prebid-client-server.md), and [SDK for JavaScript reference guide](../sdks/sdk-ref-javascript.md).
+
+<!-- UID2-8061 -->
+
+</CustomTagsContainer>
 
 ## Q2 2026
 
@@ -89,7 +108,7 @@ December 2, 2025
 
 We've added an integration guide for the UID2 Databricks integration.
 
-For details, see [Databricks clean rooms integration guide](../guides/integration-databricks.md).
+For details, see [Databricks Clean Rooms integration guide](../guides/integration-databricks.md).
 
 <!-- APIDOCS-2552 -->
 
@@ -806,8 +825,8 @@ We clarified the instructions for normalizing and encoding <Link href="../ref-in
 
 For details, see:
 
-- [Email address hash encoding](../getting-started/gs-normalization-encoding#email-address-hash-encoding)
-- [Phone number hash encoding](../getting-started/gs-normalization-encoding#phone-number-hash-encoding)
+- [Email address hashing and encoding](../getting-started/gs-normalization-encoding#email-address-hashing-and-encoding)
+- [Phone number hashing and encoding](../getting-started/gs-normalization-encoding#phone-number-hashing-and-encoding)
 
 </CustomTagsContainer>
 

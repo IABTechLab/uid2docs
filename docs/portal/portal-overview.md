@@ -2,7 +2,6 @@
 title: UID2 Portal overview
 description: General information about the UID2 Portal.
 hide_table_of_contents: false
-sidebar_position: 01
 displayed_sidebar: docs
 ---
 
@@ -12,7 +11,7 @@ import Link from '@docusaurus/Link';
 
 The UID2 Portal is your one-stop shop for setting up and configuring your UID2 account. In this self-serve portal, you can complete all basic setup steps for UID2 participation. Click through on the links for more information about each activity.
 
-| Activity | Documentation Link |
+| Activity | Documentation link |
 | :--- | :--- | 
 | Request an account, configure basic account information such as name and location, log in for the first time, and reset your password. | [Getting started with the UID2 Portal](portal-getting-started.md) |
 | Review your profile. | [Participant information](participant-info.md) |

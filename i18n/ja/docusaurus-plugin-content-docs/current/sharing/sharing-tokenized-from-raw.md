@@ -2,7 +2,6 @@
 title: Tokenized sharing from raw UID2s
 description: raw UID2 を暗号化して作成した UID2 Token の共有について学ぶ。
 hide_table_of_contents: false
-sidebar_position: 08
 displayed_sidebar: docs
 ---
 
@@ -26,7 +25,7 @@ raw UID2 からの Tokenized sharing は、ユースケースによっては、�
 
 UID2 Portal では、送信者と受信者はアカウントを設定し、送信者は共有権限を設定する必要があります。
 
-送信者は、受信者または参加者のタイプごとに共有許可を1回だけ設定する必要があります。ただし、新しい共有権限を追加したり、既存の共有権限を変更したりする場合は、再度設定し直す必要があります。
+送信者は、受信者または参加者のタイプごとに共有許可を 1 回だけ設定する必要があります。ただし、新しい共有権限を追加したり、既存の共有権限を変更したりする場合は、再度設定し直す必要があります。
 
 詳細は [UID2 Portal: Overview](../portal/portal-overview.md) を参照し、各タスクのリンクをたどってください。
 
@@ -88,7 +87,7 @@ raw UID2 から UID2 Token を生成して、Tokenized Sharing を行うワー�
    
    2. 送信者と受信者: 暗号鍵の更新スケジュールを定義します。
    
-      推奨される更新間隔は1時間です。例は、[Decryption key refresh cadence for sharing (SDK only)](#decryption-key-refresh-cadence-for-sharing-sdk-only) を参照してください。
+      推奨される更新間隔は 1 時間です。例は、[Decryption key refresh cadence for sharing (SDK only)](#decryption-key-refresh-cadence-for-sharing-sdk-only) を参照してください。
 
    3. 送信者: 暗号化を設定します。
 
@@ -96,9 +95,9 @@ raw UID2 から UID2 Token を生成して、Tokenized Sharing を行うワー�
 
 ### Decryption key refresh cadence for sharing (SDK only)
 
-SDK を使用している場合、共有キーの更新スケジュールを定義することもStep 2の一部です。
+SDK を使用している場合、共有キーの更新スケジュールを定義することも Step 2 の一部です。
 
-長時間/継続的に実行されるプロセスでは、1時間に1回 `uid2client.refresh()` 関数を呼び出すことを推奨します。
+長時間/継続的に実行されるプロセスでは、1 時間に 1 回 `uid2client.refresh()` 関数を呼び出すことを推奨します。
 
 詳細は *UID2 Sharing: Best Practices* の [Decryption key refresh cadence for sharing](sharing-best-practices.md#decryption-key-refresh-cadence-for-sharing) を参照してください。
 
@@ -114,7 +113,7 @@ Snowflake を使用している場合は、この手順を実行する必要は�
 | :--- | :--- |
 | 12:00 pm | 共有権限がまだ有効になっていません。<br/>データプロバイダ XYZ が `uid2client.refresh()` を呼び出します。広告主 ABC の復号鍵が返されないため、データプロバイダ XYZ は UID2 Token を復号化できません。 |
 | 12:30&nbsp;pm | 広告主 ABC が UID2 Portal にログインし、データプロバイダ XYZ との共有許可を作成します。 |
-| 1:00 pm | データプロバイダ XYZ は、1時間ごとに `uid2client.refresh()` を再度呼び出します。新しい共有許可があるため、広告主 ABC の鍵がレスポンスに返されます。<br/>データプロバイダ XYZ は、広告主 ABC から受け取った UID2 Token を復号化して raw UID2 に変換できます。 |
+| 1:00 pm | データプロバイダ XYZ は、1 時間ごとに `uid2client.refresh()` を再度呼び出します。新しい共有許可があるため、広告主 ABC の鍵がレスポンスに返されます。<br/>データプロバイダ XYZ は、広告主 ABC から受け取った UID2 Token を復号化して raw UID2 に変換できます。 |
 
 ## Implementing sharing encryption/decryption using Snowflake
 

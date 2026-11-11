@@ -3,7 +3,6 @@ title: SDK for JavaScript reference guide
 sidebar_label: SDK for JavaScript
 description: Reference information about the JavaScript client-side SDK.
 hide_table_of_contents: false
-sidebar_position: 02
 displayed_sidebar: docs
 ---
 
@@ -12,6 +11,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import SnptExampleUid2Cookie from '../snippets/_snpt-example-uid2-cookie.mdx';
 import SnptExampleJavaScriptInit from '../snippets/_snpt-example-javascript-init.mdx';
+import SnptIos27WebkitNote from '../snippets/_snpt-ios27-webkit-note.mdx';
 
 # SDK for JavaScript reference guide
 
@@ -26,6 +26,12 @@ If you're using Prebid.js with the UID2 Identity Module, or with another product
 For integration steps for publishers, refer to one of the following:
   - [Client-side integration guide for JavaScript](../guides/integration-javascript-client-side.md)
   - [Client-server integration guide for JavaScript](../guides/integration-javascript-client-server.md)
+
+:::note
+<SnptIos27WebkitNote />
+
+**Action required**: The SDK for JavaScript is no longer supported in affected browsers. Use a server-side integration to generate and refresh UID2 tokens instead. For details, see [Publisher integration guide, server-side](../guides/integration-publisher-server-side.md).
+:::
 
 ## SDK version
 
@@ -48,7 +54,7 @@ Version 4 includes the following key changes from version 3:
 
 This SDK simplifies development for publishers who want to build their own customized UID2 integration. The following table shows the functions it supports.
 
-| Encrypt Raw UID2 to UID2 Token for Sharing | Decrypt UID2 Token to Raw UID2 | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to Raw UID2s | Monitor Rotated Salt Buckets |
+| Encrypt raw UID2 to UID2 token for sharing | Decrypt UID2 token to raw UID2 | Generate UID2 token from DII | Refresh UID2 token | Map DII to raw UID2s | Monitor rotated salt buckets |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | &#8212; | &#8212; | &#9989; | &#9989; | &#8212; | &#8212; |
 
@@ -317,7 +323,7 @@ The following is an example of an `init()` call that loads a previously-provided
 
 The `opts` object supports the following properties.
 
-| Property | Data Type | Attribute | Description | Default Value |
+| Property | Data type | Attribute | Description | Default value |
 | :--- | :--- | :--- | :--- | :--- |
 | `identity` | object | Optional | The `body` property value from a successful [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) or [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) call that has been run on the server to generate an identity.<br/>To use the identity from a first-party cookie (see [UID2 storage format](#uid2-storage-format)), leave this property empty. | N/A |
 | `baseUrl` | string | Optional | The custom base URL of the UID2 operator to use when invoking the [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) endpoint.<br/>For example: `https://my.operator.com`. | `https://prod.uidapi.com`. |
@@ -502,7 +508,7 @@ Even when using local storage, the SDK checks to see if there is a newer identit
 
 If cookie storage is being used, the cookie uses the properties in the following table.
 
-| Properties | Default Value | Comments |
+| Properties | Default value | Comments |
 | :--- | :--- | :--- |
 | `Name` | `__uid_2` | N/A |
 | `Expiry` | N/A | The value is the refresh token expiration timestamp as specified in the [POST&nbsp;/token/generate](../endpoints/post-token-generate.md) or [POST&nbsp;/token/refresh](../endpoints/post-token-refresh.md) response. |

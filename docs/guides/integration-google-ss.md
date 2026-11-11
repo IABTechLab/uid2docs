@@ -4,13 +4,13 @@ sidebar_label: GAM Secure Signals
 pagination_label: Google Ad Manager Secure Signals integration
 description: Covers integration steps for publishers using UID2 with the Google Ad ManagerSecure Signals feature.
 hide_table_of_contents: false
-sidebar_position: 10
 displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';
 import SnptIntegratingWithSSO from '../snippets/_snpt-integrating-with-sso.mdx';
 import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emails-and-phone-numbers.mdx';
+import SnptUidVerifyInspect from '../snippets/_snpt-uid-verify-inspect.mdx';
 
 # Google Ad Manager Secure Signals integration guide
 
@@ -88,6 +88,10 @@ A sample implementation for Prebid.js with Secure Signals is also available. For
 ## Integrating with single sign-on (SSO)
 
 <SnptIntegratingWithSSO />
+
+## Inspecting with UID Verify Chrome extension
+
+<SnptUidVerifyInspect />
 
 ## Preparing DII for processing
 

@@ -3,7 +3,6 @@ title: DSP integration guide
 sidebar_label: DSP integration guide
 description: ビッドストリームで UID2 の取引を行う DSP のためのガイド。
 hide_table_of_contents: false
-sidebar_position: 05
 displayed_sidebar: docs
 ---
 
@@ -45,12 +44,16 @@ UID2 のオプトアウトワークフローとユーザーがどのようにオ
 
 UID2 Service からユーザーオプトアウトを受け取り、それを受け入れるために DSP が事前に設定されたインターフェース (オプトアウト Webhook/API エンドポイント) を確立し、オンボーディング中に UID2 Service に提供します。ユーザーがオプトアウトすると、UID2 Service はユーザーの raw UID2 と対応するオプトアウトタイムスタンプを事前に設定されたインターフェースに送信します。
 
-UID2 Service は、ユーザーのオプトアウトから数秒以内に次のデータを送信し、DSP は [Decrypt UID2 tokens for RTB use](#decrypt-uid2-tokens-for-rtb-use) で定義された入札ロジックを使用します。
+UID2 Service は、通常、ユーザーのオプトアウトから数分以内に以下のデータを送信し、DSP は [Decrypt UID2 tokens for RTB use](#decrypt-uid2-tokens-for-rtb-use) で定義された入札ロジックを使用します。
 
 | Parameter | Description |
 | :--- | :--- |
 | `identity` | オプトアウトしたユーザーの raw UID2。 |
-| `timestamp` | ユーザーがオプトアウトした時刻 (情報のみ)。 |
+| `timestamp` | ユーザーがオプトアウトした時刻を示す <a href="../ref-info/glossary-uid#gl-unix-time">Unix</a> タイムスタンプ (**秒** 単位) です (情報のみ)。 |
+
+:::note
+オプトアウト Webhook の `timestamp` は **秒** 単位です。これは、[POST&nbsp;/optout/status](../endpoints/post-optout-status.md) エンドポイントが返す `opted_out_since` の値が **ミリ秒** 単位の Unix タイムスタンプであるのとは異なります。
+:::
 
 DSP は、オプトアウトデータに 200 レスポンスコードでレスポンスする必要があります。
 
@@ -94,7 +97,7 @@ Server-Side SDK のいずれか ([SDKs: Summary](../sdks/summary-sdks.md) を参
 低遅延/高スループットのセットアップを行う場合は、以下の推奨事項に従ってください:
 
 - 各サーバーに `BidstreamClient` クラスのローカルインスタンスを持ちます。これはプロセス内またはプロセス外で行うことができます。プロセス内が最も簡単です。
-- クライアントの `Refresh` メソッドをバックグラウンドで定期的に呼び出します: たとえば、1時間ごとに、グローバルフリートの再起動後のピークを避けるためにいくつかのランダム化を行います。
+- クライアントの `Refresh` メソッドをバックグラウンドで定期的に呼び出します: たとえば、1 時間ごとに、グローバルフリートの再起動後のピークを避けるためにいくつかのランダム化を行います。
 - トークンを暗号化する必要がある場合は、`DecryptTokenIntoRawUid` メソッドを呼び出します。プロセス内が最速ですが、正しく行えばプロセス外でも問題ありません。
   :::note
   トークンの復号化メソッドはスレッドセーフなので、複数のスレッドで同時に呼び出すことができます。

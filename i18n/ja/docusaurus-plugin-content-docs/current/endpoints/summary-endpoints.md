@@ -2,13 +2,12 @@
 title: Endpoints - summary
 description: UID2 Service で利用可能なエンドポイントの概要。
 hide_table_of_contents: false
-sidebar_position: 01
 displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';
 
-# UID2 endpoints: Summary
+# Endpoints: Summary
 
 すべての UID2 エンドポイントでは、API リクエストの暗号化([POST&nbsp;/token/refresh](post-token-refresh.md) を除く) とレスポンスの復号化に Client Secret が必要です。詳細といくつかのプログラミング言語でのコードの例は、[Encrypting requests and decrypting responses](../getting-started/gs-encryption-decryption.md) を参照してください。
 

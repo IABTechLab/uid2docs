@@ -4,7 +4,6 @@ sidebar_label: Integration overview for Prebid
 pagination_label: Integration overview for Prebid
 description: UID2 実装の一部として Prebid とインテグレーションするためのオプションの概要。
 hide_table_of_contents: false
-sidebar_position: 04
 displayed_sidebar: sidebarPublishers
 ---
 
@@ -13,7 +12,7 @@ import SnptIntegratingWithSSO from '../snippets/_snpt-integrating-with-sso.mdx';
 import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emails-and-phone-numbers.mdx';
 import SnptStoreUID2TokenInBrowser from '../snippets/_snpt-prebid-storing-uid2-token-in-browser.mdx';
 
-# UID2 integration overview for Prebid
+# Integration overview for Prebid
 
 このガイドは、UID2 とインテグレーションし、RTB <Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link>で Prebid.js によって渡される <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 Token</Link> (Advertising Token) を生成したいパブリッシャー向けのインテグレーションオプションの概要です。
 
@@ -44,7 +43,7 @@ UID2 は <Link href="../ref-info/glossary-uid#gl-gdpr">GDPR</Link> が適用さ�
 
 ### Generating the UID2 token
 
-DII へのアクセスに応じて、Prebid.js で使用する UID2 Token を生成する方法は次の表のように2種類あります。
+DII へのアクセスに応じて、Prebid.js で使用する UID2 Token を生成する方法は次の表のように 2 種類あります。
 
 どの方法が最適かを判断し、該当するインテグレーションガイドに従ってください。
 

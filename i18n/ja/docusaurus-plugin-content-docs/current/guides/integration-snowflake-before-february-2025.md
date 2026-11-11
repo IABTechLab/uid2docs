@@ -4,7 +4,6 @@ sidebar_label: Snowflake (before Feb 2025)
 pagination_label: Snowflake integration
 description: Snowflake の UID2 Share を通じて UID2 とインテグレーションするための情報。
 hide_table_of_contents: false
-sidebar_position: 04
 displayed_sidebar: docs
 ---
 
@@ -15,10 +14,10 @@ import Link from '@docusaurus/Link';
 [Snowflake](https://www.snowflake.com/) は、クラウドデータウェアハウジングソリューションで、パートナーとしてデータを保存し、UID2 フレームワークとインテグレーションすることができます。Snowflake を使用することで、UID2 は、機密性の高い<Link href="../ref-info/glossary-uid#gl-dii">直接識別情報 (DII)</Link>を公開せずに、消費者識別子データを安全に共有できます。消費者識別子データを直接問い合わせる Operator Web Service があるにもかかわらず、Snowflake UID2 インテグレーションはよりシームレスなエクスペリエンスを提供します。
 
 :::important
-このドキュメントは、2025年2月以前に公開された広告主とデータプロバイダー向けの別々の Snowflake marketplace を使用しているユーザー向けです。2025年2月に公開された新しいインテグレーションに関するドキュメントは、[Snowflake integration guide (pre-July 2025)](integration-snowflake-previous) を参照してください。以前の実装を使用している場合は、更新と強化を活用するために新しいバージョンに移行することを勧めます。移行情報は、[Migration guide](integration-snowflake.md#migration-guide) を参照してください。
+このドキュメントは、2025 年 2 月以前に公開された広告主とデータプロバイダー向けの別々の Snowflake marketplace を使用しているユーザー向けです。2025 年 2 月に公開された新しいインテグレーションに関するドキュメントは、[Snowflake integration guide (pre-July 2025)](integration-snowflake-previous) を参照してください。以前の実装を使用している場合は、更新と強化を活用するために新しいバージョンに移行することを勧めます。移行情報は、[Migration guide](integration-snowflake.md#migration-guide) を参照してください。
 :::
 
-Snowflake の UID2 インテグレーションの実装は、広告主とデータプロバイダー向けに別々の Snowflake marketplace で提供されていました。これらのリストは、2025年2月に更新されたバージョンが公開された後に削除されました。
+Snowflake の UID2 インテグレーションの実装は、広告主とデータプロバイダー向けに別々の Snowflake marketplace で提供されていました。これらのリストは、2025 年 2 月に更新されたバージョンが公開された後に削除されました。
 
 実装したものがある場合は、このドキュメントを使用してメンテナンスすることができますが、最新バージョンにアップグレードすることを勧めます。[Snowflake integration guide](integration-snowflake.md) を参照してください。
 
@@ -34,7 +33,7 @@ Snowflake の UID2 インテグレーションの実装は、広告主とデー�
 | :--- | :--- | :--- | :--- | :--- |
 | &#9989; | &#9989; | &#8212;* | &#8212; | &#9989; |
 
-*Snowflake を使用して DII から直接 UID2 Token を生成することはできません。ただし、DII を raw UID2 に変換し、raw UID2 を UID2 Tokenに暗号化することはできます。
+*Snowflake を使用して DII から直接 UID2 Token を生成することはできません。ただし、DII を raw UID2 に変換し、raw UID2 を UID2 Token に暗号化することはできます。
 
 :::note
 <Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link>で UID2 Token を共有するパブリッシャーの場合は、[Tokenized sharing in the bidstream](../sharing/sharing-tokenized-from-data-bid-stream.md) を参照してください
@@ -53,9 +52,9 @@ Snowflake の UID2 インテグレーションの実装は、広告主とデー�
 
 ## Access the UID2 shares
 
-UID2 Shareへのアクセスは、[Snowflake Data Marketplace](https://www.snowflake.com/data-marketplace/) を通して行います。ここでは、選択した UID2 パーソナライズドリストに基づいて特定のデータセットをリクエストすることができます。
+UID2 Share へのアクセスは、[Snowflake Data Marketplace](https://www.snowflake.com/data-marketplace/) を通して行います。ここでは、選択した UID2 パーソナライズドリストに基づいて特定のデータセットをリクエストすることができます。
 
-Snowflakeデータマーケットプレイスでは、UID2 用に2つのパーソナライズされたリストが提供されています:
+Snowflake データマーケットプレイスでは、UID2 用に 2 つのパーソナライズされたリストが提供されています:
 - 広告主/ブランド向けの [Unified ID 2.0 Advertiser Identity Solution](https://app.snowflake.com/marketplace/listing/GZT0ZRYXTMV)
 - データプロバイダー向けの [Unified ID 2.0 Data Provider Identity Solution](https://app.snowflake.com/marketplace/listing/GZT0ZRYXTN0)
 
@@ -477,7 +476,7 @@ select a.*, b.LAST_SALT_UPDATE_UTC
 
 ## Migration guide
 
-`FN_T_UID2_IDENTITY_MAP_EMAIL` 関数と `FN_T_UID2_IDENTITY_MAP_EMAIL_HASH` 関数を使用している場合は、できるだけ早く `FN_T_UID2_IDENTITY_MAP` 関数に移行することを勧めます。この関数は、他の2つの関数が行うことをすべて行い、その他の改良も組み込まれています。
+`FN_T_UID2_IDENTITY_MAP_EMAIL` 関数と `FN_T_UID2_IDENTITY_MAP_EMAIL_HASH` 関数を使用している場合は、できるだけ早く `FN_T_UID2_IDENTITY_MAP` 関数に移行することを勧めます。この関数は、他の 2 つの関数が行うことをすべて行い、その他の改良も組み込まれています。
 
 `FN_T_UID2_IDENTITY_MAP` 関数の利点:
 
@@ -488,7 +487,7 @@ select a.*, b.LAST_SALT_UPDATE_UTC
 このセクションには、新機能へのアップグレードに役立つ以下の情報が含まれています:
 
 - [既存のコードの変更](#changing-existing-code) 
-- [Unmappedカラムの値を使う](#using-the-values-for-the-unmapped-column)
+- [Unmapped カラムの値を使う](#using-the-values-for-the-unmapped-column)
 
 ### Changing existing code
 
@@ -529,7 +528,7 @@ FN_T_UID2_IDENTITY_MAP(EMAIL_HASH, 'email_hash')
 
 ## Usage for UID2 sharers
 
-UID2 <Link href="../ref-info/glossary-uid#gl-sharing-participant">共有参加者</Link> とは、送信者または受信者として共有に参加し、UID2を他の参加者と共有する企業のことです。
+UID2 <Link href="../ref-info/glossary-uid#gl-sharing-participant">共有参加者</Link> とは、送信者または受信者として共有に参加し、UID2 を他の参加者と共有する企業のことです。
 
 広告主やデータプロバイダーは、Snowflake (Tokenized Sharing) を介して、UID2 を他の UID2 共有許可参加者と共有することができます。これらの参加者は、[raw UID2](../ref-info/glossary-uid#gl-raw-uid2) を <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 Token</Link> に暗号化し、それを別の参加者に送信してピクセルで共有することができます ([Tokenized sharing in pixels](../sharing/sharing-tokenized-from-data-pixel.md) を参照)。Snowflake 内でピクセル単位でデータを送信しない場合でも、[Security requirements for UID2 sharing](../sharing/sharing-security.md) に記載されている要件に従う限り、UID2 Sharing に参加することができます。
 

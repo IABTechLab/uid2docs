@@ -4,7 +4,6 @@ sidebar_label: Azure Kubernetes Service (AKS)
 pagination_label: Private Operator for AKS integration guide
 description: AKS を使用した Private Operator のインテグレーション情報
 hide_table_of_contents: false
-sidebar_position: 18
 displayed_sidebar: docs
 ---
 
@@ -14,7 +13,7 @@ import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emai
 import SnptAttestFailure from '../snippets/_snpt-private-operator-attest-failure.mdx';
 import SnptRotatingTheKeys from '../snippets/_snpt-private-operator-rotating-the-keys.mdx';
 
-# UID2 Private Operator for AKS integration guide
+# Private Operator for AKS integration guide
 
 UID2 Operator は UID2 エコシステムの API サーバーです。詳細は、[The UID2 Operator](../ref-info/ref-operators-public-private.md) を参照してください。
 
@@ -84,7 +83,7 @@ Azure コマンドラインインターフェイスをインストールしま�
 
 ### Install the kubectl CLI
 
-Kubernetesの `kubectl` コマンドラインインターフェイスをインストールします。詳細は、Kubernetes ドキュメントの [Install Tools](https://kubernetes.io/docs/tasks/tools/) を参照してください。
+Kubernetes の `kubectl` コマンドラインインターフェイスをインストールします。詳細は、Kubernetes ドキュメントの [Install Tools](https://kubernetes.io/docs/tasks/tools/) を参照してください。
 
 ### Install the Helm CLI
 
@@ -254,6 +253,10 @@ az network vnet subnet update \
     --nat-gateway ${NAT_GATEWAY_NAME}
 ```
 
+:::note
+アウトバンドのネットワークが制限されている場合は、[Private Operator network egress](../ref-info/operator-private-network-requirements.md) に記載されている宛先へのアウトバウンドアクセスを許可する必要があります。
+:::
+
 #### Get the AKS Subnet ID
 
 AKS サブネット ID を取得するには、次のコマンドを実行します:
@@ -277,7 +280,7 @@ az aks create \
     --resource-group ${RESOURCE_GROUP} \
     --name ${AKS_CLUSTER_NAME} \
     --location ${LOCATION} \
-    --kubernetes-version 1.33 \
+    --kubernetes-version 1.36 \
     --network-plugin azure \
     --network-policy calico \
     --vnet-subnet-id ${AKS_SUBNET_ID} \
@@ -294,7 +297,7 @@ az aks create \
     --os-sku Ubuntu
 ```
 :::note
-必ず最新のサポートされている Kubernetes バージョンを使用してください。`--kubernetes-version` フラグを使用します。以前のバージョンを使用する場合は、長期サポート（LTS）を有効にする必要があります。詳細は、Microsoft ドキュメントの [Long-term support for Azure Kubernetes Service (AKS) versions](https://learn.microsoft.com/en-us/azure/aks/long-term-support) を参照してください。
+必ず最新のサポートされている Kubernetes バージョンを使用してください。`--kubernetes-version` フラグを使用します。上記のバージョンはあくまで一例です。Azure は、Kubernetes の各マイナーバージョンをリリースから約 12 ヶ月後に標準サポートの対象外とし、それ以降はクラスターの作成が `K8sVersionNotSupported` で失敗します。お使いのリージョンで現在利用可能なバージョンを一覧表示するには、`az aks get-versions --location ${LOCATION}` を実行してください。標準サポートの対象外となったバージョンを使用する場合は、長期サポート（LTS）を有効にする必要があります。詳細は、Microsoft ドキュメントの [Long-term support for Azure Kubernetes Service (AKS) versions](https://learn.microsoft.com/en-us/azure/aks/long-term-support) を参照してください。
 :::
 
 #### Get the principal ID of the managed identity

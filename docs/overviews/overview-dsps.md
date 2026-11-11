@@ -2,7 +2,6 @@
 title: DSPs
 description: Information summary for demand-side platforms (DSPs).
 hide_table_of_contents: false
-sidebar_position: 06
 use_banner: true
 banner_title: UID2 overview for DSPs
 banner_description: Enable data strategies with a more durable identifier.
@@ -84,7 +83,7 @@ To get started, follow these steps:
 
 The following documentation resources are available for DSPs to implement UID2.
 
-| Type| Documentation | Content Description |
+| Type| Documentation | Content description |
 | :--- | :--- | :--- |
 | SDK for Java | [SDK for Java reference guide](../sdks/sdk-ref-java.md) | An SDK for anyone using Java server-side and who wants to decrypt UID2 advertising tokens to access the raw UID2.|
 | SDK for Python | [SDK for Python reference guide](../sdks/sdk-ref-python.md) | An SDK for anyone using Python server-side and who wants to decrypt UID2 advertising tokens to access the raw UID2.|

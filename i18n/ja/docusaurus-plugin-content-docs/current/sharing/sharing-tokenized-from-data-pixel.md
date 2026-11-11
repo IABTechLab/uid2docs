@@ -2,7 +2,6 @@
 title: Tokenized sharing in pixels
 description: ピクセルでの UID2 Token の共有について学ぶ。
 hide_table_of_contents: false
-sidebar_position: 08
 displayed_sidebar: docs
 ---
 
@@ -10,7 +9,7 @@ import Link from '@docusaurus/Link';
 
 # Tokenized sharing in pixels
 
-ピクセルで共有される UID2 データは、以下の2つの方法のいずれかで生成された UID2 Token でなければなりません:
+ピクセルで共有される UID2 データは、以下の 2 つの方法のいずれかで生成された UID2 Token でなければなりません:
 
 - [directly identifying information (DII)](../ref-info/glossary-uid.md#gl-dii)(メールアドレスまたは電話番号)を直接暗号化して UID2 Token にします。
 - raw UID2 を UID2 Token に暗号化します。
@@ -30,7 +29,7 @@ import Link from '@docusaurus/Link';
 
 ## Sharing UID2 tokens in pixels
 
-参加者によって、ピクセルの使用方法は異なります。次の表は、広告技術のエコシステムにおけるピクセルの2つの一般的な使用例を示しています。
+参加者によって、ピクセルの使用方法は異なります。次の表は、広告技術のエコシステムにおけるピクセルの 2 つの一般的な使用例を示しています。
 
 | | Tracking Pixel | Creative Pixel |
 | :--- | :--- | :--- |
@@ -39,7 +38,7 @@ import Link from '@docusaurus/Link';
 | 開始点 | ほとんどの場合 DII<br/>Raw UID2 も可能ですが、暗号化は Server-Side で行う必要があります。 | Raw UID2 |
 | ピクセルで共有されるフォーマット | UID2 Token | UID2 Token |
 
-2つのシナリオがあります:
+2 つのシナリオがあります:
 
 - [Tokenized sharing in tracking pixels](#workflow-tokenized-sharing-in-tracking-pixels)
 - [Tokenized sharing in creative pixels](#workflow-tokenized-sharing-in-creative-pixels)
@@ -48,7 +47,7 @@ import Link from '@docusaurus/Link';
 
 UID2 Portal では、送信者と受信者がアカウントを設定し、送信者が共有許可を行う必要があります。
 
-送信者は、受信者または参加者タイプごとに共有許可を1回だけ設定するだけで済みます。ただし、新しい共有許可を追加したり、既存の設定を変更したい場合は、設定を調整する必要があります。
+送信者は、受信者または参加者タイプごとに共有許可を 1 回だけ設定するだけで済みます。ただし、新しい共有許可を追加したり、既存の設定を変更したい場合は、設定を調整する必要があります。
 
 詳細は [UID2 Portal: Overview](../portal/portal-overview.md) を参照し、各タスクのリンクをたどってください。
 
@@ -74,7 +73,7 @@ UID2 送信者は、UID2 Token を復号化できる受信者を指定します�
    
    3. UID2 Token を DSP に安全に送信します。
 
-2. DSPは、受信者であり、共有に参加しています。DSPは、UID2 Portal の共有権限設定を通じて広告主の暗号鍵にアクセスできるため、UID2 Token をセグメント作成のための raw UID2 に復号化できます。
+2. DSP は、受信者であり、共有に参加しています。DSP は、UID2 Portal の共有権限設定を通じて広告主の暗号鍵にアクセスできるため、UID2 Token をセグメント作成のための raw UID2 に復号化できます。
 
 UID2 送信者と受信者の両方が、UID2 Portal アカウントを作成する必要があります(詳細は [Account setup in the UID2 Portal](#account-setup-in-the-uid2-portal) を参照)。アカウントがない場合、UID2 参加者は UID2 Portal の共有参加者リストに表示されず、送信者の暗号キーを受信して復号化することができません。
 

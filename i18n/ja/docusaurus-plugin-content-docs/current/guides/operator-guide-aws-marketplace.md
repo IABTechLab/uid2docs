@@ -4,7 +4,6 @@ sidebar_label: AWS Marketplace
 pagination_label: Private Operator for AWS integration guide
 description: AWS の Private Operator インテグレーションに関する情報。
 hide_table_of_contents: false
-sidebar_position: 17
 displayed_sidebar: docs
 ---
 
@@ -15,7 +14,7 @@ import SnptAttestFailure from '../snippets/_snpt-private-operator-attest-failure
 import SnptRotatingTheKeys from '../snippets/_snpt-private-operator-rotating-the-keys.mdx';
 import SnptRuntimeErrors from '../snippets/_snpt-private-operator-runtime-errors.mdx';
 
-# UID2 Private Operator for AWS integration guide
+# Private Operator for AWS integration guide
 
 UID2 Operator は、UID2 エコシステム内の API サーバーです。詳細は、[UID2 Operator](../ref-info/ref-operators-public-private.md) を参照してください。
 
@@ -38,7 +37,7 @@ UID2 Private Operator for AWS を契約することで、以下を利用でき�
 
 | Version Name | Version&nbsp;#/Release&nbsp;Notes | AWS Version |  Date |
 | ------- | ------ | ------ | ------ | 
-| Q4 2025 | [v5.62.24](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.62.24-r2) | v5.62.24-r2 | January 15, 2026 |
+| H1 2026 | [v5.70.159](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.70.159-r0) | v5.70.159-r0 | June 23, 2026 |
 
 :::note
 For information about supported versions and deprecation dates, see [Private Operator versions](../ref-info/deprecation-schedule.md#private-operator-versions).
@@ -126,7 +125,7 @@ AWS で 1 つまたは複数の UID2 Operator をサブスクライブしてデ�
 
 | Name | Type | Description |
 |:------|:------|:-------------|
-| `KMSKey` | `AWS::KMS::Key` | AWS Secrets Managerで秘密暗号化に使う Custom KMS key です。 |
+| `KMSKey` | `AWS::KMS::Key` | AWS Secrets Manager で秘密暗号化に使う Custom KMS key です。 |
 | `SSMKeyAlias` | `AWS::KMS::Alias` | [KMS](https://aws.amazon.com/kms/)キーに簡単にアクセスする方法を提供するエイリアスです。 |
 | `TokenSecret` | `AWS::SecretsManager::Secret` | Operator Key を保存するための Secrets Manager のシークレットです。 |
 | `WorkerRole` | `AWS::IAM::Role` | UID2 Operator が実行する IAM ロールです。このロールで AWS Secrets Manager にアクセスして Operator Key を取得できます。 |
@@ -155,6 +154,10 @@ AWS で 1 つまたは複数の UID2 Operator をサブスクライブしてデ�
 | 80 | Inbound | HTTP | Healthcheck エンドポイント `/ops/healthcheck` を含むすべての UID2 API を提供します。<br/>すべてが稼働している場合、エンドポイントは HTTP 200 を返し、レスポンスボディは `OK` となります。詳細は、[Checking UID2 Operator status](#checking-uid2-operator-status) を参照してください。 |
 | 9080 | Inbound | HTTP | Prometheus metrics サービス (`/metrics`)。 |
 | 443 | Outbound | HTTPS | UID2 Core Service、AWS S3 を呼び出し、オプトアウトデータとキーストア用のファイルをダウンロードします。 |
+
+:::note
+アウトバンドのネットワークが制限されている場合は、[Private Operator network egress](../ref-info/operator-private-network-requirements.md) に記載されている宛先へのアウトバウンドアクセスを許可する必要があります。
+:::
 
 ### VPC chart
 
@@ -230,9 +233,9 @@ UID2 Operator を AWS Marketplace にデプロイするには、以下の手順�
 
 1. AWS コンソールで EC2 ダッシュボードに移動し、`Load Balancer` を検索します。
 2. **Create Load Balancer** をクリックします。
-3. Load balancer typesページの **Application Load Balancer** セクションで、**Create** をクリックします。
+3. Load balancer types ページの **Application Load Balancer** セクションで、**Create** をクリックします。
 4. UID2 **Load balancer name** を入力します。パブリックインターネットから UID2 API にアクセスする必要があるかどうかに応じて、**Internet-facing** または **Internal** スキームを選択します。
-5. CloudFormation スタックを作成する際に使用した **VPC** を選択し、少なくとも2つのサブネットを選択します。
+5. CloudFormation スタックを作成する際に使用した **VPC** を選択し、少なくとも 2 つのサブネットを選択します。
 6. **Security groups** の下にある **Create new security group** をクリックし、以下を実行します:
     1. `UID2SGALB` を **Security group name** として入力し、関連する **Description** も入力します。
     2. **Inbound rules** の下で、**Add rule** をクリックし、要件に応じて **HTTPS** タイプと適切な **Source** を選択します。
@@ -268,7 +271,7 @@ UID2 Operator を AWS Marketplace にデプロイするには、以下の手順�
 ここでは、アップグレードについて紹介します:
 
 - 新しいバージョンの提供に関する情報は、[UID2 Operator on AWS Marketplace](https://aws.amazon.com/marketplace/pp/prodview-wdbccsarov5la) のページで提供されます。
-- UID2 Operator をアップグレードするには、新しい CloudFormation スタックを作成します。詳細は、[デプロイ](#deployment) を参照してください。
+- UID2 Operator をアップグレードするには、[AWS Marketplace](https://aws.amazon.com/marketplace/pp/prodview-wdbccsarov5la) から新しいインスタンスを起動します。詳細は、[Deployment](#deployment) を参照してください。
 
 :::tip
 スムーズな移行を行うには、まず新しいスタックを作成します。新しいスタックが起動し、サービスを提供する準備ができたら、古いスタックを削除してください。ロードバランサーを使用している場合は、まず新しいインスタンスを立ち上げて実行してから、DNS 名を以前のものから新しいものに変換してください。
@@ -294,8 +297,8 @@ UID2 system はログの生成に `syslog-ng` を使用し、ログのサイズ�
 
 #### Log rotation configuration
 Operator インスタンスがデプロイされると、デフォルトのログローテーション設定が適用されます:
-- ログは毎日ローテーションされ、30個のログエントリが保持されるため、ログ履歴はログエントリが異常に大きくない限り30日分のデータに相当します。
-- ログエントリが非常に大きい場合、ログサイズが24時間以内に30MBに達した場合、その時点でログがローテーションされます。
+- ログは毎日ローテーションされ、30 個のログエントリが保持されるため、ログ履歴はログエントリが異常に大きくない限り 30 日分のデータに相当します。
+- ログエントリが非常に大きい場合、ログサイズが 24 時間以内に 30MB に達した場合、その時点でログがローテーションされます。
 
 #### Log rotation default settings
 
@@ -364,7 +367,7 @@ logrotate のドキュメントに従って指示に従ってください: [logr
 | Action | Command |
 | :--- | :--- |
 | 何がローテーションされるかの詳細を提供します。 | `sudo logrotate -f /etc/logrotate.conf --debug` |
-| スケジュールされた間隔を変更することなく、手動で `logrotate` を1回実行します。 | `sudo logrotate -f /etc/logrotate.conf --force` |
+| スケジュールされた間隔を変更することなく、手動で `logrotate` を 1 回実行します。 | `sudo logrotate -f /etc/logrotate.conf --force` |
 | `syslog-ng` をリロードします。 | `sudo /usr/sbin/syslog-ng-ctl reload` |
 
 ## Keeping the operator key secure
@@ -388,7 +391,7 @@ Operator 起動時に以下のエラーが発生する可能性があります:
 | E01 | InstanceProfileMissingError | EC2 インスタンスに、必要な権限が付与された IAM インスタンスプロファイルをアタッチします。UID2 Operator は、AWS Secrets Manager から設定にアクセスするためにこれらの権限が必要です。 |
 | E02 | OperatorKeyNotFoundError | Private Operator が参照するシークレットが、オペレーターと同じリージョンにある AWS Secrets Manager に存在することを確認し、IAM インスタンス プロファイルがシークレットにアクセスする権限を持っていることを確認してください。必要に応じて、特定のシークレット名とリージョンに関するログを確認できます。 |
 | E03 | ConfigurationMissingError | 構成に必須の属性が不足しています。詳細はログを確認し、Secrets Manager で不足している属性を更新してください。 |
-| E04 | ConfigurationValueError | 構成値が無効です。AWS Secrets Manager内の構成値が、必要な形式と環境と一致していることを確認してください。Note： `debug_mode = true` は `integ` 環境でのみ許可されています。詳細はログを確認してください。 |
+| E04 | ConfigurationValueError | 構成値が無効です。AWS Secrets Manager 内の構成値が、必要な形式と環境と一致していることを確認してください。Note： `debug_mode = true` は `integ` 環境でのみ許可されています。詳細はログを確認してください。 |
 | E05 | OperatorKeyValidationError | Operator Key が環境に適しており、提供されたものと一致していることを確認してください。 |
 | E06 | UID2ServicesUnreachableError | UID2 Core Service および Opt-Out Service の IP アドレスをアウトバウンドファイアウォールで許可します。IP アドレスおよび DNS の詳細は、ログを参照してください。 |
 

@@ -2,7 +2,6 @@
 title: SDK for Java
 description: Java Server-Side SDK のリファレンス情報。
 hide_table_of_contents: false
-sidebar_position: 04
 displayed_sidebar: docs
 ---
 
@@ -118,7 +117,7 @@ SDK を使用する際に、復号鍵を保存したり管理したりする必�
 
 | Value | Description |
 | :--- | :--- |
-| `SUCCESS` | UID2 Token は正常に復号化され、raw UID2が返されました。 |
+| `SUCCESS` | UID2 Token は正常に復号化され、raw UID2 が返されました。 |
 | `NOT_AUTHORIZED_FOR_KEY` | 呼び出し元はこの UID2 Token を復号化する権限を持っていません。 |
 | `NOT_INITIALIZED` | クライアントライブラリは初期化待ちです。 |
 | `INVALID_PAYLOAD` | 受信した UID2 Token は有効なペイロードではありません。 |

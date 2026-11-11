@@ -2,7 +2,6 @@
 title: POST /v3/identity/map
 description: DII を raw UID2 にマップします。
 hide_table_of_contents: false
-sidebar_position: 08
 displayed_sidebar: docs
 ---
 
@@ -202,7 +201,7 @@ raw UID2 はリフレッシュタイムスタンプの前では変化しませ�
 | `success` | 200 | リクエストは成功しました。レスポンスは暗号化されます。 |
 | `client_error` | 400 | リクエストに欠落または無効なパラメーターが含まれていました。 |
 | `unauthorized` | 401  | リクエストにベアラートークンが含まれていない、無効なベアラートークンが含まれている、またはリクエストされた操作を実行する権限のないベアラートークンが含まれていました。 |
-| N/A | 429 | このエンドポイントへのリクエストが多すぎます。待ってからexponential backoffを使用して再試行してください。 |
+| N/A | 429 | このエンドポイントへのリクエストが多すぎます。待ってから exponential backoff を使用して再試行してください。 |
 
 `status` の値が `success` 以外であれば、`message` フィールドにその問題に関する追加情報が表示されます。Note: 429 のレスポンスには、JSON 形式のレスポンス本文が含まれていません。
 

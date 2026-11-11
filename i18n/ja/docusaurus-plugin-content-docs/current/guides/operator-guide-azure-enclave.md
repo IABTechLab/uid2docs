@@ -4,7 +4,6 @@ sidebar_label: Microsoft Azure
 pagination_label: Private Operator for Azure integration guide
 description: Microsoft Azure の Private Operator インテグレーション情報。
 hide_table_of_contents: false
-sidebar_position: 18
 displayed_sidebar: docs
 ---
 
@@ -15,7 +14,7 @@ import SnptAttestFailure from '../snippets/_snpt-private-operator-attest-failure
 import SnptRotatingTheKeys from '../snippets/_snpt-private-operator-rotating-the-keys.mdx';
 import SnptRuntimeErrors from '../snippets/_snpt-private-operator-runtime-errors.mdx';
 
-# UID2 Private Operator for Azure integration guide
+# Private Operator for Azure integration guide
 
 UID2 Operator は、UID2 エコシステム内の API サーバーです。詳細は、[UID2 Operator](../ref-info/ref-operators-public-private.md) を参照してください。
 
@@ -35,7 +34,7 @@ UID2 Private Operator for Azure は、次の地域ではサポートされてい
 
 | Version Name | Version Number  | Release Notes | Azure Download |  Date | Deprecation Date |
 | ------- | ------ | ------ | ------ | ------ | ------ |
-| Q4 2025 | v5.62.24 | [v5.62.24](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.62.24-r2) | [azure-cc-deployment-files-5.62.24-r2.zip](https://github.com/IABTechLab/uid2-operator/releases/download/v5.62.24-r2/azure-cc-deployment-files-5.62.24-r2.zip) | January 15, 2026 | January 15, 2027 |
+| H1 2026 | v5.70.159 | [v5.70.159](https://github.com/IABTechLab/uid2-operator/releases/tag/v5.70.159-r7) | [azure-cc-deployment-files-5.70.159-r7.zip](https://github.com/IABTechLab/uid2-operator/releases/download/v5.70.159-r7/azure-cc-deployment-files-5.70.159-r7.zip) | September 9, 2026 | June 30, 2027 |
 
 :::note
 サポートされているバージョンと非推奨日については、[Private Operator versions](../ref-info/deprecation-schedule.md#private-operator-versions) を参照してください。
@@ -331,6 +330,10 @@ Azure の Private Operator は、ポート 9080 で `/metrics` エンドポイ�
 | 80 | Inbound | HTTP | ヘルスチェックエンドポイント `/ops/healthcheck` を含むすべての UID2 API を提供します。<br/>すべてが正常に稼働している場合、エンドポイントは HTTP 200 とレスポンス本文 `OK` を返します。詳細は [Running the Health Check](#running-the-health-check) を参照してください。 |
 | 9080 | Inbound | HTTP | Prometheus メトリックを提供します (`/metrics`)。詳細は [Scraping Metrics](#scraping-metrics) を参照してください。 |
 | 443 | Outbound | HTTPS | UID2 Core Service と Azure Blob Storage への呼び出し、オプトアウトデータとキーストアのファイルをダウンロードします。 |
+
+:::note
+アウトバンドのネットワークが制限されている場合は、[Private Operator network egress](../ref-info/operator-private-network-requirements.md) に記載されている宛先へのアウトバウンドアクセスを許可する必要があります。
+:::
 
 ## Upgrading
 

@@ -4,7 +4,6 @@ sidebar_label: Client-side integration for JavaScript
 pagination_label: Client-side integration guide for JavaScript
 description: Information about using the SDK for JavaScript in your client-side integration.
 hide_table_of_contents: false
-sidebar_position: 04
 displayed_sidebar: docs
 ---
 
@@ -13,6 +12,8 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import SnptIntegratingWithSSO from '../snippets/_snpt-integrating-with-sso.mdx';
 import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emails-and-phone-numbers.mdx';
+import SnptIos27WebkitNote from '../snippets/_snpt-ios27-webkit-note.mdx';
+import SnptUidVerifyInspect from '../snippets/_snpt-uid-verify-inspect.mdx';
 
 # Client-side integration guide for JavaScript
 
@@ -44,6 +45,12 @@ To implement, you'll need to complete the following steps:
 3. [Configure the SDK for JavaScript](#configure-the-sdk-for-javascript)
 4. [Check that the token was successfully generated](#check-that-the-token-was-successfully-generated)
 
+:::note
+<SnptIos27WebkitNote />
+
+**Action required**: This client-side integration is no longer supported in affected browsers (any browser on iOS 27 or later, and Safari on macOS 27 or later). Use a server-side integration to generate and refresh UID2 tokens. For details, see [Publisher integration guide, server-side](integration-publisher-server-side.md).
+:::
+
 ## SDK for JavaScript version
 
 Support for client-side token generation is available in version 3.4.5 and above of the SDK. 
@@ -61,6 +68,10 @@ If you want to use a debug build of the SDK, use the following URL instead:
 ## Integrating with single sign-on (SSO)
 
 <SnptIntegratingWithSSO />
+
+## Inspecting with UID Verify Chrome extension
+
+<SnptUidVerifyInspect />
 
 ## Preparing DII for processing
 
@@ -173,7 +184,7 @@ To configure the SDK, call one of the following methods, with an object containi
 *  `__uid2.setIdentityFromPhoneHash`
 
 :::important
-For `__uid2.setIdentityFromEmailHash` or `__uid2.setIdentityFromPhoneHash`, the `emailHash` or `PhoneHash` argument must be the Base64-encoded value. For details, see [Email address hash encoding](../getting-started/gs-normalization-encoding.md#email-address-hash-encoding) and [Phone number hash encoding](../getting-started/gs-normalization-encoding.md#phone-number-hash-encoding).
+For `__uid2.setIdentityFromEmailHash` or `__uid2.setIdentityFromPhoneHash`, the `emailHash` or `PhoneHash` argument must be the Base64-encoded value. For details, see [Email address hashing and encoding](../getting-started/gs-normalization-encoding.md#email-address-hashing-and-encoding) and [Phone number hashing and encoding](../getting-started/gs-normalization-encoding.md#phone-number-hashing-and-encoding).
 :::
 
 The following sections include coding examples for each scenario.

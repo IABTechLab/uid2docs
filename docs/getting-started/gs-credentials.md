@@ -2,7 +2,6 @@
 title: UID2 credentials
 description: Learn about the credentials you'll need and how to get them.
 hide_table_of_contents: false
-sidebar_position: 03
 displayed_sidebar: docs
 ---
 
@@ -34,8 +33,8 @@ The following table shows how you get your credentials, for each [integration ap
   <thead>
     <tr>
       <th>Environment</th>
-      <th>Integration Type</th>
-      <th>Getting Credentials</th>
+      <th>Integration type</th>
+      <th>Getting credentials</th>
     </tr>
   </thead>
   <tbody>

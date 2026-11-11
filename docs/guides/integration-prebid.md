@@ -4,7 +4,6 @@ sidebar_label: Integration overview for Prebid
 pagination_label: Integration overview for Prebid
 description: Overview of options for integrating with Prebid as part of your UID2 implementation.
 hide_table_of_contents: false
-sidebar_position: 04
 displayed_sidebar: sidebarPublishers
 ---
 
@@ -48,7 +47,7 @@ Depending on access to DII, there are two methods to generate UID2 tokens for us
 
 Determine which method is best for you, and then follow the applicable integration guide.
 
-| Scenario | Integration Guide |
+| Scenario | Integration guide |
 | :--- | :--- |
 | You have access to DII on the client side and want to do front-end development only | [Client-side integration guide for Prebid.js](integration-prebid-client-side.md) |
 | You have access to DII on the server side and can do server-side development | [Client-server integration guide for Prebid.js](integration-prebid-client-server.md) |

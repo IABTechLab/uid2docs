@@ -2,7 +2,6 @@
 title: Documentation updates
 description: UID2 ドキュメントの重要な更新の概要。
 hide_table_of_contents: false
-sidebar_position: 06
 displayed_sidebar: docs
 ---
 
@@ -89,7 +88,7 @@ December 2, 2025
 
 UID2 Databricks Clean Rooms インテグレーションガイドを追加しました。
 
-詳細は、[Databricks clean rooms integration guide](../guides/integration-databricks.md) を参照してください。
+詳細は、[Databricks Clean Rooms integration guide](../guides/integration-databricks.md) を参照してください。
 
 <!-- APIDOCS-2552 -->
 
@@ -270,7 +269,7 @@ We've removed the legacy v1 to v2 upgrade doc, which is no longer needed. -->
 
 ## Q4 2024
 
-以下のドキュメントは2024年第4四半期にリリースされました。
+以下のドキュメントは 2024 年第 4 四半期にリリースされました。
 
 <CustomTagsContainer tags="Infrastructure">
 
@@ -316,7 +315,7 @@ LiveRamp の Authenticated Traffic Solution (ATS) を使用して UID2 Token を
 
 ## Q3 2024
 
-以下のドキュメントは2024年第3四半期にリリースされました。
+以下のドキュメントは 2024 年第 3 四半期にリリースされました。
 
 <CustomTagsContainer tags="Reference">
 
@@ -415,7 +414,7 @@ July 2, 2024
 
 ## Q2 2024
 
-以下のドキュメントは2024年第2四半期にリリースされました。
+以下のドキュメントは 2024 年第 2 四半期にリリースされました。
 
 <CustomTagsContainer tags="CTV, Guides">
 
@@ -509,7 +508,7 @@ April 22, 2024
 
 ## Q1 2024
 
-以下のドキュメントは2024年第1四半期にリリースされました。
+以下のドキュメントは 2024 年第 1 四半期にリリースされました。
 
 <CustomTagsContainer tags="Reference">
 
@@ -533,7 +532,7 @@ February 28, 2024
 
 Java SDK は、[POST&nbsp;/identity/map (v2)](../endpoints/post-identity-map-v2.md) エンドポイントの使用を希望する広告主およびデータプロバイダーをサポートするようになりました。
 
-詳細は、*SDK for Javaリファレンスガイド*: [Usage for advertisers and data providers](../sdks/sdk-ref-java.md#usage-for-advertisersdata-providers) の更新されたドキュメントを参照してください。
+詳細は、*SDK for Java リファレンスガイド*: [Usage for advertisers and data providers](../sdks/sdk-ref-java.md#usage-for-advertisersdata-providers) の更新されたドキュメントを参照してください。
 
 <!-- UID2-2759 -->
 
@@ -551,7 +550,7 @@ UID2 home page の "ドキュメント" リンクをクリックするだけで�
 
 多くのドキュメントは複数の対象者に適用可能であり、ドキュメント間には多くの相互リンクがあるため、サイト内を移動するにつれてサイドバーの表示が変わる可能性があることに注意してください。上部のリンクをクリックすると、いつでも特定のビューに戻ることができます。これらのリンクはすべてのページに表示されます。
 
-カスタムサイドバーを表示するには、[https://unifiedid.com](https://unifiedid.com/) にアクセスし、上部にあるオーディエンスのリンクの1つをクリックしてください: [Publishers](../overviews/overview-publishers.md)。[Advertisers](../overviews/overview-advertisers.md)、[DSPs](../overviews/overview-dsps.md)、[Data providers](../overviews/overview-data-providers.md)。
+カスタムサイドバーを表示するには、[https://unifiedid.com](https://unifiedid.com/) にアクセスし、上部にあるオーディエンスのリンクの 1 つをクリックしてください: [Publishers](../overviews/overview-publishers.md)。[Advertisers](../overviews/overview-advertisers.md)、[DSPs](../overviews/overview-dsps.md)、[Data providers](../overviews/overview-data-providers.md)。
 
 <!-- APIDOCS-1681 -->
 
@@ -633,7 +632,7 @@ UID2 Operator が何をするのか、Public Operator と Private Operator の�
 
 ## Q4 2023
 
-以下のドキュメントは2023年第4四半期にリリースされました。
+以下のドキュメントは 2023 年第 4 四半期にリリースされました。
 
 <CustomTagsContainer tags="Guides, Prebid.js">
 
@@ -695,7 +694,7 @@ UID2 ウェブサイトの Getting Started セクションに新しい記事が�
 
 November 21, 2023
 
-以前の **API Keys** ページを新しいページに置き換えました。このページには、Server-Sideの実装戦略に従った場合の認証情報についての情報が含まれています。
+以前の **API Keys** ページを新しいページに置き換えました。このページには、Server-Side の実装戦略に従った場合の認証情報についての情報が含まれています。
 
 詳細は [UID2 credentials](../getting-started/gs-credentials.md) を参照してください。
 
@@ -707,14 +706,14 @@ November 21, 2023
 
 November 21, 2023
 
-Client-side integration guide for JavaScript は、既存の URL の全く新しいドキュメントで、Client-Sideパブリッシャー実装のために SDK for JavaScript を使用する、よりシンプルな新しい方法を網羅しています。
+Client-side integration guide for JavaScript は、既存の URL の全く新しいドキュメントで、Client-Side パブリッシャー実装のために SDK for JavaScript を使用する、よりシンプルな新しい方法を網羅しています。
 
 詳細は [Client-side integration guide for JavaScript](../guides/integration-javascript-client-side.md) を参照してください。
 
 以前の *SDK for JavaScript integration guide* にあった内容は、JavaScript SDK を Server-Side に実装したいパブリッシャーのための補足文書になりました: [JavaScript standard integration guide](../guides/integration-javascript-client-server.md).
 
 :::note
-このドキュメントは2024年1月に [Client-side integration guide for JavaScript](../guides/integration-javascript-client-side.md) に更新され、*JavaScript standard integration guide* は[Client-server integration guide for JavaScript](../guides/integration-javascript-client-server.md) になりました。
+このドキュメントは 2024 年 1 月に [Client-side integration guide for JavaScript](../guides/integration-javascript-client-side.md) に更新され、*JavaScript standard integration guide* は[Client-server integration guide for JavaScript](../guides/integration-javascript-client-server.md) になりました。
 :::
 
 </CustomTagsContainer>
@@ -780,7 +779,7 @@ SDK for JavaScript Version 3 の機能強化に伴い、ドキュメントが大
 
 ## Q3 2023
 
-以下のドキュメントは2023年第3四半期にリリースされました。
+以下のドキュメントは 2023 年第 3 四半期にリリースされました。
 
 <CustomTagsContainer tags="Guides, Private Operator">
 
@@ -788,7 +787,7 @@ SDK for JavaScript Version 3 の機能強化に伴い、ドキュメントが大
 
 September 30, 2023
 
-この新しいガイドでは、Google Cloud Platformの Confidential Computing オプションである [Confidential Space](https://cloud.google.com/confidential-computing#confidential-space) でUID2 Operator Service を設定するための情報を提供します。
+この新しいガイドでは、Google Cloud Platform の Confidential Computing オプションである [Confidential Space](https://cloud.google.com/confidential-computing#confidential-space) で UID2 Operator Service を設定するための情報を提供します。
 
 詳細は [Private Operator for GCP integration guide](../guides/operator-private-gcp-confidential-space.md) を参照してください。
 
@@ -892,7 +891,7 @@ August 3, 2023
 新しい UID2 Sharing 機能の使用をサポートするため、以下の新規および更新ドキュメントを公開しました:
 
 - 概要、使用例、実装手順、ベストプラクティスなど、UID2 Sharing に関連する情報を提供する一連の新しいページ。[UID2 sharing: Overview](../sharing/sharing-overview.md) を参照してください。
-- UID2 Sharing をサポートするために4つの Server-side SDK を更新しました:
+- UID2 Sharing をサポートするために 4 つの Server-side SDK を更新しました:
 
   - [SDK for C# / .NET: Usage for UID2 sharers](../sdks/sdk-ref-csharp-dotnet.md#usage-for-uid2-sharers)
   - [SDK for C++: Usage for UID2 sharers](../sdks/sdk-ref-cplusplus.md#usage-for-uid2-sharers)

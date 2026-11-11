@@ -4,7 +4,6 @@ sidebar_label: Snowflake (previous version)
 pagination_label: Snowflake integration
 description: UID2 Share in Snowflake (旧バージョン) による UID2 とのインテグレーションに関する情報。
 hide_table_of_contents: false
-sidebar_position: 04
 displayed_sidebar: docs
 ---
 
@@ -15,7 +14,7 @@ import Link from '@docusaurus/Link';
 [Snowflake](https://www.snowflake.com/) は、パートナーとしてデータを保存し、UID2 フレームワークとインテグレーションできるクラウドデータウェアハウジングソリューションです。Snowflake を使用することで、UID2 では機密性の高い<Link href="../ref-info/glossary-uid#gl-dii">直接識別情報 (DII)</Link>を公開せずに、消費者識別子データを安全に共有できます。消費者識別子データについて Operator Web Service に直接クエリを実行するオプションもありますが、Snowflake の UID2 インテグレーションはより円滑な体験を提供します。
 
 :::important
-このドキュメントは、2025年2月以前に公開された広告主とデータプロバイダー向けの別々の Snowflake marketplace を使用しているユーザー向けです。2025年2月に公開された新しいインテグレーションに関するドキュメントは、[Snowflake integration guide](integration-snowflake.md) を参照してください。以前の実装を使用している場合は、更新と強化を活用するために新しいバージョンに移行することを推奨します。移行情報は、[Migration guide](integration-snowflake.md#migration-guide) を参照してください。
+このドキュメントは、2025 年 2 月以前に公開された広告主とデータプロバイダー向けの別々の Snowflake marketplace を使用しているユーザー向けです。2025 年 2 月に公開された新しいインテグレーションに関するドキュメントは、[Snowflake integration guide](integration-snowflake.md) を参照してください。以前の実装を使用している場合は、更新と強化を活用するために新しいバージョンに移行することを推奨します。移行情報は、[Migration guide](integration-snowflake.md#migration-guide) を参照してください。
 :::
 
 ## Snowflake marketplace listing
@@ -43,7 +42,7 @@ import Link from '@docusaurus/Link';
 
 ## Changes from previous version
 
-2025年2月の UID2 Snowflake マーケットプレイスインテグレーションの更新には、いくつかの更新と機能強化が含まれています。主な変更点の一つは、以前の 2 つのデータ共有（広告主向けとデータプロバイダー向け）の機能を組み合わせた単一のリスティングとデータ共有が含まれることです。これにより、すべての参加者のインテグレーションが簡素化されます。
+2025 年 2 月の UID2 Snowflake マーケットプレイスインテグレーションの更新には、いくつかの更新と機能強化が含まれています。主な変更点の一つは、以前の 2 つのデータ共有（広告主向けとデータプロバイダー向け）の機能を組み合わせた単一のリスティングとデータ共有が含まれることです。これにより、すべての参加者のインテグレーションが簡素化されます。
 
 :::note
 これらの変更は、2025 年 2 月以前に公開された Snowflake 関数のバージョンを使用しているコードインテグレーションを想定しています（[Snowflake integration guide (version prior to February 2025)](integration-snowflake-before-february-2025.md) を参照）。`FN_T_UID2_IDENTITY_MAP_EMAIL` と `FN_T_UID2_IDENTITY_MAP_EMAIL_HASH` 関数を使用するさらに古いバージョンを使用している場合は、[Migration guide section in the earlier guide](integration-snowflake-before-february-2025.md#migration-guide) の指示に従い、その後再度現在のバージョンにアップグレードすることもできます。ただし、このシナリオでは、このガイドの指示に従い、一度に更新することを勧めます。詳細は、[Migration guide](#migration-guide) を参照してください。
@@ -165,10 +164,10 @@ DII が電話番号の場合、UID2 の[Phone number normalization](../getting-s
 
 | Value | Meaning |
 | :-- | :-- |
-| `NULL` | DIIが正常にマッピングされました。 |
+| `NULL` | DII が正常にマッピングされました。 |
 | `OPTOUT` | ユーザーがオプトアウトしています。 |
 | `INVALID IDENTIFIER` | メールアドレスまたは電話番号が無効です。 |
-| `INVALID INPUT TYPE` | `INPUT_TYPE` の値が無効です。INPUT_TYPEの有効な値は：`email`、`email_hash`、`phone`、`phone_hash` です。 |
+| `INVALID INPUT TYPE` | `INPUT_TYPE` の値が無効です。INPUT_TYPE の有効な値は：`email`、`email_hash`、`phone`、`phone_hash` です。 |
 
 #### Examples
 
@@ -234,7 +233,7 @@ select a.ID, a.EMAIL, m.UID, m.BUCKET_ID, m.UNMAPPED from AUDIENCE a LEFT JOIN(
 
 以下のクエリは、[Default database and schema names](#database-and-schema-names)を使用して、電話番号をマッピングする方法を示しています。
 
-UID2の[Phone number normalization](../getting-started/gs-normalization-encoding.md#phone-number-normalization)ルールを使用して電話番号を正規化する必要があります。
+UID2 の[Phone number normalization](../getting-started/gs-normalization-encoding.md#phone-number-normalization)ルールを使用して電話番号を正規化する必要があります。
 
 ```sql
 select UID, BUCKET_ID, UNMAPPED from table(UID2_PROD_UID_SH.UID.FN_T_IDENTITY_MAP('+12345678901', 'phone'));
@@ -254,7 +253,7 @@ select UID, BUCKET_ID, UNMAPPED from table(UID2_PROD_UID_SH.UID.FN_T_IDENTITY_MA
 
 以下のクエリは、[Default database and schema names](#database-and-schema-names)を使用して、複数の電話番号をマッピングする方法を示しています。
 
-UID2の[Phone number normalization](../getting-started/gs-normalization-encoding.md#phone-number-normalization)ルールを使用して電話番号を正規化する必要があります。
+UID2 の[Phone number normalization](../getting-started/gs-normalization-encoding.md#phone-number-normalization)ルールを使用して電話番号を正規化する必要があります。
 
 ```sql
 select a.ID, a.PHONE, m.UID, m.BUCKET_ID, m.UNMAPPED from AUDIENCE a LEFT JOIN(
@@ -376,7 +375,7 @@ select a.ID, a.PHONE_HASH, m.UID, m.BUCKET_ID, m.UNMAPPED from AUDIENCE a LEFT J
 
 #### Targeted input table
 
-この例のシナリオでは、広告主/データプロバイダーは `AUDIENCE_WITH_UID2` という名前のテーブルに UID2 を保存しています。最後のカラム `LAST_UID2_UPDATE_UTC` は、UID2 が生成された時間を記録するために使用されます。UID2 が生成されていない場合、値は3番目の例に示すように `NULL` です。広告主/データプロバイダーはこのタイムスタンプ値を使用して、どの UID2 を再生成する必要があるかを判断できます。
+この例のシナリオでは、広告主/データプロバイダーは `AUDIENCE_WITH_UID2` という名前のテーブルに UID2 を保存しています。最後のカラム `LAST_UID2_UPDATE_UTC` は、UID2 が生成された時間を記録するために使用されます。UID2 が生成されていない場合、値は 3 番目の例に示すように `NULL` です。広告主/データプロバイダーはこのタイムスタンプ値を使用して、どの UID2 を再生成する必要があるかを判断できます。
 
 ```sql
 select * from AUDIENCE_WITH_UID2;
@@ -423,7 +422,7 @@ UID2 の<Link href="../ref-info/glossary-uid#gl-sharing-participant">共有参�
 このプロセスで生成される UID2 Token は共有専用であり、ビッドストリームでは使用できません。ビッドストリーム用のトークンを生成するための別のワークフローがあります：[Tokenized sharing in the bidstream](../sharing/sharing-tokenized-from-data-bid-stream.md)を参照してください。
 :::
 
-Snowflake内のピクセルやビッドストリームでデータを送信していない場合でも、[Security requirements for UID2 sharing](../sharing/sharing-security.md)に記載されている要件に従えば、Raw UID2共有にも参加できます。
+Snowflake 内のピクセルやビッドストリームでデータを送信していない場合でも、[Security requirements for UID2 sharing](../sharing/sharing-security.md)に記載されている要件に従えば、Raw UID2 共有にも参加できます。
 
 以下のアクティビティはトークン化共有をサポートしています：
 
@@ -443,7 +442,7 @@ Raw UID2 を UID2 Token に暗号化するには、`FN_T_ENCRYPT` 関数を使�
 | Column Name | Data Type | Description |
 | :--- | :--- | :--- |
 | `UID_TOKEN` | TEXT | 値は以下のいずれかです：<ul><li>暗号化成功：Raw UID2 を含む UID2 Token。</li><li>暗号化失敗：`NULL`。</li></ul> |
-| `ENCRYPTION_STATUS` | TEXT | 値は以下のいずれかです：<ul><li>暗号化成功：`NULL`。</li><li>暗号化失敗：Raw UID2が暗号化されなかった理由。例：`INVALID_RAW_UID2` や `INVALID NOT_AUTHORIZED_FOR_MASTER_KEY`。<br/>詳細は、[Values for the ENCRYPTION_STATUS column](#values-for-the-encryption_status-column)を参照してください。</li></ul> |
+| `ENCRYPTION_STATUS` | TEXT | 値は以下のいずれかです：<ul><li>暗号化成功：`NULL`。</li><li>暗号化失敗：Raw UID2 が暗号化されなかった理由。例：`INVALID_RAW_UID2` や `INVALID NOT_AUTHORIZED_FOR_MASTER_KEY`。<br/>詳細は、[Values for the ENCRYPTION_STATUS column](#values-for-the-encryption_status-column)を参照してください。</li></ul> |
 
 #### Values for the ENCRYPTION_STATUS column
 
@@ -515,7 +514,7 @@ UID2 Token を Raw UID2 に復号化するには、`FN_T_DECRYPT` 関数を使�
 | `DECRYPTION_STATUS` | TEXT | 値は以下のいずれかです：<ul><li>復号化成功：`NULL`。</li><li>復号化失敗：UID2 Token が復号化されなかった理由。例：`EXPIRED_TOKEN`。<br/>詳細は、[Values for the DECRYPTION_STATUS column](#values-for-the-decryption_status-column)を参照してください。</li></ul> |
 
 :::note
-UID2 Tokenが正常に復号化できない状況のほとんどの場合、関数は行を一切返しません。
+UID2 Token が正常に復号化できない状況のほとんどの場合、関数は行を一切返しません。
 :::
 
 #### Values for the DECRYPTION_STATUS column
@@ -574,7 +573,7 @@ select a.ID, b.UID, b.SITE_ID, CASE WHEN b.UID IS NULL THEN 'DECRYPT_FAILED' ELS
 
 ### UID2 sharing example
 
-以下の指示は、Snowflakeを使用する送信者と受信者の両方について、共有がどのように機能するかの例を提供します。この例のシナリオでは、広告主（送信者）は Raw UID2 を持つオーディエンステーブル（`AUDIENCE_WITH_UID2S`）を持っており、[Snowflake Secure Data Sharing](https://docs.snowflake.com/en/user-guide/data-sharing-intro)機能を使用してデータプロバイダー（受信者）にテーブル内のデータを利用可能にしたいと考えています。
+以下の指示は、Snowflake を使用する送信者と受信者の両方について、共有がどのように機能するかの例を提供します。この例のシナリオでは、広告主（送信者）は Raw UID2 を持つオーディエンステーブル（`AUDIENCE_WITH_UID2S`）を持っており、[Snowflake Secure Data Sharing](https://docs.snowflake.com/en/user-guide/data-sharing-intro)機能を使用してデータプロバイダー（受信者）にテーブル内のデータを利用可能にしたいと考えています。
 
 
 #### Sender instructions

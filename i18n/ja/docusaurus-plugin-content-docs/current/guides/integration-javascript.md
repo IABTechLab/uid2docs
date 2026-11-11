@@ -4,7 +4,6 @@ sidebar_label: Integration overview for JavaScript
 pagination_label: Integration overview for JavaScript
 description: UID2 実装の一部として SDK for JavaScript とインテグレーションするためのオプションの概要。
 hide_table_of_contents: false
-sidebar_position: 04
 displayed_sidebar: docs
 ---
 
@@ -12,7 +11,7 @@ import Link from '@docusaurus/Link';
 import SnptIntegratingWithSSO from '../snippets/_snpt-integrating-with-sso.mdx';
 import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emails-and-phone-numbers.mdx';
 
-# UID2 integration overview for JavaScript
+# Integration overview for JavaScript
 
 このガイドは、UID2 とインテグレーションし、SDK for JavaScript を使って<Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 Token</Link> (Advertising Token) を生成したいパブリッシャー向けのインテグレーションオプションの概要です。
 
@@ -55,7 +54,7 @@ UID2 Portal で行う手順は、実装が Client-Side、Client-Server、また�
 
 ## Generating the UID2 token
 
-<Link href="../ref-info/glossary-uid#gl-dii">DII</Link> へのアクセスに応じて、SDK for JavaScript を使用して UID2 Token を生成するには、Client-Side または Server-Side の2つの方法があります。
+<Link href="../ref-info/glossary-uid#gl-dii">DII</Link> へのアクセスに応じて、SDK for JavaScript を使用して UID2 Token を生成するには、Client-Side または Server-Side の 2 つの方法があります。
 
 [Client-side or client-server integration](#client-side-or-client-server-integration) の表から、どちらのオプションが最適かを判断し、該当するインテグレーションガイドに従ってください。
 
@@ -74,15 +73,15 @@ Client-Side のオプションでは、ローカルストレージを使用し�
 
 JavaScript SDK は、UID2 Token の生成、更新、保存を管理しますが、トークンをビッドストリームに渡すことは管理しません。
 
-トークンは、Prebid.jsなどのオプションを使用して<Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link>に渡すことができます。いくつかの提案は、*Publisher Web インテグレーション概要*の [Pass the UID2 token into the bidstream](integration-options-publisher-web.md#pass-the-uid2-token-into-the-bidstream) を参照してください。
+トークンは、Prebid.js などのオプションを使用して<Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link>に渡すことができます。いくつかの提案は、*Publisher Web インテグレーション概要*の [Pass the UID2 token into the bidstream](integration-options-publisher-web.md#pass-the-uid2-token-into-the-bidstream) を参照してください。
 
 ## JavaScript integration overview: High-level steps
 
 SDK for JavaScript を使って UID2 とインテグレーションするには、以下のステップを完了する必要があります:
 
-1. UID2アカウントのセットアップを完了します。
-1. SDKをサイトに追加します。
-1. SDKを設定します。
+1. UID2 アカウントのセットアップを完了します。
+1. SDK をサイトに追加します。
+1. SDK を設定します。
 
 詳細な手順は、以下のインテグレーションガイドのいずれかを参照してください:
 

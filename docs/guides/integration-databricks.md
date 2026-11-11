@@ -4,14 +4,13 @@ sidebar_label: Databricks
 pagination_label: Databricks integration
 description: Information about integrating with UID2 through Databricks. 
 hide_table_of_contents: false
-sidebar_position: 04
 displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';
 import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emails-and-phone-numbers.mdx';
 
-# Databricks clean rooms integration guide
+# Databricks Clean Rooms integration guide
 
 This guide is for advertisers and data providers who want to convert their user data to raw UID2s in a Databricks environment.
 
@@ -31,7 +30,7 @@ When you've set up the Databricks Clean Rooms environment, you establish a trust
 
 The following table summarizes the functionality available with the UID2 Databricks integration.
 
-| Encrypt Raw UID2 to UID2 Token for Sharing | Decrypt UID2 Token to Raw UID2 | Generate UID2 Token from DII | Refresh UID2 Token | Map DII to Raw UID2s |
+| Encrypt raw UID2 to UID2 token for sharing | Decrypt UID2 token to raw UID2 | Generate UID2 token from DII | Refresh UID2 token | Map DII to raw UID2s |
 | :--- | :--- | :--- | :--- | :--- |
 | &#8212; | &#8212; | &#8212; | &#8212; | &#9989; |
 
@@ -51,22 +50,24 @@ Here are some key benefits of integrating with Databricks for your UID2 processi
 
 ## Integration steps
 
-At a high level, the following are the steps to set up your Databricks integration and process your data:
+To set up the Databricks integration and process your data, follow these steps:
 
 1. [Create a clean room for UID2 collaboration](#create-clean-room-for-uid2-collaboration).
 1. [Send your Databricks sharing identifier to your UID2 contact](#send-sharing-identifier-to-uid2-contact).
 1. [Add data to the clean room](#add-data-to-the-clean-room).
 1. [Map DII](#map-dii) by running the clean room notebook.
 
-### Create clean room for UID2 collaboration
+### Create a clean room for UID2 collaboration
 
-As a starting point, create a Databricks Clean Rooms environment&#8212;a secure environment for you to collaborate with UID2 to process your data.
+Create a clean room in Databricks Clean Rooms. A clean room is a secure environment where you collaborate with UID2 to process your data.
 
 Follow the steps in [Create clean rooms](https://docs.databricks.com/aws/en/clean-rooms/create-clean-room) in the Databricks documentation. Use the correct sharing identifier based on the [UID2 environment](../getting-started/gs-environments) you want to connect to: see [UID2 sharing identifiers](#uid2-sharing-identifiers).
 
 :::important
-After you've created a clean room, you cannot change its collaborators. If you have the option to set clean room collaborator aliases&#8212;for example, if you’re using the Databricks Python SDK to create the clean room&#8212;your collaborator alias must be `creator` and the UID2 collaborator alias must be `collaborator`. If you’re creating the clean room using the Databricks web UI, the correct collaborator aliases are set for you.
+Create the clean room from a Databricks workspace that has no compliance security profile (CSP). A clean room created from a workspace with a CSP might not work with this integration.
 :::
+
+You can't change a clean room's collaborators after you create it. The clean room must use the alias `creator` for your collaborator and the alias `collaborator` for the UID2 collaborator. These are the default values. If the method you use to create the clean room lets you set aliases, make sure you set them to these values.
 
 ### Send sharing identifier to UID2 contact
 
@@ -109,7 +110,7 @@ The notebook has two parameters, `input_schema` and `input_table`. Together, the
 
 For example, to map DII in the clean room table named `creator.default.emails`, set `input_schema` to `default` and `input_table` to `emails`.
 
-| Parameter Name | Description |
+| Parameter name | Description |
 | :--- | :--- |
 | `input_schema` | The schema containing the table or view. |
 | `input_table` | The name you specify for the table or view containing the DII to be mapped. |
@@ -118,7 +119,7 @@ For example, to map DII in the clean room table named `creator.default.emails`, 
 
 The input table or view must have the two columns shown in the following table. The table or view can have additional columns, but the notebook doesn't use any additional columns, only these two.
 
-| Column Name | Data Type | Description |
+| Column name | Data type | Description |
 | :--- | :--- | :--- |
 | `INPUT` | string | The DII to map. |
 | `INPUT_TYPE` | string | The type of DII to map. Allowed values: `email`, `email_hash`, `phone`, and `phone_hash`. |
@@ -140,8 +141,10 @@ For details, see [Overview of output tables](https://docs.databricks.com/aws/en/
 
 The following table provides information about the structure of the output data, including field names and values.
 
-| Column Name | Data Type | Description |
+| Column name | Data type | Description |
 | :--- | :--- | :--- |
+| `INPUT` | string | The original DII, copied from the `INPUT` column of the input table or view. |
+| `INPUT_TYPE` | string | The type of DII, copied from the `INPUT_TYPE` column of the input table or view. |
 | `UID` | string | The value is one of the following:<ul><li>**DII was successfully mapped**: The UID2 associated with the DII.</li><li>**Otherwise**: `NULL`.</li></ul> |
 | `PREV_UID` | string | The value is one of the following:<ul><li>**DII was successfully mapped and the current raw UID2 was rotated in the last 90 days**: the previous raw UID2.</li><li>**Otherwise**: `NULL`.</li></ul> |
 | `REFRESH_FROM` | timestamp | The value is one of the following:<ul><li>**DII was successfully mapped**: The timestamp indicating when this UID2 should be refreshed.</li><li>**Otherwise**: `NULL`.</li></ul> |
@@ -187,7 +190,7 @@ This section includes the following reference information:
 
 UID2 sharing identifiers can change. Before creating a new clean room, check this section to make sure you have the latest sharing identifier.
 
-| Environment | UID2 Sharing Identifier |
+| Environment | UID2 sharing identifier |
 | :--- | :--- |
 | Production | `aws:us-east-2:21149de7-a9e9-4463-b4e0-066f4b033e5d:673872910525611:010d98a6-8cf2-4011-8bf7-ca45940bc329` |
 | Integration | `aws:us-east-2:4651b4ea-b29c-42ec-aecb-2377de70bbd4:2366823546528067:c15e03bf-a348-4189-92e5-68b9a7fb4018` |

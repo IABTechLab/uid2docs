@@ -2,7 +2,6 @@
 title: Tokenized sharing in pixels
 description: Learn about sharing UID2 tokens in pixels.
 hide_table_of_contents: false
-sidebar_position: 08
 displayed_sidebar: docs
 ---
 
@@ -32,7 +31,7 @@ Tokenized sharing in pixels is applicable to the following audiences:
 
 Different participants might use pixels in different ways. The following table shows two common use cases for pixels in the advertising technology ecosystem.
 
-| | Tracking Pixel | Creative Pixel |
+| | Tracking pixel | Creative pixel |
 | :--- | :--- | :--- |
 | What it measures | Conversion/retargeting (user does something) | Impression (user sees an ad) |
 | Where | Advertiser or publisher site | Publisher site via DSP |

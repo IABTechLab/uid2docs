@@ -4,7 +4,6 @@ sidebar_label: Client-server integration for Prebid.js
 pagination_label: Client-server integration guide for Prebid.js
 description: Client-Server での Prebid.js インテグレーションの設定に関する情報。
 hide_table_of_contents: false
-sidebar_position: 04
 displayed_sidebar: docs
 ---
 
@@ -13,6 +12,7 @@ import SnptIntegratingWithSSO from '../snippets/_snpt-integrating-with-sso.mdx';
 import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emails-and-phone-numbers.mdx';
 import SnptAddPrebidjsToYourSite from '../snippets/_snpt-prebid-add-prebidjs-to-your-site.mdx';
 import SnptStoreUID2TokenInBrowser from '../snippets/_snpt-prebid-storing-uid2-token-in-browser.mdx';
+import SnptUidVerifyInspect from '../snippets/_snpt-uid-verify-inspect.mdx';
 
 # Client-server integration guide for Prebid.js
 
@@ -40,6 +40,10 @@ Prebid と UID2 のインテグレーション方法に関する情報は、以�
 ## Integrating with single sign-on (SSO)
 
 <SnptIntegratingWithSSO />
+
+## Inspecting with UID Verify Chrome extension
+
+<SnptUidVerifyInspect />
 
 ## Preparing DII for processing
 
@@ -78,7 +82,7 @@ When account setup is complete, you'll receive a client keypair consisting of tw
 
 ## Configure the UID2 module
 
-UID2 Prebid モジュールを設定して、以下の2つのアクションを実行する必要があります:
+UID2 Prebid モジュールを設定して、以下の 2 つのアクションを実行する必要があります:
 
 | Step | Action | Link to Instructions |
 | --- | --- | --- |
@@ -125,7 +129,7 @@ Refresh Token が有効である限り、UID2 Prebid module は必要に応じ�
 
 #### Client Refresh mode response configuration options
 
-Client Refresh Mode を使用するようにモジュールを構成する場合、Prebid module にトークンを提供するための以下のオプションの **1つ** を選択する必要があります。
+Client Refresh Mode を使用するようにモジュールを構成する場合、Prebid module にトークンを提供するための以下のオプションの **1 つ** を選択する必要があります。
 
 | Option | Details | Use Case | 
 | --- | --- | --- |
@@ -190,7 +194,7 @@ Refresh Token の有効期限が切れた場合は、新しい Advertising Token
 
 Server-Only Mode では、Advertising Token のみがモジュールに提供されます。モジュールはトークンをリフレッシュできません。トークンをリフレッシュする方法を実装する責任があります。
 
-Server-Only Mode を使用するようにモジュールを設定するには、以下の **1つ** を実行します:
+Server-Only Mode を使用するようにモジュールを設定するには、以下の **1 つ** を実行します:
 
 | Implementation Method | Link to Example |
 | --- | --- |
@@ -324,7 +328,7 @@ Prebid.js の設定を検証・デバッグするツールの例として、オ�
 
 この表では、CR = Client Refresh mode, SO = Server-Only mode, and N/A = 該当なし。
 
-| Param under userSync.userIds[] | Mode/Scope | Type | Description | Example |
+| Param under userSync.userIds[] | Mode or scope | Type | Description | Example |
 | --- | --- | --- | --- | --- |
 | name | CR: 必須<br/>SO:&nbsp;必須 | String | UID2 module の ID 値。常に `"uid2"`。 | `"uid2"` |
 | value | CR: N/A<br/>SO: オプション | Object | Advertising Token の値を含むオブジェクト。 | [Configuration parameter examples: Value](#configuration-parameter-examples-value) を参照してください。 |

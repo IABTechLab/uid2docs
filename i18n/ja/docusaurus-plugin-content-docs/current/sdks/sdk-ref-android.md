@@ -2,7 +2,6 @@
 title: SDK for Android
 description: Android SDK のリファレンス情報。
 hide_table_of_contents: false
-sidebar_position: 12
 displayed_sidebar: docs
 ---
 
@@ -16,8 +15,8 @@ Android SDK を使用すると、UID2 を使用したクライアント ID の�
 
 | Purpose | Product/Documentation |
 | :--- | :--- |
-| Google Mobile Ads (GMA) SDK を使用して、Android アプリからの広告リクエストで <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 token</Link> を [Secure Signals](https://support.google.com/admob/answer/11556288) として送信するには、次の手順に従います。 | [GMA Plugin for Android integration guide](../guides/mobile-plugin-gma-android.md) |
-| Google Interactive Media Ads (IMA) SDK for Android を使用して、Android アプリからの広告リクエストで <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 token</Link> を [Secure Signals](https://support.google.com/admob/answer/11556288) として送信するには、次の手順に従います。 | [IMA Plugin for Android integration guide](../guides/mobile-plugin-ima-android.md) |
+| Google Mobile Ads (GMA) SDK を使用して、Android アプリからの広告リクエストで <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 token</Link> を [secure signals](https://support.google.com/admob/answer/11556288) として送信するには、次の手順に従います。 | [GMA Plugin for Android integration guide](../guides/mobile-plugin-gma-android.md) |
+| Google Interactive Media Ads (IMA) SDK for Android を使用して、Android アプリからの広告リクエストで <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 token</Link> を [secure signals](https://support.google.com/admob/answer/11556288) として送信するには、次の手順に従います。 | [IMA Plugin for Android integration guide](../guides/mobile-plugin-ima-android.md) |
 
 モバイルパブリッシャーインテグレーションに関する FAQs は、[FAQs for mobile integrations](../guides/integration-mobile-overview.md#faqs-for-mobile-integrations) を参照してください。
 

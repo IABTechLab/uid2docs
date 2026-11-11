@@ -461,6 +461,11 @@ export const partnersData: PartnersDataType = [
     type: ["DSP"],
   },
   {
+    name: "Instacart",
+    logo: "Instacart_logo.svg",
+    type: ["Data"],
+  },
+  {
     name: "Interplay Media",
     logo: "interplay-logo.png",
     type: ["Publishers"],

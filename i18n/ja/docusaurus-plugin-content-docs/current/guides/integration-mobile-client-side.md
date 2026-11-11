@@ -4,7 +4,6 @@ sidebar_label: Client-side integration for mobile
 pagination_label: Client-side integration guide for mobile
 description: Client-side でトークン生成とリフレッシュの両方を行うモバイルインテグレーションの設定。
 hide_table_of_contents: false
-sidebar_position: 04
 displayed_sidebar: docs
 ---
 
@@ -355,7 +354,7 @@ UID2Manager.shared.generateIdentity(
 
 SDK は、ハッシュ化された DII を UID2 Service に送信する前に暗号化します。
 
-ユーザーごとに、DII のフォーマットが異なる場合でも、任意のフォーマットで `generateIdentity` メソッドを呼び出すことができます。DIIのフォーマットはユーザごとに異なる場合がありますが、ユーザーごと送信できる値は 1 つだけです。
+ユーザーごとに、DII のフォーマットが異なる場合でも、任意のフォーマットで `generateIdentity` メソッドを呼び出すことができます。DII のフォーマットはユーザごとに異なる場合がありますが、ユーザーごと送信できる値は 1 つだけです。
 
 以下の例は、UID2 mobile SDK を構成する異なる方法を示し、SDK に渡す DII に必要な要件を示しています:
 

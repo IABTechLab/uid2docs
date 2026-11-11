@@ -2,7 +2,6 @@
 title: IMA Plugin for iOS
 description: A guide for publishers using IMA for ad requests on iOS apps.
 hide_table_of_contents: false
-sidebar_position: 15
 displayed_sidebar: docs
 ---
 
@@ -74,7 +73,7 @@ dependencies: [
 
 In the Xcode user interface, under Package Dependencies, add the following entry for your apps:
 
-| Name | Location | Dependency Rule |
+| Name | Location | Dependency rule |
 | :--- | :--- | :--- |
 | uid2-ios-plugin-google-ima | `git@github.com:IABTechLab/uid2-ios-plugin-google-ima.git` | Exact Version: 1.0.0 |
 

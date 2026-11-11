@@ -2,7 +2,6 @@
 title: POST /token/refresh
 description: Uses the refresh token to generate an updated UID2 token.
 hide_table_of_contents: false
-sidebar_position: 04
 displayed_sidebar: docs
 ---
 
@@ -36,7 +35,7 @@ Here's what you need to know about this endpoint:
 
 ### Path parameters
 
-| Path Parameter | Data Type | Attribute | Description |
+| Path parameter | Data type | Attribute | Description |
 | :--- | :--- | :--- | :--- |
 | `{environment}` | string | Required | Testing (integration) environment: `https://operator-integ.uidapi.com`<br/>Production environment: The best choice depends on where your users are based. For information about how to choose the best URL for your use case, and a full list of valid base URLs, see [Environments](../getting-started/gs-environments.md).<br/>Notes:<ul><li>The `integ` environment and the `prod` environment require different <Link href="../ref-info/glossary-uid#gl-api-key">API keys</Link>.</li><li>Token expiration time is subject to change, but is always significantly shorter in the `integ` environment than it is in the `prod` environment.</li></ul> |
 
@@ -49,7 +48,25 @@ Using either of the following parameters in a [POST&nbsp;/token/generate](post-t
 
 ### Request example
 
-For details, and code examples in different programming languages, see [Encrypting requests and decrypting responses](../getting-started/gs-encryption-decryption.md).
+The following example refreshes a token with `curl`. Replace `{environment}` with the base URL for your environment, and `{refresh_token}` with the `refresh_token` value from the previous [POST&nbsp;/token/generate](post-token-generate.md) or `POST /token/refresh` response:
+
+```sh
+curl -X POST '{environment}/v2/token/refresh' -d '{refresh_token}'
+```
+
+For example, using the integration environment:
+
+```sh
+curl -X POST 'https://operator-integ.uidapi.com/v2/token/refresh' -d 'AAAAAGYzgUszke2sV9CxXnxyFfUU+KDCJUCXNbj1/FVcCjvR7K07jYaWe44wxM6SOTwG7WQB4XfIcquMqH57iHUnAu1zacYf9g58BtbhKCYWTwrdpB0fSqTANBXOYy+yBnl6tLRwVv32LqRCj76D8meO4tw+MKlUAc2EoFzFNPSfZLpA3Jk4q68vH6VJH/WIuu1tulrVm5J8RZAZnmTlEcsPdjoOC6X4w3aAwiwtbeGw7yOO0immpVoC5KaXnT9olRPTlrt8F9SvebLIcqkYhvRMPpl1S89yeneyGo++RnD9qSHIrfu9To3VwYW018QuvyA15uv4No4BoAzyPuHqzQ8gAs6csWwZ7VwfYD7DSJXlQiIpwzjA2Hl8mgg/5fcXwKEJ'
+```
+
+Notes:
+
+- The request needs no `Authorization` header (API key) and no encrypted request envelope. The POST body is the refresh token only, not JSON.
+- A successful response (HTTP status code 200) is a base64-encoded encrypted string, so `curl` cannot show you its contents. To decrypt it, use the `refresh_response_key` value that was returned with the refresh token. See [Encrypting requests and decrypting responses](../getting-started/gs-encryption-decryption.md).
+- An error response (for example, HTTP status code 400) is not encrypted, so `curl` shows the error. A 200 status code confirms that the operator is reachable and accepted the refresh token, even if you do not decrypt the response.
+
+For code examples in different programming languages, see [Encrypting requests and decrypting responses](../getting-started/gs-encryption-decryption.md).
 
 ## Decrypted JSON response format
 
@@ -96,7 +113,7 @@ An error response might look like the following:
 
 The response body includes the properties shown in the following table.
 
-| Property | Data Type | Description |
+| Property | Data type | Description |
 | :--- | :--- | :--- |
 | `advertising_token` | string | The <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 token</Link> (also known as advertising token) for the user. |
 | `refresh_token` | string | An encrypted token that can be exchanged with the UID2 Service for the latest set of identity tokens. |
@@ -109,7 +126,7 @@ The response body includes the properties shown in the following table.
 
 The following table lists the `status` property values and their HTTP status code equivalents.
 
-| Status | HTTP Status Code | Description |
+| Status | HTTP status code | Description |
 | :--- | :--- | :--- |
 | `success` | 200 | The request was successful and a new UID2 token, with associated values, is returned in the response. The response is encrypted. |
 | `optout` | 200 | The user opted out. This status is returned only for authorized requests. The response is encrypted. |

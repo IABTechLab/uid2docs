@@ -4,7 +4,6 @@ sidebar_label: Client-side integration for mobile
 pagination_label: Client-side integration guide for mobile
 description: Setting up a mobile integration with token generate and refresh both on the client side.
 hide_table_of_contents: false
-sidebar_position: 04
 displayed_sidebar: docs
 ---
 
@@ -563,7 +562,7 @@ Task<Void, Never> {
 
 In this scenario: 
 
-- The publisher is responsible for normalizing and hashing the phone number. For details, see [Phone number hash encoding](../getting-started/gs-normalization-encoding.md#phone-number-hash-encoding).
+- The publisher is responsible for normalizing and hashing the phone number. For details, see [Phone number hashing and encoding](../getting-started/gs-normalization-encoding.md#phone-number-hashing-and-encoding).
 - The UID2 mobile SDK encrypts the hashed DII before sending it to the UID2 service.
 
 </TabItem>
