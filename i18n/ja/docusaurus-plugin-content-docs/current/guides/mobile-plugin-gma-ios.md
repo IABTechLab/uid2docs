@@ -23,15 +23,15 @@ UID2 Google Mobile Ads (GMA) Plugin for iOS は、[Google Mobile Ads (GMA) SDK](
 
 ### Version compatibility
 
-以下の表は、UID2 GMA Plugin for iOS の各バージョンと、Google Mobile Ads SDK および UID2 SDK for iOS の互換性を示しています。
+以下の表は、UID2 GMA Plugin for iOS の各バージョンと、Google Mobile Ads SDK および UID2 SDK for iOS の互換性、および各プラグインバージョンに必要な iOS 最低対象バージョンを示しています。
 
-| GMA Plugin バージョン | GMA SDK バージョン | UID2 SDK for iOS バージョン |
-| :--- | :--- | :--- |
-| 3.1.0 (最新) | 13.x | 1.7.0 – 3.x |
-| 3.0.0 | 13.x | 1.7.0 – 2.x |
-| 2.0.2 | 12.x | 1.7.0 – 2.x |
-| 2.0.0 – 2.0.1 | 12.x | 1.7.0 – 1.x |
-| 1.0.0 – 1.0.1 | 10.7.0 – 11.x | 1.7.0 – 1.x |
+| GMA Plugin バージョン | GMA SDK バージョン | UID2 SDK for iOS バージョン | iOS 最低対象バージョン |
+| :--- | :--- | :--- | :--- |
+| 3.1.0 (最新) | 13.x | 1.7.0 – 3.x | 13.0 |
+| 3.0.0 | 13.x | 1.7.0 – 2.x | 13.0 |
+| 2.0.2 | 12.x | 1.7.0 – 2.x | 12.0 |
+| 2.0.0 – 2.0.1 | 12.x | 1.7.0 – 1.x | 12.0 |
+| 1.0.0 – 1.0.1 | 10.7.0 – 11.x | 1.7.0 – 1.x | 12.0 |
 
 ## GitHub repository
 
@@ -48,6 +48,8 @@ UID2 とインテグレーションするには、UID2 アカウントが必要�
 UID2 Portal で実行する手順は、実装が Client-Side、Client-Server、Server-Side のいずれであるかによって異なります。各実装ガイドに具体的な手順が記載されています。概要は、[Client-side, client-server, or server-side integration?](integration-mobile-overview#client-side-client-server-or-server-side-integration) を参照してください。
 
 ## Requirements 
+
+UID2 GMA Plugin for iOS v3.1.0 の iOS 最低対象バージョンは 13.0+ です。
 
 このプラグインを実行するには、以下をインストールします:
 
