@@ -25,13 +25,13 @@ This documentation is for the UID2 GMA Plugin for iOS version 3.1.0 or later.
 
 The following table shows which versions of the UID2 GMA Plugin for iOS are compatible with each version of the Google Mobile Ads SDK and the UID2 SDK for iOS.
 
-| GMA Plugin Version | GMA SDK Version | UID2 SDK for iOS Version |
+| GMA Plugin version | GMA SDK version | UID2 SDK for iOS version |
 | :--- | :--- | :--- |
 | 3.1.0 (latest) | 13.x | 1.7.0 – 3.x |
-| 3.0.0 – 3.0.2 | 13.x | 1.7.0 – 2.x |
-| 2.0.0 – 2.0.2 | 12.x | 1.7.0 – 1.x |
+| 3.0.0 | 13.x | 1.7.0 – 2.x |
+| 2.0.2 | 12.x | 1.7.0 – 2.x |
+| 2.0.0 – 2.0.1 | 12.x | 1.7.0 – 1.x |
 | 1.0.0 – 1.0.1 | 10.7.0 – 11.x | 1.7.0 – 1.x |
-| 0.3.0 – 0.4.0 | 10.7.0 – 11.x | 0.2.0 – 1.x |
 
 ## GitHub repository
 
@@ -51,10 +51,10 @@ The steps you'll take in the UID2 Portal are different depending on whether your
 
 To run this plugin, install the following:
 
-1. Google Mobile Ads SDK v13.0.0 or later:
+1. Google Mobile Ads SDK v13.x:
    - [SDK](https://developers.google.com/admob/ios)
    - [Release Notes](https://developers.google.com/admob/ios/rel-notes)
-1. SDK for iOS v1.7.0 or later:
+1. SDK for iOS v1.7.0 – v3.x:
    - [SDK](https://github.com/IABTechLab/uid2-ios-sdk)
    - [SDK for iOS reference guide](../sdks/sdk-ref-ios.md)
 1. [UID2 GMA Plugin for iOS v3.1.0](https://github.com/IABTechLab/uid2-ios-plugin-google-gma)
@@ -77,7 +77,7 @@ Add the following dependency to Package.swift:
 
 ```js
 dependencies: [
-  .package(url: "https://github.com/IABTechLab/uid2-ios-plugin-google-gma.git", from: "3.1.0")
+  .package(url: "https://github.com/IABTechLab/uid2-ios-plugin-google-gma.git", exact: "3.1.0")
 ]
 ```
 
