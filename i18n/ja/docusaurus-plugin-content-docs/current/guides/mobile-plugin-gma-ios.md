@@ -17,9 +17,21 @@ UID2 Google Mobile Ads (GMA) Plugin for iOS は、[Google Mobile Ads (GMA) SDK](
 
 ## Version
 
-<!-- As of 2024-10-23 -->
+<!-- As of 2026-06-12 -->
 
-このドキュメントは UID2 GMA Plugin for iOS バージョン 1.0.0 以降用です。
+このドキュメントは UID2 GMA Plugin for iOS バージョン 3.1.0 以降用です。
+
+### Version compatibility
+
+以下の表は、UID2 GMA Plugin for iOS の各バージョンと、Google Mobile Ads SDK および UID2 SDK for iOS の互換性、および各プラグインバージョンに必要な iOS 最低対象バージョンを示しています。
+
+| GMA Plugin バージョン | GMA SDK バージョン | UID2 SDK for iOS バージョン | iOS 最低対象バージョン |
+| :--- | :--- | :--- | :--- |
+| 3.1.0 (最新) | 13.x | 1.7.0 – 3.x | 13.0 |
+| 3.0.0 | 13.x | 1.7.0 – 2.x | 13.0 |
+| 2.0.2 | 12.x | 1.7.0 – 2.x | 12.0 |
+| 2.0.0 – 2.0.1 | 12.x | 1.7.0 – 1.x | 12.0 |
+| 1.0.0 – 1.0.1 | 10.7.0 – 11.x | 1.7.0 – 1.x | 12.0 |
 
 ## GitHub repository
 
@@ -37,15 +49,17 @@ UID2 Portal で実行する手順は、実装が Client-Side、Client-Server、S
 
 ## Requirements 
 
+UID2 GMA Plugin for iOS v3.1.0 の iOS 最低対象バージョンは 13.0+ です。
+
 このプラグインを実行するには、以下をインストールします:
 
-1. Google Mobile Ads SDK v10.7.0 or later:
+1. Google Mobile Ads SDK v13.x:
    - [SDK](https://developers.google.com/admob/ios)
    - [Release Notes](https://developers.google.com/admob/ios/rel-notes)
-1. SDK for iOS v1.7.0 or later:
+1. SDK for iOS v1.7.0 – v3.x:
    - [SDK](https://github.com/IABTechLab/uid2-ios-sdk)
    - [SDK for iOS reference guide](../sdks/sdk-ref-ios.md)
-1. [UID2 GMA Plugin for iOS v1.0.0](https://github.com/IABTechLab/uid2-ios-plugin-google-gma)
+1. [UID2 GMA Plugin for iOS v3.1.0](https://github.com/IABTechLab/uid2-ios-plugin-google-gma)
 
 ## Installation
 
@@ -65,7 +79,7 @@ Package.swift に次の依存関係を追加します:
 
 ```js
 dependencies: [
-  .package(url: "https://github.com/IABTechLab/uid2-ios-plugin-google-gma.git", exact: "1.0.0")
+  .package(url: "https://github.com/IABTechLab/uid2-ios-plugin-google-gma.git", exact: "3.1.0")
 ]
 ```
 
@@ -75,12 +89,12 @@ Xcode ユーザーインターフェースで、パッケージ依存関係の�
 
 | Name | Location | Dependency Rule |
 | :--- | :--- | :--- |
-| uid2-ios-plugin-google-gma | `git@github.com:IABTechLab/uid2-ios-plugin-google-gma.git` | Exact Version: 1.0.0 |
+| uid2-ios-plugin-google-gma | `git@github.com:IABTechLab/uid2-ios-plugin-google-gma.git` | Exact Version: 3.1.0 |
 
 ### Installing with CocoaPods
 
 `Podfile` に次のエントリを追加します:
 
 ```
-pod 'UID2GMAPlugin', '1.0.0'
+pod 'UID2GMAPlugin', '3.1.0'
 ```
