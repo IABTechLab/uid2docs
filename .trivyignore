@@ -17,38 +17,12 @@ CVE-2026-18446 exp:2026-11-06
 # See: UID2-7619
 CVE-2026-69152 exp:2026-11-06
 
-# CVE-2025-71329 — image-size (HIGH). Not vulnerable.
-# See: UID2-8316
-CVE-2025-71329
-
-# CVE-2025-71330 — image-size (HIGH). Not vulnerable.
-# See: UID2-8317
-CVE-2025-71330
-
-# CVE-2026-67213 — nanoid (HIGH). Not vulnerable.
-# See: UID2-8318
-CVE-2026-67213
-
 # GHSA-5p4m-2wfm-xmqj — js-yaml (3.15.0 and 4.3.0, transitive npm dependency) (HIGH).
 # Not exploitable here: Docusaurus SSG; js-yaml reaches build via gray-matter (3.15.0) and
 # eslint (4.3.0). gray-matter parses the repo's own trusted markdown frontmatter at build time,
 # not untrusted runtime input, so the O(n^2) omap path is not attacker-reachable
 # See: UID2-7659
 GHSA-5p4m-2wfm-xmqj exp:2026-11-11
-
-# CVE-2026-73088 — browserslist (HIGH).
-# Not exploitable here: browserslist appears only as transitive build dep in package-lock;
-# package.json holds a trusted query object; no stats json file and no --stats/opts.stats usage
-# found
-# See: UID2-7802
-CVE-2026-73088 exp:2026-12-02
-
-# CVE-2026-73089 — browserslist (HIGH).
-# Not exploitable here: package-lock.json:6315 browserslist@4.28.1; @docusaurus/core 3.9.2
-# static docs build. browserslist called only during docusaurus build with fixed config
-# queries; served output is static HTML, no runtime browserslist() call.
-# See: UID2-7803
-CVE-2026-73089 exp:2026-12-02
 
 # CVE-2026-75899 — fast-uri (HIGH).
 # Not exploitable here: package-lock.json resolves fast-uri 3.1.4 only under node_modules/ajv-
@@ -106,20 +80,10 @@ CVE-2026-85393 exp:2027-01-06
 # See: UID2-8026
 CVE-2026-93687 exp:2027-01-06
 
-# CVE-2026-87776 — compression (HIGH). Required attack preconditions are absent in this
-# configuration.
-# See: UID2-8048
-CVE-2026-87776 exp:2027-01-07
-
 # CVE-2026-90711 — proxy-addr (CRITICAL). Required attack preconditions are absent in this
 # configuration.
 # See: UID2-8049
 CVE-2026-90711 exp:2027-01-07
-
-# CVE-2026-93749 — source-map-js (HIGH). Required attack preconditions are absent in this
-# configuration.
-# See: UID2-8051
-CVE-2026-93749 exp:2027-01-07
 
 # CVE-2026-104848 — tinypool (CRITICAL). Required attack preconditions are absent in this
 # configuration.
@@ -138,10 +102,6 @@ CVE-2026-112942
 # GHSA-6q48-6c7w-9gw2 — certifi (CRITICAL). Not vulnerable.
 # See: UID2-8127
 GHSA-6q48-6c7w-9gw2
-
-# CVE-2026-111181 — body-parser (HIGH). Not vulnerable.
-# See: UID2-8175
-CVE-2026-111181
 
 # CVE-2023-54404 — zod (HIGH). Not vulnerable.
 # See: UID2-8176
