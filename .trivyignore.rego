@@ -14,9 +14,7 @@ ignore if {
 	startswith(input.PkgIdentifier.PURL, "pkg:npm/")
 }
 
-# Ignore npm findings that only affect availability. Not vulnerable.
-# This is a static site with no Node server: npm code runs only in the CI build or the visitor's browser.
-# Findings with confidentiality or integrity impact in any CVSS vector are still reported.
+# Ignore npm findings that only affect availability.
 # See: UID2-8366
 ignore if {
 	input.Type == "vulnerability"
