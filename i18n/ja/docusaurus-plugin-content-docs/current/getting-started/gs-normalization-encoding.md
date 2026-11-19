@@ -1,15 +1,15 @@
 ---
-title: Normalization and encoding
-description: 情報を正規化およびエンコードして、安全にデコードできるようにする方法。
+title: Normalization, hashing, and encoding
+description: メールアドレスおよび電話番号の正規化、ハッシュ化、エンコードに関する手順。
 hide_table_of_contents: false
 displayed_sidebar: docs
 ---
 
 import Link from '@docusaurus/Link';
 
-# Normalization and encoding
+# Normalization, hashing, and encoding
 
-このページでは、<Link href="../ref-info/glossary-uid#gl-dii">DII</Link> の正規化とエンコードに関する情報を提供します。UID2 を使用する際には、正規化とエンコードが正しく行われることが重要です。
+このページでは、<Link href="../ref-info/glossary-uid#gl-dii">DII</Link> の正規化、ハッシュ化、エンコードに関する情報を提供します。UID2 を使用する際には、正規化とエンコードが正しく行われることが重要です。
 
 ## Introduction
 
@@ -53,7 +53,7 @@ UID2 <Link href="../ref-info/glossary-uid#gl-operator-service">Operator Service<
 
 様々なシナリオの例は、[Normalization examples for email](#normalization-examples-for-email) を参照してください。
 
-## Email address hash encoding
+## Email address hashing and encoding
 
 メールアドレスのハッシュは、正規化されたメールアドレスの Base64 エンコードされた <Link href="../ref-info/glossary-uid#gl-sha-256">SHA-256</Link> ハッシュです。メールアドレスは最初に正規化され、次に SHA-256 ハッシュアルゴリズムを使用してハッシュ化され、最後にハッシュ値のバイトを Base64 エンコードします。Base64 エンコードは、ハッシュ値のバイトに適用され、16 進数でエンコードされた文字列表現ではないことに注意してください。
 
@@ -140,7 +140,7 @@ UID2 Operator Service へのリクエストで電話番号を送信する前に�
 正規化された電話番号が UTF-8 であることを確認してください。他のエンコーディングシステム（例: UTF-16）ではありません。
 :::
 
-## Phone number hash encoding
+## Phone number hashing and encoding
 
 電話番号のハッシュは、正規化された電話番号の Base64 エンコードされた SHA-256 ハッシュです。電話番号は最初に正規化し、次に SHA-256 ハッシュアルゴリズムを使用してハッシュ化し、最後にハッシュ値のバイトを Base64 エンコードします。Base64 エンコードは、ハッシュ値のバイトに適用され、16 進数でエンコードされた文字列表現ではないことに注意してください。
 
@@ -213,4 +213,4 @@ Email または Phone Number を選択し、値を入力または貼り付けて
 
 - **Use the Base64-encoded value**: このプロセスには、ハッシュ値のバイト列を正規化、ハッシュ化、Base64 エンコードする手順が含まれます。UID2 を生成する際の入力は、この Base64 エンコードされた値です。必ずこの 44 文字の文字列値を使用してください。
 
-- 以下のエラーメッセージが表示される場合があります：「The hashing value must be 44 characters. (ハッシュ値は 44 文字でなければなりません）」。この場合、使用しているハッシュ関数に問題があります。SHA-256 ハッシュの 16 進数から Base64 へのエンコードを使用してください。詳細は[Email address hash encoding](#email-address-hash-encoding)または[Phone number hash encoding](#phone-number-hash-encoding)を参照してください。確認のため、[UID2 hashing tool](https://hashing-tool.samples.uidapi.com/) でテストしてください。
+- 以下のエラーメッセージが表示される場合があります：「The hashing value must be 44 characters. （ハッシュ値は 44 文字でなければなりません）」。この場合、使用しているハッシュ関数に問題があります。SHA-256 ハッシュの 16 進数から Base64 へのエンコードを使用してください。詳細は[Email address hashing and encoding](#email-address-hashing-and-encoding)または[Phone number hashing and encoding](#phone-number-hashing-and-encoding)を参照してください。確認のため、[UID2 hashing tool](https://hashing-tool.samples.uidapi.com/) でテストしてください。

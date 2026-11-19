@@ -65,9 +65,9 @@ UID2 のオプトアウトワークフローとユーザーがオプトアウト
 | Body Parameter | Data Type | Attribute | Description |
 |:---|:---|:---|:---|
 | `email` | string array | 条件付きで必須 | マッピングするメールアドレスのリストです。　|
-| `email_hash` | string array | 条件付きで必須 | マッピングする [SHA-256 ハッシュし、Base64 エンコード](../getting-started/gs-normalization-encoding.md#email-address-normalization) した [正規化](../getting-started/gs-normalization-encoding.md#email-address-hash-encoding) 済みメールアドレスのリストです。 |
+| `email_hash` | string array | 条件付きで必須 | マッピングする [SHA-256 ハッシュし、Base64 エンコード](../getting-started/gs-normalization-encoding.md#email-address-normalization) した [正規化](../getting-started/gs-normalization-encoding.md#email-address-hashing-and-encoding) 済みメールアドレスのリストです。 |
 | `phone` | string array | 条件付きで必須 | マッピングする [正規化](../getting-started/gs-normalization-encoding.md#phone-number-normalization) 済み電話番号のリストです。 |
-| `phone_hash` | string array | 条件付きで必須 | マッピングする [SHA-256 ハッシュし、Base64 エンコード](../getting-started/gs-normalization-encoding.md#phone-number-hash-encoding) した [正規化](../getting-started/gs-normalization-encoding.md#phone-number-normalization) 済み電話番号のリストです。 |
+| `phone_hash` | string array | 条件付きで必須 | マッピングする [SHA-256 ハッシュし、Base64 エンコード](../getting-started/gs-normalization-encoding.md#phone-number-hashing-and-encoding) した [正規化](../getting-started/gs-normalization-encoding.md#phone-number-normalization) 済み電話番号のリストです。 |
 
 ### Request examples
 
