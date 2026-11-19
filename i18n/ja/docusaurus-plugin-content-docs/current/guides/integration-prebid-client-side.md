@@ -12,6 +12,7 @@ import SnptIntegratingWithSSO from '../snippets/_snpt-integrating-with-sso.mdx';
 import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emails-and-phone-numbers.mdx';
 import SnptAddPrebidjsToYourSite from '../snippets/_snpt-prebid-add-prebidjs-to-your-site.mdx';
 import SnptStoreUID2TokenInBrowser from '../snippets/_snpt-prebid-storing-uid2-token-in-browser.mdx';
+import SnptIos27WebkitNote from '../snippets/_snpt-ios27-webkit-note.mdx';
 import SnptUidVerifyInspect from '../snippets/_snpt-uid-verify-inspect.mdx';
 
 # Client-side integration guide for Prebid.js
@@ -19,6 +20,12 @@ import SnptUidVerifyInspect from '../snippets/_snpt-uid-verify-inspect.mdx';
 このガイドは、Client-Side で <Link href="../ref-info/glossary-uid#gl-dii">DII</Link> (メールアドレスまたは電話番号) にアクセスでき、UID2 とインテグレーションして、RTB <Link href="../ref-info/glossary-uid#gl-bidstream">ビッドストリーム</Link>で Prebid.js によって渡される <Link href="../ref-info/glossary-uid#gl-uid2-token">UID2 Token</Link> (Advertising Token) を生成したいパブリッシャー向けのものです。
 
 Prebid.js を使用して UID2 とインテグレーションするには、サイトの HTML と JavaScript を変更する必要があります。このガイドに従う場合、Server-Side の作業は必要ありません。
+
+:::note
+<SnptIos27WebkitNote />
+
+**Action required**: この Client-Side のインテグレーションは、影響を受けるブラウザではサポートされなくなりました。[Publisher integration guide, server-side](integration-publisher-server-side.md) または [Client-server integration guide for Prebid.js](integration-prebid-client-server.md) の [server-only mode](integration-prebid-client-server.md#server-only-mode) を使用してください。
+:::
 
 ## Prebid.js version
 

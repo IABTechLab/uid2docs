@@ -54,7 +54,7 @@ UID2 Portal では、送信者と受信者がアカウントを設定し、送�
 ## Workflow: Tokenized sharing in tracking pixels
 
 :::tip
-トラッキングピクセル用のトークンを生成する場合、raw UID2 ではなく、DII から直接 UID2 Token を生成することを推奨します。これはいくつかの方法で行うことができますが、UID2 Token をクライアントサイドで生成することを推奨します。手順は、[Client-side integration guide for JavaScript](../guides/integration-javascript-client-side.md) を参照してください。
+トラッキングピクセル用のトークンを生成する場合、raw UID2 ではなく、DII から直接 UID2 Token を生成することを推奨します。これはいくつかの方法で行うことができますが、UID2 Token を Client-Side で生成することを推奨します。手順は、[Client-side integration guide for JavaScript](../guides/integration-javascript-client-side.md) を参照してください。
 :::
 
 ウェブサイトで製品の購入などのアクションが完了したときにトリガーされるトラッキングピクセルを使用している場合、おそらく DII から始めて、UID2 Token に変換して共有します。

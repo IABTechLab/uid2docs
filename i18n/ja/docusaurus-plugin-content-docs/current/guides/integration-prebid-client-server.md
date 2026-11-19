@@ -112,6 +112,10 @@ UID2 Token をリフレッシュするには、次の表に示すように 2 つ
 
 ### Client Refresh mode
 
+:::note
+Prebid.js の Client Refresh mode は、iOS 27 以降のすべてのブラウザや、macOS 27 以降の Safari ではサポートされていません。Prebid.js はブラウザ内で UID2 R¥Token をリフレッシュできないためです。代わりに [Server-only mode](#server-only-mode) を使用してください。
+:::
+
 該当するエンドポイントからの完全な JSON レスポンスボディを Prebid module に提供する必要があります:
 
 - 新しい UID2 Token を取得するには、[POST&nbsp;/token/generate](../endpoints/post-token-generate.md)。
@@ -192,6 +196,10 @@ Refresh Token の有効期限が切れた場合は、新しい Advertising Token
 
 ### Server-only mode
 
+:::note
+このモードは、iOS 27 以降のすべてのブラウザや、macOS 27 以降の Safari で使用してください。UID2 Token をサーバー上で生成およびリフレッシュします。
+:::
+
 Server-Only Mode では、Advertising Token のみがモジュールに提供されます。モジュールはトークンをリフレッシュできません。トークンをリフレッシュする方法を実装する責任があります。
 
 Server-Only Mode を使用するようにモジュールを設定するには、以下の **1 つ** を実行します:
@@ -265,7 +273,7 @@ Prebid の実施を計画する際には、以下を考慮してください:
 
 - インテグレーションテストでは、`params.uid2ApiBase` を `"https://operator-integ.uidapi.com"` に設定します。トークンの生成に使用する環境(本番環境またはインテグレーション環境)と同じ値に設定する必要があります(認証情報については、[Getting your credentials](../getting-started/gs-credentials.md#getting-your-credentials) を参照)。
 
-- Prebid.js client-server インテグレーションの場合、クライアントサイドインテグレーション機能を無効にして、より小さな Prebid.js ビルドを作成できます。これを行うには、`--disable UID2_CSTG` フラグを渡します:
+- Prebid.js client-server インテグレーションの場合、Client-Side インテグレーション機能を無効にして、より小さな Prebid.js ビルドを作成できます。これを行うには、`--disable UID2_CSTG` フラグを渡します:
 
 ```
     $ gulp build --modules=uid2IdSystem --disable UID2_CSTG
