@@ -26,6 +26,10 @@ When you've set up the Databricks Clean Rooms environment, you establish a trust
 [**GWH__EE or MC for listing update when available. https://www.databricks.com/company/partners/technology?**] 
 -->
 
+:::note
+**Sending audience data to The Trade Desk?** If you onboard first-party data to The Trade Desk from Python or Databricks, the `ttd-data` and `ttd-databricks` SDKs can convert emails and phone numbers to UID2s and send them to The Trade Desk in one call. You can use the UID2 public operator or your own private operator. For details, see [UID2 support in the Data API SDK](https://open.thetradedesk.com/advertiser/docsApp/GuidesAdvertiser/data/doc/DataAPISDK).
+:::
+
 ## Functionality
 
 The following table summarizes the functionality available with the UID2 Databricks integration.
