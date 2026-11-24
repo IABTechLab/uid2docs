@@ -226,6 +226,10 @@ The following instructions provide an example of how to map DII to raw UID2s usi
 
 For the earlier version, see [Previous version (POST /v2/identity/map)](#previous-version-post-v2identitymap). For migration steps to the latest version, see [Migration from version using POST /v2/identity/map](#migration-from-version-using-post-v2identitymap).
 
+:::note
+**Sending audience data to The Trade Desk?** If you onboard data, including first-party, third-party, offline conversions, or optouts from Python or Databricks, the `ttd-data` and `ttd-databricks` SDKs can convert emails and phone numbers to UID2s and send them to The Trade Desk in one call. You can use the UID2 public operator or your own private operator. For details, see [UID2 support in the Data API SDK](https://open.thetradedesk.com/advertiser/docsApp/GuidesAdvertiser/data/doc/DataAPISDK).
+:::
+
 ### Map DII to raw UID2s
 
 To map DII to raw UID2s, follow these steps:
