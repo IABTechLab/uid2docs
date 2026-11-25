@@ -8,6 +8,7 @@ displayed_sidebar: sidebarPublishers
 import Link from '@docusaurus/Link';
 import SnptIntegratingWithSSO from '../snippets/_snpt-integrating-with-sso.mdx';
 import SnptUidVerifyInspect from '../snippets/_snpt-uid-verify-inspect.mdx';
+import SnptIos27WebkitNote from '../snippets/_snpt-ios27-webkit-note.mdx';
 import SnptPreparingEmailsAndPhoneNumbers from '../snippets/_snpt-preparing-emails-and-phone-numbers.mdx';
 
 # Publisher web integration overview
@@ -44,6 +45,12 @@ UID2 とインテグレーションするには、次の 3 つの主要なアク
 | [Google Ad Manager Secure Signals](integration-google-ss.md) | &#8212; | &#8212; | &#9989; |
 
 <!-- &#9989; = Supported | &#8212; = Not Supported -->
+
+:::note
+<SnptIos27WebkitNote />
+
+**Action required**: 影響を受けるブラウザでは、Server-Side のインテグレーションを使用して UID2 Token を生成およびリフレッシュしてください。詳細は、[Publisher integration guide, server-side](integration-publisher-server-side.md) を参照してください。
+:::
 
 ## Integrating with single sign-on (SSO)
 

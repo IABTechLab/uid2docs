@@ -11,6 +11,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import SnptExampleUid2Cookie from '../snippets/_snpt-example-uid2-cookie.mdx';
 import SnptExampleJavaScriptInit from '../snippets/_snpt-example-javascript-init.mdx';
+import SnptIos27WebkitNote from '../snippets/_snpt-ios27-webkit-note.mdx';
 
 # SDK for JavaScript reference guide
 
@@ -25,6 +26,12 @@ UID2 Identify Module、または UID2 サポートのある他の製品と Prebi
 コンテンツパブリッシャー向けのインテグレーション手順は、以下のガイドを参照してください:
   - [Client-side integration guide for JavaScript](../guides/integration-javascript-client-side.md)
   - [Client-server integration guide for JavaScript](../guides/integration-javascript-client-server.md)
+
+:::note
+<SnptIos27WebkitNote />
+
+**Action required**: JavaScript SDK は、影響を受けるブラウザではサポートされなくなりました。代わりに、Server-Side のインテグレーションを使用して UID2 Token を生成および更新してください。詳細については、[Publisher integration guide, server-side](../guides/integration-publisher-server-side.md) を参照してください。
+:::
 
 ## SDK version
 

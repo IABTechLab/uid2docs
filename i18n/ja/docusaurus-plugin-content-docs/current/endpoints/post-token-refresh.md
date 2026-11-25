@@ -48,7 +48,25 @@ Used by: このエンドポイントは、主にパブリッシャーが使用�
 
 ### Request example
 
-詳細といくつかのプログラミング言語でのコードの例は、[Encrypting requests and decrypting responses](../getting-started/gs-encryption-decryption.md) を参照してください。
+以下の例は、`curl` を使用してトークンをリフレッシュする例です。`{environment}` を環境のベース URL に置き換え、`{refresh_token}` を前の [POST&nbsp;/token/generate](post-token-generate.md) または `POST /token/refresh` レスポンスの `refresh_token` 値に置き換えます:
+
+```sh
+curl -X POST '{environment}/v2/token/refresh' -d '{refresh_token}'
+```
+
+例えば、インテグレーション環境を使用する場合:
+
+```sh
+curl -X POST 'https://operator-integ.uidapi.com/v2/token/refresh' -d 'AAAAAGYzgUszke2sV9CxXnxyFfUU+KDCJUCXNbj1/FVcCjvR7K07jYaWe44wxM6SOTwG7WQB4XfIcquMqH57iHUnAu1zacYf9g58BtbhKCYWTwrdpB0fSqTANBXOYy+yBnl6tLRwVv32LqRCj76D8meO4tw+MKlUAc2EoFzFNPSfZLpA3Jk4q68vH6VJH/WIuu1tulrVm5J8RZAZnmTlEcsPdjoOC6X4w3aAwiwtbeGw7yOO0immpVoC5KaXnT9olRPTlrt8F9SvebLIcqkYhvRMPpl1S89yeneyGo++RnD9qSHIrfu9To3VwYW018QuvyA15uv4No4BoAzyPuHqzQ8gAs6csWwZ7VwfYD7DSJXlQiIpwzjA2Hl8mgg/5fcXwKEJ'
+```
+
+Notes:
+
+- このリクエストは `Authorization` ヘッダー (API key) や暗号化されたリクエストエンベロープを必要としません。POST body は refresh token のみで、JSON ではありません。
+- 正常なレスポンス (HTTP ステータスコード 200) は、base64 でエンコードされた暗号化文字列であるため、`curl` ではその内容を表示できません。復号化するには、refresh token と共に返された `refresh_response_key` 値を使用します。[Encrypting requests and decrypting responses](../getting-started/gs-encryption-decryption.md) を参照してください。
+- エラーレスポンス (たとえば、HTTP ステータスコード 400) は暗号化されないため、`curl` ではエラーが表示されます。ステータスコード 200 は、オペレーターが到達可能であり、refresh token を受け入れたことを確認します。レスポンスを復号化しなくても、ステータスコード 200 が返されれば、オペレーターが到達可能であり、refresh token を受け入れたことを確認できます。
+
+様々なプログラミング言語でのコード例については、[Encrypting requests and decrypting responses](../getting-started/gs-encryption-decryption.md) を参照してください。
 
 ## Decrypted JSON response format
 

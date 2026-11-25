@@ -43,12 +43,12 @@ UID2 SDK、または Prebid.js インテグレーション、Android/iOS イン�
     <tr>
       <td>Email</td>
       <td>以下のいずれかでなければなりません:<ul><li>生のメールアドレス</li><li>正規化されたメールアドレス</li><li>正規化され、ハッシュ化され、Base64 エンコードされたもの</li></ul></td>
-      <td>[Email address normalization](../getting-started/gs-normalization-encoding#email-address-normalization)<br/>[Email address hash encoding](../getting-started/gs-normalization-encoding#email-address-hash-encoding)</td>
+      <td>[Email address normalization](../getting-started/gs-normalization-encoding#email-address-normalization)<br/>[Email address hash encoding](../getting-started/gs-normalization-encoding#email-address-hashing-and-encoding)</td>
     </tr>
     <tr>
       <td>Phone Number</td>
       <td>以下のいずれかでなければなりません:<ul><li>国番号を含む正規化されたもの</li><li>正規化され、ハッシュ化され、Base64 エンコードされたもの</li></ul></td>
-      <td>[Phone number normalization](../getting-started/gs-normalization-encoding#phone-number-normalization)<br/>[Phone number hash encoding](../getting-started/gs-normalization-encoding#phone-number-hash-encoding)</td>
+      <td>[Phone number normalization](../getting-started/gs-normalization-encoding#phone-number-normalization)<br/>[Phone number hash encoding](../getting-started/gs-normalization-encoding#phone-number-hashing-and-encoding)</td>
     </tr>
  </tbody>
 </table>

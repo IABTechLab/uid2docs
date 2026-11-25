@@ -48,9 +48,9 @@ Used by: このエンドポイントは、主にパブリッシャーが使用�
 | :--- | :--- | :--- | :--- |
 | `token`　| string | 必須 | [POST&nbsp;/token/generate](post-token-generate.md) レスポンスによって返された Advertising Token です。<br/>自身の認証情報で生成された Advertising Token のみを検証できます。 |
 | `email` | string | 条件付きで必須 | トークン検証用のメールアドレスです。正規化されているかどうかに関わらず、有効なメールアドレス値を使用できます。　|
-| `email_hash` | string | 条件付きで必須 | 有効な [正規化された](../getting-started/gs-normalization-encoding.md#email-address-normalization) メールアドレスの [Base64-encoded SHA-256](../getting-started/gs-normalization-encoding.md#email-address-hash-encoding) ハッシュです。 |
+| `email_hash` | string | 条件付きで必須 | 有効な [正規化された](../getting-started/gs-normalization-encoding.md#email-address-normalization) メールアドレスの [Base64-encoded SHA-256](../getting-started/gs-normalization-encoding.md#email-address-hashing-and-encoding) ハッシュです。 |
 | `phone` | string | 条件付きで必須 | トークン検証用の電話番号です。有効な電話番号値を使用できますが、[正規化](../getting-started/gs-normalization-encoding.md#phone-number-normalization)されている必要があります。 |
-| `phone_hash` | string | 条件付きで必須 | 有効な [正規化された](../getting-started/gs-normalization-encoding.md#phone-number-normalization) 電話番号の [Base64-encoded SHA-256](../getting-started/gs-normalization-encoding.md#phone-number-hash-encoding) ハッシュです。 |
+| `phone_hash` | string | 条件付きで必須 | 有効な [正規化された](../getting-started/gs-normalization-encoding.md#phone-number-normalization) 電話番号の [Base64-encoded SHA-256](../getting-started/gs-normalization-encoding.md#phone-number-hashing-and-encoding) ハッシュです。 |
 
 ### Request examples
 
