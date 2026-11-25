@@ -26,6 +26,10 @@ Databricks Clean Rooms 環境をセットアップしたら、UID2 サービス�
 [**GWH__EE or MC for listing update when available. https://www.databricks.com/company/partners/technology?**] 
 -->
 
+:::note
+**オーディエンスデータを The Trade Desk に送信しますか?** Python または Databricks から、ファーストパーティ、サードパーティ、オフラインコンバージョン、またはオプトアウトを含むデータをオンボードする場合、`ttd-data` および `ttd-databricks` SDK は、メールアドレスと電話番号を UID2 に変換し、それらを 1 回の呼び出しで The Trade Desk に送信できます。UID2 の Public Operator または独自の Private Operator を使用できます。詳細については、[Data API SDK における UID2 のサポート](https://open.thetradedesk.com/advertiser/docsApp/GuidesAdvertiser/data/doc/DataAPISDK) を参照してください。
+:::
+
 ## Functionality
 
 以下の表は、UID2 Databricks インテグレーションで利用可能な機能をまとめたものです。

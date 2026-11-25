@@ -226,6 +226,10 @@ Server-Side インテグレーションを使用している場合 (詳細は [P
 
 以前のバージョンについては、[Previous version (POST /v2/identity/map)](#previous-version-post-v2identitymap) を参照してください。最新バージョンへの移行手順は、[Migration from version using POST /v2/identity/map](#migration-from-version-using-post-v2identitymap) を参照してください。
 
+:::note
+**オーディエンスデータを The Trade Desk に送信しますか?** Python または Databricks から、ファーストパーティ、サードパーティ、オフラインコンバージョン、またはオプトアウトを含むデータをオンボードする場合、`ttd-data` および `ttd-databricks` SDK は、メールアドレスと電話番号を UID2 に変換し、それらを 1 回の呼び出しで The Trade Desk に送信できます。UID2 の Public Operator または独自の Private Operator を使用できます。詳細については、[Data API SDK における UID2 のサポート](https://open.thetradedesk.com/advertiser/docsApp/GuidesAdvertiser/data/doc/DataAPISDK) を参照してください。
+:::
+
 ### Map DII to raw UID2s
 
 DII を raw UID2s にマッピングするには、次の手順に従います:
